@@ -121,6 +121,9 @@ details p{font-size:14px;color:var(--stone);margin-bottom:8px}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 @media (min-width:600px){.hero{padding-top:40px}.card{padding:26px}}
 .sub.study a{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.tut{margin:0 0 18px;text-align:center}
+.tut video{display:block;width:100%;max-width:240px;aspect-ratio:9/16;margin:0 auto;border-radius:14px;background:var(--ink);border:2px solid var(--gold)}
+.tut figcaption{font-size:14px;color:var(--stone);margin-top:6px}
 </style>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
 </head>
@@ -165,6 +168,7 @@ details p{font-size:14px;color:var(--stone);margin-bottom:8px}
 <template id="t-form">
   <form class="sform" action="/heroes/api.php?a=submit" method="post" enctype="multipart/form-data" novalidate>
     <h3 class="lbl" style="font-size:18px;margin-bottom:10px">أرسل حلّك</h3>
+    <figure class="tut"><video src="/heroes/tutorial.mp4?v=1" poster="/heroes/tutorial-poster.jpg?v=1" controls playsinline preload="none" aria-label="فيديو: طريقة المشاركة في المسابقة خطوة بخطوة"></video><figcaption>شاهد طريقة المشاركة خطوة بخطوة (أقل من دقيقة)</figcaption></figure>
     <div class="warn" role="note"><span class="i" aria-hidden="true">📷</span><p><b>صوّر الحل فقط:</b> ورقة الحل وحدها، دون وجه أو اسم مدرسة أو أي بيانات شخصية. صوّر في ضوء جيد ومن فوق الورقة مباشرة.</p></div>
 
     <fieldset class="f">
