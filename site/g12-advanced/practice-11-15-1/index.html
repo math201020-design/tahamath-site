@@ -82,6 +82,7 @@ input.name{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--li
 .hint{font-size:.85rem;color:#5B6577}
 footer{text-align:center;font-size:.85rem;color:#5B6577;margin:22px 0 10px}
 .hidden{display:none}
+.abar{position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0 6px;font-weight:700;font-size:.92rem;text-align:center}.atrack{height:7px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:4px}.afill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--pur))}
 .inps{display:flex;flex-direction:column;gap:10px;margin-top:10px}
 .inp{direction:ltr;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:1.6px solid #B7C3D6;border-radius:12px;padding:8px 12px;background:rgba(255,255,255,.92)}
 .inp .lab{direction:ltr;flex:1 1 160px;min-width:0;text-align:left}
@@ -126,6 +127,7 @@ mjx-container[jax="SVG"]>svg{max-width:100%;height:auto}
 
 <div id="quiz" class="hidden">
   <div id="result"></div>
+  <div class="abar" id="abar"><span id="acount"></span><div class="atrack"><div class="afill" id="afill"></div></div></div>
   <div class="dots" id="dots"></div>
   <div id="qbox"></div>
   <div class="nav"><button class="btn ghost" id="prev">السابق</button><span class="cnt" id="cnt"></span><button class="btn" id="next">التالي</button></div>
@@ -135,7 +137,7 @@ mjx-container[jax="SVG"]>svg{max-width:100%;height:auto}
 </div>
 <script>
 const D={"id": "practice-11-15-1", "cp": "P11-15-1", "min": 0, "total": 15, "qs": [{"item": "11", "lesson": "3-3", "ref": "Bridge p. 160", "out_ar": "إيجاد مشتقة دالة باستخدام قاعدة القوة عند نقطة معينة", "out_en": "Find the derivative of a function using the Power Rule at a given point", "lvl": "", "mark": 3, "terms": [["قاعدة القوة", "Power Rule"], ["المشتقة", "Derivative"]], "stem": "إذا كانت الدالة \\(f\\) معرّفة كما يأتي، فأوجد \\(f'(-1)\\):", "tex": "f(x)=3x^{4}-2x^{3}+5x-1", "img": "", "opts": ["11", "-1", "-13", "-18"], "ans": "C", "inputs": [], "note": "", "remember": "اشتق كل حد بضرب المعامل في الأس ثم إنقاص الأس واحداً، ولا تعوّض بالنقطة إلا بعد الاشتقاق.", "sol": ["f'(x)=12x^{3}-6x^{2}+5\\quad\\AR{:قاعدة القوة لكل حد}", "f'(-1)=12(-1)^{3}-6(-1)^{2}+5", "=-12-6+5=-13"]}, {"item": "12", "lesson": "3-4", "ref": "Bridge p. 169", "out_ar": "تطبيق قاعدتي الضرب والقسمة على المشتقات", "out_en": "Applying the rules of multiplication and division to derivatives", "lvl": "", "mark": 3, "terms": [["قاعدة الضرب", "Product Rule"]], "stem": "إذا كانت الدالة \\(f\\) معرّفة كما يأتي، فأوجد \\(f'(1)\\):", "tex": "f(x)=\\left(2x^{2}-3\\right)(x+4)", "img": "", "opts": ["4", "19", "21", "20"], "ans": "B", "inputs": [], "note": "", "remember": "مشتقة حاصل الضرب ليست حاصل ضرب المشتقتين، ومشتقة ناتج القسمة ليست ناتج قسمة المشتقتين؛ طبّق القاعدة بترتيبها الصحيح.", "sol": ["f'(x)=(4x)(x+4)+\\left(2x^{2}-3\\right)(1)\\quad\\AR{:قاعدة الضرب}", "f'(1)=(4)(5)+(2-3)", "=20-1=19"]}, {"item": "13", "lesson": "3-5", "ref": "Bridge p. 177", "out_ar": "تطبيق قاعدة السلسلة في الاشتقاق", "out_en": "Apply the chain rule in differentiation", "lvl": "", "mark": 3, "terms": [["قاعدة السلسلة", "Chain Rule"]], "stem": "إذا كانت الدالة \\(f\\) معرّفة كما يأتي، فأوجد \\(f'(1)\\):", "tex": "f(x)=\\left(2x^{2}-x\\right)^{4}", "img": "", "opts": ["4", "16", "12", "3"], "ans": "C", "inputs": [], "note": "", "remember": "اشتق الدالة الخارجية مع إبقاء ما بداخلها كما هو، ثم اضرب في مشتقة الدالة الداخلية.", "sol": ["f'(x)=4\\left(2x^{2}-x\\right)^{3}\\cdot(4x-1)\\quad\\AR{:قاعدة السلسلة}", "f'(1)=4(1)^{3}(3)=12"]}, {"item": "14", "lesson": "3-5", "ref": "Bridge p. 176", "out_ar": "إيجاد مشتقة معكوس دالة باستخدام قاعدة السلسلة", "out_en": "Find the derivative of an inverse function using the chain rule", "lvl": "", "mark": 3, "terms": [["مشتقة الدالة العكسية", "Derivative of an Inverse Function"]], "stem": "إذا كانت الدالة \\(f\\) الآتية متزايدة ولها دالة عكسية \\(f^{-1}\\)، فأوجد \\(\\left(f^{-1}\\right)'(2)\\):", "tex": "f(x)=x^{3}+3x-2", "img": "", "opts": ["6", "\\frac{1}{6}", "\\frac{1}{15}", "\\frac{1}{2}"], "ans": "B", "inputs": [], "note": "", "remember": "مشتقة الدالة العكسية عند عدد تساوي مقلوب مشتقة الدالة الأصلية عند النقطة المقابلة، فابحث أولاً عن العدد الذي صورته هي العدد المعطى.", "sol": ["x^{3}+3x-2=2\\Rightarrow x=1\\quad\\AR{:النقطة المقابلة}", "f^{-1}(2)=1", "f'(x)=3x^{2}+3\\Rightarrow f'(1)=6", "\\left(f^{-1}\\right)'(2)=\\frac{1}{f'\\left(f^{-1}(2)\\right)}", "=\\frac{1}{f'(1)}=\\frac{1}{6}"]}, {"item": "15", "lesson": "3-6", "ref": "Bridge p. 184", "out_ar": "إيجاد مشتقات الدوال المثلثية باستخدام قواعد التفاضل", "out_en": "Find the derivatives of trigonometric functions using differentiation rules", "lvl": "", "mark": 3, "terms": [["مشتقات الدوال المثلثية", "Derivatives of Trigonometric Functions"], ["قاعدة الضرب", "Product Rule"]], "stem": "إذا كانت الدالة \\(f\\) معرّفة كما يأتي، فأوجد \\(f'\\left(\\dfrac{\\pi}{2}\\right)\\):", "tex": "f(x)=x\\cos x", "img": "", "opts": ["\\frac{\\pi}{2}", "-1", "0", "-\\frac{\\pi}{2}"], "ans": "D", "inputs": [], "note": "", "remember": "احفظ مشتقات الدوال المثلثية الست بإشاراتها، وانتبه إلى أن مشتقات جيب التمام وقاطع التمام وظل التمام تبدأ بإشارة سالبة.", "sol": ["f'(x)=(1)\\cos x+x(-\\sin x)\\quad\\AR{:قاعدة الضرب}", "f'(x)=\\cos x-x\\sin x", "f'\\left(\\frac{\\pi}{2}\\right)=0-\\frac{\\pi}{2}(1)=-\\frac{\\pi}{2}"]}]};
-const KEY="tm-g12a-"+D.id+"-v1";
+const KEY="g12a-"+D.id;
 const L="ABCD";
 let S={name:"",a:{},cur:0,done:false,started:false,code:""};
 try{const s=JSON.parse(localStorage.getItem(KEY)||"null");if(s)S=Object.assign(S,s);}catch(e){}
@@ -218,7 +220,7 @@ function show(){const i=S.cur,q=D.qs[i];
   $("cnt").innerHTML='السؤال '+bdi(i+1)+' من '+bdi(D.qs.length);
   $("prev").disabled=i===0;$("next").disabled=i===D.qs.length-1;
   upd();typeset(box);}
-function upd(){const left=D.qs.filter((q,i)=>!answered(i)).length;
+function upd(){const left=D.qs.filter((q,i)=>!answered(i)).length;const na=D.qs.length-left;$("abar").classList.toggle("hidden",S.done);$("acount").innerHTML="المجاب: "+bdi(na)+" من "+bdi(D.qs.length);$("afill").style.width=(100*na/D.qs.length)+"%";
   $("subw").classList.toggle("hidden",S.done);
   $("left").textContent=left?("أسئلة لم تُجب عنها: "+left):"أجبت عن كل الأسئلة";
   $("sub").textContent=pend?"اضغط مرة أخرى لتأكيد التسليم":"تسليم الإجابات";
