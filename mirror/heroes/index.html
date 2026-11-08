@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>أبطال الأسبوع | أكاديمية طه للرياضيات</title>
+<meta name="description" content="مسابقة أسبوعية في أسئلة الهيكل الوزاري: حلّ السؤال في دفترك، وأرسل صورة الحل، واحصل على تعليق شخصي وشهادة. كل حل جاد يُصحَّح.">
+<link rel="canonical" href="https://tahamath.com/heroes/">
+<meta property="og:title" content="أبطال الأسبوع | أكاديمية طه للرياضيات">
+<meta property="og:description" content="سؤال واحد كل أسبوع من الهيكل الوزاري. كل حل جاد يُصحَّح وله شهادة.">
+<meta property="og:url" content="https://tahamath.com/heroes/">
+<meta property="og:image" content="https://tahamath.com/heroes/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="أبطال الأسبوع: مسابقة أسبوعية في أسئلة الهيكل الوزاري">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:locale" content="ar_AE">
+<meta name="theme-color" content="#1E3A6C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--ink:#0E1C3A;--gold:#D4A843;--bg:#F7F8FB;--bg2:#EEF1F7;--line:#D5DCE8;--stone:#5B6478;--red:#B3261E;--green:#1F7A4D}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;font-size:16px;line-height:1.8;overflow-x:hidden}
+a{color:var(--navy)}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.hero{background:var(--ink);color:#fff;padding:28px 16px 70px;text-align:center}
+.mark{width:52px;height:52px;margin:0 auto 12px;border-radius:15px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font:700 38px/1 'Amiri',serif}
+.hero h1{font-size:30px;line-height:1.4;margin-bottom:6px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#C9D2E3;font-size:16px;max-width:520px;margin:0 auto}
+.wrap{max-width:640px;margin:-46px auto 0;padding:0 16px 32px;display:grid;gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 16px;box-shadow:0 6px 18px rgba(14,28,58,.06);min-width:0}
+.card h2{font-size:20px;line-height:1.5}
+.sub{color:var(--stone);font-size:15px}
+.tag{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:2px 12px;font-size:14px;font-weight:700;background:var(--bg2);color:var(--navy);margin-bottom:8px}
+.tag.live{background:#E5F2EB;color:var(--green)}
+.tag.live i{width:8px;height:8px;border-radius:50%;background:currentColor}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 6px;direction:rtl}
+.cd div{background:var(--ink);color:#fff;border-radius:12px;padding:8px 4px;text-align:center}
+.cd b{display:block;font-size:26px;line-height:1.2;color:var(--gold);font-variant-numeric:tabular-nums}
+.cd small{font-size:13px;color:#C9D2E3}
+.cd-l{font-weight:700;font-size:15px;margin-top:12px}
+.when{display:grid;gap:2px;margin-top:10px;font-size:15px}
+.when b{font-weight:700}
+.grades{display:flex;flex-wrap:wrap;gap:8px}
+.grades button{font:inherit;font-weight:700;font-size:15px;min-height:44px;padding:6px 16px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--navy);cursor:pointer}
+.grades button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.grades button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.ver{display:flex;align-items:center;gap:12px;background:var(--bg2);border-radius:14px;padding:12px;margin:14px 0 12px}
+.ver .big{flex:none;width:56px;height:56px;border-radius:14px;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-size:30px;font-weight:700;direction:ltr}
+.ver p{font-size:15px;line-height:1.6}
+.q{display:grid;gap:10px}
+.q img{width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.q .wait{color:var(--stone);font-size:15px;text-align:center;padding:18px;border:1.5px dashed var(--line);border-radius:12px}
+.warn{display:flex;gap:10px;background:#FFF7E3;border:1.5px solid var(--gold);border-radius:14px;padding:12px;font-size:15px;line-height:1.7;margin-bottom:18px}
+.warn b{color:var(--ink)}
+.warn .i{flex:none;font-size:20px;line-height:1.4}
+.f{display:grid;gap:6px;margin-bottom:18px}
+fieldset{border:0;min-width:0}
+.lbl{font-weight:700;font-size:16px}
+.lbl small,.hint{font-weight:400;color:var(--stone);font-size:14px}
+input[type=text]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px}
+input[type=text]:focus{outline:none;border-color:var(--navy);background:#fff;box-shadow:0 0 0 3px rgba(212,168,67,.55)}
+.code-in{direction:ltr;text-align:center;letter-spacing:2px;font-weight:700;text-transform:uppercase}
+.check{display:flex;gap:10px;align-items:flex-start;min-height:44px;font-size:15px;cursor:pointer;padding-top:8px}
+.check input{width:22px;height:22px;flex:none;accent-color:var(--navy);margin-top:3px}
+.check input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.vchips{display:flex;gap:8px}
+.vchip{position:relative}
+.vchip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.vchip span{display:grid;place-items:center;width:56px;height:48px;border:1.5px solid var(--line);border-radius:12px;font-weight:700;font-size:18px;color:var(--navy);background:#fff}
+.vchip input:checked+span{background:var(--navy);border-color:var(--navy);color:#fff}
+.vchip input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}
+.pick{display:flex;align-items:center;justify-content:center;gap:8px;min-height:54px;border:2px dashed var(--navy);border-radius:14px;background:var(--bg);color:var(--navy);font:inherit;font-weight:700;font-size:16px;cursor:pointer;width:100%}
+.pick:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.pick:disabled{opacity:.5;cursor:not-allowed}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.thumbs:empty{display:none}
+.th{position:relative;aspect-ratio:3/4;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--bg2)}
+.th img{width:100%;height:100%;object-fit:cover;display:block}
+.th button{position:absolute;top:4px;inset-inline-start:4px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(14,28,58,.82);color:#fff;font-size:20px;line-height:1;cursor:pointer}
+.th button:focus-visible{outline:3px solid var(--gold)}
+.th span{position:absolute;bottom:4px;inset-inline-end:6px;background:rgba(14,28,58,.82);color:#fff;border-radius:999px;font-size:13px;padding:0 8px}
+details{border:1px solid var(--line);border-radius:12px;padding:4px 12px;margin-bottom:18px}
+summary{cursor:pointer;font-weight:700;font-size:15px;color:var(--navy);min-height:40px;display:flex;align-items:center}
+details[open] summary{margin-bottom:6px}
+details p{font-size:14px;color:var(--stone);margin-bottom:8px}
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.err{color:var(--red);font-size:14px;font-weight:700}
+.err:empty{display:none}
+.btn{display:flex;width:100%;align-items:center;justify-content:center;min-height:54px;border:0;border-radius:999px;background:var(--gold);color:var(--ink);font:inherit;font-size:18px;font-weight:700;cursor:pointer;text-decoration:none}
+.btn:hover{background:#E2BC5E}
+.btn:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn.ghost{background:#fff;border:1.5px solid var(--navy);color:var(--navy);font-size:16px;min-height:48px}
+.privacy{font-size:14px;color:var(--stone);margin-top:12px;text-align:center}
+.done{text-align:center}
+.done .ok{width:56px;height:56px;margin:0 auto 10px;border-radius:50%;background:#E5F2EB;color:var(--green);display:grid;place-items:center;font-size:30px;font-weight:700}
+.done p{color:var(--stone);margin-bottom:10px}
+.code{direction:ltr;font:700 30px/1.3 ui-monospace,Menlo,Consolas,monospace;letter-spacing:3px;color:var(--navy);background:var(--bg);border:2px dashed var(--gold);border-radius:14px;padding:12px;margin:6px 0 12px;user-select:all}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.heroes{display:grid;gap:8px;margin-top:12px}
+.hr{display:flex;align-items:center;gap:10px;background:var(--bg);border-radius:12px;padding:8px 12px}
+.hr .m{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:700;background:var(--navy);color:var(--gold)}
+.hr b{font-size:16px}
+.hr small{color:var(--stone);font-size:14px;margin-inline-start:auto}
+.rules h2{margin-bottom:8px}
+.rules ul{list-style:none;display:grid;gap:8px}
+.rules li{position:relative;padding-inline-start:22px;font-size:15px}
+.rules li::before{content:"";position:absolute;inset-inline-start:4px;top:.75em;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.mine{font-size:15px}
+.mine a{font-weight:700}
+.foot{text-align:center;font-size:14px;color:var(--stone);padding:4px 16px 32px}
+.foot a{font-weight:700}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media (min-width:600px){.hero{padding-top:40px}.card{padding:26px}}
+.sub.study a{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="hero">
+  <div class="mark" aria-hidden="true">∫</div>
+  <h1>أبطال <span>الأسبوع</span></h1>
+  <p>سؤال من الهيكل الوزاري تحلّه على ورقة الحل وترسل صورتها. كل حل جاد يُصحَّح، ويحصل صاحبه على تعليق شخصي وشهادة.</p>
+</header>
+
+<main class="wrap" id="app">
+  <noscript><div class="card"><p>تحتاج هذه الصفحة إلى تفعيل الأوامر البرمجية (JavaScript) في المتصفح لعرض السؤال وإرسال الحل. جرّب فتحها في متصفح Chrome أو Safari.</p></div></noscript>
+  <nav class="grades" id="grades" aria-label="الصفوف" hidden></nav>
+  <div id="contests"><div class="card"><p class="sub">جارٍ تحميل المسابقة…</p></div></div>
+
+  <p class="mine" id="mine" hidden></p>
+
+  <section class="card rules" aria-labelledby="rt">
+    <h2 id="rt">كيف تعمل المسابقة؟</h2>
+    <ul>
+      <li>يظهر السؤال في هذه الصفحة عند موعده، ولكل مشارك نسخة من ثلاث نسخ (A أو B أو C)، تختلف في الأرقام فقط.</li>
+      <li>اكتب حرف نسختك أعلى ورقة حلك، ثم صوّر الحل وأرسله قبل آخر موعد للتسليم.</li>
+      <li>كل حل جاد يصل قبل آخر موعد للتسليم يُصحَّح. الترتيب: صحة الحل، ثم وضوح الخطوات، ثم وقت التسليم عند التساوي فقط.</li>
+      <li>شهادات مميزة للمراكز الثلاثة الأولى، وشهادة «حل كامل صحيح»، وشهادة «مشاركة جادة» لكل حل فيه خطوات حقيقية.</li>
+      <li>تحصل بعد التسليم على رمز خاص؛ تدخل به <a href="/heroes/result/">صفحة النتيجة</a> لترى تعليقك وشهادتك.</li>
+      <li>شارة «مثابر» لمن يشارك بحل جاد في جولتين، وشارة «بطل الهيكل» لمن يشارك بحل جاد في 3 جولات. تُحتسب الجولة بعد إعلان نتيجتها بتقدير «مشاركة جادة» أو أعلى، وتظهر الشارة في صفحة النتيجة. تُحسب جولاتك بالمشاركة من الجهاز نفسه أو بالاحتفاظ برموز التسليم.</li>
+    </ul>
+  </section>
+
+  <section class="card rules" aria-labelledby="pt">
+    <h2 id="pt">خصوصيتك</h2>
+    <ul>
+      <li>لا نطلب رقم هاتف ولا بريداً إلكترونياً ولا اسم مدرسة.</li>
+      <li>صور الحلول لا تُنشر أبداً، وتُحذف نهائياً بعد إعلان النتائج بأسبوع.</li>
+      <li>لا يُعلن اسمك إلا إن فزت ووافقت على ذلك، وبالاسم الذي تكتبه أنت.</li>
+    </ul>
+  </section>
+</main>
+
+<p class="foot">أكاديمية طه للرياضيات • <a href="/">tahamath.com</a></p>
+
+<template id="t-form">
+  <form class="sform" action="/heroes/api.php?a=submit" method="post" enctype="multipart/form-data" novalidate>
+    <h3 class="lbl" style="font-size:18px;margin-bottom:10px">أرسل حلّك</h3>
+    <div class="warn" role="note"><span class="i" aria-hidden="true">📷</span><p><b>صوّر الحل فقط:</b> ورقة الحل وحدها، دون وجه أو اسم مدرسة أو أي بيانات شخصية. صوّر في ضوء جيد ومن فوق الورقة مباشرة.</p></div>
+
+    <fieldset class="f">
+      <legend class="lbl">نسختك من السؤال</legend>
+      <div class="vchips" data-vchips></div>
+      <p class="hint" data-vhint></p>
+      <p class="err" data-e="version" role="alert"></p>
+    </fieldset>
+
+    <div class="f">
+      <span class="lbl">صور الحل <small>(حتى 3 صور، بالترتيب)</small></span>
+      <div class="thumbs" data-thumbs></div>
+      <input type="file" name="img[]" accept="image/*" multiple class="sr" data-file tabindex="-1" aria-hidden="true">
+      <button type="button" class="pick" data-pick><span aria-hidden="true">＋</span> أضف صورة الحل</button>
+      <p class="err" data-e="files" role="alert"></p>
+    </div>
+
+    <div class="f">
+      <label class="lbl" data-for="name">الاسم الذي يظهر إن فزت</label>
+      <input type="text" name="name" maxlength="24" autocomplete="off" data-name placeholder="مثال: أحمد م. أو مريم ع.">
+      <p class="hint">اسمك الأول وأول حرف من اسم العائلة، أو اسم تختاره.</p>
+      <label class="check"><input type="checkbox" name="consent" value="yes" data-consent> أوافق على إعلان اسمي إن فزت.</label>
+      <p class="err" data-e="name" role="alert"></p>
+    </div>
+
+    <details data-replace>
+      <summary>أرسلت حلاً من قبل وتريد استبداله؟</summary>
+      <p>اكتب رمزك ليحلّ حلك الجديد محل القديم كاملاً، قبل انتهاء التسليم فقط.</p>
+      <input type="text" name="code" maxlength="12" class="code-in" autocomplete="off" data-code placeholder="XXXX-XXXX" aria-label="رمزك السابق">
+      <p class="err" data-e="code" role="alert"></p>
+    </details>
+
+    <div class="hp" aria-hidden="true"><label>اترك هذا الحقل فارغاً <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+    <p class="err" data-e="form" role="alert"></p>
+    <button class="btn" type="submit" data-send>أرسل الحل</button>
+    <p class="privacy">صور الحلول لا تُنشر، وتُحذف بعد إعلان النتائج بأسبوع.</p>
+  </form>
+</template>
+
+<script>
+/* روابط المذاكرة قبل كل جولة من «أبطال الأسبوع» (يحدّثها مشروع الموقع) */
+window.TMN_STUDY = {
+  "g12g-b21": [
+    { t: "ملزمة الهيكل بالحل (الجزء الكتابي)", u: "https://t.me/Mathematics_with_Mohamad_Taha/535" },
+    { t: "نموذج تدريب البنود 21-25", u: "/g12-general/practice-21-25-1/" }
+  ]
+};
+</script>
+<script>
+(function(){
+  'use strict';
+  var API='/heroes/api.php';
+  var GR={'g12-general':'الثاني عشر عام','g12-advanced':'الثاني عشر متقدم','g11-general':'الحادي عشر عام','g11-advanced':'الحادي عشر متقدم'};
+  var AW={first:'المركز الأول',second:'المركز الثاني',third:'المركز الثالث',complete:'حل كامل صحيح'};
+  var MED={first:'1',second:'2',third:'3',complete:'✓'};
+  var $=function(id){return document.getElementById(id)};
+  var t0=performance.now(), offset=0, timers=[], state=null;
+  var qs=new URLSearchParams(location.search), grade=qs.get('g')||'';
+  try{if(!grade)grade=localStorage.getItem('heroes-grade')||''}catch(e){}
+
+  function el(tag,cls,txt){var e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
+  var fmt=new Intl.DateTimeFormat('ar-AE-u-nu-latn',{weekday:'long',day:'numeric',month:'long',hour:'numeric',minute:'2-digit',timeZone:'Asia/Dubai'});
+  function when(iso){try{return fmt.format(new Date(iso))}catch(e){return iso}}
+  function now(){return Date.now()+offset}
+
+  function myCodes(){try{return JSON.parse(localStorage.getItem('heroes-codes')||'[]')}catch(e){return[]}}
+  function saveCode(c,title){try{var l=myCodes().filter(function(x){return x.code!==c});l.unshift({code:c,title:title,at:new Date().toISOString()});localStorage.setItem('heroes-codes',JSON.stringify(l.slice(0,10)))}catch(e){}}
+  function showMine(){
+    var l=myCodes(),p=$('mine');if(!l.length){p.hidden=true;return}
+    p.replaceChildren(document.createTextNode('رمزك المحفوظ على هذا الجهاز: '));
+    var c=el('b','ltr',l[0].code);p.append(c,document.createTextNode(' • '));
+    var a=el('a',null,'اعرض نتيجتك');a.href='/heroes/result/';p.append(a);p.hidden=false;
+  }
+
+  function countdown(box,target,label,onEnd){
+    var l=el('p','cd-l',label),g=el('div','cd');g.setAttribute('aria-hidden','true');
+    var parts=[['d','يوم'],['h','ساعة'],['m','دقيقة'],['s','ثانية']],cells={};
+    parts.forEach(function(p){var d=el('div');cells[p[0]]=el('b',null,'0');d.append(cells[p[0]],el('small',null,p[1]));g.append(d)});
+    box.append(l,g);
+    var end=new Date(target).getTime();
+    function tick(){
+      var s=Math.max(0,Math.floor((end-now())/1000));
+      cells.d.textContent=Math.floor(s/86400);cells.h.textContent=Math.floor(s%86400/3600);
+      cells.m.textContent=Math.floor(s%3600/60);cells.s.textContent=s%60;
+      if(s<=0){clearInterval(id);if(onEnd)setTimeout(onEnd,1500)}
+    }
+    var id=setInterval(tick,1000);timers.push(id);tick();
+  }
+
+  function heroesList(h){
+    var w=el('div','heroes');
+    h.forEach(function(x){var r=el('div','hr');r.append(el('span','m',MED[x.award]||'★'),el('b',null,x.name),el('small',null,AW[x.award]||''));w.append(r)});
+    return w;
+  }
+
+  function render(){
+    timers.forEach(clearInterval);timers=[];
+    var list=state.contests||[];
+    var grades=[];list.forEach(function(c){if(grades.indexOf(c.grade)<0)grades.push(c.grade)});
+    if(grades.indexOf(grade)<0)grade=grades[0]||'';
+    var nav=$('grades');nav.replaceChildren();nav.hidden=grades.length<2;
+    grades.forEach(function(g){var lb=(list.filter(function(c){return c.grade===g})[0]||{}).gradeLabel;var b=el('button',null,GR[g]||lb||g);b.type='button';b.setAttribute('aria-pressed',g===grade);b.onclick=function(){grade=g;try{localStorage.setItem('heroes-grade',g)}catch(e){}render()};nav.append(b)});
+    var box=$('contests');box.replaceChildren();
+    var mine=list.filter(function(c){return c.grade===grade});
+    if(!mine.length){var e=el('div','card');e.append(el('h2',null,'لا توجد مسابقة الآن'),el('p','sub','تابع قناة صفك ليصلك موعد المسابقة القادمة.'));box.append(e);return}
+    /* الأهم أولاً: المفتوحة، ثم القادمة، ثم المنتهية */
+    var order={open:0,soon:1,closed:2,late:2,results:2};
+    mine.sort(function(a,b){return (order[a.phase]-order[b.phase])||(a.phase==='soon'?a.opens.localeCompare(b.opens):b.opens.localeCompare(a.opens))});
+    /* مسابقة واحدة قادمة، ومسابقة واحدة سابقة (الأحدث) */
+    var shownSoon=false,shownPast=false;
+    mine.forEach(function(c){
+      if(c.phase==='soon'){if(shownSoon)return;shownSoon=true}
+      if(c.phase!=='open'&&c.phase!=='soon'){if(shownPast)return;shownPast=true}
+      box.append(card(c));
+    });
+  }
+
+  function card(c){
+    var k=el('section','card');k.setAttribute('aria-label',c.title);
+    var tag;
+    if(c.phase==='open'){tag=el('span','tag live');tag.append(el('i'),document.createTextNode('التسليم مفتوح الآن'))}
+    else tag=el('span','tag',{soon:'قريباً',closed:'انتهى التسليم',late:'النتائج قيد الإعداد',results:'أُعلنت النتائج'}[c.phase]);
+    k.append(tag,el('h2',null,'مسابقة '+c.title+' • '+(GR[c.grade]||c.gradeLabel||'')));
+    if(c.topic)k.append(el('p','sub',c.topic));
+    var ST=(window.TMN_STUDY||{})[c.id];if(ST&&ST.length){var sp=el('p','sub study');sp.append(el('b',null,'ذاكر قبل المسابقة: '));ST.forEach(function(x,i){if(i)sp.append(document.createTextNode(' • '));var a=el('a',null,x.t);a.href=x.u;a.target='_blank';a.rel='noopener';sp.append(a)});k.append(sp)}
+    var w=el('div','when');
+    function line(a,b){var p=el('p');p.append(el('b',null,a+': '),document.createTextNode(b));w.append(p)}
+    line('بداية المسابقة',when(c.opens));line('آخر موعد للتسليم',when(c.closes));if(c.results)line('النتائج',when(c.results));
+    if(c.phase==='soon'){countdown(k,c.opens,'يظهر السؤال بعد',load);k.append(w)}
+    else if(c.phase==='open'){countdown(k,c.closes,'ينتهي التسليم بعد',load);k.append(w);question(k,c);k.append(form(c))}
+    else if(c.phase==='closed'||c.phase==='late'){k.append(w,el('p','sub',c.phase==='late'?'النتائج قيد الإعداد وتُعلن قريباً. ادخل صفحة النتيجة برمزك لترى تعليقك وشهادتك.':'انتهى التسليم، وتُعلن النتائج في موعدها. ادخل صفحة النتيجة برمزك لترى تعليقك وشهادتك.'));k.append(link('صفحة النتيجة'))}
+    else{
+      if(c.heroes&&c.heroes.length){k.append(el('p','lbl','أبطال '+c.title));k.append(heroesList(c.heroes))}
+      k.append(el('p','sub','تعليقك الشخصي وشهادتك في صفحة النتيجة.'));k.append(link('اعرض نتيجتك'));
+    }
+    return k;
+  }
+  function link(t){var a=el('a','btn ghost',t);a.href='/heroes/result/';a.style.marginTop='12px';return a}
+
+  function question(k,c){
+    var v=el('div','ver'),big=el('span','big','?'),p=el('p');
+    var vb=el('b',null,'«النسخة ');vb.style.whiteSpace='nowrap';vb.append(el('span','ltr','?'),document.createTextNode('»'));p.append(document.createTextNode('هذه نسختك من السؤال. اكتب '),vb,document.createTextNode(' أعلى ورقة حلك.'));
+    v.append(big,p);
+    var q=el('div','q');
+    k.append(v,q);
+    if(!c.hasQuestion){q.append(el('p','wait','يُنشر السؤال الآن؛ أعد تحميل الصفحة بعد دقائق.'));v.hidden=true;return}
+    var n=0;
+    function next(){
+      fetch(API+'?a=q&c='+encodeURIComponent(c.id)+'&n='+n+(c.version?'&v='+c.version:''),{credentials:'same-origin',cache:'no-store'}).then(function(r){
+        if(!r.ok)throw 0;
+        var ver=r.headers.get('X-Version');
+        if(ver){c.version=ver;big.textContent=ver;p.querySelector('.ltr').textContent=ver;if(c._sv)c._sv(ver)}
+        return r.blob();
+      }).then(function(b){
+        var i=new Image();i.alt='السؤال'+(n?'، الجزء '+(n+1):'')+' • النسخة '+(c.version||'');i.src=URL.createObjectURL(b);q.append(i);n++;if(n<c.qn)next();
+      }).catch(function(){if(!n){q.append(el('p','wait','تعذّر تحميل السؤال؛ أعد تحميل الصفحة.'))}});
+    }
+    next();
+  }
+
+  function form(c){
+    var f=$('t-form').content.firstElementChild.cloneNode(true);
+    function q(s){return f.querySelector(s)}
+    function E(n,m){q('[data-e='+n+']').textContent=m||''}
+    var hid=document.createElement('input');hid.type='hidden';hid.name='c';hid.value=c.id;f.append(hid);
+    var elIn=document.createElement('input');elIn.type='hidden';elIn.name='el';f.append(elIn);
+    var nm=q('[data-name]');nm.id='nm-'+c.id;q('[data-for=name]').htmlFor=nm.id;
+    /* النسخة */
+    var vc=q('[data-vchips]');
+    c.versions.forEach(function(x){var l=el('label','vchip'),i=document.createElement('input');i.type='radio';i.name='version';i.value=x;i.setAttribute('aria-label','النسخة '+x);l.append(i,el('span','ltr',x));vc.append(l)});
+    c._sv=function(x){var i=f.querySelector('input[name=version][value="'+x+'"]');if(i){i.checked=true;q('[data-vhint]').textContent='اخترناها لك تلقائياً من السؤال الظاهر أعلاه.'}};
+    if(c.version)c._sv(c.version);
+    f.addEventListener('change',function(e){if(e.target.name==='version')E('version')});
+    var ci=q('[data-code]');ci.addEventListener('input',function(){var v=ci.value.replace(/[٠-٩]/g,function(d){return d.charCodeAt(0)-1632}).replace(/[۰-۹]/g,function(d){return d.charCodeAt(0)-1776}).toUpperCase().replace(/[^0-9A-Z]/g,'').slice(0,8);ci.value=v.length>4?v.slice(0,4)+'-'+v.slice(4):v;E('code')});
+    /* الصور */
+    var files=[],fin=q('[data-file]'),th=q('[data-thumbs]'),pick=q('[data-pick]');
+    pick.onclick=function(){fin.click()};
+    fin.onchange=function(){
+      var dropped=0;
+      [].slice.call(fin.files).forEach(function(x){if(files.length<3)files.push(x);else dropped++});
+      E('files',dropped?'يمكن إرسال 3 صور على الأكثر.':'');
+      fin.value='';draw();
+    };
+    function draw(){
+      th.replaceChildren();
+      files.forEach(function(x,i){
+        var d=el('div','th'),im=new Image();im.alt='صورة الحل '+(i+1);im.src=URL.createObjectURL(x);
+        var b=el('button',null,'×');b.type='button';b.setAttribute('aria-label','احذف الصورة '+(i+1));b.onclick=function(){files.splice(i,1);draw()};
+        d.append(im,b,el('span',null,String(i+1)));th.append(d);
+      });
+      pick.disabled=files.length>=3;
+      pick.lastChild.textContent=files.length?' أضف صورة أخرى':' أضف صورة الحل';
+      if(files.length>=3)pick.lastChild.textContent=' اكتمل العدد: 3 صور';
+    }
+    /* تصغير الصورة في الجهاز قبل الإرسال (أسرع على بيانات الجوال) */
+    function shrink(file){
+      return new Promise(function(res){
+        var done=function(img,w,h){
+          try{var k=Math.min(1,2000/Math.max(w,h)),cv=document.createElement('canvas');cv.width=Math.round(w*k);cv.height=Math.round(h*k);
+            var x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height);x.drawImage(img,0,0,cv.width,cv.height);
+            cv.toBlob(function(b){res(b&&b.size>1000?b:file)},'image/jpeg',.85)}catch(e){res(file)}
+        };
+        if(window.createImageBitmap){createImageBitmap(file,{imageOrientation:'from-image'}).then(function(b){done(b,b.width,b.height)}).catch(fallback)}else fallback();
+        function fallback(){var i=new Image(),u=URL.createObjectURL(file);i.onload=function(){done(i,i.naturalWidth,i.naturalHeight)};i.onerror=function(){res(file)};i.src=u}
+      });
+    }
+    var MSG={toobig:'الصورة كبيرة جداً؛ صوّر الحل بكاميرا الهاتف مباشرة، أو اختر صورة بصيغة JPG.',fast:'انتظر ثوانيَ قليلة ثم أرسل مرة أخرى.',form:'تعذّر الإرسال؛ أعد تحميل الصفحة ثم أرسل مرة أخرى.',closed:'انتهى وقت التسليم.',rate:'أُرسلت حلول كثيرة من هذه الشبكة قبل قليل؛ حاول بعد دقائق.',files:'تعذّر قبول إحدى الصور. صوّر بكاميرا الهاتف مباشرة، أو اختر صورة بصيغة JPG أو PNG.',
+      name:'اكتب الاسم الذي يظهر إن فزت (حرفان على الأقل).',code:'الرمز غير صحيح. تأكد منه، أو امسحه لترسل حلاً جديداً برمز جديد.',version:'اختر نسختك من السؤال.',server:'تعذّر حفظ الحل الآن؛ حاول مرة أخرى بعد قليل.'};
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      ['version','files','name','code','form'].forEach(function(n){E(n)});
+      var bad=null;
+      if(!f.querySelector('input[name=version]:checked')){E('version',MSG.version);bad=bad||vc.querySelector('input')}
+      if(!files.length){E('files','أضف صورة حلك.');bad=bad||pick}
+      if(nm.value.trim().length<2){E('name',MSG.name);bad=bad||nm}
+      if(bad){bad.focus();return}
+      var b=q('[data-send]');b.disabled=true;b.textContent='جارٍ تجهيز الصور…';
+      Promise.all(files.map(shrink)).then(function(bl){
+        if(bl.some(function(x){return x.size>8*1024*1024}))throw{code:'toobig'};
+        var fd=new FormData(f);fd.delete('img[]');
+        try{fd.set('prev',myCodes().map(function(x){return x.code}).filter(function(x){return x!==(ci.value||'')}).slice(0,10).join(','))}catch(x){}
+        bl.forEach(function(x,i){fd.append('img[]',x,'sol-'+(i+1)+'.jpg')});
+        fd.set('el',String(Math.round(performance.now()-t0)));
+        b.textContent='جارٍ الإرسال…';
+        return fetch(f.action,{method:'POST',body:fd,headers:{'Accept':'application/json'},credentials:'same-origin'});
+      }).then(function(r){return r.json().catch(function(){return{ok:false,code:r.status===413?'files':'server'}})})
+      .then(function(j){
+        if(!j||!j.ok||!/^[0-9A-Z]{4}-[0-9A-Z]{4}$/.test(j.code||'')||j.code==='XXXX-XXXX')throw j||{};
+        saveCode(j.code,c.title);
+        try{if(window.umami)umami.track('heroes-sent',{grade:c.grade,contest:c.id})}catch(x){}
+        var d=el('div','done');d.tabIndex=-1;
+        d.append(el('div','ok','✓'),el('h2',null,j.replaced?'استُبدل حلك':'وصل حلك'),
+          el('p',null,'هذا رمزك الخاص. صوّره أو اكتبه في دفترك؛ تدخل به صفحة النتيجة، ولا يمكن استرجاعه إن ضاع.'),el('div','code',j.code));
+        var row=el('div','row2'),cp=el('button','btn ghost','انسخ الرمز');cp.type='button';
+        cp.onclick=function(){(navigator.clipboard?navigator.clipboard.writeText(j.code):Promise.reject()).then(function(){cp.textContent='نُسخ ✓'}).catch(function(){cp.textContent='انسخه يدوياً'})};
+        var go=el('a','btn ghost','صفحة النتيجة');go.href='/heroes/result/';row.append(cp,go);
+        d.append(row,el('p','sub','حُفظ الرمز أيضاً على هذا الجهاز. يمكنك استبدال حلك بالرمز نفسه قبل انتهاء التسليم.'));
+        f.replaceWith(d);d.focus();showMine();
+      }).catch(function(j){
+        var code=j&&j.code,slot={version:'version',files:'files',toobig:'files',name:'name',code:'code'}[code]||'form';
+        E(slot,MSG[code]||'تعذّر الاتصال؛ تأكد من اتصالك بالإنترنت ثم أعد المحاولة.');
+        try{q('[data-e='+slot+']').scrollIntoView({block:'center',behavior:'smooth'})}catch(x){}
+        if(code==='code')q('[data-replace]').open=true;
+        b.disabled=false;b.textContent='أرسل الحل';
+      });
+    });
+    return f;
+  }
+
+  function load(){
+    fetch(API+'?a=state',{cache:'no-store',credentials:'same-origin'}).then(function(r){return r.json()}).then(function(j){
+      if(!j||!j.ok)throw 0;
+      offset=new Date(j.now).getTime()-Date.now();
+      if(Math.abs(offset)<3000)offset=0;
+      var sig=JSON.stringify((j.contests||[]).map(function(c){return [c.id,c.phase,c.hasQuestion,c.heroes.length]}));
+      if(state&&sig===state._sig){state.now=j.now;return}
+      j._sig=sig;state=j;render();
+    }).catch(function(){var b=$('contests');b.replaceChildren();var e=el('div','card');e.append(el('p','sub','تعذّر تحميل المسابقة؛ تأكد من اتصالك بالإنترنت ثم أعد تحميل الصفحة.'));b.append(e)});
+  }
+  showMine();load();
+})();
+</script>
+<script src="/nav.js?v=5" defer></script>
+</body>
+</html>
