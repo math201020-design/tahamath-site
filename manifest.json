@@ -1,0 +1,139 @@
+{
+ "files": [
+  {
+   "path": "g12-advanced/band-1/index.html",
+   "src": "site/g12-advanced/band-1/index.html",
+   "sha256": "fc0b43ae277033132120675cbf93e5880a06c233b2b11ae35f85f31669c25024"
+  },
+  {
+   "path": "g12-advanced/band-2/index.html",
+   "src": "site/g12-advanced/band-2/index.html",
+   "sha256": "0aef2f34795325e493e2c7e9003355acf4110307551b68492e427c8618e527c7"
+  },
+  {
+   "path": "g12-advanced/band-3/index.html",
+   "src": "site/g12-advanced/band-3/index.html",
+   "sha256": "768a539ea277d99822aa9ab643fe9fc331a5818b1284424de9a9269d9c20526f"
+  },
+  {
+   "path": "g12-advanced/band-4/index.html",
+   "src": "site/g12-advanced/band-4/index.html",
+   "sha256": "f0e77901773e8fb3a27bd12dcd06745b0a02b492d40dfeabb046416c77ff7759"
+  },
+  {
+   "path": "g12-advanced/band-5/index.html",
+   "src": "site/g12-advanced/band-5/index.html",
+   "sha256": "7694942e3c1cad019003f1d3e8417d948c28331362c6e8ecb0f9b37ba16197e7"
+  },
+  {
+   "path": "g12-advanced/band-6/index.html",
+   "src": "site/g12-advanced/band-6/index.html",
+   "sha256": "3215160354a9818262b98e62e3f99c366488b486df9f94dfc5100ad25f40c8e1"
+  },
+  {
+   "path": "g12-advanced/band-7/index.html",
+   "src": "site/g12-advanced/band-7/index.html",
+   "sha256": "7ff67d8fe28552b1d32edcc4f36d102a00f5915fd3f9a3dc9227bcefcadb785b"
+  },
+  {
+   "path": "g12-advanced/band-8/index.html",
+   "src": "site/g12-advanced/band-8/index.html",
+   "sha256": "90c0b3f03491cf670345ec0e88afa43a6c8e26a51d31bb5389b33a9287fdc60a"
+  },
+  {
+   "path": "g12-advanced/band-9/index.html",
+   "src": "site/g12-advanced/band-9/index.html",
+   "sha256": "78b8ad2b22c4b40299721e09a60485cfe4f02ffbdc729cdf830bae29046ce3bc"
+  },
+  {
+   "path": "g12-advanced/band-10/index.html",
+   "src": "site/g12-advanced/band-10/index.html",
+   "sha256": "48411ddf5a374aa014bc68587eca472a12e79fa2cd3e78dd8ba9e17a033b7623"
+  },
+  {
+   "path": "g12-advanced/band-11/index.html",
+   "src": "site/g12-advanced/band-11/index.html",
+   "sha256": "6225ba143ab9ef966b890b8cf6ec11b228cc17ddf2bbfcbb1d9008b58b1d41a6"
+  },
+  {
+   "path": "g12-advanced/band-12/index.html",
+   "src": "site/g12-advanced/band-12/index.html",
+   "sha256": "f72edae44fa0cf31e620d09118cec11b5f5fe0ec065c5c8713866b01bd59ad66"
+  },
+  {
+   "path": "g12-advanced/band-13/index.html",
+   "src": "site/g12-advanced/band-13/index.html",
+   "sha256": "b6522d9d689a1ed47f75fcdbd73276ce7b576b8f27a2eaa80c706fb0116873cb"
+  },
+  {
+   "path": "g12-advanced/band-14/index.html",
+   "src": "site/g12-advanced/band-14/index.html",
+   "sha256": "4ed0901c5f2735dab1cbb13fb4c0c1230d1a9acb7ab0bca4b5c2954a60ef4e1d"
+  },
+  {
+   "path": "g12-advanced/band-15/index.html",
+   "src": "site/g12-advanced/band-15/index.html",
+   "sha256": "03b24e0e777dab961483b5004ac1073c3bffb7be12c7f299a0cb86a6f332a9aa"
+  },
+  {
+   "path": "g12-advanced/band-16/index.html",
+   "src": "site/g12-advanced/band-16/index.html",
+   "sha256": "3662f2ebdac759fb3556c333c60d41206bb519effc84876ee13db58ddba14503"
+  },
+  {
+   "path": "g12-advanced/band-17/index.html",
+   "src": "site/g12-advanced/band-17/index.html",
+   "sha256": "6fe1956e4d3ef22d29a8acabbfb74d5801fb222c214a4ba91f05efdc4f69d3a4"
+  },
+  {
+   "path": "g12-advanced/band-18/index.html",
+   "src": "site/g12-advanced/band-18/index.html",
+   "sha256": "ccd682e0b77f210815828eeb1a1f6b43a28d657fad78ce61e5935dc0cccee584"
+  },
+  {
+   "path": "g12-advanced/band-19/index.html",
+   "src": "site/g12-advanced/band-19/index.html",
+   "sha256": "5115b0844adce196496c15cfe15f37068885f1ec41692fa45a1b55723ea04ff2"
+  },
+  {
+   "path": "g12-advanced/band-20/index.html",
+   "src": "site/g12-advanced/band-20/index.html",
+   "sha256": "abb71680cd4c1620df10afd9e47af0cf1a6f5bbda2fbdf32d0c29e39ffac2b25"
+  },
+  {
+   "path": "g12-advanced/band-21/index.html",
+   "src": "site/g12-advanced/band-21/index.html",
+   "sha256": "3da34bda6b16ecd9cb923da21d35324855cb59b1132604cb5cf33d9e11b270d4"
+  },
+  {
+   "path": "g12-advanced/band-22/index.html",
+   "src": "site/g12-advanced/band-22/index.html",
+   "sha256": "cbbc2ec4f958f11b4993235d03b0a7c82d790388ccdd93c9a2dd6aecd08f3553"
+  },
+  {
+   "path": "g12-advanced/band-23/index.html",
+   "src": "site/g12-advanced/band-23/index.html",
+   "sha256": "93f3079ac8665b33ebc5485b3f5cd731f3cd471a7a90bccde3e3ee31e98fe33a"
+  },
+  {
+   "path": "g12-advanced/band-24/index.html",
+   "src": "site/g12-advanced/band-24/index.html",
+   "sha256": "91205057473c9c788fcb5e8c212fd5e82708aa51296509c5d4a79cf940164de4"
+  },
+  {
+   "path": "g12-advanced/band-25/index.html",
+   "src": "site/g12-advanced/band-25/index.html",
+   "sha256": "d7e5358bd863dc387af793fdf52d2453a27bcfd7e9d79f6ec7156009ca7f53f9"
+  },
+  {
+   "path": "g12-advanced/band-26/index.html",
+   "src": "site/g12-advanced/band-26/index.html",
+   "sha256": "3c08911e8eab1cffbd7d0898a7eaabdc9c52c874e63640d3439dbc1acceb4812"
+  },
+  {
+   "path": "g12-advanced/sync-test.json",
+   "src": "site/g12-advanced/sync-test.json",
+   "sha256": "49770db4002a859878db8ef0ff4a566965ac6a01fa4f5751b6323201cfdb0eb6"
+  }
+ ]
+}

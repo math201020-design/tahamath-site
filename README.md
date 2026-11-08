@@ -1,2 +1,2 @@
 # tahamath-site
-Published pages of tahamath.com
+الصفحات المنشورة على tahamath.com. سكربت على الاستضافة (cron كل 5 دقائق) يقرأ manifest.json من آخر commit، ويكتب كل ملف بعد مطابقة بصمته SHA-256، مع نسخة احتياطية قبل أي استبدال. لا حذف.
