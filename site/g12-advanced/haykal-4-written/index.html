@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نموذج الهيكل 4 للتدريب • الورقة المقالية • الثاني عشر متقدم | أكاديمية طه للرياضيات</title>
+<meta property="og:title" content="نموذج الهيكل 4 للتدريب • الورقة المقالية • الثاني عشر متقدم | أكاديمية طه للرياضيات">
+<meta property="og:description" content="نموذج تدريبي يحاكي الاختبار الوزاري • الثاني عشر متقدم • الفصل الأول">
+<meta property="og:url" content="https://tahamath.com/g12-advanced/haykal-4-written">
+<meta property="og:image" content="https://tahamath.com/og.jpg">
+<link rel="icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;700&display=swap">
+<script>
+window.MathJax = { tex: { inlineMath: [['\\(', '\\)']] }, svg: { fontCache: 'global' }, startup: { typeset: false } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathlive@0.98.6/dist/mathlive.min.js"></script>
+<style>
+/* Layout: one exam sheet column; burgundy header band with the academy stamp, one question per card, sticky progress bar. */
+:root {
+  --bg: #F7F2EE; --paper: #FFFFFF; --ink: #2A1B1F; --muted: #6E5B60; --line: #E5D6CF;
+  --burg: #6E1E30; --burg-deep: #3A0E18; --gold: #C9A227; --gold-soft: #F3E6BF;
+  --teal: #12848A; --ok: #1E7B3A; --ok-bg: #E7F4EA; --bad: #B3261E; --bad-bg: #FBE9E7; --ink-blue: #1A3C9E;
+  --f-display: "IBM Plex Sans Arabic", Tahoma, sans-serif;
+  --f-body: "IBM Plex Sans Arabic", Tahoma, "Segoe UI", sans-serif;
+  --f-lat: Calibri, Carlito, "Segoe UI", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1C1113; --paper: #2A191D; --ink: #F3E9E4; --muted: #C2AFA9; --line: #4A3036;
+  --burg: #8E2A40; --burg-deep: #2A0A12; --gold: #E0BC55; --gold-soft: #4A3A16;
+  --teal: #4FC3C9; --ok: #6FCB8A; --ok-bg: #1D3424; --bad: #F08A80; --bad-bg: #3E1E1B; --ink-blue: #9DB4FF; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1C1113; --paper: #2A191D; --ink: #F3E9E4; --muted: #C2AFA9; --line: #4A3036;
+  --burg: #8E2A40; --burg-deep: #2A0A12; --gold: #E0BC55; --gold-soft: #4A3A16;
+  --teal: #4FC3C9; --ok: #6FCB8A; --ok-bg: #1D3424; --bad: #F08A80; --bad-bg: #3E1E1B; --ink-blue: #9DB4FF; color-scheme: dark }
+body { direction: rtl; background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 17px; line-height: 1.7; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+.lat { font-family: var(--f-lat); font-style: normal; unicode-bidi: isolate; white-space: nowrap; }
+@media (max-width: 520px) { .rev mjx-container { font-size: 85%; } }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0 48px; }
+header.band { background: radial-gradient(120% 140% at 50% 0%, #7A2236 0%, #3A0E18 75%); color: #FFF4DE; border-bottom: 4px solid var(--gold); }
+header.band .wrap { display: grid; grid-template-columns: auto 1fr; gap: 18px; align-items: center; padding-block: 22px; }
+header.band img { width: 96px; height: 96px; }
+.academy { font-family: var(--f-display); font-weight: 800; font-size: 1.6rem; color: #F0CD78; line-height: 1.3; margin: 0; }
+.academy small { display: block; font-family: var(--f-lat); font-weight: 700; letter-spacing: .35em; font-size: .72rem; color: #E8D7A8; }
+.meta { margin: 6px 0 0; font-size: .95rem; color: #F7E7CF; }
+h1 { font-family: var(--f-display); font-size: 1.45rem; margin: 22px 0 2px; color: var(--burg); text-wrap: balance; }
+:root[data-theme="dark"] h1 { color: var(--gold); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) h1 { color: var(--gold); } }
+.sub { color: var(--teal); font-family: var(--f-lat); font-weight: 700; margin: 0 0 16px; direction: ltr; text-align: right; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+.start { display: grid; gap: 14px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--gold-soft); color: var(--ink); border-radius: 999px; padding: 2px 14px; font-weight: 600; font-size: .92rem; }
+label { font-weight: 700; display: block; margin-bottom: 4px; }
+input[type=text], select { width: 100%; font: inherit; padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); }
+input:focus-visible, select:focus-visible, button:focus-visible, .opt:focus-within { outline: 3px solid var(--gold); outline-offset: 2px; }
+.row2 { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .row2 { grid-template-columns: 1fr; } header.band img { width: 72px; height: 72px; } .academy { font-size: 1.3rem; } }
+button { font: inherit; font-weight: 700; cursor: pointer; border-radius: 10px; padding: 10px 22px; border: 0; }
+.primary { background: var(--burg); color: #FFF4DE; }
+.ghost { background: transparent; color: var(--burg); border: 1.5px solid var(--burg); }
+:root[data-theme="dark"] .ghost { color: var(--gold); border-color: var(--gold); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ghost { color: var(--gold); border-color: var(--gold); } }
+button:disabled { opacity: .45; cursor: not-allowed; }
+.err { color: var(--bad); font-weight: 600; min-height: 1.5em; margin: 0; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding-block: 10px; display: grid; gap: 6px; }
+.bar .top { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-weight: 600; font-size: .95rem; }
+.track { height: 8px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--burg)); width: 0; transition: width .25s; }
+.dots { display: flex; flex-wrap: wrap; gap: 6px; }
+.dot { width: 32px; height: 32px; padding: 0; border-radius: 8px; background: var(--paper); border: 1.5px solid var(--line); color: var(--ink); font-family: var(--f-lat); font-size: .9rem; }
+.dot.done { background: var(--gold-soft); border-color: var(--gold); }
+.dot.cur { border-color: var(--burg); border-width: 2.5px; }
+.qhead { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.qnum { background: var(--burg); color: #FFF4DE; font-weight: 700; border-radius: 8px; padding: 0 12px; }
+.marks { color: var(--muted); font-size: .9rem; }
+.part { color: var(--muted); font-size: .9rem; margin-inline-start: auto; }
+.qtext { font-size: 1.12rem; font-weight: 600; margin: 4px 0; }
+.terms { direction: ltr; text-align: left; color: var(--teal); font-family: var(--f-lat); font-weight: 700; font-size: .95rem; margin: 2px 0 10px; }
+.eq { direction: ltr; text-align: center; margin: 10px 0 14px; overflow-x: auto; font-size: 1.15rem; }
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; direction: rtl; }
+.opt .m:not([dir]) { direction: ltr; unicode-bidi: isolate; }
+@media (max-width: 520px) { .opts { grid-template-columns: 1fr; } }
+.opt { display: flex; align-items: center; gap: 12px; border: 1.5px solid var(--line); border-radius: 12px; padding: 10px 14px; cursor: pointer; background: var(--bg); min-width: 0; }
+.opt input { position: absolute; opacity: 0; }
+.opt .L { font-family: var(--f-lat); font-weight: 700; color: var(--burg); width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid currentColor; display: grid; place-items: center; flex: none; }
+.opt.sel { border-color: var(--burg); background: var(--gold-soft); }
+.opt.sel .L { background: var(--burg); color: #FFF4DE; border-color: var(--burg); }
+.opt .m { overflow-x: auto; min-width: 0; }
+.opts[dir="rtl"] { direction: rtl; }
+.mix { unicode-bidi: isolate; white-space: nowrap; }
+.arw { font-family: var(--f-body); font-style: normal; margin: 0 .35em; }
+.sub-q { border-top: 1px dashed var(--line); padding-top: 12px; margin-top: 12px; }
+.sub-q:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+.numrow { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; direction: ltr; justify-content: flex-start; }
+.numrow input { width: 110px; text-align: center; font-family: var(--f-lat); font-size: 1.05rem; }
+.hint { color: var(--muted); font-size: .9rem; margin: 6px 0 0; }
+.nav { display: flex; justify-content: space-between; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.graph { direction: ltr; display: block; width: 100%; max-width: 300px; margin: 6px auto 10px; }
+.confirm { border: 2px solid var(--bad); background: var(--bad-bg); border-radius: 12px; padding: 14px; margin-top: 14px; }
+.score { text-align: center; display: grid; gap: 6px; justify-items: center; }
+.score .big { direction: ltr; font-family: var(--f-lat); font-size: 3.2rem; font-weight: 700; color: var(--burg); line-height: 1; font-variant-numeric: tabular-nums; }
+:root[data-theme="dark"] .score .big { color: var(--gold); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .score .big { color: var(--gold); } }
+.certificate { border: 3px double var(--gold); border-radius: 16px; padding: 18px; background: var(--paper); display: grid; gap: 4px; text-align: center; }
+.certificate img { width: 70px; height: 70px; margin: 0 auto; }
+.code { font-family: var(--f-lat); letter-spacing: .15em; font-weight: 700; background: var(--gold-soft); border-radius: 8px; padding: 2px 10px; }
+.rev { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; margin-top: 16px; }
+.rv { border-inline-start: 6px solid var(--line); }
+.rv.ok { border-inline-start-color: var(--ok); }
+.rv.no { border-inline-start-color: var(--bad); }
+.verdict { font-weight: 700; }
+.ok .verdict { color: var(--ok); } .no .verdict { color: var(--bad); }
+.solution { background: var(--bg); border-radius: 10px; padding: 10px 14px; margin-top: 8px; color: var(--ink-blue); }
+.solution .eq { margin: 6px 0; }
+.boxed { border: 1.5px solid var(--ink-blue); border-radius: 6px; display: inline-block; padding: 2px 10px; }
+.your { font-size: .95rem; color: var(--muted); }
+footer.contact { margin-top: 26px; border-top: 2px solid var(--gold); padding-top: 14px; display: grid; gap: 8px; font-size: .95rem; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+.links a { text-decoration: none; color: var(--ink); border: 1.5px solid var(--line); border-radius: 999px; padding: 4px 14px; background: var(--paper); font-weight: 600; }
+.links a b { color: var(--burg); }
+.tel { font-family: var(--f-lat); font-weight: 700; user-select: all; }
+@media (prefers-reduced-motion: reduce) { .fill { transition: none; } }
+
+.card { background-image: url("data:image/svg+xml;utf8,<svg%20xmlns='http://www.w3.org/2000/svg'%20width='260'%20height='170'><text%20x='130'%20y='95'%20text-anchor='middle'%20transform='rotate(-28%20130%2085)'%20font-family='IBM%20Plex%20Sans%20Arabic,%20Tahoma'%20font-size='22'%20font-weight='700'%20fill='%231F3A5F'%20fill-opacity='0.27'>إعداد:%20محمد%20طه</text></svg>"); background-repeat: repeat; }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.badge { border-radius: 999px; padding: 0 10px; font-size: .85rem; font-weight: 700; border: 1.5px solid var(--line); background: var(--paper); }
+.badge.n { background: var(--burg); color: #FFF4DE; border-color: var(--burg); }
+.badge.it { color: var(--teal); border-color: var(--teal); }
+.badge.mk { color: #9A6B00; border-color: var(--gold); background: var(--gold-soft); }
+.badge.ls { color: var(--ink); }
+.badge.pg { color: var(--muted); font-family: var(--f-lat); }
+.outc { font-size: .88rem; color: var(--muted); margin: 0 0 8px; }
+.outc .en { display: block; direction: ltr; text-align: left; font-family: var(--f-lat); }
+.qof { font-weight: 700; align-self: center; }
+.dot.r-ok { background: var(--ok-bg); border-color: var(--ok); color: var(--ok); }
+.dot.r-part { background: #FDF0DC; border-color: #C27C0E; color: #8A5300; }
+.dot.r-no { background: var(--bad-bg); border-color: var(--bad); color: var(--bad); }
+.dot.cur { border-color: var(--gold) !important; border-width: 3px; }
+.miss { color: var(--bad); font-weight: 600; text-align: center; margin: 8px 0 0; }
+.opt img { width: 100%; height: auto; display: block; background: #fff; border-radius: 6px; }
+.qimg { display: block; width: 100%; max-width: 360px; margin: 6px auto 10px; background: #fff; border-radius: 8px; }
+.items { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; margin-top: 10px; }
+.items .it { border: 1px solid var(--line); border-radius: 8px; padding: 2px 8px; font-size: .9rem; display: flex; justify-content: space-between; }
+.verdict.part { color: #8A5300; }
+.remind { background: var(--gold-soft); border-radius: 10px; padding: 8px 12px; margin-top: 8px; }
+.got { font-weight: 700; margin-top: 8px; }
+.corr { color: var(--ok); font-weight: 700; font-family: var(--f-lat); }
+.wrongin { border-color: var(--bad) !important; background: var(--bad-bg) !important; }
+.rightin { border-color: var(--ok) !important; background: var(--ok-bg) !important; }
+.dist { color: #9A6B00; font-weight: 600; font-size: .92rem; }
+.mix > .arw, .mix mjx-container { display: inline-block; unicode-bidi: isolate; }
+.marks { white-space: nowrap; }
+.numrow .pairin { white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+.numrow input { width: 96px; }
+.dots { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+.dot { flex: none; width: 34px; height: 30px; }
+.nobr { white-space: nowrap; }
+.opt .m { overflow: hidden; }
+input.mi.hid { display: none; }
+math-field.mf { min-width: 90px; min-height: 42px; font-size: 20px; border: 1.5px solid #8FA3BF; border-radius: 8px; padding: 2px 8px; background: #fff; color: #2A1B1F; direction: ltr; --caret-color: #6E1E30; --selection-background-color: #DCE6F5; --placeholder-color: #8FA3BF; }
+math-field.mf.rightin { border-color: var(--ok); background: var(--ok-bg); }
+math-field.mf.wrongin { border-color: var(--bad); background: var(--bad-bg); }
+.mtools { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 6px 0 8px; position: sticky; top: 0; }
+.mt-l { font-size: .85rem; color: var(--muted); direction: rtl; }
+.mk { min-width: 34px; height: 34px; padding: 0 6px; direction: ltr; border-radius: 8px; border: 1.5px solid var(--line); background: var(--paper); color: var(--ink); font-family: 'Times New Roman', serif; font-size: 1.1rem; }
+.mk .fr { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; vertical-align: middle; }
+.mk .fr i { display: block; width: 12px; height: 9px; border: 1.2px solid currentColor; border-radius: 2px; }
+.mk .fr b { display: block; width: 16px; height: 0; border-top: 1.5px solid currentColor; }
+.mk .sq i { display: inline-block; width: 14px; height: 12px; border: 1.2px solid currentColor; border-radius: 2px; border-left: 0; border-bottom: 0; margin-left: -2px; vertical-align: middle; border-top-width: 1.5px; }
+.unit { font-size: .9rem; color: var(--muted); margin-left: 8px; }
+.score .sc-h { margin: 4px 0; font-family: var(--f-display); font-size: 1rem; }
+.score .sc-code { margin-top: 4px; }
+.rv-a{display:inline-block;white-space:nowrap;padding:3px 10px;border-radius:999px;background:#F6EBCB;color:#1d1d1d;font-weight:700;font-size:12.5px;text-decoration:none;border:1px solid #C9A227;margin-inline-start:6px}
+.rv-a.v{background:#1F3A5F;color:#fff;border-color:#1F3A5F}
+.rv-ok{color:#1E8449;font-weight:700;margin-inline-start:6px}
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="wrap">
+    <img id="stamp" class="stamp" alt="ختم أكاديمية طه للرياضيات" src="data:image/webp;base64,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">
+    <div>
+      <p class="academy">أكاديمية طه للرياضيات<small>TAHA MATH ACADEMY</small></p>
+      <p class="meta">نموذج تدريبي يحاكي الاختبار الوزاري • الثاني عشر متقدم • الفصل الأول</p>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <h1>نموذج الهيكل <bdi dir="ltr" class="lat">4</bdi> • الورقة المقالية</h1>
+  <p class="sub">Exam Coverage Practice 4 • Written Paper • Grade 12 Advanced • Term 1</p>
+  <section id="startView" class="card start">
+    <div class="facts"><span class="chip">الزمن <bdi dir="ltr" class="lat">60</bdi> دقيقة</span><span class="chip">الدرجة <bdi dir="ltr" class="lat">40</bdi></span><span class="chip"><bdi dir="ltr" class="lat">6</bdi> أسئلة</span><span class="chip">الآلة الحاسبة العلمية مسموحة</span></div>
+    <p style="margin:0">الأسئلة من <bdi dir="ltr" class="lat">21</bdi> إلى <bdi dir="ltr" class="lat">26</bdi>، والأسئلة <bdi dir="ltr" class="lat">21</bdi> و<bdi dir="ltr" class="lat">22</bdi> و<bdi dir="ltr" class="lat">23</bdi> مقسومة إلى أجزاء. حلّ كل جزء كاملًا في ورقتك، ثم اكتب نواتج خطوات الحل في خاناتها مستعملًا أزرار الرموز (كسر، جذر، ±، π). تظهر درجتك في كل بند والحل التفصيلي بعد التسليم.</p>
+    <div class="row2">
+      <div><label for="sName">الاسم الثلاثي</label><input id="sName" type="text" autocomplete="name" placeholder="الاسم الثلاثي"></div>
+      <div><label for="sSec">الشعبة</label>
+        <select id="sSec"><option value="">اختر</option><option>G12-BB</option><option>G12-BF</option><option>G12-BC</option><option>أخرى</option></select></div>
+    </div>
+    <p class="err" id="startErr"></p>
+    <div><button class="primary" id="startBtn">ابدأ الاختبار</button></div>
+  </section>
+  <section id="resultView" hidden>
+    <div id="result"><div class="certificate" id="cert"></div></div>
+  </section>
+  <section id="testView" hidden>
+    <div class="bar">
+      <div class="top"><span id="who"></span><span id="timerBox">المجاب: <bdi class="lat" id="answered">0</bdi> من <bdi class="lat">11</bdi> • الوقت المتبقي <bdi class="lat" id="timer">60:00</bdi></span></div>
+      <div class="track"><div class="fill" id="fill"></div></div>
+      <div class="dots" id="dots"></div>
+    </div>
+    <article class="card" id="qCard"></article>
+    <div class="nav">
+      <button class="ghost" id="prevBtn">السابق</button>
+      <span class="qof" id="qof"></span>
+      <button class="primary" id="nextBtn">التالي</button>
+    </div>
+    <div id="submitArea"><p class="miss" id="missMsg"></p></div>
+    <div id="confirmBox" class="confirm" hidden>
+      <p style="margin:0 0 8px" id="confirmMsg"></p>
+      <div class="nav" style="margin-top:0"><button class="primary" id="confirmYes">نعم، سلّم الاختبار</button><button class="ghost" id="confirmNo">العودة إلى الأسئلة</button></div>
+    </div>
+    <div class="nav"><button class="ghost" id="retryBtn">إعادة المحاولة من البداية</button></div>
+  </section>
+<footer class="contact">
+    <div>إعداد وتقديم: الأستاذ محمد طه • للتواصل <span class="tel">0566151988</span></div>
+    <div class="links">
+      <a href="https://youtube.com/channel/UCme_S8bU4NBT549Pp__OUUQ" target="_blank" rel="noopener"><b>▶</b> يوتيوب</a>
+      <a href="https://www.tiktok.com/@taha.math.academy" target="_blank" rel="noopener"><b>♪</b> تيك توك</a>
+      <a href="https://t.me/Mathematics_with_Mohamad_Taha" target="_blank" rel="noopener"><b>✈</b> تيليجرام</a>
+      <a href="https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6" target="_blank" rel="noopener"><b>●</b> واتساب</a>
+    </div>
+  </footer>
+</main>
+<script src="/review-links.js?v=3"></script>
+<script>
+
+const P = {"kind": "frq", "mins": 60, "total": 40, "title": "الورقة المقالية", "code": "H4W", "slug": "haykal-4-written"};
+const QS = [{"n": 21, "part": "a", "item": "21a", "lesson": "2-4", "mark": 4, "pg": ["88", "90"], "out": ["البحث في اتصال دالة عند نقطة معطاة", "Determine the continuity of a function at a given point"], "stem": "ابحث في اتصال الدالة \\(f\\) الآتية عند \\(x=3\\):", "eq": "f(x)=\\begin{cases}\\dfrac{\\sqrt{x+1}-2}{x-3}, & x<3\\\\ \\dfrac{x}{12}, & x\\ge 3\\end{cases}", "items": [{"t": "num", "pts": 1, "q": "قيمة الدالة عند نقطة الانتقال:", "fields": [{"pre": "f(3)=", "v": 0.25, "show": "\\frac{1}{4}", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}, {"t": "num", "pts": 1, "q": "النهاية من اليسار:", "fields": [{"pre": "\\lim_{x\\to3^{-}}f(x)=", "v": 0.25, "show": "\\frac{1}{4}", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}, {"t": "num", "pts": 1, "q": "النهاية من اليمين:", "fields": [{"pre": "\\lim_{x\\to3^{+}}f(x)=", "v": 0.25, "show": "\\frac{1}{4}", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}, {"t": "mc", "pts": 1, "q": "الحكم على اتصال الدالة عند \\(x=3\\):", "opts": ["غير متصلة لأن النهايتين من الجهتين غير متساويتين", "غير متصلة لأن الدالة غير معرّفة عند \\(x=3\\)", "متصلة لأن الدالة معرّفة عند \\(x=3\\) فقط", "متصلة لأن النهاية موجودة وتساوي قيمة الدالة"], "key": 3, "ar": true}], "sol": [["eq", "f(3)=\\frac{3}{12}=\\frac{1}{4}\\quad\\AR{:الدالة معرّفة}"], ["eq", "\\lim_{x\\to3^{-}}\\frac{\\sqrt{x+1}-2}{x-3}\\cdot\\frac{\\sqrt{x+1}+2}{\\sqrt{x+1}+2}\\quad\\AR{:المرافق}"], ["eq", "=\\lim_{x\\to3^{-}}\\frac{1}{\\sqrt{x+1}+2}=\\frac{1}{4}"], ["eq", "\\lim_{x\\to3^{+}}\\frac{x}{12}=\\frac{1}{4}"], ["eq", "\\lim_{x\\to3}f(x)=\\frac{1}{4}=f(3)\\quad\\AR{:الدالة متصلة}"]], "final": ["\\lim_{x\\to3}f(x)=f(3)=\\frac{1}{4}"], "dist": "قيمة ⁦f(3)⁩: درجة • النهاية من اليسار: درجة • النهاية من اليمين: درجة • الحكم على الاتصال: درجة", "rem": "الدالة متصلة عند نقطة إذا كانت معرّفة عندها ونهايتها موجودة وتساوي قيمة الدالة، وتوجد النهاية إذا تساوت النهايتان من الجهتين."}, {"n": 21, "part": "b", "item": "21b", "lesson": "2-4", "mark": 4, "pg": ["89", "91"], "out": ["استخدام خصائص الاتصال لدراسة اتصال دالة أو تركيب دوال عند نقطة", "Use the continuity properties to study the continuity of a function or a composition of functions at a given point"], "stem": "إذا كانت \\(f(x)=\\sqrt{4x+1}\\) و \\(g(x)=x^{2}+x\\)، فاستعمل خصائص الاتصال لإيجاد \\(\\displaystyle\\lim_{x\\to-4}f\\big(g(x)\\big)\\):", "eq": "f(x)=\\sqrt{4x+1},\\quad g(x)=x^{2}+x", "items": [{"t": "num", "pts": 1, "q": "نهاية الدالة الداخلية:", "fields": [{"pre": "\\lim_{x\\to-4}g(x)=", "v": 12, "show": "12", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}, {"t": "mc", "pts": 1.5, "q": "سبب إمكان إدخال النهاية داخل الدالة الخارجية:", "opts": ["لأن الدالتين معرّفتان عند \\(x=-4\\) فقط", "لأن الدالة الخارجية متصلة عند \\(x=-4\\)", "لأن الدالة الداخلية متصلة عند \\(x=-4\\) والخارجية متصلة عند \\(x=12\\)", "لأن الدالة الداخلية كثيرة حدود فقط"], "key": 2, "ar": true}, {"t": "num", "pts": 1.5, "q": "قيمة النهاية المطلوبة:", "fields": [{"pre": "\\lim_{x\\to-4}f\\big(g(x)\\big)=", "v": 7, "show": "7", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}], "sol": [["eq", "\\lim_{x\\to-4}g(x)=16-4=12\\quad\\AR{:كثيرة حدود متصلة}"], ["eq", "4(12)+1=49>0\\quad\\AR{:الخارجية متصلة عند قيمة الداخلية}"], ["eq", "\\lim_{x\\to-4}f\\big(g(x)\\big)=f\\left(\\lim_{x\\to-4}g(x)\\right)"], ["eq", "=f(12)=\\sqrt{49}=7"]], "final": ["\\lim_{x\\to-4}f\\big(g(x)\\big)=7"], "dist": "نهاية الدالة الداخلية: درجة • سبب إدخال النهاية: درجة ونصف • قيمة النهاية: درجة ونصف", "rem": "إذا كانت الدالة الداخلية متصلة عند النقطة والخارجية متصلة عند قيمتها، فنهاية التركيب هي الخارجية مطبّقة على نهاية الداخلية."}, {"n": 22, "part": "a", "item": "22a", "lesson": "2-5", "mark": 3, "pg": ["106", "108"], "out": ["إيجاد خطوط التقارب الأفقية والرأسية والمائلة باستخدام النهايات", "Find horizontal, vertical, and slant asymptotes using limits"], "stem": "لتكن الدالة \\(f\\) الآتية. حدّد خطوط التقارب الرأسية لمنحنى الدالة، ثم أوجد نهايتها عند العدد الآخر الذي يجعل مقامها صفراً:", "eq": "f(x)=\\frac{2x^{3}+x^{2}-2x+8}{x^{2}+x-2}", "items": [{"t": "mc", "pts": 2, "q": "خطوط التقارب الرأسية:", "opts": ["x=1", "x=-2,\\ x=1", "x=-2", "x=-1,\\ x=2"], "key": 0, "ar": false}, {"t": "num", "pts": 1, "q": "النهاية عند العدد الآخر الذي يجعل المقام صفراً:", "fields": [{"pre": "\\lim_{x\\to-2}f(x)=", "v": -6, "show": "-6", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}], "sol": [["eq", "x^{2}+x-2=(x+2)(x-1)\\quad\\AR{:نحلّل المقام}"], ["eq", "2x^{3}+x^{2}-2x+8=(x+2)\\left(2x^{2}-3x+4\\right)"], ["eq", "f(x)=\\frac{2x^{2}-3x+4}{x-1},\\ x\\ne-2"], ["eq", "\\lim_{x\\to-2}f(x)=\\frac{18}{-3}=-6\\quad\\AR{:فجوة لا خط تقارب}"], ["eq", "\\lim_{x\\to1^{+}}f(x)=\\infty\\ \\Rightarrow\\ x=1"]], "final": ["x=1"], "dist": "خط التقارب الرأسي: درجتان • النهاية عند ⁦x = −2⁩: درجة", "rem": "بعد تبسيط الدالة يكون خط التقارب الرأسي عند أصفار المقام التي لا تُختصر، أما العامل المختصر فيعطي فجوة."}, {"n": 22, "part": "b", "item": "22b", "lesson": "2-5", "mark": 3, "pg": ["106", "108"], "out": ["إيجاد خطوط التقارب الأفقية والرأسية والمائلة باستخدام النهايات", "Find horizontal, vertical, and slant asymptotes using limits"], "stem": "أوجد خط التقارب المائل \\(y=mx+b\\) لمنحنى الدالة \\(f\\) في الجزء السابق:", "eq": "f(x)=\\frac{2x^{3}+x^{2}-2x+8}{x^{2}+x-2}", "items": [{"t": "mc", "pts": 1, "q": "ناتج قسمة \\(2x^{2}-3x+4\\) على \\(x-1\\):", "opts": ["2x-5+\\frac{9}{x+1}", "2x-1-\\frac{3}{x-1}", "2x-1+\\frac{5}{x-1}", "2x-1+\\frac{3}{x-1}"], "key": 3, "ar": false}, {"t": "num", "pts": 2, "q": "خط التقارب المائل:", "fields": [{"pre": "m=", "v": 2, "show": "2", "post": "", "tol": null, "unit": ""}, {"pre": "b=", "v": -1, "show": "-1", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}], "sol": [["eq", "f(x)=\\frac{2x^{2}-3x+4}{x-1},\\ x\\ne-2"], ["eq", "=2x-1+\\frac{3}{x-1}\\quad\\AR{:القسمة الطويلة}"], ["eq", "\\lim_{x\\to\\pm\\infty}\\frac{3}{x-1}=0"], ["eq", "y=2x-1\\quad\\AR{:خط التقارب المائل}"]], "final": ["y=2x-1"], "dist": "ناتج القسمة: درجة • قيمتا ⁦m⁩ و ⁦b⁩: درجتان", "rem": "إذا زادت درجة البسط على درجة المقام بواحد فخط التقارب المائل هو ناتج القسمة دون الباقي."}, {"n": 22, "part": "c", "item": "22c", "lesson": "2-5", "mark": 2, "pg": ["106", "108"], "out": ["إيجاد خطوط التقارب الأفقية والرأسية والمائلة باستخدام النهايات", "Find horizontal, vertical, and slant asymptotes using limits"], "stem": "للدالة \\(f\\) في الجزء السابق، أوجد \\(\\displaystyle\\lim_{x\\to-\\infty}f(x)\\)، ثم حدّد هل لمنحنى الدالة خط تقارب أفقي:", "eq": "f(x)=\\frac{2x^{3}+x^{2}-2x+8}{x^{2}+x-2}", "items": [{"t": "mc", "pts": 1, "q": "\\(\\displaystyle\\lim_{x\\to-\\infty}f(x)\\) تساوي:", "opts": ["\\infty", "-\\infty", "2", "0"], "key": 1, "ar": false}, {"t": "mc", "pts": 1, "q": "هل لمنحنى الدالة \\(f\\) خط تقارب أفقي؟", "opts": ["نعم، وهو \\(y=2\\)", "نعم، وهو \\(y=0\\)", "لا، لأن نهاية الدالة عند اللانهاية غير منتهية", "نعم، وهو \\(y=2x-1\\)"], "key": 2, "ar": true}], "sol": [["eq", "\\lim_{x\\to-\\infty}\\left(2x-1+\\frac{3}{x-1}\\right)=-\\infty\\quad\\AR{:درجة البسط أكبر}"], ["eq", "\\lim_{x\\to\\infty}f(x)=\\infty\\quad\\AR{:لا يوجد خط تقارب أفقي}"]], "final": ["\\lim_{x\\to\\pm\\infty}f(x)=\\pm\\infty"], "dist": "النهاية عند سالب اللانهاية: درجة • الحكم على خط التقارب الأفقي: درجة", "rem": "لا يكون للدالة الكسرية خط تقارب أفقي إذا كانت درجة البسط أكبر من درجة المقام، لأن نهايتها عند اللانهاية غير منتهية."}, {"n": 23, "part": "a", "item": "23a", "lesson": "3-4", "mark": 2, "pg": ["169", "171"], "out": ["تطبيق قاعدة الضرب على المشتقات", "Apply the product rule to derivatives"], "stem": "يبيع متجر نوعاً فاخراً من التمور، ويرفع سعره كل أسبوع، فتقلّ الكمية التي يبيعها. بعد \\(t\\) أسبوع يكون سعر الكيلوغرام بالدرهم \\(p(t)\\) وعدد الكيلوغرامات المبيعة في الأسبوع \\(q(t)\\) كما يأتي، والإيراد الأسبوعي بالدرهم هو \\(R(t)=p(t)\\cdot q(t)\\). أوجد الإيراد الأسبوعي بعد \\(3\\) أسابيع:", "eq": "p(t)=20+3t,\\qquad q(t)=100-2t^{2}", "items": [{"t": "num", "pts": 1, "q": "سعر الكيلوغرام والكمية المبيعة بعد \\(3\\) أسابيع:", "fields": [{"pre": "p(3)=", "v": 29, "show": "29", "post": "", "tol": null, "unit": ""}, {"pre": "q(3)=", "v": 82, "show": "82", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}, {"t": "num", "pts": 1, "q": "الإيراد الأسبوعي بعد \\(3\\) أسابيع:", "fields": [{"pre": "R(3)=", "v": 2378, "show": "2378", "post": "", "tol": null, "unit": "AED"}], "pair": false, "corr": null}], "sol": [["eq", "p(3)=20+9=29"], ["eq", "q(3)=100-2(9)=82"], ["eq", "R(3)=29\\times82=2378\\quad\\AR{:درهم}"]], "final": ["R(3)=2378"], "dist": "قيمتا ⁦p(3)⁩ و ⁦q(3)⁩: درجة • الإيراد ⁦R(3)⁩: درجة", "rem": "الإيراد هو حاصل ضرب سعر الوحدة في الكمية المبيعة عند اللحظة نفسها."}, {"n": 23, "part": "b", "item": "23b", "lesson": "3-4", "mark": 4, "pg": ["169", "171"], "out": ["تطبيق قاعدة الضرب على المشتقات", "Apply the product rule to derivatives"], "stem": "للمسألة في الجزء السابق، استعمل قاعدة الضرب لإيجاد معدل تغيّر الإيراد الأسبوعي بعد \\(3\\) أسابيع:", "eq": "p(t)=20+3t,\\qquad q(t)=100-2t^{2}", "items": [{"t": "mc", "pts": 1, "q": "مشتقة الإيراد بقاعدة الضرب:", "opts": ["R'(t)=p'(t)\\,q(t)+p(t)\\,q'(t)", "R'(t)=p'(t)\\,q'(t)", "R'(t)=p'(t)\\,q(t)-p(t)\\,q'(t)", "R'(t)=p(t)\\,q(t)+p'(t)\\,q'(t)"], "key": 0, "ar": false}, {"t": "num", "pts": 1, "q": "مشتقتا الدالتين بعد \\(3\\) أسابيع:", "fields": [{"pre": "p'(3)=", "v": 3, "show": "3", "post": "", "tol": null, "unit": ""}, {"pre": "q'(3)=", "v": -12, "show": "-12", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}, {"t": "num", "pts": 2, "q": "معدل تغيّر الإيراد الأسبوعي بعد \\(3\\) أسابيع:", "fields": [{"pre": "R'(3)=", "v": -102, "show": "-102", "post": "", "tol": null, "unit": "AED/week"}], "pair": false, "corr": null}], "sol": [["eq", "R'(t)=p'(t)\\,q(t)+p(t)\\,q'(t)\\quad\\AR{:قاعدة الضرب}"], ["eq", "p'(t)=3,\\quad q'(t)=-4t\\ \\Rightarrow\\ q'(3)=-12"], ["eq", "R'(3)=3(82)+29(-12)"], ["eq", "=246-348=-102\\quad\\AR{:درهم لكل أسبوع}"]], "final": ["R'(3)=-102"], "dist": "صيغة قاعدة الضرب: درجة • المشتقتان: درجة • قيمة ⁦R'(3)⁩: درجتان", "rem": "مشتقة حاصل ضرب دالتين هي مشتقة الأولى في الثانية زائد الأولى في مشتقة الثانية، وليست حاصل ضرب المشتقتين."}, {"n": 23, "part": "c", "item": "23c", "lesson": "3-4", "mark": 2, "pg": ["169", "171"], "out": ["تطبيق قاعدة الضرب على المشتقات", "Apply the product rule to derivatives"], "stem": "للمسألة نفسها، متى يتوقف الإيراد الأسبوعي عن التزايد؟ وماذا يحدث للإيراد قبل هذه اللحظة وبعدها؟", "eq": "p(t)=20+3t,\\qquad q(t)=100-2t^{2}", "items": [{"t": "num", "pts": 1, "q": "قيمة \\(t\\) الموجبة التي ينعدم عندها معدل تغيّر الإيراد (قرّب لأقرب جزء من مئة):", "fields": [{"pre": "t=", "v": 2.42588903630042, "show": "\\frac{-20+5\\sqrt{70}}{9}", "post": "", "tol": 0.005, "unit": "weeks"}], "pair": false, "corr": null}, {"t": "mc", "pts": 1, "q": "وصف الإيراد الأسبوعي حول هذه اللحظة:", "opts": ["يتناقص الإيراد الأسبوعي قبل هذه اللحظة ويتزايد بعدها", "يصبح الإيراد الأسبوعي صفراً عند هذه اللحظة", "يكون سعر الكيلوغرام أكبر ما يمكن عند هذه اللحظة", "يتزايد الإيراد الأسبوعي قبل هذه اللحظة ويتناقص بعدها"], "key": 3, "ar": true}], "sol": [["eq", "R'(t)=3\\left(100-2t^{2}\\right)+(20+3t)(-4t)"], ["eq", "=300-80t-18t^{2}"], ["eq", "9t^{2}+40t-150=0\\quad\\AR{:نقسم الطرفين على عدد سالب}"], ["eq", "t=\\frac{-20+5\\sqrt{70}}{9}\\approx2.43\\quad\\AR{:نرفض السالبة}"], ["eq", "R'(t)>0,\\ t<2.43\\quad\\AR{:يتزايد قبلها}"], ["eq", "R'(t)<0,\\ t>2.43\\quad\\AR{:يتناقص بعدها}"]], "final": ["t\\approx2.43"], "dist": "قيمة ⁦t⁩: درجة • وصف الإيراد: درجة", "rem": "يتوقف المقدار عن التزايد عندما ينعدم معدل تغيّره ثم يصبح سالباً."}, {"n": 24, "part": "", "item": "24", "lesson": "3-6", "mark": 6, "pg": ["184", "186"], "out": ["إيجاد مشتقات الدوال المثلثية باستخدام قواعد التفاضل", "Find the derivatives of trigonometric functions using differentiation rules"], "stem": "إذا كانت الدالة \\(f\\) معرّفة كما يأتي، فأوجد \\(f'(x)\\)، ثم أوجد معادلة المماس لمنحنى الدالة عند \\(x=\\dfrac{\\pi}{4}\\) بالصورة \\(y=mx+b\\):", "eq": "f(x)=\\frac{\\sec x}{1+\\tan x},\\qquad -\\frac{\\pi}{4}<x<\\frac{\\pi}{2}", "items": [{"t": "mc", "pts": 2, "q": "المشتقة \\(f'(x)\\):", "opts": ["\\frac{\\sec x(1-\\tan x)}{(1+\\tan x)^{2}}", "\\frac{\\sec x\\tan x}{\\sec^{2}x}", "\\frac{\\sec x(\\tan x-1)}{(1+\\tan x)^{2}}", "\\frac{\\sec x(\\tan x+1)}{(1+\\tan x)^{2}}"], "key": 2, "ar": false}, {"t": "num", "pts": 1, "q": "قيمة الدالة عند \\(x=\\dfrac{\\pi}{4}\\):", "fields": [{"pre": "f\\left(\\frac{\\pi}{4}\\right)=", "v": 0.7071067811865476, "show": "\\frac{\\sqrt{2}}{2}", "post": "", "tol": 0.005, "unit": ""}], "pair": false, "corr": null}, {"t": "num", "pts": 1, "q": "ميل المماس عند \\(x=\\dfrac{\\pi}{4}\\):", "fields": [{"pre": "f'\\left(\\frac{\\pi}{4}\\right)=", "v": 0, "show": "0", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}, {"t": "num", "pts": 2, "q": "معادلة المماس \\(y=mx+b\\) (اكتب \\(b\\) بالصورة الدقيقة أو مقرّباً لأقرب جزء من مئة):", "fields": [{"pre": "m=", "v": 0, "show": "0", "post": "", "tol": null, "unit": ""}, {"pre": "b=", "v": 0.7071067811865476, "show": "\\frac{\\sqrt{2}}{2}", "post": "", "tol": 0.005, "unit": ""}], "pair": false, "corr": null}], "sol": [["eq", "f'=\\frac{\\sec x\\tan x(1+\\tan x)-\\sec x\\cdot\\sec^{2}x}{(1+\\tan x)^{2}}\\quad\\AR{:قاعدة القسمة}"], ["eq", "=\\frac{\\sec x\\left(\\tan x+\\tan^{2}x-\\sec^{2}x\\right)}{(1+\\tan x)^{2}}"], ["eq", "=\\frac{\\sec x(\\tan x-1)}{(1+\\tan x)^{2}}\\quad\\AR{:متطابقة فيثاغورس}"], ["eq", "\\sec\\frac{\\pi}{4}=\\sqrt{2},\\quad \\tan\\frac{\\pi}{4}=1"], ["eq", "f\\left(\\frac{\\pi}{4}\\right)=\\frac{\\sqrt{2}}{2}"], ["eq", "f'\\left(\\frac{\\pi}{4}\\right)=\\frac{\\sqrt{2}(1-1)}{4}=0\\quad\\AR{:مماس أفقي}"], ["eq", "y=\\frac{\\sqrt{2}}{2}"]], "final": ["f'(x)=\\frac{\\sec x(\\tan x-1)}{(1+\\tan x)^{2}},\\quad y=\\frac{\\sqrt{2}}{2}"], "dist": "المشتقة: درجتان • قيمة الدالة: درجة • الميل: درجة • معادلة المماس: درجتان", "rem": "طبّق قاعدة القسمة واستعمل متطابقة فيثاغورس لتبسيط البسط، ثم عوّض بالقيم الدقيقة للزاوية الخاصة."}, {"n": 25, "part": "", "item": "25", "lesson": "3-7", "mark": 6, "pg": ["194", "196"], "out": ["حل مسائل حياتية باستخدام مشتقات الدوال الأسية واللوغاريتمية", "Solve real-life problems using derivatives of exponential and logarithmic functions"], "stem": "تحتوي عيّنة في مختبر على مادة مشعة تتناقص كتلتها كل يوم بنسبة ثابتة. تُعطى كتلة العيّنة بالغرام بعد \\(t\\) يوماً بالدالة الآتية. أجب عمّا يأتي (قرّب الإجابات لأقرب جزء من مئة):", "eq": "Q(t)=50(0.92)^{t}", "items": [{"t": "num", "pts": 1, "q": "كتلة العيّنة بعد \\(4\\) أيام:", "fields": [{"pre": "Q(4)=", "v": 35.819648, "show": "35.82", "post": "", "tol": 0.005, "unit": "g"}], "pair": false, "corr": null}, {"t": "mc", "pts": 1.5, "q": "معدل تغيّر كتلة العيّنة:", "opts": ["Q'(t)=50t(0.92)^{t-1}", "Q'(t)=50(0.92)^{t}", "Q'(t)=50(0.92)^{t}\\ln0.92", "Q'(t)=\\frac{50(0.92)^{t}}{\\ln0.92}"], "key": 2, "ar": false}, {"t": "num", "pts": 1.5, "q": "معدل تغيّر كتلة العيّنة بعد \\(4\\) أيام:", "fields": [{"pre": "Q'(4)=", "v": -2.986699881870461, "show": "-2.99", "post": "", "tol": 0.005, "unit": "g/day"}], "pair": false, "corr": null}, {"t": "mc", "pts": 1, "q": "معنى إشارة \\(Q'(4)\\):", "opts": ["كتلة العيّنة تتزايد عند نهاية اليوم الرابع", "كتلة العيّنة تتناقص عند نهاية اليوم الرابع", "كتلة العيّنة ثابتة عند نهاية اليوم الرابع", "كتلة العيّنة تساوي صفراً عند نهاية اليوم الرابع"], "key": 1, "ar": true}, {"t": "num", "pts": 1, "q": "الزمن الذي يصبح عنده معدل تناقص الكتلة \\(2\\) غرام لكل يوم:", "fields": [{"pre": "t=", "v": 8.809476381681025, "show": "8.81", "post": "", "tol": 0.005, "unit": "days"}], "pair": false, "corr": null}], "sol": [["eq", "Q(4)=50(0.92)^{4}\\approx35.82"], ["eq", "\\frac{d}{dt}a^{t}=a^{t}\\ln a\\quad\\AR{:مشتقة الأسية}"], ["eq", "Q'(t)=50(0.92)^{t}\\ln0.92"], ["eq", "Q'(4)=50(0.92)^{4}\\ln0.92\\approx-2.99"], ["eq", "Q'(4)<0\\quad\\AR{:الكتلة تتناقص}"], ["eq", "50(0.92)^{t}\\ln0.92=-2"], ["eq", "(0.92)^{t}=\\frac{-2}{50\\ln0.92}\\approx0.4797"], ["eq", "t=\\frac{\\ln0.4797}{\\ln0.92}\\approx8.81\\quad\\AR{:نأخذ اللوغاريتم}"]], "final": ["Q(4)\\approx35.82,\\quad Q'(4)\\approx-2.99,\\quad t\\approx8.81"], "dist": "قيمة ⁦Q(4)⁩: درجة • صيغة المشتقة: درجة ونصف • قيمة ⁦Q'(4)⁩: درجة ونصف • معنى الإشارة: درجة • الزمن: درجة", "rem": "مشتقة الدالة الأسية لأساس موجب هي الدالة نفسها مضروبة في اللوغاريتم الطبيعي للأساس، وإشارة المشتقة تبيّن التزايد أو التناقص."}, {"n": 26, "part": "", "item": "26", "lesson": "3-10", "mark": 4, "pg": ["219", "221"], "out": ["التعرّف على نظرية القيمة المتوسطة واستخدامها في التطبيقات", "Understand the Mean Value Theorem and use it in applications"], "stem": "تحقق الدالة \\(f\\) الآتية فرضيات نظرية القيمة المتوسطة على الفترة \\([0,\\,4]\\). أوجد متوسط معدل التغير على الفترة، ثم أوجد قيمة \\(c\\) التي تحددها النظرية:", "eq": "f(x)=\\frac{12}{x+2}", "items": [{"t": "num", "pts": 1, "q": "متوسط معدل التغير على الفترة:", "fields": [{"pre": "\\frac{f(4)-f(0)}{4-0}=", "v": -1, "show": "-1", "post": "", "tol": null, "unit": ""}], "pair": false, "corr": null}, {"t": "mc", "pts": 1, "q": "مشتقة الدالة:", "opts": ["f'(x)=-\\frac{12}{(x+2)^{2}}", "f'(x)=\\frac{12}{(x+2)^{2}}", "f'(x)=-\\frac{12}{x^{2}+4}", "f'(x)=-\\frac{1}{(x+2)^{2}}"], "key": 0, "ar": false}, {"t": "num", "pts": 2, "q": "قيمة \\(c\\) (قرّب لأقرب جزء من مئة):", "fields": [{"pre": "c=", "v": 1.4641016151377544, "show": "-2+2\\sqrt{3}", "post": "", "tol": 0.005, "unit": ""}], "pair": false, "corr": null}], "sol": [["eq", "f(0)=6,\\quad f(4)=2"], ["eq", "\\frac{2-6}{4-0}=-1\\quad\\AR{:متوسط معدل التغير}"], ["eq", "f'(x)=-\\frac{12}{(x+2)^{2}}"], ["eq", "-\\frac{12}{(c+2)^{2}}=-1\\ \\Rightarrow\\ (c+2)^{2}=12"], ["eq", "c+2=\\pm2\\sqrt{3}"], ["eq", "c=-2+2\\sqrt{3}\\approx1.46\\quad\\AR{:نرفض القيمة خارج الفترة}"]], "final": ["c=-2+2\\sqrt{3}\\approx1.46"], "dist": "متوسط معدل التغير: درجة • المشتقة: درجة • قيمة ⁦c⁩: درجتان", "rem": "تضمن النظرية وجود عدد داخل الفترة يكون عنده ميل المماس مساوياً لميل القاطع بين طرفيها، ونرفض أي قيمة خارج الفترة."}];
+const L = 'ABCD';
+const lat = s => '<bdi dir="ltr" class="lat">' + s + '</bdi>';
+const N = QS.length;
+const $ = id => document.getElementById(id);
+const esc = t => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const tex = (t, display) => (display ? '\\[' : '\\(') + esc(t) + (display ? '\\]' : '\\)');
+// math with Arabic words (\AR{..} from the answer key, or \text{arabic}): the words become HTML text in LTR visual order
+const ARW = /\\AR\{:?([^{}]*?):?\}|\\text\{([^}]*[\u0600-\u06FF][^}]*)\}/g;
+function mt(s, display) {
+  if (!/\\AR\{|\\text\{[^}]*[\u0600-\u06FF]/.test(s)) return tex(s, display);
+  let out = '', last = 0, m; ARW.lastIndex = 0;
+  while ((m = ARW.exec(s))) { const a = s.slice(last, m.index).replace(/^(\\[ ,;!]|\\q?quad|\s)+|(\\[ ,;!]|\\q?quad|\s)+$/g, ''); if (a) out += tex('\\displaystyle ' + a); out += '<span class="arw">' + (m[1] || m[2]) + '</span>'; last = ARW.lastIndex; }
+  const z = s.slice(last).replace(/^(\\[ ,;!]|\\q?quad|\s)+/g, ''); if (z) out += tex('\\displaystyle ' + z);
+  return '<span class="mix" dir="ltr">' + out + '</span>';
+}
+function fitEqs(root) { root.querySelectorAll('.eq, .your, .opt .m').forEach(e => { const m = e.querySelectorAll('mjx-container'); let f = 100;
+  while (e.scrollWidth > e.clientWidth + 1 && f > 45) { f -= 5; e.style.fontSize = f + '%'; } }); }
+function typeset(el) { if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([el]).then(() => fitEqs(el)).catch(() => {}); else setTimeout(() => typeset(el), 300); }
+function parseNum(s) {
+  s = String(s).replace(/[\u200E\u200F\u202A-\u202E\u2066-\u2069]/g, '').trim().replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[−–—‐]/g, '-').replace(/٫/g, '.').replace(/,/g, '.').replace(/\s+/g, '').replace(/^\+(?=\d)/, '');
+  if (!s) return NaN;
+  if (/^-?\d+(\.\d+)?\/-?\d+(\.\d+)?$/.test(s)) { const [a, b] = s.split('/').map(Number); return b ? a / b : NaN; }
+  return /^-?\d*\.?\d+$/.test(s) ? Number(s) : NaN;
+}
+const near = (a, b, t) => Math.abs(a - b) <= (t || 1e-6);
+const isMcq = P.kind === 'mcq';
+function blank() { return isMcq ? Array(N).fill(null) : QS.map(q => q.items.map(it => it.t === 'mc' ? null : it.fields.map(() => ''))); }
+const blankTex = () => isMcq ? [] : QS.map(q => q.items.map(it => it.t === 'mc' ? null : it.fields.map(() => '')));
+const state = { name: '', sec: '', cur: 0, ans: blank(), tex: blankTex(), start: 0, end: 0, done: false };
+function itemAnswered(i, j) { const it = QS[i].items[j], v = state.ans[i][j]; return it.t === 'mc' ? v !== null : v.every(x => String(x).trim() !== ''); }
+function wnorm(s) {
+  return String(s == null ? '' : s).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[۰-۹]/g, d => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
+    .replace(/[−–—‒﹣－]/g, '-').replace(/٫/g, '.').replace(/×/g, '*').replace(/÷/g, '/').replace(/،/g, ',');
+}
+function wev(t) {                       // one expression: numbers, + - * / ( ), √ and π (the site's maths answer box)
+  t = wnorm(t).replace(/\s+/g, '').replace(/π|pi/g, 'P').replace(/√/g, 'S');
+  if (!t || !/^[0-9.+\-*/()SP]*$/.test(t)) return NaN;
+  t = t.replace(/S(\d+(?:\.\d+)?)/g, 'R($1)').replace(/S\(/g, 'R(');
+  if (/S/.test(t)) return NaN;
+  t = t.replace(/(\d|\)|P)(?=R|\(|P)/g, '$1*').replace(/\)(?=\d)/g, ')*').replace(/P(?=\d)/g, 'P*');
+  try { const v = Function('R', 'P', '"use strict";return (' + t + ')')(Math.sqrt, Math.PI); return typeof v === 'number' && isFinite(v) ? v : NaN; } catch (e) { return NaN; }
+}
+const val = s => { const a = parseNum(s); return isNaN(a) ? wev(s) : a; };
+function answered(k) { return isMcq ? state.ans[k] !== null : QS[k].items.every((_, j) => itemAnswered(k, j)); }
+function badges(q) {
+  const nm = (state.done ? 'إجابة س' : 'س') + q.n + (q.part || '');
+  return `<div class="badges"><span class="badge n">${nm}</span><span class="badge it">البند ${lat(q.item)}</span><span class="badge mk">الدرجة ${lat(q.mark)}</span>`
+    + `<span class="badge ls">الدرس ${lat(q.lesson)}</span><span class="badge pg" dir="ltr">Bridge p. ${q.pg[0]} | ص ${q.pg[1]}</span></div>`
+    + `<p class="outc">ناتج التعلم: ${q.out[0]}<span class="en">${q.out[1]}</span></p>`;
+}
+function optsHtml(name, opts, chosen, graph, isAr, res) {
+  return '<div class="opts" role="radiogroup" dir="rtl">' + opts.map((o, i) => {
+    let cls = 'opt' + (chosen === i ? ' sel' : '');
+    if (res) cls += i === res.key ? ' rightin' : (chosen === i ? ' wrongin' : '');
+    const body = graph ? `<img alt="الخيار ${L[i]}" src="${o}">` : (isAr ? o : mt(o));
+    return `<label class="${cls}"><input type="radio" name="${name}" value="${i}" ${chosen === i ? 'checked' : ''} ${res ? 'disabled' : ''}><span class="L">${L[i]}</span><span class="m" ${isAr ? 'dir="rtl"' : ''}>${body}</span></label>`;
+  }).join('') + '</div>';
+}
+function qHtml(k, res) {
+  const q = QS[k];
+  let h = badges(q) + `<p class="qtext">${q.stem}</p>`;
+  if (q.img) h += `<img class="qimg" alt="منحنى المشتقة" src="${q.img}">`;
+  if (q.eq) h += q.eq.split(/;?\\qquad/).map(x => x.trim().replace(/[,;]$/, '')).filter(Boolean).map(x => `<div class="eq">${mt(x, true)}</div>`).join('');
+  if (isMcq) h += optsHtml('q' + k, q.opts, state.ans[k], q.graph, false, res ? { key: q.key } : null);
+  else { const fn = q.items.findIndex(it => it.t === 'num'); q.items.forEach((it, j) => {
+    const v = state.ans[k][j], r = res ? res.parts[j] : null;
+    if (!res && j === fn) h += TOOLS;
+    h += `<div class="sub-q"><p class="qtext" style="font-size:1rem">${it.q} <span class="marks">(${it.pts === 1 ? 'درجة واحدة' : it.pts === 1.5 ? 'درجة ونصف' : it.pts === 2 ? 'درجتان' : lat(it.pts) + ' درجات'})</span></p>`;
+    if (it.t === 'mc') h += optsHtml(`q${k}_${j}`, it.opts, v, false, !!it.ar, r ? { key: it.key } : null);
+    else h += '<div class="numrow" dir="ltr">' + it.fields.map((f, m) => `<span class="pairin">${f.pre ? tex(f.pre) : ''}<input class="mi" id="in${k}_${j}_${m}" type="text" aria-label="الخانة ${m + 1}" value="${String(v[m]).replace(/"/g, '&quot;')}" ${r ? 'disabled' : ''} data-ok="${r ? (r.okf[m] ? 1 : 0) : ''}">${f.post ? tex(f.post) : ''}${f.unit ? '<span class="unit" dir="rtl">' + f.unit + '</span>' : ''}</span>`).join('') + '</div>';
+    if (r) h += `<p class="got">${r.ok ? '✓ صحيحة: ' + lat(fmt(r.got)) + ' من ' + lat(it.pts) : '✗ ' + (it.t === 'mc' ? 'الصحيح: ' + lat(L[it.key]) : 'الصحيح: <span class="corr" dir="ltr">' + (it.corr ? tex(it.corr) + (it.fields[0].unit ? ' <span class="unit">' + it.fields[0].unit + '</span>' : '') : it.fields.map(f => tex((f.pre || '') + f.show + (f.post || ''))).join('\\(,\\ \\)')) + '</span>')}</p>`;
+    h += '</div>';
+  }); }
+  return h;
+}
+const fmt = x => Number.isInteger(x) ? String(x) : (Math.abs(x * 100 - Math.round(x * 100)) < 1e-9 ? String(Math.round(x * 100) / 100) : x.toFixed(4));
+function render() {
+  const k = state.cur, card = $('qCard');
+  const res = state.done ? state.res.per[k] : null;
+  let h = qHtml(k, res);
+  if (res) {
+    const q = QS[k];
+    if (isMcq) {
+      const ch = state.ans[k];
+      h += `<p class="verdict ${res.got === res.max ? 'ok' : 'no'}" style="margin-top:10px">` + (ch === null ? 'لم تُجب عن هذا السؤال. <span class="nobr">الإجابة الصحيحة هي ' + lat(L[q.key]) + '</span>' : res.got === res.max ? 'إجابة صحيحة ✓ (' + lat(res.max) + ' من ' + lat(res.max) + ')' : 'إجابتك ' + lat(L[ch]) + ' غير صحيحة، <span class="nobr">والإجابة الصحيحة هي ' + lat(L[q.key]) + '</span>') + '</p>';
+    } else h += `<p class="verdict ${res.got === res.max ? 'ok' : res.got > 0 ? 'part' : 'no'}" style="margin-top:10px">حصلت على ${lat(fmt(res.got))} من ${lat(res.max)} في هذا البند</p>`;
+    h += `<div class="remind"><b>تذكّر:</b> ${q.rem}</div><div class="solution"><b>الحل التفصيلي:</b>` + q.sol.map(([, s]) => `<div class="eq">${mt(s, true)}</div>`).join('')
+      + (q.final ? `<div class="eq"><span class="boxed">${q.final.map(x => mt(x)).join('<br>')}</span></div><p class="dist">توزيع الدرجات: ${q.dist}</p>` : '') + '</div>';
+  }
+  card.innerHTML = h;
+  if (!state.done) {
+    card.querySelectorAll('input[type=radio]').forEach(r => r.addEventListener('change', () => {
+      const p = r.name.slice(1).split('_').map(Number);
+      if (isMcq) state.ans[p[0]] = +r.value; else state.ans[p[0]][p[1]] = +r.value;
+      save(); render(); }));
+    card.querySelectorAll('input.mi').forEach(inp => inp.addEventListener('input', () => {
+      const [a, b, c] = inp.id.slice(2).split('_').map(Number); state.ans[a][b][c] = inp.value; save(); updateBar(); }));
+  }
+  $('qof').innerHTML = 'السؤال ' + lat(k + 1) + ' من ' + lat(N);
+  $('prevBtn').disabled = k === 0;
+  $('nextBtn').textContent = k < N - 1 ? 'التالي' : (state.done ? 'التالي' : 'تسليم');
+  $('nextBtn').disabled = state.done && k === N - 1;
+  card.querySelectorAll('input.mi').forEach(wmount);
+  updateBar(); typeset(card);
+}
+function updateBar() {
+  const done = Array.from({ length: N }, (_, k) => answered(k));
+  $('answered').textContent = done.filter(Boolean).length;
+  $('fill').style.width = (100 * done.filter(Boolean).length / N) + '%';
+  $('dots').innerHTML = QS.map((q, k) => {
+    let c = 'dot';
+    if (state.done) { const r = state.res.per[k]; c += r.got === r.max ? ' r-ok ok' : r.got > 0 ? ' r-part half' : ' r-no no'; } else if (done[k]) c += ' done';
+    if (k === state.cur) c += ' cur';
+    return `<button class="${c}" data-k="${k}" aria-label="السؤال ${k + 1}">${q.n}${q.part || ''}</button>`; }).join('');
+  $('dots').querySelectorAll('.dot').forEach(b => b.addEventListener('click', () => { state.cur = +b.dataset.k; save(); render(); }));
+  const miss = done.filter(x => !x).length;
+  $('missMsg').textContent = state.done ? '' : (miss ? (isMcq ? 'أسئلة لم تُجب عنها بعد: ' : 'أسئلة لم تُكملها بعد: ') + miss : 'أجبت عن كل الأسئلة');
+}
+let timerId = null;
+function tick() {
+  const left = Math.max(0, P.mins * 60 - Math.floor((Date.now() - state.start) / 1000));
+  $('timer').textContent = String(Math.floor(left / 60)).padStart(2, '0') + ':' + String(left % 60).padStart(2, '0');
+  if (left === 0 && !state.done) finish();
+}
+function grade() {
+  let total = 0; const per = [];
+  QS.forEach((q, k) => {
+    if (isMcq) { const ok = state.ans[k] === q.key; per.push({ got: ok ? q.mark : 0, max: q.mark }); total += ok ? q.mark : 0; return; }
+    let got = 0; const parts = q.items.map((it, j) => {
+      const v = state.ans[k][j]; let ok, okf = [];
+      if (it.t === 'mc') ok = v === it.key;
+      else if (it.pair) { const a = v.map(val), b = it.fields.map(f => f.v); const used = [];
+        okf = a.map(x => { const i = b.findIndex((y, n) => !used[n] && near(x, y, 1e-6)); if (i >= 0) { used[i] = 1; return true; } return false; }); ok = okf.every(Boolean); }
+      else { okf = it.fields.map((f, m) => near(val(v[m]), f.v, f.tol || 1e-6)); ok = okf.every(Boolean); }
+      if (ok) got += it.pts; return { ok, okf, got: ok ? it.pts : 0 }; });
+    per.push({ got, max: q.mark, parts }); total += got; });
+  return { total, per };
+}
+function code(name, total) {
+  let h = 7; for (const c of name + '|' + total + '|' + P.code) h = (h * 31 + c.charCodeAt(0)) % 99991;
+  let g = 11; for (const c of P.code + name) g = (g * 17 + c.charCodeAt(0)) % 997;
+  return P.code + '-' + String(g).padStart(3, '0') + '-' + String(h).padStart(5, '0');
+}
+function finish() {
+  clearInterval(timerId); $('confirmBox').hidden = true;
+  if (!state.done) { state.end = Date.now(); state.done = true; state.res = grade(); state.cur = 0; save(); }
+  const g = state.res, mins = Math.max(1, Math.round((state.end - state.start) / 60000));
+  const pct = g.total / P.total;
+  const msg = pct >= .9 ? 'ممتاز، أنت جاهز للاختبار الوزاري.' : pct >= .75 ? 'جيد جدًا، راجع البنود التي لم تحصل فيها على الدرجة كاملة.' : pct >= .5 ? (isMcq ? 'راجع حلول البنود الملوّنة بالأحمر، ثم أعد المحاولة.' : 'راجع حلول البنود الملوّنة بالأحمر والبرتقالي، ثم أعد المحاولة.') : 'ابدأ بمراجعة ملزمة الهيكل للبنود التي لم تحصل فيها على الدرجة، ثم أعد المحاولة.';
+  $('cert').innerHTML = `<img alt="ختم أكاديمية طه للرياضيات" src="${$('stamp').src}"><div style="font-weight:700">${escapeHtml(state.name)} • ${lat(escapeHtml(state.sec))}</div>`
+    + `<div class="score"><h3 class="sc-h">بطاقة النتيجة • نموذج الهيكل ${lat('4')} • ${P.title} • الثاني عشر متقدم</h3><span class="big">${fmt(g.total)} / ${P.total}</span><div class="sc-code">رمز التحقق <bdi dir="ltr" class="code" style="white-space:nowrap">${code(state.name, g.total)}</bdi></div></div><div>${msg}</div>`
+    + `<div class="items">` + QS.map((q, k) => `<span class="it"><span>البند ${lat(q.item)}</span>${lat(fmt(g.per[k].got) + '/' + g.per[k].max)}${window.tmnReviewHtml ? tmnReviewHtml(q.item, g.per[k].got, g.per[k].max) : ''}</span>`).join('') + '</div>'
+    + `<div>الزمن ${mins === 1 ? 'دقيقة واحدة' : mins === 2 ? 'دقيقتان' : lat(mins) + (mins <= 10 ? ' دقائق' : ' دقيقة')}</div><div class="hint">أرسل صورة هذه البطاقة إلى الأستاذ.</div>`;
+  $('startView').hidden = true; $('testView').hidden = false; $('resultView').hidden = false; $('result').classList.add('show');
+  $('testView').before($('resultView')); $('timerBox').hidden = true; $('submitArea').hidden = true;
+  render(); window.scrollTo(0, 0);
+}
+function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+const KEY = P.slug + '-v2';
+// the site's maths answer box (MathLive) with the symbol buttons — same mechanism as the 12 General practice pages
+const TOOLS = '<div class="mtools" dir="rtl"><span class="mt-l">أزرار الرموز:</span>' + [['frac', '<span class="fr"><i></i><b></b><i></i></span>', 'كسر'], ['sqrt', '<span class="sq">√<i></i></span>', 'جذر'], ['±', '±'], ['−', '−'], ['π', 'π'], ['(', '('], [')', ')']]
+  .map(k => `<button type="button" class="mk" data-k="${k[0]}"${k[2] ? ` aria-label="${k[2]}" title="${k[2]}"` : ''}>${k[1]}</button>`).join('') + '<button type="button" class="mk" data-k="DEL" aria-label="حذف">⌫</button></div>';
+const WINS = { frac: '\\frac{#0}{#?}', sqrt: '\\sqrt{#0}', '±': '\\pm', '−': '-', 'π': '\\pi', '(': '(', ')': ')' };
+let WLAST = null;
+const wmf = inp => { const m = inp && inp.nextElementSibling; return m && m.tagName === 'MATH-FIELD' ? m : null; };
+function wfromMF(mf) {
+  let a = (mf.getValue('ascii-math') || '').replace(/"/g, ' ').replace(/\\ /g, ' ').replace(/sqrt\(/g, '√(').replace(/\bxx\b|·|×/g, '*').replace(/\bpi\b/g, 'π');
+  for (let k = 0; k < 3; k++) a = a.replace(/(^|[\/+\-±*,=<>\s(])\(([\d.]+)\)/g, '$1$2');
+  return a.replace(/\s+/g, ' ').trim();
+}
+function wmount(inp) {
+  if (wmf(inp)) return;
+  inp.classList.add('hid');
+  const mf = document.createElement('math-field');
+  mf.className = 'mf'; mf.setAttribute('dir', 'ltr'); mf.setAttribute('math-virtual-keyboard-policy', 'manual'); mf.setAttribute('smart-mode', 'off');
+  mf.setAttribute('aria-label', inp.getAttribute('aria-label') || 'خانة الإجابة');
+  if (inp.dataset.ok === '1') mf.classList.add('rightin'); else if (inp.dataset.ok === '0') mf.classList.add('wrongin');
+  inp.insertAdjacentElement('afterend', mf);
+  const [a, b, c] = inp.id.slice(2).split('_').map(Number);
+  const t0 = (state.tex[a] && state.tex[a][b] && state.tex[a][b][c]) || '';
+  customElements.whenDefined('math-field').then(() => { try { if (t0) mf.setValue(t0, { silenceNotifications: true }); else if (inp.value) mf.setValue(inp.value, { format: 'ascii-math', silenceNotifications: true }); } catch (e) {} });
+  mf.addEventListener('input', () => { state.tex[a][b][c] = mf.getValue('latex'); inp.value = wfromMF(mf); inp.dispatchEvent(new Event('input', { bubbles: true })); });
+  mf.addEventListener('focusin', () => { WLAST = mf; });
+  if (inp.disabled) mf.setAttribute('read-only', '');
+}
+document.addEventListener('mousedown', e => { if (e.target && e.target.closest && e.target.closest('.mk')) e.preventDefault(); });
+document.addEventListener('click', e => {
+  const b = e.target && e.target.closest && e.target.closest('.mk'); if (!b) return;
+  const card = $('qCard'); const mf = WLAST && card.contains(WLAST) ? WLAST : card.querySelector('math-field.mf:not([read-only])'); if (!mf || !mf.executeCommand) return;
+  const k = b.dataset.k;
+  if (k === 'DEL') mf.executeCommand('deleteBackward');
+  else mf.executeCommand(['insert', WINS[k] || k, { insertionMode: 'replaceSelection', selectionMode: 'placeholder', focus: true }]);
+  mf.focus();
+});
+customElements.whenDefined('math-field').then(() => { try { MathfieldElement.soundsDirectory = null; MathfieldElement.plonkSound = null; MathfieldElement.keypressSound = null; } catch (e) {} });
+function save() { if (state.start) state.t0 = state.start; try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+function load() { try { const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s && s.ans && s.ans.length === N) { Object.assign(state, s); if (!state.tex || state.tex.length !== (isMcq ? 0 : N)) state.tex = blankTex(); } } catch (e) {} }
+function begin() {
+  $('startView').hidden = true; $('testView').hidden = false;
+  $('who').innerHTML = escapeHtml(state.name) + ' • ' + lat(escapeHtml(state.sec));
+  timerId = setInterval(tick, 1000); tick(); render(); window.scrollTo(0, 0); $('result').classList.add('started');
+}
+$('startBtn').addEventListener('click', () => {
+  const n = $('sName').value.trim(), s = $('sSec').value;
+  if (n.split(/\s+/).length < 3) { $('startErr').textContent = 'اكتب الاسم الثلاثي.'; return; }
+  if (!s) { $('startErr').textContent = 'اختر الشعبة.'; return; }
+  Object.assign(state, { name: n, sec: s, start: Date.now(), end: 0, cur: 0, done: false, ans: blank(), tex: blankTex() });
+  save(); begin();
+});
+$('prevBtn').addEventListener('click', () => { if (state.cur > 0) { state.cur--; save(); render(); window.scrollTo(0, 0); } });
+$('nextBtn').addEventListener('click', () => {
+  if (state.cur < N - 1) { state.cur++; save(); render(); window.scrollTo(0, 0); return; }
+  if (state.done) return;
+  const miss = Array.from({ length: N }, (_, k) => answered(k) ? null : QS[k].n + (QS[k].part || '')).filter(Boolean);
+  $('confirmMsg').innerHTML = miss.length ? 'لم تُكمل الأسئلة: ' + miss.map(x => lat(x)).join('، ') + '. هل تريد التسليم الآن؟' : 'أجبت عن كل الأسئلة. هل تريد التسليم؟ لا يمكن تعديل الإجابات بعده.';
+  $('confirmBox').hidden = false;
+});
+$('confirmNo').addEventListener('click', () => { $('confirmBox').hidden = true; });
+$('confirmYes').addEventListener('click', finish);
+$('retryBtn').addEventListener('click', () => { try { localStorage.removeItem(KEY); } catch (e) {} location.reload(); });
+load();
+try { const pf = JSON.parse(sessionStorage.getItem('tmn-prefill') || 'null'); if (pf && !state.name) { $('sName').value = pf.name || ''; $('sSec').value = pf.sec || ''; } } catch (e) {} if (state.done) finish(); else if (state.name && state.start) begin();
+
+</script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+<script src="/nav.js?v=3" defer></script>
+</body>
+</html>

@@ -131,6 +131,36 @@
    "sha256": "78b8ad2b22c4b40299721e09a60485cfe4f02ffbdc729cdf830bae29046ce3bc"
   },
   {
+   "path": "g12-advanced/haykal-2-written/index.html",
+   "src": "site/g12-advanced/haykal-2-written/index.html",
+   "sha256": "d95427a9af020efaec53244f05c75910cec0c73f528b02ac2206884ac4b40ee3"
+  },
+  {
+   "path": "g12-advanced/haykal-2/index.html",
+   "src": "site/g12-advanced/haykal-2/index.html",
+   "sha256": "3237e85f02eddc1376b01af276a885154f63d8010297790a258268f59607063d"
+  },
+  {
+   "path": "g12-advanced/haykal-3-written/index.html",
+   "src": "site/g12-advanced/haykal-3-written/index.html",
+   "sha256": "1586b204c306e948eb0a22f13139246c60a08914f9aa2133b94909551d905ae9"
+  },
+  {
+   "path": "g12-advanced/haykal-3/index.html",
+   "src": "site/g12-advanced/haykal-3/index.html",
+   "sha256": "da94805a31e10c85ef33a399e1b2a68a183add72dc05f55f190ee6e543375f30"
+  },
+  {
+   "path": "g12-advanced/haykal-4-written/index.html",
+   "src": "site/g12-advanced/haykal-4-written/index.html",
+   "sha256": "955aa39470e058e70cdea65e3107b80d2fea777c3db56144eba10d083b048ae4"
+  },
+  {
+   "path": "g12-advanced/haykal-4/index.html",
+   "src": "site/g12-advanced/haykal-4/index.html",
+   "sha256": "696f3ea03b1050e27258ef3458461411c7105c236b9963b4e8a99ed9acc3d64d"
+  },
+  {
    "path": "g12-advanced/practice-1-5-1/index.html",
    "src": "site/g12-advanced/practice-1-5-1/index.html",
    "sha256": "713fd070694578aa4bdf51f11260518c30a46c772f49b7bfe6f37f993f477860"
