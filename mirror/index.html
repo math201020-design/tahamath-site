@@ -494,6 +494,20 @@ ul.hk-note li{padding:4px 0}
 .gr.on b{color:var(--ink)}
 .gr.on span{font-weight:700}
 @media (max-width:820px){.gr-grid{grid-template-columns:repeat(2,1fr)}}
+/* coming-soon tracks */
+.soon-h{font-family:var(--kufi);font-size:22px;font-weight:700;margin:54px 0 8px;color:var(--ink)}
+.soon-p{color:var(--stone);font-size:15px;margin-bottom:18px;max-width:640px}
+.soon-tr{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.soon-tr .st-c{background:var(--cream);border:1.5px dashed var(--stone-2);border-radius:18px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:4px}
+.soon-tr .st-c .g{font-family:var(--serif);font-size:38px;line-height:1;color:var(--ink-3)}
+.soon-tr .st-c b{font-size:17px;color:var(--ink)}
+.soon-tr .st-c .cur{align-self:flex-start;margin-top:6px;font-size:16px;font-weight:700;line-height:1.4;padding:3px 14px;border-radius:999px;direction:ltr}
+.soon-tr .st-c .cur.rv-t{background:var(--ink);color:var(--ivory)}
+.soon-tr .st-c .cur.br-t{background:var(--clay);color:var(--ink)}
+.soon-tr .st-c .cur.en-t{background:var(--ink-3);color:var(--ivory);direction:rtl}
+.soon-tr .st-c .tg2{align-self:flex-start;margin-top:8px;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;background:#fff;border:1.5px dashed var(--stone-2);color:var(--stone)}
+@media (max-width:1020px){.soon-tr{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.soon-tr{gap:10px}.soon-tr .st-c{padding:14px}.soon-tr .st-c .g{font-size:30px}}
 .trk-more{display:none;margin:-14px 0 18px;font:inherit;font-size:14px;font-weight:600;color:var(--clay-deep);background:none;border:0;cursor:pointer;padding:6px 0}
 @media (max-width:620px){
   .stage{display:none}
@@ -687,6 +701,18 @@ ul.hk-note li{padding:4px 0}
         </ul>
         <div style="display:flex;gap:16px;flex-wrap:wrap"><a href="#lab" onclick="openLab('11g');return false">جرّب مثالاً ←</a></div><div class="tlinks"><a href="https://www.youtube.com/playlist?list=PLLGYhW8yALAg" target="_blank" rel="noopener">▶ قائمة الفصل الأول</a><a class="tg" href="https://t.me/mahamedtahaG11" target="_blank" rel="noopener">تيليجرام · مجموعة الصف</a><a class="wa" href="https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa" target="_blank" rel="noopener">واتساب · مجموعة الصف</a><a class="tst" href="https://tahamath.com/g11-general/#groups">✎ التدريب · بنود الهيكل</a></div>
       </article>
+    </div>
+
+    <h3 class="soon-h rv">قريباً على الموقع</h3>
+    <p class="soon-p rv">مسارات جديدة تُضاف مع أول تحديث للموقع، وتُفعَّل بطاقة كل مسار فور جاهزية محتواه.</p>
+    <div class="soon-tr">
+      <div class="st-c rv" aria-disabled="true"><span class="g">12</span><b>الثاني عشر متقدم</b><small class="cur en-t">النسخة الإنجليزية</small><span class="tg2">قريباً</span></div>
+      <div class="st-c rv d1" aria-disabled="true"><span class="g">11</span><b>الحادي عشر متقدم</b><small class="cur br-t">Bridge</small><span class="tg2">قريباً</span></div>
+      <div class="st-c rv d2" aria-disabled="true"><span class="g">11</span><b>الحادي عشر عام</b><small class="cur br-t">Bridge</small><span class="tg2">قريباً</span></div>
+      <div class="st-c rv d3" aria-disabled="true"><span class="g">10</span><b>العاشر متقدم</b><small class="cur rv-t">Reveal</small><span class="tg2">قريباً</span></div>
+      <div class="st-c rv" aria-disabled="true"><span class="g">10</span><b>العاشر عام</b><small class="cur rv-t">Reveal</small><span class="tg2">قريباً</span></div>
+      <div class="st-c rv d1" aria-disabled="true"><span class="g">10</span><b>العاشر متقدم</b><small class="cur br-t">Bridge</small><span class="tg2">قريباً</span></div>
+      <div class="st-c rv d2" aria-disabled="true"><span class="g">10</span><b>العاشر عام</b><small class="cur br-t">Bridge</small><span class="tg2">قريباً</span></div>
     </div>
   </div>
 </section>
