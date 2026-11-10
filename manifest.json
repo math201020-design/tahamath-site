@@ -5029,6 +5029,246 @@
    "path": "g11-advanced-bridge/band-25/index.html",
    "src": "site/g11-advanced-bridge/band-25/index.html",
    "sha256": "5278d6287321d9a82402a2babe38ff0bd24151105fce2a82feef797594fa2c42"
+  },
+  {
+   "path": "g12-advanced/en/index.html",
+   "src": "site/g12-advanced/en/index.html",
+   "sha256": "ea287328760551effd4796a930970a5b5e2a6624496371d0e01fd0dfc4760663"
+  },
+  {
+   "path": "g12-advanced/en/band-6/index.html",
+   "src": "site/g12-advanced/en/band-6/index.html",
+   "sha256": "b37d22c8b6c0896524cf6bcafd138d5f3bb75437a3919d28a1b3cf8591109b2b"
+  },
+  {
+   "path": "g12-advanced/en/practice-21-26-3/index.html",
+   "src": "site/g12-advanced/en/practice-21-26-3/index.html",
+   "sha256": "b175302e3d44a1162890be376c112bb7536cbdd86b87b436164871daf3a07a7e"
+  },
+  {
+   "path": "g12-advanced/en/band-25/index.html",
+   "src": "site/g12-advanced/en/band-25/index.html",
+   "sha256": "9fdb606681884de815c8d9fbe7c89b5f5a69faf0e7aaddf25419036d0bb896c6"
+  },
+  {
+   "path": "g12-advanced/en/practice-6-10-1/index.html",
+   "src": "site/g12-advanced/en/practice-6-10-1/index.html",
+   "sha256": "220d822be85cd64be608181c8696b28465c5e64f277cc8d5fa4960ec53c60cf6"
+  },
+  {
+   "path": "g12-advanced/en/practice-11-15-2/index.html",
+   "src": "site/g12-advanced/en/practice-11-15-2/index.html",
+   "sha256": "d16f8036c6d66f6d25872b9c8416692eb0e0d85857898ece68f4dd8696583fc3"
+  },
+  {
+   "path": "g12-advanced/en/practice-11-15-3/index.html",
+   "src": "site/g12-advanced/en/practice-11-15-3/index.html",
+   "sha256": "5e5efd8b12eea0d9bf330ec5d7f1b339e080f4a33494d10b77ec857797653876"
+  },
+  {
+   "path": "g12-advanced/en/band-13/index.html",
+   "src": "site/g12-advanced/en/band-13/index.html",
+   "sha256": "8de0c608ac2fb664b3de418aa51d066906449764f2803830760da2800d138161"
+  },
+  {
+   "path": "g12-advanced/en/band-7/index.html",
+   "src": "site/g12-advanced/en/band-7/index.html",
+   "sha256": "1c98e4d2859c67cdfe49e616634c1ccf26d3381b9a127a97114e7f8366563557"
+  },
+  {
+   "path": "g12-advanced/en/practice-11-15-4/index.html",
+   "src": "site/g12-advanced/en/practice-11-15-4/index.html",
+   "sha256": "e4584ecb777ae5fbfeeb597a4edb8667e1f5e60f5f1cdd2f83cd371cb21b631b"
+  },
+  {
+   "path": "g12-advanced/en/band-18/index.html",
+   "src": "site/g12-advanced/en/band-18/index.html",
+   "sha256": "bddd067bd0350c4a4f6388de7df65d120bd0841e8168e2b460faee824b9ffbdd"
+  },
+  {
+   "path": "g12-advanced/en/band-26/index.html",
+   "src": "site/g12-advanced/en/band-26/index.html",
+   "sha256": "f70e13289bff14adf779342db4d0d6fa8657c6a886cbd40589ae488c996082ef"
+  },
+  {
+   "path": "g12-advanced/en/practice-16-20-4/index.html",
+   "src": "site/g12-advanced/en/practice-16-20-4/index.html",
+   "sha256": "e1ec586a5f1fa78e421d8cbc0500b5c65faf36d47fb54a3d2f19c76ba85648ee"
+  },
+  {
+   "path": "g12-advanced/en/band-1/index.html",
+   "src": "site/g12-advanced/en/band-1/index.html",
+   "sha256": "4197ee840a037f14d335cdf754826c35387249031f213c1b1cb17ba220cfd0c4"
+  },
+  {
+   "path": "g12-advanced/en/practice-1-5-3/index.html",
+   "src": "site/g12-advanced/en/practice-1-5-3/index.html",
+   "sha256": "e183c0498b1d98bc252b5118dad11e9dbe704a8f9bd13a95fbe9f85b465ba097"
+  },
+  {
+   "path": "g12-advanced/en/band-12/index.html",
+   "src": "site/g12-advanced/en/band-12/index.html",
+   "sha256": "d7e1a866ff1653a965ae436d13398a5d8684479e4e5e935b392711e4353945f3"
+  },
+  {
+   "path": "g12-advanced/en/practice-6-10-3/index.html",
+   "src": "site/g12-advanced/en/practice-6-10-3/index.html",
+   "sha256": "fa64e7e89bdee43ff751375b601217a0e56d8eba9c45fa8b11c7fd24e21e3f66"
+  },
+  {
+   "path": "g12-advanced/en/band-9/index.html",
+   "src": "site/g12-advanced/en/band-9/index.html",
+   "sha256": "213d6a047688507c8157b1ef4249e4051e379ed10af2cac7e2d4324b9825425e"
+  },
+  {
+   "path": "g12-advanced/en/band-2/index.html",
+   "src": "site/g12-advanced/en/band-2/index.html",
+   "sha256": "582ac4d3e494c5bb48820cb2256358720bf6ed1f024c840b4cecf2f272db8e9c"
+  },
+  {
+   "path": "g12-advanced/en/band-21/index.html",
+   "src": "site/g12-advanced/en/band-21/index.html",
+   "sha256": "571711c46f83b7fa4b1ef8d7f51e8758988c485a278eb344e7eb79c86f180b97"
+  },
+  {
+   "path": "g12-advanced/en/band-22/index.html",
+   "src": "site/g12-advanced/en/band-22/index.html",
+   "sha256": "9c1d9baf8f5e833c054cddc6856a4cd7a193002175dc9e3769c86ac1b114ee53"
+  },
+  {
+   "path": "g12-advanced/en/practice-1-5-1/index.html",
+   "src": "site/g12-advanced/en/practice-1-5-1/index.html",
+   "sha256": "0b52d8008c4a8d636daf4d20f7d9691efc7a0c5257d0ad4e8731ea5bd678417a"
+  },
+  {
+   "path": "g12-advanced/en/practice-21-26-2/index.html",
+   "src": "site/g12-advanced/en/practice-21-26-2/index.html",
+   "sha256": "e75743e37037a36b602abc8b13c2471dc9a90a8e0e167dd5b5187de042825719"
+  },
+  {
+   "path": "g12-advanced/en/practice-16-20-1/index.html",
+   "src": "site/g12-advanced/en/practice-16-20-1/index.html",
+   "sha256": "7ff3e111a106958456bab77e91ae5e0416a08ad27d34bdba0f2f0d245301c116"
+  },
+  {
+   "path": "g12-advanced/en/band-23/index.html",
+   "src": "site/g12-advanced/en/band-23/index.html",
+   "sha256": "4ef0d9e6a40b531b8ffec981ecb85499f05b2cd580def8667df8962730ff203f"
+  },
+  {
+   "path": "g12-advanced/en/practice-1-5-4/index.html",
+   "src": "site/g12-advanced/en/practice-1-5-4/index.html",
+   "sha256": "e0906dbc45cd494eff921444731a91863233231f6c222b38404c6d335f7efde0"
+  },
+  {
+   "path": "g12-advanced/en/band-17/index.html",
+   "src": "site/g12-advanced/en/band-17/index.html",
+   "sha256": "2571dacec819fc1d0bc27d55f09dae0b64e5bc1b06a82a3bc994f312080d3ba2"
+  },
+  {
+   "path": "g12-advanced/en/band-8/index.html",
+   "src": "site/g12-advanced/en/band-8/index.html",
+   "sha256": "46a23771ee67732c4e917940ee212acee2af56a1c072dc604e6eaf72b2b6c144"
+  },
+  {
+   "path": "g12-advanced/en/band-15/index.html",
+   "src": "site/g12-advanced/en/band-15/index.html",
+   "sha256": "b264b528b98ca26f8c701499cc6d27c835f91421455a7ada68f5e583c8ee017d"
+  },
+  {
+   "path": "g12-advanced/en/practice-6-10-4/index.html",
+   "src": "site/g12-advanced/en/practice-6-10-4/index.html",
+   "sha256": "3e2041821313491b7eace9b866f120a43ed5e7cc5f407105100c470c3c1acbe4"
+  },
+  {
+   "path": "g12-advanced/en/practice-16-20-3/index.html",
+   "src": "site/g12-advanced/en/practice-16-20-3/index.html",
+   "sha256": "6e21f7e10a0ad5e04249995dbd208c29c26d678ebaa80fcc6b4dc30b41500b57"
+  },
+  {
+   "path": "g12-advanced/en/band-10/index.html",
+   "src": "site/g12-advanced/en/band-10/index.html",
+   "sha256": "9a6fd65f890d816dde30f46beab3ba255e4c2062899c32356384a4583f83a5c6"
+  },
+  {
+   "path": "g12-advanced/en/band-5/index.html",
+   "src": "site/g12-advanced/en/band-5/index.html",
+   "sha256": "150fca8e2ce400cdf6b4e2088bc2e4998fb7e52b8b087ea079792919a5989daa"
+  },
+  {
+   "path": "g12-advanced/en/band-11/index.html",
+   "src": "site/g12-advanced/en/band-11/index.html",
+   "sha256": "3b72b21492017a026d23bad50d69d4b0a6b0319601797b847b45c6c059f698ad"
+  },
+  {
+   "path": "g12-advanced/en/band-3/index.html",
+   "src": "site/g12-advanced/en/band-3/index.html",
+   "sha256": "c34e32e0e3d19ee73844e4962236dfe660690aa53ed7d3ce196567ac8741dcc9"
+  },
+  {
+   "path": "g12-advanced/en/band-4/index.html",
+   "src": "site/g12-advanced/en/band-4/index.html",
+   "sha256": "fef67fa948fee3c2ac268bd63e2c2de1e87d695641b67ac2ff5b1d3ec4268c77"
+  },
+  {
+   "path": "g12-advanced/en/practice-11-15-1/index.html",
+   "src": "site/g12-advanced/en/practice-11-15-1/index.html",
+   "sha256": "4d356547092f97d33349aaf0e39331454ff8c1fe0a8a97f6fa6e88adabf20eb3"
+  },
+  {
+   "path": "g12-advanced/en/band-14/index.html",
+   "src": "site/g12-advanced/en/band-14/index.html",
+   "sha256": "873d4e0b522a52988fc64b9c5eeb46ba11a8e4638d72cebcd7e38ce01b49ca72"
+  },
+  {
+   "path": "g12-advanced/en/practice-1-5-2/index.html",
+   "src": "site/g12-advanced/en/practice-1-5-2/index.html",
+   "sha256": "2f156d1e4f19985b634005235be51ffd59313876529806552deacd56aeb2b0d5"
+  },
+  {
+   "path": "g12-advanced/en/practice-16-20-2/index.html",
+   "src": "site/g12-advanced/en/practice-16-20-2/index.html",
+   "sha256": "f0f5c7a07c30b22fe1c0218cb22ea655e07d1cc2266333829ccd6a911bb08fa6"
+  },
+  {
+   "path": "g12-advanced/en/band-19/index.html",
+   "src": "site/g12-advanced/en/band-19/index.html",
+   "sha256": "94c7c260fb5cbf0f3ba86e45476c47911fed772cf89134c6b2297d4d46bce5cb"
+  },
+  {
+   "path": "g12-advanced/en/practice-21-26-1/index.html",
+   "src": "site/g12-advanced/en/practice-21-26-1/index.html",
+   "sha256": "c4d9110df57b8503a3ad0094b024003b1b42d01cc1337c6fa22a2f68d6c66e31"
+  },
+  {
+   "path": "g12-advanced/en/band-20/index.html",
+   "src": "site/g12-advanced/en/band-20/index.html",
+   "sha256": "b3c7f18ad30d0bea514866fe97f352dcbc867f75e7e313103f67ee64af29b665"
+  },
+  {
+   "path": "g12-advanced/en/mistakes/index.html",
+   "src": "site/g12-advanced/en/mistakes/index.html",
+   "sha256": "57e5996551ea32f69d2537e85b6750b4d920c7482eae859c4b5b8c0a8934cee8"
+  },
+  {
+   "path": "g12-advanced/en/practice-21-26-4/index.html",
+   "src": "site/g12-advanced/en/practice-21-26-4/index.html",
+   "sha256": "23623983a4c2abe7495e6ff62fa3ac5b81d28c8086c9abb050b58f34885e2602"
+  },
+  {
+   "path": "g12-advanced/en/band-16/index.html",
+   "src": "site/g12-advanced/en/band-16/index.html",
+   "sha256": "a6bc1885e601b4eff230738d79eec310812a0abf51cffc052a7c4ccb4bc93383"
+  },
+  {
+   "path": "g12-advanced/en/practice-6-10-2/index.html",
+   "src": "site/g12-advanced/en/practice-6-10-2/index.html",
+   "sha256": "12e17bc8687c3c3c4e029ec032893161061f3a93fb45fa3daf86cbb30eb839f8"
+  },
+  {
+   "path": "g12-advanced/en/band-24/index.html",
+   "src": "site/g12-advanced/en/band-24/index.html",
+   "sha256": "b6d66fefee045ea74008643135058ea3e023f04eaf9459b7efbb7f4c1b15cab8"
   }
  ]
 }
