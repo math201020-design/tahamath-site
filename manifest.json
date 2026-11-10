@@ -1488,7 +1488,7 @@
   {
    "path": "g11-general-bridge/mistakes/index.html",
    "src": "site/g11-general-bridge/mistakes/index.html",
-   "sha256": "5550b7e563b23de0e4ccc8dffdd16531a75bfd3eb4a9780ac950b5ea93c3bb70"
+   "sha256": "a7d31cd9463f733d34a243fde82e113bf757174685c8c6a5fb23ecc1aca837be"
   },
   {
    "path": "g11-general-bridge/band-16/index.html",
@@ -4788,7 +4788,7 @@
   {
    "path": "g11-advanced-bridge/mistakes/index.html",
    "src": "site/g11-advanced-bridge/mistakes/index.html",
-   "sha256": "c92560cb7e37e7bee0072be274550faa07404d82d94c32a6fffd8ad445f43f6b"
+   "sha256": "ea6168294380e0bae8ac231cc83e8a9532a30752261fdf61475e1fa690bbe133"
   },
   {
    "path": "g11-advanced-bridge/band-16/index.html",
