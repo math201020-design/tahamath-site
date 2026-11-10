@@ -4913,7 +4913,7 @@
   {
    "path": "g11-general-bridge/index.html",
    "src": "site/g11-general-bridge/index.html",
-   "sha256": "97c3223313e255f380388615b57c9ac27e4dc48710a1452ff0ee1cde200c940c"
+   "sha256": "3c316dfcd7ddaff8e2aff94de92fc1d30760b3836e0fe0cdb6cf312e1f6edb2c"
   },
   {
    "path": "g11-general-bridge/band-25/index.html",
@@ -5003,7 +5003,7 @@
   {
    "path": "g11-advanced-bridge/index.html",
    "src": "site/g11-advanced-bridge/index.html",
-   "sha256": "d4c41329923c64ea8b760946533e9f1a19d332142f28567733de18692d659518"
+   "sha256": "1ee5ec32a6a7a09afef40f8aebf6cf753456828e89699ba8aa0188735f1c13b1"
   },
   {
    "path": "g11-advanced-bridge/band-21/index.html",
