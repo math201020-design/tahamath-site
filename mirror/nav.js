@@ -6,6 +6,8 @@
    - «أعد الاختبار» في الاختبارات والتدريبات بعد البدء، وفي بطاقة النتيجة.
    - «شاركنا رأيك» في بطاقة النتيجة لكل اختبار تفاعلي، ويفتح صفحة /reviews/.
    - «🎖️ شهادتي» وأطول سلسلة إجابات صحيحة في بطاقة النتيجة (الإصدار 2، 6 نوفمبر 2026).
+   - «🖨️ اطبع الأسئلة» في شريط التنقل لكل تدريب ونموذج: نسخة ورقية من الأسئلة بلا حلول (الإصدار 6، 9 نوفمبر 2026).
+   - «🏅 أضف اسمي إلى لوحة الشرف» في بطاقة النتيجة: «نادي 90+» و«الأكثر مثابرة» عبر /honor/api.php (الإصدار 7، 10 نوفمبر 2026).
    - بطاقة النتيجة وجدول البنود في أول شاشة بعد التسليم فقط، وبقية الشاشات سؤال واحد بحكمه وحله (الإصدار 3، 6 نوفمبر 2026). */
 (function () {
   'use strict';
@@ -52,6 +54,21 @@
     '.tmn-mbox{background:#fff;border-radius:16px;padding:14px;max-width:460px;width:100%;max-height:100%;overflow:auto;text-align:center;font-family:inherit}' +
     '.tmn-mimg{display:block;width:100%;height:auto;border-radius:8px}' +
     '.tmn-mwait{margin:10px 0 0;font-size:13px;color:#5A6472}' +
+    '.tmn-b.tmn-honor{border-color:#D4A843;background:#FFF7E2;color:#0E1C3A}' +
+    '.tmn-b.tmn-honor:hover{background:#F6EBCB}' +
+    '.tmn-modal .tmn-hbox{text-align:right;padding:18px 16px;color:#0E1C3A;line-height:1.7}' +
+    '.tmn-hbox h4{margin:0 0 6px;font-size:18px;font-weight:800;text-align:center;color:#0E1C3A}' +
+    '.tmn-hnote{margin:0 0 10px;font-size:14px;color:#5A6472;text-align:center}' +
+    '.tmn-modal .tmn-hf{display:block;margin:10px 0;padding:0;border:0;background:none;cursor:default}' +
+    '.tmn-hf span{display:block;font-weight:700;font-size:14px;margin-bottom:4px}' +
+    '.tmn-modal .tmn-hf input{display:block;width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:#0E1C3A;background:#fff;padding:9px 12px;min-height:44px;border:1.5px solid #C9D2E3;border-radius:10px;margin:0;text-align:right}' +
+    '.tmn-modal .tmn-hf input:focus{outline:3px solid #D4A843;outline-offset:1px;border-color:#0E1C3A}' +
+    '.tmn-hprev{background:#0E1C3A;color:#F0CD78;border-radius:10px;padding:8px 10px;text-align:center;font-weight:700;font-size:15px}' +
+    '.tmn-modal .tmn-hchk{display:flex;gap:8px;align-items:flex-start;margin:12px 0 0;font-size:14px;cursor:pointer;padding:0;border:0;background:none}' +
+    '.tmn-modal .tmn-hchk input{flex:none;width:20px;height:20px;margin:3px 0 0;accent-color:#0E1C3A;position:static;opacity:1}' +
+    '.tmn-hmsg{min-height:1.5em;margin:10px 0 0;font-weight:700;font-size:14px;text-align:center}' +
+    '.tmn-hmsg.ok{color:#1E7D4F}.tmn-hmsg.err{color:#C0392B}' +
+    '.tmn-modal .tmn-hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}' +
     '@media print{.tmn-strip,.tmn-act,.tmn-modal{display:none!important}}';
 
   function el(tag, cls, text) {
@@ -306,6 +323,191 @@
     if (big && big.nextSibling) card.insertBefore(p, big.nextSibling); else card.appendChild(p);
   }
 
+  /* ---------- «🏅 لوحة الشرف» (الإصدار 7، 10 نوفمبر 2026) ----------
+     «نادي 90+»: نموذج هيكل كامل (/<grade>/haykal-<n>/ أو haykal-<n>-written/) بنسبة 90% فأكثر.
+     «الأكثر مثابرة»: عدد صفحات الصف التي ظهرت فيها بطاقة النتيجة على هذا الجهاز (5 فأكثر).
+     العدّ متحفظ ولا يفترض صيغة حالة أي صفحة: هذا الملف نفسه يسجّل الصفحة في سجل خاص
+     (tmn-honor-done) عند ظهور بطاقة نتيجة فيها درجة، ولا يُعدّ إلا ما سُجّل. */
+  var HONOR_API = '/honor/api.php';
+  var HONOR_DONE = 'tmn-honor-done';
+  var HONOR_ME = 'tmn-honor-me';
+  var HONOR_CLUB = 90, HONOR_PERSIST = 5;
+  var HONOR_AR = 'ء-غف-ي';
+
+  function lsGet(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+
+  function honorGrade() { return /^g1[12]-(general|advanced)$/.test(parts[0] || '') && parts.length >= 2 ? parts[0] : ''; }
+  function honorPath() { return '/' + parts.join('/') + '/'; }
+  function isHaykal() { return parts.length === 2 && /^haykal-[1-9][0-9]?(-written)?$/.test(parts[1]); }
+
+  /* تسجيل الصفحة المنتهية (مرة لكل صفحة) وإرجاع قائمة صفحات الصف المنتهية */
+  function honorRecord(gr) {
+    var all = lsGet(HONOR_DONE);
+    if (!all || typeof all !== 'object') all = {};
+    var mine = all[gr] && typeof all[gr] === 'object' ? all[gr] : {};
+    var p = honorPath();
+    if (!mine[p]) { mine[p] = Date.now(); all[gr] = mine; lsSet(HONOR_DONE, all); }
+    return Object.keys(mine).filter(function (k) { return k.indexOf('/' + gr + '/') === 0 && !/\/mistakes\/$/.test(k); });
+  }
+
+  function honorClean(s) {
+    return String(s || '').replace(/[ً-ٰٟـ\s​-‏‪-‮⁦-⁩﻿]/g, '')
+      .replace(/ی/g, 'ي').replace(/ک/g, 'ك');
+  }
+  function honorValid(first, init) {
+    var f = new RegExp('^(?:[' + HONOR_AR + ']{2,15}|[A-Za-z]{2,15})$'), i = new RegExp('^[' + HONOR_AR + 'A-Za-z]$');
+    return { first: f.test(first), init: i.test(init) };
+  }
+  function honorShow(first, init) {
+    if (/^[A-Za-z]+$/.test(first)) first = first.charAt(0).toUpperCase() + first.slice(1).toLowerCase(), init = init.toUpperCase();
+    return first + ' ' + init + '.';
+  }
+
+  var HONOR_ERR = {
+    name: 'اكتب اسمك الأول بحروف عربية أو إنجليزية فقط، من 2 إلى 15 حرفاً، بلا رموز ولا أرقام.',
+    init: 'اكتب الحرف الأول من اسم العائلة.',
+    consent: 'ضع أولاً علامة الموافقة على ظهور اسمك.',
+    banned: 'اختر اسماً لائقاً يظهر لزملائك.',
+    pct: 'يدخل «نادي \u206690+\u2069» من أنهى نموذج هيكل كاملاً بنسبة 90% فأكثر.',
+    path: 'هذه الصفحة ليست نموذج هيكل كاملاً.',
+    count: 'يلزم إنهاء 5 تدريبات أو نماذج على الأقل في صفك.',
+    code: 'تعذّرت قراءة رمز التحقق في بطاقة النتيجة. أعد تحميل الصفحة وحاول مرة أخرى.',
+    dup: 'سبق إرسال رمز التحقق هذا من جهاز آخر خلال الأسبوع الحالي.',
+    rate: 'أُرسلت محاولات كثيرة في وقت قصير. حاول مرة أخرى بعد ساعة.',
+    full: 'اللوحة ممتلئة هذا الأسبوع. حاول في الأسبوع القادم.',
+    server: 'حدث خطأ في الموقع. حاول مرة أخرى بعد قليل.',
+    form: 'حدث خطأ في الموقع. حاول مرة أخرى بعد قليل.',
+    grade: 'حدث خطأ في الموقع. حاول مرة أخرى بعد قليل.',
+    kind: 'حدث خطأ في الموقع. حاول مرة أخرى بعد قليل.'
+  };
+  var HONOR_NET = 'تعذّر الإرسال الآن. تحقق من الاتصال وحاول مرة أخرى.';
+
+  function honorSend(data, done) {
+    var body = Object.keys(data).map(function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]); }).join('&');
+    var x = new XMLHttpRequest();
+    x.open('POST', HONOR_API + '?a=add', true);
+    x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    x.setRequestHeader('Accept', 'application/json');
+    x.timeout = 15000;
+    x.onload = function () { var j = null; try { j = JSON.parse(x.responseText); } catch (e) {} done(j); };
+    x.onerror = x.ontimeout = function () { done(null); };
+    x.send(body);
+  }
+
+  function openHonor(info, btn) {
+    if (document.querySelector('.tmn-modal')) return;
+    var opener = document.activeElement, me = lsGet(HONOR_ME) || {};
+    var m = el('div', 'tmn-modal'); m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true'); m.setAttribute('aria-labelledby', 'tmn-h-t');
+    var box = el('form', 'tmn-mbox tmn-hbox'); box.noValidate = true; box.tabIndex = -1;
+    var h = el('h4', '', '🏅 لوحة الشرف • هذا الأسبوع'); h.id = 'tmn-h-t'; box.appendChild(h);
+    var lines = [];
+    if (info.club) lines.push('أنهيت النموذج بنسبة ' + info.pct + '%، فيمكنك إضافة اسمك إلى «نادي \u206690+\u2069».');
+    if (info.persist) lines.push('أنهيت ' + info.count + ' من التدريبات والنماذج في صفك، فيمكنك إضافة اسمك إلى قائمة «الأكثر مثابرة».');
+    box.appendChild(el('p', 'tmn-hnote', lines.join(' ')));
+
+    var mkField = function (label, id, max, ac) {
+      var w = el('label', 'tmn-hf'); w.htmlFor = id;
+      w.appendChild(el('span', '', label));
+      var i = el('input'); i.type = 'text'; i.id = id; i.maxLength = max; i.autocomplete = ac; i.spellcheck = false; i.setAttribute('dir', 'auto');
+      w.appendChild(i); box.appendChild(w); return i;
+    };
+    var fIn = mkField('اسمك الأول', 'tmn-h-first', 15, 'given-name');
+    var iIn = mkField('الحرف الأول من اسم العائلة', 'tmn-h-init', 2, 'off');
+    fIn.value = me.first || ''; iIn.value = me.init || '';
+    var prev = el('div', 'tmn-hprev'); prev.setAttribute('aria-live', 'polite'); box.appendChild(prev);
+    var ck = el('label', 'tmn-hchk'); var cb = el('input'); cb.type = 'checkbox'; cb.id = 'tmn-h-ok';
+    ck.appendChild(cb); ck.appendChild(el('span', '', 'أوافق على ظهور اسمي الأول والحرف الأول من اسم عائلتي في لوحة الشرف هذا الأسبوع.'));
+    box.appendChild(ck);
+    var hp = el('input', 'tmn-hp'); hp.type = 'text'; hp.name = 'website'; hp.tabIndex = -1; hp.autocomplete = 'off'; hp.setAttribute('aria-hidden', 'true'); box.appendChild(hp);
+    var msg = el('p', 'tmn-hmsg'); msg.setAttribute('role', 'status'); box.appendChild(msg);
+    var row = el('div', 'tmn-act');
+    var go = el('button', 'tmn-b tmn-gold', 'أضف اسمي'); go.type = 'submit';
+    var cl = el('button', 'tmn-b', 'إغلاق'); cl.type = 'button';
+    row.appendChild(go); row.appendChild(cl); box.appendChild(row);
+    m.appendChild(box); document.body.appendChild(m);
+    (fIn.value ? cb : fIn).focus();
+
+    var upd = function () {
+      var f = honorClean(fIn.value), i = honorClean(iIn.value), v = honorValid(f, i);
+      prev.textContent = v.first && v.init ? 'سيظهر اسمك هكذا: \u2068' + honorShow(f, i) + '\u2069' : 'سيظهر اسمك الأول والحرف الأول من اسم العائلة فقط.';
+      return { f: f, i: i, v: v };
+    };
+    fIn.addEventListener('input', upd); iIn.addEventListener('input', upd); upd();
+
+    var onKey = function (e) {
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key === 'Tab') {
+        var f = box.querySelectorAll('a,button,input:not(.tmn-hp)'); if (!f.length) return;
+        var a = f[0], z = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+        else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+      }
+    };
+    var close = function () {
+      document.removeEventListener('keydown', onKey);
+      m.remove();
+      if (opener && opener.focus) opener.focus();
+    };
+    document.addEventListener('keydown', onKey);
+    cl.addEventListener('click', close);
+    m.addEventListener('click', function (e) { if (e.target === m) close(); });
+
+    var say = function (t, ok) { msg.textContent = t; msg.className = 'tmn-hmsg ' + (ok ? 'ok' : 'err'); };
+    var busy = false;
+    box.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (busy) return;
+      var s = upd();
+      if (!s.v.first) { say(HONOR_ERR.name); fIn.focus(); return; }
+      if (!s.v.init) { say(HONOR_ERR.init); iIn.focus(); return; }
+      if (!cb.checked) { say(HONOR_ERR.consent); cb.focus(); return; }
+      lsSet(HONOR_ME, { first: s.f, init: s.i });
+      var kinds = []; if (info.club) kinds.push('club'); if (info.persist) kinds.push('persist');
+      busy = true; go.disabled = true; go.textContent = 'جارٍ الإرسال…'; say('', true);
+      honorSend({
+        g: info.grade, kinds: kinds.join(','), first: s.f, init: s.i, consent: 'yes', website: hp.value,
+        got: info.got, tot: info.tot, pct: info.pctRaw, title: testTitle(), path: honorPath(), code: verifyCode(),
+        done: info.persist ? info.done.slice(0, 300).join(',') : ''
+      }, function (j) {
+        busy = false; go.disabled = false; go.textContent = 'أضف اسمي';
+        if (!j || !j.ok) { say((j && HONOR_ERR[j.code]) || HONOR_NET); return; }
+        var st = j.status || {}, added = [], kept = [];
+        ['club', 'persist'].forEach(function (k) {
+          if (!st[k]) return;
+          var nm = k === 'club' ? '«نادي \u206690+\u2069»' : '«الأكثر مثابرة»';
+          if (st[k] === 'kept') kept.push(nm); else if (st[k] !== 'full') added.push(nm);
+        });
+        var t = added.length ? 'تم! اسمك «\u2068' + j.name + '\u2069» في ' + added.join(' و') + ' هذا الأسبوع.' : '';
+        if (kept.length) t += (t ? ' ' : '') + 'اسمك موجود في ' + kept.join(' و') + ' بنتيجة أعلى أو مساوية، فتبقى نتيجتك الأفضل.';
+        if (!t) { say(HONOR_ERR.full); return; }
+        say(t, true);
+        go.remove();
+        var see = el('a', 'tmn-b tmn-gold', 'عرض لوحة الشرف'); see.href = '/' + info.grade + '/#honor-board';
+        row.insertBefore(see, cl); see.focus();
+        btn.textContent = '✓ اسمك في لوحة الشرف';
+      });
+    });
+  }
+
+  /* يُستدعى داخل addResultActions بعد زر «شهادتي» */
+  function addHonorButton(row) {
+    var gr = honorGrade(), sc = scoreNums();
+    if (!gr || !sc) return;
+    var done = honorRecord(gr);
+    var code = verifyCode();
+    if (!/^[A-Z0-9]{1,6}(-[A-Z0-9]{1,8}){1,3}$/.test(code)) return;
+    var club = isHaykal() && sc.raw >= HONOR_CLUB && sc.raw <= 100;
+    var persist = done.length >= HONOR_PERSIST;
+    if (!club && !persist) return;
+    var info = { grade: gr, club: club, persist: persist, count: done.length, done: done,
+      got: sc.got, tot: sc.tot, pct: Math.floor(sc.raw * 10) / 10, pctRaw: Math.round(sc.raw * 10) / 10 };
+    var b = el('button', 'tmn-b tmn-honor', club ? '🏅 أضف اسمي إلى لوحة الشرف' : '🏅 أضف اسمي إلى قائمة «الأكثر مثابرة»');
+    b.type = 'button';
+    b.addEventListener('click', function () { openHonor(info, b); });
+    row.appendChild(b);
+  }
+
   /* ---------- بطاقة النتيجة ---------- */
   function addResultActions() {
     if (!result || !result.classList.contains('show')) return;
@@ -317,8 +519,14 @@
       ce.addEventListener('click', openCert);
       row.appendChild(ce);
     }
+    addHonorButton(row);
     var gr = parts[0];
     if (/^g1[12]-(general|advanced)$/.test(gr)) { var mk = el('a', 'tmn-b', '📋 كل أخطائي'); mk.href = '/' + gr + '/mistakes/'; row.appendChild(mk); }
+    var fr = el('button', 'tmn-b', '📤 شاركه مع أصدقائك'); fr.type = 'button';
+    fr.addEventListener('click', function () {
+      openWa('جرّب هذا التدريب المجاني للاختبار الوزاري: \u2068' + testTitle() + '\u2069\nتصحيح فوري وحل تفصيلي، بلا تسجيل:\n' + location.origin + location.pathname + '?utm_source=friend');
+    });
+    row.appendChild(fr);
     var rv = el('a', 'tmn-b', 'شاركنا رأيك');
     rv.href = REVIEWS;
     row.appendChild(rv);
@@ -326,9 +534,187 @@
     card.appendChild(row);
   }
 
+  /* ---------- «اطبع الأسئلة»: نسخة ورقية من أسئلة الصفحة بلا حلول (الإصدار 6، 9 نوفمبر 2026) ---------- */
+  var PCSS =
+    '#tmn-print{display:none}' +
+    '@media print{' +
+      'body.tmn-printing>*:not(#tmn-print):not(#MJX-SVG-global-cache){display:none!important}' +
+      'html.tmn-printing,body.tmn-printing{background:#fff!important;padding:0!important;margin:0!important;display:block!important;height:auto!important;min-height:0!important;overflow:visible!important}' +
+      'body.tmn-printing #tmn-print{display:block!important}' +
+      '#tmn-print{page:tmnp}@page tmnp{size:A4;margin:12mm 12mm 14mm}' +
+    '}' +
+    '#tmn-print{direction:rtl;color:#111;font-family:inherit;font-size:13.5pt;line-height:1.7;-webkit-print-color-adjust:exact;print-color-adjust:exact}' +
+    '#tmn-print .tp-h{display:flex;align-items:center;gap:14px;border-bottom:2px solid #222;padding-bottom:8px;margin-bottom:10px}' +
+    '#tmn-print .tp-h img{height:70px;width:auto}' +
+    '#tmn-print .tp-h b{display:block;font-size:16pt}' +
+    '#tmn-print .tp-h small{display:block;font-size:10pt;color:#444;letter-spacing:.5px}' +
+    '#tmn-print .tp-t{font-size:15pt;font-weight:700;margin:4px 0 2px}' +
+    '#tmn-print .tp-m{font-size:11pt;color:#333}' +
+    '#tmn-print .tp-st{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:12pt;margin:10px 0 6px;padding:8px 10px;border:1px solid #999;border-radius:6px}' +
+    '#tmn-print .tp-q{break-inside:avoid;page-break-inside:avoid;border:1px solid #bbb;border-radius:8px;padding:8px 12px;margin:10px 0}' +
+    '#tmn-print .tp-qh{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:10.5pt;font-weight:700;color:#333;margin-bottom:4px}' +
+    '#tmn-print .tp-tr{font-size:10.5pt;color:#333;margin-bottom:4px}' +
+    '#tmn-print .tp-s{margin:2px 0}' +
+    '#tmn-print .tp-s.en{direction:ltr;text-align:left}' +
+    '#tmn-print .tp-e{direction:ltr;text-align:center;margin:6px 0}' +
+    '#tmn-print .tp-i{text-align:center;margin:6px 0}' +
+    '#tmn-print .tp-i img{max-width:100%;max-height:75mm;width:auto;height:auto}' +
+    '#tmn-print .tp-o{direction:ltr;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;margin-top:6px}' +
+    '#tmn-print .tp-o div{display:flex;gap:6px;align-items:baseline}' +
+    '#tmn-print .tp-o b{min-width:1.6em}' +
+    '#tmn-print .tp-o img{max-width:100%;max-height:45mm}' +
+    '#tmn-print .tp-p{margin-top:6px}' +
+    '#tmn-print .tp-f{direction:ltr;text-align:left;margin:4px 0}' +
+    '#tmn-print .tp-ln{border-bottom:1px dotted #777;height:9mm}' +
+    '#tmn-print .tp-ft{margin-top:12px;border-top:1px solid #999;padding-top:6px;font-size:10pt;color:#444;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}';
+
+  function g(name) { try { return Function('return typeof ' + name + "!=='undefined'?" + name + ':undefined')(); } catch (e) { return undefined; } }
+  function pesc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function isImg(s) { return typeof s === 'string' && /^(data:image\/|https?:\/\/|\/)/.test(s); }
+  function hasAr(s) { return /[؀-ۿ]/.test(String(s || '').replace(/\\\([\s\S]*?\\\)|<[^>]*>/g, '')); }
+  function arText(t) { t = String(t || ''); return hasAr(t) && t.indexOf('\\') < 0 ? '\\text{' + t + '}' : t; }
+  function mathOf(t) { return t ? '\\(\\displaystyle ' + pesc(t) + '\\)' : ''; }
+
+  /* أسئلة الصفحة من بياناتها، أياً كان محرّكها */
+  function printQs() {
+    var QS = g('QS'), D = g('D'), out = [];
+    if (Array.isArray(QS)) {
+      QS.forEach(function (q, k) {
+        var parts = (q.items || []).map(function (it) {
+          return { q: it.q || '', opts: it.t === 'mc' ? (it.opts || []) : null, fields: it.fields ? it.fields.map(function (f) { return arText(f.pre) + '\\;\\underline{\\hspace{3cm}}\\;' + arText(f.post) + (f.unit ? '\\ \\text{' + f.unit + '}' : ''); }) : null };
+        });
+        out.push({ n: (q.n || k + 1) + (q.part ? ' (' + q.part + ')' : ''), item: parseInt(q.item, 10) || q.item, mark: q.mark, stem: q.stem, tex: q.eq, img: q.img, opts: q.items ? [] : (q.opts || []), parts: parts, lines: !q.items && !(q.opts || []).length ? 6 : 0 });
+      });
+    } else if (D && Array.isArray(D.qs)) {
+      D.qs.forEach(function (q, i) {
+        var inp = (q.inputs || []).map(function (f) { return (f.label || '') + '\\;\\underline{\\hspace{3cm}}'; });
+        out.push({ n: i + 1, item: q.item || D.n, mark: q.mark, stem: q.stem, tex: q.tex, img: q.img, opts: q.opts || [], terms: q.terms, note: q.note, parts: inp.length ? [{ q: '', fields: inp }] : [], lines: inp.length ? 4 : ((q.opts || []).length ? 0 : 6) });
+      });
+    } else if (D && (Array.isArray(D.E) || Array.isArray(D.W))) {
+      (D.E || []).forEach(function (q) {
+        out.push({ n: q.n, item: q.item, mark: q.mark, stem: q.stem, tex: q.e, img: q.img, opts: (q.opts || []).map(function (o) { return o && typeof o === 'object' ? (o.img || o.t || '') : o; }), terms: q.terms });
+      });
+      (D.W || []).forEach(function (q) {
+        out.push({ n: q.n, item: q.item, mark: q.mark, stem: q.stem, tex: q.e, img: q.img, opts: [], terms: q.terms, lines: Math.min(12, Math.max(6, (q.steps || []).length * 2)) });
+      });
+    }
+    return out;
+  }
+
+  function optsHtml(opts) {
+    if (!opts || !opts.length) return '';
+    var allAr = opts.every(function (o) { return !isImg(o) && hasAr(o) && (/\\\(|</.test(o) || o.indexOf('\\') < 0); });
+    return '<div class="tp-o"' + (allAr ? ' style="direction:rtl"' : '') + '>' + opts.map(function (o, j) {
+      var ar = !isImg(o) && (/\\\(|</.test(o) || (hasAr(o) && o.indexOf('\\') < 0));
+      var body = isImg(o) ? '<img src="' + pesc(o) + '" alt="">' : ar ? String(o) : mathOf(o);
+      return '<div' + (ar ? ' dir="rtl" style="text-align:right"' : '') + '><b>' + 'ABCDEFGH'.charAt(j) + ')</b><span>' + body + '</span></div>';
+    }).join('') + '</div>';
+  }
+
+  function buildPrint() {
+    var qs = printQs();
+    if (!qs.length) return null;
+    var total = 0; qs.forEach(function (q) { total += +q.mark || 0; }); total = Math.round(total * 100) / 100;
+    var title = (document.title || '').split('|')[0].trim();
+    var stamp = document.querySelector('img.stamp');
+    var MK = function (m) { m = +m; return m === 1 ? 'درجة واحدة' : m === 2 ? 'درجتان' : (Math.floor(m) === m && m >= 3 && m <= 10 ? m + ' درجات' : m + ' درجة'); };
+    var h = '<div class="tp-h">' + (stamp && stamp.src ? '<img src="' + pesc(stamp.src) + '" alt="">' : '') +
+      '<div><b>أكاديمية طه للرياضيات</b><small>TAHA MATH ACADEMY • tahamath.com</small></div></div>' +
+      '<div class="tp-t">' + pesc(title) + '</div>' +
+      '<div class="tp-m">عدد الأسئلة: ' + qs.length + (total ? ' • الدرجة الكلية: ' + total : '') + '</div>' +
+      '<div class="tp-st"><span>الاسم: ............................................</span><span>الشعبة: ............</span><span>الدرجة: ........ من ' + (total || '....') + '</span></div>';
+    qs.forEach(function (q) {
+      var terms = Array.isArray(q.terms) && q.terms.length ? '<div class="tp-tr">' + q.terms.map(function (t) { return Array.isArray(t) ? pesc(t[0]) + ' | <span dir="ltr">' + pesc(t[1]) + '</span>' : pesc(t); }).join(' • ') + '</div>' : '';
+      var parts = (q.parts || []).map(function (p) {
+        return '<div class="tp-p">' + (p.q ? '<div class="tp-s' + (hasAr(p.q) ? '' : ' en') + '">' + p.q + '</div>' : '') + optsHtml(p.opts) +
+          (p.fields || []).map(function (f) { return '<div class="tp-f">' + mathOf(f) + '</div>'; }).join('') + '</div>';
+      }).join('');
+      var lines = ''; for (var k = 0; k < (q.lines || 0); k++) lines += '<div class="tp-ln"></div>';
+      h += '<div class="tp-q"><div class="tp-qh"><span>السؤال <bdi dir="ltr">' + pesc(q.n) + '</bdi></span>' + (q.item ? '<span>البند <bdi dir="ltr">' + pesc(q.item) + '</bdi></span>' : '') + (q.mark ? '<span>' + MK(q.mark) + '</span>' : '') + '</div>' + terms +
+        (q.stem ? '<div class="tp-s' + (hasAr(q.stem) ? '' : ' en') + '">' + q.stem + '</div>' : '') +
+        (q.tex ? '<div class="tp-e">' + mathOf(q.tex) + '</div>' : '') +
+        (isImg(q.img) ? '<div class="tp-i"><img src="' + pesc(q.img) + '" alt=""></div>' : '') +
+        (q.note ? '<div class="tp-s">' + q.note + '</div>' : '') +
+        optsHtml(q.opts) + parts + lines + '</div>';
+    });
+    h += '<div class="tp-ft"><span>إعداد: الأستاذ محمد طه • أكاديمية طه للرياضيات</span><span dir="ltr">tahamath.com' + pesc((function () { try { return decodeURIComponent(location.pathname); } catch (e) { return location.pathname; } })()) + '</span></div>';
+    var box = document.getElementById('tmn-print');
+    if (!box) { box = el('div'); box.id = 'tmn-print'; document.body.appendChild(box); }
+    var mj = window.MathJax;
+    try { if (mj && mj.typesetClear) mj.typesetClear([box]); } catch (e) {}
+    box.innerHTML = h;
+    return box;
+  }
+
+  /* تجهيز الورقة مرة واحدة (بناء + تنضيد + فك الصور)، ثم الطباعة داخل حدث الضغط نفسه */
+  var pReady = null, pBox = null;
+  function waitMJ() {
+    return new Promise(function (res) {
+      var t0 = Date.now();
+      (function chk() {
+        var mj = window.MathJax;
+        if (mj && mj.typesetPromise) return res(mj);
+        if (!mj || Date.now() - t0 > 6000) return res(null);
+        setTimeout(chk, 100);
+      })();
+    });
+  }
+  function timeout(p, ms) { return Promise.race([p, new Promise(function (r) { setTimeout(r, ms); })]); }
+  function preparePrint() {
+    if (pReady) return pReady;
+    pReady = waitMJ().then(function (mj) {
+      pBox = buildPrint();
+      if (!pBox) return false;
+      var ts = Promise.resolve();
+      if (mj) {
+        var base = (mj.startup && mj.startup.promise) ? mj.startup.promise : Promise.resolve();
+        ts = base.then(function () { return mj.typesetPromise([pBox]); });
+        if (mj.startup) mj.startup.promise = ts.catch(function () {});
+      }
+      return timeout(ts.catch(function () {}), 8000).then(function () {
+        var imgs = pBox.querySelectorAll('img');
+        return timeout(Promise.all(Array.prototype.map.call(imgs, function (im) { return im.decode ? im.decode().catch(function () {}) : null; })), 3000);
+      }).then(function () { return true; });
+    });
+    return pReady;
+  }
+  var pOffArmed = false;
+  function printOff() {
+    if (pOffArmed) return; pOffArmed = true;
+    setTimeout(function () {
+      var off = function () {
+        document.documentElement.classList.remove('tmn-printing'); document.body.classList.remove('tmn-printing');
+        window.removeEventListener('pointerdown', off, true); window.removeEventListener('keydown', off, true); pOffArmed = false;
+      };
+      window.addEventListener('pointerdown', off, true); window.addEventListener('keydown', off, true);
+    }, 1000);
+  }
+  window.addEventListener('afterprint', printOff);
+  function printNow() {
+    document.documentElement.classList.add('tmn-printing'); document.body.classList.add('tmn-printing');
+    try { window.print(); } catch (e) {}
+  }
+
+  function printButton() {
+    if (!printQs().length) return null;
+    var LBL = '🖨️ اطبع الأسئلة', ready = false;
+    var b = el('button', 'tmn-b', LBL); b.type = 'button';
+    var warm = function () { preparePrint().then(function (ok) { ready = !!ok; }); };
+    ['pointerenter', 'touchstart', 'focus'].forEach(function (ev) { b.addEventListener(ev, warm, { once: true, passive: true }); });
+    b.addEventListener('click', function () {
+      if (ready) { printNow(); return; }
+      b.disabled = true; b.textContent = 'جارٍ تجهيز الورقة…';
+      preparePrint().then(function (ok) {
+        ready = !!ok; b.disabled = false; b.textContent = LBL;
+        if (ok) printNow();
+      });
+    });
+    return b;
+  }
+
   /* ---------- البناء ---------- */
   function build() {
-    var style = el('style'); style.textContent = css; document.head.appendChild(style);
+    var style = el('style'); style.textContent = css + PCSS; document.head.appendChild(style);
 
     var stripRetry = null;
     if (depth >= 1) {
@@ -351,6 +737,7 @@
       }
 
       if (isTest) {
+        var pb = printButton(); if (pb) inner.appendChild(pb);
         stripRetry = retryButton('tmn-end');
         inner.appendChild(stripRetry);
       }

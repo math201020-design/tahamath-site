@@ -652,6 +652,8 @@ ul.hk-note li{padding:4px 0}
   </div>
 </section>
 
+<div id="honor-board"></div>
+
 <!-- ============ TRACKS ============ -->
 <section class="sec" id="tracks">
   <div class="wrap">
@@ -1340,6 +1342,7 @@ if(/t\.me\//.test(h))e='telegram';else if(/chat\.whatsapp\.com|wa\.me/.test(h))e
 if(!e)return;var c=a.closest('.trk'),t=c&&c.querySelector('h3');
 a.setAttribute('data-umami-event',e);a.setAttribute('data-umami-event-grade',t?t.textContent.trim():pg);});})();
 </script>
-<script src="/nav.js?v=6" defer></script>
+<script src="/nav.js?v=7" defer></script>
 <script id="mob-board">(function(){try{var h=document.getElementById("haykal"),b=document.getElementById("heroes-board");if(h&&b&&h.nextElementSibling!==b)h.after(b)}catch(e){}})();</script>
+<script src="/honor/board.js?v=1" data-grade="all" defer></script>
 </body></html>
