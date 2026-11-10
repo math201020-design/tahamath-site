@@ -5273,82 +5273,82 @@
     {
       "path": "g11-general-bridge/prac-1-5-m3/index.html",
       "src": "site/g11-general-bridge/prac-1-5-m3/index.html",
-      "sha256": "ddedbf765f2f2ceb7fb03dd4b24149cc4b54a6d4d642c231c72e5a5dc349bfe1"
+      "sha256": "344e7f58028338ee68ffc5931243d256d2d3a0c2bd7357a55566aa678245e76e"
     },
     {
       "path": "g11-general-bridge/prac-16-20-m2/index.html",
       "src": "site/g11-general-bridge/prac-16-20-m2/index.html",
-      "sha256": "51bc0aca18fa7d0a8e74845d417bc7f29231249dfdafdf9a58fdd29c8bac4a6d"
+      "sha256": "b9b800022697f640b913b5c52c8fe20b919c2153726aa68bec9ea7753c336785"
     },
     {
       "path": "g11-general-bridge/prac-16-20-m4/index.html",
       "src": "site/g11-general-bridge/prac-16-20-m4/index.html",
-      "sha256": "792e02efc547256a7217b8810ffb6ec37f44024432c74fda536dc73aef080198"
+      "sha256": "6706944909a3f51045a33bd9b01b19cf94c91d1926d64945908f98094c437332"
     },
     {
       "path": "g11-general-bridge/prac-11-15-m2/index.html",
       "src": "site/g11-general-bridge/prac-11-15-m2/index.html",
-      "sha256": "82cbd0276759556b3b7bf313264a6ebd57e5a5213ca36ead09959d76631642d9"
+      "sha256": "325157031716cbf1e6880198aada7b1b5fc3c8962d8cac7f6473146660f7b4e8"
     },
     {
       "path": "g11-general-bridge/prac-16-20-m1/index.html",
       "src": "site/g11-general-bridge/prac-16-20-m1/index.html",
-      "sha256": "325826ae3cd99246575ab51b9dcf432331bb3a18d9298afcf30dab834dcff912"
+      "sha256": "b128503d753523f202596576d4b662daf25e9659d47188a065e6dd1addc9fa0d"
     },
     {
       "path": "g11-general-bridge/prac-1-5-m2/index.html",
       "src": "site/g11-general-bridge/prac-1-5-m2/index.html",
-      "sha256": "6510ae9570ed6562a165d91ebc5b67ca571ba80c97acdd0f1f524f085cfd08cd"
+      "sha256": "6a88102f4307f1b474c938d0010f860fb51be1dbf812b3f5218d28310dcec4c3"
     },
     {
       "path": "g11-general-bridge/prac-1-5-m1/index.html",
       "src": "site/g11-general-bridge/prac-1-5-m1/index.html",
-      "sha256": "5d7d705c52bb60e2a3407f37400717a5217aa4258fcfbd3d92e5db51eac5da0b"
+      "sha256": "23ad1e6d5070e79ead2ba68230dfe9cf6b520bc864a6d9dd4ac0acd8ac16f03f"
     },
     {
       "path": "g11-general-bridge/prac-6-10-m2/index.html",
       "src": "site/g11-general-bridge/prac-6-10-m2/index.html",
-      "sha256": "623a4061b500f685221d4148a7fac57134a5fff8d7bc100e02bc05a68e76b405"
+      "sha256": "1aa176bf0511f92921fd42b4e84ac5e71544dbeec2b7908c4ac64c1920635b2f"
     },
     {
       "path": "g11-general-bridge/prac-6-10-m1/index.html",
       "src": "site/g11-general-bridge/prac-6-10-m1/index.html",
-      "sha256": "2aebbaaaccb069767a1cd148cf480dc531037f79eb8adf5aa76906221ae8d029"
+      "sha256": "e6a8a196d05efaa6c097cd8eb6728acb57b36b567d67282d9b914cd07f62ba8e"
     },
     {
       "path": "g11-general-bridge/prac-16-20-m3/index.html",
       "src": "site/g11-general-bridge/prac-16-20-m3/index.html",
-      "sha256": "83bcf7770924ad7b978a696727e07f9e42d7b767a390786e33d8d3a627df8857"
+      "sha256": "a8ce43b38a4b3984ac28e9201bbe5ad8f680838abe1833bfa52a9413e5ccc9e3"
     },
     {
       "path": "g11-general-bridge/prac-6-10-m3/index.html",
       "src": "site/g11-general-bridge/prac-6-10-m3/index.html",
-      "sha256": "0805746a1a1932c52869c055e46f358a8ae86a11bf1877a39edba805779e0061"
+      "sha256": "f5db0a80cabb47b25c50e1e742fd6cc08f7c3590b414ceb7e54d36460a912723"
     },
     {
       "path": "g11-general-bridge/prac-11-15-m3/index.html",
       "src": "site/g11-general-bridge/prac-11-15-m3/index.html",
-      "sha256": "7feba4e198ec1f63a83c9fa5f215e7f04b1e894caf237a55e9c402e81c36751d"
+      "sha256": "42844fe9882da61145861829eb15d6c3a785070140099275b004fe1b3e021403"
     },
     {
       "path": "g11-general-bridge/prac-6-10-m4/index.html",
       "src": "site/g11-general-bridge/prac-6-10-m4/index.html",
-      "sha256": "14c45e6d5acbbb89b8c8daa8cd49e695636e6208f6153a3607a7eeeb53d11a4c"
+      "sha256": "a105e5e55726501422bdbc760ef432fe19dfcb54f75271cb7ce070c998b63f50"
     },
     {
       "path": "g11-general-bridge/prac-11-15-m4/index.html",
       "src": "site/g11-general-bridge/prac-11-15-m4/index.html",
-      "sha256": "468b859ffa39bd3d72eb4452bc7e5a8beaed5be3f216c37dd34628d3128775cb"
+      "sha256": "66194eaa6893ce8e8ed468a0342bcab949218095305c9dec54119d3d4052279a"
     },
     {
       "path": "g11-general-bridge/prac-11-15-m1/index.html",
       "src": "site/g11-general-bridge/prac-11-15-m1/index.html",
-      "sha256": "28ce9c20d1dc3c75865a5df9456703115c051a21e1bcdd9ad802c1bc52b8b498"
+      "sha256": "bd6c2cf53a06f23a209b599341dc4b763e5a923caeaf29413ee0d7171fac7fd6"
     },
     {
       "path": "g11-general-bridge/prac-1-5-m4/index.html",
       "src": "site/g11-general-bridge/prac-1-5-m4/index.html",
-      "sha256": "2dec1408b7ceb51657c642c1ee257c31614bdf54f58abd160b1092be85aed9d7"
+      "sha256": "ef27c43223ad6e6541304a31dfd54f9e3678e50a1deff7114a6ddbd9d55546ca"
     }
   ]
 }

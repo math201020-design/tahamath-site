@@ -204,7 +204,7 @@ function tm(t) {   // option text: \text{..} pieces as wrapping HTML, the rest a
 }
 // teacher 6 Nov 2026 20:31: the bilingual terms sit ABOVE the question, never between the stem and its figure/options
 function head(q) {
-  return `<div class="chips"><span class="chip n">س<bdi dir="ltr">${q.n}</bdi></span><span class="chip item">البند <bdi dir="ltr">${q.item}</bdi></span><span class="chip ${q.lv}">المستوى: ${q.lvl}</span><span class="chip mk">${MK(q.mark)}</span><span class="chip">الدرس <bdi dir="ltr">${q.lesson}</bdi></span><span class="chip pg">Reveal p. ${q.rv}</span></div>
+  return `<div class="chips"><span class="chip n">س<bdi dir="ltr">${q.n}</bdi></span><span class="chip item">البند <bdi dir="ltr">${q.item}</bdi></span><span class="chip ${q.lv}">المستوى: ${q.lvl}</span><span class="chip mk">${MK(q.mark)}</span><span class="chip">الدرس <bdi dir="ltr">${q.lesson}</bdi></span><span class="chip pg">Bridge p. ${q.rv}</span></div>
   <div class="out"><b>ناتج التعلم:</b> ${esc(q.out)}</div>${q.oute?`<div class="oute"><b style="color:#8A6300">Learning Outcome:</b> ${esc(q.oute)}</div>`:""}
   <div class="terms">${q.terms.map(t => `<span class="term"><span class="a">${esc(t[0])}</span><span class="e">${esc(t[1])}</span></span>`).join('')}</div>
   <div class="stem">${esc(q.stem).replace(/(\s)([xc])(?=[\s.,?])/g, '$1<i>$2</i>')}</div>`;
