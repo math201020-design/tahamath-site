@@ -1128,7 +1128,7 @@
     {
       "path": "g11-general-bridge/band-13/index.html",
       "src": "site/g11-general-bridge/band-13/index.html",
-      "sha256": "d4de6a500ac850b563e2f5a25fb0e466ccc232dc0d88162e73fda870adf91c6f"
+      "sha256": "60683e95533cda71163ad33a46e37557641ba8869a85333f16b75cbda6c91265"
     },
     {
       "path": "g11-general-bridge/band-13/img/image82.png",
@@ -1178,7 +1178,7 @@
     {
       "path": "g11-general-bridge/band-18/index.html",
       "src": "site/g11-general-bridge/band-18/index.html",
-      "sha256": "a809010bfa74cc9d28104500ad086d1dc9c4971eb375018b9f959fd2b5d23416"
+      "sha256": "6ba73159bdda1ffabf348ba4175002386f940f75043c366ae6ddc48a33dbe080"
     },
     {
       "path": "g11-general-bridge/band-18/img/image112.png",
@@ -1203,7 +1203,7 @@
     {
       "path": "g11-general-bridge/band-12/index.html",
       "src": "site/g11-general-bridge/band-12/index.html",
-      "sha256": "bff7d24b89dc43c79dc95f3fe46f2b216a826c2718403a318038a13ac0e70c79"
+      "sha256": "7466b3c4034daaf2744d0f76ee61fdf00b8436297bd7966c59c3ac6526e71f6c"
     },
     {
       "path": "g11-general-bridge/band-12/img/image78.png",
@@ -1258,7 +1258,7 @@
     {
       "path": "g11-general-bridge/band-17/index.html",
       "src": "site/g11-general-bridge/band-17/index.html",
-      "sha256": "1176741af3b9b99267bb4d0181a239c41e312b668ee06347516fb43a629a9833"
+      "sha256": "894d67be6ca212dfc2af7a98d73f613c553788ef36331740735ca3423af318db"
     },
     {
       "path": "g11-general-bridge/band-17/img/image107.png",
@@ -1298,7 +1298,7 @@
     {
       "path": "g11-general-bridge/band-15/index.html",
       "src": "site/g11-general-bridge/band-15/index.html",
-      "sha256": "d7dcb1d154c04f7e18788ce502fbb5ea2c9cc586d992f42656002be78e570acc"
+      "sha256": "6580e4d812775c834ec876b4d11f4dca124cb05046d4b4d60472ed52ca7d6318"
     },
     {
       "path": "g11-general-bridge/band-15/img/image99.png",
@@ -1323,7 +1323,7 @@
     {
       "path": "g11-general-bridge/band-10/index.html",
       "src": "site/g11-general-bridge/band-10/index.html",
-      "sha256": "40266c6178bbbf094158e75fc548dcc2428f7cc1407a8e7aa15f106e45c33e3e"
+      "sha256": "69dcd8baa224e49ac5b21a5c29228f880828cbe579a6420736b658ff6b2a6c30"
     },
     {
       "path": "g11-general-bridge/band-10/img/image63.png",
@@ -1368,7 +1368,7 @@
     {
       "path": "g11-general-bridge/band-11/index.html",
       "src": "site/g11-general-bridge/band-11/index.html",
-      "sha256": "ac065e89721c35dc0af7c2006b9021a8a778b8fe97207a28cf93e9782accd9b2"
+      "sha256": "0240f3c63323d7dda73780b0e63bd3f0707c69da25237226a077ad57599f6306"
     },
     {
       "path": "g11-general-bridge/band-11/img/image71.png",
@@ -1443,7 +1443,7 @@
     {
       "path": "g11-general-bridge/band-14/index.html",
       "src": "site/g11-general-bridge/band-14/index.html",
-      "sha256": "2d8d94683a416b55b6ffb01d4a211ab0951c239223978ef101e5f63f3e350331"
+      "sha256": "130efdd4a968ffebf94ee321ec86265a6c92b3a1a01dee564211880ed73efbbc"
     },
     {
       "path": "g11-general-bridge/band-14/img/image91.png",
@@ -1468,7 +1468,7 @@
     {
       "path": "g11-general-bridge/band-19/index.html",
       "src": "site/g11-general-bridge/band-19/index.html",
-      "sha256": "f06089356b9562003015ef5f205c817ecc46b3d5c38ffe4c2f058059c4cccd1b"
+      "sha256": "bfc46cfba2929e9824645ba8b0239cedcd480f6d79fe86811bb019fa3c7b247b"
     },
     {
       "path": "g11-general-bridge/band-19/img/image118.png",
@@ -1483,7 +1483,7 @@
     {
       "path": "g11-general-bridge/band-20/index.html",
       "src": "site/g11-general-bridge/band-20/index.html",
-      "sha256": "987415eed9a79cfac7788fde54f6f66d98a791821578d1a11a913f71d90e78f9"
+      "sha256": "7d856d01dd15fb8f35b9affd57f700b51cb1494e68fb0657da4f98729bf70ad3"
     },
     {
       "path": "g11-general-bridge/band-20/img/image122.png",
@@ -1498,7 +1498,7 @@
     {
       "path": "g11-general-bridge/band-16/index.html",
       "src": "site/g11-general-bridge/band-16/index.html",
-      "sha256": "a93dd75c4c0d1e865d3a55afe1ef9a91903ba6f10373bd568dfa4c1229ddb88a"
+      "sha256": "968673f08e6c3e15fdc62a9dd1a03b8c85d6e1924f4cd4ec6cc592fe4e9fabed"
     },
     {
       "path": "g11-general-bridge/band-16/img/image103.png",
