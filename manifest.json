@@ -328,12 +328,12 @@
   {
    "path": "g11-general/band-2/index.html",
    "src": "site/g11-general/band-2/index.html",
-   "sha256": "0a18a8d583bbf292bdbfa69d592f46285afb628077afbb00f26cc57bdbdb6576"
+   "sha256": "a483c2cdd7971caa3c3f234714313254bf62b843cf4b1b11be808cddcf65a589"
   },
   {
    "path": "g11-general/band-20/index.html",
    "src": "site/g11-general/band-20/index.html",
-   "sha256": "b8ab2b9b168b0cf921dcb5503ad9315ff65b75d6ea60afec7c66794845334af0"
+   "sha256": "738f11460079baf3c2574bf290c2e3476e02cefa9a39f626c71bc00f43f0e9ad"
   },
   {
    "path": "g11-general/band-21/index.html",
@@ -383,7 +383,7 @@
   {
    "path": "g11-general/band-6/index.html",
    "src": "site/g11-general/band-6/index.html",
-   "sha256": "b31cfac061eec197d467b7d228da0bfa44845653d9519c243053c5069492ccdc"
+   "sha256": "fc63a264290968b3613342553a28dca0bc2999c5b79c4bf9d0d26d4a34809773"
   },
   {
    "path": "g11-general/band-7/index.html",
