@@ -603,12 +603,12 @@
   {
    "path": "g12-advanced/band-2/index.html",
    "src": "site/g12-advanced/band-2/index.html",
-   "sha256": "a1b590f4edd1329b94ca9bf457e1a7b0c84e4ecd1f7351ffda88e3b815118eaa"
+   "sha256": "14f1672326391818d35e5e5b312151979771dfcb4e964d6cfc2acca07056121a"
   },
   {
    "path": "g12-advanced/band-20/index.html",
    "src": "site/g12-advanced/band-20/index.html",
-   "sha256": "27c81f54e087e41ccf09883777614a721be3bb772fb96ad8f4df39bdad16be67"
+   "sha256": "36cf617f495096189cb31c82f7090058476cc17c1170d3ac94052776cca9cd7e"
   },
   {
    "path": "g12-advanced/band-21/index.html",
@@ -653,7 +653,7 @@
   {
    "path": "g12-advanced/band-5/index.html",
    "src": "site/g12-advanced/band-5/index.html",
-   "sha256": "b1a8a340ffa576a32284ce6d74dba99ee74270c231009bf676eed74ad216a678"
+   "sha256": "9bdd4fca4d8b0dab7b057f9710b47268f54c88bdce4f4c1c4a600090c713f85e"
   },
   {
    "path": "g12-advanced/band-6/index.html",
