@@ -2838,7 +2838,7 @@
   {
    "path": "g11-advanced-bridge/band-17/index.html",
    "src": "site/g11-advanced-bridge/band-17/index.html",
-   "sha256": "2f79fff2901892a9f27eba3523c6621ea144723e250ccf918ec5064e91d55886"
+   "sha256": "d067fa6b6de66238d1195198ccc1dec4fcef451ccc4856d2da443650edaeb1c0"
   },
   {
    "path": "g11-advanced-bridge/band-17/img/aa32471f4d98.png",
@@ -4623,7 +4623,7 @@
   {
    "path": "g11-advanced-bridge/band-20/index.html",
    "src": "site/g11-advanced-bridge/band-20/index.html",
-   "sha256": "d6ae82dc3f04359b8e386bbf308d1e425af611043fafcff8849115c3707379bc"
+   "sha256": "b3705f4e56bb70b84b6851d6c334dda51fc225a6a8d7986aa555bcc3f0f99862"
   },
   {
    "path": "g11-advanced-bridge/band-20/img/bcf4fec8995d.png",
@@ -5451,24 +5451,24 @@
    "sha256": "e120ba9d48a74c681d26aff87c550f17d0db3f8eb8a09cfdcb6d43c13cd5b417"
   },
   {
-   "path": "g11-advanced-bridge/band-17/img/ce51fd8602d2_ar.png",
-   "src": "site/g11-advanced-bridge/band-17/img/ce51fd8602d2_ar.png",
+   "path": "g11-advanced-bridge/band-17/img/fa5cda939070.png",
+   "src": "site/g11-advanced-bridge/band-17/img/fa5cda939070.png",
    "sha256": "fa5cda9390706e22b62ebc264d95e01432dd70edcf4ca304a5d1cabd4da21421"
   },
   {
-   "path": "g11-advanced-bridge/band-20/img/40b152e4cd21_ar.png",
-   "src": "site/g11-advanced-bridge/band-20/img/40b152e4cd21_ar.png",
-   "sha256": "eb6e2c7f73aafc8951e67f9c84eb9bfa4a0521bc2912be3df2ded1a1c72d2004"
-  },
-  {
-   "path": "g11-advanced-bridge/band-20/img/bcf4fec8995d_ar.png",
-   "src": "site/g11-advanced-bridge/band-20/img/bcf4fec8995d_ar.png",
+   "path": "g11-advanced-bridge/band-20/img/44027356fad5.png",
+   "src": "site/g11-advanced-bridge/band-20/img/44027356fad5.png",
    "sha256": "44027356fad562f56d2d56522f739e15cc4134d85646e3dc6466be0f4e60fa83"
   },
   {
-   "path": "g11-advanced-bridge/band-20/img/54ce1a9744b0_ar.png",
-   "src": "site/g11-advanced-bridge/band-20/img/54ce1a9744b0_ar.png",
+   "path": "g11-advanced-bridge/band-20/img/d2850dafeb0c.png",
+   "src": "site/g11-advanced-bridge/band-20/img/d2850dafeb0c.png",
    "sha256": "d2850dafeb0c2715aab9a47133f9ca5d455dd4420cc483587742911dd06cc79e"
+  },
+  {
+   "path": "g11-advanced-bridge/band-20/img/eb6e2c7f73aa.png",
+   "src": "site/g11-advanced-bridge/band-20/img/eb6e2c7f73aa.png",
+   "sha256": "eb6e2c7f73aafc8951e67f9c84eb9bfa4a0521bc2912be3df2ded1a1c72d2004"
   }
  ]
 }
