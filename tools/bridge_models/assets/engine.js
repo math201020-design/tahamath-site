@@ -11,7 +11,7 @@ const bdi=t=>'<bdi dir="ltr">'+t+'</bdi>';
 const mj=(t,disp)=>disp?'\\['+t+'\\]':'\\('+t+'\\)';
 function typeset(el){if(window.MathJax&&MathJax.typesetPromise){MathJax.typesetPromise([el]).then(()=>fit(el));}else{setTimeout(()=>typeset(el),150);}}
 const ARW=/\\AR\{:?([^{}]*?):?\}/g;
-function mt(s){if(!/\\AR\{/.test(s))return mj('\\displaystyle '+s,false);let o='',last=0,m;ARW.lastIndex=0;
+function mt(s){if(!/\\AR\{/.test(s))return mj('\\displaystyle '+s,false);s=s.replace(/\\AR\{([^{}]*)\}\s*(?:\\[;,!]\s*)*(=|\\approx|\\Rightarrow)(?![a-zA-Z])/g,(m,t,op)=>'\\AR{'+t.replace(/[\s:]+$/,'')+' '+({'=':'=','\\approx':'≈','\\Rightarrow':'⇒'})[op]+'}');let o='',last=0,m;ARW.lastIndex=0;
   while((m=ARW.exec(s))){const a=s.slice(last,m.index).replace(/^(\\[ ,;!]|\\q?quad|\s)+|(\\[ ,;!]|\\q?quad|\s)+$/g,'');if(a)o+=mj('\\displaystyle '+a,false);o+='<span class="arw">'+m[1]+'</span>';last=ARW.lastIndex;}
   const z=s.slice(last).replace(/^(\\[ ,;!]|\\q?quad|\s)+/g,'');if(z)o+=mj('\\displaystyle '+z,false);return '<span class="mix">'+o+'</span>';}
 const mk=m=>m==1?"درجة واحدة":m==2?"درجتان":(m>=3&&m<=10?bdi(m)+" درجات":bdi(m)+" درجة");
