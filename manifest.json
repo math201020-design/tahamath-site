@@ -1488,7 +1488,7 @@
   {
    "path": "g11-general-bridge/mistakes/index.html",
    "src": "site/g11-general-bridge/mistakes/index.html",
-   "sha256": "716a30f3237daccf8dd3dc5afd3ffa555404d79efb4d4aa8143fb3277fccd977"
+   "sha256": "a9932f9220330754ffb1dfeef76e39791573a7b3c663b0981558659f8a679690"
   },
   {
    "path": "g11-general-bridge/band-16/index.html",
@@ -4788,7 +4788,7 @@
   {
    "path": "g11-advanced-bridge/mistakes/index.html",
    "src": "site/g11-advanced-bridge/mistakes/index.html",
-   "sha256": "e9b01bd9bd4d9c1f93417c2d5d401662c62b26da447273337ca562d6a67e7d50"
+   "sha256": "fa28a1fd5d368d5426168f667decff785694e149dd34586a9950591a0e26c68e"
   },
   {
    "path": "g11-advanced-bridge/band-16/index.html",
@@ -5393,17 +5393,17 @@
   {
    "path": "g11-general-bridge/haykal-2/index.html",
    "src": "site/g11-general-bridge/haykal-2/index.html",
-   "sha256": "5cd0a14ae883e575aa7631e8d598f6e98ca90f838258eb01c3df87e8bfe7551e"
+   "sha256": "dbe9d7bda242d8895f09a715cf03dfd32dfb5e33a8aa0dd424289d221e3e2569"
   },
   {
    "path": "g11-general-bridge/haykal-4/index.html",
    "src": "site/g11-general-bridge/haykal-4/index.html",
-   "sha256": "7be0d1340edf7db1c0a4af255381ba2153e7c96dc96cfbaf2a09e8e08e0ab817"
+   "sha256": "f96bb383ac20a50a40b0256395bf5f75da69df65598ec1d10632fb3eff438327"
   },
   {
    "path": "g11-general-bridge/haykal-2-written/index.html",
    "src": "site/g11-general-bridge/haykal-2-written/index.html",
-   "sha256": "8ad5279e59dd4fdb8d90385c8728435c7cf253da8eabc42848b2528dd92936f4"
+   "sha256": "a0366cb09ca4423776db4f16292c16b33ba807abcecd19cf1ccd8ee10e090fec"
   },
   {
    "path": "g11-general-bridge/prac-21-26-m4/index.html",
@@ -5413,12 +5413,12 @@
   {
    "path": "g11-general-bridge/haykal-3/index.html",
    "src": "site/g11-general-bridge/haykal-3/index.html",
-   "sha256": "fa85206b8f56b99f1fa52ee95af541d41b0859493b608c6757c4c2da5cd25db1"
+   "sha256": "699a89d4b1ea25f0f6e2eafe9bcb7b9c015f31f01b9cf99d50255fbf83f01df9"
   },
   {
    "path": "g11-general-bridge/haykal-4-written/index.html",
    "src": "site/g11-general-bridge/haykal-4-written/index.html",
-   "sha256": "4ac3710a6f7f52250c79a9851a57c3836b46355132df709f5259f3fe1dd970d0"
+   "sha256": "039241c0d97bc22ec33086428d7a104c4b6785cdb770299a7c9aca79226fba97"
   },
   {
    "path": "g11-general-bridge/prac-21-26-m1/index.html",
@@ -5433,17 +5433,17 @@
   {
    "path": "g11-general-bridge/haykal-1-written/index.html",
    "src": "site/g11-general-bridge/haykal-1-written/index.html",
-   "sha256": "61528c5b6e2a61489a880199d3f9c850dd2cf800d9b0bdfea016a1beacb6e8d5"
+   "sha256": "bfa8d04167ec112db80b110190bfed9739a714e4492b854d8ae853aa8369ee57"
   },
   {
    "path": "g11-general-bridge/haykal-1/index.html",
    "src": "site/g11-general-bridge/haykal-1/index.html",
-   "sha256": "93754d186f07add7a630bd66c2fb02f191c9fff137f4f97e08d927d57cdaf4c9"
+   "sha256": "0ae69a8dcabf28835183e8833c59fd2462c85099cb74212e0887df74fea2203c"
   },
   {
    "path": "g11-general-bridge/haykal-3-written/index.html",
    "src": "site/g11-general-bridge/haykal-3-written/index.html",
-   "sha256": "ffe9a37c250d5ac065380f9e28cdee506e1d42b7b5b851f6794574947620f61a"
+   "sha256": "7bb964b23fba5c8357fc5ed6cf2921eefc1071f486cde505c4b4fadb64b03ebd"
   },
   {
    "path": "g11-general-bridge/prac-21-26-m2/index.html",
