@@ -1098,7 +1098,7 @@
   {
    "path": "g11-general-bridge/band-6/index.html",
    "src": "site/g11-general-bridge/band-6/index.html",
-   "sha256": "827298a9e8d479539e717a73bc9decf66ac187e62d35a3b83ed8282846c4ce68"
+   "sha256": "ef948f76d77bd9021d9e78a3edd8efed75383f8e3c1458e19fcc0e77ebfde4c6"
   },
   {
    "path": "g11-general-bridge/band-6/img/image38.png",
@@ -1123,7 +1123,7 @@
   {
    "path": "g11-general-bridge/band-13/index.html",
    "src": "site/g11-general-bridge/band-13/index.html",
-   "sha256": "8a9f3840ccc4c42947fac7366d95701ba0d4a3528c5bd2e5e3219e91459ebbcd"
+   "sha256": "600a7cbb0729f5e65613ac2c9e4c9dd95aa9ffabda41edec60d1a37360107a63"
   },
   {
    "path": "g11-general-bridge/band-13/img/image82.png",
@@ -1148,7 +1148,7 @@
   {
    "path": "g11-general-bridge/band-7/index.html",
    "src": "site/g11-general-bridge/band-7/index.html",
-   "sha256": "ec619a446eebfd9fb78b92e6a30b9ea82b30193a29666d193babda8b5be5d82b"
+   "sha256": "2c2ffb0ac58a3c36bad2079c76fd98955b794c9aeed42ee7aeb6db8ac9a8092b"
   },
   {
    "path": "g11-general-bridge/band-7/img/image45.png",
@@ -1173,7 +1173,7 @@
   {
    "path": "g11-general-bridge/band-18/index.html",
    "src": "site/g11-general-bridge/band-18/index.html",
-   "sha256": "c4b95d15567003cdf31b371ba3e4672653f2ca6b0a68f3d266ff02630d1a1943"
+   "sha256": "412c7d985b1607f9ce3575c7e39802eef46da224c0bbb8ddbeb3c6c29afcbb03"
   },
   {
    "path": "g11-general-bridge/band-18/img/image112.png",
@@ -1198,7 +1198,7 @@
   {
    "path": "g11-general-bridge/band-12/index.html",
    "src": "site/g11-general-bridge/band-12/index.html",
-   "sha256": "00e60fccc0b762188486c8f3455a14a1afa2a8e5f0311a1e5b5c138df05b6ba3"
+   "sha256": "490da7bf122cda35e9444374d7fbad21417a6c07d2b31ae05eacf0cc44985c65"
   },
   {
    "path": "g11-general-bridge/band-12/img/image78.png",
@@ -1253,7 +1253,7 @@
   {
    "path": "g11-general-bridge/band-17/index.html",
    "src": "site/g11-general-bridge/band-17/index.html",
-   "sha256": "62d28df0fda1e51a39fabfcc6815a0379d4aad1c0a9746c20354dd6fc74b15cd"
+   "sha256": "ce4d8ddc28e8f3ca3920379e12d3895b7f60b3a6fb85cd0be31bd20de1a98d18"
   },
   {
    "path": "g11-general-bridge/band-17/img/image107.png",
@@ -1293,7 +1293,7 @@
   {
    "path": "g11-general-bridge/band-15/index.html",
    "src": "site/g11-general-bridge/band-15/index.html",
-   "sha256": "b4e8169dd84e53daeb6b710c6ecf80da5fb7f6b83421de62a1c5303fa248e42d"
+   "sha256": "63aeebda6823262ffc39e3ba2fc553c52404754036888c958b20f36dafb62dca"
   },
   {
    "path": "g11-general-bridge/band-15/img/image99.png",
@@ -1318,7 +1318,7 @@
   {
    "path": "g11-general-bridge/band-10/index.html",
    "src": "site/g11-general-bridge/band-10/index.html",
-   "sha256": "187cf6c125ce9e9cdd18c96938e7304b53e25727a03c7dd9f3e42b2dfd8cf880"
+   "sha256": "27c91760e9e15e8f0f64b9e675c78a29dd16fcb9f96d5b182c86bf30221b5889"
   },
   {
    "path": "g11-general-bridge/band-10/img/image63.png",
@@ -1338,7 +1338,7 @@
   {
    "path": "g11-general-bridge/band-5/index.html",
    "src": "site/g11-general-bridge/band-5/index.html",
-   "sha256": "85600e2851d923018eb636208200f4ee378f81271e043000e8337fc23e8ad42d"
+   "sha256": "97963f9006929e40e6ad6474a6e04e7f89b6324e8f1dc96efba7f84783390e07"
   },
   {
    "path": "g11-general-bridge/band-5/img/image32.png",
@@ -1363,7 +1363,7 @@
   {
    "path": "g11-general-bridge/band-11/index.html",
    "src": "site/g11-general-bridge/band-11/index.html",
-   "sha256": "862663a8fe3bcbdc7a0cbfe25edb149a7f92e4d67eb114925a4872bcf6412e1a"
+   "sha256": "a76204dc5d3de3c0355f4969fb8a39d8e101a82b230274a1c5066f36cf48af1b"
   },
   {
    "path": "g11-general-bridge/band-11/img/image71.png",
@@ -1413,7 +1413,7 @@
   {
    "path": "g11-general-bridge/band-4/index.html",
    "src": "site/g11-general-bridge/band-4/index.html",
-   "sha256": "0ebfacfd7bd21ef2778d3cb89024739bf52629b341528f8e09d00cd2993a21d4"
+   "sha256": "46afa6308139df86f56b7bd2b9ead9ac1f9f03d9eeee8ee7c0558cdd82752df4"
   },
   {
    "path": "g11-general-bridge/band-4/img/image27.png",
@@ -1438,7 +1438,7 @@
   {
    "path": "g11-general-bridge/band-14/index.html",
    "src": "site/g11-general-bridge/band-14/index.html",
-   "sha256": "57f75332d1cd951236aa94809f3a54c2df60de16816b1906710f1e3cabacc025"
+   "sha256": "417dcca4b7459262f10b4a5a23f25afaf20382c502ab155958c1bf6f37caf533"
   },
   {
    "path": "g11-general-bridge/band-14/img/image91.png",
@@ -1478,7 +1478,7 @@
   {
    "path": "g11-general-bridge/band-20/index.html",
    "src": "site/g11-general-bridge/band-20/index.html",
-   "sha256": "b10099323ab8ed84b9d4280678787d075d636852d04d66c7442fd4eccbb62666"
+   "sha256": "16c37b71b6462b75e8b9e2ddc90e7ac75d1da9617314f0e980e32830b8e7f187"
   },
   {
    "path": "g11-general-bridge/band-20/img/image122.png",
@@ -1493,7 +1493,7 @@
   {
    "path": "g11-general-bridge/band-16/index.html",
    "src": "site/g11-general-bridge/band-16/index.html",
-   "sha256": "dea18aed49be3b1db24d140c3d8f31d00afe5322160487857c65ea792742252f"
+   "sha256": "ede66e48bbb5ac79330cea2050d127e59ccb8bccdd011536b20d7c59c81807a9"
   },
   {
    "path": "g11-general-bridge/band-16/img/image103.png",
