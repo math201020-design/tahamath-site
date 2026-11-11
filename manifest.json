@@ -4918,7 +4918,7 @@
   {
    "path": "g11-advanced-bridge/index.html",
    "src": "site/g11-advanced-bridge/index.html",
-   "sha256": "1ee5ec32a6a7a09afef40f8aebf6cf753456828e89699ba8aa0188735f1c13b1"
+   "sha256": "98bb625f84710ef3e915dfa4fb5d6fb537d140bf382dd81b74bb8d52858092b9"
   },
   {
    "path": "g11-advanced-bridge/band-21/index.html",
@@ -5469,6 +5469,146 @@
    "path": "g11-advanced-bridge/band-20/img/eb6e2c7f73aa.png",
    "src": "site/g11-advanced-bridge/band-20/img/eb6e2c7f73aa.png",
    "sha256": "eb6e2c7f73aafc8951e67f9c84eb9bfa4a0521bc2912be3df2ded1a1c72d2004"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-1-5-1/index.html",
+   "src": "site/g11-advanced-bridge/practice-1-5-1/index.html",
+   "sha256": "a8f201c3e0219deacb9eb62fb37af3622af8cbac45dfe599d6162240068118b2"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-1-5-2/index.html",
+   "src": "site/g11-advanced-bridge/practice-1-5-2/index.html",
+   "sha256": "ad280d9f367f4895edf018fcac773c351544e17c443211f9349cdce5719359ff"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-1-5-3/index.html",
+   "src": "site/g11-advanced-bridge/practice-1-5-3/index.html",
+   "sha256": "878d0518933569f61579de83b35b661de0462fbffe165db3f4759089fed523bd"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-1-5-4/index.html",
+   "src": "site/g11-advanced-bridge/practice-1-5-4/index.html",
+   "sha256": "6975c44aa629a42a79c79e296bebf7040fa460a4da27a9d77c35769aec69ec5a"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-6-10-1/index.html",
+   "src": "site/g11-advanced-bridge/practice-6-10-1/index.html",
+   "sha256": "e0a6bb290d86e5eb53eaf898805cd8a4744a0ed53088520a27455ab8f6a4b46a"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-6-10-2/index.html",
+   "src": "site/g11-advanced-bridge/practice-6-10-2/index.html",
+   "sha256": "505cebfc475cf0414ed2432d1a35abb73f7b0926c76b80fe1b4db7e98970af7f"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-6-10-3/index.html",
+   "src": "site/g11-advanced-bridge/practice-6-10-3/index.html",
+   "sha256": "226610a8603e2442109c6d2c18b294f718b1a730bd175961079f45fe337c1607"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-6-10-4/index.html",
+   "src": "site/g11-advanced-bridge/practice-6-10-4/index.html",
+   "sha256": "003eab402966db2365fae0dcafe1851feb6f0feeec306eaa26cca8ffb01c6b3b"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-11-15-1/index.html",
+   "src": "site/g11-advanced-bridge/practice-11-15-1/index.html",
+   "sha256": "1cd776a371c76c22083e35f7d0c2989fe2381b24cf52987686d00712eaa97dae"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-11-15-2/index.html",
+   "src": "site/g11-advanced-bridge/practice-11-15-2/index.html",
+   "sha256": "f08c78638a167e736248c4d75fb4247c5b36afc4465c610bfb1157cf93c1ed10"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-11-15-3/index.html",
+   "src": "site/g11-advanced-bridge/practice-11-15-3/index.html",
+   "sha256": "27fa964878b6b8125515d0ac76e3eb570351d28cc2b35222132dd98c5bfe57fb"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-11-15-4/index.html",
+   "src": "site/g11-advanced-bridge/practice-11-15-4/index.html",
+   "sha256": "942b74e8d9b36f142bce0870d8a172a92649086dfa4e689c4896417b082cea4f"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-16-20-1/index.html",
+   "src": "site/g11-advanced-bridge/practice-16-20-1/index.html",
+   "sha256": "9fa2d8275570dcf8b646a0ea7e8e2d32af745d3097fd3fdd7cdd157eb3d799ab"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-16-20-2/index.html",
+   "src": "site/g11-advanced-bridge/practice-16-20-2/index.html",
+   "sha256": "9cc2d0bafc0158bfa2cc6ebaf4af72d437d21d8c1f5479b6a92c4dc325879043"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-16-20-3/index.html",
+   "src": "site/g11-advanced-bridge/practice-16-20-3/index.html",
+   "sha256": "1541210936af5fefc3c242576b07cc74c9ac0d11237c6df31fd111bc129d9501"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-16-20-4/index.html",
+   "src": "site/g11-advanced-bridge/practice-16-20-4/index.html",
+   "sha256": "7eb5cca5d7e7e9c3e15c8a6cd5d819b345774c8bb70b2a98e68e242c180ad441"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-21-25-1/index.html",
+   "src": "site/g11-advanced-bridge/practice-21-25-1/index.html",
+   "sha256": "8a33163475b064cc613799a10e8310caa7d6fddce01ce2047ca21e6593118000"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-21-25-2/index.html",
+   "src": "site/g11-advanced-bridge/practice-21-25-2/index.html",
+   "sha256": "547d3e3f4d986942bb89b67c587eeae5549c29d217903e847fc6facbdfee9d7d"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-21-25-3/index.html",
+   "src": "site/g11-advanced-bridge/practice-21-25-3/index.html",
+   "sha256": "f2148b8aac12b9241bdc434eedcbed2b587ca04ce78165534b3f367fb24a5be3"
+  },
+  {
+   "path": "g11-advanced-bridge/practice-21-25-4/index.html",
+   "src": "site/g11-advanced-bridge/practice-21-25-4/index.html",
+   "sha256": "829b7586d85552f66b28b2bd1a2c61f8dc16021ad468e13496e706092a41b287"
+  },
+  {
+   "path": "g11-advanced-bridge/haykal-1/index.html",
+   "src": "site/g11-advanced-bridge/haykal-1/index.html",
+   "sha256": "329939831b347e950bebc72070fdbe674dec0d89a05f0d4d1c96caaabbdeb884"
+  },
+  {
+   "path": "g11-advanced-bridge/haykal-2/index.html",
+   "src": "site/g11-advanced-bridge/haykal-2/index.html",
+   "sha256": "86770f31c270589f87b684fb1dad7dd21cc167ff51dc7a9daa48cc4dfa03aaee"
+  },
+  {
+   "path": "g11-advanced-bridge/haykal-3/index.html",
+   "src": "site/g11-advanced-bridge/haykal-3/index.html",
+   "sha256": "8d88fcf284f6294a1dd84065e2a28c72b808cb686529954a07f244c589125e40"
+  },
+  {
+   "path": "g11-advanced-bridge/haykal-4/index.html",
+   "src": "site/g11-advanced-bridge/haykal-4/index.html",
+   "sha256": "15ba8bf43f79a813ba91358eab63ae19627deeecabe2c0a2cbda00e354e26fc6"
+  },
+  {
+   "path": "g11-advanced-bridge/haykal-1-written/index.html",
+   "src": "site/g11-advanced-bridge/haykal-1-written/index.html",
+   "sha256": "a536dfd60373713d8500f55ebcabc96c3b2aeea2ae6ad603795bbad39c10bc5e"
+  },
+  {
+   "path": "g11-advanced-bridge/haykal-2-written/index.html",
+   "src": "site/g11-advanced-bridge/haykal-2-written/index.html",
+   "sha256": "8b4856b410f12883c8923a0452f1909952806a48ddb84af7f3e2668e4c83f39d"
+  },
+  {
+   "path": "g11-advanced-bridge/haykal-3-written/index.html",
+   "src": "site/g11-advanced-bridge/haykal-3-written/index.html",
+   "sha256": "2330a11ac452cf345a6b6c7e607852bbbb85adf91633591112b69dbf7b6baf33"
+  },
+  {
+   "path": "g11-advanced-bridge/haykal-4-written/index.html",
+   "src": "site/g11-advanced-bridge/haykal-4-written/index.html",
+   "sha256": "ad437660d352f90eb8998bc129c124fff21f045fad36b8d3092372af66fb6f54"
   }
  ]
 }
