@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>@@TITLE@@</title>
+<meta name="description" content="@@DESC@@">
+<link rel="canonical" href="https://tahamath.com/g11-advanced-bridge/@@ID@@/">
+<meta property="og:title" content="@@TITLE@@">
+<meta property="og:description" content="@@DESC@@">
+<meta property="og:url" content="https://tahamath.com/g11-advanced-bridge/@@ID@@/">
+<meta property="og:image" content="https://tahamath.com/og.jpg">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']]},svg:{fontCache:'global'},startup:{typeset:false}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/mathlive@0.98.6/dist/mathlive.min.js" defer></script>
+<style>
+@@CSS@@
+</style></head>
+<body><div class="wrap">
+<header class="hb"><div class="hw">
+  <img class="stamp" src="@@STAMP@@" alt="">
+  <div><p class="academy">أكاديمية طه للرياضيات<small>TAHA MATH ACADEMY</small></p>
+  <p class="meta">@@META@@</p></div>
+</div></header>
+<h1 class="ht">@@H1@@</h1>
+<p class="hsub">@@HSUB@@</p>
+
+<div id="start" class="panel">
+  <div class="facts">@@FACTS@@</div>
+  <p class="intro">@@INTRO@@</p>
+  <label class="nm" for="nm">الاسم الثلاثي</label>
+  <input id="nm" class="name" autocomplete="name" placeholder="الاسم الثلاثي">
+  <div class="center" style="margin-top:14px"><button class="btn gold" id="go">@@GO@@</button></div>
+</div>
+
+<div id="quiz" class="hidden">
+  <div id="result"></div>
+  <div class="timer" id="tmr"></div>
+  <div class="center hidden" id="tores"><button class="btn ghost" onclick="S.cur=0;save();show();window.scrollTo(0,0)">↑ العودة إلى بطاقة النتيجة</button></div>
+  <div class="dots" id="dots"></div>
+  <div id="qbox"></div>
+  <div class="nav"><button class="btn ghost" id="prev">السابق</button><span class="cnt" id="cnt"></span><button class="btn" id="next">التالي</button></div>
+  <div class="submit" id="subw"><div class="left" id="left"></div><button class="btn gold" id="sub">تسليم الإجابات</button></div>
+</div>
+<footer><span class="nw">إعداد: الأستاذ محمد طه</span> • <span class="nw">أكاديمية طه للرياضيات</span><br><span class="nw">tahamath.com</span></footer>
+</div>
+@@REVLINKS@@<script>
+@@ENGINE@@
+</script>
+<script src="/nav.js?v=8" defer></script>
+<script id="mf-touch">
+(function(){if(window.__mfTouch)return;window.__mfTouch=1;
+/* لوحة أرقام للأجهزة اللمسية: خانة MathLive تمنع لوحة مفاتيح الجهاز (inputmode=none)، فتُضاف أزرار الأرقام داخل صفحة التدريب نفسها */
+var touch=(navigator.maxTouchPoints>0)||(window.matchMedia&&matchMedia('(pointer:coarse)').matches);
+if(!touch)return;
+var st=document.createElement('style');
+st.textContent='.mtools.mpad{justify-content:center;margin:2px 0 4px}.mtools.mpad .mk{min-width:46px;height:46px;font-size:22px;font-weight:700;touch-action:manipulation}@media(max-width:420px){.mtools.mpad .mk{min-width:40px}}';
+document.head.appendChild(st);
+var KEYS=['1','2','3','4','5','6','7','8','9','0','.','/'];
+function build(){var d=document.createElement('div');d.className='mtools mpad';d.setAttribute('role','group');d.setAttribute('aria-label','أزرار الأرقام');
+ KEYS.forEach(function(k){var b=document.createElement('button');b.type='button';b.className='mk';b.dataset.k=k;b.textContent=k;d.appendChild(b);});return d;}
+function scan(){var ts=document.querySelectorAll('.mtools');
+ for(var i=0;i<ts.length;i++){var t=ts[i];if(t.classList.contains('mpad'))continue;var n=t.nextElementSibling;if(n&&n.classList.contains('mpad'))continue;
+  var box=t.parentElement;if(!box)continue;
+  var mf=box.querySelector('math-field.mf:not([read-only])');if(!mf)continue;
+  t.insertAdjacentElement('afterend',build());}}
+var q=0;function sched(){if(q)return;q=requestAnimationFrame(function(){q=0;scan();});}
+new MutationObserver(sched).observe(document.body,{childList:true,subtree:true});
+scan();
+})();
+</script>
+<script id="print-fix">
+(function(){if(window.__prFix)return;window.__prFix=1;
+/* طباعة «اطبع الأسئلة»: الخيارات الطويلة (معادلات عريضة) تُخرج العمودين عن عرض الورقة فيُقصّ المحتوى. تُحوَّل شبكة الخيارات إلى عمود واحد عند الحاجة قبل الطباعة */
+var st=document.createElement('style');
+st.textContent='#tmn-print .tp-o.one{grid-template-columns:minmax(0,1fr)}#tmn-print .tp-o>div{min-width:0}#tmn-print .tp-e,#tmn-print .tp-f{max-width:100%;overflow:visible}';
+document.head.appendChild(st);
+function fix(){
+ var pb=document.getElementById('tmn-print');if(!pb||!pb.firstChild)return;
+ var keep=pb.style.cssText;
+ pb.style.cssText='display:block!important;visibility:hidden;position:absolute;left:0;top:0;width:680px';
+ try{
+  var os=pb.querySelectorAll('.tp-o');
+  for(var i=0;i<os.length;i++){var o=os[i];o.classList.remove('one');
+   if(o.scrollWidth>o.clientWidth+1)o.classList.add('one');}
+ }catch(e){}
+ pb.style.cssText=keep;
+}
+window.addEventListener('beforeprint',fix);
+})();
+</script>
+</body></html>
