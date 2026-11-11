@@ -97,6 +97,7 @@ footer{padding:26px 0 34px;text-align:center;font-size:13px;color:var(--stone)}
     if ((m = slug.match(/^haykal-(\d+)(-written)?$/))) {
       if (GRADE === 'g11-advanced') return 'tm-g11a-' + slug + '-v2';
       if (GRADE === 'g12-advanced') return slug + '-v2';
+      if (GRADE === 'g12-advanced/en') return 'en-' + slug + '-v2';
       return (GRADE === 'g11-general' ? 'g11gen' : 'g12gen') + '-structure-' + m[1] + (m[2] ? '-w' : '-e');
     }
     return { 'g11-general': 'g11gen-', 'g11-advanced': 'g11a-', 'g12-general': 'g12gen-', 'g12-advanced': 'g12a-', 'g12-advanced/en': 'g12aen-' }[GRADE] + slug;
@@ -109,7 +110,7 @@ footer{padding:26px 0 34px;text-align:center;font-size:13px;color:var(--stone)}
     return slug;
   }
   var TESTS = [];
-  for (var h = 1; h <= (GRADE==='g12-advanced/en'?0:4); h++) { TESTS.push('haykal-' + h); TESTS.push('haykal-' + h + '-written'); }
+  for (var h = 1; h <= 4; h++) { TESTS.push('haykal-' + h); TESTS.push('haykal-' + h + '-written'); }
   CFG.grp.forEach(function (g) { for (var k = 1; k <= 4; k++) TESTS.push(CFG.prac + '-' + g + '-' + (CFG.prac === 'prac' ? 'm' : '') + k); });
   for (var b = 1; b <= CFG.bands; b++) TESTS.push('band-' + b);
 
