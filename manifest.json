@@ -5038,12 +5038,12 @@
   {
    "path": "g11-general-bridge/prac-16-20-m2/index.html",
    "src": "site/g11-general-bridge/prac-16-20-m2/index.html",
-   "sha256": "77b8bcbadf9774ba9c0efca74e38f59a2bd81ea0e9084ba9f0ad06809c57f743"
+   "sha256": "e76644607f63e74528676b6ded8ee4de6dc8b62e99e2e5ead4f013472306ae88"
   },
   {
    "path": "g11-general-bridge/prac-16-20-m4/index.html",
    "src": "site/g11-general-bridge/prac-16-20-m4/index.html",
-   "sha256": "efb47bd15e81fe738be5624fefdc51e9ab0cf620c84d52bd39fc40e413a5aca7"
+   "sha256": "53f9209ae62b62479489ef9a22d6f69b0619644747c808b5099e0a87cbe5d1d4"
   },
   {
    "path": "g11-general-bridge/prac-11-15-m2/index.html",
@@ -5053,7 +5053,7 @@
   {
    "path": "g11-general-bridge/prac-16-20-m1/index.html",
    "src": "site/g11-general-bridge/prac-16-20-m1/index.html",
-   "sha256": "12f39b9b0b1656855bc1e4477467d86cda5b52f0f287ffb3d987bf3ce63710a6"
+   "sha256": "a21025b2f1a19426763e45a971cd458eabd7d7fba07566f02ea3b9a3948834a3"
   },
   {
    "path": "g11-general-bridge/prac-1-5-m2/index.html",
@@ -5078,7 +5078,7 @@
   {
    "path": "g11-general-bridge/prac-16-20-m3/index.html",
    "src": "site/g11-general-bridge/prac-16-20-m3/index.html",
-   "sha256": "930258146a4723388a3b60178c14f1d0fa127d507766bb01ed18957444d89e48"
+   "sha256": "d19f845340104d82ec720d9d895fa1ccef210c8d99778eb0ed188c2a0ac79a4b"
   },
   {
    "path": "g11-general-bridge/prac-6-10-m3/index.html",
