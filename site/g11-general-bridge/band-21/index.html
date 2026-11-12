@@ -140,6 +140,7 @@ const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}};
 const $=id=>document.getElementById(id);
 const bdi=t=>'<bdi dir="ltr">'+t+'</bdi>';
 const mj=(t,disp)=>disp?'\\['+t+'\\]':'\\('+t+'\\)';
+const labH=l=>{const m=/^(.*?)\s*=\s*$/.exec(l);return /[\u0600-\u06FF]/.test(l)&&m?'<span style="unicode-bidi:isolate;direction:rtl;margin:0 .25em">'+m[1]+'</span>\\(=\\)':mj(l,false)};
 function typeset(el){if(window.MathJax&&MathJax.typesetPromise){MathJax.typesetPromise([el]).then(()=>fit(el));}else{setTimeout(()=>typeset(el),150);}}
 function fit(el){}
 function wnorm(v){return String(v==null?'':v).replace(/[٠-٩]/g,c=>c.charCodeAt(0)-1632).replace(/[۰-۹]/g,c=>c.charCodeAt(0)-1776)
@@ -189,7 +190,7 @@ function show(){const i=S.cur,q=D.qs[i];
   if(q.img)h+='<img class="gimg" src="'+q.img+'" alt="شكل السؤال">';
   if(q.inputs.length){const a=S.a[i]||{};h+='<div class="inps">';q.inputs.forEach((f,k)=>{let c="inp";const v=a[k]===undefined?"":String(a[k]);
       if(S.done)c+=fok(f,v)?" right":" wrong";
-      h+='<div class="'+c+'"><span class="lab">'+mj(f.label,false)+'</span><input class="mi" inputmode="decimal" data-k="'+k+'" value="'+v.replace(/"/g,'&quot;')+'"'+(S.done?' disabled':'')+' placeholder="?"><div class="pvbad"></div>';
+      h+='<div class="'+c+'"><span class="lab">'+labH(f.label)+'</span><input class="mi" inputmode="decimal" data-k="'+k+'" value="'+v.replace(/"/g,'&quot;')+'"'+(S.done?' disabled':'')+' placeholder="?"><div class="pvbad"></div>';
       if(S.done)h+=fok(f,v)?'<div class="fix ok">✓ '+bdi(f.mark+' / '+f.mark)+'</div>':'<div class="fix bad">الصحيح: <bdi dir="ltr">'+mj(wtex(f.show),false)+'</bdi></div>';
       h+='</div>';});h+='</div>';if(!S.done)h+=wtools();
     if(q.note)h+='<p class="hint">'+q.note+'</p>';}
