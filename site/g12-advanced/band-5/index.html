@@ -199,7 +199,7 @@ function show(){const i=S.cur,q=D.qs[i];
     if(q.note)h+='<p class="hint">'+q.note+'</p>';}
   else{h+='<div class="opts">';q.opts.forEach((o,k)=>{let c="opt";const l=L[k];
     if(S.done){if(l===q.ans)c+=" right";else if(S.a[i]===l)c+=" wrong";}else if(S.a[i]===l)c+=" sel";
-    h+='<div class="'+c+'" data-l="'+l+'"><b>'+l+')</b><span>'+mj('\\displaystyle '+o,false)+'</span></div>';});
+    h+='<div class="'+c+'" data-l="'+l+'"><b>'+l+')</b><span>'+(/[\u0600-\u06FF]/.test(o)?'<bdi dir="rtl">'+o+'</bdi>':mj('\\displaystyle '+o,false))+'</span></div>';});
   h+='</div>';}
   if(S.done&&q.inputs.length){const g=score(i);h+='<div class="verdict '+(g===q.mark?'ok':(g>0?'none':'bad'))+'">حصلت على '+bdi(g)+' من '+bdi(q.mark)+' في هذا السؤال</div>';}
   if(S.done&&!q.inputs.length){const a=S.a[i];
