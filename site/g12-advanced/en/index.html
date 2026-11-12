@@ -24,10 +24,12 @@
 .btn{display:block;text-align:center;background:var(--pur);color:#fff;text-decoration:none;font-weight:700;border-radius:12px;padding:10px;min-height:44px}
 h2{color:var(--pur);margin:22px 0 4px;font-size:22px}.acts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.acts .btn{padding:8px 4px;font-size:14px}
 footer{text-align:center;color:#5B6577;font-size:14px;padding:20px 16px 40px}
+.cd{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 20px;margin-top:20px}.cd[hidden]{display:none}.cd .lbl{font-size:14px;color:#E9D9DC}.cd .lbl b{display:block;color:#fff;font-size:16px}.cd .units{display:flex;gap:8px}.cd .u{min-width:62px;text-align:center;background:rgba(212,168,67,.14);border:1px solid rgba(212,168,67,.45);border-radius:12px;padding:6px 4px}.cd .u b{display:block;font-size:28px;line-height:1.1;color:#E6C26A}.cd .u small{font-size:12px;color:#E9D9DC;display:block}
 </style></head><body>
 <section class="top"><span class="tag">Grade 12 Advanced • Term 1 • English</span>
 <h1>Exam Coverage Practice</h1>
-<p>One practice page for every item of the exam coverage: instant marking and a step-by-step solution for every question. Free, with no sign-up.</p></section>
+<p>One practice page for every item of the exam coverage: instant marking and a step-by-step solution for every question. Free, with no sign-up.</p>
+<div class="cd" id="countdown" dir="ltr" hidden><div class="lbl"><b>Time left until the ministry exam</b><span id="cdDate"></span></div><div class="units" aria-live="polite"><div class="u"><b id="cdD">0</b><small>days</small></div><div class="u"><b id="cdH">0</b><small>hours</small></div><div class="u"><b id="cdM">0</b><small>minutes</small></div></div></div></section>
 <main class="wrap">
 <div class="bar"><a href="/g12-advanced/">النسخة العربية</a><a href="/g12-advanced/en/mistakes/">My Mistakes</a><a href="/g12-advanced/#join">Join the class group</a></div>
 <h2>Item practice</h2>
@@ -74,4 +76,5 @@ footer{text-align:center;color:#5B6577;font-size:14px;padding:20px 16px 40px}
     <article class="it"><div class="n">Exam model 4</div><h3>Full ministry-style exam model 4</h3><div class="meta">Electronic paper + written paper • timed</div><div class="acts" style="grid-template-columns:1fr 1fr"><a class="btn" href="/g12-advanced/en/haykal-4/">Electronic</a><a class="btn" href="/g12-advanced/en/haykal-4-written/">Written</a></div></article>
 </div></main>
 <footer>Prepared by Mr. Mohamed Taha • Taha Math Academy • tahamath.com</footer>
+<script>(function(){var t=new Date('2026-11-25T12:00:00+04:00').getTime();if(isNaN(t))return;var b=document.getElementById('countdown');document.getElementById('cdDate').textContent='Wednesday 25 November 2026';function k(){var r=t-Date.now();if(r<=0){b.hidden=true;return}b.hidden=false;document.getElementById('cdD').textContent=Math.floor(r/864e5);document.getElementById('cdH').textContent=Math.floor(r%864e5/36e5);document.getElementById('cdM').textContent=Math.floor(r%36e5/6e4)}k();setInterval(k,30000)})();</script>
 </body></html>
