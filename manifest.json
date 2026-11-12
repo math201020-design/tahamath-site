@@ -4913,12 +4913,12 @@
   {
    "path": "g11-general-bridge/index.html",
    "src": "site/g11-general-bridge/index.html",
-   "sha256": "c04f2549056d940ade9bf95880cf63ad4847436b679b25595249d669b2fc732f"
+   "sha256": "99853f5769ceb689ae5b7db4e9848726ed5ff7c35c05ff9beb8d5ee4ee1585b0"
   },
   {
    "path": "g11-advanced-bridge/index.html",
    "src": "site/g11-advanced-bridge/index.html",
-   "sha256": "c8bcbc729e941f0fda97aad36e0faad9e03a67f10845301ac7390305e24a0b77"
+   "sha256": "56bb4fc9f82548280bd23c9cee2816f493e206992742fc177332d974d61804ee"
   },
   {
    "path": "g11-advanced-bridge/band-21/index.html",
