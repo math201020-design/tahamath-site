@@ -237,7 +237,7 @@ function arTex(t, disp) {   // -> {h: html, math: has a maths part}
   const p = mp(t.slice(last)); if (p) math = 1;
   return { h: out + p, math };
 }
-function tm(t) { return arTex(t, false).h; }   // options, boxed answers, step labels
+function tm(t) { return arTex(t, !hasAr(t)).h; }   // options, boxed answers, step labels
 function solLine(t) { const r = arTex(t, true); return '<div class="ln' + (r.math ? '' : ' rtl') + '">' + r.h + '</div>'; }
 function stemH(s) {   // stem: only the \( .. \) pieces holding Arabic text are split
   let out = '', last = 0, mm; const re = /\\\((.*?)\\\)/gs;
