@@ -524,7 +524,7 @@ ul.hk-note li{padding:4px 0}
 <body>
 <noscript><div style="position:sticky;top:0;z-index:999;background:#8A6A1F;color:#fff;padding:12px 16px;text-align:center;font:600 15px/1.6 sans-serif">لتشغيل الأجزاء التفاعلية (الأسئلة والحلول) افتح الصفحة من رابطها في متصفح Safari أو Chrome.</div></noscript>
 
-<a class="exbar" href="#haykal">التدريب الوزاري متاح الآن <b>للصفوف الأربعة: <span class="ltr">11</span> و<span class="ltr">12</span> عام ومتقدم</b><span class="go">اختر صفك ←</span></a>
+<a class="exbar" href="#haykal">التدريب الوزاري متاح الآن <b>للصفوف الأربعة: <span class="ltr">11</span> و<span class="ltr">12</span> عام ومتقدم</b><span class="go">اختر صفك ←</span><small style="display:block;width:100%;font-weight:500;font-size:13px;margin-top:4px">اختبار الرياضيات الأربعاء 25 نوفمبر 2026: الصف 11 الساعة 9:00 صباحاً • الصف 12 الساعة 12:00 ظهراً</small></a>
 
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
@@ -1065,8 +1065,8 @@ ul.hk-note li{padding:4px 0}
 
 // ===== Exam countdown: start of the ministry exams =====
 (function(){
-  const EXAM_AT='2026-11-25T00:00:00+04:00';
-  const EXAM_LABEL='تبدأ الاختبارات يوم 25 نوفمبر 2026';
+  const EXAM_AT='2026-11-25T09:00:00+04:00';
+  const EXAM_LABEL='اختبار الرياضيات الأربعاء 25 نوفمبر 2026 • الصف 11 الساعة 9:00 ص • الصف 12 الساعة 12:00 م';
   if(!EXAM_AT)return;
   const t=new Date(EXAM_AT).getTime(); if(isNaN(t))return;
   const box=document.getElementById('countdown');if(!box)return;const D=document.getElementById('cdD'),Hh=document.getElementById('cdH'),Mm=document.getElementById('cdM');
