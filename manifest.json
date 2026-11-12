@@ -403,42 +403,42 @@
   {
    "path": "g11-general/haykal-1-written/index.html",
    "src": "site/g11-general/haykal-1-written/index.html",
-   "sha256": "ceab36de7e238dfed732a2732776042cc29b6e97219fca77947a1dec294bb566"
+   "sha256": "d669a3f8ac5404a9be6b6d178789119005321fcbe8b864a4b4341179ed5fbe22"
   },
   {
    "path": "g11-general/haykal-1/index.html",
    "src": "site/g11-general/haykal-1/index.html",
-   "sha256": "19dd4db51a2e2b7d8f66f4fea10275ea926a850f985a7029b0e2f6d3edbc4511"
+   "sha256": "1b168f805eec3cd81bbc2d0c8d3a8c2ca280eccce619218c3b766d04011e83bd"
   },
   {
    "path": "g11-general/haykal-2-written/index.html",
    "src": "site/g11-general/haykal-2-written/index.html",
-   "sha256": "1c7b2aec9a9b61bb0c12e5f5d28a2aa4ee14a6c517ee7ad9599c9387d90c960e"
+   "sha256": "6674598b523b581bf3a8478573c33732c5d37d4e8bc2006c859999692fda3bb2"
   },
   {
    "path": "g11-general/haykal-2/index.html",
    "src": "site/g11-general/haykal-2/index.html",
-   "sha256": "187a54d414cbdba553c77cb6d5d3d0c1762910c97c18890f911d9a04312ed541"
+   "sha256": "e78d7860142a187a614bf92b31c10ab4e49440d02c5bac4b9b3bcedc467849b0"
   },
   {
    "path": "g11-general/haykal-3-written/index.html",
    "src": "site/g11-general/haykal-3-written/index.html",
-   "sha256": "f5d59588ec6fadb3aa4070a68a727406603586d1b08c1606c14079176d9faac3"
+   "sha256": "55164dec1450bedc0f40b5b3189c87fe6bdb93838a21ff53377998d16abe23bb"
   },
   {
    "path": "g11-general/haykal-3/index.html",
    "src": "site/g11-general/haykal-3/index.html",
-   "sha256": "4b943d299960a70130366e4ecfba9d710b85ec571270a96a247938c302b1cb93"
+   "sha256": "e6a0878de29e0ca01baa72ea6a411f9767b3232b37f0dd819c80c2103d5390cc"
   },
   {
    "path": "g11-general/haykal-4-written/index.html",
    "src": "site/g11-general/haykal-4-written/index.html",
-   "sha256": "c9db851f923fd44853ec2cce27caafadf08383209a3c028a1e53ba4e895bebd6"
+   "sha256": "22f3a08a59a927107b5de22293663d58d30efc205b674ef5b819f651706e6b11"
   },
   {
    "path": "g11-general/haykal-4/index.html",
    "src": "site/g11-general/haykal-4/index.html",
-   "sha256": "e0d4923e1402a2d00c95789d51f179d41696f823bc1256c70e365d927f8b8b38"
+   "sha256": "9c41986c07e04ebc84ef00a1ed7b4b8fc74c611c69738a2ce0e7336a7f569d3e"
   },
   {
    "path": "g11-general/mistakes/index.html",
