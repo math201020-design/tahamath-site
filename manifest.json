@@ -128,42 +128,42 @@
   {
    "path": "g11-advanced/haykal-1-written/index.html",
    "src": "site/g11-advanced/haykal-1-written/index.html",
-   "sha256": "dee129ec6e9fceff28688982f1a81c49bb7e0eda4f5d5491126b8b0d61c1dd8d"
+   "sha256": "f3f7ddbbb609512dcf730508c2c9b16ab488a5317fbb2a99d3ecf1a34d6b41ad"
   },
   {
    "path": "g11-advanced/haykal-1/index.html",
    "src": "site/g11-advanced/haykal-1/index.html",
-   "sha256": "4797c735d9ef1f276614abbc609514ed61cfa8906c935abc86eb0fe9172f49fa"
+   "sha256": "45c7ed4d64f635b86dac4f95f4cb607a406fd7b64f91855c209a26adc39395be"
   },
   {
    "path": "g11-advanced/haykal-2-written/index.html",
    "src": "site/g11-advanced/haykal-2-written/index.html",
-   "sha256": "e84d37fbbeec0f7255b98a1146a74be2351c43a52428182e4df42f77d8682df4"
+   "sha256": "f617b416e5c02b0ca242ddd701deaf64c5fd679fdd4f3022132708bbffff14fd"
   },
   {
    "path": "g11-advanced/haykal-2/index.html",
    "src": "site/g11-advanced/haykal-2/index.html",
-   "sha256": "a0a12ce12d9c7ccd79c0b34defc8410fcf6dc504c1f1e25d26e6992d03f09789"
+   "sha256": "0a45ffb840a9dc250f477f0fd7dd86f4d352b20f7402a2eeb35ba4cb59545567"
   },
   {
    "path": "g11-advanced/haykal-3-written/index.html",
    "src": "site/g11-advanced/haykal-3-written/index.html",
-   "sha256": "b4994217e316bb8d148fc6743cc0d718a3815529aaacd452d9fd73b77548b818"
+   "sha256": "1d1c7314d9bb559e5a31ea95f7a8ec44a1016ef624034716eaf57a68c5f437f0"
   },
   {
    "path": "g11-advanced/haykal-3/index.html",
    "src": "site/g11-advanced/haykal-3/index.html",
-   "sha256": "b362cbfb742e95aa7713c8c3e630be8ad9ca6f645c42f808b2328c630c0f1091"
+   "sha256": "dd02305eca029c436b2e1ec468e9918aceaeff7dd9cebc450ef5700a5074476f"
   },
   {
    "path": "g11-advanced/haykal-4-written/index.html",
    "src": "site/g11-advanced/haykal-4-written/index.html",
-   "sha256": "5cd41d453244e2e516e89252082665c4cd94082522180631bfe1b8b3ab595c6f"
+   "sha256": "37e24d9ce110f028442dd562bbf745ab68760221be88316aef6d20b6aaa94600"
   },
   {
    "path": "g11-advanced/haykal-4/index.html",
    "src": "site/g11-advanced/haykal-4/index.html",
-   "sha256": "ffde0a8d2edbcf73affab336581f735d1fe680e2a0ea839359dc13e85b364ddb"
+   "sha256": "c0c279ed386783dad9d4392de392e34ab864cc915523b0a2b4944538c44ad63a"
   },
   {
    "path": "g11-advanced/mistakes/index.html",
@@ -403,42 +403,42 @@
   {
    "path": "g11-general/haykal-1-written/index.html",
    "src": "site/g11-general/haykal-1-written/index.html",
-   "sha256": "0abced65ac62780f2f8a388f4ec2862ab48346dfc2f0ca2245bfc5a1dad1e36e"
+   "sha256": "2e6feb4d70ed49f067bcfcd59145214f1ff03f1cce9a8dc10db398aee0d56601"
   },
   {
    "path": "g11-general/haykal-1/index.html",
    "src": "site/g11-general/haykal-1/index.html",
-   "sha256": "73368bc67f0a707a1fe7e8736db036476016f0eaf4dcb26d38760cc4471dd6ab"
+   "sha256": "94a1965b6770b2d791a035649191b77af29b375848be0a1fc22786c6c735c3cd"
   },
   {
    "path": "g11-general/haykal-2-written/index.html",
    "src": "site/g11-general/haykal-2-written/index.html",
-   "sha256": "0493eb2b7fa87cff5b9fb0791901d3624266d35ef7e374aa388308b784ff8d18"
+   "sha256": "1f3023f866a740bb89eeebc7646f43e29b399b78b0c7270b8ac67b504830b033"
   },
   {
    "path": "g11-general/haykal-2/index.html",
    "src": "site/g11-general/haykal-2/index.html",
-   "sha256": "01fb144ed810d4d6525a0c5aee34f0052b7ba945c3fb5ddd4916cc3f9d20a35d"
+   "sha256": "f649710bbc15b12ffc691981bef6e5c38b3988a0f351ea3a9557fb78ae251be5"
   },
   {
    "path": "g11-general/haykal-3-written/index.html",
    "src": "site/g11-general/haykal-3-written/index.html",
-   "sha256": "9ac7b6f416b874016aca30bb5fb5b65c1573e9c86fba0baf84cb945a21d0b856"
+   "sha256": "80e3373c3b4b537f329a94f8fc0682bd975e78137129a9965337c15a3734984c"
   },
   {
    "path": "g11-general/haykal-3/index.html",
    "src": "site/g11-general/haykal-3/index.html",
-   "sha256": "1363a1e591ef834b4b222833c2e51f6fbffba114c91309b521f0b177fb891d6a"
+   "sha256": "5611e4c44205297f826d55e25d07020cecdd22687e6779fe5b6ec62a54ebb54e"
   },
   {
    "path": "g11-general/haykal-4-written/index.html",
    "src": "site/g11-general/haykal-4-written/index.html",
-   "sha256": "9ab0b8ea7ad135ed7e3c1778d476436b109ccc2109a5a7babe0130c13572e419"
+   "sha256": "a57ae1875e4cc15b5241c212086dcf2653d451f50ad726925c1df3f7f435b224"
   },
   {
    "path": "g11-general/haykal-4/index.html",
    "src": "site/g11-general/haykal-4/index.html",
-   "sha256": "decd2d2da71111fb478b9f102b6b8b108b9c9d20a22a95925f59a672b50fc107"
+   "sha256": "ff85e5832b302908f6ff1a9a4c9e026b67a554e556e2cb4e2888dbac6bcae3bc"
   },
   {
    "path": "g11-general/mistakes/index.html",
@@ -678,42 +678,42 @@
   {
    "path": "g12-advanced/haykal-1-written/index.html",
    "src": "site/g12-advanced/haykal-1-written/index.html",
-   "sha256": "a5895803c8b9ef406c77ae60d9da50ef58678adf983cac8759fff03c909304af"
+   "sha256": "62bcc5468e809e5975fb85938a4cec48cba332bf89a0500746ad35948fb5a6e0"
   },
   {
    "path": "g12-advanced/haykal-1/index.html",
    "src": "site/g12-advanced/haykal-1/index.html",
-   "sha256": "3eef8ba066086568098b461552c2010515cec8bbda7a140816245e92a47e303e"
+   "sha256": "8426c22180bea4faecc6a9838cc27ca5b730e76cf4dd44d11902dbe889d3049c"
   },
   {
    "path": "g12-advanced/haykal-2-written/index.html",
    "src": "site/g12-advanced/haykal-2-written/index.html",
-   "sha256": "565e3aaed223e86591479ff0378c63ec399c1e1c70cc4c47951b94927491dc8f"
+   "sha256": "645dba16551c179e933cc64f8362878b0f0c9d63271fbebaa1f5be4cee63216b"
   },
   {
    "path": "g12-advanced/haykal-2/index.html",
    "src": "site/g12-advanced/haykal-2/index.html",
-   "sha256": "26db817640559d22f5da09e198ae57cd06af7f83e2b3f9469b4d4f412545a5bc"
+   "sha256": "5ba1e6e9cae96d71be9bbc870f925129e99d95f5168a9dd4615828f634c161f9"
   },
   {
    "path": "g12-advanced/haykal-3-written/index.html",
    "src": "site/g12-advanced/haykal-3-written/index.html",
-   "sha256": "f57d3b0c53f5b5091737ce2c4d4dc3a97dbe747546a0fe1bd077e6687c13a30f"
+   "sha256": "f16f3115c880180d6a69edab3ee7da4e39b217d62ab1e589974e31ab56a2cc82"
   },
   {
    "path": "g12-advanced/haykal-3/index.html",
    "src": "site/g12-advanced/haykal-3/index.html",
-   "sha256": "2a59f830716b9defa051b12880fff8e49bb5fbd5b36ab93f5732dd059dadf9ae"
+   "sha256": "935bef4fd63e518edeede9c392566d4de05826b67196826816aa2141ebfee572"
   },
   {
    "path": "g12-advanced/haykal-4-written/index.html",
    "src": "site/g12-advanced/haykal-4-written/index.html",
-   "sha256": "0f5b3331d58ccd3ca0808a7efb5177522b920678a11ee0352d930f0eb0fde740"
+   "sha256": "fd24ec010b4f61d98b35c0e5f4a69a4ac8749f1556ba4c2a52c951e44399b514"
   },
   {
    "path": "g12-advanced/haykal-4/index.html",
    "src": "site/g12-advanced/haykal-4/index.html",
-   "sha256": "a2d0a8c6fdd5e0e866af45db6583e2d30d75d7690474186da45d681048266892"
+   "sha256": "127a61e06d0c0794b865df2214f9fdfcb1b08f1b35626c284ee9105a3d4b2830"
   },
   {
    "path": "g12-advanced/mistakes/index.html",
@@ -953,42 +953,42 @@
   {
    "path": "g12-general/haykal-1-written/index.html",
    "src": "site/g12-general/haykal-1-written/index.html",
-   "sha256": "c4fcc436aa3a3a5db9306880d50b783c56563e3b79bacb9007f8737616522084"
+   "sha256": "4d3f5ff5b97303361904442d77fe55db81c9c4a0b4203d85522cbb8e98c7a1d8"
   },
   {
    "path": "g12-general/haykal-1/index.html",
    "src": "site/g12-general/haykal-1/index.html",
-   "sha256": "0d08576df2eb40f37c7dc2bebca787485cd15b29779205a8f6881ecf80324614"
+   "sha256": "4c037d627697a5a5d2d2b9ce841cb9ea1beee2bb45c98b875779266a7c478a99"
   },
   {
    "path": "g12-general/haykal-2-written/index.html",
    "src": "site/g12-general/haykal-2-written/index.html",
-   "sha256": "74d203a677be6a20521b4dfdc73cd6fd301c128398daf41ea5cdff08d7441683"
+   "sha256": "951a8308f12714a8e9c7a51a47214e7b71a4e4fce87e5b8e92ed00d77d267389"
   },
   {
    "path": "g12-general/haykal-2/index.html",
    "src": "site/g12-general/haykal-2/index.html",
-   "sha256": "b56d39dfedd03747053a571151fb02e32f53cc3a7ac241832be85794eb80a4ce"
+   "sha256": "e0f255914c6ce3d2389e3cb851b19204da59265d2d26c061119f7373cafc7ddf"
   },
   {
    "path": "g12-general/haykal-3-written/index.html",
    "src": "site/g12-general/haykal-3-written/index.html",
-   "sha256": "b89cf501236ddc38a82834bbc6a14b3fc7e54affe6a5deb0e602fa9982620d0b"
+   "sha256": "6468bdf8d177215fd7fb13f7367bfbdef5f8b469b579ef63552488fffe0b98a4"
   },
   {
    "path": "g12-general/haykal-3/index.html",
    "src": "site/g12-general/haykal-3/index.html",
-   "sha256": "95dbb21d32d7fbe4c81ecf85eb66090cfe64db41577edd31d159f86de3dcb4f8"
+   "sha256": "ebd2e07ab783f4a26d60757aca277694d4780e2ff39cc15adb4330ef8c9883cc"
   },
   {
    "path": "g12-general/haykal-4-written/index.html",
    "src": "site/g12-general/haykal-4-written/index.html",
-   "sha256": "ebd0eff28a5733998039b04c1b205945f0340a5ac970501b7bdb6c4eea5d2279"
+   "sha256": "e688134c880fe22d5a50f74c4da944d6b572f0b97d108276acd5cc3358e4627a"
   },
   {
    "path": "g12-general/haykal-4/index.html",
    "src": "site/g12-general/haykal-4/index.html",
-   "sha256": "a8d1c426d7bfe4b81cffc9ec8820ef445795b9023fabc6273f3d9db3a66d70d1"
+   "sha256": "dc0b732178d4cd338a30e0b0caa3c021163f97cfaf05e678504251502fd7c8dc"
   },
   {
    "path": "g12-general/mistakes/index.html",
@@ -5393,17 +5393,17 @@
   {
    "path": "g11-general-bridge/haykal-2/index.html",
    "src": "site/g11-general-bridge/haykal-2/index.html",
-   "sha256": "7d852919808dd26d9b7285f058ea462d1de2b7ef44ceda93ce501bf6294c07ac"
+   "sha256": "94c2ced32c76f0aac50ae40cb8d983c015f8e55a555e9e1f723c53fbc1a46274"
   },
   {
    "path": "g11-general-bridge/haykal-4/index.html",
    "src": "site/g11-general-bridge/haykal-4/index.html",
-   "sha256": "be3e6badb4b58b7dcd8b8df3cc532cb97f5cf26adb183d73c3ffe192b5ef86e2"
+   "sha256": "8c82a11eddc04ce5c961c686a50dbb57d6caf1d8cea47de3379eea244507751c"
   },
   {
    "path": "g11-general-bridge/haykal-2-written/index.html",
    "src": "site/g11-general-bridge/haykal-2-written/index.html",
-   "sha256": "cf6d87a05db007a25d2dd31ecdfe256f61bce99142c25d3b2a11a85b8d86f9ed"
+   "sha256": "05f01e57d3eb40adef83fa9f0963dfabce421d68b26b369243ecb97b7cac5d73"
   },
   {
    "path": "g11-general-bridge/prac-21-26-m4/index.html",
@@ -5413,12 +5413,12 @@
   {
    "path": "g11-general-bridge/haykal-3/index.html",
    "src": "site/g11-general-bridge/haykal-3/index.html",
-   "sha256": "180d1668725a6539222604455362fb142698782bf0f567b662e14999184a5073"
+   "sha256": "a33bc0d9193b184c15c6df1f2c1fc6b8713d6b750f44c8e9ef27f7007869ae73"
   },
   {
    "path": "g11-general-bridge/haykal-4-written/index.html",
    "src": "site/g11-general-bridge/haykal-4-written/index.html",
-   "sha256": "79250e07463498f792803173a02a3265cd49a5b2e0403aeb351641defcea5cc3"
+   "sha256": "cec3f6d861362c10c5547ab7d185bc70eb1cf78bf350226ed2e445cd75646713"
   },
   {
    "path": "g11-general-bridge/prac-21-26-m1/index.html",
@@ -5433,17 +5433,17 @@
   {
    "path": "g11-general-bridge/haykal-1-written/index.html",
    "src": "site/g11-general-bridge/haykal-1-written/index.html",
-   "sha256": "54ebac4edd241b07fc76225a61ca23632c0847698c01d9d90933eddc8360d517"
+   "sha256": "083a7439cf280cae4ed46168ecfab6e9d811a5b98a109e76f4e627d07fd43b26"
   },
   {
    "path": "g11-general-bridge/haykal-1/index.html",
    "src": "site/g11-general-bridge/haykal-1/index.html",
-   "sha256": "ea5a90ffd908cad013924fe7e41f89e6d86f7ebcdf2bcf7a97f444f973e33039"
+   "sha256": "5fca40ed1f7e485846af872de306e4df0fa12f3fbf9a1485f41d3b2c4bea0f46"
   },
   {
    "path": "g11-general-bridge/haykal-3-written/index.html",
    "src": "site/g11-general-bridge/haykal-3-written/index.html",
-   "sha256": "6c69facb6b94f78df8740db1350d8f0014e4c7ddc9201bbeba3aecaa772dc484"
+   "sha256": "51e88506d6d9017dc07a814d4bdec5d26a55825bf856802ef1eeb5c2fd13e99b"
   },
   {
    "path": "g11-general-bridge/prac-21-26-m2/index.html",
@@ -5573,42 +5573,42 @@
   {
    "path": "g11-advanced-bridge/haykal-1/index.html",
    "src": "site/g11-advanced-bridge/haykal-1/index.html",
-   "sha256": "9f1ce79aede93e6043eb163f68cf8d8903699becb631bc0b1dd047ba39fddab9"
+   "sha256": "71f051c5e02d9b8143e831075c02fd9f0c856be9a962f611b0f6ba4c469d904d"
   },
   {
    "path": "g11-advanced-bridge/haykal-2/index.html",
    "src": "site/g11-advanced-bridge/haykal-2/index.html",
-   "sha256": "55912c8dc7fb2663b9e0672214199f6aa0c75bfe80a99eae0773c9f3cfeeee9f"
+   "sha256": "dc1640ff5e423573980d5ce0cd8dc4ac6d1f4e2245e71e93345b9f9a746db992"
   },
   {
    "path": "g11-advanced-bridge/haykal-3/index.html",
    "src": "site/g11-advanced-bridge/haykal-3/index.html",
-   "sha256": "3ccc24c2ee5e157f7824949f9ba1cebfb7b6cca003368b70b6bdcc36e00285d6"
+   "sha256": "ae2aea7a416f6ff8990c1f30a0ad56182cfbf3e1c016e7d3780882351d3ce694"
   },
   {
    "path": "g11-advanced-bridge/haykal-4/index.html",
    "src": "site/g11-advanced-bridge/haykal-4/index.html",
-   "sha256": "a4b0fd09f7b48f11f17c7cdd60d51bb3956ab1066550a370a1b8ff2f4cb0409b"
+   "sha256": "4158729d2c8f93618458713a78c628b444c34626d8d48a974d1eaf1155715197"
   },
   {
    "path": "g11-advanced-bridge/haykal-1-written/index.html",
    "src": "site/g11-advanced-bridge/haykal-1-written/index.html",
-   "sha256": "a536dfd60373713d8500f55ebcabc96c3b2aeea2ae6ad603795bbad39c10bc5e"
+   "sha256": "09974aed9103b9dd28b454cab6102366dae9a36c65cc9d8bc1a52a42c41931a7"
   },
   {
    "path": "g11-advanced-bridge/haykal-2-written/index.html",
    "src": "site/g11-advanced-bridge/haykal-2-written/index.html",
-   "sha256": "8b4856b410f12883c8923a0452f1909952806a48ddb84af7f3e2668e4c83f39d"
+   "sha256": "0bee7d054f33e6a4bd422fcfa0e8f2cf00c6d9e3db9c207dd39acfd9e64fa69c"
   },
   {
    "path": "g11-advanced-bridge/haykal-3-written/index.html",
    "src": "site/g11-advanced-bridge/haykal-3-written/index.html",
-   "sha256": "2330a11ac452cf345a6b6c7e607852bbbb85adf91633591112b69dbf7b6baf33"
+   "sha256": "f933f538e2d36606f3a5489a734459155f44b458b65288cb5cb1e4f9a0fdfd41"
   },
   {
    "path": "g11-advanced-bridge/haykal-4-written/index.html",
    "src": "site/g11-advanced-bridge/haykal-4-written/index.html",
-   "sha256": "ad437660d352f90eb8998bc129c124fff21f045fad36b8d3092372af66fb6f54"
+   "sha256": "7919f3289a4e7d7e947ae0097c70452a5a1c8e20bf77fee63976f533ba3e3142"
   }
  ]
 }
