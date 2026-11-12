@@ -4948,7 +4948,7 @@
   {
    "path": "g11-general-bridge/band-21/index.html",
    "src": "site/g11-general-bridge/band-21/index.html",
-   "sha256": "370fbf83ae76708c6c8cb13b783ed97eabb01661975fe363dbce1fc846c4488b"
+   "sha256": "81b5241e9c8769ceec06c8f12dafdbd33a2df6bfe413b64201724eb3fb326bfc"
   },
   {
    "path": "g11-general-bridge/band-22/index.html",
@@ -4973,7 +4973,7 @@
   {
    "path": "g11-general-bridge/band-23/index.html",
    "src": "site/g11-general-bridge/band-23/index.html",
-   "sha256": "61aa5b7427a830dfdc16c79b54add214e9b4b8d1b8a3e75dfc7782735be4aa75"
+   "sha256": "e12aef0226af114947d2dd814631919cf19e4eac73e1a3ae59e8e987e5f6c4dd"
   },
   {
    "path": "g11-general-bridge/band-23/img/b23-q1.png",
@@ -4993,7 +4993,7 @@
   {
    "path": "g11-general-bridge/band-24/index.html",
    "src": "site/g11-general-bridge/band-24/index.html",
-   "sha256": "50d9f6f4079caad0fd93c3eb08eb86582c2ae81be8e3e6313d789ec74632030d"
+   "sha256": "a846f6a33b452b0c80cf79483fc95b0ae0bed57095e2d5ac8053f0c7317f04c7"
   },
   {
    "path": "g11-general-bridge/band-24/img/b24-q3.png",
@@ -5028,87 +5028,87 @@
   {
    "path": "g11-general-bridge/band-26/index.html",
    "src": "site/g11-general-bridge/band-26/index.html",
-   "sha256": "511215d008e78186de3ff37f410afdfbfef8b94cbf48e71c06a9757b108d2519"
+   "sha256": "56d34fefd60c7bbe89b9b72bda067742661ebb4af2f909c7c2cf861c84d517cc"
   },
   {
    "path": "g11-general-bridge/prac-1-5-m3/index.html",
    "src": "site/g11-general-bridge/prac-1-5-m3/index.html",
-   "sha256": "be9cb34082198407f9f376ee495234b9fe6e53d57ebe27405e6d21d639a659fb"
+   "sha256": "d0ffc1762356ddbe2e07f48b944c43ec6332e5391a824cf76a8dde696fb2bb7c"
   },
   {
    "path": "g11-general-bridge/prac-16-20-m2/index.html",
    "src": "site/g11-general-bridge/prac-16-20-m2/index.html",
-   "sha256": "e76644607f63e74528676b6ded8ee4de6dc8b62e99e2e5ead4f013472306ae88"
+   "sha256": "e73af5976e2459ed83bcf36563b9be72985d64cb2c110e6e5ab717243860e3b2"
   },
   {
    "path": "g11-general-bridge/prac-16-20-m4/index.html",
    "src": "site/g11-general-bridge/prac-16-20-m4/index.html",
-   "sha256": "53f9209ae62b62479489ef9a22d6f69b0619644747c808b5099e0a87cbe5d1d4"
+   "sha256": "40bb29853de2854362d5331b5d037ef494828c28020ce9812a52c7f583b82d03"
   },
   {
    "path": "g11-general-bridge/prac-11-15-m2/index.html",
    "src": "site/g11-general-bridge/prac-11-15-m2/index.html",
-   "sha256": "6cc796a3fb6b8e8bce4085c609d45a16f0adb642dd054150ceb57486928acd76"
+   "sha256": "6f7ac676c53a5f8d88d38199e1bd2c0613481e01f4fa09d25a4818baec933109"
   },
   {
    "path": "g11-general-bridge/prac-16-20-m1/index.html",
    "src": "site/g11-general-bridge/prac-16-20-m1/index.html",
-   "sha256": "a21025b2f1a19426763e45a971cd458eabd7d7fba07566f02ea3b9a3948834a3"
+   "sha256": "7a69bc3063842bb9432ab19e456ac93c920c2a04272afe093fa8998262c8a858"
   },
   {
    "path": "g11-general-bridge/prac-1-5-m2/index.html",
    "src": "site/g11-general-bridge/prac-1-5-m2/index.html",
-   "sha256": "f4e1b754fbd5b55a958b50ff942b6da75f26842747e8a7cf906769ad9af704b4"
+   "sha256": "7b8fc7cd21f05cb0b4685ebd034fafa7e2e12bd91d7925a99c09378accd52ee5"
   },
   {
    "path": "g11-general-bridge/prac-1-5-m1/index.html",
    "src": "site/g11-general-bridge/prac-1-5-m1/index.html",
-   "sha256": "201140b661dd48f72eaff5399f9dd9da8af421fa80acf203c5b656e3c6bf9fe6"
+   "sha256": "604386d99d436e1dd15fdf6b468dcef8e5ba6c13235c27399a70525c3abfa57d"
   },
   {
    "path": "g11-general-bridge/prac-6-10-m2/index.html",
    "src": "site/g11-general-bridge/prac-6-10-m2/index.html",
-   "sha256": "2f2468b45bf69faa46560125f980ea5fd33685f0c1edbf46963379a0f9c2112b"
+   "sha256": "523b7193fad09fa5400f57ed5e07a81e85e7d3f9c6187a191f763c1a7380258c"
   },
   {
    "path": "g11-general-bridge/prac-6-10-m1/index.html",
    "src": "site/g11-general-bridge/prac-6-10-m1/index.html",
-   "sha256": "57987d887e3e598e010654552d11b06e6f813b83654c9bfe514bc344ec129ce8"
+   "sha256": "b6025effc88c01b8c0ee581c9c4312bb2d1cd42f2278f5df7b47e721168a3660"
   },
   {
    "path": "g11-general-bridge/prac-16-20-m3/index.html",
    "src": "site/g11-general-bridge/prac-16-20-m3/index.html",
-   "sha256": "d19f845340104d82ec720d9d895fa1ccef210c8d99778eb0ed188c2a0ac79a4b"
+   "sha256": "88d67d0e40e31c3c1879475bb1a61cbf51f865875901bd4ad723fe0c8317b199"
   },
   {
    "path": "g11-general-bridge/prac-6-10-m3/index.html",
    "src": "site/g11-general-bridge/prac-6-10-m3/index.html",
-   "sha256": "3e75868bc9d2f7a7b3cfcd8181d86c75492c962160c22770d9cecb1a8cb4ce88"
+   "sha256": "44875a7c8ba37df1734ee0363d27c71c0ee89096558a28cc8280e6afb2a06f45"
   },
   {
    "path": "g11-general-bridge/prac-11-15-m3/index.html",
    "src": "site/g11-general-bridge/prac-11-15-m3/index.html",
-   "sha256": "2e209d4bb0f42baa48b78801c5caebeb20453495fc887a655363789ca9d7bcc5"
+   "sha256": "442411d0525c3635538e531b21e3b481104346992c09cf58b226f1c063be59ba"
   },
   {
    "path": "g11-general-bridge/prac-6-10-m4/index.html",
    "src": "site/g11-general-bridge/prac-6-10-m4/index.html",
-   "sha256": "4bf682d8d33873406c7549ca090cf1fc8c150b3a49e2f2fced561b217d2b1060"
+   "sha256": "6604162774838a6ab80564f273c39dd9ecb8ed27f02ec210d345ae497ca4d13b"
   },
   {
    "path": "g11-general-bridge/prac-11-15-m4/index.html",
    "src": "site/g11-general-bridge/prac-11-15-m4/index.html",
-   "sha256": "9becc823133fe1ac9926b8b9c2ab737ba6ebadc7e7817648dce450d265bf572a"
+   "sha256": "662a7f32f15c978e54daea46114e0f460e600ab19bbc6d10aae0c8dde8bf6e89"
   },
   {
    "path": "g11-general-bridge/prac-11-15-m1/index.html",
    "src": "site/g11-general-bridge/prac-11-15-m1/index.html",
-   "sha256": "348fa34f16a1e6b19cbf69114158c7b9e941618a5b64564bbdfec08f56b1ffc4"
+   "sha256": "cdff24f99990e378740a15397bad810389a77eebbaba01bdf2ab904825d32ea2"
   },
   {
    "path": "g11-general-bridge/prac-1-5-m4/index.html",
    "src": "site/g11-general-bridge/prac-1-5-m4/index.html",
-   "sha256": "9ac0dda69b53ceece31c1bd60721559dac5ae186c51fd3ab8791434f24011d9a"
+   "sha256": "2a99a0269346382e3e3189bb310f168cc89ee0b141ae7f4877838f4f9c60ebc4"
   },
   {
    "path": "g12-advanced/en/index.html",
@@ -5393,62 +5393,62 @@
   {
    "path": "g11-general-bridge/haykal-2/index.html",
    "src": "site/g11-general-bridge/haykal-2/index.html",
-   "sha256": "dbe9d7bda242d8895f09a715cf03dfd32dfb5e33a8aa0dd424289d221e3e2569"
+   "sha256": "8f9d5dc144b1177c96f35226c8e2652735d400edbb79543a85f65a7fb1725d7e"
   },
   {
    "path": "g11-general-bridge/haykal-4/index.html",
    "src": "site/g11-general-bridge/haykal-4/index.html",
-   "sha256": "f96bb383ac20a50a40b0256395bf5f75da69df65598ec1d10632fb3eff438327"
+   "sha256": "e8035308284ea65b0e4b320c7f2c60b24fee5d3bb5e8dc0f869114a4baa4333c"
   },
   {
    "path": "g11-general-bridge/haykal-2-written/index.html",
    "src": "site/g11-general-bridge/haykal-2-written/index.html",
-   "sha256": "f09c12deebdfe244c570b0209be3f416e67ce32a321893548bd6c60d376b879b"
+   "sha256": "526632b0fb6d39a3899db68a9e247d57197e9ac19b888e896e92d0cea022f0f8"
   },
   {
    "path": "g11-general-bridge/prac-21-26-m4/index.html",
    "src": "site/g11-general-bridge/prac-21-26-m4/index.html",
-   "sha256": "5fcdb4ebae4d958da9c9ac6eded53b9ae0a765479ddf955a3eb518fd0a86561a"
+   "sha256": "33f81c29478522054ee29d90f60835e461a0fa0c44c12b438107317ca93ab99e"
   },
   {
    "path": "g11-general-bridge/haykal-3/index.html",
    "src": "site/g11-general-bridge/haykal-3/index.html",
-   "sha256": "699a89d4b1ea25f0f6e2eafe9bcb7b9c015f31f01b9cf99d50255fbf83f01df9"
+   "sha256": "d80374a0af9c123a116882fc29449b24dacffcf4198eab366ece5b7802833ef5"
   },
   {
    "path": "g11-general-bridge/haykal-4-written/index.html",
    "src": "site/g11-general-bridge/haykal-4-written/index.html",
-   "sha256": "039241c0d97bc22ec33086428d7a104c4b6785cdb770299a7c9aca79226fba97"
+   "sha256": "3f4821d85adf1a994c91a8c4322d3bd8b1e75c1f789f98f11b41a5384e43fb55"
   },
   {
    "path": "g11-general-bridge/prac-21-26-m1/index.html",
    "src": "site/g11-general-bridge/prac-21-26-m1/index.html",
-   "sha256": "6ef7f75758647e25f8cd5cf5839d002d422858a33f8bb7ae2305051e94d1755d"
+   "sha256": "50d225b8eaf34c12784777c3aef65e16fa5e6ee906e4b7c13e165025bfa1d3f3"
   },
   {
    "path": "g11-general-bridge/prac-21-26-m3/index.html",
    "src": "site/g11-general-bridge/prac-21-26-m3/index.html",
-   "sha256": "b68081027f1376e037b13094d051277aa691d5a6a37e46401b273086265a2f84"
+   "sha256": "b843e14f3d30b36d8d468e559ebb7f7a524226d23788098c427fb8334df7ffc0"
   },
   {
    "path": "g11-general-bridge/haykal-1-written/index.html",
    "src": "site/g11-general-bridge/haykal-1-written/index.html",
-   "sha256": "1a021dd7353e24a30200098b3c4a1409d0a7fe2ffe437cc055b8ea112b32f19a"
+   "sha256": "f0356f14344044698f74f683037dc0358223414c16f1b1af3956121159df2256"
   },
   {
    "path": "g11-general-bridge/haykal-1/index.html",
    "src": "site/g11-general-bridge/haykal-1/index.html",
-   "sha256": "0ae69a8dcabf28835183e8833c59fd2462c85099cb74212e0887df74fea2203c"
+   "sha256": "9c0a0255c648f07e5c8416e2caab92f0c6a2a04949ccbe02623baafc8c565618"
   },
   {
    "path": "g11-general-bridge/haykal-3-written/index.html",
    "src": "site/g11-general-bridge/haykal-3-written/index.html",
-   "sha256": "7bb964b23fba5c8357fc5ed6cf2921eefc1071f486cde505c4b4fadb64b03ebd"
+   "sha256": "8d4b3b7499c3956ded3c7a7224c2769ef73045813fa2a545a190d9c2c11219e4"
   },
   {
    "path": "g11-general-bridge/prac-21-26-m2/index.html",
    "src": "site/g11-general-bridge/prac-21-26-m2/index.html",
-   "sha256": "e120ba9d48a74c681d26aff87c550f17d0db3f8eb8a09cfdcb6d43c13cd5b417"
+   "sha256": "7b11173f577a5c45c0966a8956034dd855e06587e324e83fc15b9846b231219f"
   },
   {
    "path": "g11-advanced-bridge/band-17/img/fa5cda939070.png",
