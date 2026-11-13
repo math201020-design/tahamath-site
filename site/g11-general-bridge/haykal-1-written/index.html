@@ -532,7 +532,7 @@ function wfromMF(mf) {                   // MathLive -> grader syntax
   let a = (mf.getValue('ascii-math') || '').replace(/"/g, ' ').replace(/\\ /g, ' ').replace(/sqrt\(/g, '√(').replace(/\bxx\b|·|×/g, '*');
   for (let k = 0; k < 3; k++)
     a = a.replace(/(^|[\/+\-±*,=<>≤≥\s(]|أو)\(([\d.]+)\)/g, '$1$2').replace(/\(\(([^()]*(?:\([^()]*\)[^()]*)*)\)\)/g, '($1)');
-  return a.replace(/\s+/g, ' ').trim();
+  return a.replace(/[\u2066-\u2069\u200e\u200f]/g, '').replace(/\s+/g, ' ').trim();
 }
 function wmount(inp) {
   if (wmf(inp) || inp.type !== 'text' && inp.type !== '') return;
@@ -542,7 +542,7 @@ function wmount(inp) {
   mf.setAttribute('dir', 'ltr'); mf.setAttribute('math-virtual-keyboard-policy', 'manual'); mf.setAttribute('smart-mode', 'off');
   mf.setAttribute('aria-label', inp.getAttribute('aria-label') || 'خانة الإجابة'); mf.dataset.for = inp.id;
   inp.insertAdjacentElement('afterend', mf);
-  customElements.whenDefined('math-field').then(() => { try { mf.macros = { ...mf.macros, aw: { def: '\\;\\text{أو}\\;', args: 0, captureSelection: true }, wa: { def: '\\;\\text{و}\\;', args: 0, captureSelection: true } }; } catch (e) {} });
+  customElements.whenDefined('math-field').then(() => { try { mf.macros = { ...mf.macros, aw: { def: '\\;\\text{\u2066أو\u2069}\\;', args: 0, captureSelection: true }, wa: { def: '\\;\\text{و}\\;', args: 0, captureSelection: true } }; } catch (e) {} });
   mf.addEventListener('input', () => { inp.value = wfromMF(mf); inp.dispatchEvent(new Event('input', { bubbles: true })); });
   if (inp.value) wsyncIn(inp);
   if (inp.disabled || document.body.classList.contains('done')) mf.setAttribute('read-only', '');
