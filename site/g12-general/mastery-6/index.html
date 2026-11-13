@@ -84,7 +84,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
   </section>
   <section class="box" id="stage" aria-live="polite"></section>
-  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً ولا رقماً، والاسم اختياري إن شاركت برأيك.</p>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
 </main>
 <script>
 /* مولّد أسئلة البند 6 (حل المعادلات التربيعية باستخدام القانون العام) - 12 عام
@@ -333,7 +333,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 
   var round = null, seenAll = {};
 
-  function cnt(n) { return n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n + ' إجابات صحيحة'; }
+  function cnt(n) { return n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
   function typeset(el, n) {
     n = n || 0;
     if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
@@ -467,7 +467,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       }
     } else {
       st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
-      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب ' + PASS + '. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
       if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي للبند <bdi dir="ltr">6</bdi> ثم تعود.</p>';
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
@@ -484,7 +484,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
   function feedbackBox() {
     var box = h('details', 'box fbk');
-    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك عن هذا التدريب')); return box; }
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
     box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
     var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
     f.innerHTML =
@@ -505,19 +505,19 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       e.preventDefault();
       var err = f.querySelector('#fberr'); err.hidden = true;
       var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
-      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك في 10 أحرف على الأقل.' : !fd.get('consent') ? 'نحتاج موافقتك على نشر الرأي بعد مراجعته.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
       if (m) { err.textContent = m; err.hidden = false; return; }
       var out = new FormData();
       out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
       out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
       out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
-      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore) + '/5]');
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
       var btn = f.querySelector('button'); btn.disabled = true;
       fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
         .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
         .then(function (j) {
           if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
-          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'أرسلت عدة آراء قبل قليل، حاول بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
         })
         .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
     });
