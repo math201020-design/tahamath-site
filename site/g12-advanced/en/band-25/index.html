@@ -163,13 +163,13 @@ function wfromMF(mf){let a=(mf.getValue('ascii-math')||'').replace(/"/g,' ').rep
   return a.replace(/\s+/g,'').trim();}
 const WINS={frac:'\\frac{#0}{#?}',sqrt:'\\sqrt{#0}','−':'-','(':'(',')':')'};
 function wtools(){const K=[['frac','<span class="fr"><i></i><b></b><i></i></span>','Fraction'],['sqrt','<span class="sq">√<i></i></span>','Root'],['−','−'],['(','('],[')',')']];
-  return '<div class="mtools"><span class="mt-l">Symbols:</span>'+K.map(k=>'<button type="button" class="mk" data-k="'+k[0]+'"'+(k[2]?' aria-label="'+k[2]+'" title="'+k[2]+'"':'')+'>'+k[1]+'</button>').join('')+'<button type="button" class="mk" data-k="DEL" aria-label="Delete">⌫</button></div>';}
+  return '<div class="mtools"><span class="mt-l">Symbols:</span>'+K.map(k=>'<button type="button" class="mk" data-k="'+k[0]+'"'+(k[2]?' aria-label="'+k[2]+'" title="'+k[2]+'"':'')+'>'+k[1]+'</button>').join('')+'<button type="button" class="mk" data-k="LEFT" aria-label="Cursor left">◀</button><button type="button" class="mk" data-k="RIGHT" aria-label="Cursor right (move to the denominator)">▶</button><button type="button" class="mk" data-k="DEL" aria-label="Delete">⌫</button></div>';}
 let WLAST=null;
 document.addEventListener('focusin',e=>{if(e.target&&e.target.classList&&e.target.classList.contains('mf'))WLAST=e.target;});
 document.addEventListener('mousedown',e=>{if(e.target&&e.target.closest&&e.target.closest('.mk'))e.preventDefault();});
 document.addEventListener('click',e=>{const b=e.target&&e.target.closest&&e.target.closest('.mk');if(!b)return;const qd=b.closest('.q');
   const mf=WLAST&&qd.contains(WLAST)?WLAST:qd.querySelector('math-field.mf');if(!mf||!mf.executeCommand)return;const k=b.dataset.k;
-  if(k==='DEL')mf.executeCommand('deleteBackward');else mf.executeCommand(['insert',WINS[k]||k,{insertionMode:'replaceSelection',selectionMode:'placeholder',focus:true}]);mf.focus();});
+  if(k==='DEL')mf.executeCommand('deleteBackward');else if(k==='RIGHT')mf.executeCommand('moveToNextChar');else if(k==='LEFT')mf.executeCommand('moveToPreviousChar');else mf.executeCommand(['insert',WINS[k]||k,{insertionMode:'replaceSelection',selectionMode:'placeholder',focus:true}]);mf.focus();});
 function wbad(inp){const w=inp.parentElement.querySelector('.pvbad');if(!w)return;const v=inp.value.trim();
   const typing=/^\/|\/$|\(\)|\/\)|\(\/|[-+*/]$/.test(v.replace(/\s/g,''));w.textContent=v&&!typing&&isNaN(num(v))?'This entry cannot be read. Check it, and use the symbol buttons for fractions and roots.':'';}
 function wmount(inp,i){const mf=document.createElement('math-field');mf.className='mf';mf.setAttribute('dir','ltr');

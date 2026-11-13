@@ -374,7 +374,7 @@ function wtools(q) {                     // buttons drawn as real maths symbols;
     ['(', '('], [')', ')'], ['≤', '≤'], ['≥', '≥'], ['<', '<'], ['>', '>'], ['أو', 'أو']];
   const selfS = q && q.steps.some(s => s.lab === 'SELF') ? ' أشِّر على كل خطوة من خطوات «تقييم ذاتي» كتبتها صحيحة في ورقتك بعد مقارنتها بالحل التفصيلي.' : '';
   return `<div class="wnote">إذا كانت إجابتك النهائية صحيحة تُحتسب درجة السؤال (أو الفرع) كاملة، وإلا فتُحتسب الخانات الصحيحة فقط.${selfS}</div><div class="mtools" dir="ltr"><span class="mt-l">أزرار الرموز:</span>` + K.map(k => `<button type="button" class="mk" data-k="${k[0]}"${k[2] ? ` aria-label="${k[2]}" title="${k[2]}"` : ''}>${k[1]}</button>`).join('') +
-    `<button type="button" class="mk" data-k="DEL" aria-label="حذف">⌫</button></div>`;
+    `<button type="button" class="mk" data-k="LEFT" aria-label="المؤشر لليسار">◀</button><button type="button" class="mk" data-k="RIGHT" aria-label="المؤشر لليمين (للانتقال إلى المقام)">▶</button><button type="button" class="mk" data-k="DEL" aria-label="حذف">⌫</button></div>`;
 }
 document.addEventListener('focusin', e => { if (e.target && e.target.classList && (e.target.classList.contains('mi') || e.target.classList.contains('mf'))) WLAST = e.target; });
 document.addEventListener('mousedown', e => { if (e.target && e.target.closest && e.target.closest('.mk')) e.preventDefault(); });
@@ -385,6 +385,8 @@ document.addEventListener('click', e => {
   if (mf && mf.executeCommand) {                       // the answer box is a maths box: the symbol goes in where the cursor is (teacher 29-10-2026, 19:56)
     const k = b.dataset.k;
     if (k === 'DEL') mf.executeCommand('deleteBackward');
+    else if (k === 'RIGHT') mf.executeCommand('moveToNextChar');
+    else if (k === 'LEFT') mf.executeCommand('moveToPreviousChar');
     else mf.executeCommand(['insert', WINS[k] || k, { insertionMode: 'replaceSelection', selectionMode: 'placeholder', focus: true }]);
     mf.focus(); return;
   }

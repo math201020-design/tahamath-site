@@ -403,7 +403,7 @@ function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp
 const KEY = P.slug + '-v2';
 // the site's maths answer box (MathLive) with the symbol buttons — same mechanism as the 12 General practice pages
 const TOOLS = '<div class="mtools" dir="rtl"><span class="mt-l">أزرار الرموز:</span>' + [['frac', '<span class="fr"><i></i><b></b><i></i></span>', 'كسر'], ['sqrt', '<span class="sq">√<i></i></span>', 'جذر'], ['±', '±'], ['−', '−'], ['π', 'π'], ['(', '('], [')', ')']]
-  .map(k => `<button type="button" class="mk" data-k="${k[0]}"${k[2] ? ` aria-label="${k[2]}" title="${k[2]}"` : ''}>${k[1]}</button>`).join('') + '<button type="button" class="mk" data-k="DEL" aria-label="حذف">⌫</button></div>';
+  .map(k => `<button type="button" class="mk" data-k="${k[0]}"${k[2] ? ` aria-label="${k[2]}" title="${k[2]}"` : ''}>${k[1]}</button>`).join('') + '<button type="button" class="mk" data-k="LEFT" aria-label="المؤشر لليسار">◀</button><button type="button" class="mk" data-k="RIGHT" aria-label="المؤشر لليمين (للانتقال إلى المقام)">▶</button><button type="button" class="mk" data-k="DEL" aria-label="حذف">⌫</button></div>';
 const WINS = { frac: '\\frac{#0}{#?}', sqrt: '\\sqrt{#0}', '±': '\\pm', '−': '-', 'π': '\\pi', '(': '(', ')': ')' };
 let WLAST = null;
 const wmf = inp => { const m = inp && inp.nextElementSibling; return m && m.tagName === 'MATH-FIELD' ? m : null; };
@@ -433,6 +433,8 @@ document.addEventListener('click', e => {
   const card = $('qCard'); const mf = WLAST && card.contains(WLAST) ? WLAST : card.querySelector('math-field.mf:not([read-only])'); if (!mf || !mf.executeCommand) return;
   const k = b.dataset.k;
   if (k === 'DEL') mf.executeCommand('deleteBackward');
+    else if (k === 'RIGHT') mf.executeCommand('moveToNextChar');
+    else if (k === 'LEFT') mf.executeCommand('moveToPreviousChar');
   else mf.executeCommand(['insert', WINS[k] || k, { insertionMode: 'replaceSelection', selectionMode: 'placeholder', focus: true }]);
   mf.focus();
 });
