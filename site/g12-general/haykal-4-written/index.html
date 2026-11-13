@@ -597,13 +597,17 @@ function render() {
   });
   if (D.W.length) h += `<div class="part" id="partW"><h2>الورقة المقالية: أسئلة مقالية <span style="white-space:nowrap">(40 درجة)</span></h2><div class="en">Written Paper • Free Response</div></div>`;
   D.W.forEach(q => {
-    h += `<div class="q" id="q${q.n}">${head(q)}<div class="ex">${m(q.e)}</div>`;
+    const AB = abParts(q);
+    h += `<div class="q" id="q${q.n}">${head(q)}` + (AB ? '' : `<div class="ex">${m(q.e)}</div>`);
     h += `<div style="font-size:13px;color:#5A6472">اكتب الحل كاملاً على ورقتك، ثم اكتب إجابتك النهائية في الخانات، واستعمل أزرار الرموز عند الحاجة:</div>`;
-    q.steps.forEach((s, j) => {
+    const stepsOf = L => { const keep = h; h = ''; q.steps.forEach((s, j) => {
+      if (L && s.g !== L) return;
       if (s.lab === 'CHOICE') h += `<div class="step choice" data-q="${q.n}" data-j="${j}"><label>Solution set (choose one):</label> <span class="m">(${MK(s.m)})</span><div class="choices">` + s.v.map((c, k) => `<label class="opt"><input type="radio" name="c${q.n}_${j}" value="${k}"><span class="L">${'ABCD'[k]})</span><span class="ot">${tm(c)}</span></label>`).join('') + `</div></div>`;
       else h += stepHTML(q, s, j);
-    });
-    h += wtools(q) + solHTML(q) + '</div>';
+        }); const r = h; h = keep; return r; };
+    if (AB) AB.forEach(([L, tex], i) => { h += `<div class="ex">${m('\\begin{array}{l}' + tex + '\\end{array}')}</div>` + stepsOf(L) + (i ? wtools(q).replace(/<div class="wnote">[\s\S]*?<\/div>/, '') : wtools(q)); });
+    else h += stepsOf() + wtools(q);
+    h += solHTML(q) + '</div>';
   });
   h += `<div class="nav"><button class="btn ghost navb" id="prev"><span>السابق</span><span class="arr">→</span></button><span id="cnt"></span><button class="btn navb" id="next"><span class="arr">←</span><span>التالي</span></button></div>
   <div class="dots" id="dots">${ORDER.map((n, i) => `<button class="dot" data-i="${i}" aria-label="السؤال ${n}">${n}</button>`).join('')}</div>`;
@@ -618,6 +622,12 @@ function render() {
   restore();
   show(st.cur || 0, true);
   if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise().then(() => fitMath($('#q' + ORDER[st.cur || 0])));
+}
+function abParts(q) {            // سؤال بجزئيتين: تُعرض a ثم خاناتها ثم b ثم خاناتها (المعلم 13-11-2026)
+  const mm = /^\\begin\{array\}\{l\}([\s\S]*)\\end\{array\}$/.exec(q.e || ''); if (!mm) return null;
+  const ps = mm[1].split('\\\\[8pt]'); if (ps.length < 2) return null; const out = [];
+  for (const p of ps) { const k = /^\\text\{([a-z])\. \}/.exec(p); if (!k) return null; out.push([k[1], p]); }
+  return q.steps.every(s => out.some(o => o[0] === s.g)) ? out : null;
 }
 const ORDER = D.E.map(q => q.n).concat(D.W.map(q => q.n));
 function answered(n) {

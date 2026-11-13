@@ -953,7 +953,7 @@
     {
       "path": "g12-general/haykal-1-written/index.html",
       "src": "site/g12-general/haykal-1-written/index.html",
-      "sha256": "df61a3417e247e064be8ea5ac142546bf2ee801523c3711ea006aa60c8d50579"
+      "sha256": "ed1bf015313b998a6b7248243c41b25d3106d147a16ef4bec482e535e363443b"
     },
     {
       "path": "g12-general/haykal-1/index.html",
@@ -963,7 +963,7 @@
     {
       "path": "g12-general/haykal-2-written/index.html",
       "src": "site/g12-general/haykal-2-written/index.html",
-      "sha256": "95be12cabc0030caa40b5b18b3506a490a29b775484893755839d54aafc3aea9"
+      "sha256": "669981a5ee1d910a0b56d8b9969444e1c4d2adc3d3be060e5e708e95480f927c"
     },
     {
       "path": "g12-general/haykal-2/index.html",
@@ -973,7 +973,7 @@
     {
       "path": "g12-general/haykal-3-written/index.html",
       "src": "site/g12-general/haykal-3-written/index.html",
-      "sha256": "5cde6f15aac2b683e913a423bb22b8ec6d45143a81450d1eaedd67e26fd729a9"
+      "sha256": "1c8e76551a9915397c933cdb964170573a6ef5ffadaf0d282177ae7f4432e76f"
     },
     {
       "path": "g12-general/haykal-3/index.html",
@@ -983,7 +983,7 @@
     {
       "path": "g12-general/haykal-4-written/index.html",
       "src": "site/g12-general/haykal-4-written/index.html",
-      "sha256": "fb3105c7a8569d82aebbd7c2faa5e2a24e15420f0dcc4394af28d3d9e5dc1643"
+      "sha256": "26ed80283684b607ce11e92d772eb04179d3dd7dce74df3dd3ba862ff6b3fc46"
     },
     {
       "path": "g12-general/haykal-4/index.html",
@@ -1058,22 +1058,22 @@
     {
       "path": "g12-general/practice-21-25-1/index.html",
       "src": "site/g12-general/practice-21-25-1/index.html",
-      "sha256": "84f820c174cb7c7f07b44ed2199c10d4646e3cad2aa614b5e57e1d5d5d266ac0"
+      "sha256": "35b7bb68049ae9b88263a477774f7846418c82d017244253a7d8cfe51b0710cd"
     },
     {
       "path": "g12-general/practice-21-25-2/index.html",
       "src": "site/g12-general/practice-21-25-2/index.html",
-      "sha256": "0d848ba45310c55ef9dd35e8ea43b976f2733f2afd521794d275b6a470f6792b"
+      "sha256": "cec5f281cf826668473495b1c723ec6bc871dea5d99257d1e7faf50f531d67e9"
     },
     {
       "path": "g12-general/practice-21-25-3/index.html",
       "src": "site/g12-general/practice-21-25-3/index.html",
-      "sha256": "959f72910f67e6650b3f92b1d1ba222434cf1ae8f6c9f06ee5637d255e19f706"
+      "sha256": "ae0a45026babe6369423a4b005357cbf168755b18eef0456a3ecbc5ef4a2bd38"
     },
     {
       "path": "g12-general/practice-21-25-4/index.html",
       "src": "site/g12-general/practice-21-25-4/index.html",
-      "sha256": "f5355528666ddda33456db4af4b1c15b41d57e1656330bf931a3c673cd1e701a"
+      "sha256": "91a88691a0255ad38ce62ea0a0fe7619c86d6bc8a9924195492601b8f0e5d728"
     },
     {
       "path": "g12-general/practice-6-10-1/index.html",
