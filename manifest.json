@@ -5609,6 +5609,11 @@
       "path": "g11-advanced-bridge/haykal-4-written/index.html",
       "src": "site/g11-advanced-bridge/haykal-4-written/index.html",
       "sha256": "3204c5259db93bbee3197e0a6e95186acb0ce23cb5783b6c67a88c8072917fe9"
+    },
+    {
+      "path": "g12-general/mastery-6/index.html",
+      "src": "site/g12-general/mastery-6/index.html",
+      "sha256": "705cc277edff72bd96a6eecba1d372a7d1f2a44011358e24ffb147a065ed219b"
     }
   ]
 }
