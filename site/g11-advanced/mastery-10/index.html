@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: المعادلات النسبية | الحادي عشر متقدم | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في حل المعادلات النسبية واستبعاد الحلول الدخيلة، وتتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g11-advanced/mastery-10/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">10</bdi>: حل المعادلات النسبية<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g11-advanced", "band": 10, "label": "البند 10", "gen": "TmGenRat"};</script>
+<script>
+/* مولّد أسئلة البند 10 (حل المعادلات النسبية) - 11 متقدم. نصوص الأسئلة بالإنجليزية بنمط الوزارة والتشخيصات بالعربية. */
+(function (root) {
+  'use strict';
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, a) { return a[Math.floor(rng() * a.length)]; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function fr(n, d) { d = d === undefined ? 1 : d; if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function ftex(f) { return f.d === 1 ? String(f.n) : (f.n < 0 ? '-' : '') + '\\dfrac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function fkey(f) { return f.n + '/' + f.d; }
+  function xp(p) { return p > 0 ? 'x+' + p : 'x-' + (-p); }
+  function frac(n, d) { return '\\dfrac{' + n + '}{' + d + '}'; }
+  function sgn(n) { return n < 0 ? '-' + (-n) : String(n); }
+
+  /* مجموعة حلول: مصفوفة كسور مرتبة تنازلياً */
+  function setKey(a) { return a.map(fkey).sort().join('|'); }
+  function setTex(a) {
+    if (!a.length) return '\\text{no solution}';
+    var s = a.slice().sort(function (p, q) { return q.n / q.d - p.n / p.d; });
+    return s.map(function (f) { return 'x=' + ftex(f); }).join('\\ \\text{or}\\ ');
+  }
+  function S() { return Array.prototype.slice.call(arguments).map(function (v) { return typeof v === 'number' ? fr(v) : v; }); }
+
+  var WHY = {
+    extraOnly: 'هذا الحل يجعل أحد المقامات الأصلية صفراً، فهو حل دخيل مرفوض.',
+    oneRootOnly: 'للمعادلة التربيعية جذران؛ لا تهمل جذراً قبل أن تفحصه في المقامات الأصلية.',
+    bothNoCheck: 'لم تفحص الحلين في المقامات الأصلية؛ الحل الذي يجعل مقاماً صفراً يُرفض.',
+    nosolFalse: 'بعد فحص الحلين يبقى حل صالح، فالمعادلة ليست بلا حل.',
+    negSign: 'راجع إشارة الحل عند نقل الحدود وضرب الطرفين في المضاعف المشترك.',
+    allExtra: 'كل حل ناتج يجعل مقاماً صفراً فيُرفض؛ وعندما تُرفض كل الحلول لا يكون للمعادلة حل.',
+    invert: 'عند عزل \\(x\\) اقسم على المعامل ولا تضرب به.',
+    sub: 'لا تطرح الزمنين مباشرة؛ اكتب معدل عمل كل منهما (مقلوب زمنه) واجمع المعدلات.',
+    add: 'الزمن المشترك أقل من زمن كل منهما منفرداً، فلا يصح جمع الأزمنة.',
+    harm: 'هذا هو الزمن المشترك لو كان الزمنان المعلومان هما زمنا العاملين؛ المطلوب هنا الزمن المنفرد للشخص الآخر.',
+    avg: 'لا يصح أخذ متوسط الزمنين؛ تُجمع معدلات العمل (مقلوب كل زمن) لا الأزمنة نفسها.',
+    noflip: 'ناتج جمع المعدلات هو \\(\\dfrac{1}{T}\\) وليس \\(T\\)؛ اقلب الناتج للحصول على الزمن.',
+    drainAdd: 'التصريف يُنقِص من معدل الملء ولا يزيده؛ اطرح معدل التفريغ من معدل الملء.',
+    subTimes: 'لا يصح طرح الزمنين مباشرة؛ اطرح المعدلين: \\(\\dfrac{1}{a}-\\dfrac{1}{d}\\) ثم اقلب الناتج.',
+    distr: 'راجع توزيع الضرب على حدود البسط في كل كسر عند ضرب الطرفين في المضاعف المشترك الأصغر.',
+    noP: 'لا تهمل الحدود التي فيها \\(p\\) عند توزيع المضاعف المشترك على البسط.',
+    keep: 'لا تحذف إشارة السالب الذي يسبق الكسر الثاني قبل التوزيع.',
+    cross: 'عند الضرب التبادلي اضرب بسط كل كسر في مقام الكسر الآخر، ثم اعزل \\(x\\).',
+    movec: 'لا تطرح \\(c\\) من بسط الطرف الآخر؛ اضرب الطرفين في \\(x\\) ثم اقسم على \\(c\\).',
+    twoRoots: 'جذرا المعادلة التربيعية \\(x^2=k^2\\) هما \\(k\\) و\\(-k\\)، وكلاهما لا يجعل مقاماً صفراً.'
+  };
+
+  function pickD(rng, correctSet, cands) {
+    var seen = {}; seen[setKey(correctSet)] = 1; var out = [], used = {}; out.amb = 0; out.gen = 0;
+    shuffle(rng, cands).forEach(function (c) {
+      if (out.length >= 3 || used[c.cls]) return; var k = setKey(c.set); if (seen[k]) return;
+      seen[k] = 1; used[c.cls] = 1; out.push(c);
+      var same = {}; cands.forEach(function (o) { if (setKey(o.set) === k) same[o.cls] = 1; }); if (Object.keys(same).length > 1) out.amb++;
+    });
+    out.gen = 3 - out.length; return out;
+  }
+
+  /* ----- المستوى 1 ----- */
+  function t1a(rng) { /* a/x - 1/m = d/x */
+    var a, d, m; do { a = ri(rng, 2, 12); d = ri(rng, 1, a - 1); m = ri(rng, 2, 6); } while (a <= d);
+    var x0 = m * (a - d);
+    return { e: frac(a, 'x') + '-' + frac(1, m) + '=' + frac(d, 'x'), ans: S(x0), kind: 'r1a', key: 'R1a:' + a + ',' + d + ',' + m,
+      sol: [{ t: '\\text{LCD}=' + m + 'x' }, { t: m + 'x\\cdot' + frac(a, 'x') + '-' + m + 'x\\cdot' + frac(1, m) + '=' + m + 'x\\cdot' + frac(d, 'x') }, { t: (m * a) + '-x=' + (m * d) }, { t: 'x=' + x0 }],
+      cands: [{ cls: 'invert', set: S(fr(a - d, m)), why: 'بعد الجمع تصل إلى \\(\\dfrac{' + (a - d) + '}{x}=\\dfrac{1}{' + m + '}\\)؛ فيكون \\(x=' + (a - d) + '\\cdot ' + m + '\\) بالضرب التبادلي وليس بالقسمة.' }, { cls: 'neg', set: S(-x0), why: WHY.negSign }, { cls: 'plus', set: S(m * (a + d)), why: WHY.negSign }, { cls: 'nom', set: S(a - d), why: 'عاملتَ الكسر \\(\\dfrac{1}{' + m + '}\\) كأنه \\(1\\)؛ ضرب \\(' + m + 'x\\) في \\(\\dfrac{1}{' + m + '}\\) يعطي \\(x\\) وليس \\(' + m + 'x\\).' }],
+      remember: 'اضرب طرفي المعادلة في المضاعف المشترك الأصغر للمقامات لتتخلص من الكسور، ثم تحقق أن الحل لا يجعل أي مقام صفراً.' };
+  }
+  function t1b(rng) { /* a/x = b/c */
+    var b, c, x0, a; do { c = ri(rng, 2, 9); b = ri(rng, 2, 9); x0 = ri(rng, 2, 12); a = b * x0 / c; } while (b === c || a !== Math.floor(a) || a < 1 || a === x0);
+    return { e: frac(a, 'x') + '=' + frac(b, c), ans: S(x0), kind: 'r1b', key: 'R1b:' + a + ',' + b + ',' + c,
+      sol: [{ t: b + 'x=' + a + '\\cdot ' + c + '\\quad\\text{(cross multiply)}' }, { t: b + 'x=' + (a * c) }, { t: 'x=' + x0 }],
+      cands: [{ cls: 'cross', set: S(fr(a * b, c)), why: WHY.cross }, { cls: 'invert', set: S(fr(b * c, a)), why: 'من \\(' + b + 'x=' + (a * c) + '\\) نقسم على ' + b + '، ولا نقلب الكسر.' }, { cls: 'divc', set: S(fr(a, b * c)), why: 'عند الضرب التبادلي يُضرب \\(' + a + '\\) في \\(' + c + '\\)، ولا يُقسم عليه.' }, { cls: 'neg', set: S(-x0), why: WHY.negSign }],
+      remember: 'في تناسب بين كسرين يمكن الضرب التبادلي: بسط الأول في مقام الثاني يساوي بسط الثاني في مقام الأول.' };
+  }
+  function t1c(rng) { /* a/x + b/x = c */
+    var a, b, c, s; do { c = ri(rng, 2, 6); s = ri(rng, 2, 8); var tot = c * s; a = ri(rng, 1, tot - 1); b = tot - a; } while (a === b || a < 1 || b < 1);
+    return { e: frac(a, 'x') + '+' + frac(b, 'x') + '=' + c, ans: S(s), kind: 'r1c', key: 'R1c:' + a + ',' + b + ',' + c,
+      sol: [{ t: frac(a + b, 'x') + '=' + c + '\\quad\\text{(same denominator)}' }, { t: (a + b) + '=' + c + 'x' }, { t: 'x=' + s }],
+      cands: [{ cls: 'invert', set: S(c * (a + b)), why: 'من \\(' + (a + b) + '=' + c + 'x\\) نقسم على ' + c + ' ولا نضرب به.' }, { cls: 'sign', set: S(fr(Math.abs(a - b), c)), why: 'الكسران يُجمعان بجمع البسطين \\(a+b\\) فوق المقام نفسه، لا بطرحهما.' }, { cls: 'movec', set: S(a + b - c), why: 'لا تطرح ' + c + ' من ' + (a + b) + '؛ اضرب الطرفين في \\(x\\) ثم اقسم ' + (a + b) + ' على ' + c + '.' }, { cls: 'neg', set: S(-s), why: WHY.negSign }],
+      remember: 'الكسور المتشابهة المقام تُجمع بجمع البسوط، ثم اضرب الطرفين في \\(x\\).' };
+  }
+
+  /* ----- المستوى 2 ----- */
+  function t2a(rng) { /* x/(x+p) - q/(x-p) = 2p^2/(x^2-p^2) : الجذر الدخيل -p */
+    var p = ri(rng, 1, 4), s, q; do { s = ri(rng, 2 * p + 1, 2 * p + 8); q = s - 2 * p; } while (s === p || q < 1);
+    var r = 2 * p * p;
+    return { e: frac('x', xp(p)) + '-' + frac(q, xp(-p)) + '=' + frac(r, 'x^{2}-' + (p * p)), ans: S(s), kind: 'r2a', key: 'R2a:' + p + ',' + q,
+      sol: [{ t: '\\text{LCD}=x^{2}-' + (p * p) + '=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x-' + p + ')-' + q + '(x+' + p + ')=' + r }, { t: 'x^{2}-' + (p + q) + 'x-' + (q * p + r) + '=0\\Rightarrow(x-' + s + ')(x+' + p + ')=0' }, { t: 'x=-' + p + '\\ \\text{extraneous}' }, { t: 'x=' + s }],
+      cands: [{ cls: 'extra', set: S(-p), why: WHY.extraOnly }, { cls: 'both', set: S(s, -p), why: WHY.bothNoCheck }, { cls: 'neg', set: S(-s), why: WHY.negSign }, { cls: 'none', set: [], why: WHY.nosolFalse }],
+      remember: 'بعد الحل عوّض كل قيمة في المقامات الأصلية، وارفض القيمة التي تجعل أحدها صفراً لأنها حل دخيل.' };
+  }
+  function t2b(rng) { /* x/(x-p) - q/(x+p) = 2p^2/(x^2-p^2) : الجذر الدخيل +p */
+    var p = ri(rng, 1, 4), s, q; do { s = ri(rng, -(2 * p - 1), 8); q = s + 2 * p; } while (s === 0 || s === -p || s === p || q < 1);
+    var r = 2 * p * p;
+    return { e: frac('x', xp(-p)) + '-' + frac(q, xp(p)) + '=' + frac(r, 'x^{2}-' + (p * p)), ans: S(s), kind: 'r2b', key: 'R2b:' + p + ',' + q,
+      sol: [{ t: '\\text{LCD}=x^{2}-' + (p * p) + '=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')-' + q + '(x-' + p + ')=' + r }, { t: 'x^{2}-' + (q - p) + 'x+' + (q * p - r) + '=0\\Rightarrow(x-' + p + ')(x-' + sgn(s) + ')=0' }, { t: 'x=' + p + '\\ \\text{extraneous}' }, { t: 'x=' + sgn(s) }],
+      cands: [{ cls: 'extra', set: S(p), why: WHY.extraOnly }, { cls: 'both', set: S(s, p), why: WHY.bothNoCheck }, { cls: 'neg', set: S(-s), why: WHY.negSign }, { cls: 'none', set: [], why: WHY.nosolFalse }],
+      remember: 'بعد الحل عوّض كل قيمة في المقامات الأصلية، وارفض القيمة التي تجعل أحدها صفراً لأنها حل دخيل.' };
+  }
+  function t2c(rng) { /* a/(x-p) + b/(x+p) = c/(x^2-p^2) */
+    var p, a, b, s, c; do { p = ri(rng, 1, 4); a = ri(rng, 1, 4); b = ri(rng, 1, 4); s = ri(rng, -6, 8); c = (a + b) * s + a * p - b * p; } while (a === b || s === 0 || Math.abs(s) === p || c <= 0);
+    return { e: frac(a, xp(-p)) + '+' + frac(b, xp(p)) + '=' + frac(c, 'x^{2}-' + (p * p)), ans: S(s), kind: 'r2c', key: 'R2c:' + a + ',' + b + ',' + p + ',' + c,
+      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: a + '(x+' + p + ')+' + b + '(x-' + p + ')=' + c }, { t: (a + b) + 'x+' + (a * p - b * p) + '=' + c }, { t: 'x=' + sgn(s) + '\\quad\\text{(not equal to }\\pm ' + p + '\\text{)}' }],
+      cands: [{ cls: 'distr', set: S(fr(c + a * p - b * p, a + b)), why: 'عند توزيع الضرب: \\(' + a + '(x+' + p + ')=' + a + 'x+' + (a * p) + '\\) و\\(' + b + '(x-' + p + ')=' + b + 'x-' + (b * p) + '\\)؛ راجع إشارة كل حد عند النقل.' }, { cls: 'noP', set: S(fr(c, a + b)), why: 'لا تهمل الحدين الناتجين عن \\(p\\) (' + (a * p) + ' و' + (b * p) + ') عند التوزيع.' }, { cls: 'neg', set: S(-s), why: WHY.negSign }, { cls: 'both', set: S(fr(c - a * p - b * p, a + b)), why: 'عند توزيع الضرب: \\(' + a + '(x+' + p + ')=' + a + 'x+' + (a * p) + '\\) و\\(' + b + '(x-' + p + ')=' + b + 'x-' + (b * p) + '\\)؛ راجع إشارة كل حد عند النقل.' }],
+      remember: 'المضاعف المشترك الأصغر هو \\((x+p)(x-p)\\)، ثم تحقق أن الحل لا يساوي \\(p\\) أو \\(-p\\).' };
+  }
+
+  /* ----- المستوى 3 : مسائل العمل والمعدلات ----- */
+  function hrs(f, unit) { var u = unit || 'hours'; if (f.d === 1) return f.n + '\\ \\text{' + (f.n === 1 ? u.replace(/s$/, '') : u) + '}'; var v = f.n / f.d; if (Math.abs(v * 100 - Math.round(v * 100)) < 1e-9) return (Math.round(v * 100) / 100) + '\\ \\text{' + u + '}'; return ftex(f) + '\\ \\text{' + u + '}'; }
+  function pairs(maxv) { var out = []; for (var a = 2; a <= maxv; a++) for (var t = a + 1; t <= maxv; t++) { if ((a * t) % (a + t) === 0) out.push([a, t, a * t / (a + t)]); } return out; }
+  var WP = pairs(36);
+  function wA(rng) { var pr = pick(rng, WP), a = pr[0], t = pr[1], T = pr[2]; if (rng() < 0.5) { var z = a; a = t; t = z; }
+    var who = pick(rng, [['Sara', 'Ali', 'paint a fence'], ['Omar', 'Layla', 'clean a hall'], ['Maya', 'Hassan', 'pack an order']]);
+    var stem = '<b>WORK:</b> ' + who[0] + ' can ' + who[2] + ' alone in ' + a + ' hours. Working together with ' + who[1] + ', they can finish the same job in ' + T + ' hours. How many hours would it take ' + who[1] + ' to do the job alone?';
+    return { stem: stem, e: '', ans: S(t), unit: 'hours', kind: 'wA', key: 'WA:' + a + ',' + T,
+      sol: [{ t: frac(1, a) + '+' + frac(1, 't') + '=' + frac(1, T) + '\\quad\\text{(rates per hour)}' }, { t: T + 't+' + (a * T) + '=' + a + 't\\quad\\text{(multiply by }' + (a * T) + 't\\text{)}' }, { t: (a * T) + '=' + (a - T) + 't' }, { t: 't=' + t + '\\ \\text{hours}' }],
+      cands: [{ cls: 'sub', set: S(a - T), why: WHY.sub }, { cls: 'add', set: S(a + T), why: WHY.add }, { cls: 'harm', set: S(fr(a * T, a + T)), why: WHY.harm }, { cls: 'avg', set: S(fr(a + T, 2)), why: WHY.avg }],
+      remember: 'اكتب معدل عمل كل شخص في الساعة، ومجموع المعدلين يساوي معدل العمل معاً، ثم حل المعادلة النسبية.' }; }
+  function wB(rng) { var pr = pick(rng, WP), a = pr[0], b = pr[1], T = pr[2]; var ctx = pick(rng, [0, 1]);
+    var stem = ctx === 0 ? '<b>PIPES:</b> Pipe A can fill a tank in ' + a + ' hours and Pipe B can fill the same tank in ' + b + ' hours. How long will it take to fill the tank if both pipes are open?' : '<b>PRINTERS:</b> Printer A can print a report in ' + a + ' minutes and Printer B can print it in ' + b + ' minutes. How many minutes will they need to print the report if they work together?';
+    var unit = ctx === 0 ? 'hours' : 'minutes';
+    return { stem: stem, e: '', ans: S(T), unit: unit, kind: 'wB', key: 'WB:' + a + ',' + b + ',' + ctx,
+      sol: [{ t: frac(1, a) + '+' + frac(1, b) + '=' + frac(1, 't') + '\\quad\\text{(rates)}' }, { t: frac(b + a, a * b) + '=' + frac(1, 't') }, { t: 't=' + frac(a * b, a + b) + '=' + T }, { t: 't=' + T + '\\ \\text{' + unit + '}' }],
+      cands: [{ cls: 'add', set: S(a + b), why: WHY.add }, { cls: 'avg', set: S(fr(a + b, 2)), why: WHY.avg }, { cls: 'noflip', set: S(fr(a + b, a * b)), why: WHY.noflip }, { cls: 'sub', set: S(b - a), why: WHY.sub }],
+      remember: 'معدل العمل المشترك هو مجموع المعدلين، والزمن هو مقلوب هذا المجموع.' }; }
+  function wC(rng) { var a, d, T; do { a = ri(rng, 2, 12); d = ri(rng, a + 1, 36); T = a * d / (d - a); } while (T !== Math.floor(T) || d === 2 * a && false);
+    var stem = '<b>PIPES:</b> A pipe can fill an empty tank in ' + a + ' hours. A drain can empty the full tank in ' + d + ' hours. If both are open, how long will it take to fill the empty tank?';
+    return { stem: stem, e: '', ans: S(T), unit: 'hours', kind: 'wC', key: 'WC:' + a + ',' + d,
+      sol: [{ t: frac(1, a) + '-' + frac(1, d) + '=' + frac(1, 't') + '\\quad\\text{(filling rate - draining rate)}' }, { t: frac(d - a, a * d) + '=' + frac(1, 't') }, { t: 't=' + frac(a * d, d - a) + '=' + T }, { t: 't=' + T + '\\ \\text{hours}' }],
+      cands: [{ cls: 'drainAdd', set: S(fr(a * d, a + d)), why: WHY.drainAdd }, { cls: 'subTimes', set: S(d - a), why: 'لا يصح طرح الزمنين مباشرة؛ اطرح المعدلين \\(\\dfrac{1}{' + a + '}-\\dfrac{1}{' + d + '}\\) ثم اقلب الناتج.' }, { cls: 'noflip', set: S(fr(d - a, a * d)), why: WHY.noflip }, { cls: 'add', set: S(a + d), why: 'لا تجمع الزمنين؛ اطرح معدل التفريغ من معدل الملء ثم اقلب الناتج.' }],
+      remember: 'التفريغ معدله سالب: اطرح معدل التفريغ من معدل الملء ثم اقلب الناتج.' }; }
+
+  /* ----- المستوى 4 ----- */
+  function t4n1(rng) { var p = ri(rng, 2, 7); return { e: frac('x', xp(p)) + '+' + frac(p, xp(-p)) + '=' + frac(2 * p * p, 'x^{2}-' + (p * p)), ans: [], kind: 'r4n1', key: 'R4n1:' + p,
+      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x-' + p + ')+' + p + '(x+' + p + ')=' + (2 * p * p) }, { t: 'x^{2}+' + (p * p) + '=' + (2 * p * p) + '\\Rightarrow x=\\pm ' + p }, { t: 'x=\\pm ' + p + '\\ \\text{make a denominator }0' }],
+      cands: [{ cls: 'pos', set: S(p), why: WHY.allExtra }, { cls: 'neg', set: S(-p), why: WHY.allExtra }, { cls: 'both', set: S(p, -p), why: WHY.allExtra }, { cls: 'sqr', set: S(p * p, -p * p), why: 'من \\(x^{2}=' + (p * p) + '\\) نأخذ الجذر التربيعي فيكون \\(x=\\pm ' + p + '\\) لا \\(\\pm ' + (p * p) + '\\).' }],
+      remember: 'قد تكون كل الحلول الناتجة دخيلة، وعندها لا يكون للمعادلة حل، فتحقق دائماً من المقامات الأصلية.' }; }
+  function t4n2(rng) { var p = ri(rng, 2, 7); return { e: frac('x', xp(-p)) + '-' + frac(p, xp(p)) + '=' + frac(2 * p * p, 'x^{2}-' + (p * p)), ans: [], kind: 'r4n2', key: 'R4n2:' + p,
+      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')-' + p + '(x-' + p + ')=' + (2 * p * p) }, { t: 'x^{2}+' + (p * p) + '=' + (2 * p * p) + '\\Rightarrow x=\\pm ' + p }, { t: 'x=\\pm ' + p + '\\ \\text{make a denominator }0' }],
+      cands: [{ cls: 'pos', set: S(p), why: WHY.allExtra }, { cls: 'neg', set: S(-p), why: WHY.allExtra }, { cls: 'both', set: S(p, -p), why: WHY.allExtra }, { cls: 'sqr', set: S(p * p, -p * p), why: 'من \\(x^{2}=' + (p * p) + '\\) نأخذ الجذر التربيعي فيكون \\(x=\\pm ' + p + '\\) لا \\(\\pm ' + (p * p) + '\\).' }],
+      remember: 'قد تكون كل الحلول الناتجة دخيلة، وعندها لا يكون للمعادلة حل، فتحقق دائماً من المقامات الأصلية.' }; }
+  function t4t(rng) { var p, k; do { p = ri(rng, 2, 6); k = ri(rng, 1, 9); } while (k === p);
+    return { e: frac('x', xp(p)) + '+' + frac('x', xp(-p)) + '=' + frac(2 * k * k, 'x^{2}-' + (p * p)), ans: S(k, -k), kind: 'r4t', key: 'R4t:' + p + ',' + k,
+      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x-' + p + ')+x(x+' + p + ')=' + (2 * k * k) }, { t: '2x^{2}=' + (2 * k * k) + '\\Rightarrow x^{2}=' + (k * k) + '\\Rightarrow x=\\pm ' + k }, { t: 'x=\\pm ' + k + '\\ \\text{(neither makes a denominator }0\\text{)}' }],
+      cands: [{ cls: 'one', set: S(k), why: 'المعادلة \\(x^{2}=' + (k * k) + '\\) لها جذران \\(' + k + '\\) و\\(-' + k + '\\)، وكلاهما لا يجعل مقاماً صفراً.' }, { cls: 'oneN', set: S(-k), why: 'المعادلة \\(x^{2}=' + (k * k) + '\\) لها جذران \\(' + k + '\\) و\\(-' + k + '\\)، وكلاهما لا يجعل مقاماً صفراً.' }, { cls: 'none', set: [], why: 'كلا الحلين \\(' + k + '\\) و\\(-' + k + '\\) صالح لأن أياً منهما لا يجعل مقاماً صفراً، فللمعادلة حلان.' }, { cls: 'sqr', set: S(k * k, -k * k), why: 'من \\(x^{2}=' + (k * k) + '\\) نأخذ الجذر التربيعي فيكون \\(x=\\pm ' + k + '\\) لا \\(\\pm ' + (k * k) + '\\).' }],
+      remember: 'عند حل \\(x^2=k^2\\) يوجد جذران \\(\\pm k\\)، ثم تحقق من كل منهما في المقامات الأصلية.' }; }
+  function t4u(rng) { var p, s, e, C; do { p = ri(rng, 1, 5); s = ri(rng, -9, 9); e = -2 * p - s; C = -p * p - s * e; } while (s === e || s === p || s === -p || e === p || e === -p || s === 0 || e === 0 || C <= 0 || C > 60);
+    return { e: frac('x', xp(-p)) + '+' + frac(p, xp(p)) + '=' + frac(C, 'x^{2}-' + (p * p)), ans: S(s, e), kind: 'r4u', key: 'R4u:' + p + ',' + C,
+      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')+' + p + '(x-' + p + ')=' + C }, { t: 'x^{2}+' + (2 * p) + 'x-' + (p * p + C) + '=0\\Rightarrow(x-' + sgn(s) + ')(x-' + sgn(e) + ')=0'.replace('x--', 'x+') }, { t: 'x=' + sgn(s) + '\\ \\text{or}\\ x=' + sgn(e) + '\\quad\\text{(neither makes a denominator }0\\text{)}' }],
+      cands: [{ cls: 'one', set: S(s), why: WHY.oneRootOnly }, { cls: 'oneB', set: S(e), why: WHY.oneRootOnly }, { cls: 'none', set: [], why: WHY.nosolFalse }, { cls: 'neg', set: S(-s, -e), why: WHY.negSign }],
+      remember: 'حل المعادلة التربيعية الناتجة ثم افحص كل جذر في المقامات الأصلية قبل اعتماده.' }; }
+
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: 'اضرب طرفي المعادلة في المضاعف المشترك الأصغر للمقامات لتتخلص من الكسور، ثم اعزل \\(x\\).' },
+    { id: 2, ar: 'تطبيق', hint: 'حلّل المقام \\(x^2-p^2=(x+p)(x-p)\\) واجعله مضاعفاً مشتركاً، ثم عوّض الحل في المقامات الأصلية لتستبعد الحل الدخيل.' },
+    { id: 3, ar: 'مسائل كلامية', hint: 'اكتب معدل عمل كل شخص في الساعة (مقلوب زمنه)، ثم اجمع المعدلات أو اطرحها حسب المسألة وحل المعادلة النسبية.' },
+    { id: 4, ar: 'مستوى الوزارة', hint: 'بعد حل المعادلة الناتجة افحص كل جذر في المقامات الأصلية: قد يكون بعضها أو كلها دخيلاً، وقد يكون للمعادلة جذران صالحان.' }
+  ];
+  function build(level, rng) {
+    if (level === 1) { var r = rng(); return r < 0.4 ? t1a(rng) : (r < 0.7 ? t1c(rng) : t1b(rng)); }
+    if (level === 2) { var r2 = rng(); return r2 < 0.35 ? t2a(rng) : (r2 < 0.6 ? t2b(rng) : t2c(rng)); }
+    if (level === 3) { var r3 = rng(); return r3 < 0.4 ? wA(rng) : (r3 < 0.75 ? wB(rng) : wC(rng)); }
+    var r4 = rng(); return r4 < 0.25 ? t4n1(rng) : (r4 < 0.4 ? t4n2(rng) : (r4 < 0.7 ? t4t(rng) : t4u(rng)));
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = pickD(rng, t.ans, t.cands); tries++; } while ((dis.gen > 0 || dis.amb > 0) && tries < 200);
+    var isW = t.unit; function tx(set) { return isW ? hrs(set[0], t.unit) : setTex(set); }
+    var correct = { tex: tx(t.ans), why: '' };
+    var all = shuffle(rng, [correct].concat(dis.map(function (c) { return { tex: tx(c.set), why: c.why }; })));
+    var ans = all.indexOf(correct);
+    var sol = t.sol.slice(); sol.push({ box: correct.tex });
+    return { band: 10, level: level, rtl: false, lang: 'en', stem: t.stem || 'Solve the equation.', svg: '', e: t.e || '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: ans, sol: sol, hint: LEVELS[level - 1].hint, key: t.key, data: { kind: t.kind } };
+  }
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenRat = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.svg) stage.appendChild(h('div', 'fig', q.svg));
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl < 4) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=10"></script>
+</body>
+</html>
