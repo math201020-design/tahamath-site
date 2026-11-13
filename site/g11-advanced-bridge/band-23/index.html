@@ -313,4 +313,78 @@ function fix(){
 window.addEventListener('beforeprint',fix);
 })();
 </script>
+<script id="ab-split">
+(function(){if(window.__abSplit)return;window.__abSplit=1;
+/* سؤال بأجزاء (a) (b) (c): تُعرض الجزئية ثم خاناتها مباشرة قبل الجزئية التالية (المعلم 13-11-2026). تعيد ترتيب العرض فقط ولا تغيّر نص السؤال ولا الدرجات */
+var st=document.createElement('style');st.textContent='.pst{margin-top:14px}';document.head.appendChild(st);
+var RE=/(^|[\s>.:;،؛؟?!)\]])((?:<bdi[^>]*>)?\(([a-e])\)(?:<\/bdi>)?)/g;
+function clean(s){return s.replace(/^(\s|<br\s*\/?>)+|(\s|<br\s*\/?>)+$/gi,'');}
+function plain(s){return s.replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').trim();}
+function split(html){var attrs=null,inner=html,w=/^\s*<p([^>]*)>([\s\S]*)<\/p>\s*$/i.exec(html);if(w){attrs=w[1];inner=w[2];}
+ var pos=[],m;RE.lastIndex=0;while((m=RE.exec(inner)))pos.push({i:m.index+m[1].length,l:m[3]});
+ var ch=[],ci=0,k;
+ for(var L=0;L<5;L++){var lt=String.fromCharCode(97+L),cand=[];for(k=ci;k<pos.length;k++)if(pos[k].l===lt)cand.push(k);if(!cand.length)break;
+  var nx=String.fromCharCode(98+L),nxt=-1;for(k=cand[0];k<pos.length;k++)if(pos[k].l===nx){nxt=k;break;}
+  var pick=cand[cand.length-1];if(nxt>=0){pick=cand[0];for(k=0;k<cand.length;k++)if(cand[k]<nxt)pick=cand[k];}
+  ch.push(pos[pick]);ci=pick+1;}
+ pos=ch;if(pos.length<2)return null;
+ var segs=[clean(inner.slice(0,pos[0].i))];
+ for(k=0;k<pos.length;k++)segs.push(clean(inner.slice(pos[k].i,k+1<pos.length?pos[k+1].i:inner.length)));
+ if(attrs!==null)segs=segs.map(function(s){return s?'<p'+attrs+'>'+s+'</p>':s;});
+ return{segs:segs,n:pos.length,intro:plain(segs[0])!==''};}
+function assign(inp,n){var m=[],k,prev=0,any=false;
+ for(k=0;k<inp.length;k++){var v=null;if(typeof inp[k].pt==='string')v=inp[k].pt.charCodeAt(0)-97;else{var x=/^\s*\(([a-e])\)/.exec(inp[k].label||'');if(x)v=x[1].charCodeAt(0)-97;}
+  if(v===null){if(any)v=prev;else v=-1;}else any=true;prev=v;m.push(v);}
+ if(!any){if(inp.length!==n)return null;m=inp.map(function(_,i){return i;});}
+ else for(k=0;k<m.length;k++)if(m[k]<0)m[k]=(k?m[k-1]:0);
+ for(k=0;k<m.length;k++)if(m[k]>=n||(k&&m[k]<m[k-1]))return null;
+ return m;}
+function reflow(){var box=document.getElementById('qbox');if(box)box.removeAttribute('data-abs');if(!box||typeof D==='undefined'||typeof S==='undefined')return;
+ var q=D.qs&&D.qs[S.cur];if(!q||!q.inputs||q.inputs.length<2)return;
+ var stem=box.querySelector('.stem'),ins=box.querySelector('.inps');if(!stem||!ins)return;
+ var sp=split(stem.innerHTML);if(!sp)return;var map=assign(q.inputs,sp.n);if(!map)return;
+ var rows=[].filter.call(ins.children,function(c){return c.classList.contains('inp');});if(rows.length!==q.inputs.length)return;
+ var tools=box.querySelector('.mtools:not(.mpad)');
+ var first=[],last=[];map.forEach(function(p,k){if(first[p]===undefined)first[p]=rows[k];last[p]=rows[k];});
+ var lastWith=-1;for(var p=0;p<sp.n;p++)if(first[p])lastWith=p;
+ stem.innerHTML=sp.segs[0]||sp.segs[1];
+ var prevAnchor=null;
+ for(p=sp.intro?0:1;p<sp.n;p++){var d=document.createElement('div');d.className=stem.className+' pst';if(stem.getAttribute('dir'))d.setAttribute('dir',stem.getAttribute('dir'));if(stem.getAttribute('lang'))d.setAttribute('lang',stem.getAttribute('lang'));d.innerHTML=sp.segs[p+1];
+  if(first[p])ins.insertBefore(d,first[p]);else if(p>lastWith)ins.appendChild(d);else ins.insertBefore(d,first[p+1]||null);}
+ if(tools)for(p=0;p<=lastWith;p++){if(!last[p])continue;var t=(p===lastWith)?tools:tools.cloneNode(true);last[p].insertAdjacentElement('afterend',t);}
+ box.setAttribute('data-abs','1');}
+var o=window.show;if(typeof show==='function'){var _s=show;show=function(){var r=_s.apply(this,arguments);try{reflow();}catch(e){}return r;};
+ var bx=document.getElementById('qbox');if(bx&&bx.querySelector('.stem'))show();}
+
+/* أسئلة المسار «المقالي بالخطوات» (D.W): تُعرض الجزئية ثم خطواتها ثم التالية */
+function assignW(steps,n){var m=[],k,prev=0,any=false;
+ for(k=0;k<steps.length;k++){var v=null;if(typeof steps[k].pt==='string')v=steps[k].pt.charCodeAt(0)-97;else{var x=/^\s*\(([a-e])\)/.exec(steps[k].pre||'');if(x)v=x[1].charCodeAt(0)-97;}
+  if(v===null){if(any)v=prev;else v=-1;}else any=true;prev=v;m.push(v);}
+ if(!any){if(steps.length!==n)return null;m=steps.map(function(_,i){return i;});}
+ else for(k=0;k<m.length;k++)if(m[k]<0)m[k]=(k?m[k-1]:0);
+ for(k=0;k<m.length;k++)if(m[k]>=n||(k&&m[k]<m[k-1]))return null;
+ return m;}
+function reflowW(){var ex=document.getElementById('exam');if(!ex||typeof D==='undefined'||!D.W)return;
+ [].forEach.call(ex.querySelectorAll('.q'),function(qd){if(qd.getAttribute('data-abs'))return;
+  var n=parseInt(qd.id.slice(1),10),q=null;for(var z=0;z<D.W.length;z++)if(D.W[z].n===n)q=D.W[z];
+  if(!q||!q.steps||q.steps.length<2)return;
+  var stem=qd.querySelector('.stem');if(!stem)return;var sp=split(stem.innerHTML);if(!sp)return;
+  var map=assignW(q.steps,sp.n);if(!map)return;
+  var rows=[].filter.call(qd.children,function(c){return c.classList.contains('step');});if(rows.length!==q.steps.length)return;
+  var first=[],last=[];map.forEach(function(p,k){if(first[p]===undefined)first[p]=rows[k];last[p]=rows[k];});
+  for(var p=0;p<sp.n;p++)if(!first[p])return;
+  var tools=qd.querySelector('.mtools:not(.mpad)'),note=qd.querySelector('.wnote'),img=qd.querySelector('.qimg');
+  var segs=sp.segs;stem.innerHTML=segs[0]||segs[1];
+  var ins0=[].filter.call(qd.children,function(c){return !c.className&&/^\s*اكتب الحل/.test(c.textContent);})[0];if(ins0)qd.insertBefore(ins0,stem);
+  for(p=sp.intro?0:1;p<sp.n;p++){var d=document.createElement('div');d.className=stem.className+' pst';if(stem.getAttribute('dir'))d.setAttribute('dir',stem.getAttribute('dir'));if(stem.getAttribute('lang'))d.setAttribute('lang',stem.getAttribute('lang'));d.innerHTML=segs[p+1];qd.insertBefore(d,first[p]);
+   if(img&&/الشكل|figure/i.test(plain(segs[p+1]))&&!img.__moved){qd.insertBefore(img,first[p]);img.__moved=1;}}
+  if(img&&!img.__moved&&!sp.intro&&/الشكل|figure/i.test(plain(segs[1]))){/* الشكل في الجزئية الأولى: يبقى مكانه */}
+  if(tools){for(p=0;p<sp.n;p++){var t=(p===sp.n-1)?tools:tools.cloneNode(true);last[p].insertAdjacentElement('afterend',t);}}
+  if(note&&tools)tools.insertAdjacentElement('beforebegin',note);
+  qd.setAttribute('data-abs','1');});}
+(function(){var ex=document.getElementById('exam');if(!ex||typeof D==='undefined'||!D.W)return;
+ new MutationObserver(function(){try{reflowW();}catch(e){}}).observe(ex,{childList:true});
+ try{reflowW();}catch(e){}})();
+})();
+</script>
 </body></html>
