@@ -568,7 +568,7 @@
     {
       "path": "g12-advanced/band-13/index.html",
       "src": "site/g12-advanced/band-13/index.html",
-      "sha256": "7add78fad491d96e799105c93882b16b6e437d29a9a8ee7ec4047a5e04cc056f"
+      "sha256": "33336830d6c43847b54ce80259b4179081071cdfef3da83e3498dab509884dd5"
     },
     {
       "path": "g12-advanced/band-14/index.html",
@@ -5614,6 +5614,11 @@
       "path": "g12-general/mastery-6/index.html",
       "src": "site/g12-general/mastery-6/index.html",
       "sha256": "f6b8d115af43ac95d4067a9f469ec665bdc3eb860c8ecde85fc6a13eb97a76f3"
+    },
+    {
+      "path": "g12-advanced/mastery-13/index.html",
+      "src": "site/g12-advanced/mastery-13/index.html",
+      "sha256": "28420ac618bffd69ebaa1f89cbd17a2a7983b5c9ec7fe72a815b50fc2f152789"
     }
   ]
 }
