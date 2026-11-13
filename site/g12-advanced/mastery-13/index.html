@@ -265,7 +265,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     do { q = ri(rng, -5, 6); } while (!q);
     do { r = ri(rng, -5, 6); } while (!r || r === q);
     var corr = fr(q * p);
-    var e = 'g(' + a + ')=' + m + ',\\quad g\'(' + a + ')=' + p + ',\\quad f\'(' + a + ')=' + r + ',\\quad f\'(' + m + ')=' + q;
+    var e = '\\begin{gathered}g(' + a + ')=' + m + ',\\quad g\'(' + a + ')=' + p + '\\\\ f\'(' + a + ')=' + r + ',\\quad f\'(' + m + ')=' + q + '\\end{gathered}';
     var c = [
       { cls: 'outerAt', v: fr(r * p), why: WHY.outerAt.replace('\\(g(a)\\)', '\\(g(' + a + ')=' + m + '\\)').replace('\\(a\\)', '\\(' + a + '\\)') },
       { cls: 'noinner', v: fr(q), why: WHY.noinner },
@@ -489,6 +489,10 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
     var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
     typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
   }
 
   function choose(i) {
