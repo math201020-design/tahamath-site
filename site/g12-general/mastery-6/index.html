@@ -63,7 +63,7 @@ button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18p
 .res p{margin:6px 0}
 .res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
 .link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
-.note{font-size:13px;color:var(--grey);margin:10px 2px}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
 [hidden]{display:none!important}
 @media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
 @media print{.box{break-inside:avoid}}
@@ -84,7 +84,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
   </section>
   <section class="box" id="stage" aria-live="polite"></section>
-  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب اسماً ولا بريداً.</p>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً ولا رقماً، والاسم اختياري إن شاركت برأيك.</p>
 </main>
 <script>
 /* مولّد أسئلة البند 6 (حل المعادلات التربيعية باستخدام القانون العام) - 12 عام
@@ -333,6 +333,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 
   var round = null, seenAll = {};
 
+  function cnt(n) { return n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n + ' إجابات صحيحة'; }
   function typeset(el, n) {
     n = n || 0;
     if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
@@ -370,9 +371,10 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
       seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
     }
-    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false };
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
     renderPath(); renderInfo(); renderDots(); showQ();
-    track('mastery-round-start', { band: BAND, level: st.level });
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
   }
 
   function solHTML(q) {
@@ -446,16 +448,17 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function finish() {
     var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
     var res = h('div', 'res');
-    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0 });
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
     if (passed) {
       st.done[lvl] = true; st.fails[lvl] = 0;
       if (lvl < 4) {
         st.level = lvl + 1; persist();
-        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + round.correct + ' إجابات صحيحة من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
         var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
       } else {
         st.mastered = true; persist();
-        res.innerHTML = '<h2>أتقنت البند 6 كاملاً ✓</h2><p>حصلت على ' + round.correct + ' إجابات صحيحة من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        res.innerHTML = '<h2>أتقنت البند 6 كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
         var a2 = h('div', 'acts');
         var l1 = h('a', 'link btn gold', 'صفحة الصف ←'); l1.href = '/' + GR + '/';
         var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
@@ -464,16 +467,61 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       }
     } else {
       st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
-      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + round.correct + ' إجابات صحيحة من ' + ROUND + '، والمطلوب ' + PASS + '. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب ' + PASS + '. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
       if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي للبند <bdi dir="ltr">6</bdi> ثم تعود.</p>';
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
       if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل البند 6'); l2.href = '/' + GR + '/band-6/'; a3.appendChild(l2); }
       res.appendChild(a3);
     }
-    stage.innerHTML = ''; stage.appendChild(res);
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(feedbackBox());
     round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
     stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك عن هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك في 10 أحرف على الأقل.' : !fd.get('consent') ? 'نحتاج موافقتك على نشر الرأي بعد مراجعته.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore) + '/5]');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'أرسلت عدة آراء قبل قليل، حاول بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
   }
 
   newRound();
