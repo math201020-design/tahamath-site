@@ -13,31 +13,42 @@
 
   var css = document.createElement('style');
   css.textContent =
-    '.uae-strip{height:4px;background:linear-gradient(90deg,#E4002B 0 22%,#00732F 22% 48%,#fff 48% 74%,#000 74% 100%);box-shadow:inset 0 -1px 0 #D5DCE8}' +
-    '.uae-line{direction:rtl;margin:0;padding:6px 16px;text-align:center;font-size:13px;line-height:1.5;color:#5A6472;background:#fff;border-bottom:1px solid #D5DCE8}' +
-    '.uae-line b{color:#0E1C3A}' +
+    '.uae-ex{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:6px;padding-top:8px;border-top:1px dashed #E3C77A;font-size:15.5px;line-height:1.5;font-weight:700;color:#0E1C3A}' +
+    '.uae-tx{text-align:center}' +
+    '.uae-hp{display:inline-flex;align-items:center;gap:12px;margin:0 0 18px;padding:8px 18px;border:1.5px solid #D4A843;border-radius:999px;background:rgba(212,168,67,.12);color:#F0CD78;font-size:16px;font-weight:800;line-height:1.4}' +
+    '.uae-flag{flex:none;border-radius:3px;box-shadow:0 0 0 1px #B9C2D0,0 2px 5px rgba(14,28,58,.18)}' +
+    '@media(max-width:480px){.uae-flag{width:40px;height:20px}.uae-ex{gap:8px;font-size:14px}.uae-hp{gap:8px;padding:7px 12px;font-size:14px}.uae-hp .uae-flag{width:34px;height:17px}}' +
     '.uae-next{direction:rtl;margin:12px 0 0;padding:10px 14px;border:1.5px solid #D4A843;border-inline-start-width:5px;border-radius:12px;background:#FFF7E2;color:#0E1C3A;font-size:15px;line-height:1.7;text-align:right}' +
     '.uae-next a{display:inline-block;margin-top:4px;font-weight:800;color:#0E1C3A;text-decoration:underline;text-underline-offset:3px}' +
-    '@media print{.uae-strip,.uae-line,.uae-next{display:none!important}}';
+    '@media print{.uae-next,.uae-ex,.uae-hp{display:none!important}}';
   document.head.appendChild(css);
 
-  /* شريط الاتحاد الرفيع (4 بكسل) وسطر واحد صغير في صفحات الصفوف فقط */
+  /* عبارة العيد داخل إشعار موعد الاختبار الأصفر الموجود أصلاً: في الرئيسية وصفحات الصفوف فقط، ولا شيء في صفحات التدريب */
+  var onIndex = parts.length === 0 || (parts.length === 1 && /^g1[12]-(general|advanced)$/.test(parts[0]));
   function decorate() {
-    if (document.querySelector('.uae-strip')) return;
-    var s = el('div', 'uae-strip'); s.setAttribute('aria-hidden', 'true');
-    document.body.insertBefore(s, document.body.firstChild);
-    if (parts.length === 1 && /^g1[12]-(general|advanced)$/.test(parts[0])) {
-      var p = el('p', 'uae-line');
-      p.innerHTML = 'عيد الاتحاد الـ<bdi dir="ltr">55</bdi> يقترب • <b>استعد لاختبار الرياضيات بثقة</b>';
-      var top = document.querySelector('.tmn-strip');
-      if (top && top.parentNode) top.parentNode.insertBefore(p, top.nextSibling); else s.parentNode.insertBefore(p, s.nextSibling);
+    if (!onIndex) return true;
+    if (parts.length === 0) {
+      var hh = document.querySelector('.hero h1') || document.querySelector('h1');
+      if (!hh) return false;
+      if (document.querySelector('.uae-hp')) return true;
+      var FH = '<svg class="uae-flag" width="44" height="22" viewBox="0 0 48 24" aria-hidden="true" focusable="false"><rect width="48" height="24" fill="#fff"/><rect width="48" height="8" fill="#00732F"/><rect y="16" width="48" height="8" fill="#000"/><rect width="12" height="24" fill="#E4002B"/></svg>';
+      var d = el('div', 'uae-hp'); d.setAttribute('role', 'note');
+      d.innerHTML = FH + '<span>عيد الاتحاد الـ<bdi dir="ltr">55</bdi> مبارك</span>' + FH;
+      hh.parentNode.insertBefore(d, hh);
+      return true;
     }
+    var n = document.querySelector('.exam-date');
+    if (!n) return false;
+    if (n.querySelector('.uae-ex')) return true;
+    var x = el('span', 'uae-ex');
+    var FL = '<svg class="uae-flag" width="54" height="27" viewBox="0 0 48 24" aria-hidden="true" focusable="false"><rect width="48" height="24" fill="#fff"/><rect width="48" height="8" fill="#00732F"/><rect y="16" width="48" height="8" fill="#000"/><rect width="12" height="24" fill="#E4002B"/></svg>';
+    x.innerHTML = FL + '<span class="uae-tx">عيد الاتحاد الـ<bdi dir="ltr">55</bdi> مبارك<br>كل بند تنجزه اليوم يقرّبك من درجة تفخر بها</span>' + FL;
+    n.appendChild(x);
+    return true;
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', decorate); else decorate();
-  window.addEventListener('load', function () {
-    var s = document.querySelector('.uae-strip');
-    if (s && s.parentNode === document.body && document.body.firstChild !== s) document.body.insertBefore(s, document.body.firstChild);
-  });
+  if (onIndex) {
+    var tries = 0, iv = setInterval(function () { if (decorate() || ++tries > 40) clearInterval(iv); }, 250);
+  }
 
   /* ---------- الشهادة: طبعة الاتحاد (تُستدعى من nav.js داخل رسم الشهادة) ---------- */
   function cert(x, W, H, font) {
