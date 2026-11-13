@@ -4,7 +4,8 @@ var AR_RE=/\\AR\{:?([^{}]*?):?\}|\\text\{([^{}]*[؀-ۿ][^{}]*)\}/g;
 var HAS=/\\AR\{|\\text\{[^{}]*[؀-ۿ]/;
 function span(t){return '<span dir="rtl" style="unicode-bidi:isolate">'+t+'</span>';}
 function mathPart(s){s=s.replace(/^(\s|\\[;,!: ]|\\q?quad)+|(\s|\\[;,!: ]|\\q?quad)+$/g,'');return s?'\\(\\displaystyle '+s+'\\)':'';}
-function conv(inner){var out='',last=0,m;AR_RE.lastIndex=0;
+function conv(inner){var set=/^\s*\\\{[\s\S]*\\\}\s*$/.test(inner);var r=conv0(inner);return set?'<span dir="ltr" style="unicode-bidi:isolate">'+r+'</span>':r;}
+function conv0(inner){var out='',last=0,m;AR_RE.lastIndex=0;
  while((m=AR_RE.exec(inner))){out+=mathPart(inner.slice(last,m.index))+' '+span(m[0].indexOf('\\AR')===0?m[1]:m[2])+' ';last=AR_RE.lastIndex;}
  return out+mathPart(inner.slice(last));}
 function fixHtml(h){return h.replace(/\\\(\\displaystyle ([\s\S]*?)\\\)/g,function(a,inner){return HAS.test(inner)?conv(inner):a;});}
