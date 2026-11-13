@@ -673,7 +673,7 @@
     {
       "path": "g12-advanced/band-9/index.html",
       "src": "site/g12-advanced/band-9/index.html",
-      "sha256": "54921cc521c7773e3b2fdc8b7066c691e5d9a8a0c4067343e4e9be2ba9f3184d"
+      "sha256": "a61672853e5ff767cc74e72ced6666fcc9242b8340f9fea92e7fd3ac7b12369c"
     },
     {
       "path": "g12-advanced/haykal-1-written/index.html",
@@ -4948,7 +4948,7 @@
     {
       "path": "g11-general-bridge/band-21/index.html",
       "src": "site/g11-general-bridge/band-21/index.html",
-      "sha256": "168e93cca65de16383e5c11d1f104766c6098d129c596ae43a29d9d8c789bac8"
+      "sha256": "4bf52811d1e2809cd683dc673e63cbf6f32362265d791303ca62a75fffbedded"
     },
     {
       "path": "g11-general-bridge/band-22/index.html",
@@ -4973,7 +4973,7 @@
     {
       "path": "g11-general-bridge/band-23/index.html",
       "src": "site/g11-general-bridge/band-23/index.html",
-      "sha256": "f2921b465c5f0951a589cc7f75ce5b3a0b7635b4b472e745a88772ca48a8f520"
+      "sha256": "7cca63ea9500c7037804df2e7c3d0c3974997b02d7fddbd804e2de06692f877b"
     },
     {
       "path": "g11-general-bridge/band-23/img/b23-q1.png",
@@ -4993,7 +4993,7 @@
     {
       "path": "g11-general-bridge/band-24/index.html",
       "src": "site/g11-general-bridge/band-24/index.html",
-      "sha256": "08291223ee795799ced4dc0a2ec7c611d6bbbedd3cd6763224a2fb20c60e719f"
+      "sha256": "fd885d475f127f1a868d029cfba9d00d34d8af0832d45c08b685d94c620645a8"
     },
     {
       "path": "g11-general-bridge/band-24/img/b24-q3.png",
@@ -5028,7 +5028,7 @@
     {
       "path": "g11-general-bridge/band-26/index.html",
       "src": "site/g11-general-bridge/band-26/index.html",
-      "sha256": "658fdae72909d3764d229679399e94c3ffa5b802d74c2810dbbc6d3450d328a8"
+      "sha256": "310cd09252cf9d5669b75bd98d7df9e5ca2be38b5d3904156cc3b8948c2105a0"
     },
     {
       "path": "g11-general-bridge/prac-1-5-m3/index.html",
@@ -5588,7 +5588,7 @@
     {
       "path": "g11-advanced-bridge/haykal-4/index.html",
       "src": "site/g11-advanced-bridge/haykal-4/index.html",
-      "sha256": "ab88316726e638e2ca043cc9a647b3e7d748fb99dc17b16af5988de1e5dafefc"
+      "sha256": "0ed5d0eb56a335bd2f5b56f5ba06e3378ad267ee9ba5125d6e6a345011975b8e"
     },
     {
       "path": "g11-advanced-bridge/haykal-1-written/index.html",

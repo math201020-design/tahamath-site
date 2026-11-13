@@ -204,7 +204,7 @@ function show(){const i=S.cur,q=D.qs[i];
     else h+='<div class="verdict bad">إجابتك '+bdi(a)+' غير صحيحة، <span class="nw">والإجابة الصحيحة: '+bdi(q.ans)+'</span></div>';
   }
   if(S.done){h+='<div class="rem"><b>تذكّر:</b> '+q.remember+'</div>';
-    h+='<div class="sol"><h4>الحل</h4>'+q.sol.map(s=>'<div class="ln">'+mj(s,false)+'</div>').join('')+'</div>';}
+    h+='<div class="sol"><h4>الحل</h4>'+q.sol.map(s=>'<div class="ln">'+(s.indexOf('math inline')>=0?s:mj(s,false))+'</div>').join('')+'</div>';}
   h+='</div>';
   const box=$("qbox");box.innerHTML=h;
   if(!S.done)box.querySelectorAll(".opt").forEach(o=>o.onclick=()=>{S.a[i]=o.dataset.l;save();show();});
