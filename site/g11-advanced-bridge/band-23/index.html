@@ -234,7 +234,7 @@ if(S.started){$("start").classList.add("hidden");$("quiz").classList.remove("hid
   document.addEventListener("DOMContentLoaded",()=>show());if(document.readyState!=="loading")show();}
 window.addEventListener("resize",()=>fit($("qbox")));
 </script>
-<script src="/nav.js?v=10" defer></script>
+<script src="/nav.js?v=11" defer></script>
 <script id="mf-touch">
 (function(){if(window.__mfTouch)return;window.__mfTouch=1;
 /* لوحة أرقام للأجهزة اللمسية: خانة MathLive تمنع لوحة مفاتيح الجهاز (inputmode=none)، فتُضاف أزرار الأرقام داخل صفحة التدريب نفسها */
@@ -271,28 +271,6 @@ if(n>1)box.appendChild(mk('→ البند '+(n-1),n-1));
 box.appendChild(mk('البند '+(n+1)+' ←',n+1));
 var s=document.getElementById('mf-touch')||document.currentScript;
 (s&&s.parentNode?s.parentNode:document.body).insertBefore(box,s||null);
-})();
-</script>
-<script id="print-ar">(function(){if(window.__prAr)return;window.__prAr=1;
-/* ورقة الطباعة: \AR{..} و \text{عربي} لا يعرفهما MathJax في الطباعة، فتُحوَّل إلى نص عربي HTML قبل التنضيد */
-var AR_RE=/\\AR\{:?([^{}]*?):?\}|\\text\{([^{}]*[؀-ۿ][^{}]*)\}/g;
-var HAS=/\\AR\{|\\text\{[^{}]*[؀-ۿ]/;
-function span(t){return '<span dir="rtl" style="unicode-bidi:isolate">'+t+'</span>';}
-function mathPart(s){s=s.replace(/^(\s|\\[;,!: ]|\\q?quad)+|(\s|\\[;,!: ]|\\q?quad)+$/g,'');return s?'\\(\\displaystyle '+s+'\\)':'';}
-function conv(inner){var set=/^\s*\\\{[\s\S]*\\\}\s*$/.test(inner);var r=conv0(inner);return set?'<span dir="ltr" style="unicode-bidi:isolate">'+r+'</span>':r;}
-function conv0(inner){var out='',last=0,m;AR_RE.lastIndex=0;
- while((m=AR_RE.exec(inner))){out+=mathPart(inner.slice(last,m.index))+' '+span(m[0].indexOf('\\AR')===0?m[1]:m[2])+' ';last=AR_RE.lastIndex;}
- return out+mathPart(inner.slice(last));}
-function fixHtml(h){return h.replace(/\\\(\\displaystyle ([\s\S]*?)\\\)/g,function(a,inner){return HAS.test(inner)?conv(inner):a;});}
-window.__prArFix=fixHtml;
-function hook(){var mj=window.MathJax;if(!mj||!mj.typesetPromise||mj.__arw)return false;
- var o=mj.typesetPromise.bind(mj);mj.__arw=1;
- mj.typesetPromise=function(els){try{(els||[]).forEach(function(e){if(e&&e.id==='tmn-print'){
-  var ps=e.querySelectorAll('.tp-o span,.tp-e,.tp-f');
-  for(var i=0;i<ps.length;i++){var h=ps[i].innerHTML,n=fixHtml(h);if(n!==h)ps[i].innerHTML=n;}}});}catch(x){}
-  return o.apply(null,arguments);};
- return true;}
-var n=0,t=setInterval(function(){if(hook()||++n>200)clearInterval(t);},100);
 })();
 </script>
 <script id="print-fix">
