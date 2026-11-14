@@ -3493,7 +3493,7 @@
     {
       "path": "g11-advanced-bridge/index.html",
       "src": "site/g11-advanced-bridge/index.html",
-      "sha256": "5dcf2c354bafe9f30089f31d8c2dea11a8edd6f5c6f02a241c27e38f3aba6cd4"
+      "sha256": "a7745b4a7318e223be11ae3e1153543bbda93ca8a346e56184266dc609d9b191"
     },
     {
       "path": "g11-advanced-bridge/mistakes/index.html",
@@ -4403,7 +4403,7 @@
     {
       "path": "g11-general-bridge/index.html",
       "src": "site/g11-general-bridge/index.html",
-      "sha256": "f47bf3109dba814cd0a3824265c8543c418b6f9ffca50a87cfcfbe64ea8fed37"
+      "sha256": "1ba8d9a356c0afa8c190e356da6c059effc8800673339ed72570440e67741f51"
     },
     {
       "path": "g11-general-bridge/mistakes/index.html",
