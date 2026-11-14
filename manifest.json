@@ -2183,7 +2183,7 @@
     {
       "path": "g11-advanced-bridge/band-23/index.html",
       "src": "site/g11-advanced-bridge/band-23/index.html",
-      "sha256": "7c9e09680d05fba05577bb8ee415fdbe00e77bcd975b8bc1b7a03cdc4f490038"
+      "sha256": "60b5c2f1760b184d3e7c4acd037a25b37d8a2ef5885cc90f506081370525d7f2"
     },
     {
       "path": "g11-advanced-bridge/band-24/index.html",
@@ -4118,7 +4118,7 @@
     {
       "path": "g11-general-bridge/band-21/index.html",
       "src": "site/g11-general-bridge/band-21/index.html",
-      "sha256": "79fb80e85ca325a6ca2c1b0c382165e93d9fcf2386cf63883d3322da7b00ce5e"
+      "sha256": "97f0f5cbf1568322487d8b721bad7f2422362e170958bfcde7970afe43d987ce"
     },
     {
       "path": "g11-general-bridge/band-22/img/b22-q1.png",
@@ -5759,6 +5759,16 @@
       "path": "g12-general/practice-6-10-4/index.html",
       "src": "site/g12-general/practice-6-10-4/index.html",
       "sha256": "d4e8204bdaf3c6d3fc416f66d2e68f77f9a1414c4865f6e4e968414a74cf0e5c"
+    },
+    {
+      "path": "g11-general-bridge/mastery-21/index.html",
+      "src": "site/g11-general-bridge/mastery-21/index.html",
+      "sha256": "7bffe9ee6a10aeb521730c70e4b392e8c04a8abfec5e4e34b79fdf0ffeacf169"
+    },
+    {
+      "path": "g11-advanced-bridge/mastery-23/index.html",
+      "src": "site/g11-advanced-bridge/mastery-23/index.html",
+      "sha256": "b81bd81d9c46ce32a671a726ec38aa877680708333e7c791eecdc619746e120f"
     }
   ]
 }

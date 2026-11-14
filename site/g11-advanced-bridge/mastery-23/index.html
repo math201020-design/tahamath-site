@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: النمو والتضاؤل الأسيان | الحادي عشر متقدم Bridge | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في حل مسائل النمو والتضاؤل الأسيين، وتتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g11-advanced-bridge/mastery-23/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">23</bdi>: حل مسائل تتضمن نموًا وتضاؤلًا أسيين<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g11-advanced-bridge", "band": 23, "label": "البند 23", "gen": "TmGenGrow"};</script>
+<script>
+/* مولّد أسئلة البند 23 (حل مسائل النمو والتضاؤل الأسيين) - 11 متقدم Bridge. نص السؤال بالعربية، والرموز والأعداد داخل bdi ltr، والخيارات أعداد فقط. */
+(function (root) {
+  'use strict';
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, a) { return a[Math.floor(rng() * a.length)]; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function L(s) { return '<bdi dir="ltr">' + s + '</bdi>'; }
+  function T(s) { return L('\\(' + s + '\\)'); }
+  function U(s) { return '<span dir="rtl" style="unicode-bidi:isolate">' + s + '</span>'; }
+  function n0(v) { return String(Math.round(v)); }
+  function n2(v) { return (Math.round(v * 100) / 100).toFixed(2); }
+  function sep(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function pc(r) { return String(Math.round(r * 10) / 10); }
+  function yrs(n) { return n === 2 ? 'سنتين' : n <= 10 ? 'سنوات' : 'سنة'; }
+  function hrs(n) { return n === 2 ? 'ساعتين' : n <= 10 ? 'ساعات' : 'ساعة'; }
+  function rd(v, mode) { return mode === 0 ? Math.round(v) : Math.round(v * 100) / 100; }
+  function fmt(v, mode) { return mode === 0 ? n0(v) : mode === 1 ? n2(v) : String(v); }
+
+  var WHY = {
+    oppG: 'استُعمل الأساس ' + L('\\(1-r\\)') + ' بدل ' + L('\\(1+r\\)') + '؛ عند الزيادة يكون الأساس ' + L('\\(1+r\\)') + '.',
+    oppD: 'استُعمل الأساس ' + L('\\(1+r\\)') + ' بدل ' + L('\\(1-r\\)') + '؛ عند النقصان يكون الأساس ' + L('\\(1-r\\)') + '.',
+    sign: 'يبدو أن إشارة الأس عُكست: عند الزيادة المتصلة يكون الأس موجباً وعند التضاؤل المتصل يكون سالباً.',
+    lin: 'التغير هنا نسبة مئوية من القيمة الحالية في كل مرة (ضربي)، وليس مقداراً ثابتاً يُضاف أو يُطرح كل سنة.',
+    cont: 'نتجت هذه القيمة من نموذج النمو المتصل ' + L('\\(N_0e^{kt}\\)') + ' بينما المعطى تغير سنوي بنسبة ثابتة أساسه ' + L('\\(1\\pm r\\)') + '.',
+    ann: 'نتجت هذه القيمة من نموذج التغير السنوي ' + L('\\(N_0(1\\pm r)^t\\)') + ' بينما المعطى نمو أو تضاؤل متصل أساسه ' + L('\\(e\\)') + '.',
+    pct: 'تُحوَّل النسبة المئوية إلى عدد عشري بقسمتها على ' + L('\\(100\\)') + ' قبل التعويض في النموذج.',
+    pct10: 'تُقسم النسبة المئوية على ' + L('\\(100\\)') + ' وليس على ' + L('\\(10\\)') + ' عند تحويلها إلى عدد عشري.',
+    simple: 'نتجت هذه القيمة من الفائدة البسيطة (مقدار ثابت يُضاف كل سنة)؛ أما المركبة فتُحسب على المبلغ الجديد في كل سنة.',
+    half: 'هذه الكتلة بعد فترة عمر نصف واحدة فقط؛ تتكرر القسمة على ' + L('\\(2\\)') + ' بعدد فترات عمر النصف.',
+    grow: 'الكتلة تتناقص وليست تتضاعف؛ تُقسم على ' + L('\\(2\\)') + ' في كل فترة عمر نصف.',
+    div: 'نتجت من قسمة الكتلة على الزمن؛ العلاقة أُسّية وليست خطية.',
+    lnr: 'عند حلّ المعادلة الأُسّية يكون المقام اللوغاريتم الطبيعي للأساس (' + L('\\(\\ln(1\\pm r)\\)') + ') وليس ' + L('\\(r\\)') + '.',
+    nolog: 'نتجت هذه القيمة من قسمة النسبة بين العددين (أو العدد المعطى) على المعدل مباشرة دون استعمال اللوغاريتم.',
+    log10: 'نتجت من استعمال اللوغاريتم العشري مع نموذج أساسه ' + L('\\(e\\)') + '؛ يُستعمل اللوغاريتم الطبيعي ' + L('\\(\\ln\\)') + '.',
+    linear: 'نتجت هذه القيمة من افتراض تغير ثابت كل سنة (خطي) بدل التغير بنسبة ثابتة.'
+  };
+
+  function dedupe(rng, correct, cands, mode) {
+    var seen = {}; seen[fmt(correct, mode)] = 1; var out = [], used = {}, freq = {};
+    cands.forEach(function (c) { var kk = fmt(c.v, mode); freq[kk] = (freq[kk] || 0) + 1; });
+    shuffle(rng, cands).forEach(function (c) {
+      if (freq[fmt(c.v, mode)] > 1) return;
+      if (out.length >= 3 || used[c.cls]) return;
+      var v = c.v; if (!isFinite(v) || v <= 0 || v > 1e9) return;
+      var k = fmt(v, mode); if (seen[k] || (mode === 0 && Math.abs(v - correct) < 1.5)) return;
+      if (mode === 1 && Math.abs(v - correct) < 0.02) return;
+      seen[k] = 1; used[c.cls] = 1; out.push(c);
+    });
+    return out;
+  }
+
+  var NAMES = [['سكان مدينة'], ['سكان بلدة'], ['سكان قرية']];
+
+  /* 1) تغير سنوي بنسبة ثابتة */
+  function q1(rng) {
+    var N0 = ri(rng, 3000, 98000), r = ri(rng, 12, 55) / 10, t = ri(rng, 5, 20), grow = rng() < 0.5, nm = pick(rng, NAMES);
+    N0 = Math.round(N0 / 100) * 100; var rr = r / 100, f = grow ? 1 + rr : 1 - rr;
+    var ans = N0 * Math.pow(f, t);
+    var stem = 'يبلغ عدد ' + nm[0] + ' ' + L(sep(N0) + ' ' + U('نسمة')) + '، و' + (grow ? 'يزداد' : 'يتناقص') + ' بنسبة ثابتة قدرها ' + L(pc(r) + '%') + ' كل سنة. ما عدد السكان المتوقع بعد ' + L(String(t)) + ' ' + yrs(t) + '، مقرّباً إلى أقرب عدد صحيح؟';
+    var f2 = grow ? 1 - rr : 1 + rr;
+    var cands = [{ cls: 'opp', v: N0 * Math.pow(f2, t), why: (grow ? WHY.oppG : WHY.oppD) }, { cls: 'lin', v: N0 * (grow ? 1 + rr * t : 1 - rr * t), why: WHY.lin }, { cls: 'cont', v: N0 * Math.exp((grow ? 1 : -1) * rr * t), why: WHY.cont }, { cls: 'pct', v: grow ? N0 * Math.pow(1 + r, t) : -1, why: WHY.pct }];
+    var sol = [{ ar: 'التغير سنوي بنسبة ثابتة، فالنموذج ' + T('N=N_0(1' + (grow ? '+' : '-') + 'r)^{t}') + ' حيث ' + T('N_0') + ' العدد الابتدائي و' + T('r') + ' نسبة التغير بصورتها العشرية.', t: 'N(t)=' + N0 + '(1' + (grow ? '+' : '-') + rr.toFixed(4).replace(/0+$/, '') + ')^{t}' }, { ar: 'الأساس:', t: 'b=1' + (grow ? '+' : '-') + rr.toFixed(4).replace(/0+$/, '') + '=' + f.toFixed(4).replace(/0+$/, '') }, { ar: 'نعوّض ' + T('t=' + t) + ':', t: 'N(' + t + ')=' + N0 + '(' + f.toFixed(4).replace(/0+$/, '') + ')^{' + t + '}\\approx ' + n0(ans) }, { box: n0(ans) }];
+    return { stem: stem, correct: ans, cands: cands, mode: 0, sol: sol, key: '1:' + N0 + ',' + r + ',' + t + ',' + (grow ? 'g' : 'd'), remember: 'التغير بنسبة ثابتة كل فترة: الأساس واحد زائد النسبة عند الزيادة وواحد ناقص النسبة عند النقصان.', kind: 'annual' };
+  }
+
+  /* 2) نمو متصل (N0 e^{kt}) أو إيجاد الأساس b */
+  function q2(rng) {
+    var sub = rng() < 0.5 ? 'cont' : 'base', N0, r, t, grow, stem, ans, cands, sol, kk;
+    if (sub === 'cont') {
+      N0 = Math.round(ri(rng, 2000, 90000) / 100) * 100; r = ri(rng, 12, 55) / 10; t = ri(rng, 4, 20); grow = rng() < 0.5; var k = r / 100;
+      ans = N0 * Math.exp((grow ? 1 : -1) * k * t);
+      stem = 'يبلغ عدد سكان بلدة ' + L(sep(N0) + ' ' + U('نسمة')) + '، و' + (grow ? 'يزداد' : 'يتناقص') + ' بصورة متصلة بمعدل ' + L(pc(r) + '%') + ' في السنة، أي أن ' + T('N(t)=N_0e^{' + (grow ? '' : '-') + 'kt}') + ' حيث ' + T('k=' + k.toFixed(3).replace(/0+$/, '')) + '. ما عدد السكان بعد ' + L(String(t)) + ' ' + yrs(t) + '، مقرّباً إلى أقرب عدد صحيح؟';
+      cands = [{ cls: 'ann', v: N0 * Math.pow(grow ? 1 + k : 1 - k, t), why: WHY.ann }, { cls: 'opp', v: N0 * Math.exp((grow ? -1 : 1) * k * t), why: WHY.sign }, { cls: 'lin', v: N0 * (grow ? 1 + k * t : 1 - k * t), why: WHY.lin }, { cls: 'pct', v: N0 * Math.exp((grow ? 1 : -1) * r * t / 10), why: WHY.pct10 }];
+      var ex = (grow ? '' : '-') + k.toFixed(3).replace(/0+$/, '') + '\\times' + t + '=' + (grow ? '' : '-') + (k * t).toFixed(4).replace(/0+$/, '');
+      sol = [{ ar: 'النمو أو التضاؤل المتصل يستعمل الأساس الطبيعي ' + T('e') + '.', t: 'N(' + t + ')=' + N0 + 'e^{' + (grow ? '' : '-') + k.toFixed(3).replace(/0+$/, '') + '(' + t + ')}' }, { ar: 'نحسب الأس:', t: ex }, { t: 'N(' + t + ')=' + N0 + 'e^{' + (grow ? '' : '-') + (k * t).toFixed(4).replace(/0+$/, '') + '}\\approx ' + n0(ans) }, { box: n0(ans) }];
+      return { stem: stem, correct: ans, cands: cands, mode: 0, sol: sol, key: '2c:' + N0 + ',' + r + ',' + t + ',' + (grow ? 'g' : 'd'), remember: 'النمو أو التضاؤل المتصل: الأساس e والأس حاصل ضرب المعدل في الزمن.', kind: 'cont' };
+    }
+    N0 = Math.round(ri(rng, 3000, 90000) / 100) * 100; r = ri(rng, 12, 55) / 10; grow = rng() < 0.5; var rr = r / 100; ans = grow ? 1 + rr : 1 - rr; ans = Math.round(ans * 1000) / 1000;
+    stem = 'يبلغ عدد سكان بلدة ' + L(sep(N0) + ' ' + U('نسمة')) + '، و' + (grow ? 'يزداد' : 'يتناقص') + ' بنسبة ثابتة قدرها ' + L(pc(r) + '%') + ' كل سنة. يُعطى عدد السكان بعد ' + T('t') + ' سنة بالنموذج ' + T('N(t)=' + N0 + '\\,b^{\\,t}') + '. ما قيمة الأساس ' + T('b') + '؟';
+    cands = [{ cls: 'opp', v: grow ? 1 - rr : 1 + rr, why: (grow ? WHY.oppG : WHY.oppD) }, { cls: 'r', v: rr, why: 'هذه نسبة التغير ' + L('\\(r\\)') + ' وحدها؛ الأساس ' + L('\\(b=1\\pm r\\)') + '.' }, { cls: 'pct', v: grow ? 1 + r : r, why: WHY.pct }, { cls: 'two', v: grow ? 2 - rr : 2 + rr, why: 'الأساس هو ' + L('\\(1+r\\)') + ' عند الزيادة و' + L('\\(1-r\\)') + ' عند النقصان، ولا يُحسب بطرح ' + L('\\(r\\)') + ' من ' + L('\\(2\\)') + '.' }];
+    cands.forEach(function (c) { c.v = Math.round(c.v * 1000) / 1000; });
+    sol = [{ ar: (grow ? 'عند الزيادة بنسبة ثابتة' : 'عند النقصان بنسبة ثابتة') + ' يكون الأساس ' + T('b=1' + (grow ? '+' : '-') + 'r') + ' حيث ' + T('r=' + rr.toFixed(3).replace(/0+$/, '')) + '.', t: 'b=1' + (grow ? '+' : '-') + rr.toFixed(3).replace(/0+$/, '') }, { box: 'b=' + ans.toFixed(3).replace(/0+$/, '') }];
+    return { stem: stem, correct: ans, cands: cands, mode: 2, sol: sol, key: '2b:' + N0 + ',' + r + ',' + (grow ? 'g' : 'd'), remember: 'الأساس يساوي واحداً زائد (أو ناقص) النسبة بعد تحويلها إلى عدد عشري.', kind: 'base' };
+  }
+
+  /* 3) مسائل كلامية: نصف العمر، التضاعف، الفائدة المركبة */
+  function q3(rng) {
+    var t = ri(rng, 1, 3), stem, ans, cands, sol, mode = 0;
+    if (t === 1) { /* نصف عمر */
+      var h = pick(rng, [2, 3, 4, 5, 6, 8, 10]), n = ri(rng, 2, 5), z = ri(rng, 3, 25), M0 = z * Math.pow(2, n) * pick(rng, [1, 2, 5]), tt = h * n; ans = M0 / Math.pow(2, n);
+      stem = 'مادة مشعة كتلتها ' + L(M0 + ' ' + U('غ')) + ' وعمر النصف لها ' + (h === 2 ? 'سنتان' : L(h + ' ' + U('سنوات'))) + '. ما كتلتها المتبقية بالغرام بعد ' + L(tt + ' ' + U(yrs(tt))) + '؟';
+      cands = [{ cls: 'half', v: M0 / 2, why: WHY.half }, { cls: 'grow', v: M0 * Math.pow(2, n), why: WHY.grow }, { cls: 'divn', v: M0 / (2 * n), why: 'عدد فترات عمر النصف ' + L(String(n)) + '، فتكون القسمة على ' + L('\\(2^{' + n + '}=' + Math.pow(2, n) + '\\)') + ' وليست قسمة واحدة على ' + L('\\(' + (2 * n) + '\\)') + '.' }, { cls: 'div', v: M0 / tt, why: WHY.div }];
+      sol = [{ ar: 'عدد فترات عمر النصف:', t: 'n=\\frac{' + tt + '}{' + h + '}=' + n }, { ar: 'في كل فترة تُقسم الكتلة على ' + T('2') + ':', t: 'M=' + M0 + '\\left(\\frac{1}{2}\\right)^{' + n + '}=\\frac{' + M0 + '}{' + Math.pow(2, n) + '}=' + ans }, { box: String(ans) }];
+      return { stem: stem, correct: ans, cands: cands, mode: 0, sol: sol, key: '3a:' + M0 + ',' + h + ',' + n, remember: 'عدد فترات نصف العمر = الزمن ÷ نصف العمر، وتُقسم الكتلة على 2 في كل فترة.', kind: 'half' };
+    }
+    if (t === 2) { /* تضاعف */
+      var d = pick(rng, [2, 3, 4, 6]), nn = ri(rng, 2, 6), N0 = ri(rng, 3, 40) * 10, T2 = d * nn; ans = N0 * Math.pow(2, nn);
+      stem = 'يتضاعف عدد البكتيريا في مزرعة كل ' + (d === 2 ? 'ساعتين' : L(d + ' ' + U('ساعات'))) + '، وكان عددها في البداية ' + L(sep(N0)) + '. ما عددها بعد ' + L(T2 + ' ' + U(hrs(T2))) + '؟';
+      cands = [{ cls: 'lin', v: N0 * 2 * nn, why: 'يتكرر التضاعف ' + L(String(nn)) + ' مرات، فالضرب في ' + L('\\(2^{' + nn + '}\\)') + ' وليس في ' + L('\\(2\\times' + nn + '\\)') + '.' }, { cls: 'big', v: N0 * Math.pow(2, T2), why: 'الأس هو عدد مرات التضاعف (الزمن الكلي ÷ مدة التضاعف الواحد) وليس الزمن كله.' }, { cls: 'one', v: N0 * 2, why: 'هذا العدد بعد تضاعف واحد فقط؛ كرّر التضاعف بعدد الفترات.' }, { cls: 'sub', v: N0 * Math.pow(2, nn) - N0, why: 'العدد النهائي هو العدد الابتدائي × ' + L('\\(2^{' + nn + '}\\)') + ' ولا يُطرح منه العدد الابتدائي.' }];
+      sol = [{ ar: 'عدد مرات التضاعف:', t: 'n=\\frac{' + T2 + '}{' + d + '}=' + nn }, { ar: 'نضرب في ' + T('2') + ' بعدد المرات:', t: 'N=' + N0 + '\\times 2^{' + nn + '}=' + N0 + '\\times' + Math.pow(2, nn) + '=' + ans }, { box: String(ans) }];
+      return { stem: stem, correct: ans, cands: cands, mode: 0, sol: sol, key: '3b:' + N0 + ',' + d + ',' + nn, remember: 'عدد مرات التضاعف = الزمن ÷ زمن التضاعف، ثم النموذج ' + 'N0 × 2 مرفوعاً لهذا العدد.', kind: 'double' };
+    }
+    var P = ri(rng, 20, 200) * 100, r = ri(rng, 20, 65) / 10, yy = ri(rng, 3, 12), rr = r / 100; ans = P * Math.pow(1 + rr, yy);
+    stem = 'استثمر خالد مبلغ ' + L(sep(P) + ' ' + U('درهم')) + ' بفائدة مركبة سنوية معدلها ' + L(pc(r) + '%') + '. ما قيمة المبلغ بعد ' + L(yy + ' ' + U(yrs(yy))) + '، مقرّباً إلى أقرب درهم؟';
+    cands = [{ cls: 'simple', v: P * (1 + rr * yy), why: WHY.simple }, { cls: 'int', v: P * Math.pow(1 + rr, yy) - P, why: 'هذه الفائدة المكتسبة فقط؛ المطلوب قيمة المبلغ كاملاً (الأصل مع الفائدة).' }, { cls: 'cont', v: P * Math.exp(rr * yy), why: 'الفائدة هنا مركبة سنوياً وليست متصلة؛ الأساس ' + L('\\(1+r\\)') + ' وليس ' + L('\\(e\\)') + '.' }, { cls: 'pct', v: P * Math.pow(1 + r, yy), why: WHY.pct }];
+    sol = [{ ar: 'نموذج الفائدة المركبة، حيث ' + T('A') + ' المبلغ بعد ' + T('t') + ' سنة و' + T('P') + ' المبلغ الابتدائي و' + T('r') + ' المعدل السنوي:', t: 'A=P(1+r)^{t}' }, { t: 'A=' + P + '(1+' + rr.toFixed(3).replace(/0+$/, '') + ')^{' + yy + '}' }, { t: 'A\\approx ' + n0(ans) }, { box: n0(ans) }];
+    return { stem: stem, correct: ans, cands: cands, mode: 0, sol: sol, key: '3c:' + P + ',' + r + ',' + yy, remember: 'الفائدة المركبة تُحسب كل سنة على المبلغ الجديد: A = P(1+r)^t.', kind: 'comp' };
+  }
+
+  /* 4) مستوى الوزارة: إيجاد الزمن بالمعادلة الأُسّية واللوغاريتم */
+  function q4(rng) {
+    var t = ri(rng, 1, 3), stem, ans, cands, sol;
+    if (t === 1) { /* التضاعف بفائدة مركبة */
+      var r = ri(rng, 20, 65) / 10, rr = r / 100, mult = pick(rng, [2, 3]); ans = Math.log(mult) / Math.log(1 + rr);
+      var word = mult === 2 ? 'يتضاعف المبلغ' : 'يصبح المبلغ ثلاثة أمثال ما كان عليه';
+      stem = 'استُثمر مبلغ بفائدة مركبة سنوية معدلها ' + L(pc(r) + '%') + '. بعد كم سنة ' + word + '؟ قرّب الناتج إلى أقرب جزء من مئة.';
+      cands = [{ cls: 'lnr', v: Math.log(mult) / rr, why: WHY.lnr }, { cls: 'nolog', v: mult / rr, why: WHY.nolog }, { cls: 'inv', v: Math.log(1 / mult) / Math.log(1 + rr) * -1 * Math.log(1 + rr) / Math.log(1 + rr) + 0 === 0 ? 0 : Math.log(1 + rr) / Math.log(mult), why: 'نتجت من قلب اللوغاريتمين؛ البسط لوغاريتم النسبة المطلوبة والمقام لوغاريتم الأساس.' }, { cls: 'log10', v: Math.log(mult) / Math.log10(1 + rr), why: 'نتجت من استعمال لوغاريتمين مختلفين (طبيعي في البسط وعشري في المقام)؛ يجب استعمال اللوغاريتم نفسه فيهما.' }];
+      cands[2].v = Math.log(1 + rr) / Math.log(mult);
+      sol = [{ ar: 'يتضاعف المبلغ (أو يصبح ثلاثة أمثاله) عندما يساوي ' + T(mult + 'P') + '، فنقسم على ' + T('P') + ' ونكتب المعادلة الأُسّية:', t: '(1+' + rr.toFixed(3).replace(/0+$/, '') + ')^{t}=' + mult }, { ar: 'نأخذ اللوغاريتم الطبيعي للطرفين:', t: 't\\ln(' + (1 + rr).toFixed(3).replace(/0+$/, '') + ')=\\ln ' + mult }, { t: 't=\\frac{\\ln ' + mult + '}{\\ln(' + (1 + rr).toFixed(3).replace(/0+$/, '') + ')}\\approx ' + n2(ans) }, { box: n2(ans) }];
+      return { stem: stem, correct: ans, cands: cands, mode: 1, sol: sol, key: '4a:' + r + ',' + mult, remember: 'لإيجاد الزمن في معادلة أسية خذ اللوغاريتم الطبيعي للطرفين وأنزل الأس: t = ln(النسبة) ÷ ln(الأساس).', kind: 'solveT-double' };
+    }
+    if (t === 2) { /* تناقص سنوي إلى قيمة */
+      var N0 = Math.round(ri(rng, 5000, 90000) / 100) * 100, r2 = ri(rng, 20, 65) / 10, rr2 = r2 / 100, frac = pick(rng, [0.5, 0.6, 0.7, 0.8]), M = Math.round(N0 * frac / 100) * 100; ans = Math.log(M / N0) / Math.log(1 - rr2);
+      if (M >= N0) return null;
+      stem = 'يبلغ عدد سكان بلدة ' + L(sep(N0) + ' ' + U('نسمة')) + '، ويتناقص بنسبة ثابتة قدرها ' + L(pc(r2) + '%') + ' كل سنة. بعد كم سنة يصبح عدد السكان ' + L(sep(M) + ' ' + U('نسمة')) + '؟ قرّب الناتج إلى أقرب جزء من مئة.';
+      cands = [{ cls: 'lnr', v: Math.log(M / N0) / -rr2, why: WHY.lnr }, { cls: 'invlog', v: Math.log(1 - rr2) / Math.log(M / N0), why: 'نتجت من قلب اللوغاريتمين؛ البسط لوغاريتم النسبة ' + L('\\(\\frac{' + M + '}{' + N0 + '}\\)') + ' والمقام لوغاريتم الأساس ' + L('\\(' + (1 - rr2).toFixed(3).replace(/0+$/, '') + '\\)') + '.' }, { cls: 'ratio', v: (M / N0) / rr2, why: WHY.nolog }, { cls: 'nolog', v: (N0 - M) / (N0 * rr2), why: WHY.linear }];
+      var b = (1 - rr2).toFixed(3).replace(/0+$/, '');
+      sol = [{ ar: 'الأساس:', t: 'b=1-' + rr2.toFixed(3).replace(/0+$/, '') + '=' + b }, { ar: 'نكتب المعادلة الأُسّية:', t: N0 + '(' + b + ')^{t}=' + M }, { t: '(' + b + ')^{t}=\\frac{' + M + '}{' + N0 + '}' }, { ar: 'نأخذ اللوغاريتم الطبيعي للطرفين:', t: 't=\\frac{\\ln(' + M + '/' + N0 + ')}{\\ln(' + b + ')}\\approx ' + n2(ans) }, { box: n2(ans) }];
+      return { stem: stem, correct: ans, cands: cands, mode: 1, sol: sol, key: '4b:' + N0 + ',' + r2 + ',' + M, remember: 'اقسم على القيمة الابتدائية، ثم خذ اللوغاريتم الطبيعي للطرفين، وأنزل الأس.', kind: 'solveT-decay' };
+    }
+    /* نمو متصل إلى قيمة */
+    var N1 = Math.round(ri(rng, 2000, 60000) / 100) * 100, k = ri(rng, 15, 60) / 1000, f = pick(rng, [1.5, 2, 2.5, 3, 4]), M2 = Math.round(N1 * f / 100) * 100; ans = Math.log(M2 / N1) / k;
+    stem = 'يزداد عدد سكان مدينة بصورة متصلة وفق النموذج ' + T('N(t)=' + N1 + 'e^{' + k.toFixed(3).replace(/0+$/, '') + 't}') + ' حيث ' + T('t') + ' بالسنوات. بعد كم سنة يصل عدد السكان إلى ' + L(sep(M2) + ' ' + U('نسمة')) + '؟ قرّب الناتج إلى أقرب جزء من مئة.';
+    cands = [{ cls: 'nolog', v: (M2 / N1) / k, why: WHY.nolog }, { cls: 'inv', v: Math.log(N1 / M2) / -k * -1 > 0 ? Math.log(N1 / M2) / k : 1, why: WHY.inv }, { cls: 'diff', v: (M2 - N1) / (N1 * k), why: WHY.linear }, { cls: 'log10', v: Math.log10(M2 / N1) / k, why: WHY.log10 }];
+    cands[1].v = Math.abs(Math.log(N1 / M2) / k);
+    sol = [{ ar: 'نعوّض ' + T('N(t)=' + M2) + ':', t: M2 + '=' + N1 + 'e^{' + k.toFixed(3).replace(/0+$/, '') + 't}' }, { ar: 'نقسم على ' + T(String(N1)) + ' ثم نأخذ ' + T('\\ln') + ' للطرفين:', t: '\\ln\\frac{' + M2 + '}{' + N1 + '}=' + k.toFixed(3).replace(/0+$/, '') + 't' }, { t: 't=\\frac{\\ln(' + M2 + '/' + N1 + ')}{' + k.toFixed(3).replace(/0+$/, '') + '}\\approx ' + n2(ans) }, { box: n2(ans) }];
+    return { stem: stem, correct: ans, cands: cands, mode: 1, sol: sol, key: '4c:' + N1 + ',' + k + ',' + M2, remember: 'عزل الأسّ: اقسم على القيمة الابتدائية، ثم طبّق ln على الطرفين: ln e^{kt} = kt.', kind: 'solveT-cont' };
+  }
+
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: 'عند التغير بنسبة ثابتة كل سنة يكون النموذج \\(N=N_0b^{t}\\) حيث \\(N_0\\) العدد الابتدائي و\\(t\\) الزمن بالسنوات، و\\(b=1+r\\) عند الزيادة و\\(b=1-r\\) عند النقصان، وتُحوَّل النسبة المئوية إلى عدد عشري.' },
+    { id: 2, ar: 'تطبيق', hint: 'عند الزيادة يكون الأساس \\(b=1+r\\) وعند النقصان \\(b=1-r\\)، وفي النموذج المتصل \\(N=N_0e^{\\pm kt}\\)؛ حوّل النسبة المئوية إلى عدد عشري أولاً.' },
+    { id: 3, ar: 'مسائل كلامية', hint: 'حدّد النموذج من نص المسألة (عمر النصف، التضاعف، فائدة مركبة)، ثم احسب عدد الفترات واستعمله أُسّاً.' },
+    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب المعادلة الأُسّية من نص المسألة (مثل \\(A=2P\\) عند التضاعف)، ثم اقسم على القيمة الابتدائية وخذ \\(\\ln\\) للطرفين، واستعمل \\(\\ln a^{t}=t\\ln a\\) أو \\(\\ln e^{x}=x\\).' }
+  ];
+  function build(level, rng) {
+    var q = null, tries = 0;
+    while (!q && tries++ < 200) q = level === 1 ? q1(rng) : level === 2 ? q2(rng) : level === 3 ? q3(rng) : q4(rng);
+    return q;
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = dedupe(rng, t.correct, t.cands, t.mode); tries++; } while (dis.length < 3 && tries < 300);
+    var tx = function (v) { return t.mode === 0 ? n0(v) : t.mode === 1 ? n2(v) : String(Math.round(v * 1000) / 1000); };
+    var correct = { tex: tx(t.correct), why: '' };
+    var all = shuffle(rng, [correct].concat(dis.map(function (c) { return { tex: tx(c.v), why: c.why }; })));
+    return { band: 23, level: level, rtl: true, lang: 'ar', stem: t.stem, svg: '', e: '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: all.indexOf(correct), sol: t.sol, hint: LEVELS[level - 1].hint, remember: t.remember, key: t.key, data: { kind: t.kind } };
+  }
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenGrow = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.svg) stage.appendChild(h('div', 'fig', q.svg));
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl < 4) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=10"></script>
+</body>
+</html>
