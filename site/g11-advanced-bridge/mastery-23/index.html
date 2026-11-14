@@ -99,6 +99,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function T(s) { return L('\\(' + s + '\\)'); }
   function U(s) { return '<span dir="rtl" style="unicode-bidi:isolate">' + s + '</span>'; }
   function n0(v) { return String(Math.round(v)); }
+  function th(s) { return String(s).replace(/(?<![\d.])(\d{4,})(?![\d.])/g, function (m) { return m.replace(/\B(?=(\d{3})+(?!\d))/g, '{,}'); }); }
   function n2(v) { return (Math.round(v * 100) / 100).toFixed(2); }
   function sep(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   function pc(r) { return String(Math.round(r * 10) / 10); }
@@ -112,18 +113,18 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     oppD: 'استُعمل الأساس ' + L('\\(1+r\\)') + ' بدل ' + L('\\(1-r\\)') + '؛ عند النقصان يكون الأساس ' + L('\\(1-r\\)') + '.',
     sign: 'يبدو أن إشارة الأس عُكست: عند الزيادة المتصلة يكون الأس موجباً وعند التضاؤل المتصل يكون سالباً.',
     lin: 'التغير هنا نسبة مئوية من القيمة الحالية في كل مرة (ضربي)، وليس مقداراً ثابتاً يُضاف أو يُطرح كل سنة.',
-    cont: 'نتجت هذه القيمة من نموذج النمو المتصل ' + L('\\(N_0e^{kt}\\)') + ' بينما المعطى تغير سنوي بنسبة ثابتة أساسه ' + L('\\(1\\pm r\\)') + '.',
-    ann: 'نتجت هذه القيمة من نموذج التغير السنوي ' + L('\\(N_0(1\\pm r)^t\\)') + ' بينما المعطى نمو أو تضاؤل متصل أساسه ' + L('\\(e\\)') + '.',
+    cont: 'نتجت من نموذج التغير المتصل ' + L('\\(N_0e^{\\pm kt}\\)') + ' بينما المعطى تغير سنوي بنسبة ثابتة أساسه ' + L('\\(1\\pm r\\)') + '.',
+    ann: 'نتجت من نموذج التغير السنوي ' + L('\\(N_0(1\\pm r)^t\\)') + ' بينما المعطى نمو أو تضاؤل متصل أساسه ' + L('\\(e\\)') + '.',
     pct: 'تُحوَّل النسبة المئوية إلى عدد عشري بقسمتها على ' + L('\\(100\\)') + ' قبل التعويض في النموذج.',
     pct10: 'تُقسم النسبة المئوية على ' + L('\\(100\\)') + ' وليس على ' + L('\\(10\\)') + ' عند تحويلها إلى عدد عشري.',
-    simple: 'نتجت هذه القيمة من الفائدة البسيطة (مقدار ثابت يُضاف كل سنة)؛ أما المركبة فتُحسب على المبلغ الجديد في كل سنة.',
+    simple: 'نتجت من الفائدة البسيطة (مقدار ثابت يُضاف كل سنة)؛ أما المركبة فتُحسب على المبلغ الجديد في كل سنة.',
     half: 'هذه الكتلة بعد فترة عمر نصف واحدة فقط؛ تتكرر القسمة على ' + L('\\(2\\)') + ' بعدد فترات عمر النصف.',
     grow: 'الكتلة تتناقص وليست تتضاعف؛ تُقسم على ' + L('\\(2\\)') + ' في كل فترة عمر نصف.',
     div: 'نتجت من قسمة الكتلة على الزمن؛ العلاقة أُسّية وليست خطية.',
     lnr: 'عند حلّ المعادلة الأُسّية يكون المقام اللوغاريتم الطبيعي للأساس (' + L('\\(\\ln(1\\pm r)\\)') + ') وليس ' + L('\\(r\\)') + '.',
-    nolog: 'نتجت هذه القيمة من قسمة النسبة بين العددين (أو العدد المعطى) على المعدل مباشرة دون استعمال اللوغاريتم.',
+    nolog: 'نتجت من قسمة النسبة المطلوبة على المعدل مباشرة دون استعمال اللوغاريتم.',
     log10: 'نتجت من استعمال اللوغاريتم العشري مع نموذج أساسه ' + L('\\(e\\)') + '؛ يُستعمل اللوغاريتم الطبيعي ' + L('\\(\\ln\\)') + '.',
-    linear: 'نتجت هذه القيمة من افتراض تغير ثابت كل سنة (خطي) بدل التغير بنسبة ثابتة.'
+    linear: 'نتجت من افتراض تغير ثابت كل سنة (خطي) بدل التغير بنسبة ثابتة.'
   };
 
   function dedupe(rng, correct, cands, mode) {
@@ -133,7 +134,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       if (freq[fmt(c.v, mode)] > 1) return;
       if (out.length >= 3 || used[c.cls]) return;
       var v = c.v; if (!isFinite(v) || v <= 0 || v > 1e9) return;
-      var k = fmt(v, mode); if (seen[k] || (mode === 0 && Math.abs(v - correct) < 1.5)) return;
+      var k = fmt(v, mode); if (seen[k] || (mode === 0 && Math.abs(v - correct) < Math.max(3, 0.02 * correct))) return;
       if (mode === 1 && Math.abs(v - correct) < 0.02) return;
       seen[k] = 1; used[c.cls] = 1; out.push(c);
     });
@@ -150,7 +151,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var stem = 'يبلغ عدد ' + nm[0] + ' ' + L(sep(N0) + ' ' + U('نسمة')) + '، و' + (grow ? 'يزداد' : 'يتناقص') + ' بنسبة ثابتة قدرها ' + L(pc(r) + '%') + ' كل سنة. ما عدد السكان المتوقع بعد ' + L(String(t)) + ' ' + yrs(t) + '، مقرّباً إلى أقرب عدد صحيح؟';
     var f2 = grow ? 1 - rr : 1 + rr;
     var cands = [{ cls: 'opp', v: N0 * Math.pow(f2, t), why: (grow ? WHY.oppG : WHY.oppD) }, { cls: 'lin', v: N0 * (grow ? 1 + rr * t : 1 - rr * t), why: WHY.lin }, { cls: 'cont', v: N0 * Math.exp((grow ? 1 : -1) * rr * t), why: WHY.cont }, { cls: 'pct', v: grow ? N0 * Math.pow(1 + r, t) : -1, why: WHY.pct }];
-    var sol = [{ ar: 'التغير سنوي بنسبة ثابتة، فالنموذج ' + T('N=N_0(1' + (grow ? '+' : '-') + 'r)^{t}') + ' حيث ' + T('N_0') + ' العدد الابتدائي و' + T('r') + ' نسبة التغير بصورتها العشرية.', t: 'N(t)=' + N0 + '(1' + (grow ? '+' : '-') + rr.toFixed(4).replace(/0+$/, '') + ')^{t}' }, { ar: 'الأساس:', t: 'b=1' + (grow ? '+' : '-') + rr.toFixed(4).replace(/0+$/, '') + '=' + f.toFixed(4).replace(/0+$/, '') }, { ar: 'نعوّض ' + T('t=' + t) + ':', t: 'N(' + t + ')=' + N0 + '(' + f.toFixed(4).replace(/0+$/, '') + ')^{' + t + '}\\approx ' + n0(ans) }, { box: n0(ans) }];
+    var sol = [{ ar: 'التغير سنوي بنسبة ثابتة، فالنموذج ' + T('N=N_0(1' + (grow ? '+' : '-') + 'r)^{t}') + ' حيث ' + T('N_0') + ' العدد الابتدائي و' + T('r') + ' نسبة التغير بصورتها العشرية.', t: 'N(t)=' + N0 + '(1' + (grow ? '+' : '-') + rr.toFixed(4).replace(/\.?0+$/, '') + ')^{t}' }, { ar: 'الأساس:', t: 'b=1' + (grow ? '+' : '-') + rr.toFixed(4).replace(/\.?0+$/, '') + '=' + f.toFixed(4).replace(/\.?0+$/, '') }, { ar: 'نعوّض ' + T('t=' + t) + ':', t: 'N(' + t + ')=' + N0 + '(' + f.toFixed(4).replace(/\.?0+$/, '') + ')^{' + t + '}\\approx ' + n0(ans) }, { box: n0(ans) }];
     return { stem: stem, correct: ans, cands: cands, mode: 0, sol: sol, key: '1:' + N0 + ',' + r + ',' + t + ',' + (grow ? 'g' : 'd'), remember: 'التغير بنسبة ثابتة كل فترة: الأساس واحد زائد النسبة عند الزيادة وواحد ناقص النسبة عند النقصان.', kind: 'annual' };
   }
 
@@ -160,17 +161,17 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     if (sub === 'cont') {
       N0 = Math.round(ri(rng, 2000, 90000) / 100) * 100; r = ri(rng, 12, 55) / 10; t = ri(rng, 4, 20); grow = rng() < 0.5; var k = r / 100;
       ans = N0 * Math.exp((grow ? 1 : -1) * k * t);
-      stem = 'يبلغ عدد سكان بلدة ' + L(sep(N0) + ' ' + U('نسمة')) + '، و' + (grow ? 'يزداد' : 'يتناقص') + ' بصورة متصلة بمعدل ' + L(pc(r) + '%') + ' في السنة، أي أن ' + T('N(t)=N_0e^{' + (grow ? '' : '-') + 'kt}') + ' حيث ' + T('k=' + k.toFixed(3).replace(/0+$/, '')) + '. ما عدد السكان بعد ' + L(String(t)) + ' ' + yrs(t) + '، مقرّباً إلى أقرب عدد صحيح؟';
+      stem = 'يبلغ عدد سكان بلدة ' + L(sep(N0) + ' ' + U('نسمة')) + '، و' + (grow ? 'يزداد' : 'يتناقص') + ' بصورة متصلة بمعدل ' + L(pc(r) + '%') + ' في السنة، أي أن ' + T('N(t)=N_0e^{' + (grow ? '' : '-') + 'kt}') + ' حيث ' + T('N_0') + ' العدد الابتدائي و' + T('k=' + k.toFixed(3).replace(/\.?0+$/, '')) + '. ما عدد السكان بعد ' + L(String(t)) + ' ' + yrs(t) + '، مقرّباً إلى أقرب عدد صحيح؟';
       cands = [{ cls: 'ann', v: N0 * Math.pow(grow ? 1 + k : 1 - k, t), why: WHY.ann }, { cls: 'opp', v: N0 * Math.exp((grow ? -1 : 1) * k * t), why: WHY.sign }, { cls: 'lin', v: N0 * (grow ? 1 + k * t : 1 - k * t), why: WHY.lin }, { cls: 'pct', v: N0 * Math.exp((grow ? 1 : -1) * r * t / 10), why: WHY.pct10 }];
-      var ex = (grow ? '' : '-') + k.toFixed(3).replace(/0+$/, '') + '\\times' + t + '=' + (grow ? '' : '-') + (k * t).toFixed(4).replace(/0+$/, '');
-      sol = [{ ar: 'النمو أو التضاؤل المتصل يستعمل الأساس الطبيعي ' + T('e') + '.', t: 'N(' + t + ')=' + N0 + 'e^{' + (grow ? '' : '-') + k.toFixed(3).replace(/0+$/, '') + '(' + t + ')}' }, { ar: 'نحسب الأس:', t: ex }, { t: 'N(' + t + ')=' + N0 + 'e^{' + (grow ? '' : '-') + (k * t).toFixed(4).replace(/0+$/, '') + '}\\approx ' + n0(ans) }, { box: n0(ans) }];
+      var ex = (grow ? '' : '-') + k.toFixed(3).replace(/\.?0+$/, '') + '\\times' + t + '=' + (grow ? '' : '-') + (k * t).toFixed(4).replace(/\.?0+$/, '');
+      sol = [{ ar: 'النمو أو التضاؤل المتصل يستعمل الأساس الطبيعي ' + T('e') + '.', t: 'N(' + t + ')=' + N0 + 'e^{' + (grow ? '' : '-') + k.toFixed(3).replace(/\.?0+$/, '') + '(' + t + ')}' }, { ar: 'نحسب الأس:', t: ex }, { t: 'N(' + t + ')=' + N0 + 'e^{' + (grow ? '' : '-') + (k * t).toFixed(4).replace(/\.?0+$/, '') + '}\\approx ' + n0(ans) }, { box: n0(ans) }];
       return { stem: stem, correct: ans, cands: cands, mode: 0, sol: sol, key: '2c:' + N0 + ',' + r + ',' + t + ',' + (grow ? 'g' : 'd'), remember: 'النمو أو التضاؤل المتصل: الأساس e والأس حاصل ضرب المعدل في الزمن.', kind: 'cont' };
     }
     N0 = Math.round(ri(rng, 3000, 90000) / 100) * 100; r = ri(rng, 12, 55) / 10; grow = rng() < 0.5; var rr = r / 100; ans = grow ? 1 + rr : 1 - rr; ans = Math.round(ans * 1000) / 1000;
     stem = 'يبلغ عدد سكان بلدة ' + L(sep(N0) + ' ' + U('نسمة')) + '، و' + (grow ? 'يزداد' : 'يتناقص') + ' بنسبة ثابتة قدرها ' + L(pc(r) + '%') + ' كل سنة. يُعطى عدد السكان بعد ' + T('t') + ' سنة بالنموذج ' + T('N(t)=' + N0 + '\\,b^{\\,t}') + '. ما قيمة الأساس ' + T('b') + '؟';
-    cands = [{ cls: 'opp', v: grow ? 1 - rr : 1 + rr, why: (grow ? WHY.oppG : WHY.oppD) }, { cls: 'r', v: rr, why: 'هذه نسبة التغير ' + L('\\(r\\)') + ' وحدها؛ الأساس ' + L('\\(b=1\\pm r\\)') + '.' }, { cls: 'pct', v: grow ? 1 + r : r, why: WHY.pct }, { cls: 'two', v: grow ? 2 - rr : 2 + rr, why: 'الأساس هو ' + L('\\(1+r\\)') + ' عند الزيادة و' + L('\\(1-r\\)') + ' عند النقصان، ولا يُحسب بطرح ' + L('\\(r\\)') + ' من ' + L('\\(2\\)') + '.' }];
+    cands = [{ cls: 'opp', v: grow ? 1 - rr : 1 + rr, why: (grow ? WHY.oppG : WHY.oppD) }, { cls: 'r', v: rr, why: 'هذه نسبة التغير ' + L('\\(r\\)') + ' وحدها؛ الأساس ' + L('\\(b=1\\pm r\\)') + '.' }, { cls: 'pct', v: grow ? 1 + r : r, why: WHY.pct }, { cls: 'two', v: grow ? 2 - rr : 2 + rr, why: 'الأساس هو ' + L('\\(1+r\\)') + ' عند الزيادة و' + L('\\(1-r\\)') + ' عند النقصان، ولا يُحسب بالطرح من ' + L('\\(2\\)') + ' أو بالجمع إليه.' }];
     cands.forEach(function (c) { c.v = Math.round(c.v * 1000) / 1000; });
-    sol = [{ ar: (grow ? 'عند الزيادة بنسبة ثابتة' : 'عند النقصان بنسبة ثابتة') + ' يكون الأساس ' + T('b=1' + (grow ? '+' : '-') + 'r') + ' حيث ' + T('r=' + rr.toFixed(3).replace(/0+$/, '')) + '.', t: 'b=1' + (grow ? '+' : '-') + rr.toFixed(3).replace(/0+$/, '') }, { box: 'b=' + ans.toFixed(3).replace(/0+$/, '') }];
+    sol = [{ ar: (grow ? 'عند الزيادة بنسبة ثابتة' : 'عند النقصان بنسبة ثابتة') + ' يكون الأساس ' + T('b=1' + (grow ? '+' : '-') + 'r') + ' حيث ' + T('r') + ' نسبة التغير بصورتها العشرية، وهي ' + T(rr.toFixed(3).replace(/\.?0+$/, '')) + '.', t: 'b=1' + (grow ? '+' : '-') + rr.toFixed(3).replace(/\.?0+$/, '') }, { box: 'b=' + ans.toFixed(3).replace(/\.?0+$/, '') }];
     return { stem: stem, correct: ans, cands: cands, mode: 2, sol: sol, key: '2b:' + N0 + ',' + r + ',' + (grow ? 'g' : 'd'), remember: 'الأساس يساوي واحداً زائد (أو ناقص) النسبة بعد تحويلها إلى عدد عشري.', kind: 'base' };
   }
 
@@ -194,7 +195,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var P = ri(rng, 20, 200) * 100, r = ri(rng, 20, 65) / 10, yy = ri(rng, 3, 12), rr = r / 100; ans = P * Math.pow(1 + rr, yy);
     stem = 'استثمر خالد مبلغ ' + L(sep(P) + ' ' + U('درهم')) + ' بفائدة مركبة سنوية معدلها ' + L(pc(r) + '%') + '. ما قيمة المبلغ بعد ' + L(yy + ' ' + U(yrs(yy))) + '، مقرّباً إلى أقرب درهم؟';
     cands = [{ cls: 'simple', v: P * (1 + rr * yy), why: WHY.simple }, { cls: 'int', v: P * Math.pow(1 + rr, yy) - P, why: 'هذه الفائدة المكتسبة فقط؛ المطلوب قيمة المبلغ كاملاً (الأصل مع الفائدة).' }, { cls: 'cont', v: P * Math.exp(rr * yy), why: 'الفائدة هنا مركبة سنوياً وليست متصلة؛ الأساس ' + L('\\(1+r\\)') + ' وليس ' + L('\\(e\\)') + '.' }, { cls: 'pct', v: P * Math.pow(1 + r, yy), why: WHY.pct }];
-    sol = [{ ar: 'نموذج الفائدة المركبة، حيث ' + T('A') + ' المبلغ بعد ' + T('t') + ' سنة و' + T('P') + ' المبلغ الابتدائي و' + T('r') + ' المعدل السنوي:', t: 'A=P(1+r)^{t}' }, { t: 'A=' + P + '(1+' + rr.toFixed(3).replace(/0+$/, '') + ')^{' + yy + '}' }, { t: 'A\\approx ' + n0(ans) }, { box: n0(ans) }];
+    sol = [{ ar: 'نموذج الفائدة المركبة، حيث ' + T('A') + ' المبلغ بعد ' + T('t') + ' سنة و' + T('P') + ' المبلغ الابتدائي و' + T('r') + ' المعدل السنوي:', t: 'A=P(1+r)^{t}' }, { t: 'A=' + P + '(1+' + rr.toFixed(3).replace(/\.?0+$/, '') + ')^{' + yy + '}' }, { t: 'A\\approx ' + n0(ans) }, { box: n0(ans) }];
     return { stem: stem, correct: ans, cands: cands, mode: 0, sol: sol, key: '3c:' + P + ',' + r + ',' + yy, remember: 'الفائدة المركبة تُحسب كل سنة على المبلغ الجديد: A = P(1+r)^t.', kind: 'comp' };
   }
 
@@ -207,33 +208,41 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       stem = 'استُثمر مبلغ بفائدة مركبة سنوية معدلها ' + L(pc(r) + '%') + '. بعد كم سنة ' + word + '؟ قرّب الناتج إلى أقرب جزء من مئة.';
       cands = [{ cls: 'lnr', v: Math.log(mult) / rr, why: WHY.lnr }, { cls: 'nolog', v: mult / rr, why: WHY.nolog }, { cls: 'inv', v: Math.log(1 / mult) / Math.log(1 + rr) * -1 * Math.log(1 + rr) / Math.log(1 + rr) + 0 === 0 ? 0 : Math.log(1 + rr) / Math.log(mult), why: 'نتجت من قلب اللوغاريتمين؛ البسط لوغاريتم النسبة المطلوبة والمقام لوغاريتم الأساس.' }, { cls: 'log10', v: Math.log(mult) / Math.log10(1 + rr), why: 'نتجت من استعمال لوغاريتمين مختلفين (طبيعي في البسط وعشري في المقام)؛ يجب استعمال اللوغاريتم نفسه فيهما.' }];
       cands[2].v = Math.log(1 + rr) / Math.log(mult);
-      sol = [{ ar: 'يتضاعف المبلغ (أو يصبح ثلاثة أمثاله) عندما يساوي ' + T(mult + 'P') + '، فنقسم على ' + T('P') + ' ونكتب المعادلة الأُسّية:', t: '(1+' + rr.toFixed(3).replace(/0+$/, '') + ')^{t}=' + mult }, { ar: 'نأخذ اللوغاريتم الطبيعي للطرفين:', t: 't\\ln(' + (1 + rr).toFixed(3).replace(/0+$/, '') + ')=\\ln ' + mult }, { t: 't=\\frac{\\ln ' + mult + '}{\\ln(' + (1 + rr).toFixed(3).replace(/0+$/, '') + ')}\\approx ' + n2(ans) }, { box: n2(ans) }];
+      sol = [{ ar: (mult === 2 ? 'يتضاعف المبلغ' : 'يصبح المبلغ ثلاثة أمثال ما كان عليه') + ' عندما يساوي ' + T(mult + 'P') + '، حيث ' + T('P') + ' المبلغ الابتدائي و' + T('t') + ' الزمن بالسنوات، فنقسم على ' + T('P') + ' ونكتب المعادلة الأُسّية:', t: '(1+' + rr.toFixed(3).replace(/\.?0+$/, '') + ')^{t}=' + mult }, { ar: 'نأخذ اللوغاريتم الطبيعي للطرفين:', t: 't\\ln(' + (1 + rr).toFixed(3).replace(/\.?0+$/, '') + ')=\\ln ' + mult }, { t: 't=\\frac{\\ln ' + mult + '}{\\ln(' + (1 + rr).toFixed(3).replace(/\.?0+$/, '') + ')}\\approx ' + n2(ans) }, { box: n2(ans) }];
       return { stem: stem, correct: ans, cands: cands, mode: 1, sol: sol, key: '4a:' + r + ',' + mult, remember: 'لإيجاد الزمن في معادلة أسية خذ اللوغاريتم الطبيعي للطرفين وأنزل الأس: t = ln(النسبة) ÷ ln(الأساس).', kind: 'solveT-double' };
     }
     if (t === 2) { /* تناقص سنوي إلى قيمة */
       var N0 = Math.round(ri(rng, 5000, 90000) / 100) * 100, r2 = ri(rng, 20, 65) / 10, rr2 = r2 / 100, frac = pick(rng, [0.5, 0.6, 0.7, 0.8]), M = Math.round(N0 * frac / 100) * 100; ans = Math.log(M / N0) / Math.log(1 - rr2);
       if (M >= N0) return null;
       stem = 'يبلغ عدد سكان بلدة ' + L(sep(N0) + ' ' + U('نسمة')) + '، ويتناقص بنسبة ثابتة قدرها ' + L(pc(r2) + '%') + ' كل سنة. بعد كم سنة يصبح عدد السكان ' + L(sep(M) + ' ' + U('نسمة')) + '؟ قرّب الناتج إلى أقرب جزء من مئة.';
-      cands = [{ cls: 'lnr', v: Math.log(M / N0) / -rr2, why: WHY.lnr }, { cls: 'invlog', v: Math.log(1 - rr2) / Math.log(M / N0), why: 'نتجت من قلب اللوغاريتمين؛ البسط لوغاريتم النسبة ' + L('\\(\\frac{' + M + '}{' + N0 + '}\\)') + ' والمقام لوغاريتم الأساس ' + L('\\(' + (1 - rr2).toFixed(3).replace(/0+$/, '') + '\\)') + '.' }, { cls: 'ratio', v: (M / N0) / rr2, why: WHY.nolog }, { cls: 'nolog', v: (N0 - M) / (N0 * rr2), why: WHY.linear }];
-      var b = (1 - rr2).toFixed(3).replace(/0+$/, '');
-      sol = [{ ar: 'الأساس:', t: 'b=1-' + rr2.toFixed(3).replace(/0+$/, '') + '=' + b }, { ar: 'نكتب المعادلة الأُسّية:', t: N0 + '(' + b + ')^{t}=' + M }, { t: '(' + b + ')^{t}=\\frac{' + M + '}{' + N0 + '}' }, { ar: 'نأخذ اللوغاريتم الطبيعي للطرفين:', t: 't=\\frac{\\ln(' + M + '/' + N0 + ')}{\\ln(' + b + ')}\\approx ' + n2(ans) }, { box: n2(ans) }];
+      cands = [{ cls: 'lnr', v: Math.log(M / N0) / -rr2, why: WHY.lnr }, { cls: 'invlog', v: Math.log(1 - rr2) / Math.log(M / N0), why: 'نتجت من قلب اللوغاريتمين؛ البسط لوغاريتم النسبة ' + L('\\(\\frac{' + M + '}{' + N0 + '}\\)') + ' والمقام لوغاريتم الأساس ' + L('\\(' + (1 - rr2).toFixed(3).replace(/\.?0+$/, '') + '\\)') + '.' }, { cls: 'ratio', v: (M / N0) / rr2, why: WHY.nolog }, { cls: 'nolog', v: (N0 - M) / (N0 * rr2), why: WHY.linear }];
+      var b = (1 - rr2).toFixed(3).replace(/\.?0+$/, '');
+      sol = [{ ar: 'الأساس:', t: 'b=1-' + rr2.toFixed(3).replace(/\.?0+$/, '') + '=' + b }, { ar: 'نكتب المعادلة الأُسّية:', t: N0 + '(' + b + ')^{t}=' + M }, { t: '(' + b + ')^{t}=\\frac{' + M + '}{' + N0 + '}' }, { ar: 'نأخذ اللوغاريتم الطبيعي للطرفين:', t: 't=\\frac{\\ln(' + M + '/' + N0 + ')}{\\ln(' + b + ')}\\approx ' + n2(ans) }, { box: n2(ans) }];
       return { stem: stem, correct: ans, cands: cands, mode: 1, sol: sol, key: '4b:' + N0 + ',' + r2 + ',' + M, remember: 'اقسم على القيمة الابتدائية، ثم خذ اللوغاريتم الطبيعي للطرفين، وأنزل الأس.', kind: 'solveT-decay' };
     }
     /* نمو متصل إلى قيمة */
     var N1 = Math.round(ri(rng, 2000, 60000) / 100) * 100, k = ri(rng, 15, 60) / 1000, f = pick(rng, [1.5, 2, 2.5, 3, 4]), M2 = Math.round(N1 * f / 100) * 100; ans = Math.log(M2 / N1) / k;
-    stem = 'يزداد عدد سكان مدينة بصورة متصلة وفق النموذج ' + T('N(t)=' + N1 + 'e^{' + k.toFixed(3).replace(/0+$/, '') + 't}') + ' حيث ' + T('t') + ' بالسنوات. بعد كم سنة يصل عدد السكان إلى ' + L(sep(M2) + ' ' + U('نسمة')) + '؟ قرّب الناتج إلى أقرب جزء من مئة.';
+    stem = 'يزداد عدد سكان مدينة بصورة متصلة وفق النموذج ' + T('N(t)=' + N1 + 'e^{' + k.toFixed(3).replace(/\.?0+$/, '') + 't}') + ' حيث ' + T('N(t)') + ' عدد السكان بعد ' + T('t') + ' سنة. بعد كم سنة يصل عدد السكان إلى ' + L(sep(M2) + ' ' + U('نسمة')) + '؟ قرّب الناتج إلى أقرب جزء من مئة.';
     cands = [{ cls: 'nolog', v: (M2 / N1) / k, why: WHY.nolog }, { cls: 'inv', v: Math.log(N1 / M2) / -k * -1 > 0 ? Math.log(N1 / M2) / k : 1, why: WHY.inv }, { cls: 'diff', v: (M2 - N1) / (N1 * k), why: WHY.linear }, { cls: 'log10', v: Math.log10(M2 / N1) / k, why: WHY.log10 }];
     cands[1].v = Math.abs(Math.log(N1 / M2) / k);
-    sol = [{ ar: 'نعوّض ' + T('N(t)=' + M2) + ':', t: M2 + '=' + N1 + 'e^{' + k.toFixed(3).replace(/0+$/, '') + 't}' }, { ar: 'نقسم على ' + T(String(N1)) + ' ثم نأخذ ' + T('\\ln') + ' للطرفين:', t: '\\ln\\frac{' + M2 + '}{' + N1 + '}=' + k.toFixed(3).replace(/0+$/, '') + 't' }, { t: 't=\\frac{\\ln(' + M2 + '/' + N1 + ')}{' + k.toFixed(3).replace(/0+$/, '') + '}\\approx ' + n2(ans) }, { box: n2(ans) }];
+    sol = [{ ar: 'نعوّض ' + T('N(t)=' + M2) + ':', t: M2 + '=' + N1 + 'e^{' + k.toFixed(3).replace(/\.?0+$/, '') + 't}' }, { ar: 'نقسم على ' + T(String(N1)) + ' ثم نأخذ ' + T('\\ln') + ' للطرفين:', t: '\\ln\\frac{' + M2 + '}{' + N1 + '}=' + k.toFixed(3).replace(/\.?0+$/, '') + 't' }, { t: 't=\\frac{\\ln(' + M2 + '/' + N1 + ')}{' + k.toFixed(3).replace(/\.?0+$/, '') + '}\\approx ' + n2(ans) }, { box: n2(ans) }];
     return { stem: stem, correct: ans, cands: cands, mode: 1, sol: sol, key: '4c:' + N1 + ',' + k + ',' + M2, remember: 'عزل الأسّ: اقسم على القيمة الابتدائية، ثم طبّق ln على الطرفين: ln e^{kt} = kt.', kind: 'solveT-cont' };
   }
 
   var LEVELS = [
-    { id: 1, ar: 'أساسي', hint: 'عند التغير بنسبة ثابتة كل سنة يكون النموذج \\(N=N_0b^{t}\\) حيث \\(N_0\\) العدد الابتدائي و\\(t\\) الزمن بالسنوات، و\\(b=1+r\\) عند الزيادة و\\(b=1-r\\) عند النقصان، وتُحوَّل النسبة المئوية إلى عدد عشري.' },
-    { id: 2, ar: 'تطبيق', hint: 'عند الزيادة يكون الأساس \\(b=1+r\\) وعند النقصان \\(b=1-r\\)، وفي النموذج المتصل \\(N=N_0e^{\\pm kt}\\)؛ حوّل النسبة المئوية إلى عدد عشري أولاً.' },
+    { id: 1, ar: 'أساسي', hint: 'عند التغير بنسبة ثابتة كل سنة يكون النموذج \\(N=N_0b^{t}\\) حيث \\(N_0\\) العدد الابتدائي و\\(t\\) الزمن بالسنوات، و\\(b=1+r\\) عند الزيادة و\\(b=1-r\\) عند النقصان، و\\(r\\) نسبة التغير بصورتها العشرية (حوّل النسبة المئوية إلى عدد عشري).' },
+    { id: 2, ar: 'تطبيق', hint: 'عند الزيادة يكون الأساس \\(b=1+r\\) وعند النقصان \\(b=1-r\\)، حيث \\(r\\) نسبة التغير بصورتها العشرية؛ حوّل النسبة المئوية إلى عدد عشري أولاً.' },
     { id: 3, ar: 'مسائل كلامية', hint: 'حدّد النموذج من نص المسألة (عمر النصف، التضاعف، فائدة مركبة)، ثم احسب عدد الفترات واستعمله أُسّاً.' },
-    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب المعادلة الأُسّية من نص المسألة (مثل \\(A=2P\\) عند التضاعف)، ثم اقسم على القيمة الابتدائية وخذ \\(\\ln\\) للطرفين، واستعمل \\(\\ln a^{t}=t\\ln a\\) أو \\(\\ln e^{x}=x\\).' }
+    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب المعادلة الأُسّية من نص المسألة (عند التضاعف يساوي المقدار النهائي ضعف الابتدائي)، ثم اقسم على القيمة الابتدائية وخذ اللوغاريتم الطبيعي \\(\\ln\\) للطرفين، واستعمل \\(\\ln a^{t}=t\\ln a\\) أو \\(\\ln e^{x}=x\\).' }
   ];
+  var HK = {
+    comp: 'استعمل \\(A=P(1+r)^{t}\\) حيث \\(P\\) المبلغ الابتدائي و\\(r\\) المعدل السنوي بصورته العشرية و\\(t\\) الزمن بالسنوات، ثم عوّض.',
+    half: 'احسب عدد فترات عمر النصف بقسمة الزمن الكلي على عمر النصف، ثم اقسم الكتلة على \\(2\\) بعدد هذه الفترات.',
+    double: 'احسب عدد فترات التضاعف بقسمة الزمن الكلي على زمن التضاعف، ثم اضرب العدد في \\(2\\) بعدد هذه الفترات.',
+    'solveT-double': 'اكتب المعادلة الأُسّية (عند التضاعف يساوي المبلغ النهائي ضعف الابتدائي)، ثم اقسم على المبلغ الابتدائي وخذ اللوغاريتم الطبيعي \\(\\ln\\) للطرفين، واستعمل \\(\\ln a^{t}=t\\ln a\\).',
+    'solveT-decay': 'اكتب المعادلة الأُسّية بالأساس \\(b\\) من نص المسألة، ثم اقسم على القيمة الابتدائية وخذ اللوغاريتم الطبيعي \\(\\ln\\) للطرفين، واستعمل \\(\\ln a^{t}=t\\ln a\\).',
+    'solveT-cont': 'عوّض قيمة \\(N(t)\\) المطلوبة، ثم اقسم على القيمة الابتدائية وخذ اللوغاريتم الطبيعي \\(\\ln\\) للطرفين، واستعمل \\(\\ln e^{x}=x\\).'
+  };
   function build(level, rng) {
     var q = null, tries = 0;
     while (!q && tries++ < 200) q = level === 1 ? q1(rng) : level === 2 ? q2(rng) : level === 3 ? q3(rng) : q4(rng);
@@ -246,7 +255,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var tx = function (v) { return t.mode === 0 ? n0(v) : t.mode === 1 ? n2(v) : String(Math.round(v * 1000) / 1000); };
     var correct = { tex: tx(t.correct), why: '' };
     var all = shuffle(rng, [correct].concat(dis.map(function (c) { return { tex: tx(c.v), why: c.why }; })));
-    return { band: 23, level: level, rtl: true, lang: 'ar', stem: t.stem, svg: '', e: '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: all.indexOf(correct), sol: t.sol, hint: LEVELS[level - 1].hint, remember: t.remember, key: t.key, data: { kind: t.kind } };
+    return { band: 23, level: level, rtl: true, lang: 'ar', stem: t.stem, svg: '', e: '', opts: all.map(function (s) { return { t: th(s.tex), why: s.why || '' }; }), ans: all.indexOf(correct), sol: t.sol.map(function (st) { var o = {}; for (var kk in st) o[kk] = (kk === 't' || kk === 'box') ? th(st[kk]) : st[kk]; return o; }), hint: (HK[t.kind] ? HK[t.kind] : t.kind === 'cont' ? 'في النموذج المتصل \\(N=N_0e^{kt}\\) عند النمو و\\(N=N_0e^{-kt}\\) عند التناقص، حيث \\(k\\) معدل التغير بصورته العشرية؛ احسب الأس \\(kt\\) أولاً.' : LEVELS[level - 1].hint), remember: t.remember, key: t.key, data: { kind: t.kind } };
   }
   var api = { levels: LEVELS, make: make };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;

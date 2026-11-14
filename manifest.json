@@ -5763,12 +5763,12 @@
     {
       "path": "g11-general-bridge/mastery-21/index.html",
       "src": "site/g11-general-bridge/mastery-21/index.html",
-      "sha256": "7bffe9ee6a10aeb521730c70e4b392e8c04a8abfec5e4e34b79fdf0ffeacf169"
+      "sha256": "f578b9a92575479c07317cfe425eb6f98ac54b91e4d4fd2cae4c57fa9dbcf241"
     },
     {
       "path": "g11-advanced-bridge/mastery-23/index.html",
       "src": "site/g11-advanced-bridge/mastery-23/index.html",
-      "sha256": "b81bd81d9c46ce32a671a726ec38aa877680708333e7c791eecdc619746e120f"
+      "sha256": "a4c33550dcfb7b79a335c21776db1cd07aee18497b621b7207662bfcd145e89e"
     }
   ]
 }

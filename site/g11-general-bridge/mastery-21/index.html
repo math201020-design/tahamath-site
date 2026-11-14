@@ -113,8 +113,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     avg: 'الأضلاع غير متساوية؛ فلا يُقسم المحيط على عدد الأضلاع، بل على مجموع حدود النسبة.',
     part: 'هذا أحد حدود النسبة وليس طول الضلع؛ طول الضلع = حد النسبة × ' + L('\\(k\\)') + '.',
     sumParts: 'مجموع حدود النسبة ليس هو الطول؛ اقسم المحيط عليه لتحصل على ' + L('\\(k\\)') + ' أولاً.',
-    add: 'التشابه علاقة ضربية؛ لا يُحسب الطول بالجمع أو الطرح بل بنسبة التشابه.',
-    inv: 'يبدو أن النسبة كُتبت مقلوبة؛ الطول الأكبر في الشكل الأكبر، فنضرب في النسبة وليس في مقلوبها.',
+    add: 'التناسب علاقة ضربية؛ لا يُحسب الطول بالجمع أو الطرح بل بنسبة التشابه أو مقياس الرسم.',
+    inv: 'النسبة هنا كُتبت مقلوبة؛ اكتب النسبة بالترتيب نفسه في الطرفين، فيكون الضرب في النسبة الصحيحة لا في مقلوبها.',
     mult: 'ضرب القيمتين معاً لا يعطي الطول؛ المطلوب تكوين تناسب بين طولين متناظرين ثم الضرب التبادلي.',
     kw: 'هذا عدد مرات تكرار النسبة وليس الطول المطلوب؛ اضربه في الطول المناظر.'
   };
@@ -149,7 +149,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var sol = [
       { ar: 'نبسّط الكسر في الطرف الأيمن بقسمة البسط والمقام على ' + L(String(m)) + '.', t: '\\frac{' + d + '}{' + e + '}=\\frac{' + N + '}{' + c + '}' },
       { ar: 'المقامان متساويان، فيتساوى البسطان.', t: lhs + '=' + N },
-      { ar: sg > 0 ? 'نطرح ' + L(String(b)) + ' من الطرفين.' : 'نجمع ' + L(String(b)) + ' إلى الطرفين.', t: a + 'y=' + (N - sg * b) },
+      { ar: sg > 0 ? 'نطرح ' + L(String(b)) + ' من الطرفين.' : 'نضيف ' + L(String(b)) + ' إلى الطرفين.', t: a + 'y=' + (N - sg * b) },
       { ar: 'نقسم على ' + L(String(a)) + '.', t: 'y=\\frac{' + (N - sg * b) + '}{' + a + '}=' + y },
       { box: ex }];
     return { stem: 'حُلّ التناسب الآتي لإيجاد قيمة ' + T('y') + ':', e: eq, correct: R(y), cands: cands, sol: sol, key: 'P1:' + a + ',' + sg * b + ',' + c + ',' + y + ',' + m, remember: 'بسّط الطرف الأيمن أولاً، ثم عادل البسطين وحُلّ المعادلة الخطية خطوة بخطوة.', kind: 'prop' };
@@ -166,7 +166,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       ansN = set[which] * k; other = set[2 - which] * k;
       cands = [{ cls: 'k', r: R(k), why: WHY.kA }, { cls: 'other', r: R(other), why: WHY.otherA }, { cls: 'avg', r: R(60), why: 'مجموع زوايا المثلث ' + L('\\(180^\\circ\\)') + ' لكنها غير متساوية؛ اقسمه على مجموع أجزاء النسبة.' }, { cls: 'part', r: R(set[which]), why: WHY.partA }];
       sol = [{ ar: 'نفرض الزوايا ' + T(set[0] + 'k,\\ ' + set[1] + 'k,\\ ' + set[2] + 'k') + ' ومجموعها ' + T('180^\\circ') + '، حيث ' + T('k') + ' ثابت التناسب.', t: set[0] + 'k+' + set[1] + 'k+' + set[2] + 'k=180' }, { t: s + 'k=180\\Rightarrow k=' + k }, { ar: 'الزاوية ' + (which === 0 ? 'الأصغر' : 'الأكبر') + ':', t: set[which] + '\\times' + k + '=' + ansN }, { box: String(ansN) }];
-      return { stem: stem, e: '', correct: R(ansN), cands: cands, sol: sol, key: 'R0:' + set.join(',') + ',' + which, remember: 'اجعل كل قياس جزءاً من k ثم اجمعها لتساوي المجموع المعلوم.', kind: 'ang' };
+      return { stem: stem, e: '', correct: R(ansN), cands: cands, sol: sol, key: 'R0:' + set.join(',') + ',' + which, remember: 'اجعل كل قياس جزءاً من k ثم اجمعها لتساوي المجموع المعلوم.', kind: 'ang', hint: 'اجعل كل قياس مضروباً في \\(k\\)، ثم ساوِ مجموع القياسات بمجموع زوايا المثلث (\\(180^\\circ\\)) وأوجد \\(k\\) (ثابت التناسب).' };
     }
     do { parts = [ri(rng, 2, 9), ri(rng, 2, 9), ri(rng, 2, 9)].sort(function (x, y) { return x - y; }); } while (parts[0] === parts[1] || parts[1] === parts[2] || parts[0] + parts[1] <= parts[2]);
     k = ri(rng, 2, 12); var sum = parts[0] + parts[1] + parts[2]; P = sum * k; w = pick(rng, [0, 1, 2]);
@@ -174,11 +174,11 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     ansN = parts[w] * k; unit = pick(rng, ['سم', 'م']);
     var unitLong = unit === 'سم' ? 'بالسنتيمتر' : 'بالمتر';
     stem = 'نسبة أطوال أضلاع مثلث هي ' + T(parts.join(':')) + ' ومحيطه ' + L(P + ' <span dir="rtl" style="unicode-bidi:isolate">' + unit + '</span>') + '. ما طول ' + (w === 1 ? 'الضلع الأوسط' : 'أ' + wordsAsk.slice(1) + ' ضلع').replace('أأ', 'أ') + ' في المثلث ' + unitLong + '؟';
-    stem = 'نسبة أطوال أضلاع مثلث هي ' + T(parts.join(':')) + ' ومحيط المثلث ' + L(P + ' <span dir="rtl" style="unicode-bidi:isolate">' + unit + '</span>') + '. ما طول ' + (w === 1 ? 'الضلع الأوسط طولاً' : w === 0 ? 'أقصر ضلع' : 'أطول ضلع') + ' فيه ' + unitLong + '؟';
+    stem = 'نسبة أطوال أضلاع مثلث هي ' + T(parts.join(':')) + ' ومحيط المثلث ' + L(P + ' <span dir="rtl" style="unicode-bidi:isolate">' + unit + '</span>') + '. ما طول ' + (w === 1 ? 'الضلع الأوسط' : w === 0 ? 'أقصر ضلع' : 'أطول ضلع') + ' في المثلث ' + unitLong + '؟';
     var oth = parts[w === 2 ? 0 : 2] * k;
     cands = [{ cls: 'k', r: R(k), why: WHY.k }, { cls: 'other', r: R(oth), why: WHY.other }, { cls: 'avg', r: R(P, 3), why: WHY.avg }, { cls: 'part', r: R(parts[w]), why: WHY.part }, { cls: 'sumParts', r: R(sum), why: WHY.sumParts }];
     sol = [{ ar: 'نفرض الأضلاع ' + T(parts[0] + 'k,\\ ' + parts[1] + 'k,\\ ' + parts[2] + 'k') + ' حيث ' + T('k') + ' ثابت التناسب، ومجموعها المحيط.', t: parts[0] + 'k+' + parts[1] + 'k+' + parts[2] + 'k=' + P }, { t: sum + 'k=' + P + '\\Rightarrow k=' + k }, { ar: 'طول ' + (w === 1 ? 'الضلع الأوسط' : w === 0 ? 'أقصر ضلع' : 'أطول ضلع') + ':', t: parts[w] + '\\times' + k + '=' + ansN }, { box: String(ansN) }];
-    return { stem: stem, e: '', correct: R(ansN), cands: cands, sol: sol, key: 'R1:' + parts.join(',') + ',' + k + ',' + w + ',' + unit, remember: 'اجعل الأضلاع أجزاء من k، واجمعها لتساوي المحيط، ثم اضرب k في الجزء المطلوب.', kind: 'ratio' };
+    return { stem: stem, e: '', correct: R(ansN), cands: cands, sol: sol, key: 'R1:' + parts.join(',') + ',' + k + ',' + w + ',' + unit, remember: 'اجعل الأضلاع أجزاء من k، واجمعها لتساوي المحيط، ثم اضرب k في الجزء المطلوب.', kind: 'ratio', hint: 'اجعل كل ضلع مضروباً في \\(k\\)، ثم ساوِ مجموع الأضلاع بمحيط المثلث وأوجد \\(k\\) (ثابت التناسب).' };
   }
 
   /* 3) مسائل كلامية على التشابه */
@@ -188,17 +188,17 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       var pr = pick(rng, [[8, 5], [7, 4], [5, 3], [9, 4], [7, 3], [3, 2], [11, 6]]), k1 = ri(rng, 2, 5), k2 = ri(rng, 2, 9); if (k1 === k2) return null;
       var L1 = pr[0] * k1, W1 = pr[1] * k1, P1 = 2 * (L1 + W1), P2 = 2 * (pr[0] + pr[1]) * k2; ans = pr[0] * k2;
       stem = 'مستطيلان متشابهان. طول المستطيل الأول ' + L(L1 + ' <span dir="rtl" style="unicode-bidi:isolate">م</span>') + ' وعرضه ' + L(W1 + ' <span dir="rtl" style="unicode-bidi:isolate">م</span>') + '، ومحيط المستطيل الثاني ' + L(P2 + ' <span dir="rtl" style="unicode-bidi:isolate">م</span>') + '. ما طول المستطيل الثاني بالمتر؟';
-      cands = [{ cls: 'other', r: R(pr[1] * k2), why: 'هذا عرض المستطيل الثاني وليس طوله.' }, { cls: 'half', r: R(P2, 2), why: 'هذا نصف محيط المستطيل الثاني (الطول + العرض) وليس الطول وحده.' }, { cls: 'add', r: R(P2 / 2 - W1 > 0 ? P2 / 2 - W1 : P2), why: WHY.add }, { cls: 'inv', r: R(P2 * L1, P1 * 1 === 0 ? 1 : 1) , why: 'ناتجة عن ضرب محيط المستطيل الثاني في طول المستطيل الأول مباشرة دون القسمة على محيط المستطيل الأول.' }];
+      cands = [{ cls: 'other', r: R(pr[1] * k2), why: 'هذا عرض المستطيل الثاني وليس طوله.' }, { cls: 'half', r: R(P2, 2), why: 'هذا نصف محيط المستطيل الثاني (الطول + العرض) وليس الطول وحده.' }, { cls: 'add', r: R(P2 / 2 - W1 > 0 ? P2 / 2 - W1 : P2), why: WHY.add }, { cls: 'inv', r: R(P2 * L1, P1 * 1 === 0 ? 1 : 1) , why: 'نتجت من ضرب محيط المستطيل الثاني في طول المستطيل الأول مباشرة دون القسمة على محيط المستطيل الأول.' }];
       cands[3].r = R(P2 * L1);
       sol = [{ ar: 'محيط المستطيل الأول:', t: 'P_1=2(' + L1 + '+' + W1 + ')=' + P1 }, { ar: 'في المضلعات المتشابهة تتساوى نسبة المحيطين مع نسبة الأطوال المتناظرة، حيث ' + T('L_2') + ' طول المستطيل الثاني.', t: '\\frac{' + P2 + '}{' + P1 + '}=\\frac{L_2}{' + L1 + '}' }, { t: 'L_2=\\frac{' + L1 + '\\times' + P2 + '}{' + P1 + '}=' + ans }, { box: String(ans) }];
-      key2 = 'W1:' + pr.join(',') + ',' + k1 + ',' + k2; return { stem: stem, e: '', correct: R(ans), cands: cands, sol: sol, key: key2, remember: 'في المضلعات المتشابهة تتساوى نسبة المحيطين مع نسبة أي ضلعين متناظرين.', kind: 'rect' };
+      key2 = 'W1:' + pr.join(',') + ',' + k1 + ',' + k2; return { stem: stem, e: '', correct: R(ans), cands: cands, sol: sol, key: key2, remember: 'في المضلعات المتشابهة تتساوى نسبة المحيطين مع نسبة أي ضلعين متناظرين.', kind: 'rect', hint: 'في المضلعات المتشابهة تتساوى نسبة المحيطين مع نسبة الأطوال المتناظرة، ثم اضرب تبادلياً.' };
     }
     if (t === 2) { /* ظل */
       var h1 = ri(rng, 2, 5), s1 = ri(rng, 3, 6), tt = ri(rng, 3, 12), s2 = s1 * tt; ans = h1 * tt;
       stem = 'في الوقت نفسه من النهار، يُلقي عمود طوله ' + L(h1 + ' <span dir="rtl" style="unicode-bidi:isolate">م</span>') + ' ظلاً طوله ' + L(s1 + ' <span dir="rtl" style="unicode-bidi:isolate">م</span>') + '، وتُلقي بناية ظلاً طوله ' + L(s2 + ' <span dir="rtl" style="unicode-bidi:isolate">م</span>') + '. ما ارتفاع البناية بالمتر؟';
       cands = [{ cls: 'add', r: R(h1 + (s2 - s1)), why: WHY.add }, { cls: 'inv', r: R(s2 * s1, h1), why: WHY.inv }, { cls: 'mult', r: R(h1 * s1), why: WHY.mult }, { cls: 'k', r: R(tt), why: WHY.kw }];
-      sol = [{ ar: 'المثلثان المكوّنان من كل جسم وظله متشابهان، فتتساوى نسبة الارتفاع إلى الظل، حيث ' + T('H') + ' ارتفاع البناية.', t: '\\frac{' + h1 + '}{' + s1 + '}=\\frac{H}{' + s2 + '}' }, { t: 'H=\\frac{' + h1 + '\\times' + s2 + '}{' + s1 + '}=' + ans }, { box: String(ans) }];
-      return { stem: stem, e: '', correct: R(ans), cands: cands, sol: sol, key: 'W2:' + h1 + ',' + s1 + ',' + tt, remember: 'الجسم وظله في وقت واحد يكوّنان مثلثين متشابهين.', kind: 'shadow' };
+      sol = [{ ar: 'المثلثان القائمان المتكوّنان من كل جسم وظله وشعاع الشمس متشابهان، فتتساوى نسبة الارتفاع إلى الظل، حيث ' + T('H') + ' ارتفاع البناية.', t: '\\frac{' + h1 + '}{' + s1 + '}=\\frac{H}{' + s2 + '}' }, { t: 'H=\\frac{' + h1 + '\\times' + s2 + '}{' + s1 + '}=' + ans }, { box: String(ans) }];
+      return { stem: stem, e: '', correct: R(ans), cands: cands, sol: sol, key: 'W2:' + h1 + ',' + s1 + ',' + tt, remember: 'الجسم وظله في وقت واحد يكوّنان مثلثين متشابهين.', kind: 'shadow', hint: 'اكتب نسبة الارتفاع إلى الظل في طرفي التناسب بالترتيب نفسه، ثم اضرب تبادلياً.' };
     }
     /* مخطط بمقياس رسم */
     var a = ri(rng, 2, 5), b = ri(rng, 1, 4), tm = ri(rng, 2, 6), c = a * tm; ans = b * tm;
@@ -206,7 +206,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     stem = 'في مخطط لشقة، كل ' + L(a + ' <span dir="rtl" style="unicode-bidi:isolate">سم</span>') + ' على المخطط يمثل ' + L(b + ' <span dir="rtl" style="unicode-bidi:isolate">م</span>') + ' في الواقع. إذا كان طول الصالة على المخطط ' + L(c + ' <span dir="rtl" style="unicode-bidi:isolate">سم</span>') + '، فما طولها الحقيقي بالمتر؟';
     cands = [{ cls: 'add', r: R(c + b - a), why: WHY.add }, { cls: 'inv', r: R(c * a, b), why: WHY.inv }, { cls: 'mult', r: R(c * b), why: WHY.mult }, { cls: 'k', r: R(tm), why: WHY.kw }];
     sol = [{ ar: 'نسبة طول المخطط إلى الطول الحقيقي ثابتة، حيث ' + T('x') + ' الطول الحقيقي للصالة.', t: '\\frac{' + a + '}{' + b + '}=\\frac{' + c + '}{x}' }, { t: 'x=\\frac{' + b + '\\times' + c + '}{' + a + '}=' + ans }, { box: String(ans) }];
-    return { stem: stem, e: '', correct: R(ans), cands: cands, sol: sol, key: 'W3:' + a + ',' + b + ',' + tm, remember: 'اكتب النسبة بالترتيب نفسه في الطرفين: المخطط إلى الواقع.', kind: 'scale' };
+    return { stem: stem, e: '', correct: R(ans), cands: cands, sol: sol, key: 'W3:' + a + ',' + b + ',' + tm, remember: 'اكتب النسبة بالترتيب نفسه في الطرفين: المخطط إلى الواقع.', kind: 'scale', hint: 'اكتب نسبة طول المخطط إلى الطول الحقيقي في طرفي التناسب بالترتيب نفسه، ثم اضرب تبادلياً.' };
   }
 
   /* 4) مستوى الوزارة: مضلعان متشابهان بأضلاع جبرية */
@@ -218,24 +218,25 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     if (p > 40 || q > 40 || p < 2 || q < 2 || p === N1 || q === N2 || q * a - p * c === 0) return null;
     var xs = R(p * d - q * b, q * a - p * c); if (xs.q !== 1 || xs.p !== x) return null;
     var askLen = rng() < 0.4, lens = ['AB', 'EF', 'BC', 'FG'];
-    var stem = 'المضلعان ' + T('ABCD') + ' و ' + T('EFGH') + ' متشابهان، حيث ' + T('AB=' + a + 'x+' + b) + ' و ' + T('EF=' + p) + ' و ' + T('BC=' + (c === 1 ? '' : c) + 'x+' + d) + ' و ' + T('FG=' + q) + ' (الأطوال بالسنتيمتر). ' + (askLen ? 'ما طول ' + T('AB') + ' بالسنتيمتر؟' : 'ما قيمة ' + T('x') + '؟');
+    var stem = 'المضلعان ' + T('ABCD') + ' و' + T('EFGH') + ' متشابهان، حيث ' + T('AB=' + a + 'x+' + b) + ' و ' + T('EF=' + p) + ' و ' + T('BC=' + (c === 1 ? '' : c) + 'x+' + d) + ' و ' + T('FG=' + q) + ' (الأطوال بالسنتيمتر). ' + (askLen ? 'ما طول ' + T('AB') + ' بالسنتيمتر؟' : 'ما قيمة ' + T('x') + '؟');
     var cands, ans;
     if (!askLen) {
       ans = R(x);
-      cands = [{ cls: 'sub', r: R(p * d + q * b, q * a - p * c), why: 'نتجت من خطأ في إشارة أحد الحدود الثابتة عند نقلها إلى الطرف الآخر.' }, { cls: 'den', r: R(p * d - q * b, q * a + p * c), why: 'نتجت من جمع معاملي ' + L('\\(x\\)') + ' (' + q * a + ' و ' + p * c + ') بدل طرح أحدهما من الآخر.' }, { cls: 'noA', r: R(p * d - q * b), why: 'بعد جمع حدود ' + L('\\(x\\)') + ' في طرف واحد تبقى القسمة على الفرق بين المعاملين (' + L(Math.abs(q * a - p * c)) + ').' }, { cls: 'keep', r: R(N1), why: 'هذا طول الضلع ' + L('\\(AB\\)') + ' وليس قيمة ' + L('\\(x\\)') + '.' }];
+      cands = [{ cls: 'sub', r: R(p * d + q * b, q * a - p * c), why: 'نتجت من خطأ في إشارة أحد الحدود الثابتة عند نقلها إلى الطرف الآخر.' }, { cls: 'den', r: R(p * d - q * b, q * a + p * c), why: 'نتجت من جمع معاملي ' + L('\\(x\\)') + ' (' + q * a + ' و ' + p * c + ') بدل طرح أحدهما من الآخر.' }, { cls: 'noA', r: R(p * d - q * b), why: 'هذه قيمة الطرف قبل القسمة؛ بقي أن تقسمها على الفرق بين معاملي ' + L('\\(x\\)') + ' (' + L(Math.abs(q * a - p * c)) + ').' }, { cls: 'keep', r: R(N1), why: 'هذا طول الضلع ' + L('\\(AB\\)') + ' وليس قيمة ' + L('\\(x\\)') + '.' }];
     } else {
       ans = R(N1);
-      cands = [{ cls: 'keep', r: R(x), why: 'هذه قيمة ' + L('\\(x\\)') + ' وليست طول الضلع؛ عوّضها في ' + L('\\(AB=' + a + 'x+' + b + '\\)') + '.' }, { cls: 'other', r: R(N2), why: 'هذا طول الضلع ' + L('\\(BC\\)') + ' وليس ' + L('\\(AB\\)') + '.' }, { cls: 'sub', r: R(a * x - b > 0 ? a * x - b : a * x), why: 'عند التعويض يُجمع الحد الثابت ' + L(String(b)) + ' ولا يُطرح: ' + L('\\(AB=' + a + 'x+' + b + '\\)') + '.' }, { cls: 'k', r: R(p), why: 'هذا طول الضلع المناظر ' + L('\\(EF\\)') + ' في المضلع الثاني.' }];
+      cands = [{ cls: 'keep', r: R(x), why: 'هذه قيمة ' + L('\\(x\\)') + ' وليست طول الضلع؛ عوّضها في ' + L('\\(AB=' + a + 'x+' + b + '\\)') + '.' }, { cls: 'other', r: R(N2), why: 'هذا طول الضلع ' + L('\\(BC\\)') + ' وليس ' + L('\\(AB\\)') + '.' }, { cls: 'sub', r: R(a * x - b > 0 ? a * x - b : a * x), why: (a * x - b > 0 ? 'عند التعويض يُجمع الحد الثابت ' + L(String(b)) + ' ولا يُطرح: ' + L('\\(AB=' + a + 'x+' + b + '\\)') + '.' : 'نُسي الحد الثابت ' + L(String(b)) + ' عند التعويض في ' + L('\\(AB=' + a + 'x+' + b + '\\)') + '.') }, { cls: 'k', r: R(p), why: 'هذا طول الضلع المناظر ' + L('\\(EF\\)') + ' في المضلع الثاني.' }];
     }
     var sol = [
       { ar: 'الأضلاع المتناظرة متناسبة: ' + T('AB') + ' يناظر ' + T('EF') + '، و ' + T('BC') + ' يناظر ' + T('FG') + '.', t: '\\frac{' + a + 'x+' + b + '}{' + p + '}=\\frac{' + (c === 1 ? '' : c) + 'x+' + d + '}{' + q + '}' },
       { ar: 'نضرب تبادلياً.', t: q + '(' + a + 'x+' + b + ')=' + p + '(' + (c === 1 ? '' : c) + 'x+' + d + ')' },
       { ar: 'نفكّ الأقواس.', t: (q * a) + 'x+' + (q * b) + '=' + (p * c === 1 ? '' : p * c) + 'x+' + (p * d) },
       { ar: 'نجمع حدود ' + T('x') + ' في طرف والثوابت في الطرف الآخر.', t: (q * a - p * c > 0 ? cf(q * a - p * c) + 'x=' + (p * d - q * b) : cf(p * c - q * a) + 'x=' + (q * b - p * d)) },
-      { t: (q * a - p * c > 0 ? q * a - p * c : p * c - q * a) === 1 ? 'x=' + x : 'x=\\frac{' + (q * a - p * c > 0 ? (p * d - q * b) : (q * b - p * d)) + '}{' + (q * a - p * c > 0 ? q * a - p * c : p * c - q * a) + '}=' + x }];
+      { t: 'x=\\frac{' + (q * a - p * c > 0 ? (p * d - q * b) : (q * b - p * d)) + '}{' + (q * a - p * c > 0 ? q * a - p * c : p * c - q * a) + '}=' + x }];
+    if (Math.abs(q * a - p * c) === 1) sol.splice(4, 1);
     if (askLen) sol.push({ ar: 'نعوّض في ' + T('AB') + ':', t: 'AB=' + a + '(' + x + ')+' + b + '=' + N1 });
     sol.push({ box: askLen ? 'AB=' + N1 : 'x=' + x });
-    return { stem: stem, e: '', correct: ans, cands: cands, sol: sol, key: 'A:' + [a, b, c, d, p, q, x].join(',') + (askLen ? 'L' : 'X'), remember: 'اكتب نسبة كل ضلعين متناظرين بالترتيب نفسه، ثم اضرب تبادلياً وحُلّ المعادلة الخطية.', kind: askLen ? 'algL' : 'algX' };
+    return { stem: stem, e: '', correct: ans, cands: cands, sol: sol, key: 'A:' + [a, b, c, d, p, q, x].join(',') + (askLen ? 'L' : 'X'), remember: 'اكتب نسبة كل ضلعين متناظرين بالترتيب نفسه، ثم اضرب تبادلياً وحُلّ المعادلة الخطية.', kind: askLen ? 'algL' : 'algX', hint: 'اكتب تناسب الأضلاع المتناظرة، واضرب تبادلياً، وفُكّ الأقواس، واجمع حدود المتغير في طرف واحد' + (askLen ? '، ثم عوّض قيمة \\(x\\) في الضلع المطلوب.' : '.') };
   }
 
   var LEVELS = [
@@ -255,7 +256,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     do { t = build(level, rng); dis = dedupe(rng, t.correct, t.cands); tries++; } while (dis.length < 3 && tries < 200);
     var correct = { tex: rtex(t.correct), why: '' };
     var all = shuffle(rng, [correct].concat(dis.map(function (c) { return { tex: rtex(c.r), why: c.why }; })));
-    return { band: 21, level: level, rtl: true, lang: 'ar', stem: t.stem, svg: '', e: t.e || '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: all.indexOf(correct), sol: t.sol, hint: LEVELS[level - 1].hint, remember: t.remember, key: t.key, data: { kind: t.kind } };
+    return { band: 21, level: level, rtl: true, lang: 'ar', stem: t.stem, svg: '', e: t.e || '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: all.indexOf(correct), sol: t.sol, hint: t.hint || LEVELS[level - 1].hint, remember: t.remember, key: t.key, data: { kind: t.kind } };
   }
   var api = { levels: LEVELS, make: make };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
