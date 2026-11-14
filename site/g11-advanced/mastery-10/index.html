@@ -101,6 +101,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function fkey(f) { return f.n + '/' + f.d; }
   function xp(p) { return p > 0 ? 'x+' + p : 'x-' + (-p); }
   function frac(n, d) { return '\\dfrac{' + n + '}{' + d + '}'; }
+  function sg(n) { return n < 0 ? '-' + (-n) : '+' + n; }
+  function fac(v) { return '(x' + (v < 0 ? '+' + (-v) : '-' + v) + ')'; }
   function sgn(n) { return n < 0 ? '-' + (-n) : String(n); }
 
   /* مجموعة حلول: مصفوفة كسور مرتبة تنازلياً */
@@ -151,14 +153,14 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var x0 = m * (a - d);
     return { e: frac(a, 'x') + '-' + frac(1, m) + '=' + frac(d, 'x'), ans: S(x0), kind: 'r1a', key: 'R1a:' + a + ',' + d + ',' + m,
       sol: [{ t: '\\text{LCD}=' + m + 'x' }, { t: m + 'x\\cdot' + frac(a, 'x') + '-' + m + 'x\\cdot' + frac(1, m) + '=' + m + 'x\\cdot' + frac(d, 'x') }, { t: (m * a) + '-x=' + (m * d) }, { t: 'x=' + x0 }],
-      cands: [{ cls: 'invert', set: S(fr(a - d, m)), why: 'بعد الجمع تصل إلى \\(\\dfrac{' + (a - d) + '}{x}=\\dfrac{1}{' + m + '}\\)؛ فيكون \\(x=' + (a - d) + '\\cdot ' + m + '\\) بالضرب التبادلي وليس بالقسمة.' }, { cls: 'neg', set: S(-x0), why: WHY.negSign }, { cls: 'plus', set: S(m * (a + d)), why: WHY.negSign }, { cls: 'nom', set: S(a - d), why: 'عاملتَ الكسر \\(\\dfrac{1}{' + m + '}\\) كأنه \\(1\\)؛ ضرب \\(' + m + 'x\\) في \\(\\dfrac{1}{' + m + '}\\) يعطي \\(x\\) وليس \\(' + m + 'x\\).' }],
+      cands: [{ cls: 'invert', set: S(fr(a - d, m)), why: 'بعد الجمع تصل إلى \\(\\dfrac{' + (a - d) + '}{x}=\\dfrac{1}{' + m + '}\\)؛ فيكون \\(x=' + (a - d) + '\\cdot ' + m + '\\) بالضرب التبادلي وليس بالقسمة.' }, { cls: 'neg', set: S(-x0), why: WHY.negSign }, { cls: 'plus', set: S(m * (a + d)), why: 'عند نقل \\(\\dfrac{' + d + '}{x}\\) إلى طرف المعادلة الآخر يُطرح من \\(\\dfrac{' + a + '}{x}\\) ولا يُجمع معه.' }, { cls: 'nom', set: S(a - d), why: 'عاملتَ الكسر \\(\\dfrac{1}{' + m + '}\\) كأنه \\(1\\)؛ ضرب \\(' + m + 'x\\) في \\(\\dfrac{1}{' + m + '}\\) يعطي \\(x\\) وليس \\(' + m + 'x\\).' }],
       remember: 'اضرب طرفي المعادلة في المضاعف المشترك الأصغر للمقامات لتتخلص من الكسور، ثم تحقق أن الحل لا يجعل أي مقام صفراً.' };
   }
   function t1b(rng) { /* a/x = b/c */
     var b, c, x0, a; do { c = ri(rng, 2, 9); b = ri(rng, 2, 9); x0 = ri(rng, 2, 12); a = b * x0 / c; } while (b === c || a !== Math.floor(a) || a < 1 || a === x0);
     return { e: frac(a, 'x') + '=' + frac(b, c), ans: S(x0), kind: 'r1b', key: 'R1b:' + a + ',' + b + ',' + c,
       sol: [{ t: b + 'x=' + a + '\\cdot ' + c + '\\quad\\text{(cross multiply)}' }, { t: b + 'x=' + (a * c) }, { t: 'x=' + x0 }],
-      cands: [{ cls: 'cross', set: S(fr(a * b, c)), why: WHY.cross }, { cls: 'invert', set: S(fr(b * c, a)), why: 'من \\(' + b + 'x=' + (a * c) + '\\) نقسم على ' + b + '، ولا نقلب الكسر.' }, { cls: 'divc', set: S(fr(a, b * c)), why: 'عند الضرب التبادلي يُضرب \\(' + a + '\\) في \\(' + c + '\\)، ولا يُقسم عليه.' }, { cls: 'neg', set: S(-x0), why: WHY.negSign }],
+      cands: [{ cls: 'cross', set: S(fr(a * b, c)), why: WHY.cross }, { cls: 'invert', set: S(fr(b * c, a)), why: 'ضربتَ كل بسط في مقام الكسر نفسه فكتبت \\(' + a + 'x=' + (b * c) + '\\)؛ والصحيح أن يُضرب بسط كل كسر في مقام الكسر الآخر: \\(' + b + 'x=' + (a * c) + '\\).' }, { cls: 'divc', set: S(fr(a, b * c)), why: 'عند الضرب التبادلي يُضرب \\(' + a + '\\) في \\(' + c + '\\)، ولا يُقسم عليه.' }, { cls: 'neg', set: S(-x0), why: WHY.negSign }],
       remember: 'في تناسب بين كسرين يمكن الضرب التبادلي: بسط الأول في مقام الثاني يساوي بسط الثاني في مقام الأول.' };
   }
   function t1c(rng) { /* a/x + b/x = c */
@@ -182,14 +184,14 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var p = ri(rng, 1, 4), s, q; do { s = ri(rng, -(2 * p - 1), 8); q = s + 2 * p; } while (s === 0 || s === -p || s === p || q < 1);
     var r = 2 * p * p;
     return { e: frac('x', xp(-p)) + '-' + frac(q, xp(p)) + '=' + frac(r, 'x^{2}-' + (p * p)), ans: S(s), kind: 'r2b', key: 'R2b:' + p + ',' + q,
-      sol: [{ t: '\\text{LCD}=x^{2}-' + (p * p) + '=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')-' + q + '(x-' + p + ')=' + r }, { t: 'x^{2}-' + (q - p) + 'x+' + (q * p - r) + '=0\\Rightarrow(x-' + p + ')(x-' + sgn(s) + ')=0' }, { t: 'x=' + p + '\\ \\text{extraneous}' }, { t: 'x=' + sgn(s) }],
+      sol: [{ t: '\\text{LCD}=x^{2}-' + (p * p) + '=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')-' + q + '(x-' + p + ')=' + r }, { t: 'x^{2}' + sg(-(q - p)) + 'x' + sg(q * p - r) + '=0\\Rightarrow(x-' + p + ')' + fac(s) + '=0' }, { t: 'x=' + p + '\\ \\text{extraneous}' }, { t: 'x=' + sgn(s) }],
       cands: [{ cls: 'extra', set: S(p), why: WHY.extraOnly }, { cls: 'both', set: S(s, p), why: WHY.bothNoCheck }, { cls: 'neg', set: S(-s), why: WHY.negSign }, { cls: 'none', set: [], why: WHY.nosolFalse }],
       remember: 'بعد الحل عوّض كل قيمة في المقامات الأصلية، وارفض القيمة التي تجعل أحدها صفراً لأنها حل دخيل.' };
   }
   function t2c(rng) { /* a/(x-p) + b/(x+p) = c/(x^2-p^2) */
     var p, a, b, s, c; do { p = ri(rng, 1, 4); a = ri(rng, 1, 4); b = ri(rng, 1, 4); s = ri(rng, -6, 8); c = (a + b) * s + a * p - b * p; } while (a === b || s === 0 || Math.abs(s) === p || c <= 0);
     return { e: frac(a, xp(-p)) + '+' + frac(b, xp(p)) + '=' + frac(c, 'x^{2}-' + (p * p)), ans: S(s), kind: 'r2c', key: 'R2c:' + a + ',' + b + ',' + p + ',' + c,
-      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: a + '(x+' + p + ')+' + b + '(x-' + p + ')=' + c }, { t: (a + b) + 'x+' + (a * p - b * p) + '=' + c }, { t: 'x=' + sgn(s) + '\\quad\\text{(not equal to }\\pm ' + p + '\\text{)}' }],
+      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: a + '(x+' + p + ')+' + b + '(x-' + p + ')=' + c }, { t: (a + b) + 'x' + sg(a * p - b * p) + '=' + c }, { t: 'x=' + sgn(s) + '\\quad\\text{(not equal to }\\pm ' + p + '\\text{)}' }],
       cands: [{ cls: 'distr', set: S(fr(c + a * p - b * p, a + b)), why: 'عند توزيع الضرب: \\(' + a + '(x+' + p + ')=' + a + 'x+' + (a * p) + '\\) و\\(' + b + '(x-' + p + ')=' + b + 'x-' + (b * p) + '\\)؛ راجع إشارة كل حد عند النقل.' }, { cls: 'noP', set: S(fr(c, a + b)), why: 'لا تهمل الحدين الناتجين عن \\(p\\) (' + (a * p) + ' و' + (b * p) + ') عند التوزيع.' }, { cls: 'neg', set: S(-s), why: WHY.negSign }, { cls: 'both', set: S(fr(c - a * p - b * p, a + b)), why: 'عند توزيع الضرب: \\(' + a + '(x+' + p + ')=' + a + 'x+' + (a * p) + '\\) و\\(' + b + '(x-' + p + ')=' + b + 'x-' + (b * p) + '\\)؛ راجع إشارة كل حد عند النقل.' }],
       remember: 'المضاعف المشترك الأصغر هو \\((x+p)(x-p)\\)، ثم تحقق أن الحل لا يساوي \\(p\\) أو \\(-p\\).' };
   }
@@ -200,7 +202,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   var WP = pairs(36);
   function wA(rng) { var pr = pick(rng, WP), a = pr[0], t = pr[1], T = pr[2]; if (rng() < 0.5) { var z = a; a = t; t = z; }
     var who = pick(rng, [['Sara', 'Ali', 'paint a fence'], ['Omar', 'Layla', 'clean a hall'], ['Maya', 'Hassan', 'pack an order']]);
-    var stem = '<b>WORK:</b> ' + who[0] + ' can ' + who[2] + ' alone in ' + a + ' hours. Working together with ' + who[1] + ', they can finish the same job in ' + T + ' hours. How many hours would it take ' + who[1] + ' to do the job alone?';
+    var stem = '<b>WORK:</b> ' + who[0] + ' can ' + who[2] + ' alone in ' + a + ' hours. Working together, ' + who[0] + ' and ' + who[1] + ' can finish the same job in ' + T + ' hours. How many hours would it take ' + who[1] + ' to do the job alone?';
     return { stem: stem, e: '', ans: S(t), unit: 'hours', kind: 'wA', key: 'WA:' + a + ',' + T,
       sol: [{ t: frac(1, a) + '+' + frac(1, 't') + '=' + frac(1, T) + '\\quad\\text{(rates per hour)}' }, { t: T + 't+' + (a * T) + '=' + a + 't\\quad\\text{(multiply by }' + (a * T) + 't\\text{)}' }, { t: (a * T) + '=' + (a - T) + 't' }, { t: 't=' + t + '\\ \\text{hours}' }],
       cands: [{ cls: 'sub', set: S(a - T), why: WHY.sub }, { cls: 'add', set: S(a + T), why: WHY.add }, { cls: 'harm', set: S(fr(a * T, a + T)), why: WHY.harm }, { cls: 'avg', set: S(fr(a + T, 2)), why: WHY.avg }],
@@ -235,7 +237,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       remember: 'عند حل \\(x^2=k^2\\) يوجد جذران \\(\\pm k\\)، ثم تحقق من كل منهما في المقامات الأصلية.' }; }
   function t4u(rng) { var p, s, e, C; do { p = ri(rng, 1, 5); s = ri(rng, -9, 9); e = -2 * p - s; C = -p * p - s * e; } while (s === e || s === p || s === -p || e === p || e === -p || s === 0 || e === 0 || C <= 0 || C > 60);
     return { e: frac('x', xp(-p)) + '+' + frac(p, xp(p)) + '=' + frac(C, 'x^{2}-' + (p * p)), ans: S(s, e), kind: 'r4u', key: 'R4u:' + p + ',' + C,
-      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')+' + p + '(x-' + p + ')=' + C }, { t: 'x^{2}+' + (2 * p) + 'x-' + (p * p + C) + '=0\\Rightarrow(x-' + sgn(s) + ')(x-' + sgn(e) + ')=0'.replace('x--', 'x+') }, { t: 'x=' + sgn(s) + '\\ \\text{or}\\ x=' + sgn(e) + '\\quad\\text{(neither makes a denominator }0\\text{)}' }],
+      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')+' + p + '(x-' + p + ')=' + C }, { t: 'x^{2}+' + (2 * p) + 'x-' + (p * p + C) + '=0\\Rightarrow' + fac(s) + fac(e) + '=0' }, { t: 'x=' + sgn(s) + '\\ \\text{or}\\ x=' + sgn(e) + '\\quad\\text{(neither makes a denominator }0\\text{)}' }],
       cands: [{ cls: 'one', set: S(s), why: WHY.oneRootOnly }, { cls: 'oneB', set: S(e), why: WHY.oneRootOnly }, { cls: 'none', set: [], why: WHY.nosolFalse }, { cls: 'neg', set: S(-s, -e), why: WHY.negSign }],
       remember: 'حل المعادلة التربيعية الناتجة ثم افحص كل جذر في المقامات الأصلية قبل اعتماده.' }; }
 

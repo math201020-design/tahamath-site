@@ -247,7 +247,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     }
     var DV = variant === 1 ? [d, a] : variant === 2 ? [d2, 0] : [d3, a3];
     cands.forEach(function (c) { c.why = c.why.replace(/\{D2\}/g, 2 * DV[0]).replace(/\{DD\}/g, DV[0] * DV[0]).replace(/\{AA\}/g, DV[1] * DV[1]).replace(/\{D\}/g, DV[0]); });
-    var res = { stem: 'Find the value of x.', svg: svg(wv, hv, lb), correct: { v: ans, tex: String(ans) }, cands: cands, sol: sol, kind: 'alg' + variant, key: 'A' + variant + ':' + p + ',' + q + ',' + r, remember: 'عند تربيع ذات الحدين لا تنسَ الحد الأوسط، ثم تختفي مربعات المتغير من الطرفين.' };
+    var res = { stem: 'Find the value of x.', svg: svg(wv, hv, lb), correct: { v: ans, tex: String(ans) }, cands: cands, sol: sol, kind: 'alg' + variant, key: 'A' + variant + ':' + p + ',' + q + ',' + r, remember: 'عند تربيع ذات الحدين لا تنسَ الحد الأوسط؛ وإن ظهرت \\(x^2\\) في الطرفين فإنها تختفي، وإلا فتصير المعادلة تربيعية فحلّلها وارفض الجذر السالب.' };
     return res;
   }
 
@@ -255,7 +255,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     { id: 1, ar: 'أساسي', hint: 'حدّد الوتر: هو الضلع المقابل للزاوية القائمة. ثم طبّق: مربع الوتر = مجموع مربعي الساقين.' },
     { id: 2, ar: 'تطبيق', hint: 'إذا كان المجهول هو الوتر فاجمع المربعين، وإذا كان ساقاً فاطرح مربع الساق المعلومة من مربع الوتر. ثم خذ الجذر وبسّطه.' },
     { id: 3, ar: 'مسائل كلامية', hint: 'ارسم المثلث القائم من المسألة، وحدّد الوتر (السلم أو القطر أو المسافة المباشرة) ثم طبّق نظرية فيثاغورس.' },
-    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب معادلة فيثاغورس بحسب الوتر في الشكل، وفُكّ القوس بعناية: \\((x\\pm d)^2=x^2\\pm 2dx+d^2\\)، ثم تختفي \\(x^2\\) من الطرفين.' }
+    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب معادلة فيثاغورس بحسب الوتر في الشكل، وفُكّ القوس بعناية: \\((x\\pm d)^2=x^2\\pm 2dx+d^2\\)؛ إن كانت \\(x^2\\) في الطرفين فإنها تختفي، وإلا فتصير المعادلة تربيعية فحلّلها وارفض الجذر السالب.' }
   ];
 
   function build(level, rng) {
