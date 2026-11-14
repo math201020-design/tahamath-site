@@ -5483,7 +5483,7 @@
     {
       "path": "g12-general/en/band-1/index.html",
       "src": "site/g12-general/en/band-1/index.html",
-      "sha256": "cd8a2bcd13e92d110d0eb148ffe938868e7e923955c068cc026efb7e7de92c37"
+      "sha256": "f573d425a954252ab7cbcc9b05d4afd55ea1ddfa736743d0005716fe6852d7ca"
     },
     {
       "path": "g12-general/en/band-10/index.html",
@@ -5498,7 +5498,7 @@
     {
       "path": "g12-general/en/band-12/index.html",
       "src": "site/g12-general/en/band-12/index.html",
-      "sha256": "6aa2b5f7c7b96eb24f2a732e00e52499ed91cd216f4c9a3f5674c00b8faed074"
+      "sha256": "f0d4bd7aeabd8606e6b2c1523cf009062b4f688a89ff62f9e233ac5e96d99427"
     },
     {
       "path": "g12-general/en/band-13/index.html",
@@ -5533,7 +5533,7 @@
     {
       "path": "g12-general/en/band-19/index.html",
       "src": "site/g12-general/en/band-19/index.html",
-      "sha256": "03dc3c1aeaeebd3f74dc600adc98b4352846465dae323e1d54a9e46aa83ea04e"
+      "sha256": "7fd6ec9c7aea0fbdacd4049c982b04d6809a74daa220b6f40fd8533a848a2aa3"
     },
     {
       "path": "g12-general/en/band-2/index.html",
@@ -5553,12 +5553,12 @@
     {
       "path": "g12-general/en/band-22/index.html",
       "src": "site/g12-general/en/band-22/index.html",
-      "sha256": "14406a0db789a442e234fc07303e7fbeddf4b028b5b8be2fc9be6662141c4c0e"
+      "sha256": "84fb93826eed99c8b4bd592786a4c87775b3137b8dd3dd2c65aa21640f122f50"
     },
     {
       "path": "g12-general/en/band-23/index.html",
       "src": "site/g12-general/en/band-23/index.html",
-      "sha256": "178ad5f5cbccd1e05654734f8ed12b22585c291983d5bd81b800f3f46bac479b"
+      "sha256": "103d90fedceceffb98ee9bed60432f9ca6aecff6410ab0adad706c0696838128"
     },
     {
       "path": "g12-general/en/band-24/index.html",
@@ -5573,12 +5573,12 @@
     {
       "path": "g12-general/en/band-3/index.html",
       "src": "site/g12-general/en/band-3/index.html",
-      "sha256": "8595b3601a7185d5422e2279639eccd1be967f19bd03fe0c8157d5fbcc22e382"
+      "sha256": "20903901e099bb07275245a2ce3a62f8d6e46866323b23d9a255c4cb0850ee24"
     },
     {
       "path": "g12-general/en/band-4/index.html",
       "src": "site/g12-general/en/band-4/index.html",
-      "sha256": "4119af4248d03fa9711877ba5d05eccba1cbddf56eb90c1bd7a45b75ac81191f"
+      "sha256": "49c6a6d00406b0972bf656dc6af15caea09ac32e2868d97a3162e077212a83ff"
     },
     {
       "path": "g12-general/en/band-5/index.html",
@@ -5588,7 +5588,7 @@
     {
       "path": "g12-general/en/band-6/index.html",
       "src": "site/g12-general/en/band-6/index.html",
-      "sha256": "bbf22d5f5fbe73c79982dc93f9b34065bc9484d926dcf0b73924889bfc551dc7"
+      "sha256": "3dae41c6cb0677142c4e91f1685039292a3aeaaf31ad6c02432ede9a738da006"
     },
     {
       "path": "g12-general/en/band-7/index.html",
@@ -5608,7 +5608,7 @@
     {
       "path": "g12-general/en/index.html",
       "src": "site/g12-general/en/index.html",
-      "sha256": "5972a4b372f640f0d73998488fa69242a8d0633f9c88d55500acaf5941e69c46"
+      "sha256": "3825f5d4e240a4adf062aa6f69d5446a04d76dc984ca8744c98b5ecc96a87520"
     },
     {
       "path": "g12-general/haykal-1-written/index.html",
