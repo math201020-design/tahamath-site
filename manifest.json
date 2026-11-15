@@ -5779,6 +5779,26 @@
    "path": "g10-advanced/haykal-1-written/index.html",
    "src": "site/g10-advanced/haykal-1-written/index.html",
    "sha256": "fbb4ebbd917a440e997cfed53c6ca6189decf65d21151c2bc125952dbd790be8"
+  },
+  {
+   "path": "g10-advanced/haykal-2/index.html",
+   "src": "site/g10-advanced/haykal-2/index.html",
+   "sha256": "73ecc6505d7fab89c7728779d4b54f985af9ec853dc6520e8da2a5bedcdc3297"
+  },
+  {
+   "path": "g10-advanced/haykal-2-written/index.html",
+   "src": "site/g10-advanced/haykal-2-written/index.html",
+   "sha256": "7292b62a83eae9d909eac8a0dcf539346c572dfebc3249e1a17a225c589505fc"
+  },
+  {
+   "path": "g10-advanced/haykal-3/index.html",
+   "src": "site/g10-advanced/haykal-3/index.html",
+   "sha256": "8dbe5d09338b9691c0486c987d3a0ef8ca8d607594a357f563c2ab0e3b359364"
+  },
+  {
+   "path": "g10-advanced/haykal-3-written/index.html",
+   "src": "site/g10-advanced/haykal-3-written/index.html",
+   "sha256": "c8be4b09768c99cfa87adb8f335ea07e8c85e3a0c4bc76c2e728a56241fbe824"
   }
  ]
 }
