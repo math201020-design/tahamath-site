@@ -15,8 +15,8 @@ IMGSRC = re.compile(r'(?:src|SRC)\s*=\s*["\']?([^"\'\s>]+)')
 IMGOK = re.compile(r'^img/[0-9a-f]{12}\.(png|webp|jpg|jpeg)$')
 ID_RE = {'practice': r'^practice-(\d+)-(\d+)-(\d+)$', 'haykal-e': r'^haykal-(\d+)$', 'haykal-w': r'^haykal-(\d+)-written$'}
 MARK_BY_ITEM = lambda it: 3 if 1 <= it <= 20 else (8 if 21 <= it <= 25 else None)
-HAYKAL = {'haykal-e': dict(n=20, mark=3, total=60, min=90, lo=1, hi=20),
-          'haykal-w': dict(n=5, mark=8, total=40, min=60, lo=21, hi=25)}
+HAYKAL = {'haykal-e': dict(n=20, mark=3, total=60, min=60, lo=1, hi=20),
+          'haykal-w': dict(n=5, mark=8, total=40, min=90, lo=21, hi=25)}
 
 
 def infer_kind(i):
