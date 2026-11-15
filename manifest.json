@@ -5769,6 +5769,16 @@
    "path": "g11-advanced-bridge/mastery-23/index.html",
    "src": "site/g11-advanced-bridge/mastery-23/index.html",
    "sha256": "b7d3e86913cb0dcb04693339322a4989bad185257f4f66c116ae5a6aee46f691"
+  },
+  {
+   "path": "g10-advanced/haykal-1/index.html",
+   "src": "site/g10-advanced/haykal-1/index.html",
+   "sha256": "91c05b54cd38618b60e03d2db1cc1eb236fdf90495b42595f030af98c3e95b7e"
+  },
+  {
+   "path": "g10-advanced/haykal-1-written/index.html",
+   "src": "site/g10-advanced/haykal-1-written/index.html",
+   "sha256": "fbb4ebbd917a440e997cfed53c6ca6189decf65d21151c2bc125952dbd790be8"
   }
  ]
 }
