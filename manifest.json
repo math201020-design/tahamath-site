@@ -6084,6 +6084,11 @@
    "path": "g10-general/prac-1-5-m4/index.html",
    "src": "site/g10-general/prac-1-5-m4/index.html",
    "sha256": "91be7a14c51ebddf75ca92303bc139908bd553625325e1849d576606ab3dddd5"
+  },
+  {
+   "path": "g10-advanced/index.html",
+   "src": "site/g10-advanced/index.html",
+   "sha256": "5cec079024628d038b69229ba066174fe46418021a887a928c90e2b8471c046e"
   }
  ]
 }
