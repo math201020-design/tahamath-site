@@ -38,6 +38,7 @@ header.top .sub{font-size:15px;line-height:1.8}
 .opts{display:grid;gap:10px;margin:8px 0 4px}
 .opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
 .opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
 .opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
 .opt .m{flex:1;min-width:0;overflow-x:auto}
@@ -83,6 +84,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   <section class="box" aria-label="مسار الإتقان">
     <ol class="path" id="path"></ol>
     <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
   </section>
   <section class="box" id="stage" aria-live="polite"></section>
   <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
@@ -541,6 +543,19 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
       : (st.mastered ? 'أتقنت كل المستويات' : '');
     $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
   }
 
   function newRound() {
@@ -665,6 +680,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
       if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
       res.appendChild(a3);
     }
     stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
