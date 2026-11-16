@@ -5773,7 +5773,7 @@
   {
    "path": "g10-advanced/haykal-1/index.html",
    "src": "site/g10-advanced/haykal-1/index.html",
-   "sha256": "91c05b54cd38618b60e03d2db1cc1eb236fdf90495b42595f030af98c3e95b7e"
+   "sha256": "211fb80bc23e94c5a6fb00676323ae9ea50955281a47a36fd39200d97b705fd2"
   },
   {
    "path": "g10-advanced/haykal-1-written/index.html",
@@ -5783,7 +5783,7 @@
   {
    "path": "g10-advanced/haykal-2/index.html",
    "src": "site/g10-advanced/haykal-2/index.html",
-   "sha256": "5526d0d4ca989815938f7906ca35c73680a9a7ee0c2b9cae051a3ae39f7a840b"
+   "sha256": "4f93bd694f40aca9a3e4fda26c083af235e472e114e0c321ea6f2d7e7f6694a3"
   },
   {
    "path": "g10-advanced/haykal-2-written/index.html",
@@ -5793,17 +5793,17 @@
   {
    "path": "g10-advanced/haykal-3/index.html",
    "src": "site/g10-advanced/haykal-3/index.html",
-   "sha256": "e20f850e9b37243464ab77c8a4329d42543948e884d8eda656d581e6e52d588f"
+   "sha256": "3c2f1836ae215ccd7288c352a09e5bfb3a18eb0922b75eed5e6ff20ff7486af5"
   },
   {
    "path": "g10-advanced/haykal-3-written/index.html",
    "src": "site/g10-advanced/haykal-3-written/index.html",
-   "sha256": "37b499a7054a73a18ecdaa687d647b58aae59fe83ceb01893cd82b7f456be4ac"
+   "sha256": "ece4157276aa2d207dc7dddfe5ca94006715781d0257e31110260553b6fce489"
   },
   {
    "path": "g10-advanced/haykal-4/index.html",
    "src": "site/g10-advanced/haykal-4/index.html",
-   "sha256": "7419e44cc3fc183ef039fbdf15f218915b244e7f4da7b7661ab6309a2a7a65c0"
+   "sha256": "c3f4e37ebcd97e26136e55e808b055ca76ceee763bf746702dd203c1e410f9aa"
   },
   {
    "path": "g10-advanced/haykal-4-written/index.html",
@@ -5818,7 +5818,7 @@
   {
    "path": "g10-general/prac-21-25-m3/index.html",
    "src": "site/g10-general/prac-21-25-m3/index.html",
-   "sha256": "003e259b73ca97c30a5a096e5b18c16953ccf8c19faf62641fc8af063c09f110"
+   "sha256": "22e2e440ef836c9262d659b2be10a3a98e44bf202cf8b3f4328c732792c50e18"
   },
   {
    "path": "g10-general/band-6/index.html",
@@ -5863,7 +5863,7 @@
   {
    "path": "g10-general/haykal-2-written/index.html",
    "src": "site/g10-general/haykal-2-written/index.html",
-   "sha256": "64892fad9d5bf066ba94c780c0743e3147e54fc0356e42cc2a5c299b5cb8ce05"
+   "sha256": "8f6a6fcd78540cd564329c323f1f5fa2facd99cd410401aec695e5103e5de497"
   },
   {
    "path": "g10-general/band-18/index.html",
@@ -5878,7 +5878,7 @@
   {
    "path": "g10-general/haykal-4-written/index.html",
    "src": "site/g10-general/haykal-4-written/index.html",
-   "sha256": "97dcf5fbdfbc570a27e40ba2e558b6b8ab21f343d601fe51e4f7ad04f826dde8"
+   "sha256": "add6ae6ae8e89966996e13f39f8bfb01c396f333af069688bd13517d4e9036d1"
   },
   {
    "path": "g10-general/prac-16-20-m4/index.html",
@@ -5888,7 +5888,7 @@
   {
    "path": "g10-general/prac-21-25-m2/index.html",
    "src": "site/g10-general/prac-21-25-m2/index.html",
-   "sha256": "ee0a197531556dbab98d2b879d46c9761fb373c9b624dbe6bca90bdeb1ef713a"
+   "sha256": "1f02055f4a1a02168b9b737116b8cddd1f3ba4db036b31c43a61dc216406c32b"
   },
   {
    "path": "g10-general/band-1/index.html",
@@ -5933,7 +5933,7 @@
   {
    "path": "g10-general/haykal-1-written/index.html",
    "src": "site/g10-general/haykal-1-written/index.html",
-   "sha256": "b8bcbf057498a899169b286a2fc259e57c874637124f15a5f6b471003f1ea954"
+   "sha256": "629c720ff75886c3cb0b73ccf7a20b35bdfb50b9edb2c2ebf0f088bef3c0fa73"
   },
   {
    "path": "g10-general/prac-1-5-m2/index.html",
@@ -5948,7 +5948,7 @@
   {
    "path": "g10-general/band-23/index.html",
    "src": "site/g10-general/band-23/index.html",
-   "sha256": "8c583dcec44c6f316cb2bdb1cdcac91e690318781471055e3082699aedbf08b0"
+   "sha256": "42360b2e121229cc4b6d3f1914268861cb56d1ed98877a1a60924b33e54e7385"
   },
   {
    "path": "g10-general/band-17/index.html",
@@ -6008,12 +6008,12 @@
   {
    "path": "g10-general/haykal-3-written/index.html",
    "src": "site/g10-general/haykal-3-written/index.html",
-   "sha256": "2b9fbbf8613dc6b9e493273d30c658f43ab713e0a70e17d1a7fcd6f102944d0b"
+   "sha256": "d60bff2fdf1d24a286b523e57cde2495f2bda294284a10c1417008a8e3cd4a74"
   },
   {
    "path": "g10-general/prac-21-25-m4/index.html",
    "src": "site/g10-general/prac-21-25-m4/index.html",
-   "sha256": "51f2d28b3d33864eab19c110f2820301c06d50f7365818d75ad75008f01f166a"
+   "sha256": "b38e2f5b8ac73a0a846ed167443dd3b35385678c9f47fa0f2ae49d7b04c461db"
   },
   {
    "path": "g10-general/prac-16-20-m3/index.html",
@@ -6078,7 +6078,7 @@
   {
    "path": "g10-general/prac-21-25-m1/index.html",
    "src": "site/g10-general/prac-21-25-m1/index.html",
-   "sha256": "3aeafe49a4ee43d701ac89061513d5829df66351bd2712229b3106a171bda4f7"
+   "sha256": "8f2a1b465ec549b3bc8bbd6df5777f7ce0bfb030aac626c8abcba1683424c61a"
   },
   {
    "path": "g10-general/prac-1-5-m4/index.html",
