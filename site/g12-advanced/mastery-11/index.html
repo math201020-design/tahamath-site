@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: قاعدة القوة | الثاني عشر متقدم | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في إيجاد المشتقة بقاعدة القوة عند نقطة، وتتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g12-advanced/mastery-11/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">11</bdi>: إيجاد مشتقة دالة باستخدام قاعدة القوة عند نقطة معينة<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g12-advanced", "band": 11, "label": "البند 11", "gen": "TmGenPow"};</script>
+<script>
+/* مولّد أسئلة البند 11 (إيجاد مشتقة دالة باستخدام قاعدة القوة عند نقطة معينة) - 12 متقدم
+   اختيار من متعدد بصيغة الوزارة، حل تفصيلي، تلميح لكل نوع، ومشتتات من أخطاء شائعة لكل منها تشخيص دقيق.
+   التوليد بالقوالب لا بالذكاء الاصطناعي، والقيم كلها كسور دقيقة. */
+(function (root) {
+  'use strict';
+
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  /* ---------- كسور دقيقة ---------- */
+  function fr(n, d) { d = d === undefined ? 1 : d; if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function mul(a, b) { return fr(a.n * b.n, a.d * b.d); }
+  function powI(a, k) { var r = fr(1); var i; if (k >= 0) { for (i = 0; i < k; i++) r = mul(r, a); return r; } for (i = 0; i < -k; i++) r = mul(r, fr(a.d, a.n)); return r; }
+  function ltx(f) { if (f.d === 1) return String(f.n); return (f.n < 0 ? '-' : '') + '\\frac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function key(f) { return f.n + '/' + f.d; }
+  function mag(f) { return Math.abs(f.n / f.d); }
+
+  /* ---------- مشتتات: نختار 3 قيم مختلفة ومعقولة ---------- */
+  function pickDistractors(rng, correct, cands, genericWhy) {
+    var seen = {}; seen[key(correct)] = 1; var out = [], usedCls = {}; out.amb = 0; out.gen = 0;
+    var lim = Math.max(mag(correct), 1) * 14 + 40;
+    shuffle(rng, cands).forEach(function (c) {
+      if (out.length >= 3 || !c.v || usedCls[c.cls]) return;
+      if (seen[key(c.v)] || mag(c.v) > lim || c.v.d > 400) return;
+      seen[key(c.v)] = 1; usedCls[c.cls] = 1; out.push({ v: c.v, why: c.why });
+      var same = {}; cands.forEach(function (o) { if (o.v && key(o.v) === key(c.v)) same[o.cls] = 1; });
+      if (Object.keys(same).length > 1) out.amb++;
+    });
+    var guard = 0;
+    while (out.length < 3 && guard++ < 200) {
+      var dv = ri(rng, -6, 6); if (!dv) continue;
+      var alt = fr(correct.n + dv * correct.d, correct.d);
+      if (seen[key(alt)]) continue;
+      seen[key(alt)] = 1; out.push({ v: alt, why: genericWhy }); out.gen++;
+    }
+    return out;
+  }
+
+  function add(a, b) { return fr(a.n * b.d + b.n * a.d, a.d * b.d); }
+  function neg(a) { return fr(-a.n, a.d); }
+  function F(v) { return typeof v === 'number' ? fr(v) : v; }
+  /* قيمة x0^p للأس النسبي p=n/d؛ تُرجع null إن لم تكن نسبية */
+  function xp(x0, p) {
+    var n = p.n, d = p.d, r, i, ax = Math.abs(x0);
+    if (d === 1) r = fr(Math.pow(x0, Math.abs(n))); else {
+      if (x0 < 0 && d % 2 === 0) return null;
+      var rt = Math.round(Math.pow(ax, 1 / d)); if (Math.pow(rt, d) !== ax) return null;
+      var base = (x0 < 0 ? -rt : rt); r = fr(Math.pow(base, Math.abs(n)));
+    }
+    return n < 0 ? fr(r.d, r.n) : r;
+  }
+  function pw(b, k) { return k === 1 ? b : b + '^{' + k + '}'; }
+  function sgnJoin(parts) { var s = ''; parts.forEach(function (t, i) { if (!t) return; var neg = t.charAt(0) === '-'; if (i === 0 || !s) s += t; else s += (neg ? ' - ' + t.slice(1) : ' + ' + t); }); return s; }
+  /* عرض حد c·x^p بصيغة الجذور والكسور (في نص السؤال) */
+  function qT(c, p) {
+    var a = Math.abs(c), s = c < 0 ? '-' : '', co = a === 1 ? '' : String(a), k = p.n + '/' + p.d;
+    if (k === '1/1') return s + co + 'x';
+    if (k === '0/1') return s + a;
+    if (p.d === 1 && p.n > 1) return s + co + 'x^{' + p.n + '}';
+    if (p.d === 1 && p.n < 0) return s + '\\frac{' + a + '}{' + (p.n === -1 ? 'x' : 'x^{' + (-p.n) + '}') + '}';
+    if (k === '1/2') return s + co + '\\sqrt{x}';
+    if (k === '-1/2') return s + '\\frac{' + a + '}{\\sqrt{x}}';
+    if (k === '1/3') return s + co + '\\sqrt[3]{x}';
+    if (k === '3/2') return s + co + 'x^{\\frac{3}{2}}';
+    return s + co + 'x^{' + ltx(p) + '}';
+  }
+  /* عرض حد بصيغة القوى (في الحل): المعامل كسر دقيق */
+  function pT(c, p) {
+    c = F(c); var s = c.n < 0 ? '-' : '', a = fr(Math.abs(c.n), c.d), co = (a.n === 1 && a.d === 1) ? '' : ltx(a);
+    if (p.n === 0) return s + ltx(a);
+    var xs = (p.n === 1 && p.d === 1) ? 'x' : 'x^{' + ltx(p) + '}';
+    return s + co + xs;
+  }
+  function polyTex(terms, f) { return sgnJoin(terms.map(function (t) { return f(t.c, t.p); })); }
+  function dTerms(terms) { return terms.map(function (t) { return { c: mul(F(t.c), t.p), p: add(t.p, fr(-1)) }; }).filter(function (t) { return t.c.n !== 0; }); }
+  function valAt(terms, x0) { var s = fr(0); for (var i = 0; i < terms.length; i++) { var v = xp(x0, add(terms[i].p, fr(-1))); if (!v) return null; s = add(s, mul(mul(F(terms[i].c), terms[i].p), v)); } return s; }
+  function fvalAt(terms, x0) { var s = fr(0); for (var i = 0; i < terms.length; i++) { var v = xp(x0, terms[i].p); if (!v) return null; s = add(s, mul(F(terms[i].c), v)); } return s; }
+  function ts(c, n, d) { return { c: c, p: fr(n, d === undefined ? 1 : d) }; }
+  /* سطر التعويض: كل حد من المشتقة عند x0 */
+  function substTex(dt, x0) { return polyTex(dt, function (c, p) { var q = x0 < 0 ? '\\left(' + x0 + '\\right)' : String(x0), sg = c.n < 0 ? '-' : '', ac = fr(Math.abs(c.n), c.d), one = ac.n === 1 && ac.d === 1; if (p.n === 0) return sg + ltx(ac); var pw = (p.n === 1 && p.d === 1) ? q : q + '^{' + ltx(p) + '}'; return sg + (one ? '' : ltx(ac) + '\\cdot ') + pw; }); }
+  function fx(x0) { return x0 < 0 ? '\\left(' + x0 + '\\right)' : String(x0); }
+  var ok = function (v, m) { return v && Math.abs(v.n / v.d) <= (m || 900) && v.d <= 400; };
+
+  var WHY = {
+    noreduce: 'عند الاشتقاق يُنقَص الأس بمقدار \\(1\\)، فلا يبقى الأس كما هو.',
+    nofactor: 'يُضرب المعامل في الأس الذي ينزل أمام الحد عند الاشتقاق.',
+    nocoef: 'لا تُهمل المعامل؛ المشتقة تساوي (المعامل × الأس) × \\(x\\) مرفوعاً إلى الأس الجديد.',
+    fval: 'المطلوب قيمة المشتقة عند النقطة المعطاة وليس قيمة الدالة.',
+    twice: 'المطلوب المشتقة الأولى فقط؛ لا تشتق الناتج مرة ثانية.',
+    signslip: 'هذه القيمة لا تنتج عن التعويض الصحيح؛ أعد حساب كل خطوة بعناية.',
+    generic: 'راجع الخطوات: اشتقّ كل حد بقاعدة القوة (يُضرب المعامل في الأس ثم يُنقَص الأس بمقدار 1)، ثم عوّض قيمة \\(x\\) المعطاة واجمع.'
+  };
+  var HINT = {
+    mono: 'اضرب المعامل في الأس، وأنقِص الأس بمقدار \\(1\\)، ثم عوّض قيمة \\(x\\).',
+    poly: 'اشتقّ كل حد على حدة بقاعدة القوة (مشتقة الحد الثابت صفر)، ثم عوّض قيمة \\(x\\) المعطاة في المشتقة واجمع.',
+    root: 'اكتب الجذر أو الكسر على صورة قوة (\\(\\sqrt{x}=x^{\\frac12}\\)، \\(\\sqrt[3]{x}=x^{\\frac13}\\)، \\(\\frac1{x^n}=x^{-n}\\))، ثم طبّق قاعدة القوة وعوّض قيمة \\(x\\).',
+    rewrite: 'اقسم كل حد من البسط على المقام لتحصل على مجموع قوى لـ \\(x\\)، ثم اشتقّ كل حد وعوّض.',
+    mixed: 'ميل المماس عند نقطة يساوي قيمة المشتقة عندها. حوّل الجذر والكسر إلى قوى (\\(\\sqrt{x}=x^{\\frac12}\\) و\\(\\frac1x=x^{-1}\\))، واشتقّ كل حد، ثم عوّض قيمة \\(x\\).',
+    frac32: 'الدالة قوة كسرية جاهزة؛ اضرب المعامل في الأس \\(\\frac32\\)، وأنقِص الأس بمقدار \\(1\\)، ثم عوّض قيمة \\(x\\).',
+    k: 'حوّل الجذر أو الكسر إلى قوة عند الحاجة، ثم اشتقّ بالنسبة إلى \\(x\\) مع اعتبار \\(k\\) ثابتاً، عوّض قيمة \\(x\\) في المشتقة، ثم ضع الناتج مساوياً للقيمة المعطاة وأوجد \\(k\\).',
+    sum: 'أعد كتابة الدالة كمجموع حدود على صورة قوى لـ \\(x\\)، اشتقّها مرة واحدة، ثم احسب المشتقة عند كل قيمة واجمع الناتجين.'
+  };
+  function solRows(fTex, terms, x0, corr, rewrite) {
+    var dt = dTerms(terms), rows = [];
+    if (rewrite) rows.push({ t: 'f(x)=' + polyTex(terms, pT), ar: 'نكتب الدالة على صورة قوى' });
+    rows.push({ t: 'f\'(x)=' + polyTex(dt, pT), ar: 'قاعدة القوة لكل حد' });
+    rows.push({ t: 'f\'(' + x0 + ')=' + substTex(dt, x0) + '=' + ltx(corr) });
+    rows.push({ box: ltx(corr) });
+    return rows;
+  }
+  function pack(t, level) { return t; }
+
+  /* 1) ax^n */
+  function qMono(rng) {
+    for (var g = 0; g < 400; g++) {
+      var n = ri(rng, 3, 7), a = pick(rng, [1, 2, 3, 4, 5, 6, -1, -2, -3, -4, -5]), x0 = pick(rng, [-3, -2, -1, 2, 3]);
+      var corr = fr(a * n * Math.pow(x0, n - 1)); if (!ok(corr, 700)) continue;
+      var e = 'f(x)=' + qT(a, fr(n));
+      var c = [
+        { cls: 'noreduce', v: fr(a * n * Math.pow(x0, n)), why: WHY.noreduce },
+        { cls: 'nofactor', v: fr(a * Math.pow(x0, n - 1)), why: WHY.nofactor },
+        { cls: 'nocoef', v: fr(n * Math.pow(x0, n - 1)), why: WHY.nocoef },
+        { cls: 'fval', v: fr(a * Math.pow(x0, n)), why: WHY.fval },
+        { cls: 'twice', v: fr(a * n * (n - 1) * Math.pow(x0, n - 2)), why: WHY.twice },
+        { cls: 'signslip', v: neg(corr), why: WHY.signslip }
+      ];
+      var terms = [ts(a, n)];
+      return { e: e, x0: x0, stem: 'أوجد \\(f\'(' + x0 + ')\\) للدالة الآتية:', corr: corr, cands: c, sol: solRows(e, terms, x0, corr, false), kind: 'mono', hint: HINT.mono, spec: terms, key: e + '@' + x0 };
+    }
+    throw new Error('mono');
+  }
+
+  /* 2) كثير حدود من 3 حدود + ثابت */
+  function qPoly(rng) {
+    for (var g = 0; g < 800; g++) {
+      var exps = shuffle(rng, [1, 2, 3, 4, 5, 6]).slice(0, 3).sort(function (a, b) { return b - a; });
+      var terms = exps.map(function (n) { return ts(pick(rng, [1, 2, 3, 4, 5, 6, 7, -1, -2, -3, -4, -5, -6, -7]), n); });
+      var d = pick(rng, [-9, -8, -7, -5, -4, -3, -2, 2, 3, 4, 5, 6, 7, 9]), x0 = pick(rng, [-3, -2, -1, 2, 3]);
+      var all = terms.concat([ts(d, 0)]); var corr = valAt(all, x0); if (!ok(corr, 900)) continue;
+      var D = terms.map(function (t) { return mul(mul(F(t.c), t.p), xp(x0, add(t.p, fr(-1)))); });
+      if (D.some(function (v) { return Math.abs(v.n / v.d) > 900; })) continue;
+      var t0 = terms[0], k = 1 + Math.floor(rng() * 2); var tk = terms[k];
+      var e = 'f(x)=' + polyTex(all, qT);
+      var c = [
+        { cls: 'keepconst', v: add(corr, fr(d)), why: 'الحد \\(' + d + '\\) هو الحد الثابت، ومشتقته تساوي صفراً فلا يظهر في المشتقة.' },
+        { cls: 'skipterm', v: add(corr, neg(D[0])), why: 'أهملتَ مشتقة الحد \\(' + qT(t0.c, t0.p) + '\\)؛ كل حد في الدالة يُشتق.' },
+        { cls: 'noreduce', v: add(corr, add(neg(D[0]), fr(t0.c * t0.p.n * Math.pow(x0, t0.p.n)))), why: 'في الحد \\(' + qT(t0.c, t0.p) + '\\) بقي الأس كما هو؛ والصحيح أن يُنقَص بمقدار \\(1\\) بعد ضرب المعامل في الأس.' },
+        { cls: 'fval', v: fvalAt(all, x0), why: WHY.fval },
+        { cls: 'signterm', v: add(corr, mul(fr(-2), D[k])), why: 'راجع إشارة مشتقة الحد \\(' + qT(tk.c, tk.p) + '\\) عند التعويض والضرب.' },
+        { cls: 'signslip', v: neg(corr), why: WHY.signslip }
+      ];
+      return { e: e, x0: x0, stem: 'أوجد \\(f\'(' + x0 + ')\\) للدالة الآتية:', corr: corr, cands: c, sol: solRows(e, all, x0, corr, false), kind: 'poly', hint: HINT.poly, spec: all, key: e + '@' + x0 };
+    }
+    throw new Error('poly');
+  }
+
+  /* 3) جذور وقوى سالبة وكسرية */
+  function qRoot(rng) {
+    var form = pick(rng, ['sqrt', 'recip', 'frac32', 'cbrt', 'mix']), a, x0, s, terms, e, corr, c, g;
+    for (g = 0; g < 800; g++) {
+      a = pick(rng, [1, 2, 3, 4, 5, 6, 8, -1, -2, -3, -4, -6]);
+      if (form === 'sqrt') {
+        x0 = pick(rng, [1, 4, 9, 16, 25]); s = Math.round(Math.sqrt(x0)); terms = [ts(a, 1, 2)]; corr = fr(a, 2 * s);
+        c = [
+          { cls: 'nohalf', v: fr(a, s), why: 'عند اشتقاق \\(x^{\\frac12}\\) ينزل الأس \\(\\frac12\\) أمام الحد فيُضرب في معامله؛ لا تُهمل هذا العامل.' },
+          { cls: 'wrongexp', v: fr(a, 2 * s * s * s), why: 'الأس الجديد هو \\(\\frac12-1=-\\frac12\\) وليس \\(-\\frac32\\).' },
+          { cls: 'fval', v: fr(a * s), why: WHY.fval },
+          { cls: 'nocoef', v: fr(1, 2 * s), why: WHY.nocoef },
+          { cls: 'rootnum', v: fr(a * s, 2), why: 'الأس الجديد سالب \\(-\\frac12\\)، أي أن \\(\\sqrt{x}\\) تذهب إلى المقام وليس إلى البسط.' },
+          { cls: 'signslip', v: neg(corr), why: WHY.signslip }
+        ];
+      } else if (form === 'recip') {
+        var n = pick(rng, [1, 2, 3]); x0 = pick(rng, [-3, -2, -1, 1, 2, 3]); terms = [ts(a, -n)];
+        corr = fr(-a * n, Math.pow(x0, n + 1)); if (corr.d > 100) continue;
+        c = [
+          { cls: 'noreduceN', v: fr(-a * n, Math.pow(x0, n)), why: 'تحقّق من الأس الجديد بعد إنقاصه بمقدار \\(1\\)؛ فلا يبقى المقام بالقوة نفسها.' },
+          { cls: 'signlost', v: fr(a * n, Math.pow(x0, n + 1)), why: 'الأس \\(' + (-n) + '\\) ينزل بإشارته السالبة أمام المعامل؛ احتفظ بهذه الإشارة.' },
+          { cls: 'wrongexp', v: fr(-a * n, Math.pow(x0, n - 1)), why: 'الأس الجديد هو \\(' + (-n - 1) + '\\) وليس \\(' + (-n + 1) + '\\)؛ أي أن المقام يزيد قوةً واحدة.' },
+          { cls: 'fval', v: fr(a, Math.pow(x0, n)), why: WHY.fval },
+          { cls: 'nofactor', v: fr(a, Math.pow(x0, n + 1)), why: 'الأس \\(' + (-n) + '\\) كله ينزل أمام الحد (قيمته وإشارته) ثم يُنقَص الأس بمقدار \\(1\\).' }
+        ];
+      } else if (form === 'frac32') {
+        x0 = pick(rng, [1, 4, 9, 16]); s = Math.round(Math.sqrt(x0)); terms = [ts(a, 3, 2)]; corr = fr(3 * a * s, 2);
+        c = [
+          { cls: 'wrongexp', v: fr(3 * a * s * s * s * s * s, 2), why: 'الأس الجديد هو \\(\\frac32-1=\\frac12\\) وليس \\(\\frac52\\).' },
+          { cls: 'nofactor', v: fr(a * s), why: 'يُضرب المعامل في الأس \\(\\frac32\\) الذي ينزل أمام الحد.' },
+          { cls: 'invfactor', v: fr(2 * a * s, 3), why: 'العامل الذي ينزل هو الأس \\(\\frac32\\) نفسه وليس مقلوبه \\(\\frac23\\).' },
+          { cls: 'fval', v: fr(a * s * s * s), why: WHY.fval },
+          { cls: 'signslip', v: neg(corr), why: WHY.signslip }
+        ];
+      } else if (form === 'cbrt') {
+        x0 = pick(rng, [1, 8, 27, 64]); s = Math.round(Math.cbrt(x0)); terms = [ts(a, 1, 3)]; corr = fr(a, 3 * s * s);
+        c = [
+          { cls: 'wrongexp', v: fr(a, 3 * s * s * s * s), why: 'الأس الجديد هو \\(\\frac13-1=-\\frac23\\) وليس \\(-\\frac43\\).' },
+          { cls: 'nothird', v: fr(a, s * s), why: 'عند اشتقاق \\(x^{\\frac13}\\) ينزل الأس \\(\\frac13\\) أمام الحد فيُضرب في معامله؛ لا تُهمل هذا العامل.' },
+          { cls: 'notsquared', v: fr(a, 3 * s), why: 'المقام يحوي مربع الجذر التكعيبي \\(\\left(\\sqrt[3]{x}\\right)^2\\) وليس الجذر نفسه.' },
+          { cls: 'fval', v: fr(a * s), why: WHY.fval },
+          { cls: 'signslip', v: neg(corr), why: WHY.signslip }
+        ];
+      } else {
+        x0 = pick(rng, [1, 4, 9]); s = Math.round(Math.sqrt(x0)); var b = pick(rng, [1, 2, 3, 4, 5, -1, -2, -3, -4]);
+        terms = [ts(a, 1, 2), ts(b, -1)];
+        var D1 = fr(a, 2 * s), D2 = fr(-b, x0 * x0); corr = add(D1, D2); if (corr.d > 200) continue;
+        c = [
+          { cls: 'only1', v: D1, why: 'أهملتَ مشتقة الحد \\(' + qT(b, fr(-1)) + '\\)؛ كل حد يُشتق ثم تُجمع المشتقات.' },
+          { cls: 'only2', v: D2, why: 'أهملتَ مشتقة الحد \\(' + qT(a, fr(1, 2)) + '\\)؛ كل حد يُشتق ثم تُجمع المشتقات.' },
+          { cls: 'recsign', v: add(D1, neg(D2)), why: 'انتبه لإشارة الأس السالب عند اشتقاق الحد \\(' + qT(b, fr(-1)) + '\\).' },
+          { cls: 'recnoreduce', v: add(D1, fr(-b, x0)), why: 'عند اشتقاق الحد ذي الأس السالب يُنقَص الأس بمقدار \\(1\\) فلا يبقى كما هو.' },
+          { cls: 'nohalf', v: add(fr(a, s), D2), why: 'عند اشتقاق \\(x^{\\frac12}\\) ينزل الأس \\(\\frac12\\) أمام الحد فيُضرب في معامله؛ لا تُهمل هذا العامل.' },
+          { cls: 'signslip', v: neg(corr), why: WHY.signslip }
+        ];
+      }
+      if (c.some(function (o) { return !o.v; })) continue;
+      break;
+    }
+    e = 'f(x)=' + polyTex(terms, qT);
+    if (form === 'mix') e = 'f(x)=' + polyTex(terms, qT);
+    return { e: e, x0: x0, stem: 'أوجد \\(f\'(' + x0 + ')\\) للدالة الآتية:', corr: corr, cands: c, sol: solRows(e, terms, x0, corr, form !== 'frac32'), kind: 'root', hint: form === 'frac32' ? HINT.frac32 : HINT.root, spec: terms, key: e + '@' + x0 };
+  }
+
+  /* 4) مستوى الوزارة: قسمة على x^m ثم الاشتقاق */
+  function qRewrite(rng) {
+    for (var g = 0; g < 800; g++) {
+      var m = pick(rng, [1, 2, 3]), p = ri(rng, m + 1, m + 3), q = ri(rng, 1, p - 1); if (q === p) continue;
+      var a = pick(rng, [1, 2, 3, 4, -1, -2, -3]), b = pick(rng, [1, 2, 3, 5, -1, -2, -4]), c0 = pick(rng, [2, 3, 4, 5, 6, -2, -3, -4]), x0 = pick(rng, [-2, -1, 1, 2, 3]);
+      var num = [ts(a, p), ts(b, q), ts(c0, 0)];
+      var res = num.map(function (t) { return ts(t.c, t.p.n - m); });
+      if (res.some(function (t) { return t.p.n === 1 && false; })) continue;
+      var corr = valAt(res, x0); if (!ok(corr, 600)) continue;
+      var Dd = res.map(function (t) { return mul(mul(F(t.c), t.p), xp(x0, add(t.p, fr(-1)))); });
+      if (Dd.some(function (v) { return !v || Math.abs(v.n / v.d) > 900; })) continue;
+      var numD = valAt(num, x0), den = Math.pow(x0, m);
+      var e = 'f(x)=\\frac{' + polyTex(num, qT) + '}{' + (m === 1 ? 'x' : 'x^{' + m + '}') + '}';
+      var kc = res[2];
+      var c = [
+        { cls: 'numonly', v: fr(numD.n, numD.d * den), why: 'اشتققتَ البسط فقط ثم قسمتَ على المقام؛ لا تصح هذه الطريقة، فالمقام \\(' + (m === 1 ? 'x' : 'x^{' + m + '}') + '\\) يتغير مع \\(x\\). اقسم كل حد على المقام أولاً.' },
+        { cls: 'constzero', v: add(corr, neg(Dd[2])), why: 'بعد القسمة يصبح الحد \\(' + c0 + '\\) هو \\(' + pT(c0, fr(-m)) + '\\)، وهو ليس ثابتاً، فمشتقته لا تساوي صفراً.' },
+        { cls: 'negsign', v: add(corr, mul(fr(-2), Dd[2])), why: 'انتبه لإشارة الأس السالب عند اشتقاق الحد \\(' + pT(c0, fr(-m)) + '\\).' },
+        { cls: 'noreduceNeg', v: add(add(corr, neg(Dd[2])), fr(-m * c0, Math.pow(x0, m))), why: 'عند اشتقاق الحد ذي الأس السالب يُنقَص الأس بمقدار \\(1\\) فلا يبقى كما هو.' },
+        { cls: 'fval', v: fvalAt(res, x0), why: WHY.fval },
+        { cls: 'signslip', v: neg(corr), why: WHY.signslip }
+      ];
+      return { e: e, x0: x0, stem: 'أوجد \\(f\'(' + x0 + ')\\) للدالة الآتية:', corr: corr, cands: c, sol: solRows(e, res, x0, corr, true), kind: 'rewrite', hint: HINT.rewrite, spec: num.concat([{ m: m }]), key: e + '@' + x0 };
+    }
+    throw new Error('rewrite');
+  }
+
+  /* 4) جذر + قوة + مقلوب عند نقطة */
+  function qMixed(rng) {
+    for (var g = 0; g < 800; g++) {
+      var x0 = pick(rng, [1, 4, 9]), s = Math.round(Math.sqrt(x0)), a = pick(rng, [1, 2, 3, 4, -1, -2, -3]), b = pick(rng, [1, 2, 3, 4, 6, 8, -2, -4]), c0 = pick(rng, [1, 2, 3, 4, 6, 9, -1, -2, -3]);
+      var terms = [ts(a, 3), ts(b, 1, 2), ts(c0, -1)];
+      var D1 = fr(3 * a * x0 * x0), D2 = fr(b, 2 * s), D3 = fr(-c0, x0 * x0), corr = add(add(D1, D2), D3);
+      if (!ok(corr, 900) || corr.d > 200) continue;
+      var e = 'f(x)=' + polyTex(terms, qT);
+      var c = [
+        { cls: 'nohalf', v: add(add(D1, fr(b, s)), D3), why: 'عند اشتقاق \\(x^{\\frac12}\\) ينزل الأس \\(\\frac12\\) أمام الحد فيُضرب في معامله؛ لا تُهمل هذا العامل.' },
+        { cls: 'recsign', v: add(add(D1, D2), neg(D3)), why: 'انتبه لإشارة الأس السالب عند اشتقاق الحد \\(' + qT(c0, fr(-1)) + '\\).' },
+        { cls: 'recnoreduce', v: add(add(D1, D2), fr(-c0, x0)), why: 'عند اشتقاق الحد ذي الأس السالب يُنقَص الأس بمقدار \\(1\\) فلا يبقى كما هو.' },
+        { cls: 'cubenoreduce', v: add(add(fr(3 * a * x0 * x0 * x0), D2), D3), why: 'عند اشتقاق هذا الحد يُنقَص الأس بمقدار \(1\) فلا يبقى كما هو.' },
+        { cls: 'fval', v: fvalAt(terms, x0), why: WHY.fval },
+        { cls: 'signslip', v: neg(corr), why: WHY.signslip }
+      ];
+      return { e: e, x0: x0, stem: 'أوجد ميل المماس لمنحنى الدالة \\(f\\) عند \\(x=' + x0 + '\\):', corr: corr, cands: c, sol: solRows(e, terms, x0, corr, true), kind: 'mixed', hint: HINT.mixed, spec: terms, key: e + '@' + x0 };
+    }
+    throw new Error('mixed');
+  }
+
+  /* 4/5) إيجاد ثابت: f(x)=a x^n + k x, f'(x0)=V */
+  function qFindK(rng) {
+    for (var g = 0; g < 800; g++) {
+      var n = ri(rng, 2, 4), a = pick(rng, [1, 2, 3, -1, -2, -3]), k = pick(rng, [-9, -7, -6, -5, -4, -3, -2, 2, 3, 4, 5, 6, 7, 9]), x0 = pick(rng, [-2, -1, 1, 2, 3]);
+      var P = a * n * Math.pow(x0, n - 1), V = P + k; if (Math.abs(V) > 400 || Math.abs(P) > 400) continue;
+      var corr = fr(k), e = 'f(x)=' + qT(a, fr(n)) + ' + kx,\\quad f\'(' + x0 + ')=' + V;
+      var c = [
+        { cls: 'movesign', v: fr(P - V), why: 'راجع إشارة الحد المنقول عند حل المعادلة التي فيها \\(k\\).' },
+        { cls: 'noreduce', v: fr(V - a * n * Math.pow(x0, n)), why: 'في مشتقة \\(' + qT(a, fr(n)) + '\\) يُنقَص الأس بمقدار \\(1\\) قبل التعويض.' },
+        { cls: 'fval', v: fr(V - a * Math.pow(x0, n)), why: 'استعملتَ قيمة الحد \\(' + qT(a, fr(n)) + '\\) نفسه عند \\(x=' + x0 + '\\) بدل قيمة مشتقته.' },
+        { cls: 'nocontrib', v: fr(V), why: 'مشتقة الحد \\(' + qT(a, fr(n)) + '\\) لا تساوي صفراً عند \\(x=' + x0 + '\\)؛ يجب أخذ قيمتها في الحساب.' },
+        { cls: 'addboth', v: fr(V + P), why: 'عند عزل \\(k\\) يُنقل الحد المعلوم إلى الطرف الآخر بإشارة معاكسة؛ راجع هذه الخطوة.' }
+      ];
+      return { e: e, x0: x0, stem: 'أوجد قيمة الثابت \\(k\\).', corr: corr, cands: c, sol: [
+        { t: 'f\'(x)=' + polyTex([ts(a * n, n - 1), ts(1, 0)], function (cc, p) { return p.n === 0 ? 'k' : pT(cc, p); }), ar: 'قاعدة القوة لكل حد' },
+        { t: 'f\'(' + x0 + ')=' + ltx(fr(a * n)) + '\\cdot ' + fx(x0) + (n - 1 === 1 ? '' : '^{' + (n - 1) + '}') + '+k=' + P + '+k' },
+        { t: P + '+k=' + V + '\\;\\Rightarrow\\; k=' + ltx(corr) },
+        { box: ltx(corr) }], kind: 'findk', hint: HINT.k, spec: [a, n, V, x0], key: e };
+    }
+    throw new Error('findk');
+  }
+
+  /* 5) تحدٍّ: f'(p)+f'(q) بعد الإعادة، أو k مع جذر ومقلوب */
+  function qSum(rng) {
+    for (var g = 0; g < 800; g++) {
+      var m = pick(rng, [1, 2]), p = ri(rng, m + 1, m + 3), q = 0, a = pick(rng, [1, 2, 3, -1, -2]), b = pick(rng, [2, 3, 4, 5, -2, -3, -4]), x1 = pick(rng, [1, 2, 3]), x2 = -x1;
+      var num = [ts(a, p), ts(b, 0)], res = num.map(function (t) { return ts(t.c, t.p.n - m); });
+      var v1 = valAt(res, x1), v2 = valAt(res, x2); if (!v1 || !v2) continue;
+      var corr = add(v1, v2); if (!ok(corr, 900) || v1.d > 1 || v2.d > 1) continue;
+      var e = 'f(x)=\\frac{' + polyTex(num, qT) + '}{' + (m === 1 ? 'x' : 'x^{' + m + '}') + '}';
+      var c = [
+        { cls: 'onlyone', v: v1, why: 'المطلوب مجموع قيمتي المشتقة عند \\(x=' + x1 + '\\) وعند \\(x=' + x2 + '\\)، وليس إحداهما فقط.' },
+        { cls: 'diff', v: add(v1, neg(v2)), why: 'المطلوب \\(f\'(' + x1 + ')+f\'(' + x2 + ')\\) بالجمع، وليس بالطرح.' },
+        { cls: 'constzero', v: add(corr, neg(add(valAt([res[1]], x1), valAt([res[1]], x2)))), why: 'بعد القسمة يصبح الحد \\(' + b + '\\) هو \\(' + pT(b, fr(-m)) + '\\)، وليس ثابتاً، فمشتقته لا تساوي صفراً.' },
+        { cls: 'fsum', v: add(fvalAt(res, x1), fvalAt(res, x2)), why: 'المطلوب مجموع قيمتي المشتقة وليس مجموع قيمتي الدالة.' },
+        { cls: 'signslip', v: neg(corr), why: WHY.signslip }
+      ];
+      var rows = [{ t: 'f(x)=' + polyTex(res, pT), ar: 'نكتب الدالة على صورة قوى' }, { t: 'f\'(x)=' + polyTex(dTerms(res), pT), ar: 'قاعدة القوة لكل حد' },
+        { t: 'f\'(' + x1 + ')=' + ltx(v1) + ',\\quad f\'(' + x2 + ')=' + ltx(v2) }, { t: 'f\'(' + x1 + ')+f\'(' + x2 + ')=' + ltx(v1) + '+' + (v2.n < 0 ? '\\left(' + ltx(v2) + '\\right)' : ltx(v2)) + '=' + ltx(corr) }, { box: ltx(corr) }];
+      return { e: e, x0: x1, stem: 'أوجد \\(f\'(' + x1 + ')+f\'(' + x2 + ')\\) للدالة الآتية:', corr: corr, cands: c, sol: rows, kind: 'sum', hint: HINT.sum, spec: num.concat([{ m: m }]), key: e + '@' + x1 };
+    }
+    throw new Error('sum');
+  }
+  function qKroot(rng) {
+    for (var g = 0; g < 800; g++) {
+      var x0 = pick(rng, [4, 9, 16]), s = Math.round(Math.sqrt(x0)), m0 = pick(rng, [1, 2, 3, -1, -2, -3]), n0 = pick(rng, [1, 2, 3, 4, -1, -2]);
+      var k = 2 * s * m0, b = n0 * x0 * x0, V = m0 - n0;  /* f'(x0)=k/(2s) - b/x0^2 */
+      var e = 'f(x)=k\\sqrt{x}+' + (b < 0 ? '' : '') + (b < 0 ? '\\frac{' + b + '}{x}' : '\\frac{' + b + '}{x}') + ',\\quad f\'(' + x0 + ')=' + V;
+      e = 'f(x)=k\\sqrt{x}' + (b < 0 ? ' - \\frac{' + (-b) + '}{x}' : ' + \\frac{' + b + '}{x}') + ',\\quad f\'(' + x0 + ')=' + V;
+      /* مشتقة b/x هي -b/x^2 : V = k/(2s) - b/x0^2 = m0 - n0 */
+      var corr = fr(k);
+      var c = [
+        { cls: 'nohalf', v: fr(s * (V + n0)), why: 'عند اشتقاق \\(k\\sqrt{x}\\) يظهر العدد \\(2\\) في المقام: \\(\\frac{k}{2\\sqrt{x}}\\)، فيدخل في حل المعادلة.' },
+        { cls: 'recsign', v: fr(2 * s * (V - n0)), why: 'انتبه لإشارة مشتقة الحد \\(' + qT(b, fr(-1)) + '\\) عند تكوين المعادلة.' },
+        { cls: 'nosqrtval', v: fr(2 * (V + n0)), why: 'المقام \\(2\\sqrt{x}\\) يحوي الجذر أيضاً؛ لا تُهمل \\(\\sqrt{' + x0 + '}\\) عند التعويض.' },
+        { cls: 'recnoreduce', v: fr(2 * s * (V + b / x0)), why: 'مشتقة الحد \\(' + qT(b, fr(-1)) + '\\) تحوي \\(x^2\\) في المقام (الأس \\(-2\\))، وليس \\(x\\).' },
+        { cls: 'movesign', v: fr(2 * s * (-V + n0)), why: 'عند نقل الحدود لحل \\(k\\) راجع إشارة كل طرف.' }
+      ];
+      if (c.some(function (o) { return !o.v; })) continue;
+      var rows = [{ t: 'f\'(x)=\\frac{k}{2\\sqrt{x}}' + (b < 0 ? '+' : '-') + '\\frac{' + Math.abs(b) + '}{x^{2}}', ar: 'نحوّل الجذر والكسر إلى قوى ثم نشتق' },
+        { t: 'f\'(' + x0 + ')=\\frac{k}{' + (2 * s) + '}' + (b < 0 ? '+' : '-') + '\\frac{' + Math.abs(b) + '}{' + (x0 * x0) + '}=\\frac{k}{' + (2 * s) + '}' + (n0 < 0 ? '+' : '-') + Math.abs(n0) },
+        { t: '\\frac{k}{' + (2 * s) + '}' + (n0 < 0 ? '+' : '-') + Math.abs(n0) + '=' + V + '\\;\\Rightarrow\\; k=' + k }, { box: String(k) }];
+      return { e: e, x0: x0, stem: 'أوجد قيمة الثابت \\(k\\).', corr: corr, cands: c, sol: rows, kind: 'kroot', hint: HINT.k, spec: [k, b, V, x0], key: e };
+    }
+    throw new Error('kroot');
+  }
+  function qChallenge(rng) { var r = rng(); return r < 0.5 ? qSum(rng) : (r < 0.8 ? qKroot(rng) : qFindK(rng)); }
+
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: HINT.mono },
+    { id: 2, ar: 'كثيرات الحدود', hint: HINT.poly },
+    { id: 3, ar: 'جذور وقوى سالبة', hint: HINT.root },
+    { id: 4, ar: 'مستوى الوزارة', hint: HINT.mixed },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: HINT.sum }
+  ];
+  function build(level, rng) {
+    var r = rng();
+    if (level === 1) return qMono(rng);
+    if (level === 2) return qPoly(rng);
+    if (level === 3) return qRoot(rng);
+    if (level === 4) return r < 0.4 ? qRewrite(rng) : (r < 0.75 ? qMixed(rng) : qFindK(rng));
+    return qChallenge(rng);
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = pickDistractors(rng, t.corr, t.cands, WHY.generic); tries++; } while ((dis.gen > 0 || dis.amb > 0) && tries < 80);
+    var correct = { v: t.corr, why: '' };
+    var all = shuffle(rng, [correct].concat(dis));
+    return {
+      band: 11, level: level, rtl: true, lang: 'ar', stem: t.stem, e: t.e,
+      opts: all.map(function (s) { return { t: ltx(s.v), why: s.why || '' }; }),
+      ans: all.indexOf(correct), sol: t.sol, hint: t.hint || LEVELS[level - 1].hint, key: t.key,
+      data: { kind: t.kind, x0: t.x0, correct: key(t.corr), opts: all.map(function (s) { return key(s.v); }) }
+    };
+  }
+
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenPow = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز، فقد تجاوزت ما يُطلب في الامتحان.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>

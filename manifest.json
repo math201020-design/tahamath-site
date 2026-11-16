@@ -6089,6 +6089,16 @@
    "path": "g10-advanced/index.html",
    "src": "site/g10-advanced/index.html",
    "sha256": "5cec079024628d038b69229ba066174fe46418021a887a928c90e2b8471c046e"
+  },
+  {
+   "path": "g12-advanced/mastery-11/index.html",
+   "src": "site/g12-advanced/mastery-11/index.html",
+   "sha256": "49e035c00dc0163ad0567ddbae342483a05eb682b175dbe79a2178374cfd22e8"
+  },
+  {
+   "path": "g12-advanced/mastery-12/index.html",
+   "src": "site/g12-advanced/mastery-12/index.html",
+   "sha256": "5f3bd29ee721a2fd5c938acf9eef4f71ca3cb82f45aae1d51aea253f1e6c7a74"
   }
  ]
 }

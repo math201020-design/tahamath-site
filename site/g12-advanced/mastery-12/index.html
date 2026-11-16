@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: قاعدتا الضرب والقسمة | الثاني عشر متقدم | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في تطبيق قاعدتي الضرب والقسمة على المشتقات، وتتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g12-advanced/mastery-12/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">12</bdi>: تطبيق قاعدتي الضرب والقسمة على المشتقات<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g12-advanced", "band": 12, "label": "البند 12", "gen": "TmGenPQ"};</script>
+<script>
+/* مولّد أسئلة البند 12 (تطبيق قاعدتي الضرب والقسمة على المشتقات) - 12 متقدم
+   اختيار من متعدد بصيغة الوزارة، حل تفصيلي، تلميح لكل نوع، ومشتتات من أخطاء شائعة لكل منها تشخيص دقيق.
+   التوليد بالقوالب لا بالذكاء الاصطناعي، والقيم كلها كسور دقيقة. */
+(function (root) {
+  'use strict';
+
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  /* ---------- كسور دقيقة ---------- */
+  function fr(n, d) { d = d === undefined ? 1 : d; if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function mul(a, b) { return fr(a.n * b.n, a.d * b.d); }
+  function powI(a, k) { var r = fr(1); var i; if (k >= 0) { for (i = 0; i < k; i++) r = mul(r, a); return r; } for (i = 0; i < -k; i++) r = mul(r, fr(a.d, a.n)); return r; }
+  function ltx(f) { if (f.d === 1) return String(f.n); return (f.n < 0 ? '-' : '') + '\\frac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function key(f) { return f.n + '/' + f.d; }
+  function mag(f) { return Math.abs(f.n / f.d); }
+
+  /* ---------- مشتتات: نختار 3 قيم مختلفة ومعقولة ---------- */
+  function pickDistractors(rng, correct, cands, genericWhy) {
+    var seen = {}; seen[key(correct)] = 1; var out = [], usedCls = {}; out.amb = 0; out.gen = 0;
+    var lim = Math.max(mag(correct), 1) * 14 + 40;
+    shuffle(rng, cands).forEach(function (c) {
+      if (out.length >= 3 || !c.v || usedCls[c.cls]) return;
+      if (seen[key(c.v)] || mag(c.v) > lim || c.v.d > 400) return;
+      seen[key(c.v)] = 1; usedCls[c.cls] = 1; out.push({ v: c.v, why: c.why });
+      var same = {}; cands.forEach(function (o) { if (o.v && key(o.v) === key(c.v)) same[o.cls] = 1; });
+      if (Object.keys(same).length > 1) out.amb++;
+    });
+    var guard = 0;
+    while (out.length < 3 && guard++ < 200) {
+      var dv = ri(rng, -6, 6); if (!dv) continue;
+      var alt = fr(correct.n + dv * correct.d, correct.d);
+      if (seen[key(alt)]) continue;
+      seen[key(alt)] = 1; out.push({ v: alt, why: genericWhy }); out.gen++;
+    }
+    return out;
+  }
+
+  function add(a, b) { return fr(a.n * b.d + b.n * a.d, a.d * b.d); }
+  function neg(a) { return fr(-a.n, a.d); }
+  function sgnJoin(parts) { var s = ''; parts.forEach(function (t) { if (!t) return; var ng = t.charAt(0) === '-'; if (!s) s = t; else s += (ng ? ' - ' + t.slice(1) : ' + ' + t); }); return s; }
+  /* كثيرات الحدود كمصفوفات معاملات من الحد الثابت إلى الأعلى */
+  function ev(p, x) { var s = 0; for (var i = p.length - 1; i >= 0; i--) s = s * x + p[i]; return s; }
+  function dr(p) { var r = []; for (var i = 1; i < p.length; i++) r.push(p[i] * i); return r.length ? r : [0]; }
+  function ptex(p) {
+    var parts = [];
+    for (var k = p.length - 1; k >= 0; k--) {
+      var c = p[k]; if (!c) continue; var a = Math.abs(c), body = k === 0 ? String(a) : ((a === 1 ? '' : String(a)) + (k === 1 ? 'x' : 'x^{' + k + '}'));
+      parts.push((c < 0 ? '-' : '') + body);
+    }
+    return sgnJoin(parts) || '0';
+  }
+  function par(p) { var n = p.filter(function (c) { return c; }).length; return n > 1 || p[p.length - 1] < 0 ? '\\left(' + ptex(p) + '\\right)' : ptex(p); }
+  function pn(n) { return n < 0 ? '\\left(' + n + '\\right)' : String(n); }
+  function okv(v, m) { return v && Math.abs(v.n / v.d) <= (m || 900) && v.d <= 400; }
+  function mulp(a, b) { var r = []; for (var i = 0; i < a.length + b.length - 1; i++) r.push(0); for (i = 0; i < a.length; i++) for (var j = 0; j < b.length; j++) r[i + j] += a[i] * b[j]; return r; }
+  function lin(rng) { return [pick(rng, [-7, -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7]), pick(rng, [1, 2, 3, 4, -1, -2, -3, -4])]; }
+  function quad(rng, mid) { return [pick(rng, [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6]), mid ? pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]) : 0, pick(rng, [1, 1, 2, 3, -1, -2])]; }
+
+  var WHY = {
+    prodders: 'مشتقة حاصل الضرب ليست حاصل ضرب المشتقتين؛ القاعدة: \\((uv)\'=u\'v+uv\'\\).',
+    only1: 'ينقص الناتج الحد \\(' + 'u\\,v\'' + '\\)؛ قاعدة الضرب تجمع حدّين: \\(u\'v+uv\'\\).',
+    only2: 'ينقص الناتج الحد \\(u\'v\\)؛ قاعدة الضرب تجمع حدّين: \\(u\'v+uv\'\\).',
+    fval: 'المطلوب قيمة المشتقة عند النقطة المعطاة وليس قيمة الدالة.',
+    diffsign: 'في قاعدة الضرب يُجمع الحدّان \\(u\'v+uv\'\\) ولا يُطرحان.',
+    generic: 'راجع الخطوات: اكتب قاعدة الضرب أو القسمة، احسب مشتقة كل عامل، عوّض قيمة \\(x\\)، ثم رتّب الحساب.'
+  };
+  var HINT = {
+    prod: 'سمِّ العاملين \\(u\\) و\\(v\\)، واحسب مشتقة كل منهما، ثم طبّق \\((uv)\'=u\'v+uv\'\\) وعوّض قيمة \\(x\\).',
+    quot: 'سمِّ البسط \\(u\\) والمقام \\(v\\)، ثم طبّق \\(\\left(\\dfrac uv\\right)\'=\\dfrac{u\'v-uv\'}{v^{2}}\\) وعوّض قيمة \\(x\\) (انتبه لترتيب حدّي البسط، ولا تنسَ تربيع المقام).',
+    quot3: 'سمِّ البسط \\(u\\) والمقام \\(v\\)، واشتقّ كلاً منهما، ثم احسب \\(\\dfrac{u\'v-uv\'}{v^{2}}\\) أي (مشتقة البسط × المقام) − (البسط × مشتقة المقام) ثم القسمة على مربع المقام.',
+    table: 'اكتب قاعدة الضرب أو القسمة للدالة \\(h\\) بحسب تعريفها في السؤال، ثم عوّض القيم المعطاة عند النقطة المطلوبة مباشرة.',
+    tprod: 'الدالة \\(h\\) حاصل ضرب: \\(h\'=f\'g+fg\'\\)؛ عوّض القيم المعطاة عند النقطة المطلوبة.',
+    tquot: 'الدالة \\(h\\) خارج قسمة: \\(h\'=\\dfrac{f\'g-fg\'}{g^{2}}\\)؛ عوّض القيم المعطاة عند النقطة المطلوبة.',
+    txf: 'الدالة \\(h\\) حاصل ضرب عاملين: قوة لـ \\(x\\) والدالة \\(f\\)؛ اشتقّ كلاً منهما ثم طبّق قاعدة الضرب وعوّض.',
+    k: 'سمِّ البسط \\(u\\) والمقام \\(v\\)، ثم اشتقّ بقاعدة القسمة بالنسبة إلى \\(x\\) مع اعتبار \\(k\\) ثابتاً، عوّض قيمة \\(x\\) في المشتقة، ثم ضع الناتج مساوياً للقيمة المعطاة وأوجد \\(k\\).',
+    pq: 'انشر حاصل الضرب في البسط أولاً وسمِّ الناتج \\(u\\)، وسمِّ المقام \\(v\\)، ثم اشتقّ كلاً منهما وطبّق قاعدة القسمة \\(\\dfrac{u\'v-uv\'}{v^{2}}\\).'
+  };
+  /* 1) حاصل ضرب */
+  function prodCore(u, v, x0, extraDist) {
+    var u0 = ev(u, x0), v0 = ev(v, x0), du = dr(u), dv = dr(v), du0 = ev(du, x0), dv0 = ev(dv, x0);
+    var A = du0 * v0, B = u0 * dv0, corr = fr(A + B);
+    var c = [
+      { cls: 'prodders', v: fr(du0 * dv0), why: WHY.prodders },
+      { cls: 'only1', v: fr(A), why: 'أهملتَ الحد الثاني \\(uv\'\\)؛ قاعدة الضرب تجمع حدّين: \\(u\'v+uv\'\\).' },
+      { cls: 'only2', v: fr(B), why: 'أهملتَ الحد الأول \\(u\'v\\)؛ قاعدة الضرب تجمع حدّين: \\(u\'v+uv\'\\).' },
+      { cls: 'fval', v: fr(u0 * v0), why: WHY.fval },
+      { cls: 'diffsign', v: fr(A - B), why: WHY.diffsign },
+      { cls: 'signslip', v: neg(corr), why: 'هذه القيمة لا تنتج عن التعويض الصحيح؛ أعد حساب كل خطوة بعناية.' }
+    ];
+    var sol = [
+      { t: 'u=' + ptex(u) + ',\\quad v=' + ptex(v), ar: 'نسمّي العاملين' },
+      { t: 'u\'=' + ptex(du) + ',\\quad v\'=' + ptex(dv), ar: 'مشتقة كل عامل' },
+      { t: 'f\'(x)=u\'v+uv\'', ar: 'قاعدة الضرب' },
+      { t: 'f\'(' + x0 + ')=' + pn(du0) + '\\cdot ' + pn(v0) + '+' + pn(u0) + '\\cdot ' + pn(dv0) + '=' + pn(A) + '+' + pn(B) + '=' + corr.n },
+      { box: String(corr.n) }
+    ];
+    return { corr: corr, cands: c, sol: sol };
+  }
+  function qProd(rng, lvl) {
+    for (var g = 0; g < 800; g++) {
+      var u = lin(rng), v = lvl === 1 ? quad(rng, false) : (rng() < 0.5 ? quad(rng, true) : [pick(rng, [-5, -3, -2, 2, 3, 5]), pick(rng, [-3, -2, 1, 2]), 0, pick(rng, [1, 2, -1])]);
+      if (lvl >= 3) u = quad(rng, true);
+      var x0 = pick(rng, lvl === 1 ? [-2, -1, 1, 2, 3] : [-3, -2, -1, 1, 2, 3]);
+      var r = prodCore(u, v, x0); if (!okv(r.corr, 900)) continue;
+      if (Math.abs(ev(u, x0) * ev(v, x0)) > 900) continue;
+      var e = 'f(x)=' + par(u) + par(v);
+      return { e: e, x0: x0, stem: 'أوجد \\(f\'(' + x0 + ')\\) للدالة الآتية:', corr: r.corr, cands: r.cands, sol: r.sol, kind: 'prod', hint: HINT.prod, key: e + '@' + x0 };
+    }
+    throw new Error('prod');
+  }
+  /* 2) قسمة */
+  function quotCore(u, v, x0) {
+    var u0 = ev(u, x0), v0 = ev(v, x0), du = dr(u), dv = dr(v), du0 = ev(du, x0), dv0 = ev(dv, x0);
+    var N = du0 * v0 - u0 * dv0, D = v0 * v0, corr = fr(N, D);
+    var c = [
+      { cls: 'order', v: fr(-N, D), why: 'راجع ترتيب حدّي البسط عند تكوين الناتج.' },
+      { cls: 'nosq', v: fr(N, v0), why: 'يُقسم على مربع المقام \\(v^{2}\\) وليس على \\(v\\) فقط.' },
+      { cls: 'dersdiv', v: fr(du0, dv0), why: 'مشتقة خارج القسمة ليست خارج قسمة المشتقتين؛ القاعدة: \\(\\dfrac{u\'v-uv\'}{v^{2}}\\).' },
+      { cls: 'prodform', v: fr(du0 * v0 + u0 * dv0, D), why: 'في البسط يُطرح الحد الثاني (\\(u\'v-uv\'\\)) ولا يُجمع كما في قاعدة الضرب.' },
+      { cls: 'nosecond', v: fr(du0 * v0, D), why: 'أهملتَ الحد \\(uv\'\\) في البسط؛ البسط هو \\(u\'v-uv\'\\).' },
+      { cls: 'fval', v: fr(u0, v0), why: WHY.fval }
+    ];
+    var sol = [
+      { t: 'u=' + ptex(u) + ',\\quad v=' + ptex(v), ar: 'نسمّي البسط والمقام' },
+      { t: 'u\'=' + ptex(du) + ',\\quad v\'=' + ptex(dv), ar: 'مشتقة كل منهما' },
+      { t: 'f\'(x)=\\frac{u\'v-uv\'}{v^{2}}', ar: 'قاعدة القسمة' },
+      { t: 'f\'(' + x0 + ')=\\frac{' + pn(du0) + '\\cdot ' + pn(v0) + '-' + pn(u0) + '\\cdot ' + pn(dv0) + '}{' + pn(v0) + '^{2}}=' + (corr.n === N && corr.d === D ? '' : '\\frac{' + N + '}{' + D + '}=') + ltx(corr) },
+      { box: ltx(corr) }
+    ];
+    return { corr: corr, cands: c, sol: sol, N: N, D: D };
+  }
+  function qQuot(rng, lvl) {
+    for (var g = 0; g < 1000; g++) {
+      var u, v;
+      if (lvl === 2) { u = lin(rng); v = rng() < 0.6 ? lin(rng) : quad(rng, false); if (v.length === 2 && v[0] === 0) continue; }
+      else { u = quad(rng, rng() < 0.6); v = rng() < 0.5 ? lin(rng) : quad(rng, false); }
+      var x0 = pick(rng, [-3, -2, -1, 1, 2, 3]);
+      var v0 = ev(v, x0); if (Math.abs(v0) < 2 || Math.abs(v0) > 40) continue;
+      var r = quotCore(u, v, x0); if (r.D > 300 || !okv(r.corr, 900)) continue;
+      var e = 'f(x)=\\frac{' + ptex(u) + '}{' + ptex(v) + '}';
+      return { e: e, x0: x0, stem: 'أوجد \\(f\'(' + x0 + ')\\) للدالة الآتية:', corr: r.corr, cands: r.cands, sol: r.sol, kind: 'quot', hint: lvl === 2 ? HINT.quot : HINT.quot3, key: e + '@' + x0 };
+    }
+    throw new Error('quot');
+  }
+  /* 4) جدول قيم */
+  function tbl(rng, type) {
+    for (var g = 0; g < 800; g++) {
+      var a = pick(rng, [1, 2, 3, 4, -1, -2]), f0 = pick(rng, [-5, -4, -3, -2, 2, 3, 4, 5, 6]), fp = pick(rng, [-4, -3, -2, -1, 1, 2, 3, 5]), g0 = pick(rng, [-4, -3, -2, 2, 3, 4, 5]), gp = pick(rng, [-5, -3, -2, -1, 1, 2, 3, 4]);
+      var e = 'f(' + a + ')=' + f0 + ',\\quad f\'(' + a + ')=' + fp + ',\\quad g(' + a + ')=' + g0 + ',\\quad g\'(' + a + ')=' + gp, c, sol, corr, stem;
+      if (type === 'prod') {
+        var A = fp * g0, B = f0 * gp; corr = fr(A + B); stem = 'إذا كانت \\(h(x)=f(x)\\cdot g(x)\\)، فأوجد \\(h\'(' + a + ')\\).';
+        c = [{ cls: 'prodders', v: fr(fp * gp), why: 'مشتقة حاصل الضرب ليست حاصل ضرب المشتقتين؛ القاعدة: \\(h\'=f\'g+fg\'\\).' }, { cls: 'only1', v: fr(A), why: 'أهملتَ الحد الثاني \\(f(' + a + ')g\'(' + a + ')\\)؛ قاعدة الضرب تجمع حدّين.' },
+          { cls: 'only2', v: fr(B), why: 'أهملتَ الحد الأول \\(f\'(' + a + ')g(' + a + ')\\)؛ قاعدة الضرب تجمع حدّين.' },
+          { cls: 'fval', v: fr(f0 * g0), why: WHY.fval }, { cls: 'diffsign', v: fr(A - B), why: 'في قاعدة الضرب يُجمع الحدّان \\(f\'g+fg\'\\) ولا يُطرحان.' }];
+        sol = [{ t: 'h\'(x)=f\'(x)g(x)+f(x)g\'(x)', ar: 'قاعدة الضرب' }, { t: 'h\'(' + a + ')=' + pn(fp) + '\\cdot ' + pn(g0) + '+' + pn(f0) + '\\cdot ' + pn(gp) + '=' + pn(A) + '+' + pn(B) + '=' + corr.n }, { box: String(corr.n) }];
+      } else if (type === 'quot') {
+        var N = fp * g0 - f0 * gp, D = g0 * g0; corr = fr(N, D); stem = 'إذا كانت \\(h(x)=\\dfrac{f(x)}{g(x)}\\)، فأوجد \\(h\'(' + a + ')\\).';
+        c = [{ cls: 'order', v: fr(-N, D), why: 'راجع ترتيب حدّي البسط عند تكوين الناتج.' }, { cls: 'nosq', v: fr(N, g0), why: 'يُقسم على مربع المقام \\(g^{2}\\) وليس على \\(g\\) فقط.' },
+          { cls: 'dersdiv', v: fr(fp, gp), why: 'مشتقة خارج القسمة ليست خارج قسمة المشتقتين.' }, { cls: 'prodform', v: fr(fp * g0 + f0 * gp, D), why: 'في البسط يُطرح الحد الثاني ولا يُجمع كما في قاعدة الضرب.' },
+          { cls: 'fval', v: fr(f0, g0), why: WHY.fval }];
+        sol = [{ t: 'h\'(x)=\\frac{f\'(x)g(x)-f(x)g\'(x)}{\\left(g(x)\\right)^{2}}', ar: 'قاعدة القسمة' }, { t: 'h\'(' + a + ')=\\frac{' + pn(fp) + '\\cdot ' + pn(g0) + '-' + pn(f0) + '\\cdot ' + pn(gp) + '}{' + pn(g0) + '^{2}}=' + (corr.n === N && corr.d === D ? '' : '\\frac{' + N + '}{' + D + '}=') + ltx(corr) }, { box: ltx(corr) }];
+      } else {
+        var m = pick(rng, [2, 3]); var Av = m * a * f0 * 1; /* h(x)=x^m f(x) */
+        var t1 = m * Math.pow(a, m - 1) * f0, t2 = Math.pow(a, m) * fp; corr = fr(t1 + t2);
+        e = 'f(' + a + ')=' + f0 + ',\\quad f\'(' + a + ')=' + fp; stem = 'إذا كانت \\(h(x)=x^{' + m + '}f(x)\\)، فأوجد \\(h\'(' + a + ')\\).';
+        c = [{ cls: 'noprod', v: fr(t2), why: 'أهملتَ الحد الأول \\(\\left(x^{' + m + '}\\right)\'f(x)\\)؛ قاعدة الضرب تجمع حدّين.' },
+          { cls: 'only1', v: fr(t1), why: 'أهملتَ الحد \\(x^{' + m + '}f\'(x)\\)؛ قاعدة الضرب تجمع حدّين.' },
+          { cls: 'prodders', v: fr(m * Math.pow(a, m - 1) * fp), why: 'مشتقة حاصل الضرب ليست حاصل ضرب المشتقتين؛ القاعدة: \\(h\'=\\left(x^{' + m + '}\\right)\'f+x^{' + m + '}f\'\\).' }, { cls: 'fval', v: fr(Math.pow(a, m) * f0), why: WHY.fval },
+          { cls: 'diffsign', v: fr(t1 - t2), why: 'في قاعدة الضرب يُجمع الحدّان ولا يُطرحان.' }];
+        sol = [{ t: 'h\'(x)=' + m + (m === 2 ? 'x' : 'x^{' + (m - 1) + '}') + 'f(x)+x^{' + m + '}f\'(x)', ar: 'قاعدة الضرب' }, { t: 'h\'(' + a + ')=' + m + '\\cdot ' + pn(Math.pow(a, m - 1)) + '\\cdot ' + pn(f0) + '+' + pn(Math.pow(a, m)) + '\\cdot ' + pn(fp) + '=' + pn(t1) + '+' + pn(t2) + '=' + corr.n }, { box: String(corr.n) }];
+      }
+      if (!okv(corr, 300) || c.some(function (o) { return !okv(o.v, 600); })) continue;
+      return { e: e, x0: a, stem: stem, corr: corr, cands: c, sol: sol, kind: 'table' + type, hint: type === 'prod' ? HINT.tprod : type === 'quot' ? HINT.tquot : HINT.txf, key: type + e + stem };
+    }
+    throw new Error('tbl');
+  }
+  /* 5) إيجاد ثابت في دالة نسبية: f(x)=(px+k)/(x+a), f'(x0)=V */
+  function qKquot(rng) {
+    for (var g = 0; g < 800; g++) {
+      var p = pick(rng, [1, 2, 3, -1, -2]), a = pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]), t = pick(rng, [-3, -2, -1, 1, 2, 3]), x0 = t - a, V = pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]);
+      var k = p * a - V * t * t; if (k === 0 || Math.abs(k) > 60) continue; if (x0 === 0 && false) continue;
+      var den = 'x' + (a < 0 ? ' - ' + (-a) : ' + ' + a), num = (p === 1 ? '' : p === -1 ? '-' : String(p)) + 'x+k';
+      var e = 'f(x)=\\frac{' + num + '}{' + den + '},\\quad f\'(' + x0 + ')=' + V, corr = fr(k);
+      var c = [
+        { cls: 'order', v: fr(p * a + V * t * t), why: 'راجع ترتيب حدّي البسط عند تكوين الناتج.' },
+        { cls: 'nosq', v: fr(p * a - V * t), why: 'مقام المشتقة هو مربع المقام الأصلي \\((x' + (a < 0 ? '-' + (-a) : '+' + a) + ')^{2}\\)؛ فعوّض \\(x\\) بعد التربيع.' },
+        { cls: 'prodform', v: fr(-p * a - V * t * t), why: 'عند تبسيط البسط راجع إشارة الحدّين في \\(u\'v-uv\'\\).' },
+        { cls: 'noV', v: fr(-V * t * t), why: 'لا تُسقط أحد حدّي البسط عند تبسيط \(u\'v-uv\'\)؛ احسب كلاً منهما.' },
+        { cls: 'movesign', v: fr(V * t * t - p * a), why: 'راجع نقل الحدود وإشارة \\(k\\) عند حل المعادلة.' }
+      ];
+      var sol = [{ t: 'f\'(x)=\\frac{' + p + '\\left(' + den + '\\right)-\\left(' + num + '\\right)\\cdot 1}{\\left(' + den + '\\right)^{2}}=\\frac{' + ltxN(p * a) + '-k}{\\left(' + den + '\\right)^{2}}', ar: 'قاعدة القسمة' },
+        { t: 'f\'(' + x0 + ')=\\frac{' + ltxN(p * a) + '-k}{' + (t * t) + '}=' + V + '\\;\\Rightarrow\\; ' + ltxN(p * a) + '-k=' + (V * t * t) },
+        { t: 'k=' + ltxN(p * a) + '-' + pn(V * t * t) + '=' + k }, { box: String(k) }];
+      return { e: e, x0: x0, stem: 'أوجد قيمة الثابت \\(k\\).', corr: corr, cands: c, sol: sol, kind: 'kquot', hint: HINT.k, key: e };
+    }
+    throw new Error('kquot');
+  }
+  function ltxN(n) { return String(n); }
+  /* 5) بسط حاصل ضرب مقسوم على خطي: f(x)=x^m(px+q)/(rx+s) */
+  function qPQ(rng) {
+    for (var g = 0; g < 1000; g++) {
+      var m = pick(rng, [1, 2]), q = lin(rng), N = [], i; for (i = 0; i < m; i++) N.push(0); N.push(1); N = mulp(N, q);
+      var v = lin(rng), x0 = pick(rng, [-3, -2, -1, 1, 2, 3]), v0 = ev(v, x0); if (v0 === 0 || Math.abs(v0) > 20) continue;
+      var r = quotCore(N, v, x0); if (r.D > 300 || !okv(r.corr, 900)) continue;
+      var xm = m === 1 ? 'x' : 'x^{' + m + '}', e = 'f(x)=\\frac{' + xm + par(q) + '}{' + ptex(v) + '}';
+      var u0 = ev(N, x0), du = dr(N), du0 = ev(du, x0), dv0 = ev(dr(v), x0);
+      var prodU = (m * Math.pow(x0, m - 1)) * q[1] * 1; /* حاصل ضرب مشتقتي x^m و(px+q) */
+      var c = [
+        { cls: 'order', v: fr(-r.N, r.D), why: 'راجع ترتيب حدّي البسط عند تكوين الناتج.' },
+        { cls: 'nosq', v: fr(r.N, v0), why: 'يُقسم على مربع المقام \\(v^{2}\\) وليس على \\(v\\) فقط.' },
+        { cls: 'numders', v: fr(prodU * v0 - u0 * dv0, v0 * v0), why: 'البسط \\(u=' + xm + par(q) + '\\) حاصل ضرب، فمشتقته \\(u\'\\) تُحسب بقاعدة الضرب وليست حاصل ضرب مشتقتي عامليه.' },
+        { cls: 'nosecond', v: fr(du0 * v0, v0 * v0), why: 'أهملتَ الحد \\(uv\'\\) في بسط القسمة؛ البسط هو \\(u\'v-uv\'\\).' },
+        { cls: 'fval', v: fr(u0, v0), why: 'المطلوب قيمة المشتقة عند النقطة المعطاة وليس قيمة الدالة.' }
+      ];
+      var sol = [
+        { t: 'u=' + xm + par(q) + '=' + ptex(N) + ',\\quad v=' + ptex(v), ar: 'ننشر البسط ونسمّي المقام' },
+        { t: 'u\'=' + ptex(du) + ',\\quad v\'=' + ptex(dr(v)), ar: 'نشتق البسط بعد نشره، ونشتق المقام' },
+        { t: 'f\'(x)=\\frac{u\'v-uv\'}{v^{2}}', ar: 'قاعدة القسمة' },
+        { t: 'f\'(' + x0 + ')=\\frac{' + pn(du0) + '\\cdot ' + pn(v0) + '-' + pn(u0) + '\\cdot ' + pn(dv0) + '}{' + pn(v0) + '^{2}}=' + (r.corr.n === r.N && r.corr.d === r.D ? '' : '\\frac{' + r.N + '}{' + r.D + '}=') + ltx(r.corr) }, { box: ltx(r.corr) }];
+      if (c.some(function (o) { return !okv(o.v, 900); })) continue;
+      return { e: e, x0: x0, stem: 'أوجد \\(f\'(' + x0 + ')\\) للدالة الآتية:', corr: r.corr, cands: c, sol: sol, kind: 'pq', hint: HINT.pq, key: e + '@' + x0 };
+    }
+    throw new Error('pq');
+  }
+  function qChallenge(rng) { var r = rng(); return r < 0.45 ? qPQ(rng) : (r < 0.75 ? qKquot(rng) : tbl(rng, 'xf')); }
+
+  var LEVELS = [
+    { id: 1, ar: 'قاعدة الضرب', hint: HINT.prod },
+    { id: 2, ar: 'قاعدة القسمة', hint: HINT.quot },
+    { id: 3, ar: 'دوال تربيعية وأعلى', hint: HINT.quot3 },
+    { id: 4, ar: 'مستوى الوزارة', hint: HINT.table },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: HINT.pq }
+  ];
+  function build(level, rng) {
+    var r = rng();
+    if (level === 1) return qProd(rng, 1);
+    if (level === 2) return qQuot(rng, 2);
+    if (level === 3) return r < 0.5 ? qProd(rng, 3) : qQuot(rng, 3);
+    if (level === 4) return r < 0.34 ? tbl(rng, 'prod') : (r < 0.68 ? tbl(rng, 'quot') : qKquot(rng));
+    return qChallenge(rng);
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = pickDistractors(rng, t.corr, t.cands, WHY.generic); tries++; } while ((dis.gen > 0 || dis.amb > 0) && tries < 80);
+    var correct = { v: t.corr, why: '' };
+    var all = shuffle(rng, [correct].concat(dis));
+    return {
+      band: 12, level: level, rtl: true, lang: 'ar', stem: t.stem, e: t.e,
+      opts: all.map(function (s) { return { t: ltx(s.v), why: s.why || '' }; }),
+      ans: all.indexOf(correct), sol: t.sol, hint: t.hint || LEVELS[level - 1].hint, key: t.key,
+      data: { kind: t.kind, x0: t.x0, correct: key(t.corr), opts: all.map(function (s) { return key(s.v); }) }
+    };
+  }
+
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenPQ = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز، فقد تجاوزت ما يُطلب في الامتحان.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>
