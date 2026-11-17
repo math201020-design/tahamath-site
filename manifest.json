@@ -5823,27 +5823,27 @@
   {
    "path": "g10-general/band-6/index.html",
    "src": "site/g10-general/band-6/index.html",
-   "sha256": "2a56cb34c999405111a97ae12fd88b6ce012996aa42b73180f17c4ef8aa44560"
+   "sha256": "ad7049cf1883f99a291d3d1a63621947f4b3aaee52f4761c6ed1ca5cd1bffdbe"
   },
   {
    "path": "g10-general/haykal-2/index.html",
    "src": "site/g10-general/haykal-2/index.html",
-   "sha256": "9b3ffe2149a937c6791e72e83610fbd9687e8785abf6f508bab8e870f89042ee"
+   "sha256": "a2a68f33a4c9ada61160befb23010caf8334b5efffdb8b6b6e413d7d062be98a"
   },
   {
    "path": "g10-general/prac-1-5-m3/index.html",
    "src": "site/g10-general/prac-1-5-m3/index.html",
-   "sha256": "bcbe47614b9247a1ddadfe5e6395b29d81a848f2dd9d0796c8a4d378f23aa2ec"
+   "sha256": "3264f953e883ac107ec3ef0cffc49ec4e5a3b2278d7edca212b4bae8f460a767"
   },
   {
    "path": "g10-general/band-25/index.html",
    "src": "site/g10-general/band-25/index.html",
-   "sha256": "a3af4a1d4a432689f9e396e24fe3918a90d08bb55e8c8c9b52e585f7232231e7"
+   "sha256": "e294422588569cced3c28a88fd6b2d4e85d86799b9f8e3ef76a010d5470f699c"
   },
   {
    "path": "g10-general/haykal-4/index.html",
    "src": "site/g10-general/haykal-4/index.html",
-   "sha256": "359096bc0ab56a19c252e19d1a6c158ab99934a036bc40ad64a0347f8840e49c"
+   "sha256": "b70a1fa4b3f9eca67f41534afd70fbfb68c24350585f430c932ecc44bcd28b8b"
   },
   {
    "path": "g10-general/band-13/index.html",
@@ -5853,12 +5853,12 @@
   {
    "path": "g10-general/band-7/index.html",
    "src": "site/g10-general/band-7/index.html",
-   "sha256": "e68781b680e07948fd847b5a5a5b0495dc7d987fdc9c0254b34a49ff1f011894"
+   "sha256": "5c61f5cce05246eeeeef666b9803814358df604f852a09892b3a39789f219cf3"
   },
   {
    "path": "g10-general/prac-16-20-m2/index.html",
    "src": "site/g10-general/prac-16-20-m2/index.html",
-   "sha256": "8501528451f032ae71afc759e70353474dc527d56bd4db7d80579206141d6b25"
+   "sha256": "ab783ef8cb997faa62c41e831512250e13c65f0dd723f83d5048515cf0c10d1c"
   },
   {
    "path": "g10-general/haykal-2-written/index.html",
@@ -5868,12 +5868,12 @@
   {
    "path": "g10-general/band-18/index.html",
    "src": "site/g10-general/band-18/index.html",
-   "sha256": "90f51adf74e2fa0be441bd61708508bd691559994a378543d7450ad3488acf7c"
+   "sha256": "a5cb773d390a49b84cc9c20b33f0b6c25dc50d5d1c37652d1b594d671174615b"
   },
   {
    "path": "g10-general/haykal-3/index.html",
    "src": "site/g10-general/haykal-3/index.html",
-   "sha256": "7593fd1ad7b38431c6ce1be2ba29650be5dc9b961a106aac55187ccf1eda0599"
+   "sha256": "98602cfa35ad05304544c151e59d1564b7df4ba79c3157a45c916b944357029d"
   },
   {
    "path": "g10-general/haykal-4-written/index.html",
@@ -5883,7 +5883,7 @@
   {
    "path": "g10-general/prac-16-20-m4/index.html",
    "src": "site/g10-general/prac-16-20-m4/index.html",
-   "sha256": "010bc1c920723b3b81b62bb02d029c391a1d05750cdac207357d1b1b718c9424"
+   "sha256": "b9d21eb4ea64cbb48f59d7d674b4cc2c36864966a7d479c764c2c062968391d4"
   },
   {
    "path": "g10-general/prac-21-25-m2/index.html",
@@ -5928,7 +5928,7 @@
   {
    "path": "g10-general/prac-16-20-m1/index.html",
    "src": "site/g10-general/prac-16-20-m1/index.html",
-   "sha256": "a40f6331a131decefbd2f02c9721148b3b1e2fb00910eba9b2a05fe763f9c9ef"
+   "sha256": "281fdffe3a96cf20f32ac644b1fb63e8143fb3a65a5e37aea4abcb29fca43f4f"
   },
   {
    "path": "g10-general/haykal-1-written/index.html",
@@ -5938,12 +5938,12 @@
   {
    "path": "g10-general/prac-1-5-m2/index.html",
    "src": "site/g10-general/prac-1-5-m2/index.html",
-   "sha256": "3ccef0453dcceb4fef862192863a104ab32988db6495c2835ae817ac6d05a587"
+   "sha256": "212b1af0b989b1d6b57888786920e47657b68a65c4fdd24fe22a224943ce3eb0"
   },
   {
    "path": "g10-general/prac-1-5-m1/index.html",
    "src": "site/g10-general/prac-1-5-m1/index.html",
-   "sha256": "0ac1099478d8eaaae9733c54a2ca127d16855317b701f4e801f459a2cef08aed"
+   "sha256": "13e6d8d3c1012da9f380f37d7bb8c56696dd205f11272dce4509e6ccb1d93ee5"
   },
   {
    "path": "g10-general/band-23/index.html",
@@ -5968,12 +5968,12 @@
   {
    "path": "g10-general/haykal-1/index.html",
    "src": "site/g10-general/haykal-1/index.html",
-   "sha256": "e9aaee1eebb3fb8b814bcae884a5ab013919d25478fb5dceba20b5049b0d60fb"
+   "sha256": "031a3d3083446e568d29f8185978655383bb954d7aa94570a535d140ee8f78fc"
   },
   {
    "path": "g10-general/prac-6-10-m2/index.html",
    "src": "site/g10-general/prac-6-10-m2/index.html",
-   "sha256": "67526efd75a868341fa00b5c5b7c3be48f3971d0782649ba821f992417435928"
+   "sha256": "93c7cf452f0283a8384481ae3e1ef348c62df8532d8277e4b731b1676ef304ea"
   },
   {
    "path": "g10-general/band-10/index.html",
@@ -5983,12 +5983,12 @@
   {
    "path": "g10-general/prac-6-10-m1/index.html",
    "src": "site/g10-general/prac-6-10-m1/index.html",
-   "sha256": "70542e7f160e705bd13e1c70898bbe785ebbd1ee055f76bb1c28783c498c7d09"
+   "sha256": "522cdbd249fcc33def3d62ba622de1d585b9015f5a6a961bafb695249beeeb0e"
   },
   {
    "path": "g10-general/band-5/index.html",
    "src": "site/g10-general/band-5/index.html",
-   "sha256": "8991251962584ab1979be4907dedb0f76464c249092f52125436da3bdf5c1ac9"
+   "sha256": "eda03c946f824f0ce31ad721a47ba40d9343da3344e227c5faf854113d92f1d3"
   },
   {
    "path": "g10-general/band-11/index.html",
@@ -6008,7 +6008,7 @@
   {
    "path": "g10-general/haykal-3-written/index.html",
    "src": "site/g10-general/haykal-3-written/index.html",
-   "sha256": "d60bff2fdf1d24a286b523e57cde2495f2bda294284a10c1417008a8e3cd4a74"
+   "sha256": "7fbf924896e36d95087d0423eb6d8db14f3f45dbd1271bf08f08f50880d531ec"
   },
   {
    "path": "g10-general/prac-21-25-m4/index.html",
@@ -6018,7 +6018,7 @@
   {
    "path": "g10-general/prac-16-20-m3/index.html",
    "src": "site/g10-general/prac-16-20-m3/index.html",
-   "sha256": "bbdf9ec5ab4eaf0558914eaec07df831620415beb4f35dd29f4c7dd30be9b843"
+   "sha256": "eb3b90b80400e012dccb5c8470085ba6f2038aed202aa0db15e04791583cbdfc"
   },
   {
    "path": "g10-general/band-14/index.html",
@@ -6028,12 +6028,12 @@
   {
    "path": "g10-general/prac-6-10-m3/index.html",
    "src": "site/g10-general/prac-6-10-m3/index.html",
-   "sha256": "5dcd0e48c27d6dc9a9ca4bae2c12d7770bb031677b5d131f89179f658017bdd3"
+   "sha256": "cb70568305a54f5122545295793e1651e2bd3ee8ee845b20723d9c9c9d5c2e1b"
   },
   {
    "path": "g10-general/band-19/index.html",
    "src": "site/g10-general/band-19/index.html",
-   "sha256": "90ab5bceaef62b1c2deceee441602adda2f7bfdec544ab1bca0500ee18f87be0"
+   "sha256": "6d928f0ac7e1a028f1c891f324d213413aca5f88ad900432952b57f0c4fb2f78"
   },
   {
    "path": "g10-general/prac-11-15-m3/index.html",
@@ -6058,7 +6058,7 @@
   {
    "path": "g10-general/prac-6-10-m4/index.html",
    "src": "site/g10-general/prac-6-10-m4/index.html",
-   "sha256": "2b1e4c0cf41fd3d146400d5576aeafd218c653f5cb9e86002e56b73dd76d16e1"
+   "sha256": "ca088e93462d70ef2df0e4a4f55b8391e5d73054e173531ee927ad0c96541d71"
   },
   {
    "path": "g10-general/band-24/index.html",
@@ -6083,12 +6083,12 @@
   {
    "path": "g10-general/prac-1-5-m4/index.html",
    "src": "site/g10-general/prac-1-5-m4/index.html",
-   "sha256": "91be7a14c51ebddf75ca92303bc139908bd553625325e1849d576606ab3dddd5"
+   "sha256": "515e0104cd84559207e2d007e703b776198c31a994b33d623fbe96c4c39182e3"
   },
   {
    "path": "g10-advanced/index.html",
    "src": "site/g10-advanced/index.html",
-   "sha256": "5cec079024628d038b69229ba066174fe46418021a887a928c90e2b8471c046e"
+   "sha256": "532316b07113540f3881ea748f7bf2ec6fc811a34eb3f79a8519f5e62f1a1d5c"
   },
   {
    "path": "g12-advanced/mastery-11/index.html",
@@ -6099,6 +6099,71 @@
    "path": "g12-advanced/mastery-12/index.html",
    "src": "site/g12-advanced/mastery-12/index.html",
    "sha256": "24f3a730883a755c8302bd74c96ce9eec86f23fc1c2a9bff9c89526b793b030a"
+  },
+  {
+   "path": "g10-advanced/band-25/index.html",
+   "src": "site/g10-advanced/band-25/index.html",
+   "sha256": "32e03e7641c49abb605d37020addeef9f60c79d1df61ed5270ed47541db2a4da"
+  },
+  {
+   "path": "g10-advanced/band-18/index.html",
+   "src": "site/g10-advanced/band-18/index.html",
+   "sha256": "16a3e0606dedff6a12d341be7f4a1c7363cc9b468130ab22ba891cdfb635fc13"
+  },
+  {
+   "path": "g10-advanced/band-21/index.html",
+   "src": "site/g10-advanced/band-21/index.html",
+   "sha256": "571812cb0c3863baad9ebc776af9ebb74f6043b9223ab48249738d5ca3210b4d"
+  },
+  {
+   "path": "g10-advanced/band-22/index.html",
+   "src": "site/g10-advanced/band-22/index.html",
+   "sha256": "701624273d6fdc186affe414c30e0d7762d4bb4cf1053436bd3c576b33384b05"
+  },
+  {
+   "path": "g10-advanced/band-23/index.html",
+   "src": "site/g10-advanced/band-23/index.html",
+   "sha256": "4245a5fd4ab6466a7bf17864cb5ece56c745ac462fda442750e9ffd185c3679a"
+  },
+  {
+   "path": "g10-advanced/band-17/index.html",
+   "src": "site/g10-advanced/band-17/index.html",
+   "sha256": "b6758e2f57f48b2a4341723c7e42eb5b98d9aeefcc7e55a9c42b81272d978554"
+  },
+  {
+   "path": "g10-advanced/band-19/index.html",
+   "src": "site/g10-advanced/band-19/index.html",
+   "sha256": "e1f8007f8f303c7f2286f3d216e26da28cde0d33bf29011df4fd53ee6e813184"
+  },
+  {
+   "path": "g10-advanced/band-20/index.html",
+   "src": "site/g10-advanced/band-20/index.html",
+   "sha256": "5b8aac5ea461c45b54ebd213864475a84c2c2585cf4f2cc5c0fe3826026735f8"
+  },
+  {
+   "path": "g10-advanced/band-16/index.html",
+   "src": "site/g10-advanced/band-16/index.html",
+   "sha256": "256d9d306f6db502838a199a02641481f695d8dda6394aa0798c0269dde68bd5"
+  },
+  {
+   "path": "g10-advanced/band-24/index.html",
+   "src": "site/g10-advanced/band-24/index.html",
+   "sha256": "9ed9fb0d55bfaae1e43f3a1e1320489a4cb8879a2a7b1827960c9b8575d1b5ba"
+  },
+  {
+   "path": "g10-general/mastery-20/index.html",
+   "src": "site/g10-general/mastery-20/index.html",
+   "sha256": "c82d320f3b9f61afa2738e3ccadf680bd1ef59abaab6afcdf6b32348b92667cf"
+  },
+  {
+   "path": "g10-general/mastery-14/index.html",
+   "src": "site/g10-general/mastery-14/index.html",
+   "sha256": "37f4bb2e1c430e29438965bd8d8f768e36659df4492577f1638740d1fc88918f"
+  },
+  {
+   "path": "g10-general/mastery-5/index.html",
+   "src": "site/g10-general/mastery-5/index.html",
+   "sha256": "fbaf92e627c277005610c7d06e2bcde8966679e2ce471b83c900febabe27a678"
   }
  ]
 }

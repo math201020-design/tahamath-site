@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: تحليل ثلاثيات الحدود | رياضيات العاشر عام ريفيل | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في تحليل ثلاثيات الحدود، وتتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g10-general/mastery-5/">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#B4501A;--navyd:#6E2A0A;--gold:#D9A441;--goldl:#F3DFB8;--cream:#FBF1DC;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#EBD9C2;--bg:#FBF4EA;--card:#fff;--ink:#2B1B10}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(135deg,#B4501A,#6E2A0A);color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">5</bdi>: تحليل ثلاثيات الحدود (معامل x² يساوي 1)<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف.</p>
+</main>
+<script>window.TM_CFG={"gr": "g10-general", "band": 5, "label": "البند 5", "gen": "TmGen5"};</script>
+<script>
+/* مساعدات مشتركة لمولّدات «تدرّب بإتقان» في 10 عام */
+var TmH = (function () {
+  'use strict';
+  function ri(r, lo, hi) { return lo + Math.floor(r() * (hi - lo + 1)); }
+  function pick(r, a) { return a[Math.floor(r() * a.length)]; }
+  function shuffle(r, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function ab(n) { return Math.abs(n); }
+  function srt(a) { return a.slice().sort(function (p, q) { return p - q; }); }
+  /* عامل (x - r) */
+  function fac(r) { return '(x' + (r < 0 ? '+' + (-r) : (r > 0 ? '-' + r : '')) + ')'; }
+  function prodTex(r1, r2) { var s = srt([r1, r2]); return fac(s[0]) + fac(s[1]); }
+  /* x^2 + bx + c */
+  function trin(b, c) { var s = 'x^{2}'; if (b) s += (b < 0 ? '-' : '+') + (ab(b) === 1 ? '' : ab(b)) + 'x'; if (c) s += (c < 0 ? '-' : '+') + ab(c); return s; }
+  function sgnNum(n) { return n < 0 ? '-' + (-n) : '' + n; }
+  function setTex(a) { var s = srt(a.filter(function (v, i, arr) { return arr.indexOf(v) === i; })); return s.map(function (v) { return 'x=' + v; }).join('\\ \\text{or}\\ '); }
+  function gcd(a, b) { a = ab(a); b = ab(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  /* أقل ما يلزم لاختيار 3 مشتتات من فئات مختلفة بقيم مختلفة */
+  function pickD(rng, corrKey, cands) {
+    var seen = {}, used = {}, out = []; seen[corrKey] = 1;
+    shuffle(rng, cands).forEach(function (c) {
+      if (!c || out.length >= 3 || used[c.cls] || seen[c.key]) return;
+      seen[c.key] = 1; used[c.cls] = 1; out.push(c);
+    });
+    return out;
+  }
+  function assemble(rng, band, level, t, hint) {
+    var dis = pickD(rng, t.corrKey, t.cands || []);
+    if (dis.length < 3) return null;
+    var correct = { tex: t.tex, why: '' };
+    var all = shuffle(rng, [correct].concat(dis.map(function (c) { return { tex: c.tex, why: c.why }; })));
+    var sol = t.sol.slice(); sol.push({ box: t.tex });
+    return { band: band, level: level, rtl: false, lang: 'en', stem: t.stem, svg: '', e: t.e || '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: all.indexOf(correct), sol: sol, hint: t.hint || hint, key: t.key, remember: t.remember || '', data: t.data || {} };
+  }
+  function makeWith(band, LEVELS, build) {
+    return function (level, rng) {
+      rng = rng || Math.random; var q = null, tries = 0;
+      while (!q && tries++ < 300) { var t = build(level, rng); q = assemble(rng, band, level, t, LEVELS[level - 1].hint); }
+      return q;
+    };
+  }
+  return { ri: ri, pick: pick, shuffle: shuffle, ab: ab, srt: srt, fac: fac, prodTex: prodTex, trin: trin, sgnNum: sgnNum, setTex: setTex, gcd: gcd, pickD: pickD, makeWith: makeWith };
+})();
+if (typeof module !== 'undefined' && module.exports) module.exports = TmH;
+
+</script>
+<script>
+/* مولّد البند 5: تحليل ثلاثيات الحدود x^2+bx+c (الدرس 11-6) - نصوص الأسئلة بالإنجليزية والتشخيصات بالعربية */
+var TmGen5 = (function (H) {
+  'use strict';
+  var ri = H.ri, pick = H.pick, ab = H.ab, trin = H.trin, fac = H.fac, srt = H.srt;
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: 'ابحث عن عددين حاصل ضربهما الحد الثابت \\(c\\) ومجموعهما معامل \\(x\\)، ثم اكتب \\((x+m)(x+n)\\).' },
+    { id: 2, ar: 'تطبيق', hint: 'انظر إلى إشارة \\(c\\) أولاً: إن كان موجباً فللعددين الإشارة نفسها وهي إشارة \\(b\\)، وإن كان سالباً فإشارتاهما مختلفتان والأكبر قيمة مطلقة بإشارة \\(b\\).' },
+    { id: 3, ar: 'مسائل ومفاهيم', hint: 'العاملان هما \\((x+m)\\) و\\((x+n)\\) حيث \\(m\\cdot n=c\\) و\\(m+n=b\\). تحقق دائماً بضرب العاملين.' },
+    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب أزواج عوامل \\(c\\) ثم اختر الزوج الذي يعطي المجموع المطلوب، وتحقق بخاصية التوزيع قبل اعتماد الجواب.' }
+  ];
+  function distinctRoots(rng, lo, hi, cond) {
+    var r1, r2, g = 0;
+    do { r1 = ri(rng, lo, hi); r2 = ri(rng, lo, hi); g++; } while ((r1 === 0 || r2 === 0 || r1 === r2 || r1 + r2 === 0 || (cond && !cond(r1, r2))) && g < 500);
+    return [r1, r2];
+  }
+  function pairsOf(c) { /* أزواج صحيحة (m,n) حاصل ضربها c */
+    var out = []; for (var m = -ab(c); m <= ab(c); m++) { if (m !== 0 && c % m === 0) { var n = c / m; if (m <= n) out.push([m, n]); } } return out;
+  }
+  function target(r1, r2) { return trin(-(r1 + r2), r1 * r2); }
+  function cand(cls, txt, s1, s2, r1, r2) {
+    var b2 = -(s1 + s2), c2 = s1 * s2;
+    return { cls: cls, key: srt([s1, s2]).join(','), tex: H.prodTex(s1, s2), why: txt + ' ضرب هذين العاملين يعطي \\(' + trin(b2, c2) + '\\) وليس \\(' + target(r1, r2) + '\\).' };
+  }
+  function facCands(rng, r1, r2) {
+    var b = -(r1 + r2), c = r1 * r2, out = [];
+    out.push(cand('neg', 'عكستَ إشارتي العددين.', -r1, -r2, r1, r2));
+    out.push(cand('flipA', 'عكستَ إشارة أحد العددين فقط.', -r1, r2, r1, r2));
+    out.push(cand('flipB', 'عكستَ إشارة أحد العددين فقط.', r1, -r2, r1, r2));
+    /* مجموع صحيح وحاصل ضرب خاطئ */
+    var tries = 0, u, v;
+    do { u = ri(rng, -12, 12); v = (r1 + r2) - u; tries++; } while ((u === 0 || v === 0 || u * v === c || (u === r1 && v === r2) || (u === r2 && v === r1) || u === v) && tries < 200);
+    if (tries < 200) out.push(cand('sumOnly', 'اخترتَ عددين مجموعهما صحيح لكن حاصل ضربهما ليس \\(' + sgnC(c) + '\\).', u, v, r1, r2));
+    /* حاصل ضرب صحيح ومجموع خاطئ */
+    var ps = pairsOf(c).filter(function (p) { return p[0] + p[1] !== r1 + r2 && !(p[0] === r1 && p[1] === r2); });
+    if (ps.length) { var pp = pick(rng, ps); out.push(cand('prodOnly', 'اخترتَ عددين حاصل ضربهما صحيح لكن مجموعهما ليس \\(' + sgnC(b) + '\\).', pp[0], pp[1], r1, r2)); }
+    /* وضع b و c نفسيهما */
+    if (b !== 0 && c !== 0) out.push(cand('swapBC', 'وضعتَ العددين \\(b\\) و\\(c\\) نفسيهما في العاملين بدل البحث عن عددين يحققان الشرطين.', -b, -c, r1, r2));
+    return out;
+  }
+  function sgnC(n) { return String(n); }
+  function par(n) { return n < 0 ? '(' + n + ')' : String(n); }
+  function cx(s) { return (s < 0 ? '-' : '+') + (ab(s) === 1 ? '' : ab(s)) + 'x'; }
+  function stepsFor(r1, r2) {
+    var c = r1 * r2, b = -(r1 + r2), m = -r1, n = -r2; /* (x+m)(x+n) */
+    return [
+      { ar: 'نبحث عن عددين \\(m,n\\) حاصل ضربهما \\(c=' + c + '\\) ومجموعهما \\(b=' + b + '\\).', t: 'm\\cdot n=' + c + ',\\quad m+n=' + b },
+      { t: '(' + m + ')\\cdot(' + n + ')=' + c + ',\\quad (' + m + ')+(' + n + ')=' + b },
+      { t: trin(b, c) + '=' + H.prodTex(r1, r2) }
+    ];
+  }
+  function polyQ(rng, r1, r2, stemExtra) {
+    var b = -(r1 + r2), c = r1 * r2;
+    return { stem: stemExtra || 'Factor the trinomial.', e: trin(b, c), tex: H.prodTex(r1, r2), corrKey: srt([r1, r2]).join(','), cands: facCands(rng, r1, r2), sol: stepsFor(r1, r2), key: 'F5:' + r1 + ',' + r2 + ':' + (stemExtra ? 'c' : 'p'),
+      remember: 'في \\(x^2+bx+c\\) ابحث عن عددين حاصل ضربهما \\(c\\) ومجموعهما \\(b\\)، وتحقق بالتوزيع.', data: { b: b, c: c, r: [r1, r2] } };
+  }
+  function build(level, rng) {
+    var r, rr;
+    if (level === 1) { rr = distinctRoots(rng, -9, -1); return polyQ(rng, rr[0], rr[1]); }
+    if (level === 2) { rr = distinctRoots(rng, -10, 10, function (a, b) { return !(a < 0 && b < 0) && a * b !== 0; }); return polyQ(rng, rr[0], rr[1]); }
+    if (level === 3) {
+      r = rng();
+      if (r < 0.4) { /* مساحة مستطيل */
+        rr = distinctRoots(rng, -9, -1); var b = -(rr[0] + rr[1]), c = rr[0] * rr[1];
+        var q = polyQ(rng, rr[0], rr[1], '<b>AREA:</b> The area of a rectangle is \\(' + trin(b, c) + '\\) square centimeters. Which expression could represent the length or the width of the rectangle?');
+        q.e = ''; q.key = 'F5a:' + rr[0] + ',' + rr[1]; return q;
+      }
+      /* أي عامل صحيح */
+      rr = distinctRoots(rng, -10, 10, function (a, b) { return Math.abs(a) !== Math.abs(b); });
+      var b2 = -(rr[0] + rr[1]), c2 = rr[0] * rr[1], correctR = pick(rng, rr);
+      function sc(cls, v, why) { return { cls: cls, key: String(v), tex: fac(v), why: why }; }
+      var cs = [
+        sc('f1', -rr[0], 'اختبر العامل: \\(' + fac(-rr[0]) + '\\) يعني \\(x=' + (-rr[0]) + '\\) جذراً، لكن جذرا كثيرة الحدود هما \\(' + rr[0] + '\\) و\\(' + rr[1] + '\\).'),
+        sc('f2', -rr[1], 'اختبر العامل: \\(' + fac(-rr[1]) + '\\) يعني \\(x=' + (-rr[1]) + '\\) جذراً، لكن جذرا كثيرة الحدود هما \\(' + rr[0] + '\\) و\\(' + rr[1] + '\\).'),
+        sc('fb', -b2, 'العدد \\(' + b2 + '\\) هو معامل \\(x\\) وليس أحد العددين المطلوبين.'),
+        sc('fc', c2, 'العدد \\(' + c2 + '\\) هو الحد الثابت وليس أحد العددين المطلوبين.'),
+        sc('fd', rr[0] + 1, 'لا يصلح: اضرب \\(' + fac(rr[0] + 1) + '\\) في العامل الآخر المحتمل فلن تحصل على \\(' + trin(b2, c2) + '\\).')
+      ].filter(function (o) { var v = parseInt(o.key, 10); return v !== rr[0] && v !== rr[1]; });
+      return { stem: 'Which of the following is a factor of \\(' + trin(b2, c2) + '\\)?', e: '', tex: fac(correctR), corrKey: String(correctR), cands: cs,
+        sol: stepsFor(rr[0], rr[1]).concat([{ ar: 'العاملان هما \\(' + fac(rr[0]) + '\\) و\\(' + fac(rr[1]) + '\\)، والمطلوب أحدهما.', t: '\\text{factors: }' + H.prodTex(rr[0], rr[1]) }]),
+        hint: 'العامل \\((x-r)\\) يعني أن \\(r\\) جذر لكثيرة الحدود؛ حلّلها أولاً ثم قارن بالخيارات.', key: 'F5f:' + rr[0] + ',' + rr[1] + ',' + correctR, remember: 'العاملان هما \\((x-r_1)\\) و\\((x-r_2)\\) حيث \\(r_1,r_2\\) جذرا كثيرة الحدود.' };
+    }
+    /* المستوى 4 */
+    r = rng();
+    if (r < 0.4) { /* قيمة k */
+      var c3 = pick(rng, [12, 18, 20, 24, 28, 30, 36, 40, 42, 48]), ps = pairsOf(c3).filter(function (p) { return p[0] > 0; });
+      var sums = ps.map(function (p) { return p[0] + p[1]; }), valid = {}; sums.forEach(function (s) { valid[s] = 1; });
+      var ks = pick(rng, sums), listing = ps.map(function (p) { return p[0] + '\\cdot' + p[1] + ' (' + (p[0] + p[1]) + ')'; }).join(',\\ ');
+      var cs2 = [], k;
+      for (k = 2; k <= c3 + 3; k++) if (!valid[k]) cs2.push({ cls: 'k' + k, key: String(k), tex: String(k), why: 'لا يوجد عددان صحيحان موجبان حاصل ضربهما \\(' + c3 + '\\) ومجموعهما \\(' + k + '\\). أزواج العوامل ومجاميعها: \\(' + listing + '\\).' });
+      var near = cs2.filter(function (o) { return Math.abs(+o.key - ks) <= 6; }); if (near.length >= 3) cs2 = near;
+      var pr = ps.filter(function (p) { return p[0] + p[1] === ks; })[0];
+      return { stem: 'For which value of \\(k\\) can \\(x^{2}+kx+' + c3 + '\\) be factored as \\((x+m)(x+n)\\) where \\(m\\) and \\(n\\) are positive integers?', e: '', tex: String(ks), corrKey: String(ks), cands: cs2,
+        sol: [{ ar: 'نكتب أزواج العوامل الموجبة للعدد \\(' + c3 + '\\) ومجموع كل زوج.', t: listing }, { ar: 'القيمة الوحيدة بين الخيارات التي تساوي مجموع زوج هي:', t: 'k=' + pr[0] + '+' + pr[1] + '=' + ks }],
+        key: 'F5k:' + c3 + ',' + ks, remember: 'يمكن تحليل \\(x^2+kx+c\\) بأعداد صحيحة فقط إذا كان \\(k\\) مجموع زوج من عوامل \\(c\\).' };
+    }
+    if (r < 0.7) { rr = distinctRoots(rng, -14, 14, function (a, b) { return Math.abs(a * b) <= 150; }); return polyQ(rng, rr[0], rr[1]); }
+    /* فك الأقواس: أي كثيرة حدود تساوي */
+    rr = distinctRoots(rng, -9, 9, function (a, b) { return a * b < 0; });
+    var s1 = -rr[0], s2 = -rr[1], b4 = s1 + s2, c4 = s1 * s2; /* (x+s1)(x+s2) */
+    function tcand(cls, bb, cc, why) { return { cls: cls, key: bb + ',' + cc, tex: trin(bb, cc), why: why }; }
+    var cs4 = [
+      tcand('b', -b4, c4, 'الحد الأوسط هو مجموع \\(' + s1 + '\\) و\\(' + s2 + '\\) أي \\(' + b4 + '\\) وليس \\(' + (-b4) + '\\).'),
+      tcand('c', b4, -c4, 'الحد الثابت هو حاصل ضرب العددين مع مراعاة الإشارة: \\(' + par(s1) + '\\cdot ' + par(s2) + '=' + c4 + '\\) بإشارته.'),
+      tcand('ab', ab(s1) + ab(s2), c4, 'الحد الأوسط هو مجموع العددين بإشارتيهما \\(' + s1 + '+' + par(s2) + '=' + b4 + '\\)، لا مجموع قيمتيهما المطلقتين.'),
+      tcand('dif', -b4, -c4, 'عكستَ إشارتي الحدين الأوسط والثابت؛ المطلوب \\(m+n=' + b4 + '\\) و\\(mn=' + c4 + '\\) حيث \\(m=' + s1 + '\\) و\\(n=' + s2 + '\\).')
+    ];
+    return { stem: 'Which polynomial is equal to \\(' + H.prodTex(-s1, -s2) + '\\)?', e: '', tex: trin(b4, c4), corrKey: b4 + ',' + c4, cands: cs4,
+      sol: [{ t: H.prodTex(-s1, -s2) + '=x^{2}' + cx(s2) + cx(s1) + (c4 < 0 ? '' : '+') + c4 }, { t: '=' + trin(b4, c4) }],
+      key: 'F5e:' + s1 + ',' + s2, hint: 'وزّع كل حد في العامل الأول على العامل الثاني ثم اجمع الحدين المتشابهين.', remember: 'ضرب \\((x+m)(x+n)\\) يعطي \\(x^2+(m+n)x+mn\\)، فاستعمله للتحقق من أي تحليل.' };
+  }
+  return { levels: LEVELS, make: H.makeWith(5, LEVELS, build), _build: build };
+})(typeof TmH !== 'undefined' ? TmH : require('./common.js'));
+if (typeof module !== 'undefined' && module.exports) module.exports = TmGen5;
+
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tm-g10g-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.svg) stage.appendChild(h('div', 'fig', q.svg));
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl < 4) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl));
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة (Umami بلا نص) */
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك.')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+    newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>
