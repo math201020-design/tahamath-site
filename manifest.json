@@ -6164,6 +6164,136 @@
    "path": "g10-general/mastery-5/index.html",
    "src": "site/g10-general/mastery-5/index.html",
    "sha256": "69559c9983bf9d4fab8dffef440c73e1f12754a5631d6206ea75a0edb73dad33"
+  },
+  {
+   "path": "g10-general-bridge/band-1/index.html",
+   "src": "site/g10-general-bridge/band-1/index.html",
+   "sha256": "d04f259497bf4f9d2dea23fba5267a694d37a303d4693ecfe86a7b362acf4946"
+  },
+  {
+   "path": "g10-general-bridge/band-10/index.html",
+   "src": "site/g10-general-bridge/band-10/index.html",
+   "sha256": "928aab2a9ad2e26890e7b560d69d28962deafffb15f434cf732dfe1bcc5d1bd7"
+  },
+  {
+   "path": "g10-general-bridge/band-11/index.html",
+   "src": "site/g10-general-bridge/band-11/index.html",
+   "sha256": "1ae9bf31e6dd2b2522da66aa4cf54c1ce6f2addfb3a4add5aaef8509f9012c91"
+  },
+  {
+   "path": "g10-general-bridge/band-12/index.html",
+   "src": "site/g10-general-bridge/band-12/index.html",
+   "sha256": "e593ae894426827c6f69d0225ae5f09f07eba2e5eed3f527adbfde2a03c4cbb2"
+  },
+  {
+   "path": "g10-general-bridge/band-13/index.html",
+   "src": "site/g10-general-bridge/band-13/index.html",
+   "sha256": "32488eb80d2a7ca2b8f75627043f14431310dfb0537e5a6ed2bef23bc5d8f44e"
+  },
+  {
+   "path": "g10-general-bridge/band-14/index.html",
+   "src": "site/g10-general-bridge/band-14/index.html",
+   "sha256": "f7c2198ffc14a60f4e453024f295cbeba07848fa509acdbf8c3af4ef56b5c173"
+  },
+  {
+   "path": "g10-general-bridge/band-15/index.html",
+   "src": "site/g10-general-bridge/band-15/index.html",
+   "sha256": "48abdfa4a6f4cef524605191c5a79e9f5316d525dacff0c97e9036893274c073"
+  },
+  {
+   "path": "g10-general-bridge/band-16/index.html",
+   "src": "site/g10-general-bridge/band-16/index.html",
+   "sha256": "17060f18b0dc5da1b64b6c1384273babe15e7d405086b0b083c93bad06fa5ddf"
+  },
+  {
+   "path": "g10-general-bridge/band-17/index.html",
+   "src": "site/g10-general-bridge/band-17/index.html",
+   "sha256": "b08f74cd612b86e0ae82275ee65ba8175fbc3aa09c6d0bb2317041bb0ec176ec"
+  },
+  {
+   "path": "g10-general-bridge/band-18/index.html",
+   "src": "site/g10-general-bridge/band-18/index.html",
+   "sha256": "70b03613de1d01b388c2f814c3c1d4a2a37daacd01c71f1d90deb57f910a9a8d"
+  },
+  {
+   "path": "g10-general-bridge/band-19/index.html",
+   "src": "site/g10-general-bridge/band-19/index.html",
+   "sha256": "e8f37b22b2f794f69522e2102798577f89ba5e2c2d3d5228c996fb29ab35572e"
+  },
+  {
+   "path": "g10-general-bridge/band-2/index.html",
+   "src": "site/g10-general-bridge/band-2/index.html",
+   "sha256": "98ad61784a2af47a67437d87f0e4a0bae61ca84e0210d34814eb0bb07413db0e"
+  },
+  {
+   "path": "g10-general-bridge/band-20/index.html",
+   "src": "site/g10-general-bridge/band-20/index.html",
+   "sha256": "136b665c4c6cb77a53698f8f234fb02547a1447d8300bde0e137ddfdda11e8a3"
+  },
+  {
+   "path": "g10-general-bridge/band-21/index.html",
+   "src": "site/g10-general-bridge/band-21/index.html",
+   "sha256": "e68291728b2c61e4129164c9c85aaa73ea0e48f2b213a530a9c00cffba1888a6"
+  },
+  {
+   "path": "g10-general-bridge/band-22/index.html",
+   "src": "site/g10-general-bridge/band-22/index.html",
+   "sha256": "32d705a1ecc40ff1d2701659dc20543a39c90515f17164bfdfcdf385ec887508"
+  },
+  {
+   "path": "g10-general-bridge/band-23/index.html",
+   "src": "site/g10-general-bridge/band-23/index.html",
+   "sha256": "3d0a8bd595c089d6c029d82eee471de816daef3080ef07eeaa4e7f6f91cd4da5"
+  },
+  {
+   "path": "g10-general-bridge/band-24/index.html",
+   "src": "site/g10-general-bridge/band-24/index.html",
+   "sha256": "e84b84d91a0f9d7c418f8764753ab859880cbfe98d61bf3124525a93ad9dd7cb"
+  },
+  {
+   "path": "g10-general-bridge/band-25/index.html",
+   "src": "site/g10-general-bridge/band-25/index.html",
+   "sha256": "eab9fc6e47e0db276b8821a1f072739db26d0274367d3882cb91620b9d4c5486"
+  },
+  {
+   "path": "g10-general-bridge/band-26/index.html",
+   "src": "site/g10-general-bridge/band-26/index.html",
+   "sha256": "8ca19e81619aa8c87cac7376f31f10f67a30785f9225c3dad2e1e8c7c6f0e864"
+  },
+  {
+   "path": "g10-general-bridge/band-3/index.html",
+   "src": "site/g10-general-bridge/band-3/index.html",
+   "sha256": "b5f3ceeb25e3896392edc140123e6a0934de146d39a1a3133b50824e7a10a496"
+  },
+  {
+   "path": "g10-general-bridge/band-4/index.html",
+   "src": "site/g10-general-bridge/band-4/index.html",
+   "sha256": "3e7b222bbb48c8f3e6e52b9e0e04a4ad5efe5850d173e3923f808715ff046647"
+  },
+  {
+   "path": "g10-general-bridge/band-5/index.html",
+   "src": "site/g10-general-bridge/band-5/index.html",
+   "sha256": "74b1cfa200ef4b16389b9fa93be11bcd45528d78ae085d6473a83a511c406eee"
+  },
+  {
+   "path": "g10-general-bridge/band-6/index.html",
+   "src": "site/g10-general-bridge/band-6/index.html",
+   "sha256": "827d1bbdefec6cd69d75055a1c3dbabdb2f3e172843d50199114f6456839bcd3"
+  },
+  {
+   "path": "g10-general-bridge/band-7/index.html",
+   "src": "site/g10-general-bridge/band-7/index.html",
+   "sha256": "9453e95547dce57da4e7788af339b704fd3d248b55dc8873a719d74ae7e3fde5"
+  },
+  {
+   "path": "g10-general-bridge/band-8/index.html",
+   "src": "site/g10-general-bridge/band-8/index.html",
+   "sha256": "606455f563c1bb52d73f90b227560dce70f15bd01437df4f5697f5d345133a2d"
+  },
+  {
+   "path": "g10-general-bridge/band-9/index.html",
+   "src": "site/g10-general-bridge/band-9/index.html",
+   "sha256": "05b87206609f3208b747f3aa251848e53fa00e145fd113bd2d417af439d0ddc5"
   }
  ]
 }
