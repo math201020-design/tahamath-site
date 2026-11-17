@@ -24,6 +24,7 @@ header.top .sub{font-size:15px;line-height:1.8}
 .path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
 .path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
 .path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .path li.cur b{color:var(--navy)}
 .path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
 .path li.done b{color:var(--green)}
@@ -395,6 +396,12 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
       var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
       if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
       p.appendChild(li);
     });
   }
