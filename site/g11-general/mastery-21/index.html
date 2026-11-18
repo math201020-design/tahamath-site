@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تدرّب بإتقان: المضلعات المتشابهة | الحادي عشر عام | أكاديمية طه للرياضيات</title><meta name="robots" content="noindex">
+<style>:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn:disabled{opacity:.45;cursor:default}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+/* خانات الإجابة المقالية: MathLive مع أزرار الرموز (قاعدة خانات الرموز في الأسئلة المقالية) */
+.inps{display:flex;flex-direction:column;gap:10px;margin:10px 0 4px}
+.inp{direction:ltr;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:2px solid var(--line);border-radius:12px;padding:8px 12px;background:#fff}
+.inp .lab{direction:ltr;flex:1 1 150px;min-width:0;text-align:left}
+.inp input.hid{display:none}
+math-field.mf{min-width:130px;min-height:44px;font-size:21px;border:1.5px solid #8FA3BF;border-radius:8px;padding:2px 8px;background:#fff;color:var(--navy);direction:ltr;--caret-color:var(--navy);--selection-background-color:#DCE6F5;--placeholder-color:#8FA3BF}
+math-field.mf:focus-within{border-color:var(--gold);box-shadow:0 0 0 2px #F0E3BC;outline:none}
+math-field.mf::part(menu-toggle),math-field.mf::part(virtual-keyboard-toggle){display:none}
+math-field.mf[read-only]{pointer-events:none}
+.inp.right{border-color:var(--green);background:var(--greenl)}.inp.right math-field.mf{border-color:var(--green);background:var(--greenl)}
+.inp.wrong{border-color:var(--red);background:var(--redl)}.inp.wrong math-field.mf{border-color:var(--red);background:var(--redl)}
+.pvbad{width:100%;direction:rtl;text-align:right;color:#B3261E;font-weight:700;font-size:13px}.pvbad:empty{display:none}
+.inote{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin:6px 0 0}
+.mtools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 4px;direction:ltr}
+.mtools .mt-l{font-size:13px;color:var(--grey);direction:rtl;flex-basis:100%;text-align:right}
+.mtools .mk{min-width:42px;height:42px;padding:0 9px;background:var(--cream);color:var(--navy);border:1.5px solid var(--gold);border-radius:9px;font-family:'Times New Roman',serif;font-size:22px;cursor:pointer;font-weight:400}
+.mtools .mk .fr{display:inline-flex;flex-direction:column;align-items:center;gap:2px;vertical-align:middle}
+.mtools .mk .fr i{width:11px;height:9px;border:1.5px solid var(--navy);border-radius:2px}.mtools .mk .fr b{width:17px;border-top:2px solid var(--navy);display:block}
+.mtools .mk .sq i{display:inline-block;width:13px;height:12px;border:1.5px solid var(--navy);border-radius:2px;margin-inline-start:1px;box-shadow:0 -3px 0 -1.5px var(--navy);vertical-align:-1px}
+mjx-container[jax="SVG"]{max-width:100%}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},startup:{typeset:false}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathlive@0.98.6/dist/mathlive.min.js"></script>
+<link rel="canonical" href="https://tahamath.com/g11-general/mastery-21/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head><body>
+<header class="top"><div class="in"><h1>تدرّب بإتقان</h1><div class="sub">البند <bdi dir="ltr">21</bdi>: المضلعات المتشابهة ومعامل التشابه</div></div></header>
+<main class="wrap">
+<ol class="path" id="path"><li></li><li></li><li></li><li></li></ol>
+<div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+<section class="box" id="stage" aria-live="polite"></section>
+<p class="note">مستويات متدرجة من الأساسي إلى التحدّي. في كل جولة 5 أسئلة، والمطلوب 4 إجابات صحيحة للانتقال إلى المستوى التالي. تُحفظ نتائجك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>/* أدوات مشتركة للمولّدات + رسم SVG */
+(function (g) {
+  function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  var NAVY = '#1E3A6C', INK = '#0E1C3A', GOLD = '#B8902F', GREY = '#5A6472';
+  var U = {
+    rng: mulberry,
+    ri: function (r, a, b) { return a + Math.floor(r() * (b - a + 1)); },
+    pick: function (r, a) { return a[Math.floor(r() * a.length)]; },
+    shuf: function (r, a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; },
+    r1: function (x) { return Math.round(x * 10) / 10; },
+    rad: function (d) { return d * Math.PI / 180; },
+    deg: function (x) { return x * 180 / Math.PI; },
+    gcd: function (a, b) { return b ? U.gcd(b, a % b) : a; },
+    /* بعيد عن حدّ التقريب (لا يقع الناتج قرب x.x5) */
+    safe1: function (x) { var f = x * 10 - Math.floor(x * 10); return Math.abs(f - 0.5) > 0.06; },
+    safe0: function (x) { var f = x - Math.floor(x); return Math.abs(f - 0.5) > 0.06; },
+    tol: function (a) { return Math.max(0.101, Math.round(a * 4) / 1000 + 0.0005); },
+    NAVY: NAVY, INK: INK
+  };
+  var S = {};
+  S.open = function (w, h) { return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + w + ' ' + h + '" width="' + w + '" height="' + h + '" role="img" style="max-width:100%;height:auto" font-family="\'Times New Roman\',serif" font-size="16" fill="' + INK + '">'; };
+  S.line = function (x1, y1, x2, y2, o) { o = o || {}; return '<line x1="' + x1.toFixed(1) + '" y1="' + y1.toFixed(1) + '" x2="' + x2.toFixed(1) + '" y2="' + y2.toFixed(1) + '" stroke="' + (o.c || NAVY) + '" stroke-width="' + (o.w || 2.2) + '"' + (o.dash ? ' stroke-dasharray="5 4"' : '') + ' stroke-linecap="round"/>'; };
+  S.text = function (x, y, s, o) { o = o || {}; return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + (o.a || 'middle') + '" dominant-baseline="middle"' + (o.it === false ? '' : ' font-style="italic"') + (o.c ? ' fill="' + o.c + '"' : '') + (o.sz ? ' font-size="' + o.sz + '"' : '') + '>' + s + '</text>'; };
+  /* قوس حول (cx,cy) بنصف قطر r من الزاوية a0 إلى a1 (درجات، عكس عقارب الساعة موجبة) */
+  S.arc = function (cx, cy, r, a0, a1, c) {
+    var p0 = [cx + r * Math.cos(U.rad(a0)), cy - r * Math.sin(U.rad(a0))], p1 = [cx + r * Math.cos(U.rad(a1)), cy - r * Math.sin(U.rad(a1))];
+    return '<path d="M' + p0[0].toFixed(1) + ' ' + p0[1].toFixed(1) + ' A' + r + ' ' + r + ' 0 0 ' + (a1 > a0 ? 0 : 1) + ' ' + p1[0].toFixed(1) + ' ' + p1[1].toFixed(1) + '" fill="none" stroke="' + (c || GOLD) + '" stroke-width="2.2"/>';
+  };
+  S.dot = function (x, y, r, c) { return '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (r || 4) + '" fill="' + (c || NAVY) + '"/>'; };
+  S.pt = function (a, b) { return a.toFixed(1) + ',' + b.toFixed(1); };
+  /* موضع تسمية الزاوية عند الرأس (x0,y0): زاوية صغيرة تحت القاعدة، كبيرة يسار الرأس، وإلا على المنصّف */
+  S.angLabel = function (x0, y0, th, flip) {
+    var d = flip ? -1 : 1;
+    if (th < 28) return [x0 + d * 62, y0 + 16];
+    if (th > 60) return [x0 - d * 30, y0 - 10];
+    return [x0 + d * 47 * Math.cos(U.rad(th / 2)), y0 - 47 * Math.sin(U.rad(th / 2))];
+  };
+  g.TmU = U; g.TmS = S;
+})(window);
+</script>
+<script>/* البند 21 (الدرس 3-2): المضلعات المتشابهة — معامل التشابه والأضلاع المتناظرة والمحيط */
+(function (g) {
+  var U = g.TmU, S = g.TmS;
+  var LEVELS = [{ id: 1, ar: 'أساسي' }, { id: 2, ar: 'متوسط' }, { id: 3, ar: 'متقدم' }, { id: 4, ar: 'مستوى الوزارة' }];
+  var PAIRS = [[1, 2], [2, 1], [2, 3], [3, 2], [3, 4], [4, 3], [2, 5], [5, 2], [3, 5], [5, 3], [4, 5], [5, 4]]; /* [p,q]: ضلع الثاني = p×m، ضلع الأول = q×m */
+  var TRI = [[3, 4, 5], [4, 5, 6], [3, 4, 6], [4, 6, 7], [5, 6, 8], [5, 7, 9], [6, 7, 9]];
+  var QUAD = [[3, 4, 5, 4], [4, 5, 4, 6], [3, 5, 4, 5], [5, 3, 4, 6]];
+  var NAMES = [['ABC', 'DEF'], ['PQR', 'XYZ'], ['JKL', 'MNP'], ['ABCD', 'EFGH'], ['PQRS', 'WXYZ'], ['JKLM', 'NPQR']];
+  var UNIT = [{ t: 'cm' }, { t: 'm' }, { t: 'in.' }];
+  var SHAPES = {
+    tri: [[0, 0], [1.5, 0], [0.55, 1]],
+    rect: [[0, 0], [1.6, 0], [1.6, 1], [0, 1]],
+    quad: [[0, 0], [1.7, 0], [1.25, 1], [0.3, 1]]
+  };
+
+  function polyFig(shape, vis, L1, L2, V1, V2) {
+    var Wd = 430, Ht = 205, base = 178, big = 100, s1 = vis >= 1 ? big / vis : big, s2 = vis >= 1 ? big : big * vis;
+    var out = S.open(Wd, Ht);
+    [[SHAPES[shape], s1, 108, L1, V1], [SHAPES[shape], s2, 322, L2, V2]].forEach(function (P) {
+      var pts = P[0], sc = P[1], cx = P[2], n = pts.length, minx = 1e9, maxx = -1e9;
+      pts.forEach(function (p) { minx = Math.min(minx, p[0]); maxx = Math.max(maxx, p[0]); });
+      var ox = cx - (minx + maxx) / 2 * sc, X = pts.map(function (p) { return [ox + p[0] * sc, base - p[1] * sc]; });
+      var mx = 0, my = 0; X.forEach(function (p) { mx += p[0]; my += p[1]; }); mx /= n; my /= n;
+      out += '<polygon points="' + X.map(function (p) { return S.pt(p[0], p[1]); }).join(' ') + '" fill="#F4F7FC" stroke="' + U.NAVY + '" stroke-width="2.4" stroke-linejoin="round"/>';
+      function outward(px, py, k) { var vx = px - mx, vy = py - my, l = Math.sqrt(vx * vx + vy * vy) || 1; return [px + vx / l * k, py + vy / l * k]; }
+      for (var i = 0; i < n; i++) {
+        var a = X[i], b = X[(i + 1) % n], q = outward((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, 15);
+        if (P[3][i]) out += S.text(q[0], q[1], P[3][i]);
+        var v = outward(a[0], a[1], 13); if (P[4][i]) out += S.text(v[0], v[1], P[4][i], { it: false, c: '#5A6472', sz: 14 });
+      }
+    });
+    return out + '</svg><div style="direction:rtl;font-size:13px;color:#5A6472;margin-top:2px">الشكل غير مرسوم بمقياس رسم.</div>';
+  }
+
+  var Q = { band: 21, levels: LEVELS, make: function (level, rng) { var r = rng || Math.random; return level === 1 ? L1(r) : level === 2 ? L2(r) : level === 3 ? L3(r) : L4(r); } };
+  function KIND(nm) { return nm[0].length === 3 ? 'Triangle \\(' + nm[0] + '\\) is similar to triangle \\(' + nm[1] + '\\).' : 'Polygon \\(' + nm[0] + '\\) is similar to polygon \\(' + nm[1] + '\\).'; }
+  function frac(p, q) { var d = U.gcd(p, q); return [p / d, q / d]; }
+  function ftex(p, q) { var f = frac(p, q); return f[1] === 1 ? String(f[0]) : '\\frac{' + f[0] + '}{' + f[1] + '}'; }
+  function sim(nm) { return '\\(' + (nm[0].length === 3 ? '\\triangle ' + nm[0] + '\\sim\\triangle ' + nm[1] : nm[0] + '\\sim ' + nm[1]) + '\\)'; }
+
+  /* مجموعة أضلاع مضلعين متشابهين: الأول q×m، الثاني p×m */
+  function setup(r, shape) {
+    var pq = U.pick(r, PAIRS), p = pq[0], q = pq[1], m;
+    if (shape === 'tri') m = U.pick(r, TRI); else if (shape === 'quad') m = U.pick(r, QUAD); else { do { m = [U.ri(r, 2, 7), U.ri(r, 2, 7)]; } while (m[0] === m[1]); m = [m[0], m[1], m[0], m[1]]; }
+    m = shape === 'tri' ? U.shuf(r, m) : m;
+    if (shape === 'tri' && p * Math.max.apply(null, m) > 60) return setup(r, shape);
+    return { p: p, q: q, m: m, s: m.map(function (v) { return q * v; }), t: m.map(function (v) { return p * v; }) };
+  }
+  function nameFor(r, shape) {
+    var c = NAMES.filter(function (n) { return shape === 'tri' ? n[0].length === 3 : n[0].length === 4; });
+    return U.pick(r, c);
+  }
+  var SIDE_AR = ['الضلع الأول', 'الضلع الثاني', 'الضلع الثالث', 'الضلع الرابع'];
+
+  /* المستوى 1: معامل التشابه، أو الأجزاء المتناظرة */
+  function L1(r) {
+    if (r() < 0.55) {
+      var shape = U.pick(r, ['tri', 'quad', 'rect']), su = setup(r, shape), nm = nameFor(r, shape), n = su.m.length;
+      var i0 = 0, a = su.s[i0], b = su.t[i0], f = frac(a, b), unit = U.pick(r, ['cm', 'm']);
+      var L1a = [], L2a = []; for (var i = 0; i < n; i++) { L1a.push(''); L2a.push(''); } L1a[i0] = String(a); L2a[i0] = String(b);
+      var V1 = nm[0].split(''), V2 = nm[1].split('');
+      var cand = [[f[0], f[1]], [f[1], f[0]], [Math.abs(b - a), b], [a, a + b]], seen = {}, opts = [];
+      cand.forEach(function (c, k) { var dd = U.gcd(c[0], c[1]), key = (c[0] / dd) + '/' + (c[1] / dd); if (!seen[key]) { seen[key] = 1; opts.push({ c: [c[0] / dd, c[1] / dd], good: k === 0 }); } });
+      var guard = 0; while (opts.length < 4 && guard++ < 20) { var z = [U.ri(r, 1, 6), U.ri(r, 2, 7)], dz = U.gcd(z[0], z[1]), kz = z[0] / dz + '/' + z[1] / dz; if (!seen[kz]) { seen[kz] = 1; opts.push({ c: [z[0] / dz, z[1] / dz], good: false, filler: true }); } }
+      var sh = U.shuf(r, opts);
+      return {
+        band: 21, level: 1, rtl: false, lang: 'en',
+        stem: KIND(nm) + ' The corresponding sides \\(\\overline{' + nm[0].slice(0, 2) + '}\\) and \\(\\overline{' + nm[1].slice(0, 2) + '}\\) have lengths ' + a + ' ' + unit + ' and ' + b + ' ' + unit + '. What is the scale factor of \\(' + nm[0] + '\\) to \\(' + nm[1] + '\\), written as the ratio of a side length of \\(' + nm[0] + '\\) to the corresponding side length of \\(' + nm[1] + '\\) in simplest form?',
+        svg: polyFig(shape, b / a, L1a, L2a, V1, V2),
+        opts: sh.map(function (o) { return { t: o.c[1] === 1 ? String(o.c[0]) : '\\frac{' + o.c[0] + '}{' + o.c[1] + '}', why: o.good ? '' : o.filler ? 'هذه النسبة لا تساوي نسبة الضلعين المتناظرين ' + a + ' ÷ ' + b + '.' : (o.c[0] === f[1] && o.c[1] === f[0] ? 'هذا معامل التشابه من \\(' + nm[1] + '\\) إلى \\(' + nm[0] + '\\)؛ المطلوب من \\(' + nm[0] + '\\) إلى \\(' + nm[1] + '\\) أي طول الضلع في الأول ÷ طول الضلع المناظر في الثاني.' : 'معامل التشابه هو نسبة ضلعين متناظرين: ' + a + ' ÷ ' + b + '، لا الفرق بينهما ولا المجموع.') }; }),
+        ans: sh.findIndex(function (o) { return o.good; }),
+        sol: [{ t: 'k=\\frac{' + nm[0].slice(0, 2) + '}{' + nm[1].slice(0, 2) + '}=\\frac{' + a + '}{' + b + '}', ar: 'معامل التشابه من المضلع الأول إلى الثاني = طول ضلع في الأول ÷ طول الضلع المناظر في الثاني.' }, { box: 'k=' + ftex(a, b) }],
+        hint: 'ضع طول ضلع المضلع الأول في البسط وطول الضلع المناظر من المضلع الثاني في المقام، ثم بسِّط الكسر.',
+        remember: 'معامل التشابه هو النسبة بين طولي ضلعين متناظرين، ويُكتب في أبسط صورة.',
+        key: 'm21-1a-' + shape + '-' + su.p + '-' + su.q + '-' + su.m.join('_') + '-' + nm[0], data: { kind: 'scale', a: a, b: b, ans: f }
+      };
+    }
+    var shp = U.pick(r, ['quad4']), nm2 = U.pick(r, NAMES.filter(function (n) { return n[0].length === 4; })), A = nm2[0].split(''), B = nm2[1].split('');
+    var ask = r() < 0.5 ? 'side' : 'angle', idx = U.ri(r, 0, 3), nx = (idx + 1) % 4, opts2, ansLab, stem, solAr;
+    if (ask === 'side') {
+      var sideA = A[idx] + A[nx], sideB = B[idx] + B[nx], pool = [0, 1, 2, 3].map(function (i) { return B[i] + B[(i + 1) % 4]; });
+      var sh2 = U.shuf(r, pool);
+      stem = 'Polygon \\(' + nm2[0] + '\\) is similar to polygon \\(' + nm2[1] + '\\). Which side of polygon \\(' + nm2[1] + '\\) corresponds to side \\(\\overline{' + sideA + '}\\)?';
+      opts2 = sh2.map(function (s) { return { t: '\\overline{' + s + '}', why: s === sideB ? '' : '\\(\\overline{' + s + '}\\) يناظر \\(\\overline{' + A[pool.indexOf(s)] + A[(pool.indexOf(s) + 1) % 4] + '}\\) ولا يناظر \\(\\overline{' + sideA + '}\\).' }; });
+      ansLab = '\\overline{' + sideB + '}';
+      solAr = [{ t: '\\' + 'text{' + nm2[0] + ' }\\sim\\text{ ' + nm2[1] + '}', ar: 'ترتيب الرؤوس في عبارة التشابه يحدّد المتناظر: ' + A[idx] + ' يناظر ' + B[idx] + '، و' + A[nx] + ' يناظر ' + B[nx] + '.' }, { box: '\\overline{' + sideA + '}\\leftrightarrow\\overline{' + sideB + '}' }];
+    } else {
+      var sh3 = U.shuf(r, [0, 1, 2, 3]);
+      stem = 'Polygon \\(' + nm2[0] + '\\) is similar to polygon \\(' + nm2[1] + '\\). Which angle of polygon \\(' + nm2[1] + '\\) corresponds to \\(\\angle ' + A[idx] + '\\)?';
+      opts2 = sh3.map(function (i) { return { t: '\\angle ' + B[i], why: i === idx ? '' : '\\(\\angle ' + B[i] + '\\) تناظر \\(\\angle ' + A[i] + '\\)، والمطلوب مناظرة \\(\\angle ' + A[idx] + '\\).' }; });
+      ansLab = '\\angle ' + B[idx];
+      solAr = [{ t: '\\text{' + nm2[0] + ' }\\sim\\text{ ' + nm2[1] + '}', ar: 'الرأس رقم ' + (idx + 1) + ' في المضلع الأول (' + A[idx] + ') يناظر الرأس رقم ' + (idx + 1) + ' في المضلع الثاني (' + B[idx] + ').' }, { box: '\\angle ' + A[idx] + '\\leftrightarrow\\angle ' + B[idx] }];
+    }
+    var ai = opts2.findIndex(function (o) { return o.t === ansLab; });
+    return {
+      band: 21, level: 1, rtl: false, lang: 'en', stem: stem, svg: '', opts: opts2, ans: ai, sol: solAr,
+      hint: 'ترتيب الحروف في عبارة التشابه مهم: الحرف الأول يناظر الحرف الأول، والثاني يناظر الثاني، وهكذا.',
+      remember: 'في عبارة التشابه تتناظر الرؤوس حسب مواضعها: الأول مع الأول، الثاني مع الثاني.',
+      key: 'm21-1b-' + ask + '-' + nm2[0] + '-' + idx, data: { kind: 'corr', ask: ask, A: nm2[0], B: nm2[1], idx: idx, ans: ansLab }
+    };
+  }
+
+  /* المستوى 2: ضلع مجهول */
+  function L2(r) {
+    var shape = U.pick(r, ['tri', 'rect', 'quad']), su = setup(r, shape), nm = nameFor(r, shape), n = su.m.length;
+    var unit = U.pick(r, ['cm', 'm']), j = shape === 'rect' ? 1 : U.ri(r, 1, n - 1), inSecond = r() < 0.6;
+    var L1a = [], L2a = []; for (var i = 0; i < n; i++) { L1a.push(''); L2a.push(''); }
+    L1a[0] = String(su.s[0]); L2a[0] = String(su.t[0]);
+    var x;
+    if (inSecond) { L1a[j] = String(su.s[j]); L2a[j] = 'x'; x = su.t[j]; } else { L1a[j] = 'x'; L2a[j] = String(su.t[j]); x = su.s[j]; }
+    var V1 = nm[0].split(''), V2 = nm[1].split(''), s0 = nm[0].slice(0, 2), t0 = nm[1].slice(0, 2);
+    var sj = nm[0][j] + nm[0][(j + 1) % n], tj = nm[1][j] + nm[1][(j + 1) % n];
+    var eq = inSecond ? '\\frac{x}{' + su.t[0] + '}=\\frac{' + su.s[j] + '}{' + su.s[0] + '}' : '\\frac{x}{' + su.s[0] + '}=\\frac{' + su.t[j] + '}{' + su.t[0] + '}';
+    var cross = inSecond ? 'x=\\frac{' + su.s[j] + '\\times ' + su.t[0] + '}{' + su.s[0] + '}' : 'x=\\frac{' + su.t[j] + '\\times ' + su.s[0] + '}{' + su.t[0] + '}';
+    return {
+      band: 21, level: 2, rtl: false, lang: 'en',
+      stem: KIND(nm).replace(/\.$/, ', as shown.') + ' Find the value of \\(x\\) (in ' + unit + ').',
+      svg: polyFig(shape, su.t[0] / su.s[0], L1a, L2a, V1, V2),
+      inputs: [{ lab: 'x=', ans: x, tol: 0.01, show: String(x) }],
+      note: 'اكتب العدد فقط. الشكل غير مرسوم بمقياس رسم.',
+      fix: 'كوِّن تناسباً بين طولين متناظرين: ' + (inSecond ? 'x يناظر ' + su.s[j] : 'x يناظر ' + su.t[j]) + '، والطولان ' + su.s[0] + ' و' + su.t[0] + ' متناظران، مع الحفاظ على ترتيب المضلعين نفسه في طرفي التناسب.',
+      sol: [
+        { t: eq, ar: 'الأضلاع المتناظرة متناسبة: النسبة بين ضلعين في مضلع واحد تساوي النسبة بين الضلعين المناظرين في المضلع الآخر.' },
+        { t: cross, ar: 'نستعمل الضرب التبادلي.' }, { box: 'x=' + x }
+      ],
+      hint: 'ابحث عن الضلع المناظر لكل ضلع (بالترتيب نفسه) وكوّن تناسباً، ثم احسب x بالضرب التبادلي.',
+      key: 'm21-2-' + shape + '-' + su.p + '-' + su.q + '-' + su.m.join('_') + '-' + j + '-' + inSecond + '-' + nm[0],
+      data: { kind: 'missing', s0: su.s[0], t0: su.t[0], other: inSecond ? su.s[j] : su.t[j], inSecond: inSecond, ans: x }
+    };
+  }
+
+  /* المستوى 3: محيط، أو ضلعان مجهولان */
+  function L3(r) {
+    if (r() < 0.5) {
+      var su = setup(r, 'tri'), nm = nameFor(r, 'tri'), S0 = U.ri(r, 2 * 3 + 2, 14), unit = U.pick(r, ['cm', 'm']);
+      var m0 = su.m[0], P1 = su.q * Math.max(S0, 2 * m0 + 2), P2 = su.p * Math.max(S0, 2 * m0 + 2), kk = Math.max(S0, 2 * m0 + 2);
+      var L1a = [String(su.s[0]), '', ''], L2a = [String(su.t[0]), '', ''];
+      return {
+        band: 21, level: 3, rtl: false, lang: 'en',
+        stem: 'Triangle \\(' + nm[0] + '\\) is similar to triangle \\(' + nm[1] + '\\), as shown. The perimeter of triangle \\(' + nm[0] + '\\) is ' + P1 + ' ' + unit + '. Find the perimeter of triangle \\(' + nm[1] + '\\).',
+        svg: polyFig('tri', su.p / su.q, L1a, L2a, nm[0].split(''), nm[1].split('')),
+        inputs: [{ lab: 'P=', ans: P2, tol: 0.01, show: String(P2) }],
+        note: 'اكتب العدد فقط (بلا وحدة).',
+        fix: 'نسبة المحيطين تساوي النسبة بين ضلعين متناظرين، فاحسب النسبة بين الضلعين المتناظرين (الثاني ÷ الأول) ثم اضرب فيها محيط المثلث الأول.',
+        sol: [
+          { t: 'r=\\frac{' + nm[1].slice(0, 2) + '}{' + nm[0].slice(0, 2) + '}=\\frac{' + su.t[0] + '}{' + su.s[0] + '}=' + ftex(su.t[0], su.s[0]), ar: 'نسبة طول الضلع في المثلث الثاني إلى مناظره في المثلث الأول؛ نضرب بها أطوال أضلاع الأول لنحصل على أضلاع الثاني.' },
+          { t: '\\frac{P}{' + P1 + '}=' + ftex(su.t[0], su.s[0]), ar: 'نسبة محيطي مضلعين متشابهين تساوي النسبة بين أي ضلعين متناظرين.' },
+          { t: 'P=' + P1 + '\\times ' + ftex(su.t[0], su.s[0]) }, { box: 'P=' + P2 }
+        ],
+        hint: 'ماذا تعرف عن نسبة محيطي مضلعين متشابهين وعلاقتها بنسبة ضلعين متناظرين؟',
+        remember: 'نسبة محيطي مضلعين متشابهين تساوي النسبة بين أي ضلعين متناظرين.',
+        key: 'm21-3a-' + su.p + '-' + su.q + '-' + su.m.join('_') + '-' + P1 + '-' + nm[0], data: { kind: 'perim', s0: su.s[0], t0: su.t[0], P1: P1, ans: P2 }
+      };
+    }
+    var sv = setup(r, 'tri'), nn = nameFor(r, 'tri'), un = U.pick(r, ['cm', 'm']);
+    var L1b = sv.s.map(String), L2b = [String(sv.t[0]), 'x', 'y'];
+    var nm1 = nn[0], nm2 = nn[1];
+    var sx = nm1[1] + nm1[2], sy = nm1[2] + nm1[0], tx = nm2[1] + nm2[2], ty = nm2[2] + nm2[0];
+    return {
+      band: 21, level: 3, rtl: false, lang: 'en',
+      stem: 'Triangle \\(' + nm1 + '\\) is similar to triangle \\(' + nm2 + '\\), as shown. Find the values of \\(x\\) and \\(y\\) (in ' + un + ').',
+      svg: polyFig('tri', sv.p / sv.q, L1b, L2b, nm1.split(''), nm2.split('')),
+      inputs: [{ lab: 'x=', ans: sv.t[1], tol: 0.01, show: String(sv.t[1]) }, { lab: 'y=', ans: sv.t[2], tol: 0.01, show: String(sv.t[2]) }],
+      note: 'اكتب العدد فقط في كل خانة: الأولى x والثانية y.',
+      fix: 'احسب النسبة بين الضلعين المعلومين المتناظرين (الثاني ÷ الأول)، ثم اضرب فيها طول كل ضلع في المثلث الأول.',
+      sol: [
+        { t: 'r=\\frac{' + sv.t[0] + '}{' + sv.s[0] + '}=' + ftex(sv.t[0], sv.s[0]), ar: 'النسبة بين الضلعين المتناظرين المعلومين (الثاني ÷ الأول).' },
+        { t: 'x=' + sv.s[1] + '\\times ' + ftex(sv.t[0], sv.s[0]), ar: 'الضلع x يناظر الضلع ' + sv.s[1] + '.' }, { box: 'x=' + sv.t[1] },
+        { t: 'y=' + sv.s[2] + '\\times ' + ftex(sv.t[0], sv.s[0]), ar: 'الضلع y يناظر الضلع ' + sv.s[2] + '.' }, { box: 'y=' + sv.t[2] }
+      ],
+      hint: 'أوجد أولاً النسبة بين الضلعين المعلومين المتناظرين (الثاني ÷ الأول)، ثم أوجد كل ضلع مجهول بالضرب في هذه النسبة.',
+      key: 'm21-3b-' + sv.p + '-' + sv.q + '-' + sv.m.join('_') + '-' + nn[0], data: { kind: 'two', s: sv.s, t0: sv.t[0], ans: [sv.t[1], sv.t[2]] }
+    };
+  }
+
+  /* المستوى 4 (تحدٍّ): معادلة جبرية + محيط */
+  function L4(r) {
+    var su, nm, a, c, x, t0, guard = 0;
+    do {
+      su = setup(r, 'tri'); t0 = su.t[0]; a = U.pick(r, [1, 2, 3]); x = U.ri(r, 2, 9); c = t0 - a * x; guard++;
+    } while (!(c >= 1 && c <= 12) && guard < 400);
+    nm = nameFor(r, 'tri');
+    var un = U.pick(r, ['cm', 'm']), expr = (a === 1 ? 'x' : a + 'x') + '+' + c, per = su.t[0] + su.t[1] + su.t[2];
+    var L1a = su.s.map(String), L2a = [expr, String(su.t[1]), String(su.t[2])];
+    var f = ftex(su.t[1], su.s[1]), eqA = '\\frac{' + expr + '}{' + su.s[0] + '}=\\frac{' + su.t[1] + '}{' + su.s[1] + '}';
+    var solSteps = [
+      { t: eqA, ar: 'الأضلاع المتناظرة متناسبة: نختار الضلع الذي فيه x وضلعاً آخر معلوماً في المثلثين.' },
+      { t: expr + '=' + su.s[0] + '\\times\\frac{' + su.t[1] + '}{' + su.s[1] + '}=' + t0, ar: 'نضرب طرفي المعادلة في ' + su.s[0] + '.' },
+      { t: (a === 1 ? 'x' : a + 'x') + '=' + t0 + '-' + c + '=' + (t0 - c) },
+      { box: 'x=' + x }, { t: 'P=' + t0 + '+' + su.t[1] + '+' + su.t[2], ar: 'الضلع الأول في المثلث الثاني يساوي ' + t0 + ' (قيمة ' + expr + ' عندما x=' + x + ').' }, { box: 'P=' + per }
+    ];
+    if (a !== 1) solSteps.splice(3, 0, { t: 'x=\\frac{' + (t0 - c) + '}{' + a + '}' });
+    return {
+      band: 21, level: 4, rtl: false, lang: 'en',
+      stem: 'Triangle \\(' + nm[0] + '\\) is similar to triangle \\(' + nm[1] + '\\), as shown. Find (a) the value of \\(x\\), (b) the perimeter \\(P\\) of triangle \\(' + nm[1] + '\\) (in ' + un + ').',
+      svg: polyFig('tri', su.p / su.q, L1a, L2a, nm[0].split(''), nm[1].split('')),
+      inputs: [{ lab: 'x=', ans: x, tol: 0.01, show: String(x) }, { lab: 'P=', ans: per, tol: 0.01, show: String(per) }],
+      note: 'اكتب العدد فقط في كل خانة: الأولى x والثانية المحيط P.',
+      fix: 'كوِّن تناسباً بين ضلعين في المثلث الثاني ومناظريهما في المثلث الأول، على أن يكون أحدهما الضلع الذي فيه x. ثم احسب x، ثم اجمع أضلاع المثلث الثاني.',
+      sol: solSteps,
+      hint: 'استعمل الضلعين المعلومين المتناظرين لإيجاد قيمة التعبير الذي فيه x، ثم حلّ المعادلة. بعدها اجمع أضلاع المثلث الثاني.',
+      key: 'm21-4-' + su.p + '-' + su.q + '-' + su.m.join('_') + '-' + a + '-' + c + '-' + nm[0],
+      data: { kind: 'alg', s: su.s, t1: su.t[1], t2: su.t[2], a: a, c: c, ans: [x, per] }
+    };
+  }
+  g.TmGen21 = Q;
+})(window);
+</script>
+<script>window.TM_CFG={gr:'g11-general',band:21,label:'البند 21',gen:'TmGen21'};</script>
+<script id="engine">/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط.
+   نسخة القالب الحي (mastery-9) مع إضافة واحدة: أسئلة مقالية تُجاب في خانة رياضية MathLive مع أزرار الرموز (q.inputs)، إلى جانب الاختيار من متعدد (q.opts). */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.skipped = Math.min(3, Math.max(0, +st.skipped || 0));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  /* ---------- قراءة ما يكتبه الطالب في الخانة الرياضية ---------- */
+  function wnorm(v) {
+    return String(v == null ? '' : v).replace(/[٠-٩]/g, function (c) { return c.charCodeAt(0) - 1632; }).replace(/[۰-۹]/g, function (c) { return c.charCodeAt(0) - 1776; })
+      .replace(/[٫]/g, '.').replace(/[−–—‒﹣－]/g, '-').replace(/[،]/g, ',').replace(/×|·/g, '*').replace(/÷/g, '/');
+  }
+  function num(v) {
+    var t = wnorm(v).replace(/\s+/g, '').replace(/(\d),(\d)/g, '$1.$2'); if (!t) return NaN;
+    t = t.replace(/sqrt\(/g, '√(').replace(/√(\d+(?:\.\d+)?)/g, 'R($1)').replace(/√\(/g, 'R(');
+    if (!/^[0-9.+\-*/()R]*$/.test(t)) return NaN;
+    t = t.replace(/(\d|\))(?=R|\()/g, '$1*').replace(/\)(?=\d)/g, ')*');
+    try { var x = Function('R', '"use strict";return (' + t + ')')(Math.sqrt); return typeof x === 'number' && isFinite(x) ? x : NaN; } catch (e) { return NaN; }
+  }
+  function wtex(v) {
+    var t = wnorm(v).trim(); if (!t) return '';
+    t = t.replace(/√\(([^()]*)\)/g, '\\sqrt{$1}').replace(/√(\d+(?:\.\d+)?)/g, '\\sqrt{$1}');
+    t = t.replace(/\(([^()]+)\)\/\(([^()]+)\)/g, '\\frac{$1}{$2}').replace(/(\d+(?:\.\d+)?|\\sqrt\{[^}]*\})\/(\d+(?:\.\d+)?)/g, '\\frac{$1}{$2}');
+    return t;
+  }
+  function wfromMF(mf) {
+    var a = (mf.getValue('ascii-math') || '').replace(/"/g, ' ').replace(/sqrt\(/g, '√(').replace(/\bxx\b|·|×/g, '*');
+    for (var k = 0; k < 3; k++) a = a.replace(/(^|[\/+\-*(\s])\(([\d.]+)\)/g, '$1$2');
+    return a.replace(/\s+/g, '').trim();
+  }
+  var WINS = { frac: '\\frac{#0}{#?}', sqrt: '\\sqrt{#0}', '−': '-', '(': '(', ')': ')' };
+  function wtools() {
+    var K = [['frac', '<span class="fr"><i></i><b></b><i></i></span>', 'كسر'], ['sqrt', '<span class="sq">√<i></i></span>', 'جذر'], ['−', '−', 'سالب'], ['(', '('], [')', ')'], ['L', '◀', 'خطوة إلى اليسار'], ['R', '▶', 'خطوة إلى اليمين']];
+    return '<div class="mtools"><span class="mt-l">أزرار الرموز:</span>' + K.map(function (k) { return '<button type="button" class="mk" data-k="' + k[0] + '"' + (k[2] ? ' aria-label="' + k[2] + '" title="' + k[2] + '"' : '') + '>' + k[1] + '</button>'; }).join('') + '<button type="button" class="mk" data-k="DEL" aria-label="حذف">⌫</button></div>';
+  }
+  var WLAST = null;
+  document.addEventListener('focusin', function (e) { if (e.target && e.target.classList && e.target.classList.contains('mf')) WLAST = e.target; });
+  document.addEventListener('mousedown', function (e) { if (e.target && e.target.closest && e.target.closest('.mk')) e.preventDefault(); });
+  document.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest && e.target.closest('.mk'); if (!b || b.closest('.mtools') == null) return;
+    var qd = b.closest('#stage'); if (!qd) return;
+    var mf = WLAST && qd.contains(WLAST) ? WLAST : qd.querySelector('math-field.mf'); if (!mf || !mf.executeCommand) return;
+    var k = b.dataset.k;
+    if (k === 'DEL') mf.executeCommand('deleteBackward');
+    else if (k === 'L') mf.executeCommand('moveToPreviousChar');
+    else if (k === 'R') mf.executeCommand('moveToNextChar');
+    else mf.executeCommand(['insert', WINS[k] || k, { insertionMode: 'replaceSelection', selectionMode: 'placeholder', focus: true }]);
+    mf.focus();
+  });
+  function wbad(inp) {
+    var w = inp.parentElement.querySelector('.pvbad'); if (!w) return; var v = inp.value.trim();
+    var typing = /^\/|\/$|\(\)|\/\)|\(\/|[-+*/]$/.test(v.replace(/\s/g, ''));
+    w.textContent = v && !typing && isNaN(num(v)) ? 'لا يمكن قراءة هذه الكتابة؛ راجعها، واستعمل أزرار الرموز للكسر والجذر.' : '';
+  }
+  function wmount(inp) {
+    var mf = document.createElement('math-field'); mf.className = 'mf'; mf.setAttribute('dir', 'ltr');
+    mf.setAttribute('math-virtual-keyboard-policy', 'manual'); mf.setAttribute('smart-mode', 'off'); mf.setAttribute('aria-label', 'خانة الإجابة');
+    inp.classList.add('hid'); inp.insertAdjacentElement('afterend', mf);
+    customElements.whenDefined('math-field').then(function () { try { MathfieldElement.soundsDirectory = null; MathfieldElement.plonkSound = null; MathfieldElement.keypressSound = null; } catch (e) {} });
+    mf.addEventListener('input', function () { inp.value = wfromMF(mf); wbad(inp); var any = false; document.querySelectorAll('.inp input.mi').forEach(function (i) { if (i.value.trim()) any = true; }); var c = $('#chk'); if (c) c.disabled = !any; });
+    return mf;
+  }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    var CORE = LV.length;
+    if (!round || round.idx >= ROUND || st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      if (st.level >= CORE) return;
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    var rem = q.remember ? '<p class="inote" style="margin-top:10px"><b>تذكّر:</b> ' + q.remember + '</p>' : '';
+    return '<h3>الحل التفصيلي</h3>' + rows + rem;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.svg) stage.appendChild(h('div', 'fig', q.svg));
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    if (q.inputs) {
+      var box = h('div', 'inps');
+      q.inputs.forEach(function (f, k) {
+        var r = h('div', 'inp', '<span class="lab">\\(' + f.lab + '\\)</span><input class="mi hid" inputmode="decimal" data-k="' + k + '" placeholder="?"><div class="pvbad"></div>');
+        box.appendChild(r);
+      });
+      stage.appendChild(box);
+      stage.insertAdjacentHTML('beforeend', wtools());
+      box.querySelectorAll('input.mi').forEach(function (i) { wmount(i); });
+      if (q.note) stage.appendChild(h('p', 'inote', q.note));
+      var cb = h('button', 'btn gold', 'تحقق من الإجابة'); cb.type = 'button'; cb.id = 'chk'; cb.disabled = true; cb.style.marginTop = '10px';
+      cb.addEventListener('click', checkInputs);
+      stage.appendChild(cb);
+    } else {
+      var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+      q.opts.forEach(function (o, i) {
+        var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+        b.type = 'button'; b.setAttribute('data-i', i);
+        b.addEventListener('click', function () { choose(i); });
+        opts.appendChild(b);
+      });
+      stage.appendChild(opts);
+    }
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+  }
+
+  function feedback(ok, whyHTML) {
+    var q = round.qs[round.idx];
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    box.innerHTML = ok ? '✓ إجابة صحيحة.' : '✗ إجابة غير صحيحة.' + whyHTML;
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    document.querySelectorAll('.opt').forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    var why = ok ? '' : ((q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '') + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>');
+    feedback(ok, why);
+  }
+
+  function checkInputs() {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var rows = document.querySelectorAll('.inp'), allOk = true, vals = [];
+    q.inputs.forEach(function (f, k) {
+      var inp = rows[k].querySelector('input.mi'), x = num(inp.value), good = !isNaN(x) && Math.abs(x - f.ans) <= f.tol;
+      vals.push(good); if (!good) allOk = false;
+      rows[k].classList.add(good ? 'right' : 'wrong');
+      var mf = rows[k].querySelector('math-field'); if (mf) mf.setAttribute('read-only', '');
+    });
+    round.answers[round.idx] = allOk ? 1 : 0;
+    if (allOk) round.correct++;
+    $('#chk').hidden = true;
+    var why = '';
+    if (!allOk) {
+      why = '<span class="why">الإجابة الصحيحة:</span>' + q.inputs.map(function (f, k) { return vals[k] ? '' : '<span class="corr">\\(' + f.lab + f.show + '\\)</span>'; }).join('');
+      if (q.fix) why = '<span class="why">' + q.fix + '</span>' + why;
+    }
+    feedback(allOk, why);
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0; st.skipped = 0;
+      if (lvl < 4) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; st.skipped = 0; persist(); window.scrollTo(0, 0); newRound(); });
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && st.skipped < LV.length && lvl === LV.length) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); renderSkip(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  var WA = { "g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6" };
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+</script>
+<script id="mf-touch">(function(){if(window.__mfTouch)return;window.__mfTouch=1;
+var touch=(navigator.maxTouchPoints>0)||(window.matchMedia&&matchMedia('(pointer:coarse)').matches);
+if(!touch)return;
+var st=document.createElement('style');
+st.textContent='.mtools.mpad{justify-content:center;margin:2px 0 4px}.mtools.mpad .mk{min-width:46px;height:46px;font-size:22px;font-weight:700;touch-action:manipulation}@media(max-width:420px){.mtools.mpad .mk{min-width:40px}}';
+document.head.appendChild(st);
+var KEYS=['1','2','3','4','5','6','7','8','9','0','.','/'];
+function build(){var d=document.createElement('div');d.className='mtools mpad';d.setAttribute('role','group');d.setAttribute('aria-label','أزرار الأرقام');
+ KEYS.forEach(function(k){var b=document.createElement('button');b.type='button';b.className='mk';b.dataset.k=k;b.textContent=k;d.appendChild(b);});return d;}
+function scan(){var ts=document.querySelectorAll('.mtools');
+ for(var i=0;i<ts.length;i++){var t=ts[i];if(t.classList.contains('mpad'))continue;var n=t.nextElementSibling;if(n&&n.classList.contains('mpad'))continue;
+  var box=t.parentElement;if(!box)continue;
+  var mf=box.querySelector('math-field.mf:not([read-only])');if(!mf)continue;
+  t.insertAdjacentElement('afterend',build());}}
+var q=0;function sched(){if(q)return;q=requestAnimationFrame(function(){q=0;scan();});}
+new MutationObserver(sched).observe(document.body,{childList:true,subtree:true});
+scan();
+})();</script>
+<script src="/nav.js?v=11"></script>
+</body></html>

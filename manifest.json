@@ -6354,6 +6354,21 @@
    "path": "g10-advanced/band-4/index.html",
    "src": "site/g10-advanced/band-4/index.html",
    "sha256": "3b7f0d6050501a1d2479d74a4a2284dfab9dd5a139f51df1e035e9453926c980"
+  },
+  {
+   "path": "g11-general/mastery-21/index.html",
+   "src": "site/g11-general/mastery-21/index.html",
+   "sha256": "96574e62f229a5211fd2380a27eb861a74c6876cc84c9112a5e104b1aa0dcd74"
+  },
+  {
+   "path": "g11-general/mastery-23/index.html",
+   "src": "site/g11-general/mastery-23/index.html",
+   "sha256": "d780304ddb1a732a65c3877d5d73a408f9c8e24b897b84ffee41e8cfbb1b5e83"
+  },
+  {
+   "path": "g11-general/mastery-24/index.html",
+   "src": "site/g11-general/mastery-24/index.html",
+   "sha256": "82b38b6ceb562571e32f06b696b1b673bb247e7c2a8721f827bd8063dd5f6cf1"
   }
  ]
 }

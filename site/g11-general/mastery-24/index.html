@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>تدرّب بإتقان: زاويتا الارتفاع والانخفاض | الحادي عشر عام | أكاديمية طه للرياضيات</title><meta name="robots" content="noindex">
+<style>:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn:disabled{opacity:.45;cursor:default}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+/* خانات الإجابة المقالية: MathLive مع أزرار الرموز (قاعدة خانات الرموز في الأسئلة المقالية) */
+.inps{display:flex;flex-direction:column;gap:10px;margin:10px 0 4px}
+.inp{direction:ltr;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:2px solid var(--line);border-radius:12px;padding:8px 12px;background:#fff}
+.inp .lab{direction:ltr;flex:1 1 150px;min-width:0;text-align:left}
+.inp input.hid{display:none}
+math-field.mf{min-width:130px;min-height:44px;font-size:21px;border:1.5px solid #8FA3BF;border-radius:8px;padding:2px 8px;background:#fff;color:var(--navy);direction:ltr;--caret-color:var(--navy);--selection-background-color:#DCE6F5;--placeholder-color:#8FA3BF}
+math-field.mf:focus-within{border-color:var(--gold);box-shadow:0 0 0 2px #F0E3BC;outline:none}
+math-field.mf::part(menu-toggle),math-field.mf::part(virtual-keyboard-toggle){display:none}
+math-field.mf[read-only]{pointer-events:none}
+.inp.right{border-color:var(--green);background:var(--greenl)}.inp.right math-field.mf{border-color:var(--green);background:var(--greenl)}
+.inp.wrong{border-color:var(--red);background:var(--redl)}.inp.wrong math-field.mf{border-color:var(--red);background:var(--redl)}
+.pvbad{width:100%;direction:rtl;text-align:right;color:#B3261E;font-weight:700;font-size:13px}.pvbad:empty{display:none}
+.inote{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin:6px 0 0}
+.mtools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0 4px;direction:ltr}
+.mtools .mt-l{font-size:13px;color:var(--grey);direction:rtl;flex-basis:100%;text-align:right}
+.mtools .mk{min-width:42px;height:42px;padding:0 9px;background:var(--cream);color:var(--navy);border:1.5px solid var(--gold);border-radius:9px;font-family:'Times New Roman',serif;font-size:22px;cursor:pointer;font-weight:400}
+.mtools .mk .fr{display:inline-flex;flex-direction:column;align-items:center;gap:2px;vertical-align:middle}
+.mtools .mk .fr i{width:11px;height:9px;border:1.5px solid var(--navy);border-radius:2px}.mtools .mk .fr b{width:17px;border-top:2px solid var(--navy);display:block}
+.mtools .mk .sq i{display:inline-block;width:13px;height:12px;border:1.5px solid var(--navy);border-radius:2px;margin-inline-start:1px;box-shadow:0 -3px 0 -1.5px var(--navy);vertical-align:-1px}
+mjx-container[jax="SVG"]{max-width:100%}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},startup:{typeset:false}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathlive@0.98.6/dist/mathlive.min.js"></script>
+<link rel="canonical" href="https://tahamath.com/g11-general/mastery-24/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head><body>
+<header class="top"><div class="in"><h1>تدرّب بإتقان</h1><div class="sub">البند <bdi dir="ltr">24</bdi>: زاويتا الارتفاع والانخفاض</div></div></header>
+<main class="wrap">
+<ol class="path" id="path"><li></li><li></li><li></li><li></li></ol>
+<div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+<section class="box" id="stage" aria-live="polite"></section>
+<p class="note">مستويات متدرجة من الأساسي إلى التحدّي. في كل جولة 5 أسئلة، والمطلوب 4 إجابات صحيحة للانتقال إلى المستوى التالي. تُحفظ نتائجك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>/* أدوات مشتركة للمولّدات + رسم SVG */
+(function (g) {
+  function mulberry(a) { return function () { a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  var NAVY = '#1E3A6C', INK = '#0E1C3A', GOLD = '#B8902F', GREY = '#5A6472';
+  var U = {
+    rng: mulberry,
+    ri: function (r, a, b) { return a + Math.floor(r() * (b - a + 1)); },
+    pick: function (r, a) { return a[Math.floor(r() * a.length)]; },
+    shuf: function (r, a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; },
+    r1: function (x) { return Math.round(x * 10) / 10; },
+    rad: function (d) { return d * Math.PI / 180; },
+    deg: function (x) { return x * 180 / Math.PI; },
+    gcd: function (a, b) { return b ? U.gcd(b, a % b) : a; },
+    /* بعيد عن حدّ التقريب (لا يقع الناتج قرب x.x5) */
+    safe1: function (x) { var f = x * 10 - Math.floor(x * 10); return Math.abs(f - 0.5) > 0.06; },
+    safe0: function (x) { var f = x - Math.floor(x); return Math.abs(f - 0.5) > 0.06; },
+    tol: function (a) { return Math.max(0.101, Math.round(a * 4) / 1000 + 0.0005); },
+    NAVY: NAVY, INK: INK
+  };
+  var S = {};
+  S.open = function (w, h) { return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ' + w + ' ' + h + '" width="' + w + '" height="' + h + '" role="img" style="max-width:100%;height:auto" font-family="\'Times New Roman\',serif" font-size="16" fill="' + INK + '">'; };
+  S.line = function (x1, y1, x2, y2, o) { o = o || {}; return '<line x1="' + x1.toFixed(1) + '" y1="' + y1.toFixed(1) + '" x2="' + x2.toFixed(1) + '" y2="' + y2.toFixed(1) + '" stroke="' + (o.c || NAVY) + '" stroke-width="' + (o.w || 2.2) + '"' + (o.dash ? ' stroke-dasharray="5 4"' : '') + ' stroke-linecap="round"/>'; };
+  S.text = function (x, y, s, o) { o = o || {}; return '<text x="' + x.toFixed(1) + '" y="' + y.toFixed(1) + '" text-anchor="' + (o.a || 'middle') + '" dominant-baseline="middle"' + (o.it === false ? '' : ' font-style="italic"') + (o.c ? ' fill="' + o.c + '"' : '') + (o.sz ? ' font-size="' + o.sz + '"' : '') + '>' + s + '</text>'; };
+  /* قوس حول (cx,cy) بنصف قطر r من الزاوية a0 إلى a1 (درجات، عكس عقارب الساعة موجبة) */
+  S.arc = function (cx, cy, r, a0, a1, c) {
+    var p0 = [cx + r * Math.cos(U.rad(a0)), cy - r * Math.sin(U.rad(a0))], p1 = [cx + r * Math.cos(U.rad(a1)), cy - r * Math.sin(U.rad(a1))];
+    return '<path d="M' + p0[0].toFixed(1) + ' ' + p0[1].toFixed(1) + ' A' + r + ' ' + r + ' 0 0 ' + (a1 > a0 ? 0 : 1) + ' ' + p1[0].toFixed(1) + ' ' + p1[1].toFixed(1) + '" fill="none" stroke="' + (c || GOLD) + '" stroke-width="2.2"/>';
+  };
+  S.dot = function (x, y, r, c) { return '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (r || 4) + '" fill="' + (c || NAVY) + '"/>'; };
+  S.pt = function (a, b) { return a.toFixed(1) + ',' + b.toFixed(1); };
+  /* موضع تسمية الزاوية عند الرأس (x0,y0): زاوية صغيرة تحت القاعدة، كبيرة يسار الرأس، وإلا على المنصّف */
+  S.angLabel = function (x0, y0, th, flip) {
+    var d = flip ? -1 : 1;
+    if (th < 28) return [x0 + d * 62, y0 + 16];
+    if (th > 60) return [x0 - d * 30, y0 - 10];
+    return [x0 + d * 47 * Math.cos(U.rad(th / 2)), y0 - 47 * Math.sin(U.rad(th / 2))];
+  };
+  g.TmU = U; g.TmS = S;
+})(window);
+</script>
+<script>/* البند 24 (الدرس 4-6): زاويتا الارتفاع والانخفاض */
+(function (g) {
+  var U = g.TmU, S = g.TmS;
+  var LEVELS = [{ id: 1, ar: 'أساسي' }, { id: 2, ar: 'متوسط' }, { id: 3, ar: 'متقدم' }, { id: 4, ar: 'مستوى الوزارة' }];
+  var W = 330, H = 215, GY = 185;
+  function tn(d) { return Math.tan(U.rad(d)); }
+  function ct(d) { return 1 / Math.tan(U.rad(d)); }
+
+  /* رسم المشهد */
+  function edSvg(o) {
+    var s = S.open(W, H), t, dx, dy;
+    s += S.line(10, GY, 320, GY, { c: '#8FA3BF', w: 2 });
+    if (o.type === 'elev') {
+      t = tn(o.theta); dx = Math.max(25, Math.min(200, 120 / t)); dy = dx * t;
+      var ox = (W - dx) / 2 - 8, tx = ox + dx, ey = GY - (o.eyeLab ? 30 : 0), ty = ey - dy;
+      s += S.line(tx, GY, tx, ty, { w: 3 });
+      s += S.line(ox, ey, tx, ty) + S.line(ox, ey, tx, ey, { dash: true, c: '#8FA3BF', w: 1.6 });
+      if (o.eyeLab) { s += S.line(ox, GY, ox, ey, { w: 3 }) + S.dot(ox, ey - 5, 6) + S.text(ox - 14, (GY + ey) / 2, o.eyeLab); }
+      else s += S.dot(ox, ey, 4);
+      var ll = o.theta < 24 ? [ox + 62, ey + 15] : o.theta > 58 ? [ox - 34, ey - 12] : [ox + 58 * Math.cos(U.rad(o.theta / 2)), ey - 58 * Math.sin(U.rad(o.theta / 2))];
+      s += S.arc(ox, ey, 34, 0, o.theta) + S.text(ll[0], ll[1], o.ang, { it: false });
+      s += S.text(tx + 8, (GY + ty) / 2, o.tow || '', { a: 'start' }) + S.text((ox + tx) / 2, GY + 17, o.dist || '');
+      if (o.sight) s += S.text((ox + tx) / 2 - 14, (ey + ty) / 2 - 14, o.sight);
+      s += '<path d="M' + S.pt(tx - 11, GY) + ' L' + S.pt(tx - 11, GY - 11) + ' L' + S.pt(tx, GY - 11) + '" fill="none" stroke="' + U.NAVY + '" stroke-width="1.5"/>';
+    } else if (o.type === 'dep') {
+      t = tn(o.theta); var lr = o.lowRatio || 0; dx = Math.max(25, Math.min(200, 125 / (t * (1 + lr)))); dy = dx * t;
+      var cx = (W - dx) / 2 - 12, bx = cx + dx, cy = GY - dy * (1 + lr), ry = cy + dy;
+      s += S.line(cx, GY, cx, cy, { w: 3 });
+      s += S.line(cx, cy, bx, ry) + S.line(cx, cy, bx + 30, cy, { dash: true, c: '#8FA3BF', w: 1.6 });
+      if (lr) s += S.line(bx, GY, bx, ry, { w: 3 }) + S.dot(bx, ry, 4, '#C0392B') + S.text(bx + 10, (GY + ry) / 2, o.roofLab || '', { a: 'start' }); else s += S.dot(bx, GY - 5, 6, '#C0392B');
+      var dl = o.theta < 24 ? [cx + 62, cy - 14] : o.theta > 58 ? [cx - 34, cy + 14] : [cx + 62 * Math.cos(U.rad(o.theta / 2)), cy + 62 * Math.sin(U.rad(o.theta / 2))];
+      s += S.arc(cx, cy, 36, 0, -o.theta) + S.text(dl[0], dl[1], o.ang, { it: false });
+      s += S.text(cx - 8, (GY + cy) / 2, o.tow || '', { a: 'end' }) + S.text((cx + bx) / 2, GY + 17, o.dist || '');
+      if (o.sight) s += S.text((cx + bx) / 2 + 16, (cy + GY) / 2 - 12, o.sight);
+    } else if (o.type === 'elev2') {
+      var sc = Math.min(230 / (o.x + o.d), 135 / o.h), tx2 = 290, bB = tx2 - o.x * sc, bA = tx2 - (o.x + o.d) * sc, ty2 = GY - o.h * sc;
+      s += S.line(tx2, GY, tx2, ty2, { w: 3 }) + S.line(bA, GY, tx2, ty2) + S.line(bB, GY, tx2, ty2);
+      s += S.dot(bA, GY, 4) + S.dot(bB, GY, 4) + S.text(bA, GY + 17, 'A', { it: true }) + S.text(bB, GY + 17, 'B', { it: true });
+      s += S.arc(bA, GY, 38, 0, o.a, '#8A6A12') + S.text(bA + 66 * Math.cos(U.rad(o.a / 2)), GY - 66 * Math.sin(U.rad(o.a / 2)), o.aLab, { it: false, c: '#8A6A12', sz: 14 });
+      s += S.arc(bB, GY, 26, 0, o.b, '#C0392B') + S.text(bB + 42 * Math.cos(U.rad(o.b / 2)), GY - 42 * Math.sin(U.rad(o.b / 2)), o.bLab, { it: false, c: '#C0392B', sz: 14 });
+      s += S.text(tx2 + 8, (GY + ty2) / 2, o.hLab, { a: 'start' }) + S.text((bA + bB) / 2, GY + 17, o.dLab) + S.text((bB + tx2) / 2, GY + 17, o.xLab || '');
+    } else if (o.type === 'dep2') {
+      var sc2 = Math.min(230 / o.x2, 135 / o.H), cx3 = 40, ty3 = GY - o.H * sc2, b1 = cx3 + o.x1 * sc2, b2 = cx3 + o.x2 * sc2;
+      s += S.line(cx3, GY, cx3, ty3, { w: 3 }) + S.line(cx3, ty3, b1, GY) + S.line(cx3, ty3, b2, GY) + S.line(cx3, ty3, b2 + 18, ty3, { dash: true, c: '#8FA3BF', w: 1.6 });
+      s += S.dot(b1, GY - 5, 6, '#C0392B') + S.dot(b2, GY - 5, 6, '#C0392B') + S.text(b1, GY + 17, o.b1Lab || '') + S.text(b2, GY + 17, o.b2Lab || '');
+      s += S.arc(cx3, ty3, 44, 0, -o.a, '#8A6A12') + S.text(cx3 + 76 * Math.cos(U.rad(o.a / 2)), ty3 + 76 * Math.sin(U.rad(o.a / 2)), o.aLab, { it: false, c: '#8A6A12', sz: 14 });
+      s += S.arc(cx3, ty3, 26, 0, -o.b, '#C0392B') + S.text(cx3 + 76 * Math.cos(U.rad((o.a + o.b) / 2)), ty3 + 76 * Math.sin(U.rad((o.a + o.b) / 2)), o.bLab, { it: false, c: '#C0392B', sz: 14 });
+      s += S.text(cx3 - 8, (GY + ty3) / 2, o.HLab, { a: 'end' }) + S.text((b1 + b2) / 2, GY + 17, o.dLab);
+    }
+    return s + '</svg>';
+  }
+
+  var Q = { band: 24, levels: LEVELS, make: function (level, rng) { var r = rng || Math.random; return level === 1 ? L1(r) : level === 2 ? L2(r) : level === 3 ? L3(r) : L4(r); } };
+  function eqs(a) { return a.map(function (v) { return { t: v }; }); }
+
+  /* المستوى 1: اختيار المعادلة الصحيحة */
+  function L1(r) {
+    var kind = U.pick(r, ['elevH', 'depD', 'elevD', 'elevL']), th, v, tries = 0, flip;
+    var cands, good, T, svgo, stem, sol, hint;
+    do { th = U.ri(r, 20, 70); } while (th === 45);
+    v = kind === 'elevD' ? U.ri(r, 8, 30) : kind === 'elevL' ? U.ri(r, 8, 25) : U.ri(r, 10, 90);
+    var val = { tan: Math.tan(U.rad(th)), sin: Math.sin(U.rad(th)), cos: Math.cos(U.rad(th)) };
+    function num(f) { return f; }
+    var d = {
+      elevH: { x: 'h', given: v, gAr: 'المسافة الأفقية d', stem: 'A person standing on level ground ' + v + ' m from the foot of a vertical tower measures the angle of elevation of the top of the tower as ' + th + '°. Which equation can be used to find the height h of the tower?',
+        good: 'h=' + v + '\\tan ' + th + '^\\circ', c: ['h=\\frac{' + v + '}{\\tan ' + th + '^\\circ}', 'h=' + v + '\\sin ' + th + '^\\circ', 'h=' + v + '\\cos ' + th + '^\\circ'],
+        v: [v * val.tan, v / val.tan, v * val.sin, v * val.cos], svg: { type: 'elev', theta: th, ang: th + '°', tow: 'h', dist: String(v) },
+        sol: [{ t: '\\tan ' + th + '^\\circ=\\frac{h}{' + v + '}', ar: 'الارتفاع h مقابل لزاوية الارتفاع والمسافة ' + v + ' مجاورة لها، فنستعمل tan.' }, { box: 'h=' + v + '\\tan ' + th + '^\\circ' }] },
+      depD: { stem: 'From the top of a vertical cliff ' + v + ' m high, the angle of depression of a boat on the sea is ' + th + '°. Which equation can be used to find the horizontal distance d from the boat to the foot of the cliff?',
+        good: 'd=\\frac{' + v + '}{\\tan ' + th + '^\\circ}', c: ['d=' + v + '\\tan ' + th + '^\\circ', 'd=' + v + '\\sin ' + th + '^\\circ', 'd=\\frac{' + v + '}{\\sin ' + th + '^\\circ}'],
+        v: [v / val.tan, v * val.tan, v * val.sin, v / val.sin], svg: { type: 'dep', theta: th, ang: th + '°', tow: String(v), dist: 'd' },
+        sol: [{ t: '\\tan ' + th + '^\\circ=\\frac{' + v + '}{d}', ar: 'زاوية الانخفاض تساوي زاوية الارتفاع من القارب إلى القمة (زاويتان متبادلتان)، والارتفاع ' + v + ' مقابل لها وd مجاورة لها.' }, { box: 'd=\\frac{' + v + '}{\\tan ' + th + '^\\circ}' }] },
+      elevD: { stem: 'A vertical flagpole is ' + v + ' m high. From a point on level ground, the angle of elevation of the top of the pole is ' + th + '°. Which equation can be used to find the horizontal distance d from the point to the foot of the pole?',
+        good: 'd=\\frac{' + v + '}{\\tan ' + th + '^\\circ}', c: ['d=' + v + '\\tan ' + th + '^\\circ', 'd=' + v + '\\cos ' + th + '^\\circ', 'd=\\frac{' + v + '}{\\cos ' + th + '^\\circ}'],
+        v: [v / val.tan, v * val.tan, v * val.cos, v / val.cos], svg: { type: 'elev', theta: th, ang: th + '°', tow: String(v), dist: 'd' },
+        sol: [{ t: '\\tan ' + th + '^\\circ=\\frac{' + v + '}{d}', ar: 'الارتفاع ' + v + ' مقابل لزاوية الارتفاع والمسافة d مجاورة لها، فنستعمل tan.' }, { box: 'd=\\frac{' + v + '}{\\tan ' + th + '^\\circ}' }] },
+      elevL: { stem: 'A cable is stretched from the top of a vertical pole ' + v + ' m high to a point on level ground. The cable makes an angle of ' + th + '° with the ground. Which equation can be used to find the length L of the cable?',
+        good: 'L=\\frac{' + v + '}{\\sin ' + th + '^\\circ}', c: ['L=' + v + '\\sin ' + th + '^\\circ', 'L=\\frac{' + v + '}{\\cos ' + th + '^\\circ}', 'L=' + v + '\\tan ' + th + '^\\circ'],
+        v: [v / val.sin, v * val.sin, v / val.cos, v * val.tan], svg: { type: 'elev', theta: th, ang: th + '°', tow: String(v), dist: '', sight: 'L' },
+        sol: [{ t: '\\sin ' + th + '^\\circ=\\frac{' + v + '}{L}', ar: 'الارتفاع ' + v + ' مقابل للزاوية ' + th + '° والكابل هو الوتر L، فنستعمل sin.' }, { box: 'L=\\frac{' + v + '}{\\sin ' + th + '^\\circ}' }] }
+    }[kind];
+    var vals = d.v, okVals = true;
+    for (var i = 1; i < vals.length; i++) if (Math.abs(vals[i] - vals[0]) < 0.3) okVals = false;
+    if (!okVals) return L1(r);
+    var ks = U.shuf(r, [0, 1, 2, 3]), all = [d.good].concat(d.c);
+    var cf = (d.good.match(/(sin|cos|tan)/) || [])[1];
+    var opts = ks.map(function (k) { var of = (all[k].match(/(sin|cos|tan)/) || [])[1]; return { t: all[k], why: k === 0 ? '' : (of !== cf ? 'هذه المعادلة تستعمل ' + of + '، لكن الضلعين المعطى والمطلوب بالنسبة إلى الزاوية ' + th + '° يرتبطان بالنسبة ' + cf + '.' : 'النسبة المثلثية مناسبة لكن موضع الضلعين معكوس: راجع أيهما المقابل وأيهما المجاور أو الوتر.') }; });
+    return {
+      band: 24, level: 1, rtl: false, lang: 'en', stem: d.stem, svg: edSvg(d.svg), opts: opts, ans: ks.indexOf(0), sol: d.sol,
+      hint: 'سمِّ الضلعين بالنسبة إلى الزاوية (مقابل أو مجاور أو وتر) ثم اختر النسبة المثلثية التي تجمعهما.' + (kind === 'depD' ? ' زاوية الانخفاض تُقاس نحو الأسفل من الخط الأفقي.' : ''),
+      remember: kind === 'depD' ? 'زاوية الانخفاض من النقطة العليا تساوي زاوية الارتفاع من النقطة السفلى (زاويتان متبادلتان).' : 'زاوية الارتفاع تُقاس من الخط الأفقي إلى خط النظر نحو الأعلى.',
+      key: 'm24-1-' + kind + '-' + th + '-' + v, data: { kind: 'eq', k: kind, theta: th, v: v, vals: vals }
+    };
+  }
+
+  /* المستوى 2: خطوة واحدة */
+  function L2(r) {
+    var kind = U.pick(r, ['elevH', 'depD', 'elevD', 'elevL', 'depH']), th, v, x, tries = 0;
+    do { th = U.ri(r, 18, 68); if (th === 45) th = 46; v = kind === 'elevL' ? U.ri(r, 8, 25) : U.ri(r, 12, 90); var T = tn(th), Sn = Math.sin(U.rad(th));
+      x = { elevH: v * T, depD: v / T, elevD: v / T, elevL: v / Sn, depH: v * T }[kind]; tries++; } while (!(U.safe1(x) && x > 3 && x < (kind === 'elevH' || kind === 'depH' ? 80 : 120)) && tries < 600);
+    var ans = U.r1(x), stem, svgo, eq, ex, ar, lab;
+    if (kind === 'elevH') {
+      stem = 'From a point on level ground ' + v + ' m from the foot of a vertical tower, the angle of elevation of the top of the tower is ' + th + '°. Find the height h of the tower. Round your answer to the nearest tenth.';
+      svgo = { type: 'elev', theta: th, ang: th + '°', tow: 'h', dist: String(v) }; eq = '\\tan ' + th + '^\\circ=\\frac{h}{' + v + '}'; ex = 'h=' + v + '\\tan ' + th + '^\\circ'; ar = 'الارتفاع h مقابل للزاوية والمسافة ' + v + ' مجاورة لها، فنستعمل tan.'; lab = 'h=';
+    } else if (kind === 'depD') {
+      stem = 'From the top of a vertical cliff ' + v + ' m high, the angle of depression of a boat is ' + th + '°. Find the horizontal distance d from the boat to the foot of the cliff. Round your answer to the nearest tenth.';
+      svgo = { type: 'dep', theta: th, ang: th + '°', tow: String(v), dist: 'd' }; eq = '\\tan ' + th + '^\\circ=\\frac{' + v + '}{d}'; ex = 'd=\\frac{' + v + '}{\\tan ' + th + '^\\circ}'; ar = 'زاوية الانخفاض ' + th + '° تساوي زاوية الارتفاع من القارب إلى قمة الجرف. الارتفاع ' + v + ' مقابل لها وd مجاورة لها.'; lab = 'd=';
+    } else if (kind === 'elevD') {
+      stem = 'A vertical lighthouse is ' + v + ' m high. From a point on level ground the angle of elevation of the top of the lighthouse is ' + th + '°. Find the horizontal distance d from the point to the foot of the lighthouse. Round your answer to the nearest tenth.';
+      svgo = { type: 'elev', theta: th, ang: th + '°', tow: String(v), dist: 'd' }; eq = '\\tan ' + th + '^\\circ=\\frac{' + v + '}{d}'; ex = 'd=\\frac{' + v + '}{\\tan ' + th + '^\\circ}'; ar = 'الارتفاع ' + v + ' مقابل للزاوية والمسافة d مجاورة لها، فنستعمل tan.'; lab = 'd=';
+    } else if (kind === 'elevL') {
+      stem = 'A support cable is fixed to the top of a vertical pole ' + v + ' m high and to a point on level ground. The cable makes an angle of ' + th + '° with the ground. Find the length L of the cable. Round your answer to the nearest tenth.';
+      svgo = { type: 'elev', theta: th, ang: th + '°', tow: String(v), dist: '', sight: 'L' }; eq = '\\sin ' + th + '^\\circ=\\frac{' + v + '}{L}'; ex = 'L=\\frac{' + v + '}{\\sin ' + th + '^\\circ}'; ar = 'الارتفاع ' + v + ' مقابل للزاوية والكابل هو الوتر L، فنستعمل sin.'; lab = 'L=';
+    } else {
+      stem = 'From the top of a vertical tower, the angle of depression of a point on level ground ' + v + ' m from the foot of the tower is ' + th + '°. Find the height h of the tower. Round your answer to the nearest tenth.';
+      svgo = { type: 'dep', theta: th, ang: th + '°', tow: 'h', dist: String(v) }; eq = '\\tan ' + th + '^\\circ=\\frac{h}{' + v + '}'; ex = 'h=' + v + '\\tan ' + th + '^\\circ'; ar = 'زاوية الانخفاض ' + th + '° تساوي زاوية الارتفاع من النقطة على الأرض إلى قمة البرج. الارتفاع h مقابل لها والمسافة ' + v + ' مجاورة لها.'; lab = 'h=';
+    }
+    return {
+      band: 24, level: 2, rtl: false, lang: 'en', stem: stem, svg: edSvg(svgo),
+      inputs: [{ lab: lab, ans: ans, tol: U.tol(ans), show: String(ans) + '\\,\\text{m}' }],
+      note: 'اكتب العدد فقط (بلا وحدة). اضبط الآلة على الدرجات (DEG).',
+      fix: 'ارسم المثلث القائم وحدّد الضلع المقابل والمجاور والوتر بالنسبة إلى الزاوية ' + th + '°، ثم اختر النسبة المناسبة.',
+      sol: [{ t: eq, ar: ar }, { t: ex }, { box: lab.replace('=', '') + '\\approx ' + ans }],
+      hint: 'ارسم مثلثاً قائماً: الخط الأفقي والخط الرأسي وخط النظر.' + (kind === 'depD' || kind === 'depH' ? ' زاوية الانخفاض تُقاس نحو الأسفل من الخط الأفقي.' : ''),
+      key: 'm24-2-' + kind + '-' + th + '-' + v, data: { kind: 'one', k: kind, theta: th, v: v, ans: ans }
+    };
+  }
+
+  /* المستوى 3: خطوتان أو زاوية */
+  var FIXM = { eye: 'هل أضفت ارتفاع العينين عن الأرض إلى الجزء الذي حسبته من المثلث القائم؟', build: 'المقابل لزاوية الانخفاض هو الفرق بين ارتفاعي المبنيين، لا ارتفاع المبنى الأعلى وحده.', angE: 'راجع النسبة: الارتفاع مقابل لزاوية الارتفاع والمسافة مجاورة لها، ثم استعمل الدالة العكسية.', angD: 'راجع النسبة: الارتفاع مقابل لزاوية الانخفاض والمسافة مجاورة لها، ثم استعمل الدالة العكسية.' };
+  function L3(r) {
+    var kind = U.pick(r, ['eye', 'angE', 'angD', 'build']), th, d, e, h, x, ans, tries = 0, q;
+    if (kind === 'eye') {
+      do { th = U.ri(r, 22, 62); d = U.ri(r, 15, 60); e = U.pick(r, [1.5, 1.6, 1.7, 1.8, 2]); x = d * tn(th) + e; tries++; } while (!(U.safe1(x)) && tries < 300);
+      ans = U.r1(x);
+      return mk('From a point on level ground ' + d + ' m from the foot of a building, a person whose eyes are ' + e + ' m above the ground measures the angle of elevation of the top of the building as ' + th + '°. Find the height h of the building above the ground. Round your answer to the nearest tenth.',
+        { type: 'elev', theta: th, ang: th + '°', tow: 'h', dist: String(d), eyeLab: String(e) }, 'h=', ans, 'm',
+        [{ t: '\\tan ' + th + '^\\circ=\\frac{h-' + e + '}{' + d + '}', ar: 'نحسب أولاً الارتفاع فوق مستوى العينين، ثم نضيف ارتفاع العينين عن الأرض ' + e + ' m.' }, { t: 'h-' + e + '=' + d + '\\tan ' + th + '^\\circ' }, { t: 'h=' + d + '\\tan ' + th + '^\\circ+' + e }, { box: 'h\\approx ' + ans }],
+        'ارتفاع المبنى = ارتفاع العينين عن الأرض + الجزء الذي فوق مستوى العينين. أي مثلث قائم يعطيك هذا الجزء؟', { kind: 'eye', theta: th, d: d, e: e, ans: ans }, 'm24-3-eye-' + th + '-' + d + '-' + e, 0.06);
+    }
+    if (kind === 'build') {
+      do { th = U.ri(r, 20, 55); d = U.ri(r, 15, 50); h = U.ri(r, 30, 70); x = h - d * tn(th); tries++; } while (!(U.safe1(x) && x > 4 && x / (h - x) <= 3) && tries < 600);
+      ans = U.r1(x);
+      return mk('From the top of a building ' + h + ' m high, the angle of depression of the top of a shorter building is ' + th + '°. The horizontal distance between the two buildings is ' + d + ' m. Find the height H of the shorter building. Round your answer to the nearest tenth.',
+        { type: 'dep', theta: th, ang: th + '°', tow: String(h), dist: String(d), lowRatio: (h - 0) ? (Math.max(0, x) / (h - x)) : 0, roofLab: 'H' }, 'H=', ans, 'm',
+        [{ t: '\\tan ' + th + '^\\circ=\\frac{' + h + '-H}{' + d + '}', ar: 'الفرق بين ارتفاعي المبنيين (' + h + '−H) هو الضلع المقابل لزاوية الانخفاض، والمسافة ' + d + ' مجاورة لها.' }, { t: h + '-H=' + d + '\\tan ' + th + '^\\circ' }, { t: 'H=' + h + '-' + d + '\\tan ' + th + '^\\circ' }, { box: 'H\\approx ' + ans }],
+        'الفرق بين ارتفاعي المبنيين مقابل لزاوية الانخفاض، والمسافة بين المبنيين مجاورة لها.', { kind: 'build', theta: th, d: d, h: h, ans: ans }, 'm24-3-bld-' + th + '-' + d + '-' + h, 0.06);
+    }
+    if (kind === 'angE') {
+      do { h = U.ri(r, 8, 60); d = U.ri(r, 10, 80); x = U.deg(Math.atan(h / d)); tries++; } while (!(U.safe0(x) && x >= 12 && x <= 72 && h !== d) && tries < 400);
+      ans = Math.round(x);
+      return mk('A vertical tower is ' + h + ' m high. From a point on level ground ' + d + ' m from the foot of the tower, find the angle of elevation \\(\\theta\\) of the top of the tower. Round your answer to the nearest degree.',
+        { type: 'elev', theta: x, ang: 'θ', tow: String(h), dist: String(d) }, '\\theta=', ans, '^\\circ',
+        [{ t: '\\tan\\theta=\\frac{' + h + '}{' + d + '}', ar: 'الارتفاع ' + h + ' مقابل لزاوية الارتفاع والمسافة ' + d + ' مجاورة لها.' }, { t: '\\theta=\\tan^{-1}\\!\\left(\\frac{' + h + '}{' + d + '}\\right)' }, { box: '\\theta\\approx ' + ans + '^\\circ' }],
+        'المطلوب زاوية، فاستعمل tan⁻¹ بعد كتابة النسبة مقابل ÷ مجاور.', { kind: 'angE', h: h, d: d, ans: ans }, 'm24-3-angE-' + h + '-' + d, 0.49);
+    }
+    do { h = U.ri(r, 12, 80); d = U.ri(r, 15, 90); x = U.deg(Math.atan(h / d)); tries++; } while (!(U.safe0(x) && x >= 12 && x <= 72 && h !== d) && tries < 400);
+    ans = Math.round(x);
+    return mk('From the top of a vertical cliff ' + h + ' m high, a boat is seen at a horizontal distance of ' + d + ' m from the foot of the cliff. Find the angle of depression \\(\\theta\\) of the boat from the top of the cliff. Round your answer to the nearest degree.',
+      { type: 'dep', theta: x, ang: 'θ', tow: String(h), dist: String(d) }, '\\theta=', ans, '^\\circ',
+      [{ t: '\\tan\\theta=\\frac{' + h + '}{' + d + '}', ar: 'زاوية الانخفاض تساوي زاوية الارتفاع من القارب إلى قمة الجرف. الارتفاع ' + h + ' مقابل لها والمسافة ' + d + ' مجاورة لها.' }, { t: '\\theta=\\tan^{-1}\\!\\left(\\frac{' + h + '}{' + d + '}\\right)' }, { box: '\\theta\\approx ' + ans + '^\\circ' }],
+      'زاوية الانخفاض تُساوي زاوية الارتفاع من القارب إلى القمة، فاستعمل tan⁻¹ مع النسبة ارتفاع ÷ مسافة.', { kind: 'angD', h: h, d: d, ans: ans }, 'm24-3-angD-' + h + '-' + d, 0.49);
+    function mk(stem, svgo, lab, a, unit, sol, hint, data, key, tol) {
+      return { band: 24, level: 3, rtl: false, lang: 'en', stem: stem, svg: edSvg(svgo), inputs: [{ lab: lab, ans: a, tol: tol === 0.49 ? tol : U.tol(a), show: String(a) + (unit === '^\\circ' ? '^\\circ' : '\\,\\text{m}') }],
+        note: unit === '^\\circ' ? 'اكتب عدد الدرجات فقط (بلا الرمز °). اضبط الآلة على الدرجات (DEG).' : 'اكتب العدد فقط (بلا وحدة). اضبط الآلة على الدرجات (DEG).',
+        fix: FIXM[data.kind], sol: sol, hint: hint, key: key, data: data };
+    }
+  }
+
+  /* المستوى 4 (تحدٍّ): زاويتان من نقطتين */
+  function L4(r) {
+    if (r() < 0.6) {
+      var a, b, d, h, x, tries = 0;
+      do { a = U.ri(r, 22, 40); b = U.ri(r, a + 12, 62); d = U.pick(r, [20, 25, 30, 40, 50, 60, 80]); h = d / (ct(a) - ct(b)); x = h * ct(b); tries++; }
+      while (!(U.safe1(h) && U.safe1(x) && h > 10 && h < 200 && U.r1(U.r1(h) * ct(b)) === U.r1(x) && U.r1(U.r1(h) * ct(b)) === U.r1(x)) && tries < 1500);
+      var ah = U.r1(h), ax = U.r1(x);
+      return {
+        band: 24, level: 4, rtl: false, lang: 'en',
+        stem: 'The angle of elevation of the top of a vertical tower from a point A on level ground is ' + a + '°. From a point B, which is ' + d + ' m closer to the foot of the tower on the same horizontal line, the angle of elevation is ' + b + '°. Find (a) the height h of the tower, (b) the distance x from B to the foot of the tower. Round each answer to the nearest tenth.',
+        svg: edSvg({ type: 'elev2', a: a, b: b, x: x, d: d, h: h, aLab: a + '°', bLab: b + '°', hLab: 'h', dLab: String(d), xLab: 'x' }),
+        inputs: [{ lab: 'h=', ans: ah, tol: U.tol(ah), show: ah + '\\,\\text{m}' }, { lab: 'x=', ans: ax, tol: U.tol(ax), show: ax + '\\,\\text{m}' }],
+        note: 'اكتب العدد فقط في كل خانة: الأولى h والثانية x. اضبط الآلة على الدرجات (DEG).',
+        fix: 'اكتب معادلة tan من كل نقطة: tan ' + b + '° = h/x و tan ' + a + '° = h/(x+' + d + ')، ثم أوجد h بالتعويض.',
+        sol: [
+          { t: '\\tan ' + b + '^\\circ=\\frac{h}{x}\\;\\Rightarrow\\;x=\\frac{h}{\\tan ' + b + '^\\circ}', ar: 'من النقطة B (المسافة x إلى قاعدة البرج).' },
+          { t: '\\tan ' + a + '^\\circ=\\frac{h}{x+' + d + '}\\;\\Rightarrow\\;h=(x+' + d + ')\\tan ' + a + '^\\circ', ar: 'من النقطة A (المسافة x+' + d + ').' },
+          { t: 'h=\\left(\\frac{h}{\\tan ' + b + '^\\circ}+' + d + '\\right)\\tan ' + a + '^\\circ', ar: 'نعوّض x في معادلة h.' },
+          { t: 'h\\left(1-\\frac{\\tan ' + a + '^\\circ}{\\tan ' + b + '^\\circ}\\right)=' + d + '\\tan ' + a + '^\\circ\\;\\Rightarrow\\;h=\\frac{' + d + '\\tan ' + a + '^\\circ}{1-\\dfrac{\\tan ' + a + '^\\circ}{\\tan ' + b + '^\\circ}}' },
+          { box: 'h\\approx ' + ah }, { t: 'x=\\frac{' + ah + '}{\\tan ' + b + '^\\circ}', ar: 'نعوّض قيمة h في معادلة x.' }, { box: 'x\\approx ' + ax }
+        ],
+        hint: 'ارسم مثلثين قائمين لهما الارتفاع h نفسه، واكتب معادلة tan من كل نقطة (من B: المسافة x، ومن A: المسافة x+' + d + ').',
+        key: 'm24-4a-' + a + '-' + b + '-' + d, data: { kind: 'two', a: a, b: b, d: d, ans: [ah, ax] }
+      };
+    }
+    var a2, b2, H, tr = 0, dist;
+    do { a2 = U.ri(r, 18, 36); b2 = U.ri(r, a2 + 16, 60); if (a2 + b2 === 90) b2++; H = U.pick(r, [40, 50, 60, 70, 80, 90, 100, 120]); dist = H * (ct(a2) - ct(b2)); tr++; }
+    while (!(U.safe1(dist) && dist > 5) && tr < 500);
+    var ad = U.r1(dist), x1 = H * ct(b2), x2 = H * ct(a2);
+    return {
+      band: 24, level: 4, rtl: false, lang: 'en',
+      stem: 'From the top of a vertical cliff ' + H + ' m high, the angles of depression of two boats are ' + a2 + '° and ' + b2 + '°. The boats and the foot of the cliff lie on the same straight line, and both boats are on the same side of the cliff. Find the distance d between the two boats. Round your answer to the nearest tenth.',
+      svg: edSvg({ type: 'dep2', a: a2, b: b2, H: H, x1: x1, x2: x2, aLab: a2 + '°', bLab: b2 + '°', HLab: String(H), dLab: 'd' }),
+      inputs: [{ lab: 'd=', ans: ad, tol: U.tol(ad), show: ad + '\\,\\text{m}' }],
+      note: 'اكتب العدد فقط (بلا وحدة). اضبط الآلة على الدرجات (DEG).',
+      fix: 'أوجد المسافة بين كل قارب وقاعدة الجرف بـ tan، ثم اطرح المسافتين.',
+      sol: [
+        { t: 'x_2=\\frac{' + H + '}{\\tan ' + a2 + '^\\circ}', ar: 'مسافة القارب الأبعد (زاوية الانخفاض ' + a2 + '°) عن قاعدة الجرف.' },
+        { t: 'x_1=\\frac{' + H + '}{\\tan ' + b2 + '^\\circ}', ar: 'مسافة القارب الأقرب (زاوية الانخفاض ' + b2 + '°).' },
+        { t: 'd=x_2-x_1=\\frac{' + H + '}{\\tan ' + a2 + '^\\circ}-\\frac{' + H + '}{\\tan ' + b2 + '^\\circ}' }, { box: 'd\\approx ' + ad }
+      ],
+      hint: 'لكل قارب مثلث قائم أحد ضلعيه القائمين هو ارتفاع الجرف. أوجد المسافة بين قاعدة الجرف وكل قارب ثم اطرح.',
+      key: 'm24-4b-' + a2 + '-' + b2 + '-' + H, data: { kind: 'boats', a: a2, b: b2, H: H, ans: ad }
+    };
+  }
+  g.TmGen24 = Q;
+})(window);
+</script>
+<script>window.TM_CFG={gr:'g11-general',band:24,label:'البند 24',gen:'TmGen24'};</script>
+<script id="engine">/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط.
+   نسخة القالب الحي (mastery-9) مع إضافة واحدة: أسئلة مقالية تُجاب في خانة رياضية MathLive مع أزرار الرموز (q.inputs)، إلى جانب الاختيار من متعدد (q.opts). */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.skipped = Math.min(3, Math.max(0, +st.skipped || 0));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  /* ---------- قراءة ما يكتبه الطالب في الخانة الرياضية ---------- */
+  function wnorm(v) {
+    return String(v == null ? '' : v).replace(/[٠-٩]/g, function (c) { return c.charCodeAt(0) - 1632; }).replace(/[۰-۹]/g, function (c) { return c.charCodeAt(0) - 1776; })
+      .replace(/[٫]/g, '.').replace(/[−–—‒﹣－]/g, '-').replace(/[،]/g, ',').replace(/×|·/g, '*').replace(/÷/g, '/');
+  }
+  function num(v) {
+    var t = wnorm(v).replace(/\s+/g, '').replace(/(\d),(\d)/g, '$1.$2'); if (!t) return NaN;
+    t = t.replace(/sqrt\(/g, '√(').replace(/√(\d+(?:\.\d+)?)/g, 'R($1)').replace(/√\(/g, 'R(');
+    if (!/^[0-9.+\-*/()R]*$/.test(t)) return NaN;
+    t = t.replace(/(\d|\))(?=R|\()/g, '$1*').replace(/\)(?=\d)/g, ')*');
+    try { var x = Function('R', '"use strict";return (' + t + ')')(Math.sqrt); return typeof x === 'number' && isFinite(x) ? x : NaN; } catch (e) { return NaN; }
+  }
+  function wtex(v) {
+    var t = wnorm(v).trim(); if (!t) return '';
+    t = t.replace(/√\(([^()]*)\)/g, '\\sqrt{$1}').replace(/√(\d+(?:\.\d+)?)/g, '\\sqrt{$1}');
+    t = t.replace(/\(([^()]+)\)\/\(([^()]+)\)/g, '\\frac{$1}{$2}').replace(/(\d+(?:\.\d+)?|\\sqrt\{[^}]*\})\/(\d+(?:\.\d+)?)/g, '\\frac{$1}{$2}');
+    return t;
+  }
+  function wfromMF(mf) {
+    var a = (mf.getValue('ascii-math') || '').replace(/"/g, ' ').replace(/sqrt\(/g, '√(').replace(/\bxx\b|·|×/g, '*');
+    for (var k = 0; k < 3; k++) a = a.replace(/(^|[\/+\-*(\s])\(([\d.]+)\)/g, '$1$2');
+    return a.replace(/\s+/g, '').trim();
+  }
+  var WINS = { frac: '\\frac{#0}{#?}', sqrt: '\\sqrt{#0}', '−': '-', '(': '(', ')': ')' };
+  function wtools() {
+    var K = [['frac', '<span class="fr"><i></i><b></b><i></i></span>', 'كسر'], ['sqrt', '<span class="sq">√<i></i></span>', 'جذر'], ['−', '−', 'سالب'], ['(', '('], [')', ')'], ['L', '◀', 'خطوة إلى اليسار'], ['R', '▶', 'خطوة إلى اليمين']];
+    return '<div class="mtools"><span class="mt-l">أزرار الرموز:</span>' + K.map(function (k) { return '<button type="button" class="mk" data-k="' + k[0] + '"' + (k[2] ? ' aria-label="' + k[2] + '" title="' + k[2] + '"' : '') + '>' + k[1] + '</button>'; }).join('') + '<button type="button" class="mk" data-k="DEL" aria-label="حذف">⌫</button></div>';
+  }
+  var WLAST = null;
+  document.addEventListener('focusin', function (e) { if (e.target && e.target.classList && e.target.classList.contains('mf')) WLAST = e.target; });
+  document.addEventListener('mousedown', function (e) { if (e.target && e.target.closest && e.target.closest('.mk')) e.preventDefault(); });
+  document.addEventListener('click', function (e) {
+    var b = e.target && e.target.closest && e.target.closest('.mk'); if (!b || b.closest('.mtools') == null) return;
+    var qd = b.closest('#stage'); if (!qd) return;
+    var mf = WLAST && qd.contains(WLAST) ? WLAST : qd.querySelector('math-field.mf'); if (!mf || !mf.executeCommand) return;
+    var k = b.dataset.k;
+    if (k === 'DEL') mf.executeCommand('deleteBackward');
+    else if (k === 'L') mf.executeCommand('moveToPreviousChar');
+    else if (k === 'R') mf.executeCommand('moveToNextChar');
+    else mf.executeCommand(['insert', WINS[k] || k, { insertionMode: 'replaceSelection', selectionMode: 'placeholder', focus: true }]);
+    mf.focus();
+  });
+  function wbad(inp) {
+    var w = inp.parentElement.querySelector('.pvbad'); if (!w) return; var v = inp.value.trim();
+    var typing = /^\/|\/$|\(\)|\/\)|\(\/|[-+*/]$/.test(v.replace(/\s/g, ''));
+    w.textContent = v && !typing && isNaN(num(v)) ? 'لا يمكن قراءة هذه الكتابة؛ راجعها، واستعمل أزرار الرموز للكسر والجذر.' : '';
+  }
+  function wmount(inp) {
+    var mf = document.createElement('math-field'); mf.className = 'mf'; mf.setAttribute('dir', 'ltr');
+    mf.setAttribute('math-virtual-keyboard-policy', 'manual'); mf.setAttribute('smart-mode', 'off'); mf.setAttribute('aria-label', 'خانة الإجابة');
+    inp.classList.add('hid'); inp.insertAdjacentElement('afterend', mf);
+    customElements.whenDefined('math-field').then(function () { try { MathfieldElement.soundsDirectory = null; MathfieldElement.plonkSound = null; MathfieldElement.keypressSound = null; } catch (e) {} });
+    mf.addEventListener('input', function () { inp.value = wfromMF(mf); wbad(inp); var any = false; document.querySelectorAll('.inp input.mi').forEach(function (i) { if (i.value.trim()) any = true; }); var c = $('#chk'); if (c) c.disabled = !any; });
+    return mf;
+  }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    var CORE = LV.length;
+    if (!round || round.idx >= ROUND || st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      if (st.level >= CORE) return;
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    var rem = q.remember ? '<p class="inote" style="margin-top:10px"><b>تذكّر:</b> ' + q.remember + '</p>' : '';
+    return '<h3>الحل التفصيلي</h3>' + rows + rem;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.svg) stage.appendChild(h('div', 'fig', q.svg));
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    if (q.inputs) {
+      var box = h('div', 'inps');
+      q.inputs.forEach(function (f, k) {
+        var r = h('div', 'inp', '<span class="lab">\\(' + f.lab + '\\)</span><input class="mi hid" inputmode="decimal" data-k="' + k + '" placeholder="?"><div class="pvbad"></div>');
+        box.appendChild(r);
+      });
+      stage.appendChild(box);
+      stage.insertAdjacentHTML('beforeend', wtools());
+      box.querySelectorAll('input.mi').forEach(function (i) { wmount(i); });
+      if (q.note) stage.appendChild(h('p', 'inote', q.note));
+      var cb = h('button', 'btn gold', 'تحقق من الإجابة'); cb.type = 'button'; cb.id = 'chk'; cb.disabled = true; cb.style.marginTop = '10px';
+      cb.addEventListener('click', checkInputs);
+      stage.appendChild(cb);
+    } else {
+      var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+      q.opts.forEach(function (o, i) {
+        var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+        b.type = 'button'; b.setAttribute('data-i', i);
+        b.addEventListener('click', function () { choose(i); });
+        opts.appendChild(b);
+      });
+      stage.appendChild(opts);
+    }
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+  }
+
+  function feedback(ok, whyHTML) {
+    var q = round.qs[round.idx];
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    box.innerHTML = ok ? '✓ إجابة صحيحة.' : '✗ إجابة غير صحيحة.' + whyHTML;
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    document.querySelectorAll('.opt').forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    var why = ok ? '' : ((q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '') + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>');
+    feedback(ok, why);
+  }
+
+  function checkInputs() {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var rows = document.querySelectorAll('.inp'), allOk = true, vals = [];
+    q.inputs.forEach(function (f, k) {
+      var inp = rows[k].querySelector('input.mi'), x = num(inp.value), good = !isNaN(x) && Math.abs(x - f.ans) <= f.tol;
+      vals.push(good); if (!good) allOk = false;
+      rows[k].classList.add(good ? 'right' : 'wrong');
+      var mf = rows[k].querySelector('math-field'); if (mf) mf.setAttribute('read-only', '');
+    });
+    round.answers[round.idx] = allOk ? 1 : 0;
+    if (allOk) round.correct++;
+    $('#chk').hidden = true;
+    var why = '';
+    if (!allOk) {
+      why = '<span class="why">الإجابة الصحيحة:</span>' + q.inputs.map(function (f, k) { return vals[k] ? '' : '<span class="corr">\\(' + f.lab + f.show + '\\)</span>'; }).join('');
+      if (q.fix) why = '<span class="why">' + q.fix + '</span>' + why;
+    }
+    feedback(allOk, why);
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0; st.skipped = 0;
+      if (lvl < 4) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; st.skipped = 0; persist(); window.scrollTo(0, 0); newRound(); });
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && st.skipped < LV.length && lvl === LV.length) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); renderSkip(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  var WA = { "g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6" };
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+</script>
+<script id="mf-touch">(function(){if(window.__mfTouch)return;window.__mfTouch=1;
+var touch=(navigator.maxTouchPoints>0)||(window.matchMedia&&matchMedia('(pointer:coarse)').matches);
+if(!touch)return;
+var st=document.createElement('style');
+st.textContent='.mtools.mpad{justify-content:center;margin:2px 0 4px}.mtools.mpad .mk{min-width:46px;height:46px;font-size:22px;font-weight:700;touch-action:manipulation}@media(max-width:420px){.mtools.mpad .mk{min-width:40px}}';
+document.head.appendChild(st);
+var KEYS=['1','2','3','4','5','6','7','8','9','0','.','/'];
+function build(){var d=document.createElement('div');d.className='mtools mpad';d.setAttribute('role','group');d.setAttribute('aria-label','أزرار الأرقام');
+ KEYS.forEach(function(k){var b=document.createElement('button');b.type='button';b.className='mk';b.dataset.k=k;b.textContent=k;d.appendChild(b);});return d;}
+function scan(){var ts=document.querySelectorAll('.mtools');
+ for(var i=0;i<ts.length;i++){var t=ts[i];if(t.classList.contains('mpad'))continue;var n=t.nextElementSibling;if(n&&n.classList.contains('mpad'))continue;
+  var box=t.parentElement;if(!box)continue;
+  var mf=box.querySelector('math-field.mf:not([read-only])');if(!mf)continue;
+  t.insertAdjacentElement('afterend',build());}}
+var q=0;function sched(){if(q)return;q=requestAnimationFrame(function(){q=0;scan();});}
+new MutationObserver(sched).observe(document.body,{childList:true,subtree:true});
+scan();
+})();</script>
+<script src="/nav.js?v=11"></script>
+</body></html>
