@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: المثلث 30°-60°-90° | الحادي عشر عام Bridge | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في إيجاد أطوال أضلاع المثلث 30°-60°-90°، وتتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g11-general-bridge/mastery-13/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">13</bdi>: إيجاد أطوال أضلاع المثلث 30°-60°-90°<br>أسئلة تتدرّج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g11-general-bridge", "band": 13, "label": "البند 13", "gen": "TmGenTri3060"};</script>
+<script>
+/* مولّد أسئلة البند 13 (إيجاد أطوال أضلاع المثلث 30-60-90) - 11 عام Bridge. نص السؤال بالعربية، والرموز والأعداد داخل bdi ltr. */
+(function (root) {
+  'use strict';
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, a) { return a[Math.floor(rng() * a.length)]; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a || 1; }
+  function L(s) { return '<bdi dir="ltr">' + s + '</bdi>'; }
+  function T(s) { return L('\\(' + s + '\\)'); }
+  var UN = '<span dir="rtl" style="unicode-bidi:isolate;margin:0 .2em">';
+  function U(tex, unit) { return L('\\(' + tex + '\\)' + UN + (unit || 'سم') + '</span>'); }
+  /* عدد جذري (p/q)·√s بصورته المبسّطة */
+  function rad(p, q, s) {
+    s = s || 1;
+    for (var f = 2; f * f <= s; f++) { while (s % (f * f) === 0) { s /= f * f; p *= f; } }
+    var g = gcd(p, q); p /= g; q /= g;
+    var num = s === 1 ? String(p) : (p === 1 ? '' : String(p)) + '\\sqrt{' + s + '}';
+    return { tex: q === 1 ? num : '\\frac{' + num + '}{' + q + '}', v: p / q * Math.sqrt(s) };
+  }
+  function ex(tex, v) { return { tex: tex, v: v }; }
+  function vkey(v) { return Math.round(v * 1e6) / 1e6; }
+  function C(cls, o, why) { return { cls: cls, tex: o.tex, v: o.v, why: why }; }
+  function dedupe(rng, correct, cands) {
+    var seen = {}; seen[vkey(correct.v)] = 1; var out = [], used = {}, freq = {};
+    cands.forEach(function (c) { var kk = vkey(c.v); freq[kk] = (freq[kk] || 0) + 1; });
+    shuffle(rng, cands).forEach(function (c) {
+      if (freq[vkey(c.v)] > 1) return;
+      if (out.length >= 3 || used[c.cls]) return;
+      if (!isFinite(c.v) || c.v <= 0 || c.v > 1e6) return;
+      var k = vkey(c.v); if (seen[k]) return;
+      seen[k] = 1; used[c.cls] = 1; out.push(c);
+    });
+    return out;
+  }
+  /* رسم المثلث: زاوية قائمة في الركن السفلي الأيسر. أي تسمية '?' تُعرض x */
+  function fg(s) { return '<svg viewBox="0 0 230 160" width="230" style="max-width:100%;height:auto" role="img" aria-label="شكل المثلث" xmlns="http://www.w3.org/2000/svg" font-family="Arial,sans-serif" font-size="16" direction="ltr">' + s + '</svg>'; }
+  function lab(x, y, a, t) { return '<text x="' + x + '" y="' + y + '" text-anchor="' + a + '" fill="#1B2433">' + t + '</text>'; }
+  function figIso(left, bottom, hyp) {
+    return fg('<polygon points="50,125 50,45 130,125" fill="none" stroke="#1E3A6C" stroke-width="2.5" stroke-linejoin="round"/><path d="M50 113 H62 V125" fill="none" stroke="#1E3A6C" stroke-width="1.5"/>' +
+      lab(40, 90, 'end', left) + lab(90, 147, 'middle', bottom) + lab(112, 78, 'start', hyp) + lab(58, 90, 'start', '45°') + lab(96, 118, 'start', '45°'));
+  }
+  function fig3060(short, long, hyp) {
+    return fg('<polygon points="50,125 50,60 162,125" fill="none" stroke="#1E3A6C" stroke-width="2.5" stroke-linejoin="round"/><path d="M50 113 H62 V125" fill="none" stroke="#1E3A6C" stroke-width="1.5"/>' +
+      lab(40, 97, 'end', short) + lab(106, 147, 'middle', long) + lab(118, 82, 'start', hyp) + lab(58, 88, 'start', '60°') + lab(122, 120, 'start', '30°'));
+  }
+  function finish(level, rng, t, LEVELS, band) {
+    var correct = t.correct, dis = dedupe(rng, correct, t.cands);
+    if (dis.length < 3) return null;
+    var all = shuffle(rng, [{ tex: correct.tex, why: '' }].concat(dis.map(function (c) { return { tex: c.tex, why: c.why }; })));
+    var idx = -1; all.forEach(function (o, i) { if (o.tex === correct.tex && o.why === '') idx = i; });
+    return { band: band, level: level, rtl: true, lang: 'ar', stem: t.stem, svg: t.svg || '', e: '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: idx, sol: t.sol, hint: t.hint || LEVELS[level - 1].hint, remember: t.remember, key: t.key, data: { kind: t.kind } };
+  }
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: 'في المثلث 30°-60°-90°: الضلع المقابل للزاوية \\(30^\\circ\\) (الأقصر) \\(=s\\)، والضلع المقابل للزاوية \\(60^\\circ\\) \\(=s\\sqrt{3}\\)، والوتر \\(=2s\\).' },
+    { id: 2, ar: 'تطبيق', hint: 'أوجد الساق الأقصر \\(s\\) أولاً: من الساق الأطول \\(s=\\) الأطول ÷ \\(\\sqrt{3}\\)، ومن الوتر \\(s=\\) الوتر ÷ 2؛ ثم أوجد بقية الأضلاع.' },
+    { id: 3, ar: 'مسائل كلامية', hint: 'ارتفاع المثلث المتساوي الأضلاع ينصّفه إلى مثلثين 30°-60°-90° وتره ضلع المثلث، وأقصر ضلع فيه نصف الضلع.' },
+    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب معادلة تربط الضلعين بنسبة \\(1:\\sqrt{3}:2\\) (الوتر = 2 × الأقصر، الأطول = الأقصر × \\(\\sqrt{3}\\))، ثم حُلّ المعادلة الخطية.' }
+  ];
+  var HX = 'ارسم المثلث القائم: الوتر هو السلم أو المنحدر، والضلع المقابل للزاوية \\(30^\\circ\\) يساوي نصف الوتر، والضلع المقابل للزاوية \\(60^\\circ\\) يساوي نصف الوتر × \\(\\sqrt{3}\\).';
+  var S3 = T('\\sqrt{3}');
+  var W = {
+    same: 'هذا طول الساق المقابلة للزاوية ' + T('30^\\circ') + ' (الأقصر)؛ أما المقابلة للزاوية ' + T('60^\\circ') + ' فأطول منها.',
+    r2: 'العدد ' + T('\\sqrt{2}') + ' يظهر في مثلث 45°-45°-90° فقط؛ هنا النسبة ' + T('1:\\sqrt{3}:2') + '.',
+    twice: 'الضرب في ' + L('2') + ' يعطي الوتر، لكن المطلوب هنا الساق الأطول: الأقصر × ' + S3 + '.',
+    longAsHyp: 'هذا طول الساق الأطول؛ الوتر = 2 × الأقصر، وهو أكبر الأضلاع.',
+    div2: 'القسمة على ' + L('2') + ' تعطي الأقصر من الوتر فقط؛ من الساق الأطول نقسم على ' + S3 + '.',
+    mulr3: 'الساق الأقصر أصغر من الأطول، فنقسم على ' + S3 + ' ولا نضرب.',
+    nr: 'بقي المقام غير منطق؛ اضرب البسط والمقام في ' + S3 + '.',
+    short: 'هذا طول الساق الأقصر وليس المطلوب.',
+    inv: 'الساق الأقصر نصف الوتر، فنقسم على ' + L('2') + ' ولا نضرب.'
+  };
+  function q1(rng) {
+    var s = ri(rng, 2, 14), k = ri(rng, 1, 3), t;
+    if (k === 1) {
+      t = { stem: 'أوجد قيمة ' + T('y') + ' في المثلث القائم الزاوية المرسوم (الأطوال بالسنتيمتر):', svg: fig3060(String(s), 'y', String(2 * s)), correct: rad(s, 1, 3),
+        cands: [C('r2', rad(s, 1, 2), W.r2), C('hyp', ex(String(2 * s), 2 * s), 'هذا طول الوتر المعطى.'), C('same', ex(String(s), s), W.same), C('div', rad(s, 3, 3), 'قسمتَ على ' + S3 + ' بدل الضرب؛ الضلع المقابل للزاوية ' + T('60^\\circ') + ' هو الأقصر × ' + S3 + '.')],
+        sol: [{ ar: 'الضلع المقابل للزاوية ' + T('60^\\circ') + ' = الأقصر ' + T('\\times\\sqrt{3}') + '.', t: 'y=' + s + '\\sqrt{3}' }, { box: 'y=' + s + '\\sqrt{3}' }], key: 'c1a:' + s, remember: 'الأطول = الأقصر × √3.', kind: 'shortToLong', p: { s: s } };
+    } else if (k === 2) {
+      t = { stem: 'أوجد قيمة ' + T('y') + ' في المثلث القائم الزاوية المرسوم (الأطوال بالسنتيمتر):', svg: fig3060(String(s), rad(s, 1, 3).tex.replace(/\\sqrt\{3\}/, '√3'), 'y'), correct: ex(String(2 * s), 2 * s),
+        cands: [C('same', ex(String(s), s), W.same), C('long', rad(s, 1, 3), W.longAsHyp), C('r2', rad(s, 1, 2), W.r2), C('sq', ex(String(s * s), s * s), 'ليس الوتر مربع الضلع؛ الوتر = 2 × الأقصر.')],
+        sol: [{ ar: 'الوتر = ' + T('2') + ' × الساق الأقصر (المقابل للزاوية ' + T('30^\\circ') + ').', t: 'y=2\\times' + s + '=' + 2 * s }, { box: 'y=' + 2 * s }], key: 'c1b:' + s, remember: 'الوتر = 2 × الأقصر.', kind: 'shortToHyp', p: { s: s } };
+    } else {
+      t = { stem: 'أوجد قيمة ' + T('y') + ' في المثلث القائم الزاوية المرسوم (الأطوال بالسنتيمتر):', svg: fig3060('y', '', String(2 * s)), correct: ex(String(s), s),
+        cands: [C('hyp', ex(String(2 * s), 2 * s), 'هذا طول الوتر المعطى.'), C('long', rad(s, 1, 3), W.longAsHyp), C('r2', rad(2 * s, 2, 2), W.r2), C('inv', ex(String(4 * s), 4 * s), W.inv)],
+        sol: [{ ar: 'الساق الأقصر = الوتر ' + T('\\div 2') + '.', t: 'y=\\frac{' + 2 * s + '}{2}=' + s }, { box: 'y=' + s }], key: 'c1c:' + s, remember: 'الأقصر = الوتر ÷ 2.', kind: 'hypToShort', p: { s: s } };
+    }
+    return t;
+  }
+  function q2(rng) {
+    var k = ri(rng, 1, 4), s = ri(rng, 2, 12), Lg = ri(rng, 2, 20);
+    if (k === 1) {
+      return { stem: 'مثلث 30°-60°-90° طول ساقه الأطول ' + U(s + '\\sqrt{3}') + '. ما طول ساقه الأقصر؟', svg: '', correct: ex(String(s), s),
+        cands: [C('long', rad(s, 1, 3), W.longAsHyp), C('mul', ex(String(3 * s), 3 * s), W.mulr3), C('hyp', ex(String(2 * s), 2 * s), 'هذا طول الوتر وليس الساق الأقصر.'), C('div2', rad(s, 2, 3), W.div2)],
+        sol: [{ ar: 'الساق الأقصر = الأطول ' + T('\\div\\sqrt{3}') + '.', t: 'a=\\frac{' + s + '\\sqrt{3}}{\\sqrt{3}}=' + s }, { box: 'a=' + s }], key: 'c2a:' + s, remember: 'الأقصر = الأطول ÷ √3.', kind: 'longRadToShort', p: { s: s } };
+    }
+    if (k === 2) {
+      return { stem: 'مثلث 30°-60°-90° طول ساقه الأطول ' + U(s + '\\sqrt{3}') + '. ما طول وتره؟', svg: '', correct: ex(String(2 * s), 2 * s),
+        cands: [C('long', rad(s, 1, 3), W.longAsHyp), C('short', ex(String(s), s), W.short), C('r3', rad(s, 1, 3 * 3), 'ضُرب الأطول في ' + S3 + ' مرة أخرى؛ أوجد الأقصر أولاً ثم ضاعفه.'), C('r2', rad(s, 1, 6), W.r2)],
+        sol: [{ ar: 'الساق الأقصر = الأطول ' + T('\\div\\sqrt{3}') + '.', t: 'a=' + s }, { ar: 'الوتر = ' + T('2') + ' × الأقصر.', t: 'c=2\\times' + s + '=' + 2 * s }, { box: 'c=' + 2 * s }], key: 'c2b:' + s, remember: 'من الأطول: الأقصر ثم الوتر = 2 × الأقصر.', kind: 'longRadToHyp', p: { s: s } };
+    }
+    if (k === 3) {
+      var a = rad(Lg, 3, 3);
+      return { stem: 'مثلث 30°-60°-90° طول ساقه الأطول ' + U(String(Lg)) + '. ما طول ساقه الأقصر؟', svg: '', correct: a,
+        cands: [C('mul', rad(Lg, 1, 3), W.mulr3), C('div2', rad(Lg, 2, 1), W.div2), C('nr', ex('\\frac{' + Lg + '}{\\sqrt{3}}', Lg / Math.sqrt(3)), W.nr), C('same', ex(String(Lg), Lg), 'هذا طول الساق الأطول وهو معلوم.')],
+        sol: [{ ar: 'الساق الأقصر = الأطول ' + T('\\div\\sqrt{3}') + '.', t: 'a=\\frac{' + Lg + '}{\\sqrt{3}}' }, { ar: 'نجعل المقام عدداً نسبياً بضرب البسط والمقام في ' + S3 + '.', t: 'a=\\frac{' + Lg + '\\sqrt{3}}{3}' }, { box: 'a=' + a.tex }], key: 'c2c:' + Lg, remember: 'الأقصر = الأطول ÷ √3 = (الأطول × √3) ÷ 3.', kind: 'longIntToShort', p: { L: Lg } };
+    }
+    var h = rad(2 * Lg, 3, 3);
+    return { stem: 'مثلث 30°-60°-90° طول ساقه الأطول ' + U(String(Lg)) + '. ما طول وتره؟', svg: '', correct: h,
+      cands: [C('mul', rad(2 * Lg, 1, 3), 'ضُرب في ' + S3 + ' بدل القسمة؛ الأقصر = الأطول ÷ ' + S3 + '.'), C('same2', rad(Lg, 3, 3), 'هذا طول الساق الأقصر؛ الوتر ضعفه.'), C('twice', ex(String(2 * Lg), 2 * Lg), 'الوتر ليس ضعف الأطول؛ هو ضعف الأقصر.'), C('nr', ex('\\frac{' + 2 * Lg + '}{\\sqrt{3}}', 2 * Lg / Math.sqrt(3)), W.nr)],
+      sol: [{ ar: 'الساق الأقصر = الأطول ' + T('\\div\\sqrt{3}') + '.', t: 'a=\\frac{' + Lg + '}{\\sqrt{3}}=\\frac{' + Lg + '\\sqrt{3}}{3}' }, { ar: 'الوتر = ' + T('2') + ' × الأقصر.', t: 'c=\\frac{' + 2 * Lg + '\\sqrt{3}}{3}' }, { box: 'c=' + h.tex }], key: 'c2d:' + Lg, remember: 'الوتر = 2 × الأقصر = 2 × (الأطول ÷ √3).', kind: 'longIntToHyp', p: { L: Lg } };
+  }
+  function q3(rng) {
+    var k = ri(rng, 1, 4), a;
+    if (k === 1) {
+      a = ri(rng, 3, 30);
+      var c = rad(2 * a, 3, 3);
+      return { stem: 'مثلث متساوي الأضلاع ارتفاعه ' + U(String(a)) + '. ما طول ضلعه؟', svg: '', correct: c,
+        cands: [C('same', ex(String(a), a), 'هذا طول الارتفاع وهو معلوم؛ الضلع أطول منه.'), C('mul', rad(2 * a, 1, 3), 'ضُرب في ' + S3 + ' بدل القسمة؛ الارتفاع = (الضلع ÷ 2) × ' + S3 + '.'), C('twice', ex(String(2 * a), 2 * a), 'الضلع ليس ضعف الارتفاع؛ الارتفاع = (الضلع ÷ 2) × ' + S3 + '.'), C('nr', ex('\\frac{' + 2 * a + '}{\\sqrt{3}}', 2 * a / Math.sqrt(3)), W.nr)],
+        sol: [{ ar: 'الارتفاع يقسم المثلث إلى مثلثين متطابقين 30°-60°-90°؛ الارتفاع هو الساق الأطول فيه، والأقصر نصف ضلع المثلث ' + T('a') + '.', t: a + '=\\frac{a}{2}\\sqrt{3}' }, { t: 'a=\\frac{' + 2 * a + '}{\\sqrt{3}}=\\frac{' + 2 * a + '\\sqrt{3}}{3}' }, { box: 'a=' + c.tex }],
+        key: 'c3a:' + a, remember: 'الارتفاع = (الضلع ÷ 2) × √3 في المثلث المتساوي الأضلاع.', kind: 'eqHeightToSide', p: { h: a } };
+    }
+    if (k === 2) {
+      a = 2 * ri(rng, 2, 14);
+      return { stem: 'مثلث متساوي الأضلاع طول ضلعه ' + U(String(a)) + '. ما ارتفاعه؟', svg: '', correct: rad(a, 2, 3),
+        cands: [C('same', ex(String(a), a), 'هذا طول الضلع وهو معلوم؛ الارتفاع أقصر منه.'), C('half', ex(String(a / 2), a / 2), 'هذا نصف الضلع (الأقصر في المثلث 30°-60°-90°)، والارتفاع هو الأطول.'), C('mul', rad(a, 1, 3), 'الارتفاع = نصف الضلع × ' + S3 + '، لا الضلع كله × ' + S3 + '.'), C('r2', rad(a, 2, 2), W.r2)],
+        sol: [{ ar: 'الارتفاع ينصّف القاعدة، فنحصل على مثلث 30°-60°-90° وتره ' + L(String(a)) + ' وأقصر أضلاعه ' + L(String(a / 2)) + '.', t: 'h=' + a / 2 + '\\sqrt{3}' }, { box: 'h=' + rad(a, 2, 3).tex }],
+        key: 'c3b:' + a, remember: 'ارتفاع المتساوي الأضلاع = نصف الضلع × √3.', kind: 'eqSideToHeight', p: { a: a } };
+    }
+    if (k === 3) {
+      a = 2 * ri(rng, 3, 14);
+      return { stem: 'سلم طوله ' + U(String(a), 'م') + ' يستند إلى حائط رأسي، ويصنع مع الأرض زاوية ' + T('60^\\circ') + '. ما بُعد أسفل السلم عن الحائط بالمتر؟', svg: '', correct: ex(String(a / 2), a / 2),
+        cands: [C('long', rad(a, 2, 3), 'هذا ارتفاع رأس السلم عن الأرض وليس بُعد أسفله عن الحائط.'), C('same', ex(String(a), a), 'هذا طول السلم نفسه، وهو الوتر.'), C('r3', rad(a, 1, 3), 'نتج من ضرب الوتر في ' + S3 + '؛ بُعد أسفل السلم هو الضلع المقابل للزاوية ' + T('30^\\circ') + '، أي نصف الوتر.'), C('r2', rad(a, 2, 2), W.r2)],
+        sol: [{ ar: 'تشكّل السلم والحائط والأرض مثلثاً 30°-60°-90° وتره السلم، والزاوية بين السلم والأرض ' + T('60^\\circ') + '، فالضلع على الأرض مقابل للزاوية ' + T('30^\\circ') + ' (الأقصر).', t: 'x=\\frac{' + a + '}{2}=' + a / 2 }, { box: 'x=' + a / 2 }],
+        key: 'c3c:' + a, remember: 'الساق الأقصر مقابلة للزاوية 30° وهو نصف الوتر.', kind: 'ladderFoot', p: { l: a }, hint: HX };
+    }
+    a = 2 * ri(rng, 3, 15);
+    return { stem: 'سطح مائل (منحدر) طوله ' + U(String(a), 'م') + ' يصنع زاوية ' + T('30^\\circ') + ' مع المستوى الأفقي. ما المسافة الأفقية التي يغطيها المنحدر بالمتر؟', svg: '', correct: rad(a, 2, 3),
+      cands: [C('half', ex(String(a / 2), a / 2), 'هذا ارتفاع المنحدر (المقابل للزاوية ' + T('30^\\circ') + ') وليس المسافة الأفقية.'), C('same', ex(String(a), a), 'هذا طول المنحدر نفسه، وهو الوتر.'), C('mul', rad(a, 1, 3), 'المسافة الأفقية = نصف الوتر × ' + S3 + '، لا الوتر كله × ' + S3 + '.'), C('r2', rad(a, 2, 2), W.r2)],
+      sol: [{ ar: 'المنحدر وتر في مثلث 30°-60°-90°؛ الارتفاع مقابل للزاوية ' + T('30^\\circ') + ' (الأقصر)، والمسافة الأفقية هي الساق الأطول.', t: 'x=\\frac{' + a + '}{2}\\sqrt{3}=' + a / 2 + '\\sqrt{3}' }, { box: 'x=' + rad(a, 2, 3).tex }],
+      key: 'c3d:' + a, remember: 'الأطول = نصف الوتر × √3.', kind: 'rampHoriz', p: { l: a }, hint: HX };
+  }
+  function q4(rng) {
+    var x = ri(rng, 2, 8), a, b, c, d, tries = 0;
+    if (rng() < 0.55) {
+      do { a = ri(rng, 1, 4); b = ri(rng, 1, 6); c = ri(rng, 2, 9); d = (2 * a - c) * x + 2 * b; tries++; } while ((c === 2 * a || d < 1 || d > 20) && tries < 300);
+      if (c === 2 * a || d < 1 || d > 20) return q4(rng);
+      var sh = a === 1 ? 'x+' + b : a + 'x+' + b, hy = c + 'x+' + d, den = Math.abs(c - 2 * a);
+      return { stem: 'في مثلث 30°-60°-90°، طول الساق الأقصر ' + U(sh) + ' وطول الوتر ' + U(hy) + '. ما قيمة ' + T('x') + '؟', svg: '', correct: ex(String(x), x),
+        cands: [C('same', rad(d - b, Math.abs(c - a), 1), 'هذا ناتج مساواة الوتر بالساق الأقصر؛ والصحيح أن الوتر = 2 × الساق الأقصر.'), C('sign', rad(d + 2 * b, den, 1), 'عند نقل الحد الثابت تتغير إشارته.'), C('noTwo', rad(d - 2 * b, c + 2 * a, 1), 'عند جمع حدود ' + T('x') + ' نطرح أحد المعاملين من الآخر ولا نجمعهما.'), C('keep', ex(String(2 * (a * x + b)), 2 * (a * x + b)), 'هذه قيمة الوتر وليست قيمة ' + T('x') + '.')],
+        sol: [{ ar: 'الوتر = ' + T('2') + ' × الساق الأقصر.', t: c + 'x+' + d + '=2(' + sh + ')' }, { ar: 'نفكّ القوس.', t: c + 'x+' + d + '=' + 2 * a + 'x+' + 2 * b }, { ar: 'نجمع حدود ' + T('x') + ' في طرف والثوابت في الطرف الآخر.', t: (c > 2 * a ? (c - 2 * a) + 'x=' + (2 * b - d) : (2 * a - c) + 'x=' + (d - 2 * b)).replace(/^1x/, 'x') }, (Math.abs(c - 2 * a) === 1 ? null : { t: 'x=\\frac{' + Math.abs(d - 2 * b) + '}{' + Math.abs(c - 2 * a) + '}=' + x }), { box: 'x=' + x }].filter(Boolean),
+        key: 'c4a:' + [a, b, c, d].join(','), remember: 'الوتر = 2 × الأقصر، ثم حُلّ المعادلة الخطية.', kind: 'algShortHyp', p: { a: a, b: b, c: c, d: d, x: x } };
+    }
+    do { c = ri(rng, 1, 4); a = c + ri(rng, 1, 3); b = ri(rng, 1, 8); d = (a - c) * x + b; tries++; } while ((d < 1 || d > 20) && tries < 300);
+    if (d < 1 || d > 20) return q4(rng);
+    var sh2 = c === 1 ? 'x+' + d : c + 'x+' + d, lo = a + 'x+' + b;
+    var diff = a - c;
+    return { stem: 'في مثلث 30°-60°-90°، طول الساق الأقصر ' + U(sh2) + ' وطول الساق الأطول ' + U('(' + lo + ')\\sqrt{3}') + '. ما قيمة ' + T('x') + '؟', svg: '', correct: ex(String(x), x),
+      cands: [C('sign', rad(d + b, diff, 1), 'عند نقل الحد الثابت تتغير إشارته.'), C('add', rad(d - b, a + c, 1), 'عند جمع حدود ' + T('x') + ' نطرح معاملاً من الآخر ولا نجمعهما.'), C('r3', ex(diff === 1 ? d + '\\sqrt{3}-' + b : '\\frac{' + d + '\\sqrt{3}-' + b + '}{' + diff + '}', (d * Math.sqrt(3) - b) / diff), 'الأطول = الأقصر × ' + S3 + '، فبعد حذف ' + S3 + ' من الطرفين تصبح المعادلة بلا جذور.'), C('keep', ex(String(a * x + b), a * x + b), 'هذه قيمة العبارة ' + T(a + 'x+' + b) + ' وليست قيمة ' + T('x') + '.')],
+      sol: [{ ar: 'الأطول = الأقصر ' + T('\\times\\sqrt{3}') + '، فنساوي المعامل أمام ' + S3 + ' بالأقصر.', t: lo + '=' + sh2 }, { ar: 'نجمع حدود ' + T('x') + ' في طرف والثوابت في الطرف الآخر.', t: (diff === 1 ? 'x' : diff + 'x') + '=' + (d - b) }, (diff === 1 ? null : { t: 'x=\\frac{' + (d - b) + '}{' + diff + '}=' + x }), { box: 'x=' + x }].filter(Boolean),
+      key: 'c4b:' + [a, b, c, d].join(','), remember: 'الأطول = الأقصر × √3؛ نساوي ما أمام √3 بالأقصر.', kind: 'algLongShort', p: { a: a, b: b, c: c, d: d, x: x } };
+  }
+  function build(level, rng) { return level === 1 ? q1(rng) : level === 2 ? q2(rng) : level === 3 ? q3(rng) : q4(rng); }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, r, tries = 0;
+    do { t = build(level, rng); r = finish(level, rng, t, LEVELS, 13); tries++; } while (!r && tries < 200);
+    r.data = { kind: t.kind, p: t.p };
+    return r;
+  }
+
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenTri3060 = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    var CORE = LV.length;
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.svg) stage.appendChild(h('div', 'fig', q.svg));
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl < 4) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === LV.length && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>
