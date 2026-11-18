@@ -189,7 +189,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     swapA: 'يبدو أن مشتقة الدالة الخارجية استُعملت بدل مشتقة الدالة الداخلية؛ الذي يُضرب هو مشتقة الدالة الداخلية.',
     noreduceNeg: 'عند اشتقاق القوة يُنقَص الأس بمقدار \\(1\\)، فيصبح الأس الجديد هنا \\(-n-1\\)؛ أي أن المقام يُرفع إلى القوة \\(n+1\\) وليس \\(n\\).',
     nosqrtT: 'تحقّق من قيمة الجذر في المقام قبل الضرب.',
-    swapT: 'يبدو أن القيمتين اختلطتا: \\(f(a)\\) تدخل في القوة، و\\(f\'(a)\\) هي العامل الذي يُضرب في النهاية.',
+    swapT: 'يبدو أن القيمتين اختلطتا: قيمة الدالة هي التي تدخل في القوة، ومشتقتها هي العامل الذي يُضرب في النهاية.',
     noinnerT: 'لم يُضرب الناتج في مشتقة الدالة الداخلية، وهي واجبة في قاعدة السلسلة.',
     generic: 'راجع الخطوات: اشتق الدالة الخارجية مع إبقاء الداخلية كما هي، ثم اضرب في مشتقة الدالة الداخلية، ثم عوّض.'
   };
@@ -284,7 +284,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       { t: '=' + paren(q) + '\\cdot ' + paren(p) + '=' + corr.n },
       { box: String(corr.n) }
     ];
-    return { e: e, x0: a, stem: 'إذا علمت القيم الآتية، فما قيمة \\(h\'(' + a + ')\\) للدالة \\(h(x)=f\\left(g(x)\\right)\\)؟', corr: corr, cands: c, sol: sol, kind: 'tabA', spec: { a: a, m: m, p: p, q: q, r: r }, key: 'A:' + e };
+    return { e: e, x0: a, stem: 'إذا كانت \\(f\\) و\\(g\\) دالتين قابلتين للاشتقاق، وكانت القيم الآتية معلومة، فما قيمة \\(h\'(' + a + ')\\) للدالة \\(h(x)=f\\left(g(x)\\right)\\)؟', corr: corr, cands: c, sol: sol, kind: 'tabA', spec: { a: a, m: m, p: p, q: q, r: r }, key: 'A:' + e };
   }
   /* 5) h = (f(x))^n بقيم جدول */
   function qTableB(rng) {
@@ -307,7 +307,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       { t: '=' + n + '\\cdot ' + paren(Math.pow(v, n - 1)) + '\\cdot ' + paren(w) + '=' + corr.n },
       { box: String(corr.n) }
     ];
-    return { e: e, x0: a, stem: 'إذا علمت القيمتين الآتيتين، فما قيمة \\(h\'(' + a + ')\\) للدالة \\(h(x)=\\left(f(x)\\right)^{' + n + '}\\)؟', corr: corr, cands: c, sol: sol, kind: 'tabB', hint: 'الدالة الخارجية هنا هي القوة، والدالة الداخلية هي \\(f(x)\\): اشتقّ القوة مع إبقاء \\(f(x)\\) ثم اضرب في \\(f\'(x)\\) وعوّض.', spec: { n: n, a: a, v: v, w: w }, key: 'B:' + n + ':' + e };
+    return { e: e, x0: a, stem: 'إذا كانت \\(f\\) دالة قابلة للاشتقاق، وكانت القيمتان الآتيتان معلومتين، فما قيمة \\(h\'(' + a + ')\\) للدالة \\(h(x)=\\left(f(x)\\right)^{' + n + '}\\)؟', corr: corr, cands: c, sol: sol, kind: 'tabB', hint: 'الدالة الخارجية هنا هي القوة، والدالة الداخلية هي \\(f(x)\\): اشتقّ القوة مع إبقاء \\(f(x)\\) ثم اضرب في \\(f\'(x)\\) وعوّض.', spec: { n: n, a: a, v: v, w: w }, key: 'B:' + n + ':' + v + ',' + w };
   }
   /* 6) h = sqrt(f(x)) بقيم جدول */
   function qTableC(rng) {
@@ -327,7 +327,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       { t: '=' + ltx(corr) },
       { box: ltx(corr) }
     ];
-    return { e: e, x0: a, stem: 'إذا علمت القيمتين الآتيتين، فما قيمة \\(h\'(' + a + ')\\) للدالة \\(h(x)=\\sqrt{f(x)}\\)؟', corr: corr, cands: c, sol: sol, kind: 'tabC', hint: 'الدالة الخارجية هنا هي الجذر التربيعي، والدالة الداخلية هي \\(f(x)\\): اكتب مشتقة الجذر ثم اضرب في \\(f\'(x)\\) وعوّض.', spec: { a: a, s: s, w: w }, key: 'C:' + e };
+    return { e: e, x0: a, stem: 'إذا كانت \\(f\\) دالة قابلة للاشتقاق، وكانت القيمتان الآتيتان معلومتين، فما قيمة \\(h\'(' + a + ')\\) للدالة \\(h(x)=\\sqrt{f(x)}\\)؟', corr: corr, cands: c, sol: sol, kind: 'tabC', hint: 'الدالة الخارجية هنا هي الجذر التربيعي، والدالة الداخلية هي \\(f(x)\\): اكتب مشتقة الجذر ثم اضرب في \\(f\'(x)\\) وعوّض.', spec: { a: a, s: s, w: w }, key: 'C:' + (s * s) + ',' + w };
   }
   /* 7) (f∘g)'(x0) حيث f(x)=x^n و g معطاة */
   function qComp(rng, kind) {
@@ -350,7 +350,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       { t: '\\left(f\\circ g\\right)\'(' + x0 + ')=' + n + '\\left(' + u0 + '\\right)^{' + (n - 1) + '}\\cdot ' + paren(d0) + '=' + corr.n },
       { box: String(corr.n) }
     ];
-    return { e: e, x0: x0, stem: 'أوجد \\(\\left(f\\circ g\\right)\'(' + x0 + ')\\) علماً بأن:', corr: corr, cands: c, sol: sol, kind: 'comp', spec: { n: n, inner: inn.tex }, key: 'D:' + e + '@' + x0 };
+    return { e: e, x0: x0, stem: 'أوجد \\(\\left(f\\circ g\\right)\'(' + x0 + ')\\) علماً بأن:', corr: corr, cands: c, sol: sol, kind: 'comp', spec: { n: n, inner: inn.tex }, key: 'D:' + e };
   }
 
 
