@@ -24,8 +24,6 @@ header.top .sub{font-size:15px;line-height:1.8}
 .path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
 .path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
 .path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
-.skip{margin-top:12px}.skip .btn{font-size:.95em}
-.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .path li.cur b{color:var(--navy)}
 .path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
 .path li.done b{color:var(--green)}
@@ -36,10 +34,11 @@ header.top .sub{font-size:15px;line-height:1.8}
 .dots i.no{background:var(--red);border-color:var(--red)}
 .dots i.now{border-color:var(--navy)}
 .stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
-.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
 .opts{display:grid;gap:10px;margin:8px 0 4px}
 .opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
 .opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
 .opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
 .opt .m{flex:1;min-width:0;overflow-x:auto}
@@ -90,6 +89,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   <section class="box" id="stage" aria-live="polite"></section>
   <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
 </main>
+<script>window.TM_CFG={"gr": "g12-general", "band": 6, "label": "البند 6", "gen": "TmGenQuad"};</script>
 <script>
 /* مولّد أسئلة البند 6 (حل المعادلات التربيعية باستخدام القانون العام) - 12 عام
    كل سؤال بصيغة الوزارة: اختيار من متعدد، حل تفصيلي، تلميح. التوليد بالقوالب لا بالذكاء الاصطناعي. */
@@ -317,8 +317,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 /* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
 (function () {
   'use strict';
-  var GR = 'g12-general', BAND = 6, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
-  var G = window.TmGenQuad, LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
   var $ = function (s) { return document.querySelector(s); };
 
   function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
@@ -327,17 +327,19 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
   var st = all[GR][BAND];
   if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
-  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
   st.done = st.done && typeof st.done === 'object' ? st.done : {};
   st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
   st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
   function persist() { st.ts = Date.now(); saveAll(all); }
 
   function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
 
   var round = null, seenAll = {};
 
-  function cnt(n) { return n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
   function typeset(el, n) {
     n = n || 0;
     if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
@@ -348,30 +350,11 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function renderPath() {
     var p = $('#path'); p.innerHTML = '';
     LV.forEach(function (l) {
-      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
       var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
       if (cls === 'cur') li.setAttribute('aria-current', 'step');
-      if (st.done[l.id] && l.id !== st.level) {
-        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
-        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
-        li.addEventListener('click', go);
-        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
-      }
       p.appendChild(li);
     });
-  }
-  function renderSkip() {
-    var box = $('#skipBox'); if (!box) return;
-    box.innerHTML = '';
-    var CORE = LV.length;
-    if (st.mastered || st.level >= CORE || !round || round.idx >= ROUND) { box.hidden = true; return; }
-    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
-    b.addEventListener('click', function () {
-      var from = st.level; st.level = CORE; st.skipped = from; persist();
-      track('mastery-skip', { band: BAND, from: from });
-      window.scrollTo(0, 0); newRound();
-    });
-    box.appendChild(b); box.hidden = false;
   }
   function renderDots() {
     var d = $('#dots'); d.innerHTML = '';
@@ -386,6 +369,18 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       : (st.mastered ? 'أتقنت كل المستويات' : '');
     $('#roundInfo').textContent = t;
     renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
   }
 
   function newRound() {
@@ -403,7 +398,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 
   function solHTML(q) {
     var rows = q.sol.map(function (s) {
-      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
     }).join('');
     return '<h3>الحل التفصيلي</h3>' + rows;
   }
@@ -411,7 +407,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function showQ() {
     var q = round.qs[round.idx], stage = $('#stage');
     stage.innerHTML = '';
-    stage.appendChild(h('div', 'stem', q.stem)); stage.lastChild.setAttribute('lang', 'en');
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
     stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
     var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
     q.opts.forEach(function (o, i) {
@@ -428,6 +424,10 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
     var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
     typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
   }
 
   function choose(i) {
@@ -470,34 +470,42 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   }
 
   function finish() {
-    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
     var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
     var res = h('div', 'res');
     if (round.n === 1) { st.firstScore = round.correct; persist(); }
     track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
     if (passed) {
       st.done[lvl] = true; st.fails[lvl] = 0;
-      if (lvl < 4) {
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز، فقد تجاوزت ما يُطلب في الامتحان.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
         st.level = lvl + 1; persist();
         res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
         var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
       } else {
         st.mastered = true; persist();
-        res.innerHTML = '<h2>أتقنت البند 6 كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
         var a2 = h('div', 'acts');
-        var l1 = h('a', 'link btn gold', 'صفحة الصف ←'); l1.href = '/' + GR + '/';
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
         var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
         b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
         a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
       }
     } else {
       st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
       var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
-      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي للبند <bdi dir="ltr">6</bdi> ثم تعود.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
-      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل البند 6'); l2.href = '/' + GR + '/band-6/'; a3.appendChild(l2); }
-      if (st.skipped && st.skipped < LV.length && lvl === LV.length) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
       res.appendChild(a3);
     }
     stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());

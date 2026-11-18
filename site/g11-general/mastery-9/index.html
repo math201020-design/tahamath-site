@@ -24,8 +24,6 @@ header.top .sub{font-size:15px;line-height:1.8}
 .path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
 .path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
 .path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
-.skip{margin-top:12px}.skip .btn{font-size:.95em}
-.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .path li.cur b{color:var(--navy)}
 .path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
 .path li.done b{color:var(--green)}
@@ -36,10 +34,11 @@ header.top .sub{font-size:15px;line-height:1.8}
 .dots i.no{background:var(--red);border-color:var(--red)}
 .dots i.now{border-color:var(--navy)}
 .stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
-.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
 .opts{display:grid;gap:10px;margin:8px 0 4px}
 .opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
 .opt:hover:not(:disabled){border-color:var(--navy)}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.skip{margin-top:12px}.skip .btn{font-size:.95em}
 .opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
 .opt .m{flex:1;min-width:0;overflow-x:auto}
@@ -301,10 +300,12 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
   var st = all[GR][BAND];
   if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
-  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
   st.done = st.done && typeof st.done === 'object' ? st.done : {};
   st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
   st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
   function persist() { st.ts = Date.now(); saveAll(all); }
 
   function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
@@ -322,30 +323,11 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function renderPath() {
     var p = $('#path'); p.innerHTML = '';
     LV.forEach(function (l) {
-      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
       var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
       if (cls === 'cur') li.setAttribute('aria-current', 'step');
-      if (st.done[l.id] && l.id !== st.level) {
-        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
-        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
-        li.addEventListener('click', go);
-        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
-      }
       p.appendChild(li);
     });
-  }
-  function renderSkip() {
-    var box = $('#skipBox'); if (!box) return;
-    box.innerHTML = '';
-    var CORE = LV.length;
-    if (st.mastered || st.level >= CORE || !round || round.idx >= ROUND) { box.hidden = true; return; }
-    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
-    b.addEventListener('click', function () {
-      var from = st.level; st.level = CORE; st.skipped = from; persist();
-      track('mastery-skip', { band: BAND, from: from });
-      window.scrollTo(0, 0); newRound();
-    });
-    box.appendChild(b); box.hidden = false;
   }
   function renderDots() {
     var d = $('#dots'); d.innerHTML = '';
@@ -360,6 +342,18 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       : (st.mastered ? 'أتقنت كل المستويات' : '');
     $('#roundInfo').textContent = t;
     renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
   }
 
   function newRound() {
@@ -404,6 +398,10 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
     var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
     typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
   }
 
   function choose(i) {
@@ -446,14 +444,21 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   }
 
   function finish() {
-    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
     var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
     var res = h('div', 'res');
     if (round.n === 1) { st.firstScore = round.correct; persist(); }
     track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
     if (passed) {
       st.done[lvl] = true; st.fails[lvl] = 0;
-      if (lvl < 4) {
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز، فقد تجاوزت ما يُطلب في الامتحان.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
         st.level = lvl + 1; persist();
         res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
         var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
@@ -464,6 +469,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
         var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
         var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
         b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
         a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
       }
     } else {
@@ -473,7 +479,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
       if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
-      if (st.skipped && st.skipped < LV.length && lvl === LV.length) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
       res.appendChild(a3);
     }
     stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
