@@ -6654,6 +6654,151 @@
    "path": "g10-general-bridge/prac-6-10-m4/index.html",
    "src": "site/g10-general-bridge/prac-6-10-m4/index.html",
    "sha256": "2d37ea0172f01a27997861cb6c5542717c04c29d6dc6af9adbeebf90a811bfee"
+  },
+  {
+   "path": "g12-general/en/haykal-1/index.html",
+   "src": "site/g12-general/en/haykal-1/index.html",
+   "sha256": "a923165048c0c8e3f99373dbcdd44bb8afa73236423272efe19a4a7e71690981"
+  },
+  {
+   "path": "g12-general/en/haykal-2/index.html",
+   "src": "site/g12-general/en/haykal-2/index.html",
+   "sha256": "4d998b75137f6d6c935803e89996453e0cb45c0252f3eda56820809494c42534"
+  },
+  {
+   "path": "g12-general/en/haykal-3/index.html",
+   "src": "site/g12-general/en/haykal-3/index.html",
+   "sha256": "ce1b888a85080636caa5641f258c7354428ac320e3ed06d7c150955d7efa70f6"
+  },
+  {
+   "path": "g12-general/en/haykal-4/index.html",
+   "src": "site/g12-general/en/haykal-4/index.html",
+   "sha256": "644de2a8bbed3ac56e92f5ed1d5ac6adf2c972aef9b2ed5694a485598ba73f98"
+  },
+  {
+   "path": "g12-general/en/haykal-1-written/index.html",
+   "src": "site/g12-general/en/haykal-1-written/index.html",
+   "sha256": "95312f2e769cdbf4c5058a3731f0018edb09d0fcd5d98dfcf95b20a0c0172384"
+  },
+  {
+   "path": "g12-general/en/haykal-2-written/index.html",
+   "src": "site/g12-general/en/haykal-2-written/index.html",
+   "sha256": "6cde113ded6454ab953b31e68a0123bc8139b576327a9f437ddba23a46ff73a4"
+  },
+  {
+   "path": "g12-general/en/haykal-3-written/index.html",
+   "src": "site/g12-general/en/haykal-3-written/index.html",
+   "sha256": "5f0b5e868fb0b6e63d3466641baf2a6ac18b0367a74ede319f624946181082da"
+  },
+  {
+   "path": "g12-general/en/haykal-4-written/index.html",
+   "src": "site/g12-general/en/haykal-4-written/index.html",
+   "sha256": "c3f074523d48e4ad645e48c4ba921d325f9cfeb592177ce42314e4ab3de5a083"
+  },
+  {
+   "path": "g12-general/en/mistakes/index.html",
+   "src": "site/g12-general/en/mistakes/index.html",
+   "sha256": "ecf481ed547aca812caa1d7aec2efa7338e16236ca7f0a81d56458a86afe3e3d"
+  },
+  {
+   "path": "g12-general/en/practice-1-5-1/index.html",
+   "src": "site/g12-general/en/practice-1-5-1/index.html",
+   "sha256": "2ed460606282f9b4bbb73843861da1a856072d9c977609cfa068a10c50a2a0af"
+  },
+  {
+   "path": "g12-general/en/practice-1-5-2/index.html",
+   "src": "site/g12-general/en/practice-1-5-2/index.html",
+   "sha256": "39b93c35b70b6d80918843e191211b5d760fe129d8c7099708cdcbc757294027"
+  },
+  {
+   "path": "g12-general/en/practice-1-5-3/index.html",
+   "src": "site/g12-general/en/practice-1-5-3/index.html",
+   "sha256": "8b35f2a6be4820237fe0c129447697d70f4cee711871048c47ea0eb79b270193"
+  },
+  {
+   "path": "g12-general/en/practice-1-5-4/index.html",
+   "src": "site/g12-general/en/practice-1-5-4/index.html",
+   "sha256": "3c3f917902ac18be2da2a512e26f19e4ade7de826f918211da126c1582f0f221"
+  },
+  {
+   "path": "g12-general/en/practice-6-10-1/index.html",
+   "src": "site/g12-general/en/practice-6-10-1/index.html",
+   "sha256": "9b14ffdb682ffb1f2ce20d92f7738a7cebb65af8ad6955db8771baad0421209b"
+  },
+  {
+   "path": "g12-general/en/practice-6-10-2/index.html",
+   "src": "site/g12-general/en/practice-6-10-2/index.html",
+   "sha256": "804158c52447f295f2066369a0e3583646db99b1527281268add566015a61cb7"
+  },
+  {
+   "path": "g12-general/en/practice-6-10-3/index.html",
+   "src": "site/g12-general/en/practice-6-10-3/index.html",
+   "sha256": "31d053ced11e8ca8aae8e3af3cfd607647c8cd8115f27993f9a544302912e88f"
+  },
+  {
+   "path": "g12-general/en/practice-6-10-4/index.html",
+   "src": "site/g12-general/en/practice-6-10-4/index.html",
+   "sha256": "f1fe1712a37f47ea80774b46954c47874a4552ed51244ea477ad170e89f70327"
+  },
+  {
+   "path": "g12-general/en/practice-11-15-1/index.html",
+   "src": "site/g12-general/en/practice-11-15-1/index.html",
+   "sha256": "1d6730078085ece5dc0e182ac03af9f146a1be0f585b90e075b639caa2ffdce5"
+  },
+  {
+   "path": "g12-general/en/practice-11-15-2/index.html",
+   "src": "site/g12-general/en/practice-11-15-2/index.html",
+   "sha256": "a1897fdb7e607ff7f2c406dd2aa1170e690a7fc36bd1b85b073a1012be084e35"
+  },
+  {
+   "path": "g12-general/en/practice-11-15-3/index.html",
+   "src": "site/g12-general/en/practice-11-15-3/index.html",
+   "sha256": "535211ac1c8a868d4e9bb3d49663395a32c8802b433efd1739907a1bceaf7077"
+  },
+  {
+   "path": "g12-general/en/practice-11-15-4/index.html",
+   "src": "site/g12-general/en/practice-11-15-4/index.html",
+   "sha256": "34f1ee42886c9a9fbcfc4f3cba7cb5d61803c51307cc9070fc14d609f29fd821"
+  },
+  {
+   "path": "g12-general/en/practice-16-20-1/index.html",
+   "src": "site/g12-general/en/practice-16-20-1/index.html",
+   "sha256": "5b7193bda1b839d247f5bbf5a2e8cce616641bc150e41304fae4e418d2a7dfb4"
+  },
+  {
+   "path": "g12-general/en/practice-16-20-2/index.html",
+   "src": "site/g12-general/en/practice-16-20-2/index.html",
+   "sha256": "fb37171a36707c1743f1cef159bd2845afc5b32f87270db02c31ce139a17eec0"
+  },
+  {
+   "path": "g12-general/en/practice-16-20-3/index.html",
+   "src": "site/g12-general/en/practice-16-20-3/index.html",
+   "sha256": "5904b6710a1d79fac32f165ad72f68c01f0b8a96b1d9b6d21e357ead8990a496"
+  },
+  {
+   "path": "g12-general/en/practice-16-20-4/index.html",
+   "src": "site/g12-general/en/practice-16-20-4/index.html",
+   "sha256": "e3692c60889550fcf7be4a1f6f9915e96209b277ca2ca71f16dc9496aeded4e4"
+  },
+  {
+   "path": "g12-general/en/practice-21-25-1/index.html",
+   "src": "site/g12-general/en/practice-21-25-1/index.html",
+   "sha256": "f2d13e2ed4bfcaa5e7a274b4a99a30fe130625734698467cf3362ea54ed3fe37"
+  },
+  {
+   "path": "g12-general/en/practice-21-25-2/index.html",
+   "src": "site/g12-general/en/practice-21-25-2/index.html",
+   "sha256": "3365a3c5e91fa8ebad8ed66aeba090247ccd2cce6debc6fbe31e2d8179cdcd96"
+  },
+  {
+   "path": "g12-general/en/practice-21-25-3/index.html",
+   "src": "site/g12-general/en/practice-21-25-3/index.html",
+   "sha256": "c425583c5516904445346244ce6ba76bc52fcff200a4e30fadbd0f406b411c72"
+  },
+  {
+   "path": "g12-general/en/practice-21-25-4/index.html",
+   "src": "site/g12-general/en/practice-21-25-4/index.html",
+   "sha256": "22b6a386f00b13d397525faec8cca03721d64ecb65fddee94eb15086d05f2d43"
   }
  ]
 }
