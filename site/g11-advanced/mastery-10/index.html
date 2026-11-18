@@ -24,6 +24,7 @@ header.top .sub{font-size:15px;line-height:1.8}
 .path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
 .path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
 .path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .path li.cur b{color:var(--navy)}
 .path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
 .path li.done b{color:var(--green)}
@@ -103,8 +104,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function fkey(f) { return f.n + '/' + f.d; }
   function xp(p) { return p > 0 ? 'x+' + p : 'x-' + (-p); }
   function frac(n, d) { return '\\dfrac{' + n + '}{' + d + '}'; }
-  function sg(n) { return n < 0 ? '-' + (-n) : '+' + n; }
-  function fac(v) { return '(x' + (v < 0 ? '+' + (-v) : '-' + v) + ')'; }
   function sgn(n) { return n < 0 ? '-' + (-n) : String(n); }
 
   /* مجموعة حلول: مصفوفة كسور مرتبة تنازلياً */
@@ -155,14 +154,14 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var x0 = m * (a - d);
     return { e: frac(a, 'x') + '-' + frac(1, m) + '=' + frac(d, 'x'), ans: S(x0), kind: 'r1a', key: 'R1a:' + a + ',' + d + ',' + m,
       sol: [{ t: '\\text{LCD}=' + m + 'x' }, { t: m + 'x\\cdot' + frac(a, 'x') + '-' + m + 'x\\cdot' + frac(1, m) + '=' + m + 'x\\cdot' + frac(d, 'x') }, { t: (m * a) + '-x=' + (m * d) }, { t: 'x=' + x0 }],
-      cands: [{ cls: 'invert', set: S(fr(a - d, m)), why: 'بعد الجمع تصل إلى \\(\\dfrac{' + (a - d) + '}{x}=\\dfrac{1}{' + m + '}\\)؛ فيكون \\(x=' + (a - d) + '\\cdot ' + m + '\\) بالضرب التبادلي وليس بالقسمة.' }, { cls: 'neg', set: S(-x0), why: WHY.negSign }, { cls: 'plus', set: S(m * (a + d)), why: 'عند نقل \\(\\dfrac{' + d + '}{x}\\) إلى طرف المعادلة الآخر يُطرح من \\(\\dfrac{' + a + '}{x}\\) ولا يُجمع معه.' }, { cls: 'nom', set: S(a - d), why: 'عاملتَ الكسر \\(\\dfrac{1}{' + m + '}\\) كأنه \\(1\\)؛ ضرب \\(' + m + 'x\\) في \\(\\dfrac{1}{' + m + '}\\) يعطي \\(x\\) وليس \\(' + m + 'x\\).' }],
+      cands: [{ cls: 'invert', set: S(fr(a - d, m)), why: 'بعد الجمع تصل إلى \\(\\dfrac{' + (a - d) + '}{x}=\\dfrac{1}{' + m + '}\\)؛ فيكون \\(x=' + (a - d) + '\\cdot ' + m + '\\) بالضرب التبادلي وليس بالقسمة.' }, { cls: 'neg', set: S(-x0), why: WHY.negSign }, { cls: 'plus', set: S(m * (a + d)), why: WHY.negSign }, { cls: 'nom', set: S(a - d), why: 'عاملتَ الكسر \\(\\dfrac{1}{' + m + '}\\) كأنه \\(1\\)؛ ضرب \\(' + m + 'x\\) في \\(\\dfrac{1}{' + m + '}\\) يعطي \\(x\\) وليس \\(' + m + 'x\\).' }],
       remember: 'اضرب طرفي المعادلة في المضاعف المشترك الأصغر للمقامات لتتخلص من الكسور، ثم تحقق أن الحل لا يجعل أي مقام صفراً.' };
   }
   function t1b(rng) { /* a/x = b/c */
     var b, c, x0, a; do { c = ri(rng, 2, 9); b = ri(rng, 2, 9); x0 = ri(rng, 2, 12); a = b * x0 / c; } while (b === c || a !== Math.floor(a) || a < 1 || a === x0);
     return { e: frac(a, 'x') + '=' + frac(b, c), ans: S(x0), kind: 'r1b', key: 'R1b:' + a + ',' + b + ',' + c,
       sol: [{ t: b + 'x=' + a + '\\cdot ' + c + '\\quad\\text{(cross multiply)}' }, { t: b + 'x=' + (a * c) }, { t: 'x=' + x0 }],
-      cands: [{ cls: 'cross', set: S(fr(a * b, c)), why: WHY.cross }, { cls: 'invert', set: S(fr(b * c, a)), why: 'ضربتَ كل بسط في مقام الكسر نفسه فكتبت \\(' + a + 'x=' + (b * c) + '\\)؛ والصحيح أن يُضرب بسط كل كسر في مقام الكسر الآخر: \\(' + b + 'x=' + (a * c) + '\\).' }, { cls: 'divc', set: S(fr(a, b * c)), why: 'عند الضرب التبادلي يُضرب \\(' + a + '\\) في \\(' + c + '\\)، ولا يُقسم عليه.' }, { cls: 'neg', set: S(-x0), why: WHY.negSign }],
+      cands: [{ cls: 'cross', set: S(fr(a * b, c)), why: WHY.cross }, { cls: 'invert', set: S(fr(b * c, a)), why: 'من \\(' + b + 'x=' + (a * c) + '\\) نقسم على ' + b + '، ولا نقلب الكسر.' }, { cls: 'divc', set: S(fr(a, b * c)), why: 'عند الضرب التبادلي يُضرب \\(' + a + '\\) في \\(' + c + '\\)، ولا يُقسم عليه.' }, { cls: 'neg', set: S(-x0), why: WHY.negSign }],
       remember: 'في تناسب بين كسرين يمكن الضرب التبادلي: بسط الأول في مقام الثاني يساوي بسط الثاني في مقام الأول.' };
   }
   function t1c(rng) { /* a/x + b/x = c */
@@ -186,14 +185,14 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var p = ri(rng, 1, 4), s, q; do { s = ri(rng, -(2 * p - 1), 8); q = s + 2 * p; } while (s === 0 || s === -p || s === p || q < 1);
     var r = 2 * p * p;
     return { e: frac('x', xp(-p)) + '-' + frac(q, xp(p)) + '=' + frac(r, 'x^{2}-' + (p * p)), ans: S(s), kind: 'r2b', key: 'R2b:' + p + ',' + q,
-      sol: [{ t: '\\text{LCD}=x^{2}-' + (p * p) + '=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')-' + q + '(x-' + p + ')=' + r }, { t: 'x^{2}' + sg(-(q - p)) + 'x' + sg(q * p - r) + '=0\\Rightarrow(x-' + p + ')' + fac(s) + '=0' }, { t: 'x=' + p + '\\ \\text{extraneous}' }, { t: 'x=' + sgn(s) }],
+      sol: [{ t: '\\text{LCD}=x^{2}-' + (p * p) + '=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')-' + q + '(x-' + p + ')=' + r }, { t: 'x^{2}-' + (q - p) + 'x+' + (q * p - r) + '=0\\Rightarrow(x-' + p + ')(x-' + sgn(s) + ')=0' }, { t: 'x=' + p + '\\ \\text{extraneous}' }, { t: 'x=' + sgn(s) }],
       cands: [{ cls: 'extra', set: S(p), why: WHY.extraOnly }, { cls: 'both', set: S(s, p), why: WHY.bothNoCheck }, { cls: 'neg', set: S(-s), why: WHY.negSign }, { cls: 'none', set: [], why: WHY.nosolFalse }],
       remember: 'بعد الحل عوّض كل قيمة في المقامات الأصلية، وارفض القيمة التي تجعل أحدها صفراً لأنها حل دخيل.' };
   }
   function t2c(rng) { /* a/(x-p) + b/(x+p) = c/(x^2-p^2) */
     var p, a, b, s, c; do { p = ri(rng, 1, 4); a = ri(rng, 1, 4); b = ri(rng, 1, 4); s = ri(rng, -6, 8); c = (a + b) * s + a * p - b * p; } while (a === b || s === 0 || Math.abs(s) === p || c <= 0);
     return { e: frac(a, xp(-p)) + '+' + frac(b, xp(p)) + '=' + frac(c, 'x^{2}-' + (p * p)), ans: S(s), kind: 'r2c', key: 'R2c:' + a + ',' + b + ',' + p + ',' + c,
-      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: a + '(x+' + p + ')+' + b + '(x-' + p + ')=' + c }, { t: (a + b) + 'x' + sg(a * p - b * p) + '=' + c }, { t: 'x=' + sgn(s) + '\\quad\\text{(not equal to }\\pm ' + p + '\\text{)}' }],
+      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: a + '(x+' + p + ')+' + b + '(x-' + p + ')=' + c }, { t: (a + b) + 'x+' + (a * p - b * p) + '=' + c }, { t: 'x=' + sgn(s) + '\\quad\\text{(not equal to }\\pm ' + p + '\\text{)}' }],
       cands: [{ cls: 'distr', set: S(fr(c + a * p - b * p, a + b)), why: 'عند توزيع الضرب: \\(' + a + '(x+' + p + ')=' + a + 'x+' + (a * p) + '\\) و\\(' + b + '(x-' + p + ')=' + b + 'x-' + (b * p) + '\\)؛ راجع إشارة كل حد عند النقل.' }, { cls: 'noP', set: S(fr(c, a + b)), why: 'لا تهمل الحدين الناتجين عن \\(p\\) (' + (a * p) + ' و' + (b * p) + ') عند التوزيع.' }, { cls: 'neg', set: S(-s), why: WHY.negSign }, { cls: 'both', set: S(fr(c - a * p - b * p, a + b)), why: 'عند توزيع الضرب: \\(' + a + '(x+' + p + ')=' + a + 'x+' + (a * p) + '\\) و\\(' + b + '(x-' + p + ')=' + b + 'x-' + (b * p) + '\\)؛ راجع إشارة كل حد عند النقل.' }],
       remember: 'المضاعف المشترك الأصغر هو \\((x+p)(x-p)\\)، ثم تحقق أن الحل لا يساوي \\(p\\) أو \\(-p\\).' };
   }
@@ -204,7 +203,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   var WP = pairs(36);
   function wA(rng) { var pr = pick(rng, WP), a = pr[0], t = pr[1], T = pr[2]; if (rng() < 0.5) { var z = a; a = t; t = z; }
     var who = pick(rng, [['Sara', 'Ali', 'paint a fence'], ['Omar', 'Layla', 'clean a hall'], ['Maya', 'Hassan', 'pack an order']]);
-    var stem = '<b>WORK:</b> ' + who[0] + ' can ' + who[2] + ' alone in ' + a + ' hours. Working together, ' + who[0] + ' and ' + who[1] + ' can finish the same job in ' + T + ' hours. How many hours would it take ' + who[1] + ' to do the job alone?';
+    var stem = '<b>WORK:</b> ' + who[0] + ' can ' + who[2] + ' alone in ' + a + ' hours. Working together with ' + who[1] + ', they can finish the same job in ' + T + ' hours. How many hours would it take ' + who[1] + ' to do the job alone?';
     return { stem: stem, e: '', ans: S(t), unit: 'hours', kind: 'wA', key: 'WA:' + a + ',' + T,
       sol: [{ t: frac(1, a) + '+' + frac(1, 't') + '=' + frac(1, T) + '\\quad\\text{(rates per hour)}' }, { t: T + 't+' + (a * T) + '=' + a + 't\\quad\\text{(multiply by }' + (a * T) + 't\\text{)}' }, { t: (a * T) + '=' + (a - T) + 't' }, { t: 't=' + t + '\\ \\text{hours}' }],
       cands: [{ cls: 'sub', set: S(a - T), why: WHY.sub }, { cls: 'add', set: S(a + T), why: WHY.add }, { cls: 'harm', set: S(fr(a * T, a + T)), why: WHY.harm }, { cls: 'avg', set: S(fr(a + T, 2)), why: WHY.avg }],
@@ -239,20 +238,76 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       remember: 'عند حل \\(x^2=k^2\\) يوجد جذران \\(\\pm k\\)، ثم تحقق من كل منهما في المقامات الأصلية.' }; }
   function t4u(rng) { var p, s, e, C; do { p = ri(rng, 1, 5); s = ri(rng, -9, 9); e = -2 * p - s; C = -p * p - s * e; } while (s === e || s === p || s === -p || e === p || e === -p || s === 0 || e === 0 || C <= 0 || C > 60);
     return { e: frac('x', xp(-p)) + '+' + frac(p, xp(p)) + '=' + frac(C, 'x^{2}-' + (p * p)), ans: S(s, e), kind: 'r4u', key: 'R4u:' + p + ',' + C,
-      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')+' + p + '(x-' + p + ')=' + C }, { t: 'x^{2}+' + (2 * p) + 'x-' + (p * p + C) + '=0\\Rightarrow' + fac(s) + fac(e) + '=0' }, { t: 'x=' + sgn(s) + '\\ \\text{or}\\ x=' + sgn(e) + '\\quad\\text{(neither makes a denominator }0\\text{)}' }],
+      sol: [{ t: '\\text{LCD}=(x+' + p + ')(x-' + p + ')' }, { t: 'x(x+' + p + ')+' + p + '(x-' + p + ')=' + C }, { t: 'x^{2}+' + (2 * p) + 'x-' + (p * p + C) + '=0\\Rightarrow(x-' + sgn(s) + ')(x-' + sgn(e) + ')=0'.replace('x--', 'x+') }, { t: 'x=' + sgn(s) + '\\ \\text{or}\\ x=' + sgn(e) + '\\quad\\text{(neither makes a denominator }0\\text{)}' }],
       cands: [{ cls: 'one', set: S(s), why: WHY.oneRootOnly }, { cls: 'oneB', set: S(e), why: WHY.oneRootOnly }, { cls: 'none', set: [], why: WHY.nosolFalse }, { cls: 'neg', set: S(-s, -e), why: WHY.negSign }],
       remember: 'حل المعادلة التربيعية الناتجة ثم افحص كل جذر في المقامات الأصلية قبل اعتماده.' }; }
+
+  /* ---------- مستوى التحدّي (5) ---------- */
+  var EXW = 'هذه القيمة تجعل أحد المقامات الأصلية صفراً فلا تصلح حلاً.', NEGW = 'راجع إشارات الحدود عند نقل الحدود وضرب الطرفين في المضاعف المشترك الأصغر.';
+  function sg(n) { return (n < 0 ? '-' : '+') + Math.abs(n); }
+  function P2(b, c) { return 'x^{2}' + (b ? (b < 0 ? '-' : '+') + (Math.abs(b) === 1 ? '' : Math.abs(b)) + 'x' : '') + (c ? sg(c) : ''); }
+  function cf(n) { return Math.abs(n) === 1 ? '' : String(Math.abs(n)); }
+  function tx1(n) { return (n < 0 ? '-' : '+') + cf(n) + 'x'; }
+  function sgFr(n, den) { return (n < 0 ? '-' : '+') + frac(Math.abs(n), den); }
+  var CH_HINT = {
+    ext: 'أوجد المضاعف المشترك الأصغر للمقامات، ثم اضرب الطرفين فيه وحلّ المعادلة الناتجة وعوّض كل جذر في المقامات الأصلية لتستبعد الجذر الدخيل.',
+    fac: 'حلّل المقام التربيعي إلى عاملين، فيظهر المضاعف المشترك الأصغر، ثم اضرب الطرفين فيه وحل المعادلة الخطية.',
+    work: 'ليكن \\(x\\) زمن الأنبوب A منفرداً؛ فمعدل عمله \\(\\dfrac{1}{x}\\) ومعدل B مقلوب زمنه بدلالة \\(x\\)، ومجموعهما يساوي مقلوب الزمن المشترك. كوّن المعادلة وحل المعادلة التربيعية وارفض الجذر السالب لأن الزمن لا يكون سالباً.'
+  };
+  /* نوع 1: مقامان مختلفان بعاملين خطيين + جذر دخيل */
+  function t5a(rng) {
+    var u, v, s, A, B, g = 0;
+    do { u = pick(rng, [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]); v = pick(rng, [-5, -4, -3, -2, -1, 1, 2, 3, 4, 5]); s = ri(rng, -8, 8); A = v - s - u; B = u * (u - v); g++; }
+    while (g < 4000 && (u === v || s === 0 || s === u || s === v || A === 0 || Math.abs(A) > 9 || Math.abs(B) > 40));
+    var isEx = function (z) { return z === u || z === v; };
+    var X = xp(-u), Y = xp(-v), coefB = A - v, coefC = -(A * u + B);
+    return { e: frac('x', X) + sgFr(A, Y) + '=' + frac(B, '(' + X + ')(' + Y + ')'), ans: S(s), kind: 'r5a', hint: CH_HINT.ext, key: 'R5a:' + u + ',' + v + ',' + s,
+      sol: [{ t: '\\text{LCD}=(' + X + ')(' + Y + ')' }, { t: 'x(' + Y + ')' + (A < 0 ? '-' : '+') + cf(A) + '(' + X + ')=' + B }, { t: 'x^{2}' + tx1(-v) + tx1(A) + sg(-A * u) + '=' + B }, { t: P2(coefB, coefC) + '=0\\Rightarrow(' + xp(-s) + ')(' + X + ')=0' }, { t: 'x=' + u + '\\ \\text{extraneous (makes a denominator }0\\text{)}' }, { t: 'x=' + s }],
+      cands: [{ cls: 'extra', set: S(u), why: WHY.extraOnly }, { cls: 'both', set: S(s, u), why: 'لا يُقبل حلّان معاً قبل التحقق من كل منهما بالتعويض في المقامات الأصلية.' }, { cls: 'neg', set: S(-s), why: (isEx(-s) ? EXW : NEGW) }, { cls: 'none', set: [], why: 'لا تحكم بعدم وجود حل قبل أن تعوّض كل جذر في المقامات الأصلية.' }],
+      remember: 'بعد الحل عوّض كل قيمة في المقامات الأصلية، وارفض القيمة التي تجعل أحدها صفراً لأنها حل دخيل.' };
+  }
+  /* نوع 2: مقام تربيعي يحتاج تحليلاً */
+  function t5b(rng) {
+    var u, v, s, a, b, c, g = 0;
+    do { u = ri(rng, -5, 5); v = ri(rng, -5, 5); a = ri(rng, 1, 4); b = ri(rng, 1, 4); s = ri(rng, -6, 8); c = (a + b) * s - a * v - b * u; g++; }
+    while (g < 4000 && (u === 0 || v === 0 || u === v || s === u || s === v || c === 0 || Math.abs(c) > 40 || a === b));
+    var isEx = function (z) { return z === u || z === v; };
+    var X = xp(-u), Y = xp(-v), Q = P2(-(u + v), u * v), tot = c + a * v + b * u, T = a + b;
+    return { e: frac(a, X) + '+' + frac(b, Y) + '=' + frac(c, Q), ans: S(s), kind: 'r5b', hint: CH_HINT.fac, key: 'R5b:' + a + ',' + b + ',' + u + ',' + v + ',' + c,
+      sol: [{ t: Q + '=(' + X + ')(' + Y + ')\\Rightarrow\\text{LCD}=(' + X + ')(' + Y + ')' }, { t: cf(a) + '(' + Y + ')+' + cf(b) + '(' + X + ')=' + c }, { t: T + 'x' + sg(-(a * v + b * u)) + '=' + c }, { t: T + 'x=' + tot }, { t: 'x=' + sgn(s) + '\\quad\\text{(not equal to }' + u + '\\text{ or }' + v + '\\text{)}' }],
+      cands: [{ cls: 'sgn', set: S(fr(c - a * v - b * u, T)), why: 'راجع إشارة كل حد عند توزيع الضرب ونقل الحدود.' }, { cls: 'swap', set: S(fr(c + a * u + b * v, T)), why: 'راجع العامل الذي يضرب بسط كل كسر عند الضرب في المضاعف المشترك الأصغر.' }, { cls: 'omit', set: S(fr(c, T)), why: 'لا تهمل الحدود الثابتة الناتجة عن توزيع الضرب.' }, { cls: 'neg', set: S(-s), why: (isEx(-s) ? EXW : NEGW) }],
+      remember: 'حلّل المقام التربيعي أولاً؛ فيظهر المضاعف المشترك الأصغر وقيم x الممنوعة.' };
+  }
+  /* نوع 3: مسألة عمل تقود إلى معادلة تربيعية */
+  function t5w(rng) {
+    var tr = pick(rng, TRIS), sc = pick(rng, [1, 1, 2]), p = tr[0] * sc, q = tr[1] * sc, r = tr[2] * sc, d, T, s, n;
+    if (rng() < 0.5) { var z = p; p = q; q = z; }
+    if (q % 2 !== 0) { var z2 = p; p = q; q = z2; } if (q % 2 !== 0) return null;
+    d = p; T = q / 2; var disc = d * d + 4 * T * T; if (r * r !== disc) return null;
+    var x0 = (2 * T - d + r) / 2; n = x0 + d - 2 * T; /* الجذر الآخر -n حيث n=(r+d-2T)/2 */
+    n = (r + d - 2 * T) / 2; if (x0 !== Math.floor(x0) || x0 <= 0 || n <= 0 || x0 > 40 || T >= x0) return null; s = x0;
+    var coefB = d - 2 * T, coefC = -T * d;
+    var stem = '<b>PIPES:</b> Pipes A and B working together can fill a tank in ' + T + ' hours. Pipe B alone takes ' + d + ' hours longer than Pipe A alone to fill the tank. How many hours does Pipe A need to fill the tank alone?';
+    return { stem: stem, e: '', ans: S(s), unit: 'hours', kind: 'r5w', hint: CH_HINT.work, key: 'R5w:' + T + ',' + d,
+      sol: [{ t: '\\text{Let }x=\\text{time (hours) for Pipe A alone}' }, { t: frac(1, 'x') + '+' + frac(1, 'x+' + d) + '=' + frac(1, T) + '\\quad\\text{(rates per hour)}' }, { t: T + '(x+' + d + ')+' + T + 'x=x(x+' + d + ')\\quad\\text{(multiply by }' + T + 'x(x+' + d + ')\\text{)}' }, { t: (2 * T) + 'x+' + (T * d) + '=x^{2}+' + d + 'x' }, { t: P2(coefB, coefC) + '=0\\Rightarrow(x-' + s + ')(x+' + n + ')=0' }, { t: 'x=-' + n + '\\ \\text{rejected (time cannot be negative)}' }, { t: 'x=' + s + '\\ \\text{hours}' }],
+      cands: [{ cls: 'other', set: S(s + d), why: 'تحقق مما يمثله المتغير \\(x\\) (زمن الأنبوب A منفرداً) وما الذي يطلبه السؤال بالضبط.' }, { cls: 'negr', set: S(-n), why: 'تحقق من أن هذه القيمة تصلح زمناً.' }, { cls: 'addT', set: S(T + d), why: 'لا يصح جمع الأزمنة؛ تُجمع معدلات العمل (مقلوب كل زمن).' }, { cls: 'diff', set: S(d), why: 'تأكد مما يطلبه السؤال بالضبط.' }],
+      remember: 'اجمع معدلات العمل (مقلوب كل زمن)، وحل المعادلة التربيعية، ثم ارفض الجذر الذي لا يناسب المعنى.' };
+  }
+  var TRIS = [[3, 4, 5], [5, 12, 13], [8, 15, 17], [7, 24, 25]];
+  function t5(rng) { for (var g = 0; g < 60; g++) { var r = rng(), t = r < 0.35 ? t5a(rng) : (r < 0.7 ? t5b(rng) : t5w(rng)); if (t) return t; } }
 
   var LEVELS = [
     { id: 1, ar: 'أساسي', hint: 'اضرب طرفي المعادلة في المضاعف المشترك الأصغر للمقامات لتتخلص من الكسور، ثم اعزل \\(x\\).' },
     { id: 2, ar: 'تطبيق', hint: 'حلّل المقام \\(x^2-p^2=(x+p)(x-p)\\) واجعله مضاعفاً مشتركاً، ثم عوّض الحل في المقامات الأصلية لتستبعد الحل الدخيل.' },
     { id: 3, ar: 'مسائل كلامية', hint: 'اكتب معدل عمل كل شخص في الساعة (مقلوب زمنه)، ثم اجمع المعدلات أو اطرحها حسب المسألة وحل المعادلة النسبية.' },
-    { id: 4, ar: 'مستوى الوزارة', hint: 'بعد حل المعادلة الناتجة افحص كل جذر في المقامات الأصلية: قد يكون بعضها أو كلها دخيلاً، وقد يكون للمعادلة جذران صالحان.' }
+    { id: 4, ar: 'مستوى الوزارة', hint: 'بعد حل المعادلة الناتجة افحص كل جذر في المقامات الأصلية: قد يكون بعضها أو كلها دخيلاً، وقد يكون للمعادلة جذران صالحان.' },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: CH_HINT.ext }
   ];
   function build(level, rng) {
     if (level === 1) { var r = rng(); return r < 0.4 ? t1a(rng) : (r < 0.7 ? t1c(rng) : t1b(rng)); }
     if (level === 2) { var r2 = rng(); return r2 < 0.35 ? t2a(rng) : (r2 < 0.6 ? t2b(rng) : t2c(rng)); }
     if (level === 3) { var r3 = rng(); return r3 < 0.4 ? wA(rng) : (r3 < 0.75 ? wB(rng) : wC(rng)); }
+    if (level === 5) return t5(rng);
     var r4 = rng(); return r4 < 0.25 ? t4n1(rng) : (r4 < 0.4 ? t4n2(rng) : (r4 < 0.7 ? t4t(rng) : t4u(rng)));
   }
   function make(level, rng) {
@@ -264,7 +319,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var all = shuffle(rng, [correct].concat(dis.map(function (c) { return { tex: tx(c.set), why: c.why }; })));
     var ans = all.indexOf(correct);
     var sol = t.sol.slice(); sol.push({ box: correct.tex });
-    return { band: 10, level: level, rtl: false, lang: 'en', stem: t.stem || 'Solve the equation.', svg: '', e: t.e || '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: ans, sol: sol, hint: LEVELS[level - 1].hint, key: t.key, data: { kind: t.kind } };
+    return { band: 10, level: level, rtl: false, lang: 'en', stem: t.stem || 'Solve the equation.', svg: '', e: t.e || '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: ans, sol: sol, hint: t.hint || LEVELS[level - 1].hint, key: t.key, data: { kind: t.kind } };
   }
   var api = { levels: LEVELS, make: make };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
@@ -312,6 +367,12 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
       var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
       if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
       p.appendChild(li);
     });
   }
@@ -332,7 +393,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function renderSkip() {
     var box = $('#skipBox'); if (!box) return;
     box.innerHTML = '';
-    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    if (st.mastered || st.level >= CORE || !round || round.idx >= ROUND) { box.hidden = true; return; }
     var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
     b.addEventListener('click', function () {
       var from = st.level; st.level = CORE; st.skipped = from; persist();
@@ -430,6 +491,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   }
 
   function finish() {
+    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
     var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
     var res = h('div', 'res');
     if (round.n === 1) { st.firstScore = round.correct; persist(); }
@@ -465,7 +527,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
       if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
-      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      if (st.skipped && st.skipped < CORE && lvl === CORE) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
       res.appendChild(a3);
     }
     stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());

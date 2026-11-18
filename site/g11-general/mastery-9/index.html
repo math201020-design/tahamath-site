@@ -24,6 +24,7 @@ header.top .sub{font-size:15px;line-height:1.8}
 .path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
 .path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
 .path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .path li.cur b{color:var(--navy)}
 .path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
 .path li.done b{color:var(--green)}
@@ -249,15 +250,86 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     }
     var DV = variant === 1 ? [d, a] : variant === 2 ? [d2, 0] : [d3, a3];
     cands.forEach(function (c) { c.why = c.why.replace(/\{D2\}/g, 2 * DV[0]).replace(/\{DD\}/g, DV[0] * DV[0]).replace(/\{AA\}/g, DV[1] * DV[1]).replace(/\{D\}/g, DV[0]); });
-    var res = { stem: 'Find the value of x.', svg: svg(wv, hv, lb), correct: { v: ans, tex: String(ans) }, cands: cands, sol: sol, kind: 'alg' + variant, key: 'A' + variant + ':' + p + ',' + q + ',' + r, remember: 'عند تربيع ذات الحدين لا تنسَ الحد الأوسط؛ وإن ظهرت \\(x^2\\) في الطرفين فإنها تختفي، وإلا فتصير المعادلة تربيعية فحلّلها وارفض الجذر السالب.' };
+    var res = { stem: 'Find the value of x.', svg: svg(wv, hv, lb), correct: { v: ans, tex: String(ans) }, cands: cands, sol: sol, kind: 'alg' + variant, key: 'A' + variant + ':' + p + ',' + q + ',' + r, remember: 'عند تربيع ذات الحدين لا تنسَ الحد الأوسط، ثم تختفي مربعات المتغير من الطرفين.' };
     return res;
+  }
+
+  /* ---------- مستوى التحدّي (5) ---------- */
+  var HY = { 25: [[7, 24], [15, 20]], 50: [[14, 48], [30, 40]], 65: [[16, 63], [25, 60], [33, 56], [39, 52]], 85: [[13, 84], [36, 77], [40, 75], [51, 68]], 100: [[28, 96], [60, 80]] };
+  var CH_HINT = {
+    iso: 'في المثلث متساوي الساقين ينصّف الارتفاع القاعدة؛ فالساق الأفقية في المثلث القائم تساوي نصف القاعدة. حدّد الوتر وطبّق نظرية فيثاغورس.',
+    area: 'مساحة المثلث \\(=\\frac{1}{2}\\times\\) القاعدة \\(\\times\\) الارتفاع. الارتفاع ينصّف القاعدة، فأوجده أولاً بمثلث قائم الزاوية.',
+    conv: 'ضع \\(c\\) أطول ضلع، وتحقّق هل \\(a^{2}+b^{2}=c^{2}\\) حيث \\(a\\) و\\(b\\) الضلعان الآخران.',
+    ladder: 'ارسم المثلث القائم للوضعين (قبل الانزلاق وبعده)؛ طول السلّم ثابت وهو الوتر في الوضعين.'
+  };
+  function nm(v) { return num(Math.round(v * 100) / 100); }
+  function finish(o, rng, cands, correctTex, correctV, sol, unitTex) {
+    var dis = dedupeCands(rng, correctV, cands);
+    if (dis.gen > 0 || dis.amb > 0) return null;
+    var correct = { t: correctTex, why: '' };
+    var all = shuffle(rng, [correct].concat(dis.map(function (c) { return { t: c.tex !== undefined ? c.tex : nm(c.v) + unitTex, why: c.why }; })));
+    o.opts = all; o.ans = all.indexOf(correct); o.sol = sol.concat([{ box: correctTex }]);
+    return o;
+  }
+  function base(kind, stem, key, hint) { return { band: 9, level: 5, rtl: false, lang: 'en', stem: stem, svg: '', e: '', hint: hint, key: key, data: { kind: kind } }; }
+  /* مثلث متساوي الساقين: الارتفاع أو المساحة */
+  function qIso(rng, area) {
+    var t, s, p, q, r;
+    do { t = pick(rng, SMALL); s = pick(rng, [1, 2, 3, 0.5, 1.5]); p = dec(t[0] * s); q = dec(t[1] * s); r = dec(t[2] * s); } while (r > 60 || (q > 6 && p > 6 && s > 2));
+    var o = base(area ? 'isoarea' : 'isoh', '', (area ? 'IA:' : 'IH:') + p + ',' + q + ',' + r, area ? CH_HINT.area : CH_HINT.iso);
+    var common = 'An isosceles triangle has two equal sides of length ' + num(r) + ' cm and a base of length ' + num(dec(2 * p)) + ' cm. ';
+    o.stem = '<b>TRIANGLE:</b> ' + common + (area ? 'Find the area of the triangle.' : 'Find the height of the triangle from the apex to the base.');
+    var sol = [{ t: '\\text{the height bisects the base: half of the base}=' + num(p) }, { t: 'h^{2}+' + num(p) + '^{2}=' + num(r) + '^{2}' }, { t: 'h^{2}=' + num(dec(r * r)) + '-' + num(dec(p * p)) + '=' + num(dec(q * q)) + '\\Rightarrow h=' + num(q) }];
+    var cands, cv, ctx, ut;
+    if (!area) {
+      ut = '\\ \\text{cm}'; cv = q; ctx = num(q) + ut;
+      cands = [{ cls: 'addL', v: Math.sqrt(r * r + p * p), why: 'راجع العملية التي تحسب بها ساقاً في المثلث القائم الذي استخدمته.' }, { cls: 'subLen', v: r - p, why: 'لا تُطرح الأطوال مباشرة؛ اطرح المربعين أولاً ثم خذ الجذر التربيعي.' }, { cls: 'nosqrt', v: dec(q * q), tex: num(dec(q * q)) + '\\ \\text{cm}^{2}', why: 'ما زلتَ في مرحلة \\(h^{2}\\)؛ أكمل الخطوة الأخيرة.' }];
+      if (r > 2 * p) cands.push({ cls: 'full', v: Math.sqrt(r * r - 4 * p * p), why: 'راجع طول الضلع الأفقي في المثلث القائم الذي استخدمته.' });
+    } else {
+      ut = '\\ \\text{cm}^{2}'; cv = dec(p * q); ctx = num(cv) + ut;
+      sol.push({ t: '\\text{Area}=\\frac{1}{2}\\times ' + num(dec(2 * p)) + '\\times ' + num(q) + '=' + num(cv) });
+      cands = [{ cls: 'twice', v: dec(2 * p * q), why: 'راجع صيغة مساحة المثلث.' }, { cls: 'slant', v: dec(p * r), why: 'راجع أي طول يكون عمودياً على القاعدة ويصلح أن يكون الارتفاع.' }, { cls: 'hgt', v: q, why: 'هذا الناتج هو الارتفاع وليس المساحة.' }, { cls: 'quarter', v: dec(p * q / 2), why: 'راجع صيغة مساحة المثلث وطول القاعدة.' }];
+    }
+    return finish(o, rng, cands, ctx, cv, sol, ut);
+  }
+  /* عكس نظرية فيثاغورس */
+  function qConv(rng) {
+    var t = pick(rng, TRI.slice(0, 9)), s = pick(rng, [1, 1, 2, 3]);
+    if (t[2] * s > 99) s = 1;
+    var a = t[0] * s, b = t[1] * s, c = t[2] * s;
+    function isR(x, y, z) { var m = [x, y, z].sort(function (u, v) { return u - v; }); return m[0] * m[0] + m[1] * m[1] === m[2] * m[2]; }
+    var wrong = [[a, b, c + 1], [a + 1, b + 1, c], [a, b, c - 1], [a + 1, b, c], [a, b + 1, c + 1]].filter(function (w) { return !isR(w[0], w[1], w[2]) && w[0] + w[1] > w[2] && w[2] > 0; });
+    wrong = shuffle(rng, wrong).slice(0, 3); if (wrong.length < 3) return null;
+    function tx(w) { return w.slice().sort(function (u, v) { return u - v; }).join(',\\ '); }
+    var seen = {}, ok = true; [[a, b, c]].concat(wrong).forEach(function (w) { var k = tx(w); if (seen[k]) ok = false; seen[k] = 1; });
+    if (!ok) return null;
+    var o = base('conv', '<b>RIGHT TRIANGLE:</b> Which of the following sets of side lengths (in cm) forms a right-angled triangle?', 'C:' + a + ',' + b + ',' + c, CH_HINT.conv);
+    var all = shuffle(rng, [{ t: tx([a, b, c]), why: '', ok: 1 }].concat(wrong.map(function (w) { var m = w.slice().sort(function (u, v) { return u - v; }); return { t: tx(w), why: 'عند التحقق يكون \\(a^{2}+b^{2}=' + (m[0] * m[0] + m[1] * m[1]) + '\\) بينما \\(c^{2}=' + (m[2] * m[2]) + '\\)، فهما غير متساويين.' }; })));
+    o.opts = all.map(function (z) { return { t: z.t, why: z.why }; }); all.forEach(function (z, i) { if (z.ok) o.ans = i; });
+    o.sol = [{ t: '\\text{longest side: }c=' + c }, { t: a + '^{2}+' + b + '^{2}=' + (a * a) + '+' + (b * b) + '=' + (a * a + b * b) }, { t: c + '^{2}=' + (c * c) + '\\quad\\Rightarrow\\ a^{2}+b^{2}=c^{2}\\ \\text{(right-angled)}' }, { box: tx([a, b, c]) }];
+    return o;
+  }
+  /* سلّم ينزلق */
+  function qLadder(rng) {
+    var R = pick(rng, [25, 50, 65, 85, 100]), pr = HY[R], i = ri(rng, 0, pr.length - 1), j; do { j = ri(rng, 0, pr.length - 1); } while (j === i);
+    var A = pr[i], B = pr[j]; if (A[1] < B[1]) { var z = A; A = B; B = z; } /* A: وضع أعلى */
+    var k = 0.1, r = dec(R * k), f1 = dec(A[0] * k), h1 = dec(A[1] * k), f2 = dec(B[0] * k), h2 = dec(B[1] * k), d = dec(h1 - h2), mv = dec(f2 - f1);
+    if (h1 <= h2 || mv <= 0) return null;
+    var o = base('ladder', '<b>LADDER:</b> A ' + num(r) + ' m ladder rests against a vertical wall on level ground, with its foot ' + num(f1) + ' m from the wall. The top of the ladder slides down the wall by ' + num(d) + ' m. How far does the foot of the ladder move away from the wall?', 'LD:' + R + ',' + f1 + ',' + f2, CH_HINT.ladder);
+    var sol = [{ t: '\\text{before: foot }f_{1}=' + num(f1) + '\\text{, top }h_{1};\\ \\text{after: foot }f_{2}\\text{, top }h_{2}' }, { t: 'h_{1}^{2}=' + num(r) + '^{2}-' + num(f1) + '^{2}=' + num(dec(r * r - f1 * f1)) + '\\Rightarrow h_{1}=' + num(h1) }, { t: 'h_{2}=' + num(h1) + '-' + num(d) + '=' + num(h2) }, { t: 'f_{2}^{2}=' + num(r) + '^{2}-' + num(h2) + '^{2}=' + num(dec(r * r - h2 * h2)) + '\\Rightarrow f_{2}=' + num(f2) }, { t: 'f_{2}-f_{1}=' + num(f2) + '-' + num(f1) + '=' + num(mv) }];
+    var cands = [{ cls: 'newfoot', v: f2, why: 'راجع ما يطلبه السؤال بالضبط.' }, { cls: 'slide', v: d, why: 'بعد انزلاق الطرف العلوي يتغير موضع القدم أيضاً؛ لا تساوِ الإزاحتين.' }, { cls: 'sumf', v: dec(f1 + f2), why: 'راجع ما تمثله كل قيمة: موضعا القدم قبل الانزلاق وبعده.' }, { cls: 'fd', v: dec(f2 - d), why: 'لا تطرح مسافة انزلاق الطرف العلوي من موضع القدم؛ الإزاحتان مختلفتان.' }];
+    return finish(o, rng, cands, num(mv, 'm'), mv, sol, '\\ \\text{m}');
+  }
+  function qChallenge(rng) {
+    for (var g = 0; g < 50; g++) { var r = rng(), q = r < 0.28 ? qIso(rng, false) : (r < 0.5 ? qIso(rng, true) : (r < 0.75 ? qLadder(rng) : qConv(rng))); if (q) return q; }
   }
 
   var LEVELS = [
     { id: 1, ar: 'أساسي', hint: 'حدّد الوتر: هو الضلع المقابل للزاوية القائمة. ثم طبّق: مربع الوتر = مجموع مربعي الساقين.' },
     { id: 2, ar: 'تطبيق', hint: 'إذا كان المجهول هو الوتر فاجمع المربعين، وإذا كان ساقاً فاطرح مربع الساق المعلومة من مربع الوتر. ثم خذ الجذر وبسّطه.' },
     { id: 3, ar: 'مسائل كلامية', hint: 'ارسم المثلث القائم من المسألة، وحدّد الوتر (السلم أو القطر أو المسافة المباشرة) ثم طبّق نظرية فيثاغورس.' },
-    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب معادلة فيثاغورس بحسب الوتر في الشكل، وفُكّ القوس بعناية: \\((x\\pm d)^2=x^2\\pm 2dx+d^2\\)؛ إن كانت \\(x^2\\) في الطرفين فإنها تختفي، وإلا فتصير المعادلة تربيعية فحلّلها وارفض الجذر السالب.' }
+    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب معادلة فيثاغورس بحسب الوتر في الشكل، وفُكّ القوس بعناية: \\((x\\pm d)^2=x^2\\pm 2dx+d^2\\)، ثم تختفي \\(x^2\\) من الطرفين.' },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: CH_HINT.iso }
   ];
 
   function build(level, rng) {
@@ -269,6 +341,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 
   function make(level, rng) {
     rng = rng || Math.random;
+    if (level === 5) return qChallenge(rng);
     var t, dis, tries = 0;
     do { t = build(level, rng); dis = dedupeCands(rng, t.correct.v, t.cands); tries++; } while ((dis.gen > 0 || dis.amb > 0) && tries < 120);
     function texOf(c) { return c.tex || (t.kind === 'word' ? num(c.v, t.unit) : (Math.abs(c.v - Math.round(c.v)) < 1e-9 ? String(Math.round(c.v)) : sqrtOrDec(c.v))); }
@@ -326,6 +399,12 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
       var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
       if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
       p.appendChild(li);
     });
   }
@@ -346,7 +425,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function renderSkip() {
     var box = $('#skipBox'); if (!box) return;
     box.innerHTML = '';
-    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    if (st.mastered || st.level >= CORE || !round || round.idx >= ROUND) { box.hidden = true; return; }
     var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
     b.addEventListener('click', function () {
       var from = st.level; st.level = CORE; st.skipped = from; persist();
@@ -444,6 +523,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   }
 
   function finish() {
+    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
     var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
     var res = h('div', 'res');
     if (round.n === 1) { st.firstScore = round.correct; persist(); }
@@ -479,7 +559,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
       if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
-      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      if (st.skipped && st.skipped < CORE && lvl === CORE) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
       res.appendChild(a3);
     }
     stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());

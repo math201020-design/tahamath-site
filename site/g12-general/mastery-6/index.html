@@ -24,6 +24,7 @@ header.top .sub{font-size:15px;line-height:1.8}
 .path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
 .path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
 .path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
 .path li.cur b{color:var(--navy)}
 .path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
 .path li.done b{color:var(--green)}
@@ -122,6 +123,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var s = term(a, 'x^{2}', true) + term(b, 'x', false) + term(c, '', false);
     return s + ' = 0';
   }
+  function key(f) { return f.n + '/' + f.d; }
   function paren(n) { return n < 0 ? '(' + n + ')' : String(n); }
   function neg(n) { return n < 0 ? '-(' + n + ')' : '-' + n; }
 
@@ -132,9 +134,9 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     if (isSq(Dn)) {
       var s = Math.round(Math.sqrt(Dn));
       var r1 = fr(P + s, den), r2 = fr(P - s, den);
-      if (r1.n * r2.d === r2.n * r1.d) return { kind: 'one', roots: [r1], latex: '\\{' + frLatex(r1) + '\\}', key: 'r:' + r1.n + '/' + r1.d };
+      if (r1.n * r2.d === r2.n * r1.d) return { kind: 'one', roots: [r1], latex: '\\left\\{' + frLatex(r1) + '\\right\\}', key: 'r:' + r1.n + '/' + r1.d };
       var lo = frVal(r1) < frVal(r2) ? r1 : r2, hi = lo === r1 ? r2 : r1;
-      return { kind: 'rat', roots: [lo, hi], latex: '\\{' + frLatex(lo) + ',\\ ' + frLatex(hi) + '\\}', key: 'r:' + lo.n + '/' + lo.d + ',' + hi.n + '/' + hi.d };
+      return { kind: 'rat', roots: [lo, hi], latex: '\\left\\{' + frLatex(lo) + ',\\ ' + frLatex(hi) + '\\right\\}', key: 'r:' + lo.n + '/' + lo.d + ',' + hi.n + '/' + hi.d };
     }
     var sp = sqrtParts(Dn), g = gcd(gcd(P, sp.k), den);
     var p = P / g, q = sp.k / g, d = den / g;
@@ -222,7 +224,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     } else {
       var sp = sqrtParts(D);
       if (sp.k > 1) steps.push({ t: '\\sqrt{' + D + '}=\\sqrt{' + (sp.k * sp.k) + '\\cdot ' + sp.m + '}=' + sp.k + '\\sqrt{' + sp.m + '}' });
-      steps.push({ t: 'x=\\frac{' + (-b) + '\\pm ' + (sp.k === 1 ? '' : sp.k) + '\\sqrt{' + sp.m + '}}{' + den + '}\\quad\\text{simplify}' });
+      if (sp.k > 1) steps.push({ t: 'x=\\frac{' + (-b) + '\\pm ' + sp.k + '\\sqrt{' + sp.m + '}}{' + den + '}\\quad\\text{simplify}' });
     }
     steps.push({ box: setCorrect.latex });
     return steps;
@@ -278,15 +280,141 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     return out;
   }
 
+  /* ---------- مستوى التحدّي (5) ---------- */
+  function fq(n, d) { return fr(n, d === undefined ? 1 : d); }
+  function poly3(a, b, c) { return term(a, 'x^{2}', true) + term(b, 'x', false) + term(c, '', false); }
+  function sgnTerm(c, v) { return (c < 0 ? ' - ' : ' + ') + (Math.abs(c) === 1 && v ? '' : Math.abs(c)) + (v || ''); }
+  var CH_HINT = {
+    expand: 'انشر الأقواس وانقل كل الحدود إلى طرف واحد لتحصل على الصورة \\(ax^{2}+bx+c=0\\)، ثم طبّق القانون العام.',
+    param: 'يكون للمعادلة حل حقيقي واحد فقط عندما يساوي المميز \\(b^{2}-4ac\\) صفراً (حيث المعادلة \\(ax^{2}+bx+c=0\\))؛ اكتب المميز بدلالة \\(k\\) وساوِه بالصفر.',
+    frac: 'اضرب طرفي المعادلة في المضاعف المشترك الأصغر للمقامات حتى تصير المعاملات أعداداً صحيحة، ثم اكتب المعادلة بالصورة \\(ax^{2}+bx+c=0\\) وطبّق القانون العام.'
+  };
+  var NEUT = {
+    sign: 'راجع إشارة الحد الأول في البسط عند تطبيق القانون العام.',
+    den: 'راجع المقام عند تطبيق القانون العام: قارنه بمعامل \\(x^{2}\\).',
+    minus: 'راجع المقام عند تطبيق القانون العام: قارنه بمعامل \\(x^{2}\\).',
+    bsign: 'راجع إشارة الحد الأول في البسط، وراجع المقام أيضاً.'
+  };
+  function neutral(list) {
+    var map = {};
+    map['لم تتغير إشارة \\(b\\) في بسط القانون العام: البسط يبدأ بـ \\(-b\\).'] = NEUT.sign;
+    map['المقام في القانون العام هو \\(2a\\) وليس \\(a\\).'] = NEUT.den;
+    map['المقام هو \\(2a\\) وليس \\(4a\\): لا يُضاعَف مرة ثانية.'] = NEUT.minus;
+    map['هنا اجتمع خطآن: إشارة \\(b\\) في البسط، والمقام الذي يجب أن يكون \\(2a\\).'] = NEUT.bsign;
+    list.forEach(function (o) { if (o.why && map[o.why]) o.why = map[o.why]; });
+    return list;
+  }
+  function stdRows(a, b, c, correct) {
+    var rows = solution({ a: a, b: b, c: c }, { std: true }, correct);
+    return rows;
+  }
+  function pickCoefs(rng) {
+    for (var g = 0; g < 2000; g++) {
+      var c = coefsLevel4(rng); if (c.a <= 4 && Math.abs(c.b) <= 9 && Math.abs(c.c) <= 9) return c;
+    }
+    return { a: 2, b: 3, c: -4 };
+  }
+  /* نوع 1: معادلة بأقواس تحتاج نشراً ونقل حدود */
+  function qExpand(rng) {
+    for (var g = 0; g < 4000; g++) {
+      var al = pick(rng, [1, 1, 2, 3]), m = ri(rng, -5, 5), n = ri(rng, -5, 5), k = ri(rng, -12, 12);
+      if (m === 0 || n === 0 || k === 0) continue;
+      var a = al, b = n + al * m, c = m * n - k;
+      if (b === 0 || c === 0 || Math.abs(c) > 40 || Math.abs(b) > 20) continue;
+      var D = b * b - 4 * a * c; if (D <= 0 || (D > 0 && isSq(D) && rng() < 0.6)) continue;
+      if (gcd(gcd(a, b), c) !== 1) continue;
+      var correct = setFrom(-b, D, 2 * a);
+      var lhs = '(x' + sgnTerm(m) + ')(' + (al === 1 ? 'x' : al + 'x') + sgnTerm(n) + ')';
+      var e = lhs + ' = ' + k;
+      var expd = poly3(a, b, m * n) + ' = ' + k;
+      var pool = [];
+      /* خطأ: مساواة كل عامل بالطرف الأيمن */
+      var z1 = fq(k - m), z2 = fq(k - n, al);
+      if (z1.n * z2.d !== z2.n * z1.d) { var lo = frVal(z1) < frVal(z2) ? z1 : z2, hi = lo === z1 ? z2 : z1; pool.push({ cls: 'zp', s: { kind: 'rat', roots: [lo, hi], latex: '\\left\\{' + frLatex(lo) + ',\\ ' + frLatex(hi) + '\\right\\}', key: 'r:' + lo.n + '/' + lo.d + ',' + hi.n + '/' + hi.d }, why: 'يمكن مساواة كل عامل بصفر فقط إذا كان حاصل الضرب يساوي صفراً؛ هنا الطرف الأيمن ليس صفراً.' }); }
+      /* خطأ: إشارة الثابت عند النقل */
+      var c2 = m * n + k, D2 = b * b - 4 * a * c2;
+      if (D2 > 0) pool.push({ cls: 'mv', s: setFrom(-b, D2, 2 * a), why: 'راجع إشارة الحد الثابت عند نقل \\(' + k + '\\) إلى الطرف الأيسر.' });
+      /* خطأ: نشر ناقص */
+      var b3 = n + m, D3 = b3 * b3 - 4 * a * c; if (al !== 1 && D3 > 0) pool.push({ cls: 'ex', s: setFrom(-b3, D3, 2 * a), why: 'راجع نشر القوسين: كل حد في القوس الأول يُضرب في كل حد في القوس الثاني.' });
+      var gen = distractors({ a: a, b: b, c: c }, correct);
+      var seen = {}; seen[correct.key] = 1; var out = [];
+      shuffle(rng, pool).concat(gen).forEach(function (p) {
+        var s = p.s || p; if (out.length >= 3 || seen[s.key]) return;
+        if (p.s && p.cls !== 'zp' && !plausible(s, correct)) return;
+        seen[s.key] = 1; s.why = p.why || s.why; out.push(s);
+      });
+      if (out.length < 3) continue;
+      var all = shuffle(rng, [correct].concat(out)), ans = all.indexOf(correct);
+      var rows = [{ t: e + '\\quad\\text{given}' }, { t: expd + '\\quad\\text{expand}' }, { t: poly3(a, b, c) + ' = 0\\quad\\text{standard form}' }]
+        .concat(solution({ a: a, b: b, c: c }, { std: true }, correct).slice(0));
+      return { band: 6, level: 5, co: { a: a, b: b, c: c }, kind: 'expand', stem: 'Solve the equation by using the Quadratic Formula.', e: e, opts: neutral(all.map(function (s) { return { t: s.latex, why: s.why || '' }; })), ans: ans, sol: rows, hint: CH_HINT.expand, key: e, data: { kind: 'expand', correct: correct.key, opts: all.map(function (s) { return s.key; }) } };
+    }
+  }
+  /* نوع 3: معاملات كسرية */
+  function qFrac(rng) {
+    for (var g = 0; g < 4000; g++) {
+      var co = pickCoefs(rng), L = pick(rng, [2, 3, 4, 6]);
+      var D = co.b * co.b - 4 * co.a * co.c; if (D <= 0) continue;
+      var fa = fq(co.a, L), fb = fq(co.b, L), fc = fq(co.c, L);
+      if (fa.d === 1 && fb.d === 1 && fc.d === 1) continue;
+      if (Math.max(fa.d, fb.d, fc.d) !== L && L !== 6) { /* المضاعف المشترك هو L فعلاً */ }
+      var lcm = 1; [fa.d, fb.d, fc.d].forEach(function (d) { lcm = lcm * d / gcd(lcm, d); });
+      if (lcm !== L) continue;
+      var correct = setFrom(-co.b, D, 2 * co.a);
+      function ft(f, v, first) { var s = f.n < 0 ? (first ? '-' : ' - ') : (first ? '' : ' + '); var m = Math.abs(f.n); var body = f.d === 1 ? (m === 1 && v ? '' : String(m)) + v : '\\frac{' + (m === 1 && v ? '' : m) + (m === 1 && v ? '1' : '') + '}{' + f.d + '}' + v; if (f.d !== 1 && m === 1 && v) body = '\\frac{' + 1 + '}{' + f.d + '}' + v; return s + body; }
+      var e = ft(fa, 'x^{2}', true) + ft(fb, 'x', false) + ft(fc, '', false) + ' = 0';
+      var pool = [];
+      var Dr = fb.n * fb.n - 4 * fa.n * fc.n; if (Dr > 0) pool.push({ cls: 'raw', s: setFrom(-fb.n, Dr, 2 * fa.n), why: 'لا تأخذ البسوط وحدها معاملات؛ أزل المقامات أولاً بضرب المعادلة.' });
+      pool.push({ cls: 'cl', s: setFrom(-co.b, D, co.a), why: 'راجع المقام عند تطبيق القانون العام: قارنه بمعامل \\(x^{2}\\).' });
+      var gen = distractors(co, correct), seen = {}; seen[correct.key] = 1; var out = [];
+      pool.concat(gen).forEach(function (p) { var s = p.s || p; if (out.length >= 3 || seen[s.key]) return; if (!plausible(s, correct)) return; seen[s.key] = 1; s.why = p.why || s.why; out.push(s); });
+      if (out.length < 3) continue;
+      var all = shuffle(rng, [correct].concat(out)), ans = all.indexOf(correct);
+      var rows = [{ t: e + '\\quad\\text{given}' }, { t: poly3(co.a, co.b, co.c) + ' = 0\\quad\\text{multiply both sides by } ' + L }].concat(solution(co, { std: true }, correct));
+      return { band: 6, level: 5, co: co, kind: 'frac', stem: 'Solve the equation by using the Quadratic Formula.', e: e, opts: neutral(all.map(function (s) { return { t: s.latex, why: s.why || '' }; })), ans: ans, sol: rows, hint: CH_HINT.frac, key: e, data: { kind: 'frac', correct: correct.key, opts: all.map(function (s) { return s.key; }), L: L } };
+    }
+  }
+  /* نوع 2: قيمة الثابت لحل حقيقي واحد */
+  function qParam(rng) {
+    for (var g = 0; g < 4000; g++) {
+      var lead = rng() < 0.5; var a = pick(rng, [1, 2, 3, 4, 5, -1, -2, -3]), b = ri(rng, -9, 9);
+      if (b === 0) continue;
+      var c = ri(rng, -7, 7); if (!lead) c = 0;
+      var kv, e, sd, D0;
+      if (!lead) { kv = fq(b * b, 4 * a); e = term(a, 'x^{2}', true) + sgnTerm(b, 'x') + ' + k = 0'; }
+      else { c = pick(rng, [1, 2, 3, -1, -2, -3, 4, 5, -4, -5]); kv = fq(b * b, 4 * c); e = 'kx^{2}' + sgnTerm(b, 'x') + sgnTerm(c) + ' = 0'; }
+      if (kv.n === 0 || Math.max(kv.d, Math.abs(kv.n)) > 40) continue;
+      var m = lead ? c : a;
+      var cand = [
+        { v: fq(b * b, 2 * m), why: 'في المميز \\(b^{2}-4ac\\) يُضرب \\(ac\\) في \\(4\\) وليس في \\(2\\).' },
+        { v: fq(-b * b, 4 * m), why: 'راجع إشارة \\(k\\) عند حل المعادلة الأخيرة.' },
+        { v: fq(b, 4 * m), why: 'راجع المقدار \\(b^{2}\\) عند التعويض في المميز.' },
+        { v: fq(b * b, m), why: 'راجع القسمة عند حل \\(k\\) من المعادلة الأخيرة.' },
+        { v: fq(b * b, -4 * m), why: 'راجع إشارة \\(k\\) عند حل المعادلة الأخيرة.' }
+      ];
+      var seen = {}; seen[key(kv)] = 1; var out = [];
+      shuffle(rng, cand).forEach(function (cd) { if (out.length >= 3) return; var kk = key(cd.v); if (seen[kk] || cd.v.n === 0) return; seen[kk] = 1; out.push(cd); });
+      if (out.length < 3) continue;
+      var all = shuffle(rng, [{ v: kv, why: '' }].concat(out)), ans = 0; all.forEach(function (o, i) { if (o.v === kv || key(o.v) === key(kv)) ans = i; });
+      var kc = lead ? -4 * c : -4 * a, ktxt = (kc < 0 ? '-' : '+') + Math.abs(kc) + 'k';
+      var Dtex = 'b^{2}-4ac=' + paren(b) + '^{2}-4(' + (lead ? 'k' : a) + ')(' + (lead ? c : 'k') + ')=' + (b * b) + ktxt;
+      var rows = [{ t: e + '\\quad\\text{given}' }, { t: 'b^{2}-4ac=0\\quad\\text{one real solution}' }, { t: Dtex }, { t: (b * b) + ktxt + '=0' }, { t: (kc < 0 ? '-' : '') + Math.abs(kc) + 'k=' + (-b * b) }].concat(Math.abs(kc) === 1 ? [] : [{ t: 'k=\\frac{' + (-b * b) + '}{' + kc + '}' }]).concat([{ box: 'k=' + frLatex(kv) }]);
+      return { band: 6, level: 5, co: { a: lead ? 0 : a, b: b, c: c }, kind: 'param', stem: 'Find the value of \\(k\\) for which the quadratic equation has exactly one real solution.', e: e, opts: all.map(function (o) { return { t: 'k=' + frLatex(o.v), why: o.why }; }), ans: ans, sol: rows, hint: CH_HINT.param, key: e, data: { kind: 'param', correct: key(kv), lead: lead, a: a, b: b, c: c, opts: all.map(function (o) { return key(o.v); }) } };
+    }
+  }
+  function qChallenge(rng) { var r = rng(); return r < 0.45 ? qExpand(rng) : (r < 0.75 ? qFrac(rng) : qParam(rng)); }
+
   var LEVELS = [
     { id: 1, ar: 'أساسي', hint: 'حدّد \\(a\\) و\\(b\\) و\\(c\\) بإشاراتها، ثم عوّض في القانون العام، واقسم على \\(2a\\).' },
     { id: 2, ar: 'تطبيق', hint: 'حدّد المعاملات بإشاراتها، وانتبه إلى أنّ المقام \\(2a\\) وليس \\(a\\)، ثم بسّط الكسور.' },
     { id: 3, ar: 'ترتيب المعادلة', hint: 'انقل كل الحدود إلى طرف واحد حتى تصير المعادلة على الصورة \\(ax^{2}+bx+c=0\\)، ثم حدّد المعاملات.' },
-    { id: 4, ar: 'مستوى الوزارة', hint: 'احسب المميز أولاً: إن لم يكن مربعاً كاملاً فبسّط الجذر واختصر الكسر، وإن كان سالباً فلا حل حقيقي.' }
+    { id: 4, ar: 'مستوى الوزارة', hint: 'احسب المميز أولاً: إن لم يكن مربعاً كاملاً فبسّط الجذر واختصر الكسر، وإن كان سالباً فلا حل حقيقي.' },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: CH_HINT.expand }
   ];
 
   function make(level, rng) {
     rng = rng || Math.random;
+    if (level === 5) return qChallenge(rng);
     var co = level === 1 ? coefsLevel1(rng) : (level === 2 ? coefsLevel2(rng) : (level === 3 ? (rng() < 0.5 ? coefsLevel1(rng) : coefsLevel2(rng)) : coefsLevel4(rng)));
     var D = co.b * co.b - 4 * co.a * co.c;
     var correct = setFrom(-co.b, Math.abs(D) * (D < 0 ? -1 : 1), 2 * co.a);
@@ -353,6 +481,12 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
       var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
       if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
       p.appendChild(li);
     });
   }
@@ -373,7 +507,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function renderSkip() {
     var box = $('#skipBox'); if (!box) return;
     box.innerHTML = '';
-    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    if (st.mastered || st.level >= CORE || !round || round.idx >= ROUND) { box.hidden = true; return; }
     var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
     b.addEventListener('click', function () {
       var from = st.level; st.level = CORE; st.skipped = from; persist();
@@ -470,6 +604,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   }
 
   function finish() {
+    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
     var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
     var res = h('div', 'res');
     if (round.n === 1) { st.firstScore = round.correct; persist(); }
@@ -505,7 +640,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
       if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
-      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      if (st.skipped && st.skipped < CORE && lvl === CORE) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
       res.appendChild(a3);
     }
     stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
