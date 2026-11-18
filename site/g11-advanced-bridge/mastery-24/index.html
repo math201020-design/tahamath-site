@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: حل المثلثات القائمة الزاوية ودوال الجيب وجيب التمام | الحادي عشر متقدم Bridge | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في حل المثلثات القائمة الزاوية وتمثيل دوال الجيب وجيب التمام، وتتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g11-advanced-bridge/mastery-24/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">24</bdi>: (a) حل المثلثات القائمة الزاوية (b) تمثيل التحويلات لدوال الجيب وجيب التمام بيانيًا<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g11-advanced-bridge", "band": 24, "label": "البند 24", "gen": "TmGen24"};</script>
+<script>
+/* مولّد أسئلة البند 24 (حل المثلثات القائمة الزاوية وتمثيل دوال الجيب وجيب التمام) - 11 متقدم Bridge. نص السؤال بالعربية، والرموز والأعداد داخل bdi ltr، والخيارات رموز وأعداد فقط. الزوايا بالدرجات. */
+(function (root) {
+  'use strict';
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, a) { return a[Math.floor(rng() * a.length)]; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function L(s) { return '<bdi dir="ltr">' + s + '</bdi>'; }
+  function T(s) { return L('\\(' + s + '\\)'); }
+  function U(s) { return '<span dir="rtl" style="unicode-bidi:isolate">' + s + '</span>'; }
+  var D2R = Math.PI / 180;
+  function sinD(x) { return Math.sin(x * D2R); }
+  function cosD(x) { return Math.cos(x * D2R); }
+  function tanD(x) { return Math.tan(x * D2R); }
+  function d1(v) { var s = (Math.round(v * 10) / 10).toFixed(1); return s === '-0.0' ? '0.0' : s; }
+  function dg(v) { return d1(v) + '^{\\circ}'; }
+  function nm(v) { v = Math.round(v * 100) / 100; var s = String(v); return s === '-0' ? '0' : s; }
+  var ANG = [18, 22, 25, 28, 32, 35, 38, 42, 48, 52, 55, 58, 62, 65, 68, 72];
+
+  var WHY = {
+    swapFn: 'استُعملت نسبة مثلثية غير مناسبة (جيب بدل جيب التمام أو العكس)؛ يرتبط الضلع المقابل والوتر بالجيب، ويرتبط الضلع المجاور والوتر بجيب التمام.',
+    tanFn: 'استُعمل الظل مع الوتر؛ الظل يربط الضلعين القائمين (المقابل والمجاور) ولا يدخل فيه الوتر.',
+    inv: 'اختلطت عملية الضرب بالقسمة؛ إذا كان المجهول ضلعاً قائماً فاضرب الوتر في النسبة، وإذا كان المجهول هو الوتر فاقسم الضلع المعلوم على النسبة.',
+    rad: 'ضُبطت الآلة الحاسبة على وضع الراديان؛ يجب ضبطها على وضع الدرجات عند التعامل مع زوايا بالدرجات.',
+    compl: 'هذه الزاوية المتممة (' + L('\\(90^{\\circ}-A\\)') + ')؛ حدّد الضلع المقابل والضلع المجاور للزاوية المطلوبة بدقة قبل اختيار النسبة.',
+    swapRatio: 'قُلبت النسبة؛ ظل الزاوية = المقابل ÷ المجاور، فتُؤخذ الدالة العكسية للضلع المقابل مقسوماً على الضلع المجاور وليس العكس.',
+    wrongInv: 'استُعمل معكوس نسبة مثلثية غير مناسب للضلعين المعطيين.',
+    radAns: 'هذه الزاوية بالراديان وليست بالدرجات؛ اضبط الآلة على وضع الدرجات.',
+    sumSides: 'جُمع الضلعان القائمان؛ الوتر يُحسب بنظرية فيثاغورس ' + L('\\(c=\\sqrt{a^2+b^2}\\)') + '.',
+    noRoot: 'نتج هذا العدد من مجموع مربعي الضلعين دون أخذ الجذر التربيعي.',
+    minusPyth: 'طُبّقت نظرية فيثاغورس بالطرح وكأن المجهول ضلع قائم؛ هنا المجهول هو الوتر، فيكون مربعه مجموع مربعي الضلعين القائمين.',
+    plusPyth: 'طُبّقت نظرية فيثاغورس بالجمع وكأن المجهول هو الوتر؛ هنا المجهول ضلع قائم، فيكون مربعه مربع الوتر ناقصاً مربع الضلع الآخر.',
+    noEye: 'أُهمل ارتفاع عينَي الشخص؛ الارتفاع الكلي = الارتفاع المحسوب بالظل + ارتفاع العينين عن الأرض.',
+    invTan: 'قُسمت المسافة على ظل الزاوية وكأن المجهول هو البعد؛ هنا المجهول هو الارتفاع = المسافة الأفقية × ظل الزاوية.',
+    invTan2: 'ضُرب الارتفاع في ظل الزاوية؛ المجهول هو البعد الأفقي فيكون ' + L('\\(d=\\frac{h}{\\tan\\theta}\\)') + '.',
+    sinTan: 'استُعمل الجيب بدل الظل؛ المعطى هو المسافة الأفقية والمطلوب الارتفاع (ضلعان قائمان) فتُستعمل نسبة الظل.',
+    ladderCos: 'استُعمل جيب التمام فنتجت المسافة الأفقية بين أسفل السلم والجدار؛ الارتفاع على الجدار هو الضلع المقابل للزاوية مع الأرض فيُحسب بالجيب.',
+    ladderSin: 'استُعمل الجيب فنتج الارتفاع على الجدار؛ المطلوب هنا المسافة الأفقية بين قاعدة السلم والجدار وهي الضلع المجاور فتُحسب بجيب التمام.',
+    depCos: 'استُعمل جيب التمام؛ الارتفاع مقابل للزاوية والبعد الأفقي مجاور لها، فنستعمل الظل ولا يدخل الوتر في المسألة.',
+    depMul: 'ضُرب الارتفاع في جيب التمام بدل أن يُقسم على الظل؛ البعد الأفقي هو الضلع المجاور فيساوي الارتفاع مقسوماً على ظل الزاوية.',
+    depSwap: 'استُعمل جيب الزاوية؛ زاوية الانخفاض تُقاس من الأفقي، والارتفاع والمسافة الأفقية ضلعان قائمان فتُستعمل نسبة الظل.',
+    perShift: 'ضُرب ' + L('\\(c\\)') + ' في ' + L('\\(b\\)') + ' بدل قسمته عليه؛ أخرج ' + L('\\(b\\)') + ' عاملاً مشتركاً: ' + L('\\(\\sin b\\left(x-\\frac{c}{b}\\right)\\)') + '، فالإزاحة ' + L('\\(\\frac{c}{b}\\)') + '.',
+    noDivShift: 'هذه قيمة ' + L('\\(c\\)') + ' نفسها؛ الإزاحة الأفقية = ' + L('\\(\\frac{c}{b}\\)') + ' بعد إخراج ' + L('\\(b\\)') + ' عاملاً مشتركاً من القوس.',
+    shiftDir: 'عُكس اتجاه الإزاحة؛ في ' + L('\\(\\sin b(x-h)\\)') + ' تكون الإزاحة ' + L('\\(h\\)') + ' إلى اليمين عندما ' + L('\\(h>0\\)') + '.',
+    timesB: 'ضُرب الدورة الأساسية في ' + L('\\(b\\)') + ' بدل قسمتها؛ الدورة = ' + L('\\(\\frac{360^{\\circ}}{|b|}\\)') + '، فكلما زاد ' + L('\\(b\\)') + ' قصرت الدورة.',
+    rad2: 'استُعمل ' + L('\\(\\frac{2\\pi}{b}\\)') + ' (بالراديان) والمطلوب بالدرجات؛ الدورة بالدرجات = ' + L('\\(\\frac{360^{\\circ}}{|b|}\\)') + '.',
+    maxA: 'استُعملت ' + L('\\(a+d\\)') + ' مع أن ' + L('\\(a\\)') + ' سالب؛ القيمة العظمى = ' + L('\\(|a|+d\\)') + ' لأن السعة موجبة دائماً.',
+    minA: 'استُعملت ' + L('\\(d-a\\)') + ' مع أن ' + L('\\(a\\)') + ' سالب؛ القيمة الصغرى = ' + L('\\(d-|a|\\)') + '.',
+    onlyA: 'هذه السعة ' + L('\\(|a|\\)') + ' فقط؛ يجب جمع أو طرح الإزاحة الرأسية ' + L('\\(d\\)') + ' عند حساب القيمة العظمى أو الصغرى.',
+    onlyD: 'هذه قيمة الإزاحة الرأسية ' + L('\\(d\\)') + ' (خط المنتصف) فقط، وليست القيمة العظمى أو الصغرى.',
+    noH: 'أُهملت الإزاحة الأفقية ' + L('\\(h\\)') + '؛ في ' + L('\\(a\\sin b(t-h)+d\\)') + ' تكون الزاوية ' + L('\\(b(t-h)\\)') + '.',
+    hSign: 'عُكست إشارة الإزاحة الأفقية؛ الزاوية داخل الجيب هي ' + L('\\(b(t-h)\\)') + ' وليس ' + L('\\(b(t+h)\\)') + '.',
+    noD: 'أُهملت الإزاحة الرأسية ' + L('\\(d\\)') + '؛ تُضاف إلى ناتج الجيب بعد ضربه في ' + L('\\(a\\)') + '.',
+    sinWrong: 'قيمة الجيب لهذه الزاوية غير صحيحة؛ راجع قيم الجيب للزوايا ' + L('\\(30^{\\circ},90^{\\circ},150^{\\circ},210^{\\circ},270^{\\circ},330^{\\circ}\\)') + ' وإشارتها حسب الربع.'
+  };
+
+  function dedupe(rng, t) {
+    var cands = t.cands, freq = {}; cands.forEach(function (c) { freq[c.tex] = (freq[c.tex] || 0) + 1; });
+    var out = [], used = {}, seen = {}; seen[t.correct] = 1;
+    shuffle(rng, cands).forEach(function (c) {
+      if (c.tex === '0.0' || out.length >= 3 || used[c.cls] || freq[c.tex] > 1 || seen[c.tex]) return;
+      if (c.v != null && t.cv != null && Math.abs(c.v - t.cv) < (t.gap || 0.15)) return;
+      seen[c.tex] = 1; used[c.cls] = 1; out.push(c);
+    });
+    return out;
+  }
+  function cm(s) { return s + ' ' + U('سم'); }
+
+  /* 1) مثلث قائم: ضلع أو وتر من زاوية وضلع */
+  function q1(rng) {
+    var th = pick(rng, ANG), sub = pick(rng, ['opp', 'adj', 'hyp']), val = ri(rng, 6, 24), stem, ans, cands, sol, key;
+    var tri = 'في المثلث ' + T('ABC') + ' القائم الزاوية في ' + T('B') + '، ';
+    if (sub === 'opp') {
+      ans = val * sinD(th);
+      stem = tri + 'طول الوتر ' + T('AC=' + val) + ' ' + U('سم') + ' و' + T('\\angle A=' + th + '^{\\circ}') + '. ما طول الضلع ' + T('BC') + ' مقرّباً إلى أقرب عُشر؟';
+      cands = [{ cls: 'swapFn', v: val * cosD(th), why: WHY.swapFn }, { cls: 'tanFn', v: val * tanD(th), why: WHY.tanFn }, { cls: 'inv', v: val / sinD(th), why: WHY.inv }, { cls: 'rad', v: val * Math.sin(th), why: WHY.rad }];
+      sol = [{ ar: 'الضلع ' + T('BC') + ' مقابل للزاوية ' + T('A') + '، والمعطى هو الوتر ' + T('AC') + '، فنستعمل الجيب:', t: '\\sin A=\\dfrac{BC}{AC}' },
+        { ar: 'نعوّض ونحل لإيجاد ' + T('BC') + ' (الآلة على وضع الدرجات):', t: 'BC=' + val + '\\sin ' + th + '^{\\circ}\\approx ' + d1(ans) },
+        { box: d1(ans) }];
+    } else if (sub === 'adj') {
+      ans = val * cosD(th);
+      stem = tri + 'طول الوتر ' + T('AC=' + val) + ' ' + U('سم') + ' و' + T('\\angle A=' + th + '^{\\circ}') + '. ما طول الضلع ' + T('AB') + ' مقرّباً إلى أقرب عُشر؟';
+      cands = [{ cls: 'swapFn', v: val * sinD(th), why: WHY.swapFn }, { cls: 'tanFn', v: val * tanD(th), why: WHY.tanFn }, { cls: 'inv', v: val / cosD(th), why: WHY.inv }, { cls: 'rad', v: val * Math.cos(th), why: WHY.rad }];
+      sol = [{ ar: 'الضلع ' + T('AB') + ' مجاور للزاوية ' + T('A') + '، والمعطى هو الوتر ' + T('AC') + '، فنستعمل جيب التمام:', t: '\\cos A=\\dfrac{AB}{AC}' },
+        { ar: 'نعوّض ونحل لإيجاد ' + T('AB') + ':', t: 'AB=' + val + '\\cos ' + th + '^{\\circ}\\approx ' + d1(ans) },
+        { box: d1(ans) }];
+    } else {
+      ans = val / sinD(th);
+      stem = tri + 'طول الضلع ' + T('BC=' + val) + ' ' + U('سم') + ' و' + T('\\angle A=' + th + '^{\\circ}') + '. ما طول الوتر ' + T('AC') + ' مقرّباً إلى أقرب عُشر؟';
+      cands = [{ cls: 'inv', v: val * sinD(th), why: WHY.inv }, { cls: 'swapFn', v: val / cosD(th), why: WHY.swapFn }, { cls: 'tanFn', v: val / tanD(th), why: WHY.tanFn }, { cls: 'rad', v: val / Math.sin(th), why: WHY.rad }];
+      sol = [{ ar: 'الضلع ' + T('BC') + ' مقابل للزاوية ' + T('A') + ' والمطلوب الوتر ' + T('AC') + '، فنستعمل الجيب:', t: '\\sin A=\\dfrac{BC}{AC}' },
+        { ar: 'نحل لإيجاد ' + T('AC') + ':', t: 'AC=\\dfrac{BC}{\\sin A}=\\dfrac{' + val + '}{\\sin ' + th + '^{\\circ}}\\approx ' + d1(ans) },
+        { box: d1(ans) }];
+    }
+    key = '1' + sub + ':' + th + ',' + val;
+    cands.forEach(function (c) { c.tex = d1(Math.abs(c.v)); });
+    return { stem: stem, correct: d1(ans), cv: ans, gap: 0.25, cands: cands, sol: sol, key: key, remember: 'المقابل ÷ الوتر = الجيب، والمجاور ÷ الوتر = جيب التمام، والمقابل ÷ المجاور = الظل. واضبط الآلة على وضع الدرجات.', kind: 'solve-side-' + sub };
+  }
+
+  /* 2) إيجاد زاوية من ضلعين، أو الوتر بفيثاغورس */
+  function q2(rng) {
+    var sub = pick(rng, ['tan', 'sin', 'cos', 'pyth']), stem, ans, cands, sol, key, tri = 'في المثلث ' + T('ABC') + ' القائم الزاوية في ' + T('B') + '، ';
+    function deg(x) { return x / D2R; }
+    if (sub === 'pyth') {
+      var a = ri(rng, 4, 15), b = ri(rng, 4, 15); if (a === b) return null;
+      var c = Math.sqrt(a * a + b * b); if (Math.abs(c - Math.round(c)) < 0.05) return null;
+      stem = tri + 'طول الضلع ' + T('AB=' + a) + ' ' + U('سم') + ' وطول الضلع ' + T('BC=' + b) + ' ' + U('سم') + '. ما طول الوتر ' + T('AC') + ' مقرّباً إلى أقرب عُشر؟';
+      cands = [{ cls: 'sumSides', v: a + b, why: WHY.sumSides }, { cls: 'noRoot', v: a * a + b * b, why: WHY.noRoot }, { cls: 'minusPyth', v: Math.sqrt(Math.abs(a * a - b * b)), why: WHY.minusPyth }];
+      cands.push({ cls: 'swapFn', v: (a + b) / 2, why: 'هذا هو المتوسط الحسابي للضلعين القائمين وليس الوتر؛ الوتر يُحسب بنظرية فيثاغورس.' });
+      cands.forEach(function (x) { x.tex = d1(Math.abs(x.v)); });
+      sol = [{ ar: 'نطبّق نظرية فيثاغورس لإيجاد الوتر:', t: 'AC^{2}=AB^{2}+BC^{2}=' + a + '^{2}+' + b + '^{2}=' + (a * a + b * b) },
+        { t: 'AC=\\sqrt{' + (a * a + b * b) + '}\\approx ' + d1(c) }, { box: d1(c) }];
+      return { stem: stem, correct: d1(c), cv: c, gap: 0.25, cands: cands, sol: sol, key: '2y:' + a + ',' + b, remember: 'في المثلث القائم: مربع الوتر = مجموع مربعي الضلعين القائمين.', kind: 'solve-pyth' };
+    }
+    if (sub === 'tan') {
+      var o = ri(rng, 4, 14), ad = o + ri(rng, 2, 9); ans = deg(Math.atan(o / ad));
+      stem = tri + 'طول الضلع ' + T('BC=' + o) + ' ' + U('سم') + ' وطول الضلع ' + T('AB=' + ad) + ' ' + U('سم') + '. ما قياس الزاوية ' + T('A') + ' مقرّباً إلى أقرب عُشر من الدرجة؟';
+      cands = [{ cls: 'swapRatio', v: deg(Math.atan(ad / o)), why: WHY.swapRatio }, { cls: 'wrongInv', v: deg(Math.asin(o / ad)), why: WHY.tanFn.replace('الوتر ', 'الوتر ') }, { cls: 'compl', v: 90 - ans, why: WHY.compl }, { cls: 'radAns', v: Math.atan(o / ad), why: WHY.radAns }];
+      cands[1].why = 'استُعمل الجيب العكسي بين ضلعين قائمين؛ الجيب يتضمن الوتر، أما ضلعان قائمان فنستعمل الظل.';
+      sol = [{ ar: 'الضلع ' + T('BC') + ' مقابل للزاوية ' + T('A') + ' والضلع ' + T('AB') + ' مجاور لها، فنستعمل الظل:', t: '\\tan A=\\dfrac{BC}{AB}=\\dfrac{' + o + '}{' + ad + '}' },
+        { ar: 'نأخذ الظل العكسي (الآلة على وضع الدرجات):', t: 'A=\\tan^{-1}\\dfrac{' + o + '}{' + ad + '}\\approx ' + dg(ans) }, { box: dg(ans) }];
+      cands.forEach(function (x, i) { x.tex = i === 3 ? nm(x.v) : dg(x.v); });
+      return { stem: stem, correct: dg(ans), cv: ans, gap: 0.25, cands: cands, sol: sol, key: '2t:' + o + ',' + ad, remember: 'لإيجاد زاوية من ضلعين: اختر النسبة التي تجمع الضلعين المعطيين ثم خذ دالتها العكسية.', kind: 'solve-angle-tan' };
+    }
+    if (sub === 'sin') {
+      var oo = ri(rng, 5, 16), cc = oo + ri(rng, 3, 10); ans = deg(Math.asin(oo / cc));
+      stem = tri + 'طول الضلع ' + T('BC=' + oo) + ' ' + U('سم') + ' وطول الوتر ' + T('AC=' + cc) + ' ' + U('سم') + '. ما قياس الزاوية ' + T('A') + ' مقرّباً إلى أقرب عُشر من الدرجة؟';
+      cands = [{ cls: 'compl', v: 90 - ans, why: WHY.compl }, { cls: 'wrongInv', v: deg(Math.atan(oo / cc)), why: 'استُعمل الظل العكسي مع ضلع ووتر؛ الظل يربط ضلعين قائمين، أما الضلع المقابل مع الوتر فنستعمل الجيب.' }, { cls: 'swapFn', v: deg(Math.acos(oo / cc)), why: WHY.swapFn }, { cls: 'radAns', v: Math.asin(oo / cc), why: WHY.radAns }];
+      sol = [{ ar: 'الضلع ' + T('BC') + ' مقابل للزاوية ' + T('A') + '، والمعطى هو الوتر ' + T('AC') + '، فنستعمل الجيب:', t: '\\sin A=\\dfrac{BC}{AC}=\\dfrac{' + oo + '}{' + cc + '}' },
+        { ar: 'نأخذ الجيب العكسي (الآلة على وضع الدرجات):', t: 'A=\\sin^{-1}\\dfrac{' + oo + '}{' + cc + '}\\approx ' + dg(ans) }, { box: dg(ans) }];
+      cands.forEach(function (x, i) { x.tex = i === 3 ? nm(x.v) : dg(x.v); });
+      return { stem: stem, correct: dg(ans), cv: ans, gap: 0.25, cands: cands, sol: sol, key: '2s:' + oo + ',' + cc, remember: 'الضلع المقابل مع الوتر: الجيب. الضلع المجاور مع الوتر: جيب التمام. ثم الدالة العكسية.', kind: 'solve-angle-sin' };
+    }
+    var aj = ri(rng, 5, 16), hy = aj + ri(rng, 3, 10); ans = deg(Math.acos(aj / hy));
+    stem = tri + 'طول الضلع ' + T('AB=' + aj) + ' ' + U('سم') + ' وطول الوتر ' + T('AC=' + hy) + ' ' + U('سم') + '. ما قياس الزاوية ' + T('A') + ' مقرّباً إلى أقرب عُشر من الدرجة؟';
+    cands = [{ cls: 'compl', v: 90 - ans, why: WHY.compl }, { cls: 'wrongInv', v: deg(Math.atan(aj / hy)), why: 'استُعمل الظل العكسي مع ضلع ووتر؛ الضلع المجاور مع الوتر يرتبطان بجيب التمام.' }, { cls: 'swapFn', v: deg(Math.asin(aj / hy)), why: WHY.swapFn }, { cls: 'radAns', v: Math.acos(aj / hy), why: WHY.radAns }];
+    sol = [{ ar: 'الضلع ' + T('AB') + ' مجاور للزاوية ' + T('A') + '، والمعطى هو الوتر ' + T('AC') + '، فنستعمل جيب التمام:', t: '\\cos A=\\dfrac{AB}{AC}=\\dfrac{' + aj + '}{' + hy + '}' },
+      { ar: 'نأخذ جيب التمام العكسي (الآلة على وضع الدرجات):', t: 'A=\\cos^{-1}\\dfrac{' + aj + '}{' + hy + '}\\approx ' + dg(ans) }, { box: dg(ans) }];
+    cands.forEach(function (x, i) { x.tex = i === 3 ? nm(x.v) : dg(x.v); });
+    return { stem: stem, correct: dg(ans), cv: ans, gap: 0.25, cands: cands, sol: sol, key: '2c:' + aj + ',' + hy, remember: 'الضلع المقابل مع الوتر: الجيب. الضلع المجاور مع الوتر: جيب التمام. ثم الدالة العكسية.', kind: 'solve-angle-cos' };
+  }
+
+  /* 3) مسائل كلامية: زاوية ارتفاع، سلم، زاوية انخفاض */
+  function q3(rng) {
+    var sub = pick(rng, ['tower', 'ladder', 'depr']), th = pick(rng, ANG), stem, ans, cands, sol, key;
+    if (sub === 'tower') {
+      var dd = pick(rng, [20, 25, 30, 40, 45, 50, 60, 75, 80]), e = pick(rng, [1.5, 1.6, 1.7, 1.8]);
+      ans = dd * tanD(th) + e;
+      stem = 'يقف شخص يبلغ ارتفاع عينيه عن الأرض ' + T(String(e)) + ' ' + U('م') + ' على بعد ' + T(String(dd)) + ' ' + U('م') + ' من قاعدة برج، فيرى قمة البرج بزاوية ارتفاع ' + T(th + '^{\\circ}') + '. ما ارتفاع البرج عن الأرض بالمتر، مقرّباً إلى أقرب عُشر؟';
+      cands = [{ cls: 'noEye', v: dd * tanD(th), why: WHY.noEye }, { cls: 'invTan', v: dd / tanD(th) + e, why: WHY.invTan }, { cls: 'sinTan', v: dd * sinD(th) + e, why: WHY.sinTan }, { cls: 'rad', v: dd * Math.tan(th) + e, why: WHY.rad }];
+      sol = [{ ar: 'نرسم مثلثاً قائماً: الضلع الأفقي ' + T(String(dd)) + ' والارتفاع فوق مستوى العينين ' + T('h') + ' مقابل لزاوية الارتفاع، فنستعمل الظل:', t: '\\tan ' + th + '^{\\circ}=\\dfrac{h}{' + dd + '}' },
+        { t: 'h=' + dd + '\\tan ' + th + '^{\\circ}\\approx ' + d1(dd * tanD(th)) },
+        { ar: 'نضيف ارتفاع العينين عن الأرض:', t: d1(dd * tanD(th)) + '+' + e + '=' + d1(ans) }, { box: d1(ans) }];
+      key = '3t:' + th + ',' + dd + ',' + e;
+    } else if (sub === 'ladder') {
+      var L0 = pick(rng, [4, 5, 6, 7, 8, 9, 10, 12]), wall = rng() < 0.5;
+      ans = wall ? L0 * sinD(th) : L0 * cosD(th);
+      stem = 'يستند سلم طوله ' + T(String(L0)) + ' ' + U('م') + ' إلى جدار رأسي، ويصنع مع الأرض الأفقية زاوية قياسها ' + T(th + '^{\\circ}') + '. ' + (wall ? 'ما ارتفاع النقطة التي يلامس بها السلم الجدار عن الأرض' : 'ما بُعد قاعدة السلم عن الجدار') + ' بالمتر، مقرّباً إلى أقرب عُشر؟';
+      if (wall) {
+        cands = [{ cls: 'ladderCos', v: L0 * cosD(th), why: WHY.ladderCos }, { cls: 'tanFn', v: L0 * tanD(th), why: WHY.tanFn }, { cls: 'inv', v: L0 / sinD(th), why: WHY.inv }, { cls: 'rad', v: L0 * Math.sin(th), why: WHY.rad }];
+        sol = [{ ar: 'السلم هو الوتر والارتفاع على الجدار ' + T('h') + ' مقابل للزاوية مع الأرض، فنستعمل الجيب:', t: '\\sin ' + th + '^{\\circ}=\\dfrac{h}{' + L0 + '}' }, { t: 'h=' + L0 + '\\sin ' + th + '^{\\circ}\\approx ' + d1(ans) }, { box: d1(ans) }];
+      } else {
+        cands = [{ cls: 'ladderSin', v: L0 * sinD(th), why: WHY.ladderSin }, { cls: 'tanFn', v: L0 * tanD(th), why: WHY.tanFn }, { cls: 'inv', v: L0 / cosD(th), why: WHY.inv }, { cls: 'rad', v: L0 * Math.cos(th), why: WHY.rad }];
+        sol = [{ ar: 'السلم هو الوتر والبعد عن الجدار ' + T('x') + ' مجاور للزاوية مع الأرض، فنستعمل جيب التمام:', t: '\\cos ' + th + '^{\\circ}=\\dfrac{x}{' + L0 + '}' }, { t: 'x=' + L0 + '\\cos ' + th + '^{\\circ}\\approx ' + d1(ans) }, { box: d1(ans) }];
+      }
+      key = '3l:' + th + ',' + L0 + ',' + (wall ? 'w' : 'g');
+    } else {
+      var hh = pick(rng, [20, 25, 30, 35, 40, 45, 50, 60, 70]);
+      ans = hh / tanD(th);
+      stem = 'من قمة منارة ارتفاعها ' + T(String(hh)) + ' ' + U('م') + ' عن سطح البحر، شوهدت سفينة بزاوية انخفاض ' + T(th + '^{\\circ}') + '. ما بُعد السفينة الأفقي عن قاعدة المنارة بالمتر، مقرّباً إلى أقرب عُشر؟';
+      cands = [{ cls: 'invTan2', v: hh * tanD(th), why: WHY.invTan2 }, { cls: 'depSwap', v: hh / sinD(th), why: WHY.depSwap }, { cls: 'swapFn', v: hh / cosD(th), why: WHY.depCos }, { cls: 'rad', v: hh / Math.tan(th), why: WHY.rad }, { cls: 'inv', v: hh * cosD(th), why: WHY.depMul }];
+      sol = [{ ar: 'زاوية الانخفاض تُقاس من الأفقي، فهي مساوية لزاوية الارتفاع من السفينة إلى القمة (زاويتان متبادلتان). الارتفاع ' + T(String(hh)) + ' مقابل للزاوية والبعد ' + T('d') + ' مجاور لها، فنستعمل الظل:', t: '\\tan ' + th + '^{\\circ}=\\dfrac{' + hh + '}{d}' },
+        { t: 'd=\\dfrac{' + hh + '}{\\tan ' + th + '^{\\circ}}\\approx ' + d1(ans) }, { box: d1(ans) }];
+      key = '3d:' + th + ',' + hh;
+    }
+    cands.forEach(function (c) { c.tex = d1(Math.abs(c.v)); });
+    return { stem: stem, correct: d1(ans), cv: ans, gap: 0.25, cands: cands, sol: sol, key: key, remember: 'ارسم المثلث القائم أولاً وسمِّ الأضلاع (مقابل، مجاور، وتر) بالنسبة للزاوية المعطاة، ثم اختر النسبة المناسبة.', kind: 'solve-word-' + sub };
+  }
+
+  /* 4) مستوى الوزارة: دوال الجيب وجيب التمام وتحويلاتها */
+  function q4(rng) {
+    var sub = rng() < 0.55 ? 'params' : 'eval', stem, sol, cands, key, correct, cv;
+    if (sub === 'params') {
+      var fn = pick(rng, ['sin', 'cos']), a = pick(rng, [-4, -3, -2, 2, 3, 4, 5]), b = pick(rng, [2, 3, 4]), s = pick(rng, [10, 15, 20, 30]), c = b * s, d = ri(rng, -4, 5), what = pick(rng, ['shift', 'period', 'max', 'min']);
+      if (d === 0) return null;
+      var eq = 'y=' + (a === -1 ? '-' : a) + '\\' + fn + '(' + b + 'x-' + c + '^{\\circ})' + (d < 0 ? '-' : '+') + Math.abs(d);
+      var P = 360 / b, A = Math.abs(a);
+      if (what === 'shift') {
+        stem = 'ما مقدار الإزاحة الأفقية (بالدرجات، نحو اليمين) في التمثيل البياني للدالة ' + T(eq) + '؟';
+        correct = String(s);
+        cands = [{ cls: 'noDivShift', tex: String(c), why: WHY.noDivShift }, { cls: 'shiftDir', tex: String(-s), why: WHY.shiftDir }, { cls: 'perShift', tex: String(c * b), why: WHY.perShift }, { cls: 'timesB', tex: String(Math.round(c / (b + 1) * 10) / 10), why: WHY.perShift }];
+        sol = [{ ar: 'نُخرج معامل ' + T('x') + ' عاملاً مشتركاً من داخل القوس:', t: b + 'x-' + c + '^{\\circ}=' + b + '\\left(x-' + s + '^{\\circ}\\right)' }, { ar: 'فالإزاحة الأفقية ' + T('\\dfrac{' + c + '}{' + b + '}') + ' نحو اليمين، أي ' + T(s + '^{\\circ}') + ':', t: '\\dfrac{' + c + '}{' + b + '}=' + s }, { box: String(s) }];
+        cands = cands.filter(function (x) { return x.cls !== 'timesB'; });
+      } else if (what === 'period') {
+        stem = 'ما دورة الدالة ' + T(eq) + ' بالدرجات؟';
+        correct = String(P);
+        cands = [{ cls: 'timesB', tex: String(360 * b), why: WHY.timesB }, { cls: 'rad2', tex: nm(Math.round(2 * Math.PI / b * 100) / 100), why: WHY.rad2 }, { cls: 'noDivShift', tex: String(360 / b / 2), why: 'هذا نصف الدورة؛ الدورة الكاملة = ' + L('\\(\\frac{360^{\\circ}}{|b|}\\)') + '.' }, { cls: 'perShift', tex: String(360), why: 'هذه دورة الدالة الأساسية ' + L('\\(\\sin x\\)') + '؛ معامل ' + L('\\(x\\)') + ' وهو ' + L('\\(b\\)') + ' يغيّر الدورة إلى ' + L('\\(\\frac{360^{\\circ}}{|b|}\\)') + '.' }];
+        sol = [{ ar: 'دورة ' + T('y=a\\' + fn + '(bx-c)+d') + ' تساوي ' + T('\\dfrac{360^{\\circ}}{|b|}') + ':', t: '\\dfrac{360}{' + b + '}=' + P }, { box: String(P) }];
+      } else if (what === 'max') {
+        stem = 'ما القيمة العظمى للدالة ' + T(eq) + '؟';
+        correct = String(A + d);
+        cands = [{ cls: 'maxA', tex: String(a + d), why: WHY.maxA }, { cls: 'onlyA', tex: String(A), why: WHY.onlyA }, { cls: 'onlyD', tex: String(d), why: WHY.onlyD }, { cls: 'minA', tex: String(d - A), why: 'هذه القيمة الصغرى للدالة؛ المطلوب القيمة العظمى ' + L('\\(|a|+d\\)') + '.' }];
+        sol = [{ ar: 'سعة الدالة ' + T('|a|=' + A) + ' وخط المنتصف ' + T('y=' + d) + '، والقيمة العظمى = ' + T('|a|+d') + ':', t: A + (d < 0 ? '-' : '+') + Math.abs(d) + '=' + (A + d) }, { box: String(A + d) }];
+        if (a > 0) cands = cands.filter(function (x) { return x.cls !== 'maxA'; });
+      } else {
+        stem = 'ما القيمة الصغرى للدالة ' + T(eq) + '؟';
+        correct = String(d - A);
+        cands = [{ cls: 'minA', tex: String(d - a), why: WHY.minA }, { cls: 'onlyA', tex: String(-A), why: WHY.onlyA }, { cls: 'onlyD', tex: String(d), why: WHY.onlyD }, { cls: 'maxA', tex: String(A + d), why: 'هذه القيمة العظمى للدالة؛ المطلوب القيمة الصغرى ' + L('\\(d-|a|\\)') + '.' }];
+        sol = [{ ar: 'سعة الدالة ' + T('|a|=' + A) + ' وخط المنتصف ' + T('y=' + d) + '، والقيمة الصغرى = ' + T('d-|a|') + ':', t: d + '-' + A + '=' + (d - A) }, { box: String(d - A) }];
+        if (a > 0) cands = cands.filter(function (x) { return x.cls !== 'minA'; });
+      }
+      key = '4p:' + [fn, a, b, s, d, what].join(',');
+      return { stem: stem, correct: correct, cands: cands, sol: sol, key: key, remember: 'للدالة ' + L('\\(y=a\\sin(bx-c)+d\\)') + ': السعة ' + L('\\(|a|\\)') + '، الدورة ' + L('\\(\\frac{360^{\\circ}}{|b|}\\)') + '، الإزاحة الأفقية ' + L('\\(\\frac{c}{b}\\)') + '، وخط المنتصف ' + L('\\(y=d\\)') + '، والقيمة العظمى ' + L('\\(d+|a|\\)') + ' والصغرى ' + L('\\(d-|a|\\)') + '.', kind: 'sinusoid-' + what };
+    }
+    /* eval: ارتفاع المد */
+    var A2 = pick(rng, [2, 4, 6, 8]), b2 = pick(rng, [15, 30]), D = ri(rng, 3, 12), hh = ri(rng, 1, 4), th0 = pick(rng, [30, 90, 150, 210, 270, 330, 0, 180]);
+    var steps = th0 / b2; if (steps !== Math.round(steps)) return null;
+    var t0 = hh + steps; if (t0 > 23) return null; var sv = sinD(th0); sv = Math.round(sv * 2) / 2;
+    var val = A2 * sv + D; if (val <= 0) return null;
+    var fnc = 'H(t)=' + A2 + '\\sin\\left[' + b2 + '(t-' + hh + ')\\right]+' + D;
+    stem = 'يُعطى ارتفاع الماء بالمتر في مرفأ بعد ' + T('t') + ' ساعة من منتصف الليل بالدالة ' + T(fnc) + '، حيث تُقاس الزاوية بالدرجات. ما ارتفاع الماء عندما ' + T('t=' + t0) + '؟';
+    correct = nm(val);
+    var noH = A2 * sinD(b2 * t0) + D, hs = A2 * sinD(b2 * (t0 + hh)) + D, noD = A2 * sv, swapA = A2 + D, rad = A2 * Math.sin(b2 * (t0 - hh)) + D;
+    cands = [{ cls: 'noH', v: noH, tex: nm(noH), why: WHY.noH }, { cls: 'hSign', v: hs, tex: nm(hs), why: WHY.hSign }, { cls: 'noD', v: noD, tex: nm(noD), why: WHY.noD }, { cls: 'sinWrong', v: A2 + D, tex: nm(swapA), why: 'استُعملت القيمة العظمى للجيب ' + L('\\(1\\)') + ' دون حساب جيب الزاوية الفعلية.' }, { cls: 'rad', v: rad, tex: nm(rad), why: WHY.rad }];
+    sol = [{ ar: 'نحسب الزاوية داخل الجيب عند ' + T('t=' + t0) + ':', t: b2 + '(' + t0 + '-' + hh + ')=' + b2 + '(' + steps + ')=' + th0 + '^{\\circ}' },
+      { ar: 'نحسب جيب الزاوية:', t: '\\sin ' + th0 + '^{\\circ}=' + (sv === 0.5 ? '\\dfrac{1}{2}' : sv === -0.5 ? '-\\dfrac{1}{2}' : String(sv)) },
+      { ar: 'نعوّض في الدالة:', t: 'H(' + t0 + ')=' + A2 + '(' + (sv === 0.5 ? '\\tfrac{1}{2}' : sv === -0.5 ? '-\\tfrac{1}{2}' : sv) + ')+' + D + '=' + nm(val) }, { box: nm(val) }];
+    cands = cands.filter(function (x) { return x.cls !== 'sinWrong' || true; });
+    key = '4e:' + [A2, b2, D, hh, th0].join(',');
+    return { stem: stem, correct: correct, cands: cands, sol: sol, key: key, remember: 'في ' + L('\\(a\\sin b(t-h)+d\\)') + ' عوّض أولاً داخل القوس ثم احسب الجيب، واضرب في ' + L('\\(a\\)') + '، ثم أضف ' + L('\\(d\\)') + '.', kind: 'sinusoid-eval' };
+  }
+
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: 'حدّد بالنسبة للزاوية المعطاة الضلع المقابل والمجاور والوتر، ثم اختر: الجيب = المقابل ÷ الوتر، جيب التمام = المجاور ÷ الوتر. واضبط الآلة على الدرجات.' },
+    { id: 2, ar: 'تطبيق', hint: 'لإيجاد زاوية اختر النسبة التي تجمع الضلعين المعطيين ثم خذ دالتها العكسية. ولإيجاد الوتر استعمل \\(c^2=a^2+b^2\\).' },
+    { id: 3, ar: 'مسائل كلامية', hint: 'ارسم المثلث القائم وحدّد عليه المعطيات، ثم اختر النسبة بحسب الضلعين المعنيين. تذكّر أن زاويتي الارتفاع والانخفاض تُقاسان من الأفقي.' },
+    { id: 4, ar: 'مستوى الوزارة', hint: 'في \\(y=a\\sin(bx-c)+d\\) (وكذلك جيب التمام): السعة \\(|a|\\)، الدورة \\(\\frac{360^{\\circ}}{|b|}\\)، الإزاحة الأفقية \\(\\frac{c}{b}\\)، خط المنتصف \\(y=d\\). وفي المسائل عوّض داخل القوس أولاً.' }
+  ];
+  var HINTK = {
+    'solve-word-ladder': 'السلم هو الوتر. الارتفاع على الجدار مقابل للزاوية مع الأرض (الجيب)، وبُعد القاعدة عن الجدار مجاور لها (جيب التمام).',
+    'sinusoid-max': 'القيمة العظمى = \\(d+|a|\\) والقيمة الصغرى = \\(d-|a|\\)، حيث \\(a\\) سعة الدالة و\\(d\\) خط المنتصف.',
+    'sinusoid-min': 'القيمة العظمى = \\(d+|a|\\) والقيمة الصغرى = \\(d-|a|\\)، حيث \\(a\\) سعة الدالة و\\(d\\) خط المنتصف.',
+    'sinusoid-eval': 'عوّض قيمة \\(t\\) داخل القوس أولاً، ثم احسب جيب الزاوية، واضرب في المعامل، ثم أضف الثابت.',
+    'solve-pyth': 'الوتر في المثلث القائم يُحسب بنظرية فيثاغورس: مربع الوتر = مجموع مربعي الضلعين القائمين، ثم نأخذ الجذر التربيعي.',
+    'solve-angle-tan': 'لإيجاد زاوية من ضلعين قائمين استعمل الظل ثم دالته العكسية، والآلة على وضع الدرجات.',
+    'solve-angle-sin': 'الضلع المقابل مع الوتر يرتبطان بالجيب؛ خذ الجيب العكسي للنسبة، والآلة على وضع الدرجات.',
+    'solve-angle-cos': 'الضلع المجاور مع الوتر يرتبطان بجيب التمام؛ خذ جيب التمام العكسي للنسبة، والآلة على وضع الدرجات.'
+  };
+  function build(level, rng) {
+    var q = null, tries = 0;
+    while (!q && tries++ < 400) q = level === 1 ? q1(rng) : level === 2 ? q2(rng) : level === 3 ? q3(rng) : q4(rng);
+    return q;
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = dedupe(rng, t); tries++; } while (dis.length < 3 && tries < 400);
+    var correct = { tex: t.correct, why: '' };
+    var all = shuffle(rng, [correct].concat(dis.map(function (c) { return { tex: c.tex, why: c.why }; })));
+    return { band: 24, level: level, rtl: true, lang: 'ar', stem: t.stem, svg: '', e: '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: all.indexOf(correct), sol: t.sol, hint: HINTK[t.kind] || LEVELS[level - 1].hint, remember: t.remember, key: t.key, data: { kind: t.kind } };
+  }
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGen24 = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    var CORE = LV.length;
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.svg) stage.appendChild(h('div', 'fig', q.svg));
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl < 4) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === LV.length && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>

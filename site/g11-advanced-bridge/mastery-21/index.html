@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: متوسط معدل التغير وتحويلات الدوال | الحادي عشر متقدم Bridge | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في متوسط معدل التغير وتحويلات الدوال، وتتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g11-advanced-bridge/mastery-21/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">21</bdi>: (a) إيجاد متوسط معدل التغير لدالة ما (b) تحديد تحويلات الدوال وتمثيلها بيانيًا<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g11-advanced-bridge", "band": 21, "label": "البند 21", "gen": "TmGen21"};</script>
+<script>
+/* مولّد أسئلة البند 21 (متوسط معدل التغير وتحويلات الدوال) - 11 متقدم Bridge. نص السؤال بالعربية، والرموز والأعداد داخل bdi ltr، والخيارات رموز وأعداد فقط. */
+(function (root) {
+  'use strict';
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, a) { return a[Math.floor(rng() * a.length)]; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function L(s) { return '<bdi dir="ltr">' + s + '</bdi>'; }
+  function T(s) { return L('\\(' + s + '\\)'); }
+  function U(s) { return '<span dir="rtl" style="unicode-bidi:isolate">' + s + '</span>'; }
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function num(n) { return n < 0 ? '-' + Math.abs(n) : String(n); }
+  function fr(n, d) { if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; n /= g; d /= g; if (d === 1) return num(n); return (n < 0 ? '-' : '') + '\\dfrac{' + Math.abs(n) + '}{' + d + '}'; }
+  /* حدّ ذو معامل: co*x^p (p=0 ثابت) */
+  function term(co, v, first) {
+    if (co === 0) return '';
+    var s = co < 0 ? '-' : (first ? '' : '+'), a = Math.abs(co);
+    if (v === '') return s + a;
+    return s + (a === 1 ? '' : a) + v;
+  }
+  function poly(ts) { var out = '', first = true; ts.forEach(function (t) { var s = term(t[0], t[1], first); if (s) { out += s; first = false; } }); return out || '0'; }
+  function par(x) { return x < 0 ? '(' + x + ')' : String(x); }
+  /* تعويض x=v في a x^2 + b x + c مع إظهار الخطوات */
+  function subQuad(a, b, c, v) {
+    var s = '', first = true;
+    if (a !== 0) { s += (a < 0 ? '-' : '') + (Math.abs(a) === 1 ? '' : Math.abs(a) + '\\cdot ') + '(' + v + ')^{2}'; first = false; }
+    if (b !== 0) { s += (b < 0 ? '-' : (first ? '' : '+')) + (Math.abs(b) === 1 ? (v < 0 ? '(' + v + ')' : String(v)) : Math.abs(b) + '(' + v + ')'); first = false; }
+    if (c !== 0 || first) { s += (c < 0 ? '-' : (first ? '' : '+')) + Math.abs(c); }
+    return s;
+  }
+
+  var WHY = {
+    nodiv: 'هذا الناتج هو التغير الكلي في القيمة فقط؛ يجب قسمته على التغير في المتغير المستقل (طول الفترة) لنحصل على متوسط معدل التغير.',
+    inv: 'قُلبت النسبة؛ متوسط معدل التغير هو (التغير في القيمة) ÷ (التغير في المتغير المستقل) وليس العكس.',
+    sign: 'عُكس ترتيب الطرح في البسط أو المقام؛ يجب أن يكون الترتيب نفسه في البسط والمقام فتبقى الإشارة صحيحة.',
+    sum: 'قُسم الفرق على مجموع طرفي الفترة؛ المقام الصحيح هو الفرق بين الطرفين (طول الفترة) وليس مجموعهما.',
+    avg: 'هذا هو المتوسط الحسابي لقيمتي الدالة وليس متوسط معدل التغير؛ متوسط معدل التغير هو التغير في القيمة مقسوماً على التغير في المتغير المستقل.',
+    endpt: 'هذه قيمة الدالة عند أحد طرفي الفترة فقط؛ متوسط معدل التغير يحتاج قيمتي الدالة عند الطرفين.',
+    shiftSign: 'عُكست إشارة الإزاحة الأفقية؛ في ' + L('\\(f(x-h)\\)') + ' ينتقل التمثيل ' + L('\\(h\\)') + ' وحدة إلى اليمين عندما ' + L('\\(h>0\\)') + ' (يُضاف إلى الإحداثي السيني).',
+    noA: 'أُهمل معامل التمدد أو الانعكاس ' + L('\\(a\\)') + ' في ' + L('\\(a f(x-h)+k\\)') + '؛ إذ تُضرب جميع القيم الصادية للدالة ' + L('\\(f\\)') + ' في ' + L('\\(a\\)') + ' ولا يجوز إهمال ذلك.',
+    kTerm: 'أُضيفت الإزاحة الرأسية ' + L('\\(k\\)') + ' مرة واحدة إلى الفرق؛ إنها تُضاف إلى قيمتي الدالة معاً فتُلغى عند الطرح، فلا تؤثر في متوسط معدل التغير.',
+    noH: 'أُهملت الإزاحة الأفقية ' + L('\\(h\\)') + '؛ في ' + L('\\(f(x-h)\\)') + ' تُعوَّض ' + L('\\(x-h\\)') + ' في ' + L('\\(f\\)') + ' عند حساب القيم.',
+    yAdd: 'عند ضرب الدالة في ' + L('\\(a\\)') + ' ثم إضافة ' + L('\\(k\\)') + ' يُضرب الإحداثي الصادي في ' + L('\\(a\\)') + ' أولاً ثم يُضاف ' + L('\\(k\\)') + '، وليس ' + L('\\(a(n+k)\\)') + '.',
+    xNo: 'الإزاحة الرأسية والتمدد يؤثران في الإحداثي الصادي فقط، أما الإحداثي السيني فيتأثر بالإزاحة الأفقية وحدها.',
+    swap: 'طُبّقت الإزاحة أو التمدد على الإحداثي غير المناسب؛ الإزاحة الأفقية تخص ' + L('\\(x\\)') + '، والتمدد والإزاحة الرأسية يخصان ' + L('\\(y\\)') + '.',
+    orderK: 'يُطبَّق التمدد أو الانعكاس ' + L('\\(a\\)') + ' على ' + L('\\(f(x-h)\\)') + ' أولاً ثم يُضاف ' + L('\\(k\\)') + '، فلا تُضرب ' + L('\\(k\\)') + ' في ' + L('\\(a\\)') + '.',
+    noK: 'أُهملت الإزاحة الرأسية ' + L('\\(k\\)') + ' عند حساب قيمة ' + L('\\(g\\)') + '.'
+  };
+
+  /* يختار 3 مشتتات بأصناف مختلفة ونصوص مختلفة عن الصحيح وعن بعضها */
+  function dedupe(rng, correct, cands) {
+    var freq = {}; cands.forEach(function (c) { freq[c.tex] = (freq[c.tex] || 0) + 1; });
+    var out = [], used = {}, seen = {}; seen[correct] = 1;
+    shuffle(rng, cands).forEach(function (c) {
+      if (out.length >= 3 || used[c.cls] || freq[c.tex] > 1 || seen[c.tex]) return;
+      seen[c.tex] = 1; used[c.cls] = 1; out.push(c);
+    });
+    return out;
+  }
+
+  /* 1) متوسط معدل التغير لدالة تربيعية أو من قيمتين */
+  function q1(rng) {
+    var sub = rng() < 0.7 ? 'poly' : 'vals', x1, x2, d, df, ans, f1, f2, stem, sol, cands, key;
+    if (sub === 'poly') {
+      var a = pick(rng, [1, 2, 3, 4, -1, -2, -3]), b = ri(rng, -9, 9), c = ri(rng, -8, 8);
+      x1 = ri(rng, -3, 2); x2 = x1 + ri(rng, 2, 5); d = x2 - x1;
+      f1 = a * x1 * x1 + b * x1 + c; f2 = a * x2 * x2 + b * x2 + c; df = f2 - f1; ans = df / d;
+      if (ans === 0 || Math.abs(ans) > 40 || Math.abs(df) < 2) return null;
+      var fx = poly([[a, 'x^{2}'], [b, 'x'], [c, '']]);
+      stem = 'إذا كانت ' + T('f(x)=' + fx) + '، فما متوسط معدل تغير الدالة ' + T('f') + ' على الفترة ' + T('[' + x1 + ',' + x2 + ']') + '؟';
+      sol = [{ ar: 'متوسط معدل التغير على الفترة ' + T('[x_1,x_2]') + ' يساوي:', t: '\\dfrac{f(x_2)-f(x_1)}{x_2-x_1}' },
+        { ar: 'نحسب قيمتي الدالة عند طرفي الفترة:', t: 'f(' + x1 + ')=' + subQuad(a, b, c, x1) + '=' + f1 },
+        { t: 'f(' + x2 + ')=' + subQuad(a, b, c, x2) + '=' + f2 },
+        { ar: 'نعوّض في القانون:', t: '\\dfrac{' + f2 + '-' + par(f1) + '}{' + x2 + '-' + par(x1) + '}=\\dfrac{' + df + '}{' + d + '}=' + num(ans) },
+        { box: num(ans) }];
+      key = '1p:' + [a, b, c, x1, x2].join(',');
+    } else {
+      x1 = ri(rng, -4, 3); x2 = x1 + ri(rng, 2, 6); d = x2 - x1;
+      ans = ri(rng, -9, 9); if (ans === 0) return null; f1 = ri(rng, -15, 15); f2 = f1 + ans * d; df = f2 - f1;
+      stem = 'إذا كانت ' + T('f(' + x1 + ')=' + f1) + ' و' + T('f(' + x2 + ')=' + f2) + '، فما متوسط معدل تغير الدالة ' + T('f') + ' على الفترة ' + T('[' + x1 + ',' + x2 + ']') + '؟';
+      sol = [{ ar: 'متوسط معدل التغير على الفترة ' + T('[x_1,x_2]') + ' يساوي:', t: '\\dfrac{f(x_2)-f(x_1)}{x_2-x_1}' },
+        { ar: 'نعوّض القيمتين المعطاتين:', t: '\\dfrac{' + f2 + '-' + par(f1) + '}{' + x2 + '-' + par(x1) + '}=\\dfrac{' + df + '}{' + d + '}=' + num(ans) },
+        { box: num(ans) }];
+      key = '1v:' + [x1, x2, f1, f2].join(',');
+    }
+    cands = [{ cls: 'nodiv', tex: num(df), why: WHY.nodiv }, { cls: 'inv', tex: fr(d, df), why: WHY.inv }, { cls: 'sign', tex: num(-ans), why: WHY.sign }];
+    if (x1 + x2 !== 0) cands.push({ cls: 'sum', tex: fr(df, x1 + x2), why: WHY.sum });
+    cands.push({ cls: 'avg', tex: fr(f1 + f2, 2), why: WHY.avg });
+    return { stem: stem, correct: num(ans), cands: cands, sol: sol, key: key, remember: 'متوسط معدل التغير على الفترة ' + L('\\([x_1,x_2]\\)') + ' يساوي ' + L('\\(\\frac{f(x_2)-f(x_1)}{x_2-x_1}\\)') + ' (التغير في الدالة ÷ طول الفترة).', kind: 'arc-' + sub };
+  }
+
+  /* 2) دوال غير خطية، أو صورة نقطة بعد تحويلات */
+  function q2(rng) {
+    var sub = pick(rng, ['cubic', 'sqrt', 'pt', 'pt']), stem, sol, cands, key, ans, x1, x2, d, df, f1, f2;
+    if (sub === 'cubic') {
+      var k = ri(rng, -8, 8), c0 = ri(rng, -6, 6);
+      x1 = ri(rng, -3, 1); x2 = x1 + ri(rng, 2, 4); d = x2 - x1;
+      f1 = x1 * x1 * x1 - k * x1 + c0; f2 = x2 * x2 * x2 - k * x2 + c0; df = f2 - f1; ans = df / d;
+      if (ans === 0 || Math.abs(ans) > 60 || k === 0) return null;
+      stem = 'إذا كانت ' + T('f(x)=' + poly([[1, 'x^{3}'], [-k, 'x'], [c0, '']])) + '، فما متوسط معدل تغير الدالة ' + T('f') + ' على الفترة ' + T('[' + x1 + ',' + x2 + ']') + '؟';
+      var sc = function (v) { return par(v) + '^{3}' + (k === 0 ? '' : (-k < 0 ? '-' : '+') + (Math.abs(k) === 1 ? '' : Math.abs(k)) + '(' + v + ')') + (c0 === 0 ? '' : (c0 < 0 ? '-' : '+') + Math.abs(c0)); };
+      sol = [{ ar: 'نحسب قيمتي الدالة عند طرفي الفترة:', t: 'f(' + x1 + ')=' + sc(x1) + '=' + f1 },
+        { t: 'f(' + x2 + ')=' + sc(x2) + '=' + f2 },
+        { ar: 'متوسط معدل التغير يساوي:', t: '\\dfrac{f(' + x2 + ')-f(' + x1 + ')}{' + x2 + '-' + par(x1) + '}=\\dfrac{' + f2 + '-' + par(f1) + '}{' + d + '}=\\dfrac{' + df + '}{' + d + '}=' + num(ans) },
+        { box: num(ans) }];
+      cands = [{ cls: 'nodiv', tex: num(df), why: WHY.nodiv }, { cls: 'inv', tex: fr(d, df), why: WHY.inv }, { cls: 'sign', tex: num(-ans), why: WHY.sign }, { cls: 'endpt', tex: num(f2), why: WHY.endpt }, { cls: 'avg', tex: fr(f1 + f2, 2), why: WHY.avg }];
+      key = '2c:' + [k, c0, x1, x2].join(',');
+    } else if (sub === 'sqrt') {
+      var p = ri(rng, 1, 4), q = p + ri(rng, 1, 4), kk = ri(rng, -3, 6), x1 = ri(rng, -2, 2) - kk + 0;
+      /* f(x)=sqrt(x+kk): الطرفان x1+kk=p^2 و x2+kk=q^2 */
+      x1 = p * p - kk; x2 = q * q - kk; d = x2 - x1; df = q - p; ans = null;
+      stem = 'إذا كانت ' + T('f(x)=\\sqrt{x' + (kk === 0 ? '' : (kk < 0 ? '-' : '+') + Math.abs(kk)) + '}') + '، فما متوسط معدل تغير الدالة ' + T('f') + ' على الفترة ' + T('[' + x1 + ',' + x2 + ']') + '؟';
+      var ansTex = fr(df, d);
+      sol = [{ ar: 'نحسب قيمتي الدالة عند طرفي الفترة:', t: 'f(' + x1 + ')=\\sqrt{' + par(x1) + (kk === 0 ? '' : (kk < 0 ? '-' : '+') + Math.abs(kk)) + '}=\\sqrt{' + (p * p) + '}=' + p },
+        { t: 'f(' + x2 + ')=\\sqrt{' + par(x2) + (kk === 0 ? '' : (kk < 0 ? '-' : '+') + Math.abs(kk)) + '}=\\sqrt{' + (q * q) + '}=' + q },
+        { ar: 'متوسط معدل التغير يساوي:', t: '\\dfrac{' + q + '-' + p + '}{' + x2 + '-' + par(x1) + '}=\\dfrac{' + df + '}{' + d + '}=' + ansTex },
+        { box: ansTex }];
+      cands = [{ cls: 'nodiv', tex: num(df), why: WHY.nodiv }, { cls: 'inv', tex: fr(d, df), why: WHY.inv }, { cls: 'sign', tex: fr(-df, d), why: WHY.sign }, { cls: 'sum', tex: fr(df, x1 + x2), why: WHY.sum }, { cls: 'avg', tex: fr(p + q, 2), why: WHY.avg }];
+      if (x1 + x2 === 0) cands = cands.filter(function (c) { return c.cls !== 'sum'; });
+      return { stem: stem, correct: ansTex, cands: cands, sol: sol, key: '2s:' + [p, q, kk].join(','), remember: 'عوّض طرفي الفترة في الدالة أولاً ثم اقسم الفرق بين القيمتين على طول الفترة.', kind: 'arc-sqrt' };
+    } else {
+      var A = ri(rng, -6, 7), B = ri(rng, -6, 7), hh = pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]), cc = pick(rng, [-3, -2, -1, 2, 3, 4]), kv = ri(rng, -6, 7);
+      var xs = A + hh, ys = cc * B + kv;
+      if (cc === 1 || B === 0 || kv === 0) return null;
+      var gform = 'g(x)=' + (cc === -1 ? '-' : cc) + 'f(x' + (hh < 0 ? '+' : '-') + Math.abs(hh) + ')' + (kv < 0 ? '-' : '+') + Math.abs(kv);
+      stem = 'تقع النقطة ' + T('(' + A + ',' + B + ')') + ' على التمثيل البياني للدالة ' + T('y=f(x)') + '. إذا كانت ' + T(gform) + '، فما إحداثيا النقطة المناظرة لها على التمثيل البياني للدالة ' + T('g') + '؟';
+      var correct = '(' + xs + ',' + ys + ')';
+      sol = [{ ar: 'في ' + T('g(x)=af(x-h)+k') + ' يُزاح التمثيل ' + T('h') + ' وحدة أفقياً ويُضرب الإحداثي الصادي في ' + T('a') + ' ثم يُضاف ' + T('k') + '. هنا ' + T('a=' + cc) + ' و' + T('h=' + hh) + ' و' + T('k=' + kv) + '.', t: '(x,y)\\ \\longrightarrow\\ (x+h,\\ ay+k)' },
+        { ar: 'الإحداثي السيني الجديد:', t: x_(A, hh, xs) },
+        { ar: 'الإحداثي الصادي الجديد:', t: cc + '(' + B + ')' + (kv < 0 ? '-' : '+') + Math.abs(kv) + '=' + ys },
+        { box: correct }];
+      function x_(A, h, r) { return A + (h < 0 ? '-' : '+') + Math.abs(h) + '=' + r; }
+      cands = [{ cls: 'shiftSign', tex: '(' + (A - hh) + ',' + ys + ')', why: WHY.shiftSign }, { cls: 'yAdd', tex: '(' + xs + ',' + (cc * (B + kv)) + ')', why: WHY.yAdd }, { cls: 'xNo', tex: '(' + A + ',' + ys + ')', why: WHY.xNo }, { cls: 'swap', tex: '(' + (A + kv) + ',' + (cc * B + hh) + ')', why: WHY.swap }, { cls: 'noA', tex: '(' + xs + ',' + (B + kv) + ')', why: WHY.noA }];
+      return { stem: stem, correct: correct, cands: cands, sol: sol, key: '2p:' + [A, B, cc, hh, kv].join(','), remember: 'في ' + L('\\(g(x)=af(x-h)+k\\)') + ' تتحول النقطة ' + L('\\((m,n)\\)') + ' إلى ' + L('\\((m+h,\\ an+k)\\)') + '.', kind: 'transform-point' };
+    }
+    return { stem: stem, correct: num(ans), cands: cands, sol: sol, key: key, remember: 'عوّض طرفي الفترة في الدالة أولاً ثم اقسم الفرق بين القيمتين على طول الفترة.', kind: 'arc-' + sub };
+  }
+
+  /* 3) مسائل كلامية */
+  function q3(rng) {
+    var sub = pick(rng, ['pos', 'pos', 'two']), stem, sol, cands, key, ans, t1, t2, d, f1, f2, df;
+    if (sub === 'pos') {
+      var a = pick(rng, [1, 2, 3, 4, -1, -2, -3]), b = ri(rng, -8, 14), c = ri(rng, 0, 10);
+      t1 = ri(rng, 0, 3); t2 = t1 + ri(rng, 2, 5); d = t2 - t1;
+      f1 = a * t1 * t1 + b * t1 + c; f2 = a * t2 * t2 + b * t2 + c; df = f2 - f1; ans = df / d;
+      if (ans === 0 || Math.abs(ans) > 45 || Math.abs(df) < 2) return null;
+      var who = pick(rng, ['تتحرك سيارة', 'تتحرك دراجة', 'يتحرك جسم صغير', 'يتحرك قطار تجريبي']);
+      stem = who + ' على خط مستقيم، ويُعطى موضع' + (/دراجة|سيارة/.test(who) ? 'ها' : 'ه') + ' بالمتر بعد ' + T('t') + ' ثانية من بدء الحركة بالدالة ' + T('s(t)=' + poly([[a, 't^{2}'], [b, 't'], [c, '']])) + '. ما متوسط سرع' + (/دراجة|سيارة/.test(who) ? 'تها' : 'ته') + ' (بالمتر لكل ثانية) خلال الفترة من ' + T('t=' + t1) + ' إلى ' + T('t=' + t2) + '؟';
+      sol = [{ ar: 'متوسط السرعة هو متوسط معدل تغير الموضع على الفترة المعطاة:', t: '\\dfrac{s(' + t2 + ')-s(' + t1 + ')}{' + t2 + '-' + t1 + '}' },
+        { ar: 'نحسب الموضعين:', t: 's(' + t1 + ')=' + subQuad(a, b, c, t1).replace(/x/g, 't') + '=' + f1 },
+        { t: 's(' + t2 + ')=' + subQuad(a, b, c, t2) + '=' + f2 },
+        { ar: 'نقسم التغير في الموضع على التغير في الزمن:', t: '\\dfrac{' + f2 + '-' + par(f1) + '}{' + d + '}=\\dfrac{' + df + '}{' + d + '}=' + num(ans) },
+        { box: num(ans) }];
+      cands = [{ cls: 'nodiv', tex: num(df), why: WHY.nodiv }, { cls: 'inv', tex: fr(d, df), why: WHY.inv }, { cls: 'sign', tex: num(-ans), why: WHY.sign }, { cls: 'endpt', tex: num(f2), why: 'هذا الموضع عند نهاية الفترة ' + L('\\(s(t_2)\\)') + ' فقط، وليس متوسط السرعة.' }, { cls: 'avg', tex: fr(f1 + f2, 2), why: WHY.avg }];
+      if (t1 + t2 !== 0) cands.push({ cls: 'sum', tex: fr(df, t1 + t2), why: WHY.sum });
+      key = '3p:' + [a, b, c, t1, t2].join(',');
+    } else {
+      var ctx = pick(rng, [
+        { n: 'ربح شركة', u: 'ألف دينار', n2: 'الربح', td: 'عدد السنوات المنقضية منذ تأسيسها', rate: 'ألف دينار لكل سنة' },
+        { n: 'عدد زوار موقع إلكتروني', u: 'ألف زائر', n2: 'عدد الزوار', td: 'عدد الأشهر المنقضية منذ إطلاقه', rate: 'ألف زائر لكل شهر' },
+        { n: 'عمق الماء في خزان', u: 'سنتيمتراً', n2: 'عمق الماء', td: 'عدد الساعات المنقضية منذ بدء الملء', rate: 'سنتيمتر لكل ساعة' }]);
+      t1 = ri(rng, 1, 5); t2 = t1 + pick(rng, [2, 4, 5]); d = t2 - t1;
+      ans = pick(rng, [-6, -4, -3, -2, 2, 3, 4, 5, 6, 8]); f1 = ri(rng, 10, 60); f2 = f1 + ans * d; df = f2 - f1; if (f2 <= 0) return null;
+      var ansT = num(ans);
+      stem = 'يبلغ ' + ctx.n + ' ' + T(String(f1)) + ' ' + ctx.u + ' عندما ' + T('t=' + t1) + '، ويبلغ ' + T(String(f2)) + ' ' + ctx.u + ' عندما ' + T('t=' + t2) + '، حيث ' + T('t') + ' ' + ctx.td + '. ما متوسط معدل التغير في ' + ctx.n2 + ' على الفترة ' + T('[' + t1 + ',' + t2 + ']') + ' (بوحدة ' + U(ctx.rate) + ')؟';
+      sol = [{ ar: 'متوسط معدل التغير يساوي التغير في القيمة مقسوماً على التغير في الزمن:', t: '\\dfrac{' + f2 + '-' + f1 + '}{' + t2 + '-' + t1 + '}=\\dfrac{' + df + '}{' + d + '}=' + ansT },
+        { box: ansT }];
+      cands = [{ cls: 'nodiv', tex: num(df), why: WHY.nodiv }, { cls: 'inv', tex: fr(d, df), why: WHY.inv }, { cls: 'sign', tex: num(-ans), why: WHY.sign }, { cls: 'avg', tex: fr(f1 + f2, 2), why: WHY.avg }, { cls: 'sum', tex: fr(df, t1 + t2), why: WHY.sum }];
+      key = '3t:' + [ctx.n2, f1, f2, t1, t2].join(',');
+      return { stem: stem, correct: ansT, cands: cands, sol: sol, key: key, remember: 'متوسط معدل التغير = (التغير في الكمية) ÷ (التغير في الزمن)، ويُكتب بوحدة الكمية لكل وحدة زمن.', kind: 'arc-word' };
+    }
+    return { stem: stem, correct: num(ans), cands: cands, sol: sol, key: key, remember: 'متوسط السرعة على فترة = (التغير في الموضع) ÷ (التغير في الزمن).', kind: 'arc-word' };
+  }
+
+  /* 4) مستوى الوزارة: دالة محوّلة g(x)=a f(x-h)+k */
+  function q4(rng) {
+    var sub = rng() < 0.55 ? 'arc' : 'val';
+    var b = ri(rng, -6, 6), c = ri(rng, -6, 6), a = pick(rng, [-3, -2, 2, 3, -4]), h = pick(rng, [-3, -2, -1, 1, 2, 3]), k = ri(rng, -7, 8);
+    if (k === 0) return null;
+    var fx = poly([[1, 'x^{2}'], [b, 'x'], [c, '']]);
+    function f(x) { return x * x + b * x + c; }
+    var gtext = 'g(x)=' + (a === -1 ? '-' : a) + 'f(x' + (h < 0 ? '+' : '-') + Math.abs(h) + ')' + (k < 0 ? '-' : '+') + Math.abs(k);
+    var stem, sol, cands, correct, key;
+    if (sub === 'arc') {
+      var x1 = ri(rng, -2, 2), x2 = x1 + ri(rng, 2, 4), d = x2 - x1;
+      var arcf = (x1 - h) + (x2 - h) + b, ans = a * arcf;
+      if (ans === 0 || Math.abs(ans) > 70) return null;
+      var g1 = a * f(x1 - h) + k, g2 = a * f(x2 - h) + k;
+      stem = 'إذا كانت ' + T('f(x)=' + fx) + ' و' + T(gtext) + '، فما متوسط معدل تغير الدالة ' + T('g') + ' على الفترة ' + T('[' + x1 + ',' + x2 + ']') + '؟';
+      sol = [{ ar: 'نحسب قيمتي ' + T('g') + ' عند طرفي الفترة. أولاً ' + T('x=' + x1) + ':', t: 'g(' + x1 + ')=' + a + 'f(' + (x1 - h) + ')' + (k < 0 ? '-' : '+') + Math.abs(k) + '=' + a + '\\left(' + subQuad(1, b, c, x1 - h) + '\\right)' + (k < 0 ? '-' : '+') + Math.abs(k) + '=' + g1 },
+        { ar: 'ثم ' + T('x=' + x2) + ':', t: 'g(' + x2 + ')=' + a + 'f(' + (x2 - h) + ')' + (k < 0 ? '-' : '+') + Math.abs(k) + '=' + a + '\\left(' + subQuad(1, b, c, x2 - h) + '\\right)' + (k < 0 ? '-' : '+') + Math.abs(k) + '=' + g2 },
+        { ar: 'متوسط معدل التغير:', t: '\\dfrac{' + g2 + '-' + par(g1) + '}{' + x2 + '-' + par(x1) + '}=\\dfrac{' + (g2 - g1) + '}{' + d + '}=' + num(ans) },
+        { box: num(ans) }];
+      correct = num(ans);
+      var wrongNoH = a * ((x1 + x2) + b), wrongNoA = arcf, wrongH = a * ((x1 + h) + (x2 + h) + b);
+      cands = [{ cls: 'noH', tex: num(wrongNoH), why: WHY.noH }, { cls: 'noA', tex: num(wrongNoA), why: WHY.noA }, { cls: 'shiftSign', tex: num(wrongH), why: WHY.shiftSign }, { cls: 'kTerm', tex: fr(g2 - g1 + k, d), why: WHY.kTerm }, { cls: 'nodiv', tex: num(g2 - g1), why: WHY.nodiv }, { cls: 'inv', tex: fr(d, g2 - g1), why: WHY.inv }];
+      key = '4a:' + [b, c, a, h, k, x1, x2].join(',');
+    } else {
+      var x0 = ri(rng, -2, 4), val = a * f(x0 - h) + k;
+      if (Math.abs(val) > 90) return null;
+      stem = 'إذا كانت ' + T('f(x)=' + fx) + ' و' + T(gtext) + '، فما قيمة ' + T('g(' + x0 + ')') + '؟';
+      sol = [{ ar: 'نعوّض ' + T('x=' + x0) + ' في ' + T('g') + ':', t: 'g(' + x0 + ')=' + a + 'f(' + x0 + (h < 0 ? '+' : '-') + Math.abs(h) + ')' + (k < 0 ? '-' : '+') + Math.abs(k) + '=' + a + 'f(' + (x0 - h) + ')' + (k < 0 ? '-' : '+') + Math.abs(k) },
+        { ar: 'نحسب ' + T('f(' + (x0 - h) + ')') + ':', t: 'f(' + (x0 - h) + ')=' + subQuad(1, b, c, x0 - h) + '=' + f(x0 - h) },
+        { ar: 'ثم:', t: 'g(' + x0 + ')=' + a + '(' + f(x0 - h) + ')' + (k < 0 ? '-' : '+') + Math.abs(k) + '=' + val },
+        { box: num(val) }];
+      correct = num(val);
+      cands = [{ cls: 'shiftSign', tex: num(a * f(x0 + h) + k), why: WHY.shiftSign }, { cls: 'noH', tex: num(a * f(x0) + k), why: WHY.noH }, { cls: 'orderK', tex: num(a * (f(x0 - h) + k)), why: WHY.orderK }, { cls: 'noK', tex: num(a * f(x0 - h)), why: WHY.noK }, { cls: 'noA', tex: num(f(x0 - h) + k), why: WHY.noA }];
+      key = '4v:' + [b, c, a, h, k, x0].join(',');
+    }
+    return { stem: stem, correct: correct, cands: cands, sol: sol, key: key, remember: 'في ' + L('\\(g(x)=af(x-h)+k\\)') + ' تُعوَّض ' + L('\\(x-h\\)') + ' في ' + L('\\(f\\)') + '، ثم يُضرب الناتج في ' + L('\\(a\\)') + '، ثم يُضاف ' + L('\\(k\\)') + '.' + (sub === 'arc' ? ' والإزاحة الرأسية لا تؤثر في متوسط معدل التغير.' : ''), kind: 'composite-' + sub };
+  }
+
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: 'متوسط معدل التغير على الفترة \\([x_1,x_2]\\) يساوي \\(\\dfrac{f(x_2)-f(x_1)}{x_2-x_1}\\)؛ احسب قيمتي الدالة عند الطرفين ثم اقسم الفرق على طول الفترة.' },
+    { id: 2, ar: 'تطبيق', hint: 'لحساب متوسط معدل التغير عوّض الطرفين في قاعدة الدالة. وفي \\(g(x)=af(x-h)+k\\) تنتقل النقطة \\((m,n)\\) إلى \\((m+h,\\ an+k)\\).' },
+    { id: 3, ar: 'مسائل كلامية', hint: 'حدّد الكميتين المتغيرتين (القيمة والزمن)، ثم اقسم التغير في القيمة على التغير في الزمن بالترتيب نفسه في البسط والمقام.' },
+    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب قاعدة \\(g\\) بدلالة \\(f\\)، وعوّض \\(x-h\\) في \\(f\\) عند طرفي الفترة ثم احسب. تذكّر أن الإزاحة الرأسية \\(k\\) لا تغيّر متوسط معدل التغير.' }
+  ];
+  var HINTK = {
+    'arc-poly': 'عوّض طرفي الفترة في قاعدة الدالة، ثم اقسم الفرق بين القيمتين على طول الفترة بالترتيب نفسه في البسط والمقام.',
+    'arc-sqrt': 'عوّض طرفي الفترة في قاعدة الدالة، ثم اقسم الفرق بين القيمتين على طول الفترة بالترتيب نفسه في البسط والمقام.',
+    'arc-cubic': 'عوّض طرفي الفترة في قاعدة الدالة، ثم اقسم الفرق بين القيمتين على طول الفترة بالترتيب نفسه في البسط والمقام.',
+    'transform-point': 'في \\(g(x)=af(x-h)+k\\) تنتقل النقطة \\((m,n)\\) إلى \\((m+h,\\ an+k)\\): الإحداثي السيني يتأثر بالإزاحة الأفقية وحدها، والإحداثي الصادي يُضرب في \\(a\\) أولاً ثم يُضاف \\(k\\).',
+    'composite-val': 'عوّض قيمة \\(x\\) في قاعدة \\(g\\): احسب \\(f\\) عند القيمة التي تظهر داخل القوس، ثم اضرب الناتج في المعامل وأضف الثابت بهذا الترتيب.',
+    'arc-vals': 'متوسط معدل التغير = (الفرق بين قيمتي الدالة) ÷ (الفرق بين طرفي الفترة)، بالترتيب نفسه في البسط والمقام.'
+  };
+  function build(level, rng) {
+    var q = null, tries = 0;
+    while (!q && tries++ < 400) q = level === 1 ? q1(rng) : level === 2 ? q2(rng) : level === 3 ? q3(rng) : q4(rng);
+    return q;
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = dedupe(rng, t.correct, t.cands); tries++; } while (dis.length < 3 && tries < 300);
+    var correct = { tex: t.correct, why: '' };
+    var all = shuffle(rng, [correct].concat(dis.map(function (c) { return { tex: c.tex, why: c.why }; })));
+    return { band: 21, level: level, rtl: true, lang: 'ar', stem: t.stem, svg: '', e: '', opts: all.map(function (s) { return { t: s.tex, why: s.why || '' }; }), ans: all.indexOf(correct), sol: t.sol.map(function (z) { if (z.t) z.t = z.t.replace(/(\\dfrac\{[^{}]*\}\{[^{}]*\})=\1/g, '$1'); return z; }), hint: HINTK[t.kind] || LEVELS[level - 1].hint, remember: t.remember, key: t.key, data: { kind: t.kind } };
+  }
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGen21 = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    var CORE = LV.length;
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.svg) stage.appendChild(h('div', 'fig', q.svg));
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl < 4) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === LV.length && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>

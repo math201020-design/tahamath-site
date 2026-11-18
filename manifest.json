@@ -2173,7 +2173,7 @@
   {
    "path": "g11-advanced-bridge/band-21/index.html",
    "src": "site/g11-advanced-bridge/band-21/index.html",
-   "sha256": "36211f472f16cb95f59bd9d4d9121531e1388f328a77bcbc66d5adde0ec25146"
+   "sha256": "ceba05a331681b2812fd223f87ccf834dc4e61bd58e41f42d76663c3d22ce4d2"
   },
   {
    "path": "g11-advanced-bridge/band-22/index.html",
@@ -2188,7 +2188,7 @@
   {
    "path": "g11-advanced-bridge/band-24/index.html",
    "src": "site/g11-advanced-bridge/band-24/index.html",
-   "sha256": "2b348bf1bdcdf77cbb4e2ddabd0d06e6c5c39020a5eb94973c62a50ecdf1ecf2"
+   "sha256": "590c658524ae3a5f381c7fa2a5c49024aff8458c35aa6f3afe617496562e749f"
   },
   {
    "path": "g11-advanced-bridge/band-25/index.html",
@@ -5769,6 +5769,16 @@
    "path": "g11-advanced-bridge/mastery-23/index.html",
    "src": "site/g11-advanced-bridge/mastery-23/index.html",
    "sha256": "f70bc5ca85bcd881647d8545779285f04f04eb7c32a22276eb3d53c3b9820576"
+  },
+  {
+   "path": "g11-advanced-bridge/mastery-24/index.html",
+   "src": "site/g11-advanced-bridge/mastery-24/index.html",
+   "sha256": "208319376d05def6693a8fd32c1824c017d27f42254f2ffd865995c889044e9e"
+  },
+  {
+   "path": "g11-advanced-bridge/mastery-21/index.html",
+   "src": "site/g11-advanced-bridge/mastery-21/index.html",
+   "sha256": "9c9a5cfb218c3be3b43947c541405478c1a02e7e6b338276d781d6441ab52e77"
   },
   {
    "path": "g10-advanced/haykal-1/index.html",
