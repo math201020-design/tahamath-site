@@ -6509,6 +6509,151 @@
    "path": "g10-advanced-bridge/band-25/index.html",
    "src": "site/g10-advanced-bridge/band-25/index.html",
    "sha256": "4ddecdc43e72e00f3aeda0e68d83100dfbc9c7efb5b03c850f9ad72a36d0e070"
+  },
+  {
+   "path": "g10-general-bridge/haykal-1/index.html",
+   "src": "site/g10-general-bridge/haykal-1/index.html",
+   "sha256": "f494210eff2bbae69367a71f998f020f7cfc62df9c6949ca62cbf659693a4c99"
+  },
+  {
+   "path": "g10-general-bridge/haykal-1-written/index.html",
+   "src": "site/g10-general-bridge/haykal-1-written/index.html",
+   "sha256": "3e97c59cd9840b575d916f0cf8e56dbbebc1ea89a64d34395d739123ecc2e17c"
+  },
+  {
+   "path": "g10-general-bridge/haykal-2/index.html",
+   "src": "site/g10-general-bridge/haykal-2/index.html",
+   "sha256": "838e4bb0947bcdc5cb79506ed8edf68b5e7c8da2658dd639c3ea8abf84f59c55"
+  },
+  {
+   "path": "g10-general-bridge/haykal-2-written/index.html",
+   "src": "site/g10-general-bridge/haykal-2-written/index.html",
+   "sha256": "b95aab49ca6b9ca7527a4a32f3f9ec2531f236cc9d81b2d02678152f3009f57a"
+  },
+  {
+   "path": "g10-general-bridge/haykal-3/index.html",
+   "src": "site/g10-general-bridge/haykal-3/index.html",
+   "sha256": "760e286b81878fe3b8302326b2efb39508e91519ae8170e325046492216ba37a"
+  },
+  {
+   "path": "g10-general-bridge/haykal-3-written/index.html",
+   "src": "site/g10-general-bridge/haykal-3-written/index.html",
+   "sha256": "f1259cb08222c93b6d22795c327c3c109fdb805c213e21899f447140ce3dfdb3"
+  },
+  {
+   "path": "g10-general-bridge/haykal-4/index.html",
+   "src": "site/g10-general-bridge/haykal-4/index.html",
+   "sha256": "11336d53dbe14fb2fe3403eb0868f63e940e5910485e957ac302431a6544a8bf"
+  },
+  {
+   "path": "g10-general-bridge/haykal-4-written/index.html",
+   "src": "site/g10-general-bridge/haykal-4-written/index.html",
+   "sha256": "168e5c635ce20e7df4f9004839186ccbd15b849ea5b451a46bfc9aa3db4250ba"
+  },
+  {
+   "path": "g10-general-bridge/mistakes/index.html",
+   "src": "site/g10-general-bridge/mistakes/index.html",
+   "sha256": "3cc2a13dcbf2f16b1ef78a8d322e3e491e8c86b39ff42d3a843c4d51c4bce457"
+  },
+  {
+   "path": "g10-general-bridge/prac-1-5-m1/index.html",
+   "src": "site/g10-general-bridge/prac-1-5-m1/index.html",
+   "sha256": "2816044f7c7ca3af1343f1f9cee5fd7af09a32e21fbd817389ca5d786578c94a"
+  },
+  {
+   "path": "g10-general-bridge/prac-1-5-m2/index.html",
+   "src": "site/g10-general-bridge/prac-1-5-m2/index.html",
+   "sha256": "2f1d025318b89ccbe555d8e89bf1372e05b6a592347ba8ca72929625f685ffbe"
+  },
+  {
+   "path": "g10-general-bridge/prac-1-5-m3/index.html",
+   "src": "site/g10-general-bridge/prac-1-5-m3/index.html",
+   "sha256": "b2a10ae4a7ffdd7bcbb3f367136e011dcf9d5f34b759d5cbb13b3622a715d18a"
+  },
+  {
+   "path": "g10-general-bridge/prac-1-5-m4/index.html",
+   "src": "site/g10-general-bridge/prac-1-5-m4/index.html",
+   "sha256": "1fbac339589e14dc8632d514f8a6ce4849c2d687dbafad3f17dc0746d92dba52"
+  },
+  {
+   "path": "g10-general-bridge/prac-11-15-m1/index.html",
+   "src": "site/g10-general-bridge/prac-11-15-m1/index.html",
+   "sha256": "8155022520dc05ef7a327444feccba26a969cc2f0d0b4ae7b970fcc98e659491"
+  },
+  {
+   "path": "g10-general-bridge/prac-11-15-m2/index.html",
+   "src": "site/g10-general-bridge/prac-11-15-m2/index.html",
+   "sha256": "4f79e3e76b31e48ff4dbe29eb2f8b0a214641242ca745533e8261d2cf8e8ca51"
+  },
+  {
+   "path": "g10-general-bridge/prac-11-15-m3/index.html",
+   "src": "site/g10-general-bridge/prac-11-15-m3/index.html",
+   "sha256": "3f7ae76fbb8695df6f709f0fb3b5ff4b65fe538c96926e905c9f7cc34aaf0a9d"
+  },
+  {
+   "path": "g10-general-bridge/prac-11-15-m4/index.html",
+   "src": "site/g10-general-bridge/prac-11-15-m4/index.html",
+   "sha256": "51f0600451a6b7278986107025422900c37b045e474ea9ca93cecbf124cac593"
+  },
+  {
+   "path": "g10-general-bridge/prac-16-20-m1/index.html",
+   "src": "site/g10-general-bridge/prac-16-20-m1/index.html",
+   "sha256": "92f9be0a84f68b8d6f7595e65b67f46e3c1615a34c3942ab6fbd361e39c61eb4"
+  },
+  {
+   "path": "g10-general-bridge/prac-16-20-m2/index.html",
+   "src": "site/g10-general-bridge/prac-16-20-m2/index.html",
+   "sha256": "09cd965d0a1d23e89f1dae9df91eb009a482323252704720ee5220468ada926e"
+  },
+  {
+   "path": "g10-general-bridge/prac-16-20-m3/index.html",
+   "src": "site/g10-general-bridge/prac-16-20-m3/index.html",
+   "sha256": "7ebd7b2f7896a6f514cad797faad68becdece9f3b43c32e07403e0b80128df53"
+  },
+  {
+   "path": "g10-general-bridge/prac-16-20-m4/index.html",
+   "src": "site/g10-general-bridge/prac-16-20-m4/index.html",
+   "sha256": "22f400385ff872351d6e13c5911f01d5264f520a1474578595821aab647bb8e5"
+  },
+  {
+   "path": "g10-general-bridge/prac-21-26-m1/index.html",
+   "src": "site/g10-general-bridge/prac-21-26-m1/index.html",
+   "sha256": "4f06d2921604d4dc16f860d61879c172520b59ed9f910fd5ef9278e479725bd3"
+  },
+  {
+   "path": "g10-general-bridge/prac-21-26-m2/index.html",
+   "src": "site/g10-general-bridge/prac-21-26-m2/index.html",
+   "sha256": "af81a07915725f272cfc07da7fdf2bc9019d812d59c05e144bd46f6c9308480f"
+  },
+  {
+   "path": "g10-general-bridge/prac-21-26-m3/index.html",
+   "src": "site/g10-general-bridge/prac-21-26-m3/index.html",
+   "sha256": "b6780c4544a7c3b2f61578288caff1b79b77e4064c4fd76b2aa3be9ad0e4ede8"
+  },
+  {
+   "path": "g10-general-bridge/prac-21-26-m4/index.html",
+   "src": "site/g10-general-bridge/prac-21-26-m4/index.html",
+   "sha256": "146e49d7bbda1b0e8036b097e7a6adac41bcf655e911c72f9a7cc2fbdc33aa56"
+  },
+  {
+   "path": "g10-general-bridge/prac-6-10-m1/index.html",
+   "src": "site/g10-general-bridge/prac-6-10-m1/index.html",
+   "sha256": "f8ece7c2394b96cff0f150f2819fea50da5e13a85f64c7f645235fece6b85f12"
+  },
+  {
+   "path": "g10-general-bridge/prac-6-10-m2/index.html",
+   "src": "site/g10-general-bridge/prac-6-10-m2/index.html",
+   "sha256": "2069e7d93ac81895447f35d6a9377d8d6c503ab7c096525e0c6a19e557e5de36"
+  },
+  {
+   "path": "g10-general-bridge/prac-6-10-m3/index.html",
+   "src": "site/g10-general-bridge/prac-6-10-m3/index.html",
+   "sha256": "99505e0854d5e8ff59ae4e306a59247ee60d7c622c7bf09ae2f5a29eb117c327"
+  },
+  {
+   "path": "g10-general-bridge/prac-6-10-m4/index.html",
+   "src": "site/g10-general-bridge/prac-6-10-m4/index.html",
+   "sha256": "2d37ea0172f01a27997861cb6c5542717c04c29d6dc6af9adbeebf90a811bfee"
   }
  ]
 }
