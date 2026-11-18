@@ -6799,6 +6799,121 @@
    "path": "g12-general/en/practice-21-25-4/index.html",
    "src": "site/g12-general/en/practice-21-25-4/index.html",
    "sha256": "22b6a386f00b13d397525faec8cca03721d64ecb65fddee94eb15086d05f2d43"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-1-5-1/index.html",
+   "src": "site/g10-advanced-bridge/practice-1-5-1/index.html",
+   "sha256": "31eaec03d2acdffb866cb98d1748a63c5e76845c9dede1c27db76f62bd1fe3a9"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-1-5-2/index.html",
+   "src": "site/g10-advanced-bridge/practice-1-5-2/index.html",
+   "sha256": "2d83745fcd4b3353d228acb3df17d7a44557bfc7811e0be8452c2c5f296b01ec"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-1-5-3/index.html",
+   "src": "site/g10-advanced-bridge/practice-1-5-3/index.html",
+   "sha256": "6d2a47eb96c8ea1e00f30a3c7de711a6ba44b6cfd951ca03d20ac7440f54fe6c"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-1-5-4/index.html",
+   "src": "site/g10-advanced-bridge/practice-1-5-4/index.html",
+   "sha256": "acbcded35f31948d4f1ac6183d1fa95ea933c465b6cd7e2fd21bf7de6458d9ea"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-6-10-1/index.html",
+   "src": "site/g10-advanced-bridge/practice-6-10-1/index.html",
+   "sha256": "33540a4b6ff3b20f484e830f15653281b153b4b16a1ee35ced56b27ae6336ada"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-6-10-2/index.html",
+   "src": "site/g10-advanced-bridge/practice-6-10-2/index.html",
+   "sha256": "ac7a3f5713e5623283889ca3b4b66f899fbc3ec50b04610e98741a3e7d62750a"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-6-10-3/index.html",
+   "src": "site/g10-advanced-bridge/practice-6-10-3/index.html",
+   "sha256": "595a4e92aecdcca3d747c30303ab66ac925bf8f66186cdd78c7410197af83e9a"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-6-10-4/index.html",
+   "src": "site/g10-advanced-bridge/practice-6-10-4/index.html",
+   "sha256": "d89c08093b54363fde0d00296c4327cccc1bb7b60ec9545c4e82a729b5e54dd2"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-11-15-1/index.html",
+   "src": "site/g10-advanced-bridge/practice-11-15-1/index.html",
+   "sha256": "7ab2df7eeb2d0c4cae66d0213732cc31a84a7616ab6d16458367e92d2439bc7d"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-11-15-2/index.html",
+   "src": "site/g10-advanced-bridge/practice-11-15-2/index.html",
+   "sha256": "92c1bec97b51a81c077cad81bd87bc8da1572deee0999e215910b6273498fd1e"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-11-15-3/index.html",
+   "src": "site/g10-advanced-bridge/practice-11-15-3/index.html",
+   "sha256": "f2281ed9ac60dafa7a47ea88c4311d33a76f45490cd45863943a58d1ff2cbfd4"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-11-15-4/index.html",
+   "src": "site/g10-advanced-bridge/practice-11-15-4/index.html",
+   "sha256": "893c189add3ea5b60da6fde68ca1ba46d76e078c3204f8510ba9d76251ab209d"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-16-20-1/index.html",
+   "src": "site/g10-advanced-bridge/practice-16-20-1/index.html",
+   "sha256": "733600115e631157204642dcc3f2514e6abe9e21659e8e62f2f815dcfc32c920"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-16-20-2/index.html",
+   "src": "site/g10-advanced-bridge/practice-16-20-2/index.html",
+   "sha256": "78aae415de504eb22a8cc07b222f11e58b7b32189d0bbfb721ac5081ad8dbe15"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-16-20-3/index.html",
+   "src": "site/g10-advanced-bridge/practice-16-20-3/index.html",
+   "sha256": "d27258b5d5fa72c0073a8f35443c905a802d5f3eda217f98d256832b535d8e38"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-16-20-4/index.html",
+   "src": "site/g10-advanced-bridge/practice-16-20-4/index.html",
+   "sha256": "e4978f54b24d090ca0446c5b8f984785bfaca49b2565c185ee5191a0218136ba"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-21-25-1/index.html",
+   "src": "site/g10-advanced-bridge/practice-21-25-1/index.html",
+   "sha256": "53129b7a53e6e95301f36954025640a686b4c39e0af0735cb24e421687c492f5"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-21-25-2/index.html",
+   "src": "site/g10-advanced-bridge/practice-21-25-2/index.html",
+   "sha256": "d678494955bf830dd7c79edbe321ffc7c91a19ab82f32a6ddda95c02cec20e93"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-21-25-3/index.html",
+   "src": "site/g10-advanced-bridge/practice-21-25-3/index.html",
+   "sha256": "3dcea22963d5624ee3f047b6f8c292368c8f6f89606095e2a09b6e21e00fe4a9"
+  },
+  {
+   "path": "g10-advanced-bridge/practice-21-25-4/index.html",
+   "src": "site/g10-advanced-bridge/practice-21-25-4/index.html",
+   "sha256": "ccff4eddf79302b7c58131a0726b9396a23d66da5dc7a105a4f15575a237e316"
+  },
+  {
+   "path": "g12-general/mastery-21/index.html",
+   "src": "site/g12-general/mastery-21/index.html",
+   "sha256": "5e47ad55812ac19855e25b2edba5eec4ace1c4a231200e61f1df1636721d63f4"
+  },
+  {
+   "path": "g12-general/mastery-22/index.html",
+   "src": "site/g12-general/mastery-22/index.html",
+   "sha256": "329fb43c449a80ceaa31e9a4adc69dbc68707a399fd6ecab9f6973b63bfcb33f"
+  },
+  {
+   "path": "g12-general/mastery-24/index.html",
+   "src": "site/g12-general/mastery-24/index.html",
+   "sha256": "c84300a6dddb71fc97cce7f7d214f40c729607e17a6a18e6273f68c266a4f6c4"
   }
  ]
 }

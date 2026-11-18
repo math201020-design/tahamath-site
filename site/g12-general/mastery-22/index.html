@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: المتباينات التربيعية | الثاني عشر عام | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في حل المتباينات التربيعية بمتغير واحد، وتتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g12-general/mastery-22/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:15px}.sol .sn.en{direction:ltr;text-align:center;margin:0 0 6px;font-size:13px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">22</bdi>: حل المتباينات التربيعية بمتغير واحد<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g12-general", "band": 22, "label": "البند 22", "gen": "TmGenQI"};</script>
+<script>
+/* مولّد أسئلة البند 22 (حل المتباينات التربيعية بمتغير واحد) - 12 عام
+   اختيار من متعدد بصيغة الوزارة، حل تفصيلي، تلميح لكل مستوى، ومشتتات من أخطاء شائعة لكل منها تشخيص. التوليد بالقوالب لا بالذكاء الاصطناعي، والقيم كسور دقيقة. */
+(function (root) {
+  'use strict';
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function isSq(n) { if (n < 0) return false; var r = Math.round(Math.sqrt(n)); return r * r === n; }
+  /* كسور دقيقة */
+  function fr(n, d) { if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function fadd(a, b) { return fr(a.n * b.d + b.n * a.d, a.d * b.d); }
+  function fsub(a, b) { return fr(a.n * b.d - b.n * a.d, a.d * b.d); }
+  function fmul(a, b) { return fr(a.n * b.n, a.d * b.d); }
+  function fdiv(a, b) { return fr(a.n * b.d, a.d * b.n); }
+  function fneg(a) { return fr(-a.n, a.d); }
+  function fval(f) { return f.n / f.d; }
+  function fkey(f) { return f.n + '/' + f.d; }
+  function fl(f) { if (f.d === 1) return String(f.n); return (f.n < 0 ? '-' : '') + '\\frac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function flAbs(f) { return fl(fr(Math.abs(f.n), f.d)); }
+  function fterm(f) { return (f.n < 0 ? '-' : '+') + flAbs(f); }   /* مع إشارة صريحة */
+  function F(n) { return fr(n, 1); }
+  /* كتابة كثيرة حدود */
+  function term(coef, v, first) {
+    if (coef === 0) return '';
+    var s = coef < 0 ? '-' : (first ? '' : '+');
+    var m = Math.abs(coef);
+    var body = v ? ((m === 1 ? '' : String(m)) + v) : String(m);
+    return (first ? s : ' ' + s + ' ') + body;
+  }
+  function poly(a, b, c) { var s = term(a, 'x^{2}', true), f = !s; s += term(b, 'x', f); if (!s) f = true; else f = false; s += term(c, '', f); return s || '0'; }
+  function paren(n) { return n < 0 ? '(' + n + ')' : String(n); }
+  function sqrtParts(n) { var k = 1, m = n; for (var f = 2; f * f <= m; f++) { while (m % (f * f) === 0) { m /= f * f; k *= f; } } return { k: k, m: m }; }
+
+  var SYM = { '<': '\\lt', '>': '\\gt', '≤': '\\le', '≥': '\\ge' };
+  var INC = { '<': false, '>': false, '≤': true, '≥': true };
+  /* مجموعة حل: type between/outside، حدّان (كسران)، incl */
+  function setLatex(t, lo, hi, incl) {
+    var s1 = incl ? '\\le' : '\\lt', s2 = incl ? '\\ge' : '\\gt';
+    if (t === 'between') return '\\{x\\mid ' + fl(lo) + s1 + ' x' + s1 + fl(hi) + '\\}';
+    return '\\{x\\mid x' + s1 + fl(lo) + '\\ \\text{or}\\ x' + s2 + fl(hi) + '\\}';
+  }
+  function S(t, lo, hi, incl) { return { latex: setLatex(t, lo, hi, incl), key: t + fkey(lo) + ',' + fkey(hi) + incl, lo: fval(lo), hi: fval(hi) }; }
+  var SP = {
+    R: { latex: '\\mathbb{R}', key: 'R' }, E: { latex: '\\varnothing', key: 'E' }
+  };
+  function pt(r) { return { latex: '\\{' + fl(r) + '\\}', key: 'pt' + fkey(r) }; }
+  function ne(r) { return { latex: '\\{x\\mid x\\ne ' + fl(r) + '\\}', key: 'ne' + fkey(r) }; }
+  function quadFromRoots(rng, r1, r2, A) {      /* A x^2 + B x + C بمعاملات صحيحة من جذرين كسريين */
+    var B = fneg(fmul(F(A), fadd(r1, r2))), C = fmul(F(A), fmul(r1, r2));
+    if (B.d !== 1 || C.d !== 1) return null;
+    return { A: A, B: B.n, C: C.n };
+  }
+  function rootsFor(rng, kind) {
+    for (;;) {
+      var r1, r2;
+      if (kind === 'int') { r1 = fr(ri(rng, -9, 9), 1); r2 = fr(ri(rng, -9, 9), 1); }
+      else { r1 = fr(ri(rng, -7, 7), pick(rng, [1, 2, 3])); r2 = fr(ri(rng, -7, 7), pick(rng, [1, 2, 3])); }
+      if (fval(r1) >= fval(r2)) continue;
+      if (kind === 'int' && (r1.n === 0 || r2.n === 0)) continue;
+      return [r1, r2];
+    }
+  }
+  function solveIneq(A, lo, hi, sym) {      /* A>0 أو A<0؛ f sym 0 */
+    var incl = INC[sym], below = (sym === '<' || sym === '≤');   /* f أقل من الصفر */
+    var between = (A > 0) === below;
+    return { type: between ? 'between' : 'outside', incl: incl };
+  }
+  var WHY = {
+    flip: 'تأكد من اتجاه فتحة القطع المكافئ وموضعه بالنسبة إلى المحور \\(x\\): بين الجذرين أم خارجهما؟',
+    incl: 'انتبه إلى الرمز: مع \\(\\lt\\) و\\(\\gt\\) لا تدخل الجذور في مجموعة الحل، ومع \\(\\le\\) و\\(\\ge\\) تدخل.',
+    sign: 'الجذر يأتي من \\((x-r)=0\\) أي \\(x=r\\)، فانتبه إلى إشارة الجذر عند التحليل.',
+    flipincl: 'خطآن معاً: تحقق من موضع القطع المكافئ بالنسبة إلى المحور \\(x\\) (بين الجذرين أم خارجهما)، ثم من قبول الجذرين أو رفضهما بحسب الرمز \\(\\lt\\) أو \\(\\le\\).',
+    flipsign: 'خطآن معاً: الجذران يأتيان من \\((x-r)=0\\) فانتبه إلى إشاراتهما، ثم تحقق من أن المنطقة المطلوبة (بين الجذرين أم خارجهما) تناسب رمز المتباينة واتجاه الفتحة.',
+    root: 'راجع التحليل وحل المعادلة المرتبطة: أحد الجذرين غير صحيح.'
+  };
+  function build(rng, level) {
+    var kind = level <= 2 ? 'int' : 'rat';
+    for (;;) {
+      var roots = rootsFor(rng, kind), r1 = roots[0], r2 = roots[1], A, sym, e, rhs = null;
+      if (level === 1) { A = 1; sym = pick(rng, ['<', '>']); }
+      else if (level === 2) { A = 1; sym = pick(rng, ['≤', '≥']); }
+      else { A = pick(rng, level === 3 ? [-1, -1, -2, 2, 3, -3] : [1, 2, 3, -1, -2]); sym = pick(rng, ['<', '>', '≤', '≥']); }
+      var q = quadFromRoots(rng, r1, r2, A * (kind === 'rat' ? r1.d * r2.d : 1));
+      if (!q) continue; A = q.A;
+      if (kind === 'int' && A !== 1 && level < 3) continue;
+      var g = gcd(gcd(A, q.B), q.C); if (g > 1 && level < 4) continue;
+      if (level < 3 && (q.B === 0 || q.C === 0)) continue;
+      if (Math.abs(q.B) > 40 || Math.abs(q.C) > 80 || Math.abs(A) > 12) continue;
+      var a1 = A, b1 = q.B, c1 = q.C;
+      if (level === 4) {
+        var d = ri(rng, 1, 3), e1 = ri(rng, -6, 6), f1 = ri(rng, -12, 12);
+        a1 = A + d; b1 = q.B + e1; c1 = q.C + f1;
+        if (!a1 || (!d && !e1 && !f1)) continue;
+        e = poly(a1, b1, c1) + SYM[sym] + ' ' + poly(d, e1, f1);
+        rhs = { d: d, e: e1, f: f1 };
+      } else e = poly(A, q.B, q.C) + SYM[sym] + ' 0';
+      var sol = solveIneq(A, r1, r2, sym), cor = S(sol.type, r1, r2, sol.incl);
+      var other = sol.type === 'between' ? 'outside' : 'between';
+      var pool = [
+        { s: S(other, r1, r2, sol.incl), w: 'flip' },
+        { s: S(sol.type, r1, r2, !sol.incl), w: 'incl' },
+        { s: S(other, r1, r2, !sol.incl), w: 'flipincl' },
+        { s: S(sol.type, fneg(r2), fneg(r1), sol.incl), w: 'sign' },
+        { s: S(other, fneg(r2), fneg(r1), sol.incl), w: 'flipsign' },
+        { s: S(sol.type, fadd(r1, F(1)), r2, sol.incl), w: 'root' },
+        { s: S(sol.type, r1, fsub(r2, F(1)), sol.incl), w: 'root' }
+      ];
+      var seen = {}; seen[cor.key] = 1; var out = [], used = {};
+      pool = pool.filter(function (p) { return p.s.lo === undefined || p.s.lo < p.s.hi; });
+      shuffle(rng, pool).forEach(function (p) { if (out.length < 3 && !seen[p.s.key] && !(p.w === 'flip' && used.flip && out.length < 2)) { seen[p.s.key] = 1; used[p.w] = 1; p.s.why = WHY[p.w]; out.push(p.s); } });
+      if (out.length < 3) continue;
+      var steps = [];
+      if (level === 4) steps.push({ t: poly(a1 - rhs.d, b1 - rhs.e, c1 - rhs.f) + SYM[sym] + ' 0\\quad\\text{(move all terms to one side)}' });
+      steps.push({ t: poly(A, q.B, q.C) + '=0\\quad\\text{(related equation)}' });
+      steps.push({ t: (A === 1 ? '' : 'A') && '' });   /* يُستبدل أدناه */
+      steps.pop();
+      var rr = 'x=' + fl(r1) + '\\ ,\\ \\ x=' + fl(r2);
+      steps.push({ t: rr + '\\quad\\text{(roots)}' });
+      steps.push({ t: A > 0 ? '\\text{parabola opens up}' : '\\text{parabola opens down}' });
+      var below = sym === '<' || sym === '≤';
+      steps.push({ t: '\\text{' + (below ? 'below' : 'above') + (INC[sym] ? ' or on' : '') + ' the x-axis: ' + (sol.type === 'between' ? 'between the roots' : 'outside the roots') + '}' });
+      steps.push({ box: cor.latex });
+      return { stem: 'Solve the inequality.', e: e, correct: cor, dis: out, sol: steps, key: e, data: { A: a1 - (rhs ? rhs.d : 0), B: q.B, C: q.C, r: [fval(r1), fval(r2)], sym: sym, cor: cor } };
+    }
+  }
+  function build5(rng) {
+    var mode = pick(rng, ['none', 'dbl']);
+    if (mode === 'dbl') {
+      var r = ri(rng, -6, 6) || 3, A = pick(rng, [1, 1, 2, -1, -2]), sym = pick(rng, ['<', '>', '≤', '≥']);
+      var B = -2 * A * r, C = A * r * r, e = poly(A, B, C) + SYM[sym] + ' 0', R = F(r);
+      var below = sym === '<' || sym === '≤', incl = INC[sym], leq0 = (A > 0) === below;   /* نفس اتجاه f مقارنة بالصفر */
+      var cor;
+      if (leq0) cor = incl ? pt(R) : SP.E; else cor = incl ? SP.R : ne(R);
+      var out = [], cp = function (o, w) { return { latex: o.latex, key: o.key, why: w }; };
+      var atR = incl ? 'يحقق' : 'لا يحقق', others = ((A > 0) === !below) ? 'يحققها' : 'لا يحققها';
+      var fact = 'الطرف الأيسر \\(A(x-r)^{2}\\) يساوي صفراً عند \\(x=' + r + '\\) فقط، ومع الرمز في المتباينة هذا العدد ' + atR + ' المتباينة، وكل عدد آخر ' + others + '.';
+      var WD = { R: fact, E: fact, P: fact, N: fact };
+      [[SP.R, WD.R], [SP.E, WD.E], [pt(R), WD.P], [ne(R), WD.N]].forEach(function (o) { if (o[0].key !== cor.key) out.push(cp(o[0], o[1])); });
+      var steps = [{ t: poly(A, B, C) + '=' + (A === 1 ? '' : (A === -1 ? '-' : A)) + '\\left(x' + (r < 0 ? '+' : '-') + Math.abs(r) + '\\right)^{2}\\quad\\text{(perfect square)}' },
+        { t: '\\text{the only root is } x=' + r }, { t: A > 0 ? '\\text{parabola opens up and touches the x-axis at } x=' + r : '\\text{parabola opens down and touches the x-axis at } x=' + r },
+        { t: '\\text{the graph is ' + (A > 0 ? 'above' : 'below') + ' the x-axis everywhere except } x=' + r }, { box: cor.latex }];
+      return { stem: 'Solve the inequality.', e: e, correct: cor, dis: out, sol: steps, key: e, data: { dbl: true, A: A, r: r, sym: sym, cor: cor } };
+    }
+    for (;;) {
+      var A2 = pick(rng, [1, 1, 2, -1, -2]), b2 = ri(rng, -8, 8), c2 = ri(rng, -9, 9);
+      if (!b2 || !c2) continue; var Dd = b2 * b2 - 4 * A2 * c2; if (Dd >= 0) continue;
+      var s2 = pick(rng, ['<', '>', '≤', '≥']), bel = s2 === '<' || s2 === '≤', allR = (A2 > 0) !== bel;   /* A>0 و f>0 دائماً */
+      var cor2 = allR ? SP.R : SP.E, vx = Math.round(-b2 / (2 * A2)), e2 = poly(A2, b2, c2) + SYM[s2] + ' 0';
+      var o3 = [Object.assign({}, allR ? SP.E : SP.R), pt(F(vx)), ne(F(vx))];
+      var fct = 'المميز سالب، فالقطع المكافئ لا يقطع المحور \\(x\\) ويقع كله ' + (A2 > 0 ? 'فوق' : 'تحت') + ' المحور (فتحته ' + (A2 > 0 ? 'لأعلى' : 'لأسفل') + ')، والرمز في المتباينة ' + (allR ? 'يتحقق' : 'لا يتحقق') + ' عند كل عدد حقيقي.';
+      o3.forEach(function (o) { o.why = fct; });
+      var st5 = [{ t: 'b^{2}-4ac=' + paren(b2) + '^{2}-4(' + A2 + ')(' + c2 + ')=' + Dd + '\\lt 0' }, { t: '\\text{no x-intercepts}' },
+        { t: A2 > 0 ? '\\text{parabola opens up: the graph is above the x-axis everywhere}' : '\\text{parabola opens down: the graph is below the x-axis everywhere}' }, { box: cor2.latex }];
+      return { stem: 'Solve the inequality.', e: e2, correct: cor2, dis: o3, sol: st5, key: e2, data: { nr: true, A: A2, B: b2, C: c2, sym: s2, cor: cor2 } };
+    }
+  }
+  var HINT = {
+    1: 'حل المعادلة المرتبطة أولاً، ثم حدّد هل المطلوب ما بين الجذرين أم ما خارجهما، بحسب رمز المتباينة واتجاه فتحة القطع المكافئ.',
+    2: 'الرمزان \\(\\le\\) و\\(\\ge\\) يشملان الجذرين في مجموعة الحل، أما \\(\\lt\\) و\\(\\gt\\) فلا يشملانهما.',
+    3: 'إن كان المعامل الرئيس سالباً فالقطع المكافئ مفتوح لأسفل. حلّل أو استعمل القانون العام (الصيغة التربيعية)، ثم ارسم الشكل التقريبي لتحدد المنطقة المطلوبة.',
+    4: 'انقل كل الحدود إلى طرف واحد حتى يكون الطرف الآخر صفراً، ثم حل المعادلة المرتبطة وحدد المنطقة.',
+    5: 'احسب المميز: إن كان سالباً فالقطع المكافئ كله في جهة واحدة من المحور \\(x\\)، وإن كان صفراً فهو يمس المحور \\(x\\) في نقطة واحدة.'
+  };
+  var LEVELS = [
+    { id: 1, ar: 'مبتدئ', hint: HINT[1] }, { id: 2, ar: 'متباينات مع المساواة', hint: HINT[2] }, { id: 3, ar: 'المعامل الرئيس لا يساوي 1', hint: HINT[3] },
+    { id: 4, ar: 'مستوى الوزارة', hint: HINT[4] }, { id: 5, ar: 'تحدٍّ', challenge: true, hint: HINT[5] }
+  ];
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t = level === 5 ? build5(rng) : build(rng, level);
+    var all = shuffle(rng, [t.correct].concat(t.dis));
+    return { band: 22, level: level, stem: t.stem, e: t.e, opts: all.map(function (s) { return { t: s.latex.replace(/\\frac/g, '\\dfrac'), why: s.why || '' }; }), ans: all.indexOf(t.correct), sol: t.sol, hint: HINT[level], key: t.key, data: t.data };
+  }
+
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenQI = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE || (+st.rounds || 0) > 1 || st.firstScore != null) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button'; var armed = false;
+    b.addEventListener('click', function () {
+      if (!armed) { armed = true; b.textContent = 'للتأكيد اضغط مرة أخرى: سأبدأ من مستوى الوزارة'; return; }
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      if (s.box) return '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>';
+      var m = s.t.match(/^(.*?)\\quad\\text\{\((.*)\)\}$/);
+      if (m) return note + '<div class="st">\\(\\displaystyle ' + m[1] + '\\)</div><div class="sn en">' + m[2] + '</div>';
+      return note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز، فقد تجاوزت ما يُطلب في الامتحان.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>
