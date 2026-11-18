@@ -206,12 +206,12 @@ mjx-container[jax="SVG"]{max-width:100%}
         band: 21, level: 1, rtl: false, lang: 'en',
         stem: KIND(nm) + ' The corresponding sides \\(\\overline{' + nm[0].slice(0, 2) + '}\\) and \\(\\overline{' + nm[1].slice(0, 2) + '}\\) have lengths ' + a + ' ' + unit + ' and ' + b + ' ' + unit + '. What is the scale factor of \\(' + nm[0] + '\\) to \\(' + nm[1] + '\\), written as the ratio of a side length of \\(' + nm[0] + '\\) to the corresponding side length of \\(' + nm[1] + '\\) in simplest form?',
         svg: polyFig(shape, b / a, L1a, L2a, V1, V2),
-        opts: sh.map(function (o) { return { t: o.c[1] === 1 ? String(o.c[0]) : '\\frac{' + o.c[0] + '}{' + o.c[1] + '}', why: o.good ? '' : o.filler ? 'هذه النسبة لا تساوي نسبة الضلعين المتناظرين ' + a + ' ÷ ' + b + '.' : (o.c[0] === f[1] && o.c[1] === f[0] ? 'هذا معامل التشابه من \\(' + nm[1] + '\\) إلى \\(' + nm[0] + '\\)؛ المطلوب من \\(' + nm[0] + '\\) إلى \\(' + nm[1] + '\\) أي طول الضلع في الأول ÷ طول الضلع المناظر في الثاني.' : 'معامل التشابه هو نسبة ضلعين متناظرين: ' + a + ' ÷ ' + b + '، لا الفرق بينهما ولا المجموع.') }; }),
+        opts: sh.map(function (o) { return { t: o.c[1] === 1 ? String(o.c[0]) : '\\frac{' + o.c[0] + '}{' + o.c[1] + '}', why: o.good ? '' : o.filler ? 'هذه النسبة لا تساوي نسبة الضلعين المتناظرين ' + a + ' ÷ ' + b + '.' : (o.c[0] === f[1] && o.c[1] === f[0] ? 'هذا معامل التشابه من \\(' + nm[1] + '\\) إلى \\(' + nm[0] + '\\)؛ المطلوب من \\(' + nm[0] + '\\) إلى \\(' + nm[1] + '\\) أي طول الضلع في الأول ÷ طول الضلع المتناظر في الثاني.' : 'معامل التشابه هو نسبة ضلعين متناظرين: ' + a + ' ÷ ' + b + '، لا الفرق بينهما ولا المجموع.') }; }),
         ans: sh.findIndex(function (o) { return o.good; }),
-        sol: [{ t: 'k=\\frac{' + nm[0].slice(0, 2) + '}{' + nm[1].slice(0, 2) + '}=\\frac{' + a + '}{' + b + '}', ar: 'معامل التشابه من المضلع الأول إلى الثاني = طول ضلع في الأول ÷ طول الضلع المناظر في الثاني.' }, { box: 'k=' + ftex(a, b) }],
-        hint: 'ضع طول ضلع المضلع الأول في البسط وطول الضلع المناظر من المضلع الثاني في المقام، ثم بسِّط الكسر.',
+        sol: [{ t: 'k=\\frac{' + nm[0].slice(0, 2) + '}{' + nm[1].slice(0, 2) + '}=\\frac{' + a + '}{' + b + '}', ar: 'معامل التشابه من المضلع الأول إلى الثاني هو طول ضلع في الأول ÷ طول الضلع المتناظر في الثاني.' }, { box: 'k=' + ftex(a, b) }],
+        hint: 'ضع طول ضلع المضلع الأول في البسط وطول الضلع المتناظر من المضلع الثاني في المقام، ثم بسِّط الكسر.',
         remember: 'معامل التشابه هو النسبة بين طولي ضلعين متناظرين، ويُكتب في أبسط صورة.',
-        key: 'm21-1a-' + shape + '-' + su.p + '-' + su.q + '-' + su.m.join('_') + '-' + nm[0], data: { kind: 'scale', a: a, b: b, ans: f }
+        key: 'm21-1a-' + shape + '-' + a + '-' + b + '-' + nm[0], data: { kind: 'scale', a: a, b: b, ans: f }
       };
     }
     var shp = U.pick(r, ['quad4']), nm2 = U.pick(r, NAMES.filter(function (n) { return n[0].length === 4; })), A = nm2[0].split(''), B = nm2[1].split('');
@@ -226,7 +226,7 @@ mjx-container[jax="SVG"]{max-width:100%}
     } else {
       var sh3 = U.shuf(r, [0, 1, 2, 3]);
       stem = 'Polygon \\(' + nm2[0] + '\\) is similar to polygon \\(' + nm2[1] + '\\). Which angle of polygon \\(' + nm2[1] + '\\) corresponds to \\(\\angle ' + A[idx] + '\\)?';
-      opts2 = sh3.map(function (i) { return { t: '\\angle ' + B[i], why: i === idx ? '' : '\\(\\angle ' + B[i] + '\\) تناظر \\(\\angle ' + A[i] + '\\)، والمطلوب مناظرة \\(\\angle ' + A[idx] + '\\).' }; });
+      opts2 = sh3.map(function (i) { return { t: '\\angle ' + B[i], why: i === idx ? '' : '\\(\\angle ' + B[i] + '\\) تناظر \\(\\angle ' + A[i] + '\\)، والمطلوب الزاوية المتناظرة مع \\(\\angle ' + A[idx] + '\\).' }; });
       ansLab = '\\angle ' + B[idx];
       solAr = [{ t: '\\text{' + nm2[0] + ' }\\sim\\text{ ' + nm2[1] + '}', ar: 'الرأس رقم ' + (idx + 1) + ' في المضلع الأول (' + A[idx] + ') يناظر الرأس رقم ' + (idx + 1) + ' في المضلع الثاني (' + B[idx] + ').' }, { box: '\\angle ' + A[idx] + '\\leftrightarrow\\angle ' + B[idx] }];
     }
@@ -259,11 +259,11 @@ mjx-container[jax="SVG"]{max-width:100%}
       note: 'اكتب العدد فقط. الشكل غير مرسوم بمقياس رسم.',
       fix: 'كوِّن تناسباً بين طولين متناظرين: ' + (inSecond ? 'x يناظر ' + su.s[j] : 'x يناظر ' + su.t[j]) + '، والطولان ' + su.s[0] + ' و' + su.t[0] + ' متناظران، مع الحفاظ على ترتيب المضلعين نفسه في طرفي التناسب.',
       sol: [
-        { t: eq, ar: 'الأضلاع المتناظرة متناسبة: النسبة بين ضلعين في مضلع واحد تساوي النسبة بين الضلعين المناظرين في المضلع الآخر.' },
+        { t: eq, ar: 'الأضلاع المتناظرة متناسبة: النسبة بين ضلعين في مضلع واحد تساوي النسبة بين الضلعين المتناظرين في المضلع الآخر.' },
         { t: cross, ar: 'نستعمل الضرب التبادلي.' }, { box: 'x=' + x }
       ],
-      hint: 'ابحث عن الضلع المناظر لكل ضلع (بالترتيب نفسه) وكوّن تناسباً، ثم احسب x بالضرب التبادلي.',
-      key: 'm21-2-' + shape + '-' + su.p + '-' + su.q + '-' + su.m.join('_') + '-' + j + '-' + inSecond + '-' + nm[0],
+      hint: 'ابحث عن الضلع المتناظر لكل ضلع (بالترتيب نفسه) وكوّن تناسباً، ثم احسب x بالضرب التبادلي.',
+      key: 'm21-2-' + shape + '-' + su.s[0] + '-' + su.t[0] + '-' + j + '-' + inSecond + '-' + (inSecond ? su.s[j] : su.t[j]) + '-' + nm[0],
       data: { kind: 'missing', s0: su.s[0], t0: su.t[0], other: inSecond ? su.s[j] : su.t[j], inSecond: inSecond, ans: x }
     };
   }
@@ -282,13 +282,13 @@ mjx-container[jax="SVG"]{max-width:100%}
         note: 'اكتب العدد فقط (بلا وحدة).',
         fix: 'نسبة المحيطين تساوي النسبة بين ضلعين متناظرين، فاحسب النسبة بين الضلعين المتناظرين (الثاني ÷ الأول) ثم اضرب فيها محيط المثلث الأول.',
         sol: [
-          { t: 'r=\\frac{' + nm[1].slice(0, 2) + '}{' + nm[0].slice(0, 2) + '}=\\frac{' + su.t[0] + '}{' + su.s[0] + '}=' + ftex(su.t[0], su.s[0]), ar: 'نسبة طول الضلع في المثلث الثاني إلى مناظره في المثلث الأول؛ نضرب بها أطوال أضلاع الأول لنحصل على أضلاع الثاني.' },
+          { t: 'r=\\frac{' + nm[1].slice(0, 2) + '}{' + nm[0].slice(0, 2) + '}=\\frac{' + su.t[0] + '}{' + su.s[0] + '}=' + ftex(su.t[0], su.s[0]), ar: 'نسبة طول الضلع في المثلث الثاني إلى الضلع المتناظر معه في المثلث الأول؛ نضرب بها أطوال أضلاع الأول لنحصل على أضلاع الثاني.' },
           { t: '\\frac{P}{' + P1 + '}=' + ftex(su.t[0], su.s[0]), ar: 'نسبة محيطي مضلعين متشابهين تساوي النسبة بين أي ضلعين متناظرين.' },
           { t: 'P=' + P1 + '\\times ' + ftex(su.t[0], su.s[0]) }, { box: 'P=' + P2 }
         ],
         hint: 'ماذا تعرف عن نسبة محيطي مضلعين متشابهين وعلاقتها بنسبة ضلعين متناظرين؟',
         remember: 'نسبة محيطي مضلعين متشابهين تساوي النسبة بين أي ضلعين متناظرين.',
-        key: 'm21-3a-' + su.p + '-' + su.q + '-' + su.m.join('_') + '-' + P1 + '-' + nm[0], data: { kind: 'perim', s0: su.s[0], t0: su.t[0], P1: P1, ans: P2 }
+        key: 'm21-3a-' + su.s[0] + '-' + su.t[0] + '-' + P1 + '-' + nm[0], data: { kind: 'perim', s0: su.s[0], t0: su.t[0], P1: P1, ans: P2 }
       };
     }
     var sv = setup(r, 'tri'), nn = nameFor(r, 'tri'), un = U.pick(r, ['cm', 'm']);
@@ -308,7 +308,7 @@ mjx-container[jax="SVG"]{max-width:100%}
         { t: 'y=' + sv.s[2] + '\\times ' + ftex(sv.t[0], sv.s[0]), ar: 'الضلع y يناظر الضلع ' + sv.s[2] + '.' }, { box: 'y=' + sv.t[2] }
       ],
       hint: 'أوجد أولاً النسبة بين الضلعين المعلومين المتناظرين (الثاني ÷ الأول)، ثم أوجد كل ضلع مجهول بالضرب في هذه النسبة.',
-      key: 'm21-3b-' + sv.p + '-' + sv.q + '-' + sv.m.join('_') + '-' + nn[0], data: { kind: 'two', s: sv.s, t0: sv.t[0], ans: [sv.t[1], sv.t[2]] }
+      key: 'm21-3b-' + sv.s.join('_') + '-' + sv.t[0] + '-' + nn[0], data: { kind: 'two', s: sv.s, t0: sv.t[0], ans: [sv.t[1], sv.t[2]] }
     };
   }
 
@@ -326,7 +326,7 @@ mjx-container[jax="SVG"]{max-width:100%}
       { t: eqA, ar: 'الأضلاع المتناظرة متناسبة: نختار الضلع الذي فيه x وضلعاً آخر معلوماً في المثلثين.' },
       { t: expr + '=' + su.s[0] + '\\times\\frac{' + su.t[1] + '}{' + su.s[1] + '}=' + t0, ar: 'نضرب طرفي المعادلة في ' + su.s[0] + '.' },
       { t: (a === 1 ? 'x' : a + 'x') + '=' + t0 + '-' + c + '=' + (t0 - c) },
-      { box: 'x=' + x }, { t: 'P=' + t0 + '+' + su.t[1] + '+' + su.t[2], ar: 'الضلع الأول في المثلث الثاني يساوي ' + t0 + ' (قيمة ' + expr + ' عندما x=' + x + ').' }, { box: 'P=' + per }
+      { box: 'x=' + x }, { t: 'P=' + t0 + '+' + su.t[1] + '+' + su.t[2], ar: 'الضلع الأول في المثلث الثاني يساوي ' + t0 + ' (قيمة \\(' + expr + '\\) عندما \\(x=' + x + '\\)).' }, { box: 'P=' + per }
     ];
     if (a !== 1) solSteps.splice(3, 0, { t: 'x=\\frac{' + (t0 - c) + '}{' + a + '}' });
     return {
@@ -335,13 +335,39 @@ mjx-container[jax="SVG"]{max-width:100%}
       svg: polyFig('tri', su.p / su.q, L1a, L2a, nm[0].split(''), nm[1].split('')),
       inputs: [{ lab: 'x=', ans: x, tol: 0.01, show: String(x) }, { lab: 'P=', ans: per, tol: 0.01, show: String(per) }],
       note: 'اكتب العدد فقط في كل خانة: الأولى x والثانية المحيط P.',
-      fix: 'كوِّن تناسباً بين ضلعين في المثلث الثاني ومناظريهما في المثلث الأول، على أن يكون أحدهما الضلع الذي فيه x. ثم احسب x، ثم اجمع أضلاع المثلث الثاني.',
+      fix: 'كوِّن تناسباً بين ضلعين في المثلث الثاني والضلعين المتناظرين لهما في المثلث الأول، على أن يكون أحدهما الضلع الذي فيه x. ثم احسب x، ثم اجمع أضلاع المثلث الثاني.',
       sol: solSteps,
       hint: 'استعمل الضلعين المعلومين المتناظرين لإيجاد قيمة التعبير الذي فيه x، ثم حلّ المعادلة. بعدها اجمع أضلاع المثلث الثاني.',
-      key: 'm21-4-' + su.p + '-' + su.q + '-' + su.m.join('_') + '-' + a + '-' + c + '-' + nm[0],
+      key: 'm21-4-' + su.s.join('_') + '-' + su.t.join('_') + '-' + a + '-' + c + '-' + nm[0],
       data: { kind: 'alg', s: su.s, t1: su.t[1], t2: su.t[2], a: a, c: c, ans: [x, per] }
     };
   }
+
+  /* لفّ الرموز والحروف اللاتينية في النصوص العربية بـ \( \) حتى لا تظهر خاماً (التلميح والتذكير والتعليل والشرح والملاحظة) */
+  var RAWS = /(\d+(?:\.\d+)?)\s*÷\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)\s*(cm|m)(?![A-Za-z])|(\d+(?:\.\d+)?)°|(sin|cos|tan)(⁻¹)?(?![A-Za-z])|÷|θ|°|[A-Za-z]{2,}(?![A-Za-z])|[A-Za-z](?![A-Za-z])/g;
+  function TX(s) {
+    if (typeof s !== 'string') return s;
+    return s.split(/(\\\(.*?\\\))/).map(function (p, i) {
+      return i % 2 ? p : p.replace(RAWS, function (m, a1, a2, b1, b2, c1, f, inv) {
+        if (a1 !== undefined) return '\\(' + a1 + '\\div ' + a2 + '\\)';
+        if (b1 !== undefined) return '\\(' + b1 + '\\,\\mathrm{' + b2 + '}\\)';
+        if (c1 !== undefined) return '\\(' + c1 + '^\\circ\\)';
+        if (f) return '\\(\\' + f + (inv ? '^{-1}' : '') + '\\)';
+        if (m === '÷') return '\\(\\div\\)';
+        if (m === 'θ') return '\\(\\theta\\)';
+        if (m === '°') return '\\(^\\circ\\)';
+        return m.length > 1 ? '\\(\\mathrm{' + m + '}\\)' : '\\(' + m + '\\)';
+      });
+    }).join('');
+  }
+  var RAWMAKE = Q.make;
+  Q.make = function (level, rng) {
+    var q = RAWMAKE(level, rng);
+    ['hint', 'remember', 'fix', 'note'].forEach(function (k) { if (q[k]) q[k] = TX(q[k]); });
+    if (q.opts) q.opts.forEach(function (o) { if (o.why) o.why = TX(o.why); });
+    if (q.sol) q.sol.forEach(function (s) { if (s.ar) s.ar = TX(s.ar); });
+    return q;
+  };
   g.TmGen21 = Q;
 })(window);
 </script>

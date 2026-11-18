@@ -200,7 +200,7 @@ mjx-container[jax="SVG"]{max-width:100%}
         { box: FN[fn] + '\\,\\theta=\\frac{' + val[good][0] + '}{' + val[good][1] + '}' }
       ],
       hint: 'حدّد أولاً الضلع المقابل للزاوية θ (الذي لا يلمسها) والمجاور لها والوتر (مقابل الزاوية القائمة)، ثم تذكّر تعريف كل نسبة من النسب الثلاث.',
-      remember: 'sin = المقابل ÷ الوتر، cos = المجاور ÷ الوتر، tan = المقابل ÷ المجاور.',
+      remember: 'نسبة sin تساوي المقابل ÷ الوتر، ونسبة cos تساوي المجاور ÷ الوتر، ونسبة tan تساوي المقابل ÷ المجاور.',
       key: 'm23-1-' + t.join('_') + '-' + k + '-' + sw + '-' + fn + '-' + flip,
       data: { kind: 'ratio', opp: opp, adj: adj, hyp: c, fn: fn, ans: val[good] }
     };
@@ -316,7 +316,7 @@ mjx-container[jax="SVG"]{max-width:100%}
       svg: rtSvg({ theta: th2, thLab: 'θ', opp: String(a), adj: String(b), hyp: 'c', flip: flip2 }),
       inputs: [{ lab: 'c=', ans: ac, tol: U.tol(ac), show: String(ac) + '\\,\\text{cm}' }, { lab: '\\theta=', ans: at, tol: 0.49, show: at + '^\\circ' }],
       note: 'اكتب العدد فقط في كل خانة: الأولى c والثانية θ (عدد الدرجات بلا الرمز °). اضبط الآلة على الدرجات (DEG).',
-      fix: 'الوتر من نظرية فيثاغورس: c² = ' + a + '² + ' + b + '²، والزاوية θ مقابلها ' + a + ' ومجاورها ' + b + ' فنستعمل tan ثم الدالة العكسية.',
+      fix: 'الوتر من نظرية فيثاغورس: \\(c^2=' + a + '^2+' + b + '^2\\)، والزاوية θ مقابلها ' + a + ' ومجاورها ' + b + ' فنستعمل tan ثم الدالة العكسية.',
       sol: [
         { t: 'c^2=' + a + '^2+' + b + '^2=' + (a * a + b * b), ar: 'نوجد الوتر بنظرية فيثاغورس.' },
         { t: 'c=\\sqrt{' + (a * a + b * b) + '}' }, { box: 'c\\approx ' + ac },
@@ -328,6 +328,32 @@ mjx-container[jax="SVG"]{max-width:100%}
       data: { kind: 'legs', a: a, b: b, ans: [ac, at] }
     };
   }
+
+  /* لفّ الرموز والحروف اللاتينية في النصوص العربية بـ \( \) حتى لا تظهر خاماً (التلميح والتذكير والتعليل والشرح والملاحظة) */
+  var RAWS = /(\d+(?:\.\d+)?)\s*÷\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)\s*(cm|m)(?![A-Za-z])|(\d+(?:\.\d+)?)°|(sin|cos|tan)(⁻¹)?(?![A-Za-z])|÷|θ|°|[A-Za-z]{2,}(?![A-Za-z])|[A-Za-z](?![A-Za-z])/g;
+  function TX(s) {
+    if (typeof s !== 'string') return s;
+    return s.split(/(\\\(.*?\\\))/).map(function (p, i) {
+      return i % 2 ? p : p.replace(RAWS, function (m, a1, a2, b1, b2, c1, f, inv) {
+        if (a1 !== undefined) return '\\(' + a1 + '\\div ' + a2 + '\\)';
+        if (b1 !== undefined) return '\\(' + b1 + '\\,\\mathrm{' + b2 + '}\\)';
+        if (c1 !== undefined) return '\\(' + c1 + '^\\circ\\)';
+        if (f) return '\\(\\' + f + (inv ? '^{-1}' : '') + '\\)';
+        if (m === '÷') return '\\(\\div\\)';
+        if (m === 'θ') return '\\(\\theta\\)';
+        if (m === '°') return '\\(^\\circ\\)';
+        return m.length > 1 ? '\\(\\mathrm{' + m + '}\\)' : '\\(' + m + '\\)';
+      });
+    }).join('');
+  }
+  var RAWMAKE = Q23.make;
+  Q23.make = function (level, rng) {
+    var q = RAWMAKE(level, rng);
+    ['hint', 'remember', 'fix', 'note'].forEach(function (k) { if (q[k]) q[k] = TX(q[k]); });
+    if (q.opts) q.opts.forEach(function (o) { if (o.why) o.why = TX(o.why); });
+    if (q.sol) q.sol.forEach(function (s) { if (s.ar) s.ar = TX(s.ar); });
+    return q;
+  };
   g.TmGen23 = Q23;
 })(window);
 </script>

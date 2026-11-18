@@ -275,14 +275,14 @@ mjx-container[jax="SVG"]{max-width:100%}
       return mk('From a point on level ground ' + d + ' m from the foot of a building, a person whose eyes are ' + e + ' m above the ground measures the angle of elevation of the top of the building as ' + th + '°. Find the height h of the building above the ground. Round your answer to the nearest tenth.',
         { type: 'elev', theta: th, ang: th + '°', tow: 'h', dist: String(d), eyeLab: String(e) }, 'h=', ans, 'm',
         [{ t: '\\tan ' + th + '^\\circ=\\frac{h-' + e + '}{' + d + '}', ar: 'نحسب أولاً الارتفاع فوق مستوى العينين، ثم نضيف ارتفاع العينين عن الأرض ' + e + ' m.' }, { t: 'h-' + e + '=' + d + '\\tan ' + th + '^\\circ' }, { t: 'h=' + d + '\\tan ' + th + '^\\circ+' + e }, { box: 'h\\approx ' + ans }],
-        'ارتفاع المبنى = ارتفاع العينين عن الأرض + الجزء الذي فوق مستوى العينين. أي مثلث قائم يعطيك هذا الجزء؟', { kind: 'eye', theta: th, d: d, e: e, ans: ans }, 'm24-3-eye-' + th + '-' + d + '-' + e, 0.06);
+        'ارتفاع المبنى يساوي مجموع ارتفاع العينين عن الأرض والجزء الذي فوق مستوى العينين. أي مثلث قائم يعطيك هذا الجزء؟', { kind: 'eye', theta: th, d: d, e: e, ans: ans }, 'm24-3-eye-' + th + '-' + d + '-' + e, 0.06);
     }
     if (kind === 'build') {
       do { th = U.ri(r, 20, 55); d = U.ri(r, 15, 50); h = U.ri(r, 30, 70); x = h - d * tn(th); tries++; } while (!(U.safe1(x) && x > 4 && x / (h - x) <= 3) && tries < 600);
       ans = U.r1(x);
       return mk('From the top of a building ' + h + ' m high, the angle of depression of the top of a shorter building is ' + th + '°. The horizontal distance between the two buildings is ' + d + ' m. Find the height H of the shorter building. Round your answer to the nearest tenth.',
         { type: 'dep', theta: th, ang: th + '°', tow: String(h), dist: String(d), lowRatio: (h - 0) ? (Math.max(0, x) / (h - x)) : 0, roofLab: 'H' }, 'H=', ans, 'm',
-        [{ t: '\\tan ' + th + '^\\circ=\\frac{' + h + '-H}{' + d + '}', ar: 'الفرق بين ارتفاعي المبنيين (' + h + '−H) هو الضلع المقابل لزاوية الانخفاض، والمسافة ' + d + ' مجاورة لها.' }, { t: h + '-H=' + d + '\\tan ' + th + '^\\circ' }, { t: 'H=' + h + '-' + d + '\\tan ' + th + '^\\circ' }, { box: 'H\\approx ' + ans }],
+        [{ t: '\\tan ' + th + '^\\circ=\\frac{' + h + '-H}{' + d + '}', ar: 'الفرق بين ارتفاعي المبنيين \\(' + h + '-H\\) هو الضلع المقابل لزاوية الانخفاض، والمسافة ' + d + ' مجاورة لها.' }, { t: h + '-H=' + d + '\\tan ' + th + '^\\circ' }, { t: 'H=' + h + '-' + d + '\\tan ' + th + '^\\circ' }, { box: 'H\\approx ' + ans }],
         'الفرق بين ارتفاعي المبنيين مقابل لزاوية الانخفاض، والمسافة بين المبنيين مجاورة لها.', { kind: 'build', theta: th, d: d, h: h, ans: ans }, 'm24-3-bld-' + th + '-' + d + '-' + h, 0.06);
     }
     if (kind === 'angE') {
@@ -319,15 +319,15 @@ mjx-container[jax="SVG"]{max-width:100%}
         svg: edSvg({ type: 'elev2', a: a, b: b, x: x, d: d, h: h, aLab: a + '°', bLab: b + '°', hLab: 'h', dLab: String(d), xLab: 'x' }),
         inputs: [{ lab: 'h=', ans: ah, tol: U.tol(ah), show: ah + '\\,\\text{m}' }, { lab: 'x=', ans: ax, tol: U.tol(ax), show: ax + '\\,\\text{m}' }],
         note: 'اكتب العدد فقط في كل خانة: الأولى h والثانية x. اضبط الآلة على الدرجات (DEG).',
-        fix: 'اكتب معادلة tan من كل نقطة: tan ' + b + '° = h/x و tan ' + a + '° = h/(x+' + d + ')، ثم أوجد h بالتعويض.',
+        fix: 'اكتب معادلة tan من كل نقطة: \\(\\tan ' + b + '^\\circ=\\frac{h}{x}\\) و\\(\\tan ' + a + '^\\circ=\\frac{h}{x+' + d + '}\\)، ثم أوجد h بالتعويض.',
         sol: [
           { t: '\\tan ' + b + '^\\circ=\\frac{h}{x}\\;\\Rightarrow\\;x=\\frac{h}{\\tan ' + b + '^\\circ}', ar: 'من النقطة B (المسافة x إلى قاعدة البرج).' },
-          { t: '\\tan ' + a + '^\\circ=\\frac{h}{x+' + d + '}\\;\\Rightarrow\\;h=(x+' + d + ')\\tan ' + a + '^\\circ', ar: 'من النقطة A (المسافة x+' + d + ').' },
+          { t: '\\tan ' + a + '^\\circ=\\frac{h}{x+' + d + '}\\;\\Rightarrow\\;h=(x+' + d + ')\\tan ' + a + '^\\circ', ar: 'من النقطة A (المسافة \\(x+' + d + '\\)).' },
           { t: 'h=\\left(\\frac{h}{\\tan ' + b + '^\\circ}+' + d + '\\right)\\tan ' + a + '^\\circ', ar: 'نعوّض x في معادلة h.' },
           { t: 'h\\left(1-\\frac{\\tan ' + a + '^\\circ}{\\tan ' + b + '^\\circ}\\right)=' + d + '\\tan ' + a + '^\\circ\\;\\Rightarrow\\;h=\\frac{' + d + '\\tan ' + a + '^\\circ}{1-\\dfrac{\\tan ' + a + '^\\circ}{\\tan ' + b + '^\\circ}}' },
           { box: 'h\\approx ' + ah }, { t: 'x=\\frac{' + ah + '}{\\tan ' + b + '^\\circ}', ar: 'نعوّض قيمة h في معادلة x.' }, { box: 'x\\approx ' + ax }
         ],
-        hint: 'ارسم مثلثين قائمين لهما الارتفاع h نفسه، واكتب معادلة tan من كل نقطة (من B: المسافة x، ومن A: المسافة x+' + d + ').',
+        hint: 'ارسم مثلثين قائمين لهما الارتفاع h نفسه، واكتب معادلة tan من كل نقطة (من B: المسافة x، ومن A: المسافة \\(x+' + d + '\\)).',
         key: 'm24-4a-' + a + '-' + b + '-' + d, data: { kind: 'two', a: a, b: b, d: d, ans: [ah, ax] }
       };
     }
@@ -351,6 +351,32 @@ mjx-container[jax="SVG"]{max-width:100%}
       key: 'm24-4b-' + a2 + '-' + b2 + '-' + H, data: { kind: 'boats', a: a2, b: b2, H: H, ans: ad }
     };
   }
+
+  /* لفّ الرموز والحروف اللاتينية في النصوص العربية بـ \( \) حتى لا تظهر خاماً (التلميح والتذكير والتعليل والشرح والملاحظة) */
+  var RAWS = /(\d+(?:\.\d+)?)\s*÷\s*(\d+(?:\.\d+)?)|(\d+(?:\.\d+)?)\s*(cm|m)(?![A-Za-z])|(\d+(?:\.\d+)?)°|(sin|cos|tan)(⁻¹)?(?![A-Za-z])|÷|θ|°|[A-Za-z]{2,}(?![A-Za-z])|[A-Za-z](?![A-Za-z])/g;
+  function TX(s) {
+    if (typeof s !== 'string') return s;
+    return s.split(/(\\\(.*?\\\))/).map(function (p, i) {
+      return i % 2 ? p : p.replace(RAWS, function (m, a1, a2, b1, b2, c1, f, inv) {
+        if (a1 !== undefined) return '\\(' + a1 + '\\div ' + a2 + '\\)';
+        if (b1 !== undefined) return '\\(' + b1 + '\\,\\mathrm{' + b2 + '}\\)';
+        if (c1 !== undefined) return '\\(' + c1 + '^\\circ\\)';
+        if (f) return '\\(\\' + f + (inv ? '^{-1}' : '') + '\\)';
+        if (m === '÷') return '\\(\\div\\)';
+        if (m === 'θ') return '\\(\\theta\\)';
+        if (m === '°') return '\\(^\\circ\\)';
+        return m.length > 1 ? '\\(\\mathrm{' + m + '}\\)' : '\\(' + m + '\\)';
+      });
+    }).join('');
+  }
+  var RAWMAKE = Q.make;
+  Q.make = function (level, rng) {
+    var q = RAWMAKE(level, rng);
+    ['hint', 'remember', 'fix', 'note'].forEach(function (k) { if (q[k]) q[k] = TX(q[k]); });
+    if (q.opts) q.opts.forEach(function (o) { if (o.why) o.why = TX(o.why); });
+    if (q.sol) q.sol.forEach(function (s) { if (s.ar) s.ar = TX(s.ar); });
+    return q;
+  };
   g.TmGen24 = Q;
 })(window);
 </script>
