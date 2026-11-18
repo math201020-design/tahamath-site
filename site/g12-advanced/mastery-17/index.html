@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: مشتقات الدوال اللوغاريتمية الطبيعية | الثاني عشر متقدم | أكاديمية طه للرياضيات</title>
+<meta name="description" content="تدريب تفاعلي على البند 17: مشتقات اللوغاريتم الطبيعي وقاعدة السلسلة والنقاط الحرجة، بخمسة مستويات تتدرج حتى مستوى الوزارة.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g12-advanced/mastery-17/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.path li.back{cursor:pointer}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند 17 • مشتقات اللوغاريتم الطبيعي<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g12-advanced", "band": 17, "label": "البند 17", "gen": "TmGenLn"};</script>
+<script>
+/* نواة مشتركة لمولّدات «تدرّب بإتقان»: أدوات رياضية + اختيار المشتتات + بناء السؤال */
+(function (root) {
+  'use strict';
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
+  function nz(rng, lo, hi) { var v = 0; while (!v) v = ri(rng, lo, hi); return v; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function fr(n, d) { d = d === undefined ? 1 : d; if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function ftex(f) { if (f.d === 1) return String(f.n); return (f.n < 0 ? '-' : '') + '\\dfrac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  /* قيمة عددية: {t, p} حيث p نص n/d موحّد */
+  function V(n, d) { var f = fr(n, d === undefined ? 1 : d); return { t: ftex(f), p: f.n + '/' + f.d, num: f.n / f.d }; }
+  function E(t, p) { return { t: t, p: p }; }
+  function cf(c) { return c === 1 ? '' : (c === -1 ? '-' : String(c)); }
+  /* كثيرات الحدود: مصفوفة معاملات من الأدنى إلى الأعلى */
+  function ptrim(a) { a = a.slice(); while (a.length > 1 && a[a.length - 1] === 0) a.pop(); return a; }
+  function padd(a, b) { var r = []; for (var i = 0; i < Math.max(a.length, b.length); i++) r.push((a[i] || 0) + (b[i] || 0)); return ptrim(r); }
+  function psub(a, b) { return padd(a, b.map(function (v) { return -v; })); }
+  function pmul(a, b) { var r = []; for (var i = 0; i < a.length + b.length - 1; i++) r.push(0); a.forEach(function (x, i) { b.forEach(function (y, j) { r[i + j] += x * y; }); }); return ptrim(r); }
+  function pder(a) { var r = []; for (var i = 1; i < a.length; i++) r.push(a[i] * i); return r.length ? ptrim(r) : [0]; }
+  function pscale(a, k) { return ptrim(a.map(function (v) { return v * k; })); }
+  function pev(a, x) { var s = 0; for (var i = a.length - 1; i >= 0; i--) s = s * x + a[i]; return s; }
+  function ptex(a) {
+    var t = '';
+    for (var i = a.length - 1; i >= 0; i--) {
+      var c = a[i]; if (!c) continue; var ab = Math.abs(c);
+      var body = i === 0 ? String(ab) : ((ab === 1 ? '' : String(ab)) + (i === 1 ? 'x' : 'x^{' + i + '}'));
+      t += (t ? (c < 0 ? ' - ' : ' + ') : (c < 0 ? '-' : '')) + body;
+    }
+    return t || '0';
+  }
+  function ppy(a) {
+    var t = '';
+    for (var i = a.length - 1; i >= 0; i--) {
+      var c = a[i]; if (!c) continue; var ab = Math.abs(c);
+      var body = i === 0 ? String(ab) : (ab + '*x**' + i);
+      t += (t ? (c < 0 ? '-' : '+') : (c < 0 ? '-' : '')) + body;
+    }
+    return t || '0';
+  }
+  function P(a) { a = ptrim(a); return { t: ptex(a), p: ppy(a), c: a }; }
+  /* عامل خطي (x+b) أو (x-b) بصيغة tex */
+  function lf(b) { return b === 0 ? 'x' : (b > 0 ? 'x+' + b : 'x-' + (-b)); }
+  /* مجموعة أعداد: {t,p} مرتّبة */
+  function SET(arr) {
+    var a = arr.slice().sort(function (x, y) { return x - y; }).filter(function (v, i, s) { return !i || v !== s[i - 1]; });
+    return { t: '\\{' + a.join(',\\ ') + '\\}', p: a.join(','), set: a };
+  }
+  function pickD(rng, corr, cands) {
+    var seen = {}; seen[corr.p] = 1; var out = [], used = {}; out.amb = 0; out.gen = 0;
+    shuffle(rng, cands).forEach(function (c) {
+      if (out.length >= 3 || used[c.cls]) return; var k = c.v.p; if (seen[k]) return;
+      seen[k] = 1; used[c.cls] = 1; out.push(c);
+      var same = {}; cands.forEach(function (o) { if (o.v.p === k) same[o.cls] = 1; }); if (Object.keys(same).length > 1) out.amb++;
+    });
+    out.gen = 3 - out.length; return out;
+  }
+  function clean(t) {
+    if (typeof t !== 'string') return t;
+    return t.replace(/\+\s*\(-(\d+(?:\.\d+)?)\)/g, '-$1').replace(/-\s*\(-(\d+(?:\.\d+)?)\)/g, '+$1')
+      .replace(/(^|[=+\-(,\s])1(?=[a-zA-Z](?![a-zA-Z]))/g, '$1').replace(/(^|[=+\-\s])1(?=\()/g, '$1').replace(/\^\{1\}(?![0-9])/g, '');
+  }
+  function cleanSol(sol) { return sol.map(function (s) { var o = {}; for (var k in s) o[k] = (k === 't' || k === 'box') ? clean(s[k]) : s[k]; return o; }); }
+  function eqParts(t) {
+    var d = 0, idx = [], i;
+    for (i = 0; i < t.length; i++) { var ch = t[i]; if (ch === '{' || ch === '(') d++; else if (ch === '}' || ch === ')') d--; else if (ch === '=' && d === 0 && t.slice(i - 6, i) !== '\\Right' && t[i - 1] !== '<' && t[i - 1] !== '>') idx.push(i); }
+    if (idx.length < 2 || t.length <= 26) return [t];
+    var parts = [], start = 0, cut = [];
+    idx.slice(1).forEach(function (p) { if (p - start > 30) { cut.push(p); start = p; } });
+    if (!cut.length) cut.push(idx[idx.length - 1]);
+    var prev = 0; cut.forEach(function (p) { parts.push(t.slice(prev, p)); prev = p; }); parts.push(t.slice(prev));
+    return parts;
+  }
+  function splitSol(sol0) {
+    var sol = [];
+    sol0.forEach(function (s) {
+      if (s.box || !s.t || s.t.indexOf('\\;\\Rightarrow\\;') >= 0) { sol.push(s); return; }
+      var ps = eqParts(s.t); ps.forEach(function (p, i) { var o = { t: p }; if (i === 0 && s.ar) o.ar = s.ar; sol.push(o); });
+    });
+    var sol2 = [];
+    sol.forEach(function (s) {
+      var t = s.t;
+      if (!s.box && t && t.length > 27 && t.indexOf('\\Rightarrow') < 0) {
+        var k = t.indexOf(')+('); if (k < 0) k = t.indexOf(')-(');
+        if (k > 8 && k < t.length - 8) { var a = { t: t.slice(0, k + 1) }; if (s.ar) a.ar = s.ar; sol2.push(a, { t: t.slice(k + 1) }); return; }
+      }
+      sol2.push(s);
+    });
+    sol = sol2;
+    var out = [];
+    sol.forEach(function (s) {
+      if (s.box || !s.t || s.t.indexOf('\\;\\Rightarrow\\;') < 0) { out.push(s); return; }
+      var parts = s.t.split('\\;\\Rightarrow\\;');
+      parts.forEach(function (p, i) { var o = { t: i ? '\\Rightarrow\\;' + p : p }; if (i === 0 && s.ar) o.ar = s.ar; out.push(o); });
+    });
+    return out;
+  }
+  /* spec: {global, band, levels:[{id,ar,hint,challenge?}], build(level,rng)} */
+  function define(spec) {
+    function make(level, rng) {
+      rng = rng || Math.random;
+      var t, dis, tries = 0;
+      do { t = spec.build(level, rng); dis = pickD(rng, t.corr, t.cands); tries++; } while ((dis.gen > 0 || dis.amb > 0) && tries < 300);
+      var all = shuffle(rng, [{ v: t.corr, why: '' }].concat(dis));
+      var ci = 0; all.forEach(function (o, i) { if (o.v === t.corr) ci = i; });
+      return {
+        band: spec.band, level: level, rtl: true, lang: 'ar', stem: clean(t.stem), e: clean(t.e),
+        opts: all.map(function (s) { return { t: clean(s.v.t), why: clean(s.why || '') }; }),
+        ans: ci, sol: splitSol(cleanSol(t.sol)), hint: t.hint || spec.levels[level - 1].hint, key: t.key,
+        data: { kind: t.kind, spec: t.spec, correct: t.corr.p, opts: all.map(function (s) { return s.v.p; }), tries: tries, gen: dis.gen, amb: dis.amb }
+      };
+    }
+    var api = { levels: spec.levels, make: make };
+    if (typeof module !== 'undefined' && module.exports) module.exports = api;
+    root[spec.global] = api;
+    return api;
+  }
+  root.TmCore = { gcd: gcd, ri: ri, pick: pick, nz: nz, shuffle: shuffle, fr: fr, ftex: ftex, V: V, E: E, cf: cf, padd: padd, psub: psub, pmul: pmul, pder: pder, pscale: pscale, pev: pev, ptex: ptex, ppy: ppy, P: P, lf: lf, SET: SET, define: define };
+})(typeof window !== 'undefined' ? window : globalThis);
+
+/* مولّد أسئلة البند 25: مسائل حياتية بمشتقات الدوال الأسية واللوغاريتمية (12 متقدم) */
+(function () {
+  'use strict';
+  var C = TmCore, ri = C.ri, pick = C.pick, nz = C.nz, V = C.V, E = C.E;
+  var HINT = {
+    a: 'احفظ: \\((e^{kx})\'=ke^{kx}\\)، و\\((\\ln x)\'=\\dfrac{1}{x}\\)، و\\((n^{x})\'=n^{x}\\ln n\\).',
+    b: 'قاعدة السلسلة: \\((e^{g})\'=g\'e^{g}\\)، و\\((\\ln g)\'=\\dfrac{g\'}{g}\\).',
+    c: 'معدّل التغيّر هو المشتقة: اشتق القاعدة ثم عوّض قيمة الزمن.',
+    d: 'عند معدّل أو نقطة حرجة ساوِ المشتقة بالمقدار المطلوب ثم حلّ المعادلة الأسية أو اللوغاريتمية.',
+    e: 'للنقطة الحرجة ساوِ \\(f\'(x)=0\\)، وللنمو الأسّي \\(P\'=kP\\) فنسبة المعدّل إلى الكمية ثابتة.'
+  };
+  function cf(c) { return c === 1 ? '' : (c === -1 ? '-' : String(c)); }
+  /* مجموع حدود [معامل، tex، py] */
+  function lin(terms) {
+    var t = '', p = '';
+    terms.forEach(function (x) {
+      var c = x[0]; if (!c) return; var ab = Math.abs(c);
+      var tx = (ab === 1 && x[1] !== '') ? x[1] : ab + x[1], py = ab + '*(' + x[2] + ')';
+      t += (t ? (c < 0 ? ' - ' : ' + ') : (c < 0 ? '-' : '')) + tx;
+      p += (p ? (c < 0 ? '-' : '+') : (c < 0 ? '-' : '')) + py;
+    });
+    return E(t || '0', p || '0');
+  }
+  function ex(k) { return k === 1 ? 'e^{x}' : (k === -1 ? 'e^{-x}' : 'e^{' + k + 'x}'); }
+  function dec(n, d) { return String(n / d); }
+  function sgn(n) { return (n > 0 ? ' + ' : ' - ') + Math.abs(n); }
+
+  /* L1a: a e^{kx} + b x */
+  function t1a(rng) {
+    var a = nz(rng, -4, 4), k = pick(rng, [2, 3, 4, -1, -2, -3]), b = nz(rng, -6, 6);
+    var f = lin([[a, ex(k), 'exp(' + k + '*x)'], [b, 'x', 'x']]);
+    var corr = lin([[a * k, ex(k), 'exp(' + k + '*x)'], [1 * b, '', '1']]);
+    corr = E((a * k === 1 ? '' : (a * k === -1 ? '-' : a * k)) + ex(k) + (b > 0 ? ' + ' + b : ' - ' + (-b)), (a * k) + '*exp(' + k + '*x)+(' + b + ')');
+    return {
+      kind: 'd', spec: { f: a + '*exp(' + k + '*x)+' + b + '*x', ask: 'D' }, key: 'E1a:' + [a, k, b].join(','),
+      stem: 'أوجد \\(f\'(x)\\) للدالة:', e: 'f(x)=' + f.t, corr: corr,
+      cands: [{ cls: 'nk', v: E(cf(a) + ex(k) + (b > 0 ? ' + ' + b : ' - ' + (-b)), a + '*exp(' + k + '*x)+(' + b + ')'), why: 'مشتقة \\(e^{' + k + 'x}\\) هي \\(' + k + 'e^{' + k + 'x}\\)، فننسى ضرب الدالة في مشتقة الأس.' },
+        { cls: 'pw', v: E(cf(a * k) + 'x' + ex(k).replace('{', '{').replace('x}', 'x-1}') + (b > 0 ? ' + ' + b : ' - ' + (-b)), (a * k) + '*x*exp(' + k + '*x-1)+(' + b + ')'), why: 'الدالة الأسية لا تُشتق بقاعدة القوة؛ مشتقة \\(e^{u}\\) هي \\(u\'e^{u}\\).' },
+        { cls: 'sb', v: E((a * k === 1 ? '' : (a * k === -1 ? '-' : a * k)) + ex(k) + (b > 0 ? ' + ' : ' - ') + cf(Math.abs(b)) + 'x', (a * k) + '*exp(' + k + '*x)+(' + b + ')*x'), why: 'نشتق الحد الثاني أيضاً: مشتقة \\(' + cf(b) + 'x\\) هي \\(' + b + '\\).' },
+        { cls: 'ng', v: E((-a * k === 1 ? '' : (-a * k === -1 ? '-' : -a * k)) + ex(k) + (b > 0 ? ' + ' + b : ' - ' + (-b)), (-a * k) + '*exp(' + k + '*x)+(' + b + ')'), why: 'نعامل \\(' + k + '\\) بإشارتها كما هي حين نضربها في المعامل \\(' + a + '\\).' }],
+      sol: [{ t: '(' + ex(k) + ')\'=' + (k === 1 ? '' : (k === -1 ? '-' : k)) + ex(k) + ',\\quad (' + cf(b) + 'x)\'=' + b, ar: 'نشتق كل حد' }, { box: 'f\'(x)=' + corr.t }]
+    };
+  }
+  /* L1b: a ln x + b x^2 */
+  function t1b(rng) {
+    var a = nz(rng, -6, 6), b = nz(rng, -4, 4);
+    var f = lin([[a, '\\ln x', 'log(x)'], [b, 'x^{2}', 'x**2']]);
+    function fx(c, d) { /* c/x + d x */ return E((c < 0 ? '-' : '') + (Math.abs(c) === 1 ? '' : Math.abs(c)) + (Math.abs(c) === 1 ? '\\dfrac{1}{x}' : '\\dfrac{' + Math.abs(c) + '}{x}').replace(/^(\d+)\\dfrac/, '\\dfrac'), '(' + c + ')/x+(' + d + ')*x'); }
+    function mk(c, d) { var s = (Math.abs(c) === 1 ? '\\dfrac{1}{x}' : '\\dfrac{' + Math.abs(c) + '}{x}'); var t = (c < 0 ? '-' : '') + s; if (d) t += (d > 0 ? ' + ' : ' - ') + (Math.abs(d) === 1 ? '' : Math.abs(d)) + 'x'; return E(t, '(' + c + ')/x+(' + d + ')*x'); }
+    var corr = mk(a, 2 * b);
+    return {
+      kind: 'd', spec: { f: a + '*log(x)+' + b + '*x**2', ask: 'D' }, key: 'E1b:' + a + ',' + b,
+      stem: 'أوجد \\(f\'(x)\\) للدالة (\\(x>0\\)):', e: 'f(x)=' + f.t, corr: corr,
+      cands: [{ cls: 'inv', v: lin([[a + 2 * b, 'x', 'x']]), why: 'مشتقة \\(\\ln x\\) هي \\(\\dfrac{1}{x}\\) وليست \\(x\\).' },
+        { cls: 'pw', v: mk(a, b), why: 'مشتقة \\(' + cf(b) + 'x^{2}\\) هي \\(' + cf(2 * b) + 'x\\): ننزل الأس ونضربه في المعامل.' },
+        { cls: 'sg', v: mk(-a, 2 * b), why: 'مشتقة \\(\\ln x\\) موجبة \\(\\dfrac{1}{x}\\)؛ نضرب فيها المعامل \\(' + a + '\\) بإشارته.' },
+        { cls: 'ds', v: E('\\dfrac{' + a + '}{x}' + sgn(2 * b), '(' + a + ')/x+(' + 2 * b + ')'), why: 'مشتقة \\(' + cf(b) + 'x^{2}\\) هي \\(' + cf(2 * b) + 'x\\) وليست ثابتاً.' }],
+      sol: [{ t: '(\\ln x)\'=\\dfrac{1}{x},\\quad (x^{2})\'=2x', ar: 'نشتق كل حد' }, { box: 'f\'(x)=' + corr.t }]
+    };
+  }
+  /* L1c: a n^x */
+  function t1c(rng) {
+    var a = nz(rng, -5, 5), n = pick(rng, [2, 3, 5, 7]); if (a === -1) a = -2; var A = Math.abs(a) === 1 ? (a < 0 ? '-' : '') : a + '\\cdot ';
+    var corr = E(A + n + '^{x}\\ln ' + n, a + '*' + n + '**x*log(' + n + ')');
+    return {
+      kind: 'd', spec: { f: a + '*' + n + '**x', ask: 'D' }, key: 'E1c:' + a + ',' + n,
+      stem: 'أوجد \\(f\'(x)\\) للدالة:', e: 'f(x)=' + A + n + '^{x}', corr: corr,
+      cands: [{ cls: 'xn', v: E(cf(a) + 'x\\cdot ' + n + '^{x-1}', a + '*x*' + n + '**(x-1)'), why: 'هذه دالة أسية (الأساس ثابت والأس متغيّر)، فلا تُشتق بقاعدة القوة.' },
+        { cls: 'nl', v: E(A + n + '^{x}', a + '*' + n + '**x'), why: 'مشتقة \\(' + n + '^{x}\\) تحوي العامل \\(\\ln ' + n + '\\).' },
+        { cls: 'dv', v: E('\\dfrac{' + A + n + '^{x}}{\\ln ' + n + '}', a + '*' + n + '**x/log(' + n + ')'), why: 'نضرب في \\(\\ln ' + n + '\\) ولا نقسم عليها.' },
+        { cls: 'ln', v: E(cf(a) + '\\ln ' + n, a + '*log(' + n + ')'), why: 'يبقى العامل \\(' + n + '^{x}\\) في الناتج.' }],
+      sol: [{ t: '(' + n + '^{x})\'=' + n + '^{x}\\ln ' + n, ar: 'مشتقة الدالة الأسية ذات الأساس \\(' + n + '\\)' }, { box: 'f\'(x)=' + corr.t }]
+    };
+  }
+  /* L2a: e^{x^2+kx} */
+  function t2a(rng) {
+    var k = nz(rng, -5, 5), a = ri(rng, 1, 3);
+    var inner = 'x^{2}' + (k > 0 ? '+' + (k === 1 ? '' : k) + 'x' : '-' + (k === -1 ? '' : -k) + 'x');
+    var d = lin([[2, 'x', 'x'], [k, '', '1']]);
+    var py = 'exp(x**2+' + k + '*x)';
+    var corr = E('(' + d.t + ')e^{' + inner + '}', '(2*x+' + k + ')*' + py);
+    return {
+      kind: 'd', spec: { f: py, ask: 'D' }, key: 'E2a:' + k,
+      stem: 'أوجد \\(f\'(x)\\) للدالة:', e: 'f(x)=e^{' + inner + '}', corr: corr,
+      cands: [{ cls: 'nc', v: E('e^{' + inner + '}', py), why: 'ننسى مشتقة الأس: \\((e^{u})\'=u\'e^{u}\\).' },
+        { cls: 'pw', v: E('(' + inner + ')e^{' + inner + '-1}', '(x**2+' + k + '*x)*exp(x**2+' + k + '*x-1)'), why: 'الدالة الأسية لا تُشتق بقاعدة القوة.' },
+        { cls: 'ex', v: E('(' + d.t + ')e^{' + d.t + '}', '(2*x+' + k + ')*exp(2*x+' + k + ')'), why: 'نضرب في مشتقة الأس، لكن هذا الخيار أبقى الأس نفسه \\(' + inner + '\\) دون اشتقاق.' },
+        { cls: 'dx', v: E(d.t, '2*x+' + k), why: 'يبقى العامل \\(e^{' + inner + '}\\) في الناتج.' }],
+      sol: [{ t: 'u=' + inner + ',\\quad u\'=' + d.t, ar: 'نحدّد الأس ونشتقه' }, { box: 'f\'(x)=(' + d.t + ')e^{' + inner + '}' }]
+    };
+  }
+  /* L2b: ln(x^2+k) */
+  function t2b(rng) {
+    var k = ri(rng, 1, 9), a = nz(rng, 1, 3);
+    var corr = E('\\dfrac{2x}{x^{2}+' + k + '}', '2*x/(x**2+' + k + ')');
+    return {
+      kind: 'd', spec: { f: 'log(x**2+' + k + ')', ask: 'D' }, key: 'E2b:' + k,
+      stem: 'أوجد \\(f\'(x)\\) للدالة:', e: 'f(x)=\\ln(x^{2}+' + k + ')', corr: corr,
+      cands: [{ cls: 'nc', v: E('\\dfrac{1}{x^{2}+' + k + '}', '1/(x**2+' + k + ')'), why: 'ننسى مشتقة ما داخل اللوغاريتم: \\((\\ln u)\'=\\dfrac{u\'}{u}\\).' },
+        { cls: 'sq', v: E('\\dfrac{2x}{(x^{2}+' + k + ')^{2}}', '2*x/(x**2+' + k + ')**2'), why: 'المقام هو \\(u=x^2+' + k + '\\) نفسه وليس مربعه.' },
+        { cls: 'sw', v: E('\\dfrac{x^{2}+' + k + '}{2x}', '(x**2+' + k + ')/(2*x)'), why: 'البسط هو مشتقة الداخل والمقام هو الداخل نفسه، وليس العكس.' },
+        { cls: 'ad', v: E('2x+\\dfrac{1}{x^{2}+' + k + '}', '2*x+1/(x**2+' + k + ')'), why: 'نكتب \\(\\dfrac{u\'}{u}\\) كسراً واحداً، ولا نجمع المشتقة مع \\(\\dfrac{1}{u}\\).' }],
+      sol: [{ t: 'u=x^{2}+' + k + ',\\quad u\'=2x', ar: 'نحدّد ما داخل اللوغاريتم' }, { box: 'f\'(x)=\\dfrac{u\'}{u}=\\dfrac{2x}{x^{2}+' + k + '}' }]
+    };
+  }
+  /* L2c: قيمة المشتقة لـ ln(kx+m) */
+  function t2c(rng) {
+    var k = nz(rng, -4, 5), m = ri(rng, 1, 9), c = ri(rng, 1, 4), den = k * c + m; if (den <= 0) return t2c(rng);
+    var inner = (Math.abs(k) === 1 ? (k < 0 ? '-' : '') : k) + 'x+' + m;
+    return {
+      kind: 'v', spec: { f: 'log(' + k + '*x+' + m + ')', at: c, ask: 'EV' }, key: 'E2c:' + [k, m, c].join(','),
+      stem: 'أوجد \\(f\'(' + c + ')\\) للدالة:', e: 'f(x)=\\ln(' + inner.replace('+-', '-') + ')', corr: V(k, den),
+      cands: [{ cls: 'nc', v: V(1, den), why: 'ننسى مشتقة الداخل \\(' + k + '\\): \\(f\'(x)=\\dfrac{' + k + '}{' + inner + '}\\).' },
+        { cls: 'nu', v: V(k, c), why: 'نعوّض \\(x=' + c + '\\) في المقام \\(' + inner + '\\) كاملاً وليس في \\(x\\) وحدها.' },
+        { cls: 'ln', v: V(k, m), why: 'نعوّض \\(x=' + c + '\\) في المقام فلا يبقى \\(' + m + '\\) وحده.' },
+        { cls: 'sm', v: V(k * den), why: 'المشتقة كسر: البسط \\(' + k + '\\) والمقام \\(' + inner + '\\).' }],
+      sol: [{ t: 'f\'(x)=\\dfrac{' + k + '}{' + inner + '}', ar: 'قاعدة السلسلة' }, { box: 'f\'(' + c + ')=\\dfrac{' + k + '}{' + k + '(' + c + ')+' + m + '}=' + V(k, den).t }]
+    };
+  }
+  /* L3: مسائل كلامية */
+  function w1(rng) {
+    var m = ri(rng, 1, 5), rp = pick(rng, [2, 3, 4, 5]), t = ri(rng, 2, 10), P0 = 100 * m, A = m * rp, B = dec(rp * t, 100);
+    var Bs = String(B); var py = A + '*exp(' + Bs + ')';
+    return {
+      kind: 'w', spec: { f: P0 + '*exp(' + (rp / 100) + '*x)', at: t, ask: 'EV' }, key: 'E3a:' + [m, rp, t].join(','),
+      stem: 'يُمثَّل عدد البكتيريا في مزرعة بالدالة \\(P(t)=' + P0 + 'e^{' + rp / 100 + 't}\\)، حيث \\(t\\) الزمن بالساعات. أوجد معدّل تزايد العدد (البكتيريا لكل ساعة) عند \\(t=' + t + '\\):',
+      e: 'P(t)=' + P0 + 'e^{' + rp / 100 + 't}', corr: E(A + 'e^{' + Bs + '}', py),
+      cands: [{ cls: 'nk', v: E(P0 + 'e^{' + Bs + '}', P0 + '*exp(' + Bs + ')'), why: 'نضرب في ثابت الأس \\(' + rp / 100 + '\\) عند الاشتقاق: \\(P\'(t)=' + P0 + '(' + rp / 100 + ')e^{' + rp / 100 + 't}\\).' },
+        { cls: 'ft', v: E(A + 'e^{' + rp / 100 + '}', A + '*exp(' + rp / 100 + ')'), why: 'نعوّض \\(t=' + t + '\\) في الأس أيضاً: \\(' + rp / 100 + '\\times ' + t + '=' + Bs + '\\).' },
+        { cls: 'rr', v: E(rp / 100 + 'e^{' + Bs + '}', (rp / 100) + '*exp(' + Bs + ')'), why: 'نضرب أيضاً في العدد الابتدائي \\(' + P0 + '\\): \\(P\'(t)=' + P0 + '\\cdot ' + rp / 100 + '\\,e^{' + rp / 100 + 't}\\).' },
+        { cls: 'tt', v: E(A * t + 'e^{' + Bs + '}', (A * t) + '*exp(' + Bs + ')'), why: 'مشتقة \\(e^{kt}\\) هي \\(ke^{kt}\\) فلا يظهر العامل \\(t\\) في الناتج.' }],
+      sol: [{ t: 'P\'(t)=' + P0 + '(' + rp / 100 + ')e^{' + rp / 100 + 't}=' + A + 'e^{' + rp / 100 + 't}', ar: 'نشتق' }, { box: 'P\'(' + t + ')=' + A + 'e^{' + Bs + '}' }]
+    };
+  }
+  function w2(rng) {
+    var m = ri(rng, 1, 5), rp = pick(rng, [2, 3, 4, 5]), t = ri(rng, 2, 10), N0 = 100 * m, A = m * rp, Bs = String(dec(rp * t, 100));
+    return {
+      kind: 'w', spec: { f: N0 + '*exp(-' + (rp / 100) + '*x)', at: t, ask: 'EV' }, key: 'E3b:' + [m, rp, t].join(','),
+      stem: 'تتناقص كتلة عيّنة من مادة مشعّة (بالغرام) مع الزمن \\(t\\) بالأيام وفق \\(N(t)=' + N0 + 'e^{-' + rp / 100 + 't}\\). أوجد \\(N\'(' + t + ')\\) (معدّل تغيّر الكتلة بالغرام لكل يوم):',
+      e: 'N(t)=' + N0 + 'e^{-' + rp / 100 + 't}', corr: E('-' + A + 'e^{-' + Bs + '}', '-' + A + '*exp(-' + Bs + ')'),
+      cands: [{ cls: 'sg', v: E(A + 'e^{-' + Bs + '}', A + '*exp(-' + Bs + ')'), why: 'الكتلة تتناقص، فمعدّل تغيّرها سالب: مشتقة الأس \\(-' + rp / 100 + '\\) تعطي الإشارة السالبة.' },
+        { cls: 'nk', v: E('-' + N0 + 'e^{-' + Bs + '}', '-' + N0 + '*exp(-' + Bs + ')'), why: 'نضرب في \\(' + rp / 100 + '\\) أيضاً عند الاشتقاق.' },
+        { cls: 'ps', v: E('-' + A + 'e^{' + Bs + '}', '-' + A + '*exp(' + Bs + ')'), why: 'الأس يبقى سالباً \\(-' + rp / 100 + 't\\) عند التعويض.' },
+        { cls: 'ft', v: E('-' + A + 'e^{-' + rp / 100 + '}', '-' + A + '*exp(-' + rp / 100 + ')'), why: 'نعوّض \\(t=' + t + '\\) في الأس: \\(-' + rp / 100 + '\\times ' + t + '=-' + Bs + '\\).' }],
+      sol: [{ t: 'N\'(t)=' + N0 + '(-' + rp / 100 + ')e^{-' + rp / 100 + 't}=-' + A + 'e^{-' + rp / 100 + 't}', ar: 'نشتق' }, { box: 'N\'(' + t + ')=-' + A + 'e^{-' + Bs + '}' }]
+    };
+  }
+  function w3(rng) {
+    var a = ri(rng, 2, 9), b = ri(rng, 1, 20), t = ri(rng, 1, 9), den = t + 1;
+    return {
+      kind: 'w', spec: { f: a + '*log(x+1)+' + b, at: t, ask: 'EV' }, key: 'E3c:' + [a, b, t].join(','),
+      stem: 'تُقاس درجة إتقان طالب بعد \\(t\\) أسابيع من التدريب بالدالة \\(S(t)=' + a + '\\ln(t+1)+' + b + '\\). أوجد معدّل تغيّر الدرجة (درجة لكل أسبوع) عند \\(t=' + t + '\\):',
+      e: 'S(t)=' + a + '\\ln(t+1)+' + b, corr: V(a, den),
+      cands: [{ cls: 'nt', v: V(a, t), why: 'مشتقة \\(\\ln(t+1)\\) هي \\(\\dfrac{1}{t+1}\\)، فنعوّض في \\(t+1\\) كاملاً.' },
+        { cls: 'sq', v: V(a, den * den), why: 'المقام هو \\(t+1\\) وليس مربّعه.' },
+        { cls: 'nv', v: E('' + a + '\\ln ' + den + '+' + b, a + '*log(' + den + ')+' + b), why: 'المطلوب معدّل التغيّر (المشتقة) وليس قيمة \\(S\\) نفسها عند \\(t=' + t + '\\).' },
+        { cls: 'cb', v: V(a + b, den), why: 'الثابت \\(' + b + '\\) مشتقته صفر فلا يدخل في المعدّل.' }],
+      sol: [{ t: 'S\'(t)=\\dfrac{' + a + '}{t+1}', ar: 'نشتق: الثابت مشتقته صفر' }, { box: 'S\'(' + t + ')=\\dfrac{' + a + '}{' + den + '}=' + V(a, den).t }]
+    };
+  }
+  /* L4a: زمن معدّل معيّن */
+  function t4a(rng) {
+    var kk = pick(rng, [[10, 1], [5, 2], [2, 5]]), a = pick(rng, [50, 100, 200, 500]), m = pick(rng, [2, 3, 4, 5]);
+    var k10 = kk[1], inv = kk[0]; /* k = k10/10 ... k=0.1 => inv 10 */
+    var k = { 10: 0.1, 5: 0.2, 2: 0.5 }[inv]; var ak = a * k, R = ak * m;
+    var ln = function (v) { return '\\ln ' + v; };
+    return {
+      kind: 'lt', spec: { a: a, k: k, R: R, m: m, inv: inv }, key: 'E4a:' + [a, k, m].join(','),
+      stem: 'يُعطى عدد الخلايا في مزرعة بالدالة \\(N(t)=' + a + 'e^{' + k + 't}\\)، حيث \\(t\\) الزمن بالساعات. في أي لحظة \\(t\\) يكون معدّل تزايد العدد مساوياً \\(' + R + '\\) خلية لكل ساعة؟',
+      e: 'N(t)=' + a + 'e^{' + k + 't},\\;\\; N\'(t)=' + R,
+      corr: E(inv + '\\ln ' + m, inv + '*log(' + m + ')'),
+      cands: [{ cls: 'lm', v: E('\\ln ' + m, 'log(' + m + ')'), why: 'من \\(e^{' + k + 't}=' + m + '\\) نأخذ اللوغاريتم فنجد \\(' + k + 't=\\ln ' + m + '\\)، ثم نقسم على \\(' + k + '\\).' },
+        { cls: 'km', v: E(k + '\\ln ' + m, k + '*log(' + m + ')'), why: 'نقسم على \\(' + k + '\\) وليس نضرب فيه.' },
+        { cls: 'nk', v: E(inv + '\\ln ' + C.ftex(C.fr(Math.round(k * m * 100), 100)), inv + '*log(' + (k * m) + ')'), why: 'المعدّل هو \\(N\'(t)=' + ak + 'e^{' + k + 't}\\) وليس \\(N(t)\\)؛ نقسم على \\(' + ak + '\\) لا على \\(' + a + '\\).' },
+        { cls: 'mk', v: E('\\dfrac{' + m + '}{' + k + '}', m + '/' + k), why: 'نحصل على \\(e^{' + k + 't}=' + m + '\\)، فنأخذ \\(\\ln\\) للطرفين ولا نقسم \\(' + m + '\\) على \\(' + k + '\\) مباشرة.' }],
+      sol: [{ t: 'N\'(t)=' + a + '(' + k + ')e^{' + k + 't}=' + ak + 'e^{' + k + 't}', ar: 'نشتق' }, { t: ak + 'e^{' + k + 't}=' + R + '\\;\\Rightarrow\\;e^{' + k + 't}=' + m, ar: 'نساوي المعدّل بالقيمة المعطاة' }, { t: k + 't=\\ln ' + m, ar: 'نأخذ اللوغاريتم الطبيعي للطرفين' }, { box: 't=' + inv + '\\ln ' + m }]
+    };
+  }
+  /* L4b: نقطة حرجة */
+  function t4b(rng) {
+    var a = ri(rng, 2, 4), b = ri(rng, 1, 9); if (b % a === 0) return t4b(rng);
+    var f = a + 'x-' + (b === 1 ? '' : b) + '\\ln x';
+    return {
+      kind: 'zr', spec: { f: a + '*x-' + b + '*log(x)', ask: 'ZERO' }, key: 'E4b:' + a + ',' + b,
+      stem: 'عند أي قيمة \\(x>0\\) يكون ميل المماس لمنحنى الدالة \\(f\\) مساوياً صفراً؟', e: 'f(x)=' + f, corr: V(b, a),
+      cands: [{ cls: 'inv', v: V(a, b), why: 'نحلّ \\(' + a + '-\\dfrac{' + b + '}{x}=0\\) فنجد \\(x=\\dfrac{' + b + '}{' + a + '}\\) (البسط هو معامل \\(\\ln x\\)).' }, { cls: 'df', v: V(b - a), why: 'المعادلة \\(' + a + '=\\dfrac{' + b + '}{x}\\) تعطي \\(x=\\dfrac{' + b + '}{' + a + '}\\) بالقسمة لا بالطرح.' },
+        { cls: 'pr', v: V(a * b), why: 'من \\(' + a + '=\\dfrac{' + b + '}{x}\\) نضرب في \\(x\\) ثم نقسم على \\(' + a + '\\): \\(x=\\dfrac{' + b + '}{' + a + '}\\).' }, { cls: 'ng', v: V(-b, a), why: 'المجال \\(x>0\\) والحل موجب: \\(x=\\dfrac{' + b + '}{' + a + '}\\).' }],
+      sol: [{ t: 'f\'(x)=' + a + '-\\dfrac{' + b + '}{x}', ar: 'نشتق' }, { t: a + '-\\dfrac{' + b + '}{x}=0\\;\\Rightarrow\\;x=\\dfrac{' + b + '}{' + a + '}', ar: 'ميل المماس صفر' }, { box: 'x=' + V(b, a).t }]
+    };
+  }
+  function t4c(rng) {
+    var a = nz(rng, -5, 6), b = nz(rng, 1, 5); if (a === b) return t4c(rng);
+    var f = (a < 0 ? '-' : '') + (Math.abs(a) === 1 ? '' : Math.abs(a)) + '\\ln x+' + (b === 1 ? '' : b) + 'e^{x}';
+    function sl(c, d) { return E((c < 0 ? '-' : '') + Math.abs(c) + (d ? (d > 0 ? '+' : '-') + (Math.abs(d) === 1 ? '' : Math.abs(d)) + 'e' : ''), c + '+(' + d + ')*E'); }
+    var corr = E(a + (b > 0 ? '+' : '-') + (b === 1 ? '' : b) + 'e', a + '+' + b + '*E');
+    return {
+      kind: 'sl', spec: { f: a + '*log(x)+' + b + '*exp(x)', at: 1, ask: 'EV' }, key: 'E4c:' + a + ',' + b,
+      stem: 'أوجد ميل المماس لمنحنى \\(f\\) عند \\(x=1\\):', e: 'f(x)=' + f, corr: E(a + '+' + (b === 1 ? '' : b) + 'e', a + '+' + b + '*E'),
+      cands: [{ cls: 'nv', v: E((b === 1 ? '' : b) + 'e', b + '*E'), why: 'المطلوب مشتقة \\(f\\) عند \\(1\\): مشتقة \\(' + cf(a) + '\\ln x\\) هي \\(\\dfrac{' + a + '}{x}=' + a + '\\) عند \\(x=1\\).' },
+        { cls: 'nb', v: E(a + '+' + b, a + '+' + b), why: 'مشتقة \\(' + (b === 1 ? '' : b) + 'e^{x}\\) هي \\(' + (b === 1 ? '' : b) + 'e^{x}\\) فعند \\(x=1\\) تساوي \\(' + (b === 1 ? '' : b) + 'e\\).' },
+        { cls: 'sw', v: E((a === 1 ? '' : a) + 'e+' + b, a + '*E+' + b), why: 'مشتقة \\(\\ln x\\) عند \\(1\\) هي \\(1\\) والأسية تعطي \\(e\\)؛ لا نبدّل الحدّين.' },
+        { cls: 'ng', v: E((-a) + '+' + (b === 1 ? '' : b) + 'e', (-a) + '+' + b + '*E'), why: 'مشتقة \\(\\ln x\\) هي \\(\\dfrac{1}{x}\\) وهذا الخيار غيّر إشارتها خطأً.' }],
+      sol: [{ t: 'f\'(x)=\\dfrac{' + a + '}{x}+' + (b === 1 ? '' : b) + 'e^{x}', ar: 'نشتق كل حد' }, { box: 'f\'(1)=' + a + '+' + (b === 1 ? '' : b) + 'e' }]
+    };
+  }
+  /* L5a: x e^{-kx} */
+  function t5a(rng) {
+    var k = ri(rng, 1, 6) ; if (k === 1) k = 2;
+    var fk = (k === 1 ? '' : k);
+    return {
+      kind: 'zr', spec: { f: 'x*exp(-' + k + '*x)', ask: 'ZERO' }, key: 'E5a:' + k,
+      stem: 'عند أي قيمة \\(x\\) تكون المماسات لمنحنى \\(f\\) أفقية؟', e: 'f(x)=xe^{-' + fk + 'x}', corr: V(1, k),
+      cands: [{ cls: 'inv', v: V(k), why: 'نحلّ \\(1-' + k + 'x=0\\) فنقسم على \\(' + k + '\\): \\(x=\\dfrac{1}{' + k + '}\\).' }, { cls: 'ng', v: V(-1, k), why: 'من \\(1-' + k + 'x=0\\) نحصل على \\(x\\) موجبة.' }, { cls: 'on', v: V(1), why: 'نبقي العامل \\(' + k + '\\) في \\(1-' + k + 'x\\) عند الاشتقاق بقاعدة السلسلة.' }, { cls: 'sq', v: V(1, k * k), why: 'الحل هو \\(\\dfrac{1}{' + k + '}\\) وليس \\(\\dfrac{1}{' + k * k + '}\\).' }],
+      sol: [{ t: 'f\'(x)=e^{-' + fk + 'x}+x(-' + k + ')e^{-' + fk + 'x}=e^{-' + fk + 'x}(1-' + fk + 'x)', ar: 'قاعدة الضرب مع قاعدة السلسلة' }, { t: 'e^{-' + fk + 'x}>0\\;\\Rightarrow\\;1-' + fk + 'x=0', ar: 'العامل الأسّي لا يساوي صفراً' }, { box: 'x=' + V(1, k).t }]
+    };
+  }
+  /* L5b: x ln x - kx */
+  function t5b(rng) {
+    var k = ri(rng, 3, 4), t0 = k - 1;
+    return {
+      kind: 'zr2', spec: { f: 'x*log(x)-' + k + '*x', ask: 'ZERO' }, key: 'E5b:' + k,
+      stem: 'أوجد قيمة \\(x>0\\) التي يكون عندها المماس لمنحنى \\(f\\) أفقياً:', e: 'f(x)=x\\ln x-' + k + 'x',
+      corr: E('e^{' + t0 + '}', 'exp(' + t0 + ')'),
+      cands: [{ cls: 'ek', v: E('e^{' + k + '}', 'exp(' + k + ')'), why: 'نحصل من \\(\\ln x+1-' + k + '=0\\) على \\(\\ln x=' + t0 + '\\) فيكون الأس \\(' + t0 + '\\) وليس \\(' + k + '\\).' },
+        { cls: 'ng', v: E('e^{-' + t0 + '}', 'exp(-' + t0 + ')'), why: 'من \\(\\ln x=' + t0 + '\\) نأخذ الأسّي مباشرة: \\(x=e^{' + t0 + '}\\).' },
+        { cls: 'lg', v: E(String(t0), String(t0)), why: 'نحصل على \\(\\ln x=' + t0 + '\\) وليس \\(x=' + t0 + '\\)، فنأخذ الأسّي للطرفين.' },
+        { cls: 'ln', v: E('\\ln ' + t0, 'log(' + t0 + ')'), why: 'نحلّ \\(\\ln x=' + t0 + '\\) بالأسّي: \\(x=e^{' + t0 + '}\\) وليس بأخذ \\(\\ln\\) للعدد.' }],
+      sol: [{ t: 'f\'(x)=\\ln x+x\\cdot\\dfrac{1}{x}-' + k + '=\\ln x+1-' + k, ar: 'قاعدة الضرب' }, { t: '\\ln x=' + t0, ar: 'نساوي المشتقة بالصفر' }, { box: 'x=e^{' + t0 + '}' }]
+    };
+  }
+  /* L5c: نسبة المعدّل إلى الكمية */
+  function t5c(rng) {
+    var P0 = pick(rng, [50, 100, 200, 500]), k = ri(rng, 2, 6), t = ri(rng, 1, 5), neg = rng() < 0.4, kk = neg ? -k : k;
+    var ex = 'e^{' + (neg ? '-' : '') + k + 't}';
+    return {
+      kind: 'rt', spec: { f: P0 + '*exp(' + kk + '*x)', at: t, ask: 'RATIO' }, key: 'E5c:' + [P0, kk, t].join(','),
+      stem: 'إذا كان \\(P(t)=' + P0 + ex + '\\)، فما قيمة النسبة \\(\\dfrac{P\'(t)}{P(t)}\\) عند \\(t=' + t + '\\)؟',
+      e: 'P(t)=' + P0 + ex, corr: V(kk),
+      cands: [{ cls: 'p0', v: V(P0 * kk), why: 'النسبة \\(\\dfrac{P\'}{P}=\\dfrac{' + P0 + '\\cdot(' + kk + ')e^{' + kk + 't}}{' + P0 + 'e^{' + kk + 't}}\\) تختصر فيها \\(' + P0 + '\\) والعامل الأسّي.' }, { cls: 'tk', v: V(kk * t), why: 'النسبة ثابتة وتساوي \\(k\\) ولا تعتمد على \\(t\\).' },
+        { cls: 'iv', v: V(1, kk), why: 'النسبة هي \\(\\dfrac{P\'}{P}=k\\) وليست \\(\\dfrac{1}{k}\\).' }, { cls: 'ng', v: V(-kk), why: 'هذا الخيار غيّر إشارة \\(k\\) خطأً، والصحيح \\(P\'=kP\\).' }],
+      sol: [{ t: 'P\'(t)=' + P0 + '(' + kk + ')' + ex + '=' + kk + 'P(t)', ar: 'نشتق' }, { box: '\\dfrac{P\'(t)}{P(t)}=' + kk }]
+    };
+  }
+
+
+  /* L2d: e^{k x^2} */
+  function t2d(rng) {
+    var k = nz(rng, -4, 4); if (Math.abs(k) === 1) return t2d(rng);
+    var inner = cf(k) + 'x^{2}';
+    var corr = E(cf(2 * k) + 'xe^{' + inner + '}', (2 * k) + '*x*exp(' + k + '*x**2)');
+    return {
+      kind: 'd', spec: { f: 'exp(' + k + '*x**2)', ask: 'D' }, key: 'E2d:' + k,
+      stem: 'أوجد \\(f\'(x)\\) للدالة:', e: 'f(x)=e^{' + inner + '}', corr: corr,
+      cands: [{ cls: 'nc', v: E('e^{' + inner + '}', 'exp(' + k + '*x**2)'), why: 'ننسى مشتقة الأس \\(' + cf(2 * k) + 'x\\): \\((e^{u})\'=u\'e^{u}\\).' },
+        { cls: 'k', v: E(cf(k) + 'e^{' + inner + '}', k + '*exp(' + k + '*x**2)'), why: 'مشتقة الأس \\(' + inner + '\\) هي \\(' + cf(2 * k) + 'x\\) وليست \\(' + k + '\\).' },
+        { cls: 'pw', v: E(cf(2 * k) + 'xe^{' + inner + '-1}', (2 * k) + '*x*exp(' + k + '*x**2-1)'), why: 'الدالة الأسية لا تُشتق بقاعدة القوة.' },
+        { cls: 'ex', v: E(cf(2 * k) + 'xe^{' + cf(2 * k) + 'x}', (2 * k) + '*x*exp(' + (2 * k) + '*x)'), why: 'يبقى الأس \\(' + inner + '\\) كما هو دون اشتقاق.' }],
+      sol: [{ t: 'u=' + inner + ',\\quad u\'=' + cf(2 * k) + 'x', ar: 'نحدّد الأس ونشتقه' }, { box: 'f\'(x)=' + cf(2 * k) + 'xe^{' + inner + '}' }]
+    };
+  }
+  /* L2e: قيمة المشتقة عند 0 لـ e^{ax+b} */
+  function t2e(rng) {
+    var a = nz(rng, -5, 5); if (Math.abs(a) === 1) return t2e(rng);
+    var b = ri(rng, 1, 4);
+    var corr = E(a + 'e^{' + b + '}', a + '*exp(' + b + ')');
+    return {
+      kind: 'v', spec: { f: 'exp(' + a + '*x+' + b + ')', at: 0, ask: 'EV' }, key: 'E2e:' + a + ',' + b,
+      stem: 'أوجد \\(f\'(0)\\) للدالة:', e: 'f(x)=e^{' + a + 'x+' + b + '}', corr: corr,
+      cands: [{ cls: 'na', v: E('e^{' + b + '}', 'exp(' + b + ')'), why: 'ننسى مشتقة الأس \\(' + a + '\\): \\(f\'(x)=' + a + 'e^{' + a + 'x+' + b + '}\\).' },
+        { cls: 'z', v: E(a + 'e^{0}', a + '*exp(0)'), why: 'نعوّض \\(x=0\\) في الأس فيبقى \\(e^{' + b + '}\\) لأن الثابت \\(' + b + '\\) في الأس.' },
+        { cls: 'ab', v: E(a + 'e^{' + a * b + '}', a + '*exp(' + (a * b) + ')'), why: 'عند \\(x=0\\) يصير الأس \\(' + b + '\\) فقط.' },
+        { cls: 'pb', v: E((a * b) + 'e^{' + b + '}', (a * b) + '*exp(' + b + ')'), why: 'الثابت \\(' + b + '\\) في الأس لا يدخل معاملاً عند الاشتقاق.' }],
+      sol: [{ t: 'f\'(x)=' + a + 'e^{' + a + 'x+' + b + '}', ar: 'قاعدة السلسلة' }, { box: 'f\'(0)=' + a + 'e^{' + b + '}' }]
+    };
+  }
+  /* L5d: ميل المماس لـ a x^n ln x عند x=e */
+  function pwx(p) { return p === 1 ? 'x' : 'x^{' + p + '}'; }
+  function t5d(rng) {
+    var a = nz(rng, -5, 5), n = ri(rng, 2, 4);
+    var m = a * (n + 1), q = Math.abs(a) === 1 ? (a < 0 ? '-' : '') : String(a);
+    var pe = n - 1 === 1 ? 'e' : 'e^{' + (n - 1) + '}';
+    function ee(c, p) { return E((Math.abs(c) === 1 ? (c < 0 ? '-' : '') : c) + (p === 0 ? '' : (p === 1 ? 'e' : 'e^{' + p + '}')) || String(c), c + '*E**(' + p + ')'); }
+    var corr = E((Math.abs(m) === 1 ? (m < 0 ? '-' : '') : m) + pe, m + '*E**(' + (n - 1) + ')');
+    return {
+      kind: 'sl', spec: { f: a + '*x**' + n + '*log(x)', at: 'E', ask: 'EV' }, key: 'E5d:' + a + ',' + n,
+      stem: 'أوجد ميل المماس لمنحنى \\(f\\) عند \\(x=e\\):', e: 'f(x)=' + q + 'x^{' + n + '}\\ln x', corr: corr,
+      cands: [{ cls: 'np', v: E((Math.abs(a * n) === 1 ? (a * n < 0 ? '-' : '') : a * n) + pe, (a * n) + '*E**(' + (n - 1) + ')'), why: 'نشتق حاصل الضرب: الحد \\(x^{' + n + '}\\cdot\\dfrac{1}{x}\\) يضيف \\(' + (Math.abs(a) === 1 ? (a < 0 ? '-' : '') : a) + '' + pwx(n - 1) + '\\) إلى الناتج.' },
+        { cls: 'nl', v: E((Math.abs(a) === 1 ? (a < 0 ? '-' : '') : a) + 'e^{' + n + '}', a + '*E**' + n), why: 'مشتقة \\(x^{' + n + '}\\) هي \\(' + n + '' + pwx(n - 1) + '\\) فلا يبقى الأس \\(' + n + '\\).' },
+        { cls: 'ex', v: E((Math.abs(m) === 1 ? (m < 0 ? '-' : '') : m) + 'e^{' + n + '}', m + '*E**' + n), why: 'نعوّض \\(x=e\\) في \\(' + pwx(n - 1) + '\\) فينتج \\(' + (n - 1 === 1 ? 'e' : 'e^{' + (n - 1) + '}') + '\\) وليس \\(e^{' + n + '}\\).' },
+        { cls: 'se', v: E(String(m), String(m)), why: 'يبقى العامل \\(' + pe + '\\) من \\(' + pwx(n - 1) + '\\) عند \\(x=e\\).' }],
+      sol: [{ t: 'f\'(x)=' + (Math.abs(a * n) === 1 ? (a * n < 0 ? '-' : '') : a * n) + '' + pwx(n - 1) + '\\ln x+' + (a < 0 ? '(' + a + ')' : (a === 1 ? '' : a)) + pwx(n - 1), ar: 'قاعدة الضرب' }, { t: '\\ln e=1', ar: 'عند \\(x=e\\)' }, { box: 'f\'(e)=' + (Math.abs(m) === 1 ? (m < 0 ? '-' : '') : m) + pe }]
+    };
+  }
+  C.define({
+    global: 'TmGenExp', band: 16,
+    levels: [{ id: 1, ar: 'أساسي', hint: HINT.a }, { id: 2, ar: 'قاعدة السلسلة', hint: HINT.b }, { id: 3, ar: 'مسائل حياتية', hint: HINT.c }, { id: 4, ar: 'مستوى الوزارة', hint: HINT.d }, { id: 5, ar: 'تحدٍّ', challenge: true, hint: HINT.e }],
+    build: function (level, rng) {
+      var r = rng();
+      if (level === 1) return r < 0.5 ? t1a(rng) : t1c(rng);
+      if (level === 2) return r < 0.34 ? t2a(rng) : (r < 0.67 ? t2d(rng) : t2e(rng));
+      if (level === 3) return r < 0.5 ? w1(rng) : w2(rng);
+      if (level === 4) return t4a(rng);
+      return r < 0.5 ? t5a(rng) : t5c(rng);
+    }
+  });
+  C.define({
+    global: 'TmGenLn', band: 17,
+    levels: [{ id: 1, ar: 'أساسي', hint: HINT.a }, { id: 2, ar: 'قاعدة السلسلة', hint: HINT.b }, { id: 3, ar: 'مسائل حياتية', hint: HINT.c }, { id: 4, ar: 'مستوى الوزارة', hint: HINT.d }, { id: 5, ar: 'تحدٍّ', challenge: true, hint: HINT.e }],
+    build: function (level, rng) {
+      var r = rng();
+      if (level === 1) return t1b(rng);
+      if (level === 2) return r < 0.5 ? t2b(rng) : t2c(rng);
+      if (level === 3) return w3(rng);
+      if (level === 4) return r < 0.5 ? t4b(rng) : t4c(rng);
+      return r < 0.5 ? t5b(rng) : t5d(rng);
+    }
+  });
+  C.define({
+    global: 'TmGenExpLog', band: 25,
+    levels: [{ id: 1, ar: 'أساسي', hint: HINT.a }, { id: 2, ar: 'قاعدة السلسلة', hint: HINT.b }, { id: 3, ar: 'مسائل حياتية', hint: HINT.c }, { id: 4, ar: 'مستوى الوزارة', hint: HINT.d }, { id: 5, ar: 'تحدٍّ', challenge: true, hint: HINT.e }],
+    build: function (level, rng) {
+      var r = rng();
+      if (level === 1) return r < 0.34 ? t1a(rng) : (r < 0.67 ? t1b(rng) : t1c(rng));
+      if (level === 2) return r < 0.34 ? t2a(rng) : (r < 0.67 ? t2b(rng) : t2c(rng));
+      if (level === 3) return r < 0.34 ? w1(rng) : (r < 0.67 ? w2(rng) : w3(rng));
+      if (level === 4) return r < 0.4 ? t4a(rng) : (r < 0.7 ? t4b(rng) : t4c(rng));
+      return r < 0.34 ? t5a(rng) : (r < 0.67 ? t5b(rng) : t5c(rng));
+    }
+  });
+})();
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var isCur = l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])); var cls = (isCur && !st.mastered) ? 'cur' : (st.done[l.id] ? 'done' : (isCur ? 'cur' : ''));
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.className += ' back'; li.setAttribute('role', 'button'); li.tabIndex = 0; li.setAttribute('aria-label', 'العودة إلى المستوى ' + l.id);
+        var goBack = function () { st.level = l.id; persist(); newRound(); };
+        li.addEventListener('click', goBack);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goBack(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE || !round || round.idx >= ROUND) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز، فقد تجاوزت ما يُطلب في الامتحان.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && st.skipped < CORE && lvl === CORE) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>

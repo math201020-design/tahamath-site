@@ -6369,6 +6369,21 @@
    "path": "g11-general/mastery-24/index.html",
    "src": "site/g11-general/mastery-24/index.html",
    "sha256": "82b38b6ceb562571e32f06b696b1b673bb247e7c2a8721f827bd8063dd5f6cf1"
+  },
+  {
+   "path": "g12-advanced/mastery-17/index.html",
+   "src": "site/g12-advanced/mastery-17/index.html",
+   "sha256": "bc9aed931eb51e66bdca93e797d4b911509eda872a5427e5ae9879dac1986ac7"
+  },
+  {
+   "path": "g12-advanced/mastery-22/index.html",
+   "src": "site/g12-advanced/mastery-22/index.html",
+   "sha256": "de614354191f1c6c83e7ae7728479f1c08132e140733b7105fc5449739541487"
+  },
+  {
+   "path": "g12-advanced/mastery-24/index.html",
+   "src": "site/g12-advanced/mastery-24/index.html",
+   "sha256": "b0a72ebb5012cd18570004d0c38b8339c353897abde2acfa8944de757a6eb857"
   }
  ]
 }

@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: خطوط التقارب (الأفقية والرأسية والمائلة) | الثاني عشر متقدم | أكاديمية طه للرياضيات</title>
+<meta name="description" content="تدريب تفاعلي على البند 22: إيجاد خطوط التقارب الأفقية والرأسية والمائلة باستخدام النهايات، بخمسة مستويات تتدرج حتى مستوى الوزارة.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g12-advanced/mastery-22/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.path li.back{cursor:pointer}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند 22 • خطوط التقارب<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g12-advanced", "band": 22, "label": "البند 22", "gen": "TmGenAsy"};</script>
+<script>
+/* مولّد أسئلة البند 22 (إيجاد خطوط التقارب الأفقية والرأسية والمائلة باستخدام النهايات) - 12 متقدم
+   اختيار من متعدد بصيغة الوزارة، حل تفصيلي، تلميح لكل مستوى، ومشتتات من أخطاء شائعة لكل منها تشخيص دقيق.
+   التوليد بالقوالب لا بالذكاء الاصطناعي، والإجابة الصحيحة تُحسب من المعاملات. */
+(function (root) {
+  'use strict';
+
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
+  function nz(rng, lo, hi) { var v = 0; while (!v) v = ri(rng, lo, hi); return v; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  /* كسور دقيقة */
+  function fr(n, d) { d = d === undefined ? 1 : d; if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function ftex(f) { if (f.d === 1) return String(f.n); return (f.n < 0 ? '-' : '') + '\\dfrac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function fplain(f) { return f.d === 1 ? String(f.n) : f.n + '/' + f.d; }
+
+  /* كثيرات حدود: المعاملات من الأعلى درجة */
+  function polyT(c, v) {
+    v = v || 'x'; var n = c.length - 1, s = '';
+    c.forEach(function (a, i) {
+      var p = n - i; if (!a) return;
+      var ab = Math.abs(a), co = (ab === 1 && p > 0) ? '' : String(ab), vv = p === 0 ? '' : (p === 1 ? v : v + '^{' + p + '}'), term = co + vv;
+      if (!s) s = (a < 0 ? '-' : '') + term; else s += (a < 0 ? ' - ' : ' + ') + term;
+    });
+    return s || '0';
+  }
+  function polyP(c) {
+    var n = c.length - 1, parts = [];
+    c.forEach(function (a, i) { var p = n - i; if (a) parts.push('(' + a + ')*x**' + p); });
+    return parts.join('+') || '0';
+  }
+  function facT(r) { return r > 0 ? '(x-' + r + ')' : '(x+' + (-r) + ')'; }
+  function sgnN(n) { return n < 0 ? '-' + (-n) : '+' + n; }
+
+  /* عناصر خطوط التقارب: g=0 رأسي، g=1 أفقي أو مائل؛ p نص عادي للفحص الآلي */
+  function V(f) { f = typeof f === 'number' ? fr(f) : f; return { g: 0, o: f.n / f.d, t: 'x=' + ftex(f), p: 'x=' + fplain(f) }; }
+  function H(f) { f = typeof f === 'number' ? fr(f) : f; return { g: 1, o: 0, w: f.n / f.d, t: 'y=' + ftex(f), p: 'y=' + fplain(f) }; }
+  function Sl(a, b) { return { g: 2, o: a * 1000 + b, t: 'y=' + polyT([a, b]), p: 'y=(' + a + ')*x+(' + b + ')' }; }
+  function K(f) { f = typeof f === 'number' ? fr(f) : f; return { g: 0, o: f.n / f.d, t: 'k=' + ftex(f), p: 'k=' + fplain(f) }; }
+  function setSort(a) { return a.slice().sort(function (p, q) { return p.g - q.g || (p.w || 0) - (q.w || 0) || p.o - q.o; }); }
+  function setKey(a) { return a.map(function (e) { return e.p; }).sort().join('|'); }
+  function setTex(a) { return setSort(a).map(function (e) { return e.t; }).join(',\\ '); }
+  function setPlain(a) { return setSort(a).map(function (e) { return e.p; }); }
+
+  var WHY = {
+    negV: 'أصفار المقام هي قيم \\(x\\) التي تجعله صفراً: \\(x-r=0\\) تعطي \\(x=r\\)، فلا تعكس إشارة القيمة.',
+    vAsH: 'هذه القيمة هي خط التقارب الأفقي (من نهاية البسط والمقام عند اللانهاية)، أما الرأسي فمن أصفار المقام.',
+    numZero: 'صفر البسط لا يعطي خط تقارب رأسياً؛ الخط الرأسي يأتي من أصفار المقام فقط.',
+    hAsV: 'هذا خط التقارب الرأسي (من أصفار المقام)، أما الأفقي فمن نهاية الدالة عندما \\(x\\) تؤول إلى اللانهاية.',
+    onlyOne: 'للمقام التربيعي صفران، وكل صفر يعطي خط تقارب رأسياً مستقلاً.',
+    addH: 'درجة البسط أقل من درجة المقام، فيوجد أيضاً خط أفقي \\(y=0\\) لكن المطلوب هنا خطوط التقارب الرأسية فقط.',
+    mixV: 'راجع إشارة كل صفر من أصفار المقام: \\(x-a=0\\) تعطي \\(x=a\\) و\\(x+b=0\\) تعطي \\(x=-b\\).',
+    invRatio: 'خط التقارب الأفقي عند تساوي الدرجتين هو حاصل قسمة المعامل الرئيسي للبسط على المعامل الرئيسي للمقام، وليس العكس.',
+    lowerTerms: 'النهاية عند اللانهاية تحددها الحدود ذات أعلى درجة فقط؛ لا تُستعمل الحدود الثابتة.',
+    zeroH: 'عند تساوي درجتي البسط والمقام تكون النهاية حاصل قسمة المعاملين الرئيسيين وليست صفراً.',
+    oneH: 'القيمة 1 لا تنتج إلا إذا تساوى المعاملان الرئيسيان، وهنا يختلفان.',
+    leadOnly: 'درجة البسط أقل من درجة المقام، فالنهاية صفر ولا يتدخل أي معامل.',
+    slantCoefOnly: 'الحد الثابت في معادلة الخط المائل يتغيّر بقسمة كثيرة الحدود: ثابت خارج القسمة هو \\(b+ar\\) وليس \\(b\\) وحده.',
+    slantR: 'الثابت في معادلة الخط المائل هو \\(b+ar\\) وليس \\(r\\) نفسه.',
+    yrWhy: 'صفر المقام يعطي خطاً رأسياً \\(x=r\\) لا خطاً أفقياً \\(y=r\\).',
+    oneH2: 'درجة البسط أقل من درجة المقام، فالنهاية صفر وليست 1.',
+    slantSign: 'عند القسمة على \\(x-r\\) يكون الثابت \\(b+ar\\) بجمع حاصل ضرب \\(a\\) في \\(r\\)، لا بطرحه.',
+    slantMono: 'خارج القسمة له حد ثابت أيضاً؛ لا تُهمله عند كتابة معادلة الخط المائل.',
+    slantDropA: 'معامل \\(x\\) في الخط المائل هو معامل الحد الرئيسي في خارج القسمة (وليس 1 دائماً).',
+    slantQ: 'خارج قسمة \\(x^3\\) على المقام هو \\(x-p\\) حيث \\(p\\) معامل \\(x\\) في المقام؛ فلا يدخل الحد الثابت للمقام.',
+    slantSignP: 'عند قسمة \\(x^3\\) على \\(x^2+px+q\\) ينتج \\(x-p\\) (إشارة المعامل تنعكس).',
+    noSlant: 'درجة البسط تزيد على درجة المقام بواحد، فيوجد أيضاً خط مائل ولا يكفي ذكر الرأسيين.',
+    wrongSlant: 'تحقق من معادلة الخط المائل بقسمة \\(x^3\\) على المقام؛ خارج القسمة هو \\(x-p\\).',
+    horizNotSlant: 'لا يوجد خط أفقي لأن درجة البسط أكبر من درجة المقام؛ النهاية لا نهائية ويظهر خط مائل.',
+    signV: 'أصفار المقام هي قيم \\(x\\) التي تجعله صفراً؛ تحقق من إشارة كل صفر.',
+    holeAndV: 'العامل المشترك \\(x-a\\) يُختصر، فيظهر ثقب عند \\(x=a\\) وليس خط تقارب رأسياً.',
+    holeOnly: 'المقام بعد الاختصار هو \\(x-c\\)، فالخط الرأسي عند \\(x=c\\) وليس عند صفر العامل المختصر.',
+    numRoot: 'صفر البسط (\\(x=b\\)) نقطة تقاطع مع محور السينات وليس خط تقارب.',
+    negC: 'أصفار المقام بعد الاختصار: \\(x-c=0\\) تعطي \\(x=c\\) لا \\(x=-c\\).',
+    onePosSide: 'يجب فحص النهاية عند \\(x\\to+\\infty\\) وعند \\(x\\to-\\infty\\)؛ الجذر يعطي \\(|x|\\) فتنعكس إشارة النتيجة عند الأخيرة، فيوجد خطان أفقيان.',
+    noSqrt: 'المقام \\(\\sqrt{ax^2+b}\\) يقترب من \\(\\sqrt{a}\\,|x|\\)، فالمعامل الذي يقسم هو \\(\\sqrt{a}\\) وليس \\(a\\).',
+    dropRoot: 'لا تهمل الجذر: \\(\\sqrt{a}\\) يقسم المعامل \\(p\\) في النهاية.',
+    absOne: 'عند \\(x\\to-\\infty\\) يكون \\(|x|^3=-x^3\\)، فتنعكس إشارة النهاية ويوجد خط أفقي ثانٍ \\(y=-p\\).',
+    absNeg: 'عند \\(x\\to+\\infty\\) يكون \\(|x|^3=x^3\\)، فالنهاية \\(p\\) أيضاً وليست \\(-p\\) فقط.',
+    absZero: 'درجتا البسط والمقام متساويتان بعد فك القيمة المطلقة، فالنهاية غير صفرية.',
+    absConst: 'النهاية عند اللانهاية تحددها الحدود الرئيسية \\(px^3\\) و\\(|x|^3\\) وليس الحدود الثابتة.',
+    kInv: 'الشرط هو \\(\\dfrac{k}{d}=m\\) إذن \\(k=md\\) (الضرب لا القسمة).',
+    kSame: 'النهاية هي \\(\\dfrac{k}{d}\\)، لا \\(k\\) وحده؛ فيجب ضرب \\(m\\) في معامل المقام \\(d\\).',
+    kAdd: 'العلاقة بين \\(k\\) و\\(m\\) علاقة قسمة \\(\\dfrac{k}{d}=m\\) وليست جمعاً.',
+    kSub: 'العلاقة بين \\(k\\) و\\(m\\) علاقة قسمة \\(\\dfrac{k}{d}=m\\) وليست طرحاً.'
+  };
+
+  var HINT = {
+    v: 'خط التقارب الرأسي يأتي من أصفار المقام (بعد اختصار العوامل المشتركة) بشرط ألا ينعدم البسط عندها.',
+    h: 'قارن درجتي البسط والمقام: إن تساويتا فالنهاية حاصل قسمة المعاملين الرئيسيين، وإن كان البسط أقل درجة فالنهاية صفر.',
+    s: 'إن زادت درجة البسط واحداً على المقام فاقسم لتحصل على خارج القسمة \\(ax+b\\): هو معادلة الخط المائل.',
+    m: 'احسب أصفار المقام بعد الاختصار، ثم قارن الدرجتين لتجد الأفقي أو المائل، وافحص العوامل المشتركة.',
+    c: 'القيمة المطلقة والجذر يجعلان الإشارة تنعكس عند \\(x\\to-\\infty\\)، فافحص النهايتين عند \\(+\\infty\\) و\\(-\\infty\\) كلاً على حدة.'
+  };
+
+  function pickD(rng, corr, cands) {
+    var seen = {}; seen[setKey(corr)] = 1; var out = [], used = {}; out.amb = 0; out.gen = 0;
+    shuffle(rng, cands).forEach(function (c) {
+      if (out.length >= 3 || used[c.cls]) return; var k = setKey(c.v); if (seen[k]) return;
+      seen[k] = 1; used[c.cls] = 1; out.push(c);
+      var same = {}; cands.forEach(function (o) { if (setKey(o.v) === k) same[o.cls] = 1; }); if (Object.keys(same).length > 1) out.amb++;
+    });
+    out.gen = 3 - out.length; return out;
+  }
+
+  var STEM_V = 'أوجد معادلة خط التقارب الرأسي لمنحنى الدالة:';
+  var STEM_VS = 'أوجد معادلتي خطي التقارب الرأسيين لمنحنى الدالة:';
+  var STEM_H = 'أوجد معادلة خط التقارب الأفقي لمنحنى الدالة:';
+  var STEM_S = 'أوجد معادلة خط التقارب المائل لمنحنى الدالة:';
+  var STEM_ALL = 'أي المجموعات التالية تمثل كل خطوط التقارب لمنحنى الدالة؟';
+
+  /* ----- المستوى 1 ----- */
+  function t1a(rng) {
+    var r, p, q; do { r = nz(rng, -6, 6); p = nz(rng, -5, 5); q = nz(rng, -7, 7); } while (p * r + q === 0 || Math.abs(p) === 1);
+    var num = polyT([p, q]), den = polyT([1, -r]);
+    return { stem: STEM_V, e: 'f(x)=\\dfrac{' + num + '}{' + den + '}', corr: [V(r)], kind: 'v1', ask: 'V', f: '(' + polyP([p, q]) + ')/(' + polyP([1, -r]) + ')', key: 'A1a:' + p + ',' + q + ',' + r, hint: HINT.v,
+      cands: [{ cls: 'neg', v: [V(-r)], why: WHY.negV }, { cls: 'hor', v: [H(p)], why: WHY.vAsH }, { cls: 'num', v: [V(fr(-q, p))], why: WHY.numZero }, { cls: 'yr', v: [H(r)], why: WHY.yrWhy }],
+      sol: [{ t: den + '=0\\;\\Rightarrow\\; x=' + r, ar: 'نساوي المقام بالصفر' }, { t: p + '(' + r + ')' + sgnN(q) + '=' + (p * r + q) + '\\neq 0', ar: 'نتأكد أن البسط لا ينعدم عند هذه القيمة' }, { box: 'x=' + r }] };
+  }
+  function t1b(rng) {
+    var r, p, q; do { r = nz(rng, -6, 6); p = nz(rng, -5, 5); q = nz(rng, -7, 7); } while (p * r + q === 0 || Math.abs(p) === 1 || Math.abs(q) === Math.abs(p));
+    var num = polyT([p, q]), den = polyT([1, -r]);
+    return { stem: STEM_H, e: 'f(x)=\\dfrac{' + num + '}{' + den + '}', corr: [H(p)], kind: 'h1', ask: 'H', f: '(' + polyP([p, q]) + ')/(' + polyP([1, -r]) + ')', key: 'A1b:' + p + ',' + q + ',' + r, hint: HINT.h,
+      cands: [{ cls: 'ver', v: [V(r)], why: WHY.hAsV }, { cls: 'negp', v: [H(-p)], why: WHY.invRatio.replace('وليس العكس', 'ولا تنعكس إشارته') }, { cls: 'const', v: [H(q)], why: WHY.lowerTerms }, { cls: 'one', v: [H(1)], why: WHY.oneH }],
+      sol: [{ t: '\\lim_{x\\to\\pm\\infty}\\dfrac{' + num + '}{' + den + '}=\\dfrac{' + p + '}{1}=' + p, ar: 'درجتا البسط والمقام متساويتان، فالنهاية هي حاصل قسمة المعاملين الرئيسيين' }, { box: 'y=' + p }] };
+  }
+  function t1c(rng) {
+    var a, b, k; do { a = nz(rng, -5, 5); b = nz(rng, -5, 5); k = ri(rng, 2, 9); } while (a === b || a === -b);
+    var den = polyT([1, -(a + b), a * b]);
+    return { stem: STEM_VS, e: 'f(x)=\\dfrac{' + k + '}{' + den + '}', corr: [V(a), V(b)], kind: 'v2', ask: 'V', f: '(' + k + ')/(' + polyP([1, -(a + b), a * b]) + ')', key: 'A1c:' + a + ',' + b + ',' + k, hint: HINT.v,
+      cands: [{ cls: 'neg', v: [V(-a), V(-b)], why: WHY.negV }, { cls: 'one', v: [V(a)], why: WHY.onlyOne }, { cls: 'plus', v: [V(a), V(b), H(0)], why: WHY.addH }, { cls: 'mix', v: [V(a), V(-b)], why: WHY.mixV }],
+      sol: [{ t: den + '=0\\;\\Rightarrow\\;' + facT(a) + facT(b) + '=0', ar: 'نحلّل المقام ونساوي كل عامل بالصفر' }, { t: 'x=' + a + '\\quad\\text{or}\\quad x=' + b, ar: 'البسط ثابت فلا ينعدم' }, { box: setTex([V(a), V(b)]) }] };
+  }
+
+  /* ----- المستوى 2 ----- */
+  function t2a(rng) {
+    var n = pick(rng, [2, 2, 3]), a, d, bb, c, e, g, num, den;
+    do { a = nz(rng, -6, 6); d = ri(rng, 2, 6); } while (Math.abs(a) === d || Math.abs(a) === 1);
+    bb = nz(rng, -5, 5); c = nz(rng, -5, 5); e = nz(rng, -5, 5); g = nz(rng, -5, 5);
+    if (n === 2) { num = [a, bb, c]; den = [d, e, g]; } else { num = [a, 0, bb, c]; den = [d, 0, e, g]; }
+    var yl = fr(a, d);
+    return { stem: STEM_H, e: 'f(x)=\\dfrac{' + polyT(num) + '}{' + polyT(den) + '}', corr: [H(yl)], kind: 'h2', ask: 'H', f: '(' + polyP(num) + ')/(' + polyP(den) + ')', key: 'A2a:' + num.join(',') + '/' + den.join(','), hint: HINT.h,
+      cands: [{ cls: 'inv', v: [H(fr(d, a))], why: WHY.invRatio }, { cls: 'cons', v: [H(fr(c, g))], why: WHY.lowerTerms }, { cls: 'zero', v: [H(0)], why: WHY.zeroH }, { cls: 'one', v: [H(1)], why: WHY.oneH }, { cls: 'sec', v: [H(fr(bb, e))], why: WHY.lowerTerms }],
+      sol: [{ t: '\\lim_{x\\to\\pm\\infty}f(x)=\\dfrac{' + a + '}{' + d + '}=' + ftex(yl), ar: 'الدرجتان متساويتان: نقسم المعاملين الرئيسيين' }, { box: 'y=' + ftex(yl) }] };
+  }
+  function t2b(rng) {
+    var p, q, a, b, c; do { p = nz(rng, -6, 6); q = nz(rng, -6, 6); a = ri(rng, 2, 5); b = nz(rng, -5, 5); c = nz(rng, -5, 5); } while (Math.abs(p) === a || Math.abs(q) === Math.abs(c));
+    var num = [p, q], den = [a, b, c];
+    return { stem: STEM_H, e: 'f(x)=\\dfrac{' + polyT(num) + '}{' + polyT(den) + '}', corr: [H(0)], kind: 'h3', ask: 'H', f: '(' + polyP(num) + ')/(' + polyP(den) + ')', key: 'A2b:' + p + ',' + q + ',' + a + ',' + b + ',' + c, hint: HINT.h,
+      cands: [{ cls: 'lead', v: [H(fr(p, a))], why: WHY.leadOnly }, { cls: 'cons', v: [H(fr(q, c))], why: WHY.lowerTerms }, { cls: 'pp', v: [H(p)], why: WHY.leadOnly }, { cls: 'one', v: [H(1)], why: WHY.oneH2 }],
+      sol: [{ t: '\\lim_{x\\to\\pm\\infty}\\dfrac{' + polyT(num) + '}{' + polyT(den) + '}=0', ar: 'درجة البسط (1) أقل من درجة المقام (2) فالنهاية صفر' }, { box: 'y=0' }] };
+  }
+
+  /* ----- المستوى 3 ----- */
+  function t3a(rng) {
+    var a, b, c, r, R; do { a = pick(rng, [1, 1, 2, 3, -1, -2]); r = nz(rng, -4, 4); b = nz(rng, -6, 6); c = nz(rng, -6, 6); R = a * r * r + b * r + c; } while (R === 0 || b + a * r === 0 || a * r === b || b - a * r === 0);
+    var num = [a, b, c], q0 = b + a * r;
+    return { stem: STEM_S, e: 'f(x)=\\dfrac{' + polyT(num) + '}{' + polyT([1, -r]) + '}', corr: [Sl(a, q0)], kind: 's1', ask: 'S', f: '(' + polyP(num) + ')/(' + polyP([1, -r]) + ')', key: 'A3a:' + num.join(',') + ',' + r, hint: HINT.s,
+      cands: [{ cls: 'coef', v: [Sl(a, b)], why: WHY.slantCoefOnly }, { cls: 'sgn', v: [Sl(a, b - a * r)], why: WHY.slantSign }, { cls: 'mono', v: [Sl(a, 0)], why: WHY.slantMono }, { cls: 'dropa', v: [Sl(1, q0)], why: WHY.slantDropA }, { cls: 'rr', v: [Sl(a, r)], why: WHY.slantR }],
+      sol: [{ t: 'q(x)=' + polyT([a, q0]) + ',\\quad R=' + R, ar: 'نقسم البسط على المقام قسمة طويلة: خارج القسمة \\(q(x)\\) والباقي \\(R\\)' }, { t: '\\dfrac{' + R + '}{' + polyT([1, -r]) + '}\\to 0\\quad(x\\to\\pm\\infty)', ar: 'الباقي يؤول إلى صفر عندما تكون \\(x\\) كبيرة' }, { box: 'y=' + polyT([a, q0]) }] };
+  }
+  function t3b(rng) {
+    var m, n; do { m = nz(rng, -5, 5); n = nz(rng, -5, 5); } while (m === n || m === -n);
+    var p = -(m + n), q = m * n, den = [1, p, q];
+    return { stem: STEM_S, e: 'f(x)=\\dfrac{x^{3}}{' + polyT(den) + '}', corr: [Sl(1, -p)], kind: 's2', ask: 'S', f: 'x**3/(' + polyP(den) + ')', key: 'A3b:' + m + ',' + n, hint: HINT.s,
+      cands: [{ cls: 'sgn', v: [Sl(1, p)], why: WHY.slantSignP }, { cls: 'mono', v: [Sl(1, 0)], why: WHY.slantMono }, { cls: 'q', v: [Sl(1, -q)], why: WHY.slantQ }, { cls: 'qq', v: [Sl(1, q)], why: WHY.slantQ }],
+      sol: [{ t: 'x^{3}=(' + polyT(den) + ')(' + polyT([1, -p]) + ')+R(x)', ar: 'نقسم \\(x^3\\) على المقام' }, { t: 'R(x)=' + polyT([p * p - q, p * q]), ar: 'الباقي من درجة أقل من المقام فيؤول الكسر \\(\\dfrac{R(x)}{\\text{المقام}}\\) إلى صفر' }, { box: 'y=' + polyT([1, -p]) }] };
+  }
+
+  /* ----- المستوى 4 (الوزارة) ----- */
+  function t4a(rng) {
+    var m, n; do { m = nz(rng, -5, 5); n = nz(rng, -5, 5); } while (m === n || m === -n);
+    var p = -(m + n), q = m * n, den = [1, p, q];
+    return { stem: STEM_ALL, e: 'f(x)=\\dfrac{x^{3}}{' + polyT(den) + '}', corr: [V(m), V(n), Sl(1, -p)], kind: 'all1', ask: 'ALL', f: 'x**3/(' + polyP(den) + ')', key: 'A4a:' + m + ',' + n, hint: HINT.m,
+      cands: [{ cls: 'noS', v: [V(m), V(n)], why: WHY.noSlant }, { cls: 'sgnS', v: [V(m), V(n), Sl(1, p)], why: WHY.slantSignP }, { cls: 'hor', v: [V(m), V(n), H(0)], why: WHY.horizNotSlant }, { cls: 'sgnV', v: [V(-m), V(-n), Sl(1, -p)], why: WHY.signV }, { cls: 'mono', v: [V(m), V(n), Sl(1, 0)], why: WHY.slantMono }],
+      sol: [{ t: polyT(den) + '=0\\;\\Rightarrow\\;' + facT(m) + facT(n) + '=0\\;\\Rightarrow\\; x=' + m + ',\\ x=' + n, ar: 'خطا التقارب الرأسيان من أصفار المقام (البسط لا ينعدم عندهما)' }, { t: 'x^{3}\\div(' + polyT(den) + ')=' + polyT([1, -p]) + '+\\text{rem.}', ar: 'درجة البسط تزيد واحداً: نقسم فنحصل على الخط المائل' }, { box: setTex([V(m), V(n), Sl(1, -p)]) }] };
+  }
+  function t4b(rng) {
+    var a, b, c; do { a = nz(rng, -6, 6); b = nz(rng, -6, 6); c = nz(rng, -6, 6); } while (a === b || a === c || b === c || a === -c);
+    var num = [1, -(a + b), a * b], den = [1, -(a + c), a * c];
+    return { stem: STEM_V, e: 'f(x)=\\dfrac{' + polyT(num) + '}{' + polyT(den) + '}', corr: [V(c)], kind: 'v3', ask: 'V', f: '(' + polyP(num) + ')/(' + polyP(den) + ')', key: 'A4b:' + a + ',' + b + ',' + c, hint: HINT.v,
+      cands: [{ cls: 'both', v: [V(a), V(c)], why: WHY.holeAndV }, { cls: 'hole', v: [V(a)], why: WHY.holeOnly }, { cls: 'num', v: [V(b)], why: WHY.numRoot }, { cls: 'neg', v: [V(-c)], why: WHY.negC }],
+      sol: [{ t: 'f(x)=\\dfrac{' + facT(a) + facT(b) + '}{' + facT(a) + facT(c) + '}', ar: 'نحلّل البسط والمقام' }, { t: 'x=' + a, ar: 'العامل المشترك يُختصر: ثقب عند هذه القيمة وليس خط تقارب' }, { t: facT(c) + '=0\\;\\Rightarrow\\; x=' + c, ar: 'المقام بعد الاختصار ينعدم عند هذه القيمة والبسط لا ينعدم' }, { box: 'x=' + c }] };
+  }
+
+  /* ----- المستوى 5 (تحدٍّ) ----- */
+  function t5a(rng) {
+    var s = pick(rng, [2, 3, 4]), a = s * s, p, q, b; do { p = nz(rng, -7, 7); q = nz(rng, -6, 6); b = ri(rng, 1, 9); } while (Math.abs(p) === 1 || gcd(Math.abs(p), s * s) === 0);
+    var Apos = fr(Math.abs(p), s), Aneg = fr(-Math.abs(p), s);
+    return { stem: STEM_H.replace('خط التقارب الأفقي', 'خطوط التقارب الأفقية').replace('معادلة', 'معادلات'), e: 'f(x)=\\dfrac{' + polyT([p, q]) + '}{\\sqrt{' + a + 'x^{2}+' + b + '}}', corr: [H(Apos), H(Aneg)], kind: 'h4', ask: 'H', f: '(' + polyP([p, q]) + ')/sqrt(' + a + '*x**2+' + b + ')', key: 'A5a:' + p + ',' + q + ',' + s + ',' + b, hint: HINT.c,
+      cands: [{ cls: 'pos', v: [H(fr(p, s))], why: WHY.onePosSide }, { cls: 'neg', v: [H(fr(-p, s))], why: WHY.onePosSide }, { cls: 'noSq', v: [H(fr(p, a)), H(fr(-p, a))], why: WHY.noSqrt }, { cls: 'drop', v: [H(p), H(-p)], why: WHY.dropRoot }, { cls: 'zero', v: [H(0)], why: WHY.zeroH }],
+      sol: [{ t: 'x\\to+\\infty:\\ \\dfrac{' + polyT([p, q]) + '}{\\sqrt{' + a + 'x^{2}+' + b + '}}', ar: 'عندما \\(x\\) موجبة: \\(\\sqrt{x^2}=x\\)' }, { t: '\\to\\dfrac{' + p + '}{\\sqrt{' + a + '}}=' + ftex(fr(p, s)) }, { t: 'x\\to-\\infty:\\ \\to\\dfrac{' + p + '}{-\\sqrt{' + a + '}}=' + ftex(fr(-p, s)), ar: 'عندما \\(x\\) سالبة: \\(\\sqrt{x^2}=|x|=-x\\) فتنعكس الإشارة' }, { box: setTex([H(Apos), H(Aneg)]) }] };
+  }
+  function t5b(rng) {
+    var p = ri(rng, 2, 6), q, k; do { q = nz(rng, -6, 6); k = ri(rng, 1, 5); } while (Math.abs(q) === k);
+    return { stem: STEM_H.replace('خط التقارب الأفقي', 'خطوط التقارب الأفقية').replace('معادلة', 'معادلات'), e: 'f(x)=\\dfrac{' + p + 'x^{3}' + (q < 0 ? '-' + (-q) : '+' + q) + '}{|x|^{3}+' + k + '}', corr: [H(p), H(-p)], kind: 'h5', ask: 'H', f: '(' + p + '*x**3+(' + q + '))/(Abs(x)**3+' + k + ')', key: 'A5b:' + p + ',' + q + ',' + k, hint: HINT.c,
+      cands: [{ cls: 'pos', v: [H(p)], why: WHY.absOne }, { cls: 'neg', v: [H(-p)], why: WHY.absNeg }, { cls: 'zero', v: [H(0)], why: WHY.absZero }, { cls: 'cst', v: [H(fr(q, k))], why: WHY.absConst }],
+      sol: [{ t: 'x\\to+\\infty:\\ |x|^{3}=x^{3}\\;\\Rightarrow\\;\\lim=' + p, ar: 'عندما \\(x\\) موجبة تتساوى \\(|x|^3\\) و\\(x^3\\)' }, { t: 'x\\to-\\infty:\\ |x|^{3}=-x^{3}\\;\\Rightarrow\\;\\lim=-' + p, ar: 'عندما \\(x\\) سالبة يكون \\(|x|^3=-x^3\\) فتنعكس الإشارة' }, { box: setTex([H(p), H(-p)]) }] };
+  }
+  function t5c(rng) {
+    var d = ri(rng, 2, 6), m = nz(rng, -5, 5), b = nz(rng, -5, 5), c = nz(rng, -5, 5), e = nz(rng, -5, 5), g = nz(rng, -5, 5);
+    if (Math.abs(m) === 1) m = m * 2;
+    var kk = m * d;
+    return { stem: 'إذا كان لمنحنى الدالة التالية خط تقارب أفقي معادلته \\(y=' + m + '\\)، فما قيمة الثابت \\(k\\)؟', e: 'f(x)=\\dfrac{kx^{2}' + (b < 0 ? ' - ' : ' + ') + (Math.abs(b) === 1 ? '' : Math.abs(b)) + 'x' + (c < 0 ? ' - ' : ' + ') + Math.abs(c) + '}{' + polyT([d, e, g]) + '}', corr: [K(kk)], kind: 'k1', ask: 'K', f: '(k*x**2+(' + b + ')*x+(' + c + '))/(' + polyP([d, e, g]) + ')', key: 'A5c:' + m + ',' + d + ',' + b + ',' + c + ',' + e + ',' + g, hint: HINT.h, m: m,
+      cands: [{ cls: 'inv', v: [K(fr(m, d))], why: WHY.kInv }, { cls: 'same', v: [K(m)], why: WHY.kSame }, { cls: 'add', v: [K(m + d)], why: WHY.kAdd }, { cls: 'sub', v: [K(m - d)], why: WHY.kSub }],
+      sol: [{ t: '\\lim_{x\\to\\pm\\infty}f(x)=\\dfrac{k}{' + d + '}', ar: 'الدرجتان متساويتان: النهاية هي نسبة المعاملين الرئيسيين' }, { t: '\\dfrac{k}{' + d + '}=' + m + '\\;\\Rightarrow\\; k=' + kk, ar: 'نساوي النهاية بقيمة خط التقارب' }, { box: 'k=' + kk }] };
+  }
+
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: HINT.v },
+    { id: 2, ar: 'الخطوط الأفقية', hint: HINT.h },
+    { id: 3, ar: 'الخطوط المائلة', hint: HINT.s },
+    { id: 4, ar: 'مستوى الوزارة', hint: HINT.m },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: HINT.c }
+  ];
+  function build(level, rng) {
+    var r = rng();
+    if (level === 1) return r < 0.4 ? t1a(rng) : (r < 0.7 ? t1b(rng) : t1c(rng));
+    if (level === 2) return r < 0.65 ? t2a(rng) : t2b(rng);
+    if (level === 3) return r < 0.55 ? t3a(rng) : t3b(rng);
+    if (level === 4) return r < 0.55 ? t4a(rng) : t4b(rng);
+    return r < 0.4 ? t5a(rng) : (r < 0.75 ? t5b(rng) : t5c(rng));
+  }
+
+  /* تقسيم خطوات الحل الطويلة عند علامة الاستلزام حتى تتسع لعرض الجوال */
+  function splitSol(sol) {
+    var out = [];
+    sol.forEach(function (s) {
+      if (s.box || !s.t || s.t.indexOf('\\;\\Rightarrow\\;') < 0) { out.push(s); return; }
+      var parts = s.t.split('\\;\\Rightarrow\\;');
+      parts.forEach(function (p, i) { var o = { t: i ? '\\Rightarrow\\;' + p : p }; if (i === 0 && s.ar) o.ar = s.ar; out.push(o); });
+    });
+    return out;
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = pickD(rng, t.corr, t.cands); tries++; } while ((dis.gen > 0 || dis.amb > 0) && tries < 300);
+    var correct = { v: t.corr, why: '' };
+    var all = shuffle(rng, [correct].concat(dis));
+    var sol = t.sol.slice();
+    return {
+      band: 22, level: level, rtl: true, lang: 'ar', stem: t.stem, e: t.e,
+      opts: all.map(function (s) { return { t: setTex(s.v), why: s.why || '' }; }),
+      ans: all.indexOf(correct), sol: splitSol(sol), hint: t.hint || LEVELS[level - 1].hint, key: t.key,
+      data: { kind: t.kind, ask: t.ask, f: t.f, m: t.m, correct: setPlain(t.corr), opts: all.map(function (s) { return setPlain(s.v); }), tries: tries, gen: dis.gen, amb: dis.amb }
+    };
+  }
+
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenAsy = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var isCur = l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])); var cls = (isCur && !st.mastered) ? 'cur' : (st.done[l.id] ? 'done' : (isCur ? 'cur' : ''));
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.className += ' back'; li.setAttribute('role', 'button'); li.tabIndex = 0; li.setAttribute('aria-label', 'العودة إلى المستوى ' + l.id);
+        var goBack = function () { st.level = l.id; persist(); newRound(); };
+        li.addEventListener('click', goBack);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goBack(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE || !round || round.idx >= ROUND) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز، فقد تجاوزت ما يُطلب في الامتحان.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && st.skipped < CORE && lvl === CORE) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>
