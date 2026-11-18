@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: أنواع الدراسات (مسح، تجربة، رصدية) | الحادي عشر متقدم | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في تمييز المسح والتجربة والدراسة الرصدية والمجموعة الضابطة والعينة العشوائية، وتتكرر الفكرة بأمثلة جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g11-advanced/mastery-11/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.path li.done.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}.path li.done.cur b{color:var(--navy)}.bk{font-size:13px;color:var(--grey);margin:8px 2px 0}
+.path li.back{cursor:pointer}.path li.back:hover{filter:brightness(.97)}.path li.back:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.skip{margin:10px 0 0}.skip .btn{width:100%}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+.opt .m.pl{overflow:visible;line-height:1.5;font-weight:600;font-size:16px}.st.pl,.corr.pl{direction:ltr;text-align:left;line-height:1.6}.corr.pl{display:block;font-weight:600}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">11</bdi>: أنواع الدراسات (المسح، التجربة، الدراسة الرصدية) والعينة والمجتمع والمجموعة الضابطة<br>أسئلة تتدرّج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="bk" id="bkHint" hidden>اضغط على مستوى منجز ✓ للعودة إليه.</div>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g11-advanced", "band": 11, "label": "البند 11", "gen": "TmGenStudy"};</script>
+<script>
+/* مولّد أسئلة البند 11: أنواع الدراسات (مسح، تجربة، دراسة رصدية)، العينة والمجتمع، المجموعة الضابطة - 11 متقدم.
+   خيارات نصية (حقل p) لأن الإجابات جمل وليست تعابير رياضية. */
+(function (root) {
+  'use strict';
+  function ri(r, lo, hi) { return lo + Math.floor(r() * (hi - lo + 1)); }
+  function pick(r, a) { return a[Math.floor(r() * a.length)]; }
+  function shuffle(r, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: 'المسح: يجيب أفراد عن أسئلة عن آرائهم أو سلوكهم. التجربة: يُوزَّع الأفراد عشوائياً على مجموعتين (تجريبية تتلقى المعالجة وضابطة لا تتلقاها). الدراسة الرصدية: تُقاس البيانات أو تُلاحَظ دون التدخل فيها.' },
+    { id: 2, ar: 'تطبيق', hint: 'حدّد أولاً: هل طُبّقت معالجة على مجموعات موزّعة عشوائياً (تجربة)؟ هل سُئل الأفراد (مسح)؟ أم قيست الظاهرة كما هي (رصدية)؟ ثم حدّد المجموعة أو العينة المطلوبة.' },
+    { id: 3, ar: 'مسائل كلامية', hint: 'حدّد المطلوب: نوع الدراسة المناسب للهدف (يسأل: مسح، يعالج ويقارن: تجربة، يقيس فقط: رصدية)، أو المجموعة الضابطة والتجريبية، أو العينة العشوائية (لكل فرد فرصة متساوية، وأي طريقة تستبعد جزءاً من المجتمع تُحدث انحيازاً).' },
+    { id: 4, ar: 'مستوى الوزارة', hint: 'إن طُلب نوع الدراسة فاعتمد على ما يفعله الباحث (يسأل، يعالج ويقارن، أو يقيس فقط). وإن طُلب تحسينها فابحث عن العيب: هل ينقصها مجموعة ضابطة؟ هل التوزيع غير عشوائي؟ هل العينة منحازة؟ ثم اختر التعديل الذي يعالج هذا العيب تحديداً.' }
+  ];
+  var TY = { s: 'a survey', e: 'an experiment', o: 'an observational study' };
+  var REASON = {
+    s: 'participants are asked questions about their opinions, behaviors, or characteristics',
+    e: 'a treatment is applied to a randomly assigned experimental group and compared with a control group',
+    o: 'data are measured or observed without applying any treatment or changing anything'
+  };
+  var WHYTYPE = {
+    s: 'هذه الدراسة تطرح أسئلة على أفراد عن آرائهم أو سلوكهم، فهي مسح وليست تجربة ولا رصدية.',
+    e: 'في هذه الدراسة تُطبَّق معالجة على مجموعة وتُقارَن بمجموعة ضابطة بعد توزيع عشوائي، فهي تجربة.',
+    o: 'في هذه الدراسة تُقاس البيانات أو تُلاحَظ كما هي دون تطبيق معالجة، فهي دراسة رصدية.'
+  };
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+  /* بنوك السيناريوهات */
+  function scen(r, k) {
+    var n = ri(r, 3, 24) * 10 + ri(r, 0, 1) * 5, m = ri(r, 2, 5) * 10;
+    var S = {
+      s: [
+        'A school counselor asks ' + n + ' randomly chosen students how many hours they sleep on school nights.',
+        'A city office phones ' + n + ' residents and asks which park facilities they would like added.',
+        'A store emails ' + n + ' customers a form asking how satisfied they were with the service.',
+        'A club asks ' + n + ' members which day of the week they prefer for meetings.',
+        'A magazine asks ' + n + ' readers how many books they read in a year.',
+        'A bank asks ' + n + ' account holders how often they use its mobile app.',
+        'A teacher gives ' + n + ' students a questionnaire about how they usually travel to school.',
+        'A radio station calls ' + n + ' listeners to ask which music type they prefer.'
+      ],
+      e: [
+        'A coach randomly assigns ' + n + ' runners to two groups. One group uses a new stretching routine and the other uses its usual routine. Their race times are compared.',
+        'A researcher randomly assigns ' + n + ' plants to two groups. One group gets a new fertilizer and the other gets none. Plant heights are compared after 6 weeks.',
+        'A teacher randomly assigns ' + n + ' students to two groups. One group uses a new study app and the other studies normally. Test scores are compared.',
+        'A scientist randomly assigns ' + n + ' mice to two groups. One group receives a vitamin supplement and the other does not. Their masses are compared.',
+        'A company randomly assigns ' + n + ' workers to two groups. One group works a shorter schedule and the other keeps the usual schedule. Productivity is compared.',
+        'A gardener randomly splits ' + n + ' tomato plants into two groups. One group is given a new plant food and the other is given only water. Yields are compared.',
+        'A doctor randomly assigns ' + n + ' volunteers to two groups. One group takes a new medicine and the other takes a sugar pill. Recovery times are compared.',
+        'A teacher randomly assigns ' + n + ' students to two groups. One group listens to music while studying and the other studies in silence. Scores are compared.'
+      ],
+      o: [
+        'A researcher records the number of birds that visit a feeder each day for ' + m + ' days, without changing anything.',
+        'A scientist measures the heights of ' + n + ' trees in a forest, without affecting how they grow.',
+        'A traffic engineer counts the cars that pass an intersection each hour for ' + m + ' hours.',
+        'A student records the high temperature in her town every day for ' + m + ' days.',
+        'A health worker records the heights and masses of ' + n + ' students at a school as they are.',
+        'A biologist counts the fish in a river each week for ' + m + ' weeks without altering the river.',
+        'An analyst records the daily closing prices of a stock for ' + m + ' days.',
+        'A coach records the number of points a team scores in each of its ' + m + ' games.'
+      ]
+    };
+    var i = ri(r, 0, 7); return { text: S[k][i], key: k + i + ':' + n + ',' + m };
+  }
+  function build(items) { return items; }
+  function finish(q, rng, opts, ans, keyExtra) {
+    /* opts: [{p,why}] المطلوب 4، الأول هو الصحيح */
+    var all = shuffle(rng, opts.map(function (o, i) { return { p: o.p, why: o.why || '', c: i === 0 }; }));
+    var a = 0; all.forEach(function (o, i) { if (o.c) a = i; });
+    return { band: 11, level: q.level, rtl: false, lang: 'en', stem: q.stem, svg: '', e: '', opts: all.map(function (o) { return { t: '', p: o.p, why: o.why }; }), ans: a, sol: q.sol, hint: LEVELS[q.level - 1].hint, key: q.key, data: { remember: q.remember } };
+  }
+
+  /* L1a/L2a: نوع الدراسة المناسب لوصف */
+  function typeQ(rng, level) {
+    var k = pick(rng, ['s', 'e', 'o']), sc = scen(rng, k), others = ['s', 'e', 'o'].filter(function (x) { return x !== k; });
+    var opts = [{ p: cap(TY[k]) + ', because ' + REASON[k] + '.' }];
+    others.forEach(function (o) { opts.push({ p: cap(TY[o]) + ', because ' + REASON[o] + '.', why: WHYTYPE[k] }); });
+    var wr = pick(rng, others);
+    opts.push({ p: cap(TY[k]) + ', because ' + REASON[wr] + '.', why: 'نوع الدراسة صحيح لكن السبب خاطئ؛ ' + WHYTYPE[k] });
+    return finish({ level: level, stem: 'Which type of study is described, and why? <br><i>' + sc.text + '</i>', key: 'T' + level + sc.key, remember: 'ميّز الدراسة بما يفعله الباحث: يسأل (مسح) أو يعالج ويقارن (تجربة) أو يقيس ويلاحظ فقط (رصدية).', sol: [{ p: 'Read what the researcher does: <b>' + REASON[k] + '</b>.' }, { p: 'This matches <b>' + TY[k] + '</b>.' }, { p: 'Answer: ' + cap(TY[k]) + ', because ' + REASON[k] + '.' }] }, rng, opts);
+  }
+  /* تعريفات */
+  var DEFS = [
+    ['In an experiment, the group that does <b>not</b> receive the treatment is called the', 'control group', ['experimental group', 'sample', 'population'], ['المجموعة التي تتلقى المعالجة هي التجريبية، أما التي لا تتلقاها فهي الضابطة.', 'العينة جزء من المجتمع تُدرس منه البيانات، وليست مجموعة المقارنة.', 'المجتمع هو كل الأفراد المراد الدراسة عنهم، وليس مجموعة المقارنة.']],
+    ['In an experiment, the group that receives the treatment is called the', 'experimental group', ['control group', 'sample', 'population'], ['المجموعة الضابطة هي التي لا تتلقى المعالجة.', 'العينة جزء من المجتمع تُدرس منه البيانات.', 'المجتمع هو كل الأفراد المراد الدراسة عنهم.']],
+    ['The entire group of people or objects a study is about is called the', 'population', ['sample', 'control group', 'experimental group'], ['العينة جزء فقط من المجتمع.', 'المجموعة الضابطة تخص التجارب فقط.', 'المجموعة التجريبية تخص التجارب فقط.']],
+    ['The part of a population that is actually studied is called the', 'sample', ['population', 'control group', 'experimental group'], ['المجتمع هو الكل لا الجزء المدروس.', 'المجموعة الضابطة تخص التجارب فقط.', 'المجموعة التجريبية تخص التجارب فقط.']],
+    ['A study in which people answer questions about their opinions or behaviors is a(n)', 'survey', ['experiment', 'observational study', 'control group'], ['التجربة تطبّق معالجة على مجموعات موزّعة عشوائياً.', 'الدراسة الرصدية لا تسأل الأفراد بل تقيس أو تلاحظ.', 'المجموعة الضابطة ليست نوع دراسة بل مجموعة داخل تجربة.']],
+    ['A study in which researchers randomly assign subjects to groups and apply a treatment to one group is a(n)', 'experiment', ['survey', 'observational study', 'sample'], ['المسح يسأل الأفراد ولا يطبّق معالجة.', 'الدراسة الرصدية لا تطبّق معالجة.', 'العينة ليست نوع دراسة بل جزء من المجتمع.']],
+    ['A study in which data are measured or observed without any treatment being applied is a(n)', 'observational study', ['experiment', 'survey', 'control group'], ['التجربة تطبّق معالجة على مجموعة.', 'المسح يعتمد على إجابات الأفراد.', 'المجموعة الضابطة ليست نوع دراسة.']],
+    ['In an experiment, subjects are placed into the groups using', 'random assignment', ['personal choice by the subjects', 'the researcher picking the healthiest subjects', 'whoever arrives first'], ['اختيار الأفراد لمجموعتهم يُحدث انحيازاً.', 'اختيار أفضل الأفراد لمجموعة معينة يُحدث انحيازاً.', 'الأسبقية في الوصول ليست توزيعاً عشوائياً.']]
+  ];
+  function defQ(rng) {
+    var d = pick(rng, DEFS), i = ri(rng, 0, 0);
+    var opts = [{ p: d[1] }].concat(d[2].map(function (x, j) { return { p: x, why: d[3][j] }; }));
+    return finish({ level: 1, stem: d[0] + ' ______.', key: 'D1:' + d[0], remember: 'احفظ المصطلحات: مسح، تجربة، دراسة رصدية، مجتمع، عينة، مجموعة ضابطة، مجموعة تجريبية.', sol: [{ p: d[0] + ' <b>' + d[1] + '</b>.' }, { p: 'Answer: ' + d[1] }] }, rng, opts);
+  }
+  function popQ(rng, level) {
+    var C = [['all high school students in a state', 'students from a few schools'], ['all drivers in a city', 'drivers stopped at one checkpoint'], ['all customers of a store chain', 'customers at one branch'], ['all members of a gym franchise', 'members at one location'], ['all residents of a town', 'residents of one street'], ['all employees of a company', 'employees from one department']];
+    var c = pick(rng, C), n = ri(rng, 5, 80) * 10, ask = pick(rng, ['population', 'sample']);
+    var tgt = ask === 'population' ? c[0] : c[1], oth = ask === 'population' ? c[1] : c[0];
+    var wrongD = ask === 'population' ? 'The sample, because it is the part that is studied.' : 'The population, because it includes everyone the study is about.';
+    var opts = [{ p: 'The ' + ask + ': ' + tgt }, { p: 'The ' + (ask === 'population' ? 'sample' : 'population') + ': ' + oth, why: ask === 'population' ? 'العينة هي الجزء المدروس؛ المجتمع هو الكل الذي يراد تعميم النتائج عليه.' : 'المجتمع هو الكل؛ العينة هي الجزء الذي جُمعت منه البيانات فعلاً.' }, { p: 'The control group: ' + tgt, why: 'لا توجد معالجة ولا مجموعة مقارنة هنا؛ المطلوب المجتمع أو العينة.' }, { p: 'The experimental group: ' + oth, why: 'لا توجد معالجة هنا؛ الدراسة مسح، والمطلوب المجتمع أو العينة.' }];
+    return finish({ level: level, stem: 'A researcher wants to learn about ' + c[0] + '. A survey is given to ' + n + ' of them: ' + c[1] + '. Which describes the ' + ask + ' in this study?', key: 'P' + level + ':' + c[0] + ',' + n + ',' + ask, remember: 'المجتمع هو الكل المراد الدراسة عنه، والعينة جزء منه تُجمع منه البيانات.', sol: [{ p: 'The population is everyone the study is about: <b>' + c[0] + '</b>.' }, { p: 'The sample is the part actually studied: <b>' + c[1] + '</b>.' }, { p: 'Answer: the ' + ask + ': ' + tgt }] }, rng, opts);
+  }
+  function groupQ(rng, level) {
+    var G = [['a new tutoring program', 'tutoring', 'students', 'test scores'], ['a new vitamin supplement', 'the supplement', 'volunteers', 'energy levels'], ['a new fertilizer', 'the fertilizer', 'plants', 'plant heights'], ['a new training routine', 'the routine', 'athletes', 'sprint times'], ['a new sleep schedule', 'the schedule', 'workers', 'productivity']];
+    var g = pick(rng, G), n = ri(rng, 3, 12) * 10, ask = pick(rng, ['control', 'experimental']);
+    var ans = ask === 'control' ? 'The ' + n / 2 + ' ' + g[2] + ' that do not receive ' + g[1] : 'The ' + n / 2 + ' ' + g[2] + ' that receive ' + g[1];
+    var oth = ask === 'control' ? 'The ' + n / 2 + ' ' + g[2] + ' that receive ' + g[1] : 'The ' + n / 2 + ' ' + g[2] + ' that do not receive ' + g[1];
+    var opts = [{ p: ans }, { p: oth, why: ask === 'control' ? 'هذه المجموعة التجريبية؛ الضابطة هي التي لا تتلقى المعالجة.' : 'هذه المجموعة الضابطة؛ التجريبية هي التي تتلقى المعالجة.' }, { p: 'All ' + n + ' ' + g[2] + ' together', why: 'هذا مجموع المجموعتين وهو العينة كلها وليس مجموعة بعينها.' }, { p: 'The ' + g[2] + ' chosen because they were the easiest to reach', why: 'سهولة الوصول ليست معيار التقسيم؛ التقسيم يتم بالتوزيع العشوائي إلى مجموعتين.' }];
+    return finish({ level: level, stem: 'To test ' + g[0] + ', ' + n + ' ' + g[2] + ' are randomly assigned to two equal groups. The researchers compare the ' + g[3] + ' of the two groups. Which is the ' + ask + ' group?', key: 'G' + level + ':' + g[0] + ',' + n + ',' + ask, remember: 'التجريبية تتلقى المعالجة، والضابطة تُقارَن بها ولا تتلقاها.', sol: [{ p: 'The group that gets the treatment is the <b>experimental</b> group.' }, { p: 'The group that does not get it is the <b>control</b> group.' }, { p: 'Answer: ' + ans }] }, rng, opts);
+  }
+  function goalQ(rng, level) {
+    var GL = [
+      ['determine whether a new teaching method raises test scores', 'e'], ['find out which snack students prefer in the cafeteria', 's'], ['record how the number of visitors at a museum changes during a month', 'o'],
+      ['determine whether a new fertilizer helps plants grow taller', 'e'], ['learn what percent of residents support a new bus route', 's'], ['record the number of cars that use a bridge each day', 'o'],
+      ['find whether a new medicine lowers recovery time', 'e'], ['learn how many hours teenagers spend on homework', 's'], ['measure the wind speed on a hill every hour', 'o'],
+      ['test whether music helps students memorize words better', 'e'], ['find the opinions of customers about a new menu', 's'], ['track the water level of a lake each week without changing it', 'o']
+    ];
+    var g = pick(rng, GL), k = g[1], gi = GL.indexOf(g), others = ['s', 'e', 'o'].filter(function (x) { return x !== k; });
+    var opts = [{ p: cap(TY[k]) }].concat(others.map(function (o) { return { p: cap(TY[o]), why: 'الهدف هنا ' + (k === 's' ? 'معرفة آراء أو سلوك أفراد، فالمناسب مسح.' : k === 'e' ? 'اختبار أثر معالجة بالمقارنة مع مجموعة ضابطة، فالمناسب تجربة.' : 'قياس ظاهرة كما هي دون تدخل، فالمناسب دراسة رصدية.') }; }));
+    opts.push({ p: 'A study of only one person, because it is quicker', why: 'فرد واحد عينة صغيرة جداً لا تمثل المجتمع؛ والهدف المذكور يحدد نوع الدراسة المناسب.' });
+    opts = opts.slice(0, 4);
+    return finish({ level: level, stem: 'A researcher wants to ' + g[0] + '. Which type of study is most appropriate?', key: 'Q' + level + ':' + gi, remember: 'الهدف يحدد الدراسة: اختبار أثر معالجة ← تجربة، آراء ← مسح، قياس دون تدخل ← رصدية.', sol: [{ p: 'Goal: <b>' + g[0] + '</b>.' }, { p: 'This requires ' + TY[k] + '.' }, { p: 'Answer: ' + cap(TY[k]) }] }, rng, opts);
+  }
+  function biasQ(rng, level) {
+    var SC = [
+      ['school', 'students', 'the student ID list'], ['town', 'residents', 'the list of registered residents'], ['club', 'members', 'the membership roster'], ['company', 'employees', 'the employee directory']
+    ];
+    var s = pick(rng, SC), N = ri(rng, 6, 40) * 50, n = ri(rng, 3, 9) * 10;
+    var good = 'Use a random number generator to select ' + n + ' ' + s[1] + ' from ' + s[2] + '.';
+    var opts = [{ p: good }, { p: 'Ask the first ' + n + ' ' + s[1] + ' you happen to meet today.', why: 'الأوائل وصولاً لا يمثلون الجميع؛ هذه عينة منحازة.' }, { p: 'Ask ' + n + ' ' + s[1] + ' who volunteer after an announcement.', why: 'المتطوعون غالباً أكثر اهتماماً بالموضوع؛ العينة المتطوعة منحازة.' }, { p: 'Ask ' + n + ' ' + s[1] + ' who are friends of the researcher.', why: 'الأصدقاء لا يمثلون بقية المجتمع؛ هذه عينة ميسّرة (متاحة) لا عشوائية.' }];
+    return finish({ level: level, stem: 'A researcher wants to survey a random sample of the ' + N + ' ' + s[1] + ' of a ' + s[0] + '. Which method is most likely to produce a random sample?', key: 'B' + level + ':' + s[0] + ',' + N + ',' + n, remember: 'العينة العشوائية: لكل فرد فرصة متساوية، كاختيار الأسماء بمولّد أرقام عشوائية من قائمة كاملة.', sol: [{ p: 'A random sample gives every member of the population an equal chance of being chosen.' }, { p: 'Only the random number generator uses the full list.' }, { p: 'Answer: ' + good }] }, rng, opts);
+  }
+  function flawQ(rng, level) {
+    var F = [
+      ['A researcher gives a new energy drink to ', ' athletes and records their race times. No other group is used.', 'Add a control group that does not receive the energy drink.', ['Give the energy drink to more athletes.', 'Ask the athletes whether they like the drink.', 'Record the race times only for the fastest athletes.'], ['زيادة العدد لا تعالج غياب مجموعة المقارنة.', 'السؤال عن الرأي يحوّل الدراسة إلى مسح ولا يختبر الأثر.', 'تسجيل أسرع الرياضيين فقط يزيد الانحياز.']],
+      ['A teacher lets ', ' students choose between a new study method and the usual one. Their test scores are then compared.', 'Assign the students to the two methods at random.', ['Let the students choose again after the test.', 'Compare only the students who scored highest.', 'Give the new method to the whole class.'], ['إعادة الاختيار لا تزيل أثر اختيار الطلبة لمجموعتهم.', 'مقارنة الطلبة الأعلى درجة فقط تضيف انحيازاً.', 'إعطاء الجميع الطريقة الجديدة يلغي المجموعة الضابطة.']],
+      ['A school surveys ', ' students about the cafeteria, but only asks students who are standing in the cafeteria line.', 'Select the students at random from the whole school roster.', ['Survey the students in the line again.', 'Survey only the students who eat lunch every day.', 'Survey more students from the same line.'], ['تكرار الاستطلاع في الطابور نفسه لا يغيّر الانحياز.', 'من يتناولون الغداء في المقصف كل يوم فئة واحدة وليست كل الطلبة.', 'زيادة عدد الطلبة من الطابور نفسه تُبقي العينة منحازة.']],
+      ['A researcher asks ', ' people, "Don\'t you agree that the park needs more trees?" and reports the percent who agree.', 'Reword the question so that it does not lead people toward one answer.', ['Ask the same question to the same people twice.', 'Report only the people who agree.', 'Ask the question only in the park.'], ['تكرار السؤال نفسه يُبقي الانحياز في الصياغة.', 'عرض الموافقين فقط يزيد الانحياز.', 'السؤال في الحديقة فقط ينتقي مجموعة منحازة.']]
+    ];
+    var f = pick(rng, F), n = ri(rng, 3, 30) * 10, fi = F.indexOf(f);
+    var opts = [{ p: f[2] }].concat(f[3].map(function (x, j) { return { p: x, why: f[4][j] }; }));
+    return finish({ level: level, stem: f[0] + n + f[1] + ' Which change would best improve the study?', key: 'F' + level + ':' + fi + ',' + n, remember: 'لكل عيب علاجه: غياب الضابطة ← أضفها، توزيع غير عشوائي ← وزّع عشوائياً، عينة منحازة ← اختر عشوائياً، سؤال موجِّه ← أعد صياغته.', sol: [{ p: 'Find the flaw in the design of the study.' }, { p: 'Choose the change that fixes exactly that flaw.' }, { p: 'Answer: ' + f[2] }] }, rng, opts);
+  }
+  function make(level, rng) {
+    rng = rng || Math.random; var q, r = rng();
+    if (level === 1) q = r < 0.4 ? typeQ(rng, 1) : (r < 0.8 ? defQ(rng) : popQ(rng, 1));
+    else if (level === 2) q = r < 0.35 ? typeQ(rng, 2) : (r < 0.65 ? groupQ(rng, 2) : (r < 0.85 ? goalQ(rng, 2) : popQ(rng, 2)));
+    else if (level === 3) q = r < 0.4 ? biasQ(rng, 3) : (r < 0.7 ? goalQ(rng, 3) : groupQ(rng, 3));
+    else q = r < 0.55 ? flawQ(rng, 4) : (r < 0.8 ? biasQ(rng, 4) : typeQ(rng, 4));
+    return q;
+  }
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenStudy = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3, CORE = 4;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  st.skipped = (st.skipped >= 1 && st.skipped < 4) ? (st.skipped | 0) : 0;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    var hb = $('#bkHint'); if (hb) hb.hidden = !LV.some(function (l) { return st.done[l.id] && !(l.id === st.level && !st.mastered); });
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      var isCur = l.id === st.level && !st.mastered;
+      if (isCur) { if (cls.indexOf('cur') < 0) li.className += ' cur'; li.setAttribute('aria-current', 'step'); }
+      if (st.done[l.id] && !(l.id === st.level && !st.mastered)) {
+        li.className += ' back'; li.setAttribute('role', 'button'); li.tabIndex = 0; li.setAttribute('aria-label', 'العودة إلى المستوى ' + l.id + ': ' + l.ar + ' (منجز)');
+        var go = function () { st.level = l.id; st.skipped = 0; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); go(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var b = $('#skipBox'); if (!b) return; b.innerHTML = ''; b.hidden = true;
+    var btn = null;
+    if (!st.mastered && st.level < CORE) {
+      btn = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←');
+      btn.addEventListener('click', function () { if (st.level >= CORE) return; st.skipped = st.level; st.level = CORE; persist(); window.scrollTo(0, 0); newRound(); });
+    } else if (!st.mastered && st.skipped && st.level === CORE && !st.done[CORE] && (+st.fails[CORE] || 0) >= 1) {
+      var n0 = st.skipped;
+      btn = h('button', 'btn ghost', 'ارجع إلى المستوى ' + n0 + ' لتتدرّب أكثر');
+      btn.addEventListener('click', function () { st.level = n0; st.skipped = 0; persist(); window.scrollTo(0, 0); newRound(); });
+    }
+    if (btn) { btn.type = 'button'; b.appendChild(btn); b.hidden = false; }
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : (s.p != null ? note + '<div class="st pl">' + s.p + '</div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>');
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.svg) stage.appendChild(h('div', 'fig', q.svg));
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span>' + (o.p != null ? '<span class="m pl">' + o.p + '</span>' : '<span class="m">\\(' + o.t + '\\)</span>'));
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span>' + (q.opts[q.ans].p != null ? '<span class="corr pl">' + q.opts[q.ans].p + '</span>' : '<span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>');
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0; if (lvl < CORE) st.skipped = 0;
+      if (lvl < 4) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; st.skipped = 0; persist(); window.scrollTo(0, 0); newRound(); });
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; renderSkip(); typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>

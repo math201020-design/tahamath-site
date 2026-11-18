@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: الاحتمال التجريبي والاحتمال النظري | الحادي عشر متقدم | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في حساب الاحتمال التجريبي والنظري والعدد المتوقع والمقارنة بينهما، وتتكرر الفكرة بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g11-advanced/mastery-12/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.path li.done.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}.path li.done.cur b{color:var(--navy)}.bk{font-size:13px;color:var(--grey);margin:8px 2px 0}
+.path li.back{cursor:pointer}.path li.back:hover{filter:brightness(.97)}.path li.back:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.skip{margin:10px 0 0}.skip .btn{width:100%}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.fig{direction:ltr;text-align:center;margin:8px 0;color:var(--navyd)}.fig svg{max-width:100%;height:auto}.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+.opt .m.pl{overflow:visible;line-height:1.5;font-weight:600;font-size:16px}.st.pl,.corr.pl{direction:ltr;text-align:left;line-height:1.6}.corr.pl{display:block;font-weight:600}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">12</bdi>: الاحتمال التجريبي والاحتمال النظري<br>أسئلة تتدرّج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="bk" id="bkHint" hidden>اضغط على مستوى منجز ✓ للعودة إليه.</div>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g11-advanced", "band": 12, "label": "البند 12", "gen": "TmGenProb"};</script>
+<script>
+/* مولّد أسئلة البند 12: الاحتمال التجريبي والاحتمال النظري - 11 متقدم. نصوص إنجليزية بنمط الوزارة، تشخيصات عربية. */
+(function (root) {
+  'use strict';
+  function ri(r, lo, hi) { return lo + Math.floor(r() * (hi - lo + 1)); }
+  function pick(r, a) { return a[Math.floor(r() * a.length)]; }
+  function shuffle(r, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a || 1; }
+  function F(n, d) { var g = gcd(n, d); n /= g; d /= g; if (d < 0) { n = -n; d = -d; } return { n: n, d: d, v: n / d, t: d === 1 ? String(n) : '\\dfrac{' + n + '}{' + d + '}' }; }
+  function N(x) { return { n: x, d: 1, v: x, t: String(x) }; }
+  function P(x) { var s = Math.round(x * 10 + 1e-9) / 10; return { n: 0, d: 1, v: s / 100, t: String(s) + '\\%' }; }
+  function pickD(r, c, cands) {
+    var out = [], used = {}, vs = [c.v], ts = [c.t];
+    shuffle(r, cands).forEach(function (x) {
+      if (out.length >= 3 || used[x.cls] || !isFinite(x.f.v) || x.f.v < 0) return;
+      if (c.v < 1 && c.t.indexOf('%') < 0 && (x.f.v >= 1 || x.f.v <= 0)) return;
+      if (c.d === 1 && c.t.indexOf('%') < 0 && !Number.isInteger(x.f.v)) return;
+      if (x.f.t.indexOf('%') > 0 && (x.f.v <= 0.0005 || x.f.v > 1.0005)) return;
+      for (var i = 0; i < vs.length; i++) if (Math.abs(vs[i] - x.f.v) < 1e-9 || ts[i] === x.f.t) return;
+      used[x.cls] = 1; vs.push(x.f.v); ts.push(x.f.t); out.push(x);
+    });
+    return out;
+  }
+  var W = {
+    compOld: 'حسبتَ احتمال الحدث المعاكس (غير المطلوب)؛ المطلوب عدد مرات الحدث نفسه مقسوماً على العدد الكلي.',
+    comp: 'حسبتَ احتمال الحدث المعاكس (غير المطلوب)؛ المطلوب عدد مرات الحدث نفسه مقسوماً على العدد الكلي.',
+    compN: 'حسبتَ العدد المتوقع للحدث المعاكس (غير المطلوب)؛ المطلوب الحدث نفسه.',
+    odds: 'قسمتَ على عدد النتائج الأخرى فقط؛ المقام في الاحتمال هو العدد الكلي للمحاولات أو للنتائج الممكنة.',
+    flip: 'قلبتَ الكسر؛ الاحتمال = الحدث ÷ العدد الكلي وليس العكس.',
+    trials: 'اضرب الاحتمال في عدد المحاولات الجديدة؛ لا تستعمل العدد القديم للمحاولات.',
+    diffsw: 'الفرق يُقاس بين القيمتين كلتيهما (قيمة مطلقة)؛ لا تكتفِ بإحداهما.',
+    cnt: 'استعملتَ عدد مرات الظهور بدل احتمالها؛ الاحتمال يكون نسبة إلى العدد الكلي.',
+    mix: 'خلطتَ بين الاحتمال التجريبي (من نتائج التجربة) والنظري (من النتائج الممكنة المتساوية الفرصة).'
+  };
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: 'الاحتمال التجريبي = عدد مرات وقوع الحدث ÷ العدد الكلي للمحاولات. والنظري = عدد النتائج المطلوبة ÷ عدد النتائج الممكنة كلها (متساوية الفرصة).' },
+    { id: 2, ar: 'تطبيق', hint: 'العدد المتوقع = الاحتمال × عدد المحاولات. احسب الاحتمال أولاً (نظرياً من النتائج الممكنة، أو تجريبياً من البيانات) ثم اضربه في عدد المحاولات المطلوب.' },
+    { id: 3, ar: 'مسائل كلامية', hint: 'اقرأ هل المعطى نتائج تجربة (احتمال تجريبي) أم نتائج ممكنة متساوية الفرصة (احتمال نظري)، ثم احسب المطلوب وقرّب النتيجة إن لزم.' },
+    { id: 4, ar: 'مستوى الوزارة', hint: 'احسب الاحتمال النظري والتجريبي كلاً على حدة، ثم أجرِ المقارنة المطلوبة (الفرق بينهما أو العدد المتوقع مقابل الفعلي) بترتيب خطواتها.' }
+  ];
+  var OBJ = [['spinner', 'lands on', 'spins'], ['number cube', 'shows', 'rolls'], ['bag of marbles', 'gives', 'draws']];
+
+  function t1a(r) { /* تجريبي من عدد */
+    var tot = ri(r, 20, 80), c = ri(r, 3, tot - 4), o = pick(r, ['blue', 'red', 'green', 'yellow']), k = pick(r, ['spinner', 'bag']);
+    var ans = F(c, tot);
+    if (ans.d === tot && false) return null;
+    var cands = [
+      { cls: 'comp', f: F(tot - c, tot), why: W.comp }, { cls: 'odds', f: F(c, tot - c), why: W.odds }, { cls: 'flip', f: F(tot, c), why: W.flip },
+      { cls: 'cnt', f: N(c), why: W.cnt }, { cls: 'mis1', f: F(c + 1, tot), why: 'عددتَ مرة واحدة زائدة؛ البسط هو عدد مرات الحدث المسجلة تماماً.' }, { cls: 'mis2', f: F(c, tot + 1), why: 'المقام هو عدد المحاولات الفعلي ' + tot + ' ولا يُزاد عليه.' }, { cls: 'oth', f: F(tot - c, c), why: 'جعلتَ البسط عدد المرات غير المطلوبة والمقام عدد المرات المطلوبة؛ البسط يجب أن يكون عدد مرات الحدث نفسه والمقام العدد الكلي.' }];
+    var stem = k === 'spinner' ? 'A spinner is spun ' + tot + ' times and lands on ' + o + ' ' + c + ' times. What is the experimental probability of landing on ' + o + '?' : 'A student draws a marble from a bag, records its color, and returns it. After ' + tot + ' draws, a ' + o + ' marble was drawn ' + c + ' times. What is the experimental probability of drawing a ' + o + ' marble?';
+    return { stem: stem, ans: ans, cands: cands, key: 'L1a:' + tot + ',' + c + ',' + o + ',' + k,
+      sol: [{ t: 'P(' + o + ')=\\dfrac{\\text{event count}}{\\text{trials}}' }, { t: 'P=\\dfrac{' + c + '}{' + tot + '}' + (ans.d === tot ? '' : '=' + ans.t) }, { box: 'P=' + ans.t }], remember: 'الاحتمال التجريبي = مرات وقوع الحدث ÷ عدد المحاولات الكلي.' };
+  }
+  function t1b(r) { /* نظري: أكياس */
+    var cs = [ri(r, 2, 9), ri(r, 2, 9), ri(r, 2, 9)], nm = ['red', 'blue', 'green'], i = ri(r, 0, 2), tot = cs[0] + cs[1] + cs[2], c = cs[i];
+    var ans = F(c, tot);
+    var other = tot - c;
+    var cands = [{ cls: 'comp', f: F(other, tot), why: W.comp }, { cls: 'odds', f: F(c, other), why: W.odds }, { cls: 'flip', f: F(tot, c), why: W.flip },
+      { cls: 'cnt', f: N(c), why: W.cnt }, { cls: 'mis1', f: F(c + 1, tot), why: 'عددتَ كرة زائدة؛ البسط هو عدد كرات اللون المطلوب تماماً.' }, { cls: 'mis2', f: F(c, tot + 1), why: 'المقام هو العدد الكلي للكرات ' + tot + ' ولا يُزاد عليه.' }, { cls: 'one3', f: F(1, 3), why: 'لا تفترض أن الألوان الثلاثة متساوية الاحتمال؛ العدد داخل الكيس مختلف لكل لون.' }];
+    return { stem: 'A bag contains ' + cs[0] + ' red, ' + cs[1] + ' blue, and ' + cs[2] + ' green marbles. One marble is chosen at random. What is the theoretical probability that the marble is ' + nm[i] + '?', ans: ans, cands: cands, key: 'L1b:' + cs.join(',') + ',' + i,
+      sol: [{ t: 'P(\\text{' + nm[i] + '})=\\dfrac{\\text{favorable}}{\\text{possible}}' }, { t: '\\text{total}=' + cs[0] + '+' + cs[1] + '+' + cs[2] + '=' + tot }, { box: 'P=' + ans.t }], remember: 'الاحتمال النظري = النتائج المطلوبة ÷ كل النتائج الممكنة المتساوية الفرصة.' };
+  }
+  function t1c(r) { /* نظري: مكعب */
+    var sets = [['an even number', [2, 4, 6]], ['a number greater than 4', [5, 6]], ['a number less than 3', [1, 2]], ['a multiple of 3', [3, 6]], ['a prime number', [2, 3, 5]], ['a number greater than 2', [3, 4, 5, 6]]];
+    var s = pick(r, sets), c = s[1].length, ans = F(c, 6);
+    var cands = [{ cls: 'comp', f: F(6 - c, 6), why: W.comp }, { cls: 'odds', f: F(c, 6 - c), why: W.odds }, { cls: 'flip', f: F(6, c), why: W.flip }, { cls: 'cnt', f: N(c), why: W.cnt }, { cls: 'mis1', f: F(c + 1, 6), why: 'عددتَ نتيجة زائدة؛ عدّ النتائج المطلوبة بدقة.' }, { cls: 'mis2', f: F(c, 5), why: 'للمكعب 6 أوجه وليس 5؛ المقام هو 6.' }, { cls: 'mis3', f: F(c, 7), why: 'للمكعب 6 أوجه وليس 7؛ المقام هو 6.' }, { cls: 'half', f: F(1, 2), why: 'لا تفترض أن الاحتمال \\(\\dfrac{1}{2}\\) دائماً؛ عدّ النتائج المطلوبة من بين النتائج الست.' }];
+    return { stem: 'A fair number cube with faces numbered 1 through 6 is rolled once. What is the theoretical probability of rolling ' + s[0] + '?', ans: ans, cands: cands, key: 'L1c:' + s[0],
+      sol: [{ t: '\\text{favorable}=' + s[1].join(',') + '\\Rightarrow ' + c }, { t: '\\text{all outcomes}=6' }, { box: 'P=' + ans.t }], remember: 'عدّ النتائج المطلوبة ثم اقسم على 6.' };
+  }
+  function t2a(r) { /* العدد المتوقع نظري */
+    var cs = [ri(r, 1, 6), ri(r, 2, 8)], tot = cs[0] + cs[1], n = tot * ri(r, 3, 14), exp = n * cs[0] / tot;
+    var a = ['red', 'blue'], ans = N(exp);
+    var cands = [{ cls: 'comp', f: N(n * cs[1] / tot), why: W.compN }, { cls: 'prob', f: F(cs[0], tot), why: 'هذا هو الاحتمال فقط؛ العدد المتوقع = الاحتمال × عدد المحاولات.' }, { cls: 'cnt', f: N(cs[0] * n), why: 'ضربتَ عدد الكرات في عدد المحاولات دون القسمة على العدد الكلي للكرات.' }, { cls: 'sum', f: N(n / cs[0]), why: 'قسمتَ عدد المحاولات على عدد الكرات الحمراء؛ الصحيح ضرب الاحتمال \\(\\dfrac{' + cs[0] + '}{' + tot + '}\\) في ' + n + '.' }, { cls: 'ot', f: N(n - cs[0]), why: 'ليس العدد المتوقع هو عدد المحاولات ناقص عدد الكرات؛ العدد المتوقع = الاحتمال × عدد المحاولات.' }];
+    return { stem: 'A bag has ' + cs[0] + ' red marble' + (cs[0] === 1 ? '' : 's') + ' and ' + cs[1] + ' blue marbles. A marble is drawn at random, its color is recorded, and it is returned. If this is done ' + n + ' times, how many times is a red marble expected to be drawn?', ans: ans, cands: cands, key: 'L2a:' + cs.join(',') + ',' + n,
+      sol: [{ t: 'P(\\text{red})=\\dfrac{' + cs[0] + '}{' + tot + '}' }, { t: '\\text{expected}=P\\times n=\\dfrac{' + cs[0] + '}{' + tot + '}\\times ' + n }, { box: String(exp) }], remember: 'العدد المتوقع = الاحتمال × عدد المحاولات.' };
+  }
+  function t2b(r) { /* العدد المتوقع تجريبي */
+    var tot = ri(r, 2, 8) * 10, c = ri(r, 2, tot / 10) * 5 > tot ? ri(r, 3, 9) : ri(r, 3, tot - 5), n = tot * ri(r, 2, 6) * 5, o = pick(r, ['heads', 'blue', 'a hit']);
+    if (c >= tot) c = tot - 3;
+    var exp = n * c / tot, ans = N(exp);
+    if (exp !== Math.round(exp)) { var g = gcd(c, tot); n = (tot / g) * ri(r, 3, 12); exp = n * c / tot; ans = N(exp); }
+    var cands = [{ cls: 'comp', f: N(n - exp), why: W.compN }, { cls: 'prob', f: F(c, tot), why: 'هذا هو الاحتمال التجريبي فقط؛ المطلوب العدد المتوقع في ' + n + ' محاولة.' }, { cls: 'old', f: N(c), why: W.trials }, { cls: 'cnt', f: N(c * n), why: 'لا تضرب عدد مرات الحدث في عدد المحاولات الجديدة؛ اضرب نسبة المرات إلى المحاولات (الاحتمال).' }, { cls: 'div', f: n % c === 0 ? N(n / c) : N(Infinity), why: 'قسمتَ عدد المحاولات على عدد مرات الحدث؛ العدد المتوقع = الاحتمال × عدد المحاولات.' }];
+    return { stem: 'In a game, a player scored ' + c + ' times in ' + tot + ' attempts. Based on this experimental probability, about how many times should the player be expected to score in ' + n + ' attempts?', ans: ans, cands: cands, key: 'L2b:' + c + ',' + tot + ',' + n,
+      sol: [{ t: 'P=\\dfrac{' + c + '}{' + tot + '}' }, { t: '\\text{expected}=\\dfrac{' + c + '}{' + tot + '}\\times ' + n }, { box: String(exp) }], remember: 'استعمل الاحتمال التجريبي لتتوقع عدد المرات في عدد محاولات جديد.' };
+  }
+  function t2c(r) { /* فرق نظري تجريبي (كسور) */
+    var s = pick(r, [['an even number', 3], ['a number greater than 4', 2], ['a multiple of 3', 2], ['a number less than 3', 2]]), tot = ri(r, 3, 14) * 5, c = ri(r, 4, tot - 4);
+    var th = F(s[1], 6), ex = F(c, tot), d = Math.abs(th.v - ex.v);
+    if (d < 1e-9) return null;
+    var num = Math.abs(s[1] * tot - 6 * c), den = 6 * tot, ans = F(num, den);
+    var cands = [{ cls: 'sum', f: F(s[1] * tot + 6 * c, den), why: 'الفرق طرح وليس جمعاً.' }, { cls: 'num', f: F(Math.abs(s[1] - c), 6), why: 'لا تطرح البسطين مباشرة؛ حوّل الكسرين إلى مقام مشترك أولاً.' }, { cls: 'comp', f: F(tot - c, tot), why: 'هذا احتمال الحدث المعاكس وليس الفرق.' }, { cls: 'th', f: th, why: 'هذا الاحتمال النظري وحده؛ المطلوب الفرق بين النظري والتجريبي.' }, { cls: 'ex', f: ex, why: 'هذا الاحتمال التجريبي وحده؛ المطلوب الفرق بينه وبين الاحتمال النظري.' }];
+    return { stem: 'A number cube is rolled ' + tot + ' times and shows ' + s[0] + ' on ' + c + ' of the rolls. What is the difference between the experimental probability and the theoretical probability of rolling ' + s[0] + '? (Give the positive difference.)', ans: ans, cands: cands, key: 'L2c:' + s[0] + ',' + tot + ',' + c,
+      sol: [{ t: 'P_{\\text{theo}}=' + th.t }, { t: 'P_{\\text{exp}}=\\dfrac{' + c + '}{' + tot + '}' + (ex.d === tot ? '' : '=' + ex.t) }, { t: '\\left|' + th.t + '-' + ex.t + '\\right|' }, { box: ans.t }], remember: 'الفرق = |النظري − التجريبي| بعد توحيد المقامات.' };
+  }
+  function t3a(r) { /* مستطلع/لاعب: توقع مع تقريب */
+    var item = pick(r, [['A basketball player made', 'free throws', 'out of', 'attempts', 'about how many free throws should the player make in'], ['A quality inspector found', 'defective phone cases', 'in a sample of', 'cases', 'about how many defective cases should be expected in a shipment of']]);
+    var tot = ri(r, 4, 20) * 5, c = ri(r, 3, tot - 8), n = ri(r, 6, 30) * 25 + ri(r, 0, 1) * 15, raw = n * c / tot, exp = Math.round(raw);
+    if (Math.abs(raw - exp) < 0.05 && false) return null;
+    if (Math.abs(raw - Math.floor(raw) - 0.5) < 1e-9) return null;
+    var ans = N(exp);
+    var cands = [{ cls: 'comp', f: N(Math.round(n - raw)), why: W.compN }, { cls: 'old', f: N(c), why: W.trials }, { cls: 'flip', f: N(Math.round(n * tot / c)), why: W.flip }, { cls: 'cnt', f: N(c * n), why: 'ضربتَ عدد المرات في عدد المحاولات الجديدة دون القسمة على العدد الكلي ' + tot + '؛ العدد المتوقع = \\(\\dfrac{' + c + '}{' + tot + '}\\times ' + n + '\\).' }, { cls: 'odds', f: N(Math.round(n * c / (tot - c))), why: W.odds }];
+    return { stem: item[0] + ' ' + c + ' ' + item[1] + ' ' + item[2] + ' ' + tot + ' ' + item[3] + '. Based on these results, ' + item[4] + ' ' + n + ' ' + item[3] + '? Round to the nearest whole number.', ans: ans, cands: cands, key: 'L3a:' + c + ',' + tot + ',' + n + ',' + item[1],
+      sol: [{ t: 'P=\\dfrac{' + c + '}{' + tot + '}' }, { t: '\\text{expected}=\\dfrac{' + c + '}{' + tot + '}\\times ' + n + '\\approx ' + raw.toFixed(2) }, { box: String(exp) }], remember: 'العدد المتوقع = الاحتمال التجريبي × العدد الجديد، ثم قرّب.' };
+  }
+  function t3b(r) { /* نسبة مئوية: تجريبي */
+    var tot = pick(r, [20, 25, 40, 50, 100, 200]), c = ri(r, 3, tot - 3), pc = c / tot * 100, ans = P(pc, 1);
+    var cands = [{ cls: 'comp', f: P(100 - pc, 1), why: W.comp }, { cls: 'cnt', f: P(c, 1), why: 'عدد المرات ليس نسبة مئوية؛ اقسمه على العدد الكلي ثم اضرب في 100.' }, { cls: 'flip', f: P(tot / c * 100, 1), why: W.flip }, { cls: 'odds', f: P(c / (tot - c) * 100, 1), why: W.odds }, { cls: 'plus', f: P(c / (tot + c) * 100), why: 'جمعتَ عدد المرات إلى المقام؛ المقام هو عدد المحاولات الكلي ' + tot + ' فقط.' }, { cls: 'mis1', f: P((c + 1) / tot * 100), why: 'عددتَ مرة زائدة؛ البسط هو عدد مرات الحدث المسجلة تماماً.' }];
+    var stem = 'In a survey, ' + c + ' of ' + tot + ' randomly selected students said they walk to school. What is the experimental probability, as a percent, that a randomly selected student walks to school?';
+    return { stem: stem, ans: ans, cands: cands, key: 'L3b:' + c + ',' + tot,
+      sol: [{ t: 'P=\\dfrac{' + c + '}{' + tot + '}' }, { t: 'P=' + (c / tot) + '\\times 100\\%' }, { box: ans.t }], remember: 'الاحتمال التجريبي كنسبة مئوية = (المرات ÷ الكل) × 100%.' };
+  }
+  function t3c(r) { /* مقارنة نظري/تجريبي لعملة: كم مرة أكثر من المتوقع */
+    var n = ri(r, 4, 20) * 10, h = Math.round(n / 2) + ri(r, 2, 9), ans = N(h - n / 2);
+    var cands = [{ cls: 'ex', f: N(h), why: 'هذا العدد الفعلي لا الفرق؛ اطرح منه العدد المتوقع.' }, { cls: 'th', f: N(n / 2), why: 'هذا العدد المتوقع لا الفرق؛ قارنه بالعدد الفعلي.' }, { cls: 'sum', f: N(h + n / 2), why: 'الفرق يُحسب بالطرح لا بالجمع.' }, { cls: 'wr', f: N(n - h), why: 'هذا عدد مرات ظهور الوجه الآخر؛ المطلوب فرق الفعلي عن المتوقع للوجه نفسه.' }, { cls: 'pr', f: N(Math.round(h / n * 100)), why: 'هذه نسبة مئوية؛ المطلوب فرق بالعدد.' }];
+    return { stem: 'A fair coin is flipped ' + n + ' times and lands heads up ' + h + ' times. How many more times than the theoretical expectation did the coin land heads up?', ans: ans, cands: cands, key: 'L3c:' + n + ',' + h,
+      sol: [{ t: 'P_{\\text{theo}}(\\text{heads})=\\dfrac{1}{2}' }, { t: '\\text{expected}=\\dfrac{1}{2}\\times ' + n + '=' + n / 2 }, { t: '\\text{difference}=' + h + '-' + n / 2 }, { box: String(h - n / 2) }], remember: 'الفرق = العدد الفعلي − العدد المتوقع نظرياً.' };
+  }
+  function t4a(r) { /* فرق احتمالين بنسبة مئوية (نقطة مئوية) */
+    var s = pick(r, [['a number greater than 4', 2], ['an even number', 3], ['a number less than 5', 4], ['a multiple of 3', 2]]), tot = pick(r, [20, 40, 50, 100]), c = ri(r, 3, tot - 3);
+    var th = s[1] / 6 * 100, ex = c / tot * 100, d = Math.abs(th - ex), ans = P(d, 1);
+    if (d < 0.5) return null;
+    var cands = [{ cls: 'ex', f: P(ex, 1), why: 'هذه النسبة التجريبية وحدها؛ المطلوب الفرق بينها وبين النسبة النظرية.' }, { cls: 'th', f: P(th, 1), why: 'هذه النسبة النظرية وحدها؛ المطلوب الفرق.' }, { cls: 'sum', f: P(th + ex, 1), why: 'الفرق طرح لا جمع.' }, { cls: 'cnt', f: P(Math.abs(c - th), 1), why: 'قارنتَ عدد المرات بنسبة مئوية؛ حوّل كليهما إلى نسبتين مئويتين أولاً.' }, { cls: 'frac', f: P(Math.abs(ex - (s[1] + 1) / 6 * 100)), why: 'عددتَ نتيجة زائدة عند حساب الاحتمال النظري؛ عدّ النتائج المطلوبة بدقة من 6.' }];
+    return { stem: 'A number cube is rolled ' + tot + ' times and shows ' + s[0] + ' on ' + c + ' of the rolls. By how many percentage points does the experimental probability differ from the theoretical probability of rolling ' + s[0] + '? Round to the nearest tenth of a percent.', ans: ans, cands: cands, key: 'L4a:' + s[0] + ',' + tot + ',' + c,
+      sol: [{ t: 'P_{\\text{theo}}=\\dfrac{' + s[1] + '}{6}\\approx ' + th.toFixed(1) + '\\%' }, { t: 'P_{\\text{exp}}=\\dfrac{' + c + '}{' + tot + '}=' + ex.toFixed(1) + '\\%' }, { t: '\\left|' + th.toFixed(1) + '-' + ex.toFixed(1) + '\\right|' }, { box: ans.t }], remember: 'حوّل الاحتمالين إلى نسبتين مئويتين ثم اطرح.' };
+  }
+  function t4b(r) { /* متوقع مقابل فعلي لعدد الكرات */
+    var cs = [ri(r, 2, 6), ri(r, 2, 6), ri(r, 2, 6)], tot = cs[0] + cs[1] + cs[2], n = tot * ri(r, 4, 12), c = ri(r, 2, n - 2), i = ri(r, 0, 2), nm = ['red', 'blue', 'green'][i];
+    var exp = n * cs[i] / tot; if (exp !== Math.round(exp)) return null; var d = Math.abs(c - exp); if (d === 0) return null;
+    var ans = N(d);
+    var cands = [{ cls: 'ex', f: N(c), why: 'هذا العدد الفعلي لا الفرق؛ قارنه بالمتوقع.' }, { cls: 'th', f: N(exp), why: 'هذا العدد المتوقع لا الفرق؛ قارنه بالفعلي.' }, { cls: 'sum', f: N(c + exp), why: 'الفرق طرح لا جمع.' }, { cls: 'cnt', f: N(Math.abs(c - cs[i])), why: 'قارنتَ العدد الفعلي بعدد الكرات في الكيس؛ المتوقع هو الاحتمال × عدد المحاولات.' }, { cls: 'pr', f: N(Math.abs(c - n / 3)), why: 'لا تفترض أن الألوان الثلاثة متساوية الاحتمال؛ العدد داخل الكيس مختلف.' }];
+    return { stem: 'A bag contains ' + cs[0] + ' red, ' + cs[1] + ' blue, and ' + cs[2] + ' green marbles. A marble is drawn at random and then replaced. After ' + n + ' draws, a ' + nm + ' marble was drawn ' + c + ' times. What is the absolute difference between the actual number of ' + nm + ' draws and the number expected from the theoretical probability?', ans: ans, cands: cands, key: 'L4b:' + cs.join(',') + ',' + n + ',' + c + ',' + i,
+      sol: [{ t: 'P(\\text{' + nm + '})=\\dfrac{' + cs[i] + '}{' + tot + '}' }, { t: '\\text{expected}=\\dfrac{' + cs[i] + '}{' + tot + '}\\times ' + n + '=' + exp }, { t: '\\text{difference}=|' + c + '-' + exp + '|' }, { box: String(d) }], remember: 'احسب العدد المتوقع نظرياً أولاً ثم قارنه بالعدد الفعلي.' };
+  }
+  function t4c(r) { /* تنبؤ بدمج بيانات تجريبية */
+    var a = ri(r, 3, 15), b = ri(r, 3, 15), ta = ri(r, 2, 6) * 10, tb = ri(r, 2, 6) * 10, n = (ta + tb) * ri(r, 2, 8), exp = n * (a + b) / (ta + tb);
+    if (exp !== Math.round(exp) || a >= ta || b >= tb) return null;
+    var ans = N(exp);
+    var cands = [{ cls: 'one', f: N(Math.round(n * a / ta)), why: 'استعملتَ نتائج التجربة الأولى وحدها؛ ادمج التجربتين لاحتمال أدق.' }, { cls: 'avg', f: N(Math.round(n * (a / ta + b / tb) / 2)), why: 'لا تأخذ متوسط الاحتمالين؛ اجمع المرات واجمع المحاولات أولاً.' }, { cls: 'add', f: N(a + b), why: 'هذا مجموع المرات في التجربتين لا العدد المتوقع في ' + n + ' محاولة.' }, { cls: 'comp', f: N(n - exp), why: W.compN }, { cls: 'two', f: N(Math.round(n * b / tb)), why: 'استعملتَ نتائج التجربة الثانية وحدها؛ ادمج التجربتين.' }];
+    return { stem: 'Two students test a spinner. Student 1 gets blue ' + a + ' times in ' + ta + ' spins. Student 2 gets blue ' + b + ' times in ' + tb + ' spins. Using the combined results, about how many times should blue be expected in ' + n + ' spins?', ans: ans, cands: cands, key: 'L4c:' + a + ',' + ta + ',' + b + ',' + tb + ',' + n,
+      sol: [{ t: 'P_{\\text{exp}}=\\dfrac{' + a + '+' + b + '}{' + ta + '+' + tb + '}=\\dfrac{' + (a + b) + '}{' + (ta + tb) + '}' }, { t: '\\text{expected}=\\dfrac{' + (a + b) + '}{' + (ta + tb) + '}\\times ' + n }, { box: String(exp) }], remember: 'عند دمج تجربتين: اجمع المرات ثم اجمع المحاولات ثم احسب الاحتمال.' };
+  }
+  var T = { 1: [t1a, t1b, t1c], 2: [t2a, t2b, t2c], 3: [t3a, t3b, t3c], 4: [t4a, t4b, t4c] };
+  function make(level, rng) {
+    rng = rng || Math.random; var q, dis, tries = 0;
+    do { q = pick(rng, T[level])(rng); dis = q ? pickD(rng, q.ans, q.cands) : []; tries++; } while ((!q || dis.length < 3) && tries < 500);
+    var all = shuffle(rng, [{ f: q.ans, why: '' }].concat(dis));
+    var ans = 0; all.forEach(function (o, i) { if (o.why === '') ans = i; });
+    var sol = q.sol.slice();
+    return { band: 12, level: level, rtl: false, lang: 'en', stem: q.stem, svg: '', e: '', opts: all.map(function (o) { return { t: o.f.t, why: o.why }; }), ans: ans, sol: sol, hint: LEVELS[level - 1].hint, key: q.key, data: { remember: q.remember } };
+  }
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenProb = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3, CORE = 4;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  st.skipped = (st.skipped >= 1 && st.skipped < 4) ? (st.skipped | 0) : 0;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    var hb = $('#bkHint'); if (hb) hb.hidden = !LV.some(function (l) { return st.done[l.id] && !(l.id === st.level && !st.mastered); });
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      var isCur = l.id === st.level && !st.mastered;
+      if (isCur) { if (cls.indexOf('cur') < 0) li.className += ' cur'; li.setAttribute('aria-current', 'step'); }
+      if (st.done[l.id] && !(l.id === st.level && !st.mastered)) {
+        li.className += ' back'; li.setAttribute('role', 'button'); li.tabIndex = 0; li.setAttribute('aria-label', 'العودة إلى المستوى ' + l.id + ': ' + l.ar + ' (منجز)');
+        var go = function () { st.level = l.id; st.skipped = 0; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); go(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var b = $('#skipBox'); if (!b) return; b.innerHTML = ''; b.hidden = true;
+    var btn = null;
+    if (!st.mastered && st.level < CORE) {
+      btn = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←');
+      btn.addEventListener('click', function () { if (st.level >= CORE) return; st.skipped = st.level; st.level = CORE; persist(); window.scrollTo(0, 0); newRound(); });
+    } else if (!st.mastered && st.skipped && st.level === CORE && !st.done[CORE] && (+st.fails[CORE] || 0) >= 1) {
+      var n0 = st.skipped;
+      btn = h('button', 'btn ghost', 'ارجع إلى المستوى ' + n0 + ' لتتدرّب أكثر');
+      btn.addEventListener('click', function () { st.level = n0; st.skipped = 0; persist(); window.scrollTo(0, 0); newRound(); });
+    }
+    if (btn) { btn.type = 'button'; b.appendChild(btn); b.hidden = false; }
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : (s.p != null ? note + '<div class="st pl">' + s.p + '</div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>');
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.svg) stage.appendChild(h('div', 'fig', q.svg));
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span>' + (o.p != null ? '<span class="m pl">' + o.p + '</span>' : '<span class="m">\\(' + o.t + '\\)</span>'));
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span>' + (q.opts[q.ans].p != null ? '<span class="corr pl">' + q.opts[q.ans].p + '</span>' : '<span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>');
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0; if (lvl < CORE) st.skipped = 0;
+      if (lvl < 4) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; st.skipped = 0; persist(); window.scrollTo(0, 0); newRound(); });
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; renderSkip(); typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>

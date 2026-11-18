@@ -79,7 +79,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 <body>
 <header class="top"><div class="in">
   <h1>تدرّب بإتقان</h1>
-  <div class="sub">البند <bdi dir="ltr">20</bdi>: حل المعادلات التربيعية بإكمال المربع<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+  <div class="sub">البند <bdi dir="ltr">20</bdi>: حل المعادلات التربيعية بإكمال المربع<br>أسئلة تتدرّج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
 </div></header>
 <main class="wrap">
   <section class="box" aria-label="مسار الإتقان">
@@ -146,7 +146,8 @@ var TmGen20 = (function (H) {
     { id: 1, ar: 'أساسي', hint: 'لإكمال المربع في \\(x^2+bx\\) أضف \\(\\left(\\dfrac{b}{2}\\right)^2\\)، فيصبح \\((x+\\dfrac{b}{2})^2\\).' },
     { id: 2, ar: 'تطبيق', hint: 'اكتب \\(x^2+bx=k\\)، أضف \\(\\left(\\dfrac{b}{2}\\right)^2\\) إلى الطرفين، اكتب الطرف الأيسر مربعاً كاملاً، ثم خذ الجذر التربيعي للطرفين.' },
     { id: 3, ar: 'جذور غير نسبية', hint: 'بعد كتابة \\((x+h)^2=k\\) خذ الجذر التربيعي بالإشارتين \\(\\pm\\)، وبسّط الجذر إن أمكن ثم انقل \\(h\\).' },
-    { id: 4, ar: 'مستوى الوزارة', hint: 'إن كان معامل \\(x^2\\) لا يساوي 1 فاقسم المعادلة كلها عليه أولاً، وانقل الحد الثابت قبل إضافة \\(\\left(\\dfrac{b}{2}\\right)^2\\) إلى الطرفين.' }
+    { id: 4, ar: 'مستوى الوزارة', hint: 'إن كان معامل \\(x^2\\) لا يساوي 1 فاقسم المعادلة كلها عليه أولاً، وانقل الحد الثابت قبل إضافة \\(\\left(\\dfrac{b}{2}\\right)^2\\) إلى الطرفين.' },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: 'عندما يكون معامل \\(x\\) (أي \\(b\\)) عدداً فردياً يكون نصفه كسراً: اكتب \\(\\left(\\dfrac{b}{2}\\right)^{2}=\\dfrac{b^{2}}{4}\\) وأبقِ الكسر كما هو دون تحويله إلى عدد عشري.' }
   ];
   function simp(n) { var m = 1, s = n, f; for (f = 2; f * f <= s; f++) { while (s % (f * f) === 0) { m *= f; s /= f * f; } } return [m, s]; }
   function radTex(n) { var p = simp(n); if (p[1] === 1) return String(p[0]); return (p[0] === 1 ? '' : p[0]) + '\\sqrt{' + p[1] + '}'; }
@@ -174,11 +175,12 @@ var TmGen20 = (function (H) {
     cs.push(sc('dropPM', x0, 0.0001, ''));
     cs = cs.filter(function (c) { return c && c.cls !== 'dropPM'; });
     if (isSq(rhs)) { var r = Math.round(Math.sqrt(rhs)); cs.push({ cls: 'onlyP', key: String(x0 + r), tex: 'x=' + (x0 + r), why: 'للمعادلة \\((x' + (h < 0 ? '-' : '+') + ab(h) + ')^{2}=' + rhs + '\\) جذران: \\(x=' + (x0 + r) + '\\) و\\(x=' + (x0 - r) + '\\).' }); cs.push({ cls: 'onlyN', key: String(x0 - r), tex: 'x=' + (x0 - r), why: 'للمعادلة \\((x' + (h < 0 ? '-' : '+') + ab(h) + ')^{2}=' + rhs + '\\) جذران: \\(x=' + (x0 + r) + '\\) و\\(x=' + (x0 - r) + '\\).' }); }
-    else { cs.push({ cls: 'plusOnly', key: 'p' + x0 + ',' + rhs, tex: 'x=' + (x0 === 0 ? '' : x0 + '+') + radTex(rhs), why: 'أخذ الجذر التربيعي يعطي إشارتين \\(\\pm\\)، فللمعادلة جذران.' }); }
+    else { cs.push({ cls: 'plusOnly', key: 'p' + x0 + ',' + rhs, tex: 'x=' + (x0 === 0 ? '' : x0 + '+') + radTex(rhs), why: 'أخذتَ الإشارة \\(+\\) فقط؛ الجذر التربيعي للطرفين يعطي \\(\\pm\\)، فللمعادلة جذران.' }); }
     return { stem: stemTxt || 'Solve the equation by completing the square.', e: orig, tex: correct.tex, corrKey: correct.key, cands: cs, sol: (extraStep || []).concat(stepsMonic(b, k)).concat([]), remember: 'أضف \\(\\left(\\dfrac{b}{2}\\right)^{2}\\) إلى الطرفين، اكتب مربعاً كاملاً، ثم خذ الجذر التربيعي بالإشارتين \\(\\pm\\).' };
   }
   function build(level, rng) {
     var r = rng(), b, k, h, t, c;
+    if (level === 5) return challenge(rng);
     if (level === 1) {
       if (r < 0.5) { /* ما العدد الذي يُضاف */
         b = pick(rng, [-1, 1]) * 2 * ri(rng, 1, 9); h = b / 2;
@@ -221,6 +223,39 @@ var TmGen20 = (function (H) {
     if (nd2) q4.cands.push(nd2);
     q4.key = 'C20e:' + a + ',' + p + ',' + k2; return q4;
   }
+
+  function fr(nb, rad) { return 'x=\\dfrac{' + nb + '\\pm\\sqrt{' + rad + '}}{2}'; }
+  function challenge(rng) {
+    var b, c, D, nb, cs, ans, st;
+    if (rng() < 0.7) {
+      do { b = pick(rng, [-1, 1]) * (2 * ri(rng, 0, 5) + 1); c = ri(rng, -12, 6); D = b * b - 4 * c; } while (D <= 0 || Math.round(Math.sqrt(D)) * Math.round(Math.sqrt(D)) === D || simp(D)[0] !== 1);
+      nb = -b;
+      var D2 = b * b + 4 * c, ok2 = D2 > 0 && simp(D2)[0] === 1 && Math.round(Math.sqrt(D2)) * Math.round(Math.sqrt(D2)) !== D2 && D2 !== D;
+      function cd(cls, tex, why) { return { cls: cls, key: tex, tex: tex, why: why }; }
+      cs = [cd('sign', fr(b, D), 'العدد الذي داخل القوس ينتقل إلى الطرف الأيمن بإشارة معاكسة؛ من \\(x' + (b < 0 ? '-' : '+') + '\\dfrac{' + ab(b) + '}{2}=\\pm\\dfrac{\\sqrt{' + D + '}}{2}\\) يبدأ البسط بـ \\(' + nb + '\\) لا \\(' + b + '\\).'),
+        cd('noDen', 'x=\\dfrac{' + nb + '}{2}\\pm\\sqrt{' + D + '}', 'الجذر التربيعي للكسر \\(\\dfrac{' + D + '}{4}\\) هو \\(\\dfrac{\\sqrt{' + D + '}}{2}\\) لا \\(\\sqrt{' + D + '}\\).'),
+        cd('noHalf', 'x=' + nb + '\\pm\\sqrt{' + D + '}', 'نسيتَ القسمة على 2؛ المقام \\(2\\) يشمل البسط كله، فالجذران \\(\\dfrac{' + nb + '\\pm\\sqrt{' + D + '}}{2}\\).'),
+        cd('plusOnly', 'x=\\dfrac{' + nb + '+\\sqrt{' + D + '}}{2}', 'أخذتَ الإشارة \\(+\\) فقط؛ الجذر التربيعي للطرفين يعطي \\(\\pm\\)، فللمعادلة جذران.')];
+      if (ok2) cs.push(cd('plusC', fr(nb, D2), 'بعد نقل الحد الثابت \\(' + c + '\\) تتغير إشارته؛ وعند إضافة \\(\\dfrac{' + (b * b) + '}{4}\\) إلى الطرفين يصبح الطرف الأيمن \\(\\dfrac{' + (b * b) + '}{4}' + (c > 0 ? '-' : '+') + ab(c) + '=\\dfrac{' + D + '}{4}\\).'));
+      var half = b + '/2';
+      st = [{ ar: 'ننقل الحد الثابت إلى الطرف الأيمن.', t: 'x^{2}' + (b < 0 ? '-' : '+') + (ab(b) === 1 ? '' : ab(b)) + 'x=' + (-c) },
+        { ar: 'نضيف \\(\\left(\\dfrac{b}{2}\\right)^{2}=\\dfrac{' + (b * b) + '}{4}\\) إلى الطرفين.', t: '\\left(x' + (b < 0 ? '-' : '+') + '\\dfrac{' + ab(b) + '}{2}\\right)^{2}=\\dfrac{' + D + '}{4}' },
+        { ar: 'نأخذ الجذر التربيعي للطرفين.', t: 'x' + (b < 0 ? '-' : '+') + '\\dfrac{' + ab(b) + '}{2}=\\pm\\dfrac{\\sqrt{' + D + '}}{2}' }];
+      return { stem: 'Solve the equation by completing the square.', e: 'x^{2}' + (b < 0 ? '-' : '+') + (ab(b) === 1 ? '' : ab(b)) + 'x' + (c ? (c < 0 ? '-' : '+') + ab(c) : '') + '=0', tex: fr(nb, D), corrKey: fr(nb, D), cands: cs, sol: st, key: 'C20f:' + b + ',' + c,
+        remember: 'عندما يكون \\(b\\) فردياً: أضف \\(\\dfrac{b^{2}}{4}\\) إلى الطرفين، ثم خذ الجذر التربيعي للطرفين وانقل \\(\\dfrac{b}{2}\\) بإشارة معاكسة.' };
+    }
+    b = pick(rng, [-1, 1]) * (2 * ri(rng, 0, 6) + 1);
+    var sq = b * b, bs2 = (b < 0 ? '-' : '+') + (ab(b) === 1 ? '' : ab(b)) + 'x';
+    function pv(cls, tex, why) { return { cls: cls, key: tex, tex: tex, why: why }; }
+    var ans2 = '\\dfrac{' + sq + '}{4}';
+    return { stem: 'What number must be added to \\(x^{2}' + bs2 + '\\) to make it a perfect square trinomial?', e: '', tex: ans2, corrKey: ans2,
+      cands: [pv('half', '\\dfrac{' + ab(b) + '}{2}', 'هذا نصف المعامل فقط؛ العدد المطلوب هو مربع نصف المعامل \\(\\left(\\dfrac{b}{2}\\right)^{2}\\).'),
+        pv('sqb', String(sq), 'هذا \\(b^{2}\\) (مربع المعامل)؛ المطلوب مربع نصف المعامل \\(\\left(\\dfrac{b}{2}\\right)^{2}=\\dfrac{b^{2}}{4}\\) أي \\(\\dfrac{' + sq + '}{4}\\).'),
+        pv('b2', '\\dfrac{' + sq + '}{2}', 'قسمتَ \\(b^{2}\\) على 2؛ والصحيح قسمته على 4 لأن \\(\\left(\\dfrac{b}{2}\\right)^{2}=\\dfrac{b^{2}}{4}\\).'),
+        pv('b4', '\\dfrac{' + ab(b) + '}{4}', 'ربّعتَ المقام فقط؛ يجب تربيع البسط والمقام معاً في \\(\\dfrac{b}{2}\\).')],
+      sol: [{ ar: 'نصف معامل \\(x\\):', t: '\\dfrac{b}{2}=\\dfrac{' + b + '}{2}' }, { ar: 'نربّعه:', t: '\\left(\\dfrac{' + b + '}{2}\\right)^{2}=\\dfrac{' + sq + '}{4}' }], key: 'C20g:' + b,
+      remember: 'العدد الذي يُضاف = \\(\\left(\\dfrac{b}{2}\\right)^{2}\\)، وقد يكون كسراً عندما يكون \\(b\\) فردياً.' };
+  }
   return { levels: LEVELS, make: H.makeWith(20, LEVELS, build), _build: build };
 })(typeof TmH !== 'undefined' ? TmH : require('./common.js'));
 if (typeof module !== 'undefined' && module.exports) module.exports = TmGen20;
@@ -240,10 +275,12 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen20;
   if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
   var st = all[GR][BAND];
   if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
-  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
   st.done = st.done && typeof st.done === 'object' ? st.done : {};
   st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
   st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
   function persist() { st.ts = Date.now(); saveAll(all); }
 
   function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
@@ -261,7 +298,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen20;
   function renderPath() {
     var p = $('#path'); p.innerHTML = '';
     LV.forEach(function (l) {
-      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
       var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
       if (cls === 'cur') li.setAttribute('aria-current', 'step');
       if (st.done[l.id] && l.id !== st.level) {
@@ -276,7 +313,6 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen20;
   function renderSkip() {
     var box = $('#skipBox'); if (!box) return;
     box.innerHTML = '';
-    var CORE = LV.length;
     if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
     var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
     b.addEventListener('click', function () {
@@ -391,7 +427,15 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen20;
     track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
     if (passed) {
       st.done[lvl] = true; st.fails[lvl] = 0;
-      if (lvl < 4) {
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
         st.level = lvl + 1; persist();
         res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
         var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
@@ -402,6 +446,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen20;
         var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
         var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
         b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
         a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
       }
     } else {
@@ -411,7 +456,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen20;
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
       if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
-      if (st.skipped && lvl === LV.length && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
       res.appendChild(a3);
     }
     stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl));

@@ -79,7 +79,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 <body>
 <header class="top"><div class="in">
   <h1>تدرّب بإتقان</h1>
-  <div class="sub">البند <bdi dir="ltr">5</bdi>: تحليل ثلاثيات الحدود (معامل x² يساوي 1)<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+  <div class="sub">البند <bdi dir="ltr">5</bdi>: تحليل ثلاثيات الحدود (معامل x² يساوي 1)<br>أسئلة تتدرّج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
 </div></header>
 <main class="wrap">
   <section class="box" aria-label="مسار الإتقان">
@@ -146,7 +146,8 @@ var TmGen5 = (function (H) {
     { id: 1, ar: 'أساسي', hint: 'ابحث عن عددين حاصل ضربهما الحد الثابت \\(c\\) ومجموعهما معامل \\(x\\)، ثم اكتب \\((x+m)(x+n)\\).' },
     { id: 2, ar: 'تطبيق', hint: 'انظر إلى إشارة \\(c\\) أولاً: إن كان موجباً فللعددين الإشارة نفسها وهي إشارة \\(b\\)، وإن كان سالباً فإشارتاهما مختلفتان والأكبر قيمة مطلقة بإشارة \\(b\\).' },
     { id: 3, ar: 'مسائل ومفاهيم', hint: 'العاملان هما \\((x+m)\\) و\\((x+n)\\) حيث \\(m\\cdot n=c\\) و\\(m+n=b\\). تحقق دائماً بضرب العاملين.' },
-    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب أزواج عوامل \\(c\\) ثم اختر الزوج الذي يعطي المجموع المطلوب، وتحقق بخاصية التوزيع قبل اعتماد الجواب.' }
+    { id: 4, ar: 'مستوى الوزارة', hint: 'اكتب أزواج عوامل \\(c\\) ثم اختر الزوج الذي يعطي المجموع المطلوب، وتحقق بخاصية التوزيع قبل اعتماد الجواب.' },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: 'في الأسئلة ذات المتغيرين عامل \\(y\\) كأنه عدد، وفي أسئلة العدّ اكتب كل أزواج عوامل \\(c\\) ثم تذكّر أن الزوج السالب يعطي قيمة \\(k\\) مختلفة.' }
   ];
   function distinctRoots(rng, lo, hi, cond) {
     var r1, r2, g = 0;
@@ -201,7 +202,7 @@ var TmGen5 = (function (H) {
       r = rng();
       if (r < 0.4) { /* مساحة مستطيل */
         rr = distinctRoots(rng, -9, -1); var b = -(rr[0] + rr[1]), c = rr[0] * rr[1];
-        var q = polyQ(rng, rr[0], rr[1], '<b>AREA:</b> The area of a rectangle is \\(' + trin(b, c) + '\\) square centimeters. Which expression could represent the length or the width of the rectangle?');
+        var q = polyQ(rng, rr[0], rr[1], '<b>AREA:</b> The area of a rectangle is \\(' + trin(b, c) + '\\) square centimeters. Which expressions could represent the length and the width of the rectangle?');
         q.e = ''; q.key = 'F5a:' + rr[0] + ',' + rr[1]; return q;
       }
       /* أي عامل صحيح */
@@ -219,6 +220,7 @@ var TmGen5 = (function (H) {
         sol: stepsFor(rr[0], rr[1]).concat([{ ar: 'العاملان هما \\(' + fac(rr[0]) + '\\) و\\(' + fac(rr[1]) + '\\)، والمطلوب أحدهما.', t: '\\text{factors: }' + H.prodTex(rr[0], rr[1]) }]),
         hint: 'العامل \\((x-r)\\) يعني أن \\(r\\) جذر لكثيرة الحدود؛ حلّلها أولاً ثم قارن بالخيارات.', key: 'F5f:' + rr[0] + ',' + rr[1] + ',' + correctR, remember: 'العاملان هما \\((x-r_1)\\) و\\((x-r_2)\\) حيث \\(r_1,r_2\\) جذرا كثيرة الحدود.' };
     }
+    if (level === 5) return challenge(rng);
     /* المستوى 4 */
     r = rng();
     if (r < 0.4) { /* قيمة k */
@@ -248,6 +250,35 @@ var TmGen5 = (function (H) {
       sol: [{ t: H.prodTex(-s1, -s2) + '=x^{2}' + cx(s2) + cx(s1) + (c4 < 0 ? '' : '+') + c4 }, { t: '=' + trin(b4, c4) }],
       key: 'F5e:' + s1 + ',' + s2, hint: 'وزّع كل حد في العامل الأول على العامل الثاني ثم اجمع الحدين المتشابهين.', remember: 'ضرب \\((x+m)(x+n)\\) يعطي \\(x^2+(m+n)x+mn\\)، فاستعمله للتحقق من أي تحليل.' };
   }
+
+  function challenge(rng) {
+    var r = rng(), rr, q;
+    if (r < 0.55) { /* ثلاثية حدود بمتغيرين x^2+bxy+cy^2 */
+      rr = distinctRoots(rng, -9, 9);
+      var b = -(rr[0] + rr[1]), c = rr[0] * rr[1];
+      function fy(v) { return '(x' + (v < 0 ? '+' : '-') + (ab(v) === 1 ? '' : ab(v)) + 'y)'; }
+      function pk(s1, s2) { var a = srt([s1, s2]); return fy(a[0]) + fy(a[1]); }
+      function cy(cls, txt, s1, s2) { var b2 = -(s1 + s2), c2 = s1 * s2; return { cls: cls, key: srt([s1, s2]).join(','), tex: pk(s1, s2), why: txt + ' ضرب هذين العاملين يعطي \\(x^{2}' + (b2 ? (b2 < 0 ? '-' : '+') + (ab(b2) === 1 ? '' : ab(b2)) + 'xy' : '') + (c2 < 0 ? '-' : '+') + ab(c2) + 'y^{2}\\) وليس ثلاثية الحدود المعطاة.' }; }
+      var cs = [cy('neg', 'عكستَ إشارتي العددين.', -rr[0], -rr[1]), cy('flipA', 'عكستَ إشارة أحد العددين فقط.', -rr[0], rr[1]), cy('flipB', 'عكستَ إشارة أحد العددين فقط.', rr[0], -rr[1])];
+      var u = ri(rng, -12, 12), v = (rr[0] + rr[1]) - u; if (u && v && u * v !== c && u !== v) cs.push(cy('sumOnly', 'اخترتَ عددين مجموعهما \\(' + b + '\\) لكن حاصل ضربهما ليس \\(' + c + '\\).', u, v));
+      var ps = pairsOf(c).filter(function (p) { return p[0] + p[1] !== rr[0] + rr[1]; }); if (ps.length) { var pp = pick(rng, ps); cs.push(cy('prodOnly', 'اخترتَ عددين حاصل ضربهما \\(' + c + '\\) لكن مجموعهما ليس \\(' + b + '\\).', pp[0], pp[1])); }
+      var tri = 'x^{2}' + (b ? (b < 0 ? '-' : '+') + (ab(b) === 1 ? '' : ab(b)) + 'xy' : '') + (c < 0 ? '-' : '+') + ab(c) + 'y^{2}';
+      return { stem: 'Factor the trinomial.', e: tri, tex: pk(rr[0], rr[1]), corrKey: srt([rr[0], rr[1]]).join(','), cands: cs,
+        sol: [{ ar: 'نعامل \\(y\\) كأنه عدد، ونبحث عن عددين \\(m\\) و\\(n\\) حاصل ضربهما \\(' + c + '\\) ومجموعهما \\(' + b + '\\).', t: 'm\\cdot n=' + c + ',\\quad m+n=' + b }, { t: tri + '=' + pk(rr[0], rr[1]) }],
+        key: 'F5y:' + rr[0] + ',' + rr[1], hint: 'تعامل مع \\(y\\) كأنه عدد، ثم ابحث عن عددين حاصل ضربهما \\(c\\) ومجموعهما معامل \\(xy\\).', remember: 'في \\(x^2+bxy+cy^2\\) ابحث عن العددين بالطريقة نفسها كما في \\(x^2+bx+c\\)، ثم ألحِق \\(y\\) بكل عدد داخل القوسين.' };
+    }
+    /* عدد قيم k الصحيحة */
+    var c3 = pick(rng, [12, 16, 18, 20, 24, 28, 30, 36, 40, 42, 48]), ps3 = pairsOf(c3).filter(function (p) { return p[0] > 0; });
+    var pcount = ps3.length, total = 2 * pcount;
+    var ks = []; ps3.forEach(function (p) { ks.push(p[0] + p[1]); ks.push(-(p[0] + p[1])); });
+    function nv(cls, val, why) { return { cls: cls, key: String(val), tex: String(val), why: why }; }
+    var divs = 0; for (var d = 1; d <= c3; d++) if (c3 % d === 0) divs++;
+    var listing = ps3.map(function (p) { return p[0] + '\\cdot' + p[1]; }).join(',\\ ');
+    return { stem: 'For how many integer values of \\(k\\) can \\(x^{2}+kx+' + c3 + '\\) be factored as \\((x+m)(x+n)\\) with integers \\(m\\) and \\(n\\)?', e: '', tex: String(total), corrKey: String(total),
+      cands: [nv('pos', pcount, 'عددتَ الأزواج الموجبة فقط؛ كل زوج موجب \\((m,n)\\) يقابله زوج سالب \\((-m,-n)\\) ويعطي قيمة مختلفة لـ \\(k\\) (سالبة).'), nv('div', divs, 'عددتَ عوامل \\(' + c3 + '\\) لا الأزواج؛ كل زوج يضم عاملين ويعطي قيمتين لـ \\(k\\) (موجبة وسالبة).'), nv('pm', total + 2, 'عددتَ زوجاً زائداً؛ للعدد \\(' + c3 + '\\) يوجد ' + pcount + ' أزواج موجبة فقط (' + listing + ').'), nv('dbl', divs * 2, 'لا تعدّ \\((m,n)\\) و\\((n,m)\\) زوجين مختلفين؛ كلاهما يعطي قيمة \\(k\\) نفسها لـ \\(k\\) لأن \\(m+n=n+m\\).'), nv('less', total - 1, 'لا تهمل الأزواج السالبة؛ كل زوج من هذه الأزواج يعطي قيمتين مختلفتين لـ \\(k\\).')],
+      sol: [{ ar: 'الأزواج الموجبة التي حاصل ضربها \\(' + c3 + '\\):', t: listing + '' }, { ar: 'كل زوج موجب يقابله زوج سالب مجموعه معاكس، فيكون عدد قيم \\(k\\) المختلفة:', t: '2\\times ' + pcount + '=' + total }],
+      key: 'F5n:' + c3, hint: 'اكتب كل أزواج العوامل الموجبة للعدد \\(c\\)، ثم تذكّر أن كل زوج موجب يقابله زوج سالب مجموعه معاكس.', remember: 'عدد قيم \\(k\\) = ضعف عدد الأزواج الموجبة التي حاصل ضربها هو الحد الثابت (لأن لكل زوج موجب زوجاً سالباً).' };
+  }
   return { levels: LEVELS, make: H.makeWith(5, LEVELS, build), _build: build };
 })(typeof TmH !== 'undefined' ? TmH : require('./common.js'));
 if (typeof module !== 'undefined' && module.exports) module.exports = TmGen5;
@@ -267,10 +298,12 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen5;
   if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
   var st = all[GR][BAND];
   if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
-  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
   st.done = st.done && typeof st.done === 'object' ? st.done : {};
   st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
   st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
   function persist() { st.ts = Date.now(); saveAll(all); }
 
   function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
@@ -288,7 +321,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen5;
   function renderPath() {
     var p = $('#path'); p.innerHTML = '';
     LV.forEach(function (l) {
-      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
       var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
       if (cls === 'cur') li.setAttribute('aria-current', 'step');
       if (st.done[l.id] && l.id !== st.level) {
@@ -303,7 +336,6 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen5;
   function renderSkip() {
     var box = $('#skipBox'); if (!box) return;
     box.innerHTML = '';
-    var CORE = LV.length;
     if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
     var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
     b.addEventListener('click', function () {
@@ -418,7 +450,15 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen5;
     track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
     if (passed) {
       st.done[lvl] = true; st.fails[lvl] = 0;
-      if (lvl < 4) {
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
         st.level = lvl + 1; persist();
         res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
         var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
@@ -429,6 +469,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen5;
         var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
         var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
         b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
         a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
       }
     } else {
@@ -438,7 +479,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen5;
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
       if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
-      if (st.skipped && lvl === LV.length && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
       res.appendChild(a3);
     }
     stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl));

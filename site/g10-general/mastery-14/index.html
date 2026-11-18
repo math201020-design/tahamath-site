@@ -79,7 +79,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 <body>
 <header class="top"><div class="in">
   <h1>تدرّب بإتقان</h1>
-  <div class="sub">البند <bdi dir="ltr">14</bdi>: حل المعادلات التربيعية بالتحليل (معامل x² يساوي 1)<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+  <div class="sub">البند <bdi dir="ltr">14</bdi>: حل المعادلات التربيعية بالتحليل (معامل x² يساوي 1)<br>أسئلة تتدرّج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
 </div></header>
 <main class="wrap">
   <section class="box" aria-label="مسار الإتقان">
@@ -146,18 +146,19 @@ var TmGen14 = (function (H) {
     { id: 1, ar: 'أساسي', hint: 'حلّل الطرف الأيسر إلى عاملين، ثم ساوِ كل عامل بالصفر (خاصية الضرب الصفري) وحل كلاً منهما.' },
     { id: 2, ar: 'تطبيق', hint: 'انقل كل الحدود إلى طرف واحد حتى يصبح الطرف الآخر صفراً، ثم حلّل. لا تطبّق خاصية الضرب الصفري إلا عندما يكون الناتج صفراً.' },
     { id: 3, ar: 'مسائل كلامية', hint: 'اكتب المعادلة من نص المسألة، حلها بالتحليل، ثم ارفض أي جذر لا يصلح لوصف الطول أو العدد المطلوب.' },
-    { id: 4, ar: 'مستوى الوزارة', hint: 'قد يكون أحد الجذرين صفراً، وقد يكون الطرف الأيسر فرقاً بين مربعين. لا تقسم على \\(x\\) حتى لا تفقد جذراً.' }
+    { id: 4, ar: 'مستوى الوزارة', hint: 'قد يكون أحد الجذرين صفراً، وقد يكون الطرف الأيسر فرقاً بين مربعين. لا تقسم على \\(x\\) حتى لا تفقد جذراً.' },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: 'لا تطبّق خاصية الضرب الصفري إلا إذا كان أحد طرفي المعادلة صفراً: انقل كل الحدود إلى طرف واحد ثم حلّل، ولا تقسم على عامل يحتوي \\(x\\).' }
   ];
   function roots(rng, lo, hi, cond) { var a, b, g = 0; do { a = ri(rng, lo, hi); b = ri(rng, lo, hi); g++; } while ((a === 0 || b === 0 || a === b || a + b === 0 || (cond && !cond(a, b))) && g < 500); return [a, b]; }
   function sc(cls, set, why) { var s = srt(set.filter(function (v, i, a) { return a.indexOf(v) === i; })); return { cls: cls, key: s.join(','), tex: H.setTex(s), why: why }; }
   function std(rng, r1, r2) { /* مجموعة جذور + مشتتات */
     var A = -(r1 + r2), B = r1 * r2;
     return [
-      sc('neg', [-r1, -r2], 'الجذر يُحسب من العامل: العامل \\(' + fac(r1) + '\\) يعطي \\(x=' + r1 + '\\) وليس \\(x=' + (-r1) + '\\)؛ لا تنسخ العدد داخل القوس بإشارته.'),
-      sc('flipA', [-r1, r2], 'عكستَ إشارة أحد الجذرين: ضع كل عامل مساوياً للصفر وحل: \\(' + fac(r1) + '=0\\Rightarrow x=' + r1 + '\\).'),
-      sc('flipB', [r1, -r2], 'عكستَ إشارة أحد الجذرين: ضع كل عامل مساوياً للصفر وحل: \\(' + fac(r2) + '=0\\Rightarrow x=' + r2 + '\\).'),
-      sc('one', [r1], 'للمعادلة التربيعية جذران؛ العامل \\(' + fac(r2) + '=0\\) يعطي الجذر \\(x=' + r2 + '\\) أيضاً.'),
-      sc('oneB', [r2], 'للمعادلة التربيعية جذران؛ العامل \\(' + fac(r1) + '=0\\) يعطي الجذر \\(x=' + r1 + '\\) أيضاً.')
+      sc('neg', [-r1, -r2], 'الجذر يُحسب من العامل: العامل \\(' + fac(r1) + '\\) يعطي \\(x=' + r1 + '\\) وليس \\(x=' + (-r1) + '\\)؛ لا تكتب العدد الذي داخل القوس بإشارته نفسها.'),
+      sc('flipA', [-r1, r2], 'عكستَ إشارة أحد الجذرين: ضع كل عامل مساوياً للصفر ثم حلّ المعادلة: \\(' + fac(r1) + '=0\\Rightarrow x=' + r1 + '\\).'),
+      sc('flipB', [r1, -r2], 'عكستَ إشارة أحد الجذرين: ضع كل عامل مساوياً للصفر ثم حلّ المعادلة: \\(' + fac(r2) + '=0\\Rightarrow x=' + r2 + '\\).'),
+      sc('one', [r1], 'للمعادلة التربيعية جذران؛ المعادلة \\(' + lin(r2) + '=0\\) تعطي الجذر \\(x=' + r2 + '\\) أيضاً.'),
+      sc('oneB', [r2], 'للمعادلة التربيعية جذران؛ المعادلة \\(' + lin(r1) + '=0\\) تعطي الجذر \\(x=' + r1 + '\\) أيضاً.')
     ];
   }
   function kx(k) { return k === 1 ? 'x' : k + 'x'; }
@@ -165,12 +166,13 @@ var TmGen14 = (function (H) {
   function solSteps(r1, r2, pre) {
     var A = -(r1 + r2), B = r1 * r2, out = pre ? pre.slice() : [];
     out.push({ t: trin(A, B) + '=0' });
-    out.push({ ar: 'نحلل الطرف الأيسر.', t: H.prodTex(r1, r2) + '=0' });
+    out.push({ ar: 'نحلّل الطرف الأيسر.', t: H.prodTex(r1, r2) + '=0' });
     out.push({ ar: 'خاصية الضرب الصفري: كل عامل يساوي صفراً.', t: lin(r1) + '=0\\ \\text{or}\\ ' + lin(r2) + '=0' });
     return out;
   }
   function build(level, rng) {
     var r = rng(), rr, A, B, t;
+    if (level === 5) return challenge(rng);
     if (level === 1) {
       rr = roots(rng, -9, 9); A = -(rr[0] + rr[1]); B = rr[0] * rr[1];
       return { stem: 'Solve the equation by factoring.', e: trin(A, B) + '=0', tex: H.setTex(rr), corrKey: srt(rr).join(','), cands: std(rng, rr[0], rr[1]), sol: solSteps(rr[0], rr[1]), key: 'S14a:' + rr.join(','),
@@ -232,6 +234,32 @@ var TmGen14 = (function (H) {
     return { stem: 'Solve the equation by factoring.', e: e4, tex: H.setTex(rr), corrKey: srt(rr).join(','), cands: std(rng, rr[0], rr[1]).concat([sc('nomv', [-B], 'لا تُهمل الحد الأوسط؛ انقل كل الحدود إلى طرف واحد وحلّل ثلاثية الحدود.')]),
       sol: [{ ar: 'ننقل كل الحدود إلى طرف واحد.', t: trin(A, B) + '=0' }].concat(solSteps(rr[0], rr[1]).slice(1)), key: 'S14e:' + side + ':' + rr.join(','), remember: 'اجعل المعادلة بالصورة \\(x^2+bx+c=0\\) ثم حلّل وساوِ كل عامل بالصفر.' };
   }
+
+  function lf(v) { return '(x' + (v < 0 ? '-' : '+') + ab(v) + ')'; }
+  function challenge(rng) {
+    var rr, p, q, m, A, B, e, cs, sol;
+    if (rng() < 0.55) { /* (x+p)(x+q)=m */
+      rr = roots(rng, -9, 9); A = -(rr[0] + rr[1]); B = rr[0] * rr[1];
+      do { p = ri(rng, -6, 6); } while (!p);
+      q = (rr[0] + rr[1]) * -1 - p; /* p+q = A */
+      if (!q || q === p) return challenge(rng);
+      m = p * q - B; if (!m) return challenge(rng);
+      e = lf(p) + lf(q) + '=' + m;
+      var ps = srt([p, q]);
+      cs = std(rng, rr[0], rr[1]).concat([sc('zpm', [m - p, m - q], 'لا تجعل كل عامل يساوي \\(' + m + '\\)؛ خاصية الضرب الصفري لا تُطبَّق إلا إذا كان حاصل الضرب صفراً، فانقل \\(' + m + '\\) إلى الطرف الآخر ثم حلّل.')]);
+      sol = [{ ar: 'نفكّ القوسين وننقل كل الحدود إلى طرف واحد.', t: trin(p + q, p * q - m) + '=0' }].concat(solSteps(rr[0], rr[1]).slice(1));
+      return { stem: 'Solve the equation.', e: e, tex: H.setTex(rr), corrKey: srt(rr).join(','), cands: cs, sol: sol, key: 'S14f:' + p + ',' + q + ',' + m,
+        remember: 'لا تطبّق خاصية الضرب الصفري على حاصل ضرب لا يساوي صفراً؛ انقل الحدود أولاً.' };
+    }
+    /* x(x+p)=q(x+p): القسمة تُضيع جذراً */
+    do { p = ri(rng, -9, 9); q = ri(rng, -9, 9); } while (!p || !q || q === -p);
+    var rts = [-p, q];
+    e = 'x(x' + (p < 0 ? '-' : '+') + ab(p) + ')=' + (ab(q) === 1 ? (q < 0 ? '-' : '') : q) + '(x' + (p < 0 ? '-' : '+') + ab(p) + ')';
+    cs = std(rng, -p, q).slice(0, 4).concat([sc('div', [q], 'قسمتَ الطرفين على \\(x' + (p < 0 ? '-' : '+') + ab(p) + '\\) فضاع الجذر \\(x=' + (-p) + '\\)؛ انقل كل الحدود إلى طرف واحد ثم حلّل بدل القسمة.')]);
+    return { stem: 'Solve the equation.', e: e, tex: H.setTex(rts), corrKey: srt(rts).join(','), cands: cs,
+      sol: [{ ar: 'ننقل كل الحدود إلى طرف واحد ولا نقسم على عامل فيه \\(x\\).', t: lf(p) + '(x' + (q < 0 ? '+' : '-') + ab(q) + ')=0' }, { ar: 'خاصية الضرب الصفري:', t: 'x' + (p < 0 ? '-' : '+') + ab(p) + '=0\\ \\text{or}\\ x' + (q < 0 ? '+' : '-') + ab(q) + '=0' }],
+      key: 'S14g:' + p + ',' + q, remember: 'لا تقسم على عامل يحتوي \\(x\\) فتفقد أحد الجذرين؛ انقل الحدود وحلّل.' };
+  }
   return { levels: LEVELS, make: H.makeWith(14, LEVELS, build), _build: build };
 })(typeof TmH !== 'undefined' ? TmH : require('./common.js'));
 if (typeof module !== 'undefined' && module.exports) module.exports = TmGen14;
@@ -251,10 +279,12 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen14;
   if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
   var st = all[GR][BAND];
   if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
-  st.level = Math.min(4, Math.max(1, +st.level || 1));
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
   st.done = st.done && typeof st.done === 'object' ? st.done : {};
   st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
   st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
   function persist() { st.ts = Date.now(); saveAll(all); }
 
   function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
@@ -272,7 +302,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen14;
   function renderPath() {
     var p = $('#path'); p.innerHTML = '';
     LV.forEach(function (l) {
-      var cls = st.done[l.id] ? 'done' : (l.id === st.level && !st.mastered ? 'cur' : '');
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
       var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
       if (cls === 'cur') li.setAttribute('aria-current', 'step');
       if (st.done[l.id] && l.id !== st.level) {
@@ -287,7 +317,6 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen14;
   function renderSkip() {
     var box = $('#skipBox'); if (!box) return;
     box.innerHTML = '';
-    var CORE = LV.length;
     if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
     var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
     b.addEventListener('click', function () {
@@ -402,7 +431,15 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen14;
     track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
     if (passed) {
       st.done[lvl] = true; st.fails[lvl] = 0;
-      if (lvl < 4) {
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
         st.level = lvl + 1; persist();
         res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
         var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
@@ -413,6 +450,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen14;
         var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
         var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
         b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
         a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
       }
     } else {
@@ -422,7 +460,7 @@ if (typeof module !== 'undefined' && module.exports) module.exports = TmGen14;
       res.innerHTML = again;
       var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
       if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
-      if (st.skipped && lvl === LV.length && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
       res.appendChild(a3);
     }
     stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl));
