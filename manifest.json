@@ -6914,6 +6914,56 @@
    "path": "g12-general/mastery-24/index.html",
    "src": "site/g12-general/mastery-24/index.html",
    "sha256": "c84300a6dddb71fc97cce7f7d214f40c729607e17a6a18e6273f68c266a4f6c4"
+  },
+  {
+   "path": "g10-advanced/band-5/index.html",
+   "src": "site/g10-advanced/band-5/index.html",
+   "sha256": "d0d5a77adbd5615de22da6fba3478a20f4420b4dd60594e5fb6b659b55111869"
+  },
+  {
+   "path": "g10-advanced/band-6/index.html",
+   "src": "site/g10-advanced/band-6/index.html",
+   "sha256": "9bdf41bbcb1dd3f734336c9c63fc6ad42510c11f2796845d3ebd2e46444121dd"
+  },
+  {
+   "path": "g10-advanced/band-7/index.html",
+   "src": "site/g10-advanced/band-7/index.html",
+   "sha256": "f2f76b50263358a7df226a28c03d82fb48f3430b3391f698bb42f4543b6d968d"
+  },
+  {
+   "path": "g10-advanced/band-8/index.html",
+   "src": "site/g10-advanced/band-8/index.html",
+   "sha256": "53bfe34cec0d4f6c140d1be9cad7aa0efbb10a574ff0b66555bef72d472b5324"
+  },
+  {
+   "path": "g10-advanced/band-9/index.html",
+   "src": "site/g10-advanced/band-9/index.html",
+   "sha256": "b25024f0b61c616719ca2c54ba5690948d5fd5128614fff27b79a7d4ba19ad7e"
+  },
+  {
+   "path": "g10-advanced/band-10/index.html",
+   "src": "site/g10-advanced/band-10/index.html",
+   "sha256": "22ab6f923d140722dca86caa6f51acfbf1934ad9e417f9e9e64ff781b938c093"
+  },
+  {
+   "path": "g10-advanced/band-11/index.html",
+   "src": "site/g10-advanced/band-11/index.html",
+   "sha256": "e3c95101d7864e60fcbc8f262a13e95381b32e859356255fe052cb237c1c1050"
+  },
+  {
+   "path": "g10-advanced/band-12/index.html",
+   "src": "site/g10-advanced/band-12/index.html",
+   "sha256": "315689b90efc651c026bcf63ec503872385e3b6301601215c2ca23755c48281b"
+  },
+  {
+   "path": "g10-advanced/band-13/index.html",
+   "src": "site/g10-advanced/band-13/index.html",
+   "sha256": "21124a82ce2c2c81093cb43bdf4c7a7300fabf3dd1d7ef92f9b59be3af5f72e5"
+  },
+  {
+   "path": "g10-advanced/band-14/index.html",
+   "src": "site/g10-advanced/band-14/index.html",
+   "sha256": "1b9e1684f0bb2690716b551b6ca7b95c7b51cdf56cb6b93c5d6fcff632735c34"
   }
  ]
 }
