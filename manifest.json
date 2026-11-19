@@ -7004,6 +7004,11 @@
    "path": "g10-advanced-bridge/haykal-4/index.html",
    "src": "site/g10-advanced-bridge/haykal-4/index.html",
    "sha256": "9ca88319b81d1360c19294dd150d5470a81e25e6d0baa954d0163f5b03681b66"
+  },
+  {
+   "path": "g10-advanced-bridge/mistakes/index.html",
+   "src": "site/g10-advanced-bridge/mistakes/index.html",
+   "sha256": "6965c4457f9e256289e2429badbee4bb97571978a8be772886e0c792553584b2"
   }
  ]
 }
