@@ -171,7 +171,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var corr = E(kk + '\\sqrt{3}', k + '*sqrt(3)'), co = [1, 0, q, 0];
     return { stem: STEM_C, e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(0, b) + '\\end{gathered}', corr: corr, kind: 'c1', ask: 'MVT', f: polyP(co), a: 0, b: b, hint: HINT.s, key: 'C2a:' + q + ',' + k,
       cands: [{ cls: 'pm', v: E('\\pm ' + kk + '\\sqrt{3}', k + '*sqrt(3);-' + k + '*sqrt(3)'), why: 'الحلان \\(\\pm' + kk + '\\sqrt3\\) ولا يقع في \\((0,' + b + ')\\) إلا الموجب؛ نذكر قيمة \\(c\\) الواقعة داخل الفترة فقط.' },
-        { cls: 'k', v: E(String(k), String(k)), why: 'القيمة ' + k + ' لا تحقق \\(3c^2=' + 3 * k * k + '\\) (\\(c^2=' + 3 * k * k + '\\) تعطي \\(c=' + kk + '\\sqrt3\\)).' },
+        { cls: 'k', v: E(String(k), String(k)), why: 'القيمة ' + k + ' لا تحقق \\(3c^2=' + 9 * k * k + '\\) (\\(c^2=' + 3 * k * k + '\\) تعطي \\(c=' + kk + '\\sqrt3\\)).' },
         { cls: 'mid', v: FE(fr(b, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) يصحّ للدوال التربيعية فقط؛ هذه الدالة تكعيبية فنساوي \\(f\'(c)\\) بالميل.' },
         { cls: 'sq', v: E(String(3 * k * k), String(3 * k * k)), why: 'هذه قيمة \\(c^2\\) وليست \\(c\\)؛ نأخذ الجذر التربيعي.' }],
       sol: [{ t: '\\dfrac{f(' + b + ')-f(0)}{' + b + '}=' + (b * b + q), ar: 'ميل القاطع' }, { t: 'f\'(c)=3c^{2}' + (q < 0 ? q : '+' + q) + '=' + (b * b + q) + '\\;\\Rightarrow\\; c^{2}=' + 3 * k * k, ar: 'نساوي المشتقة بالميل' }, { box: 'c=' + corr.t, ar: 'نأخذ الجذر الموجب لأنه الواقع في \\((0,' + b + ')\\)' }] };
