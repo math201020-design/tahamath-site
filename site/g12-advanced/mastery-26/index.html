@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: نظرية القيمة المتوسطة | الثاني عشر متقدم | أكاديمية طه للرياضيات</title>
+<meta name="description" content="تدريب تفاعلي على البند 26: نظرية القيمة المتوسطة وإيجاد قيمة c وشرطي النظرية، بخمسة مستويات تتدرج حتى مستوى الوزارة.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g12-advanced/mastery-26/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.path li.back{cursor:pointer}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند 26 • نظرية القيمة المتوسطة<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g12-advanced", "band": 26, "label": "البند 26", "gen": "TmGenMvt"};</script>
+<script>
+/* مولّد أسئلة البند 26 (نظرية القيمة المتوسطة) - 12 متقدم
+   اختيار من متعدد، حل تفصيلي، تلميح، ومشتتات من أخطاء شائعة لكل منها تشخيص. الإجابة تُحسب من المعاملات. */
+(function (root) {
+  'use strict';
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
+  function nz(rng, lo, hi) { var v = 0; while (!v) v = ri(rng, lo, hi); return v; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function fr(n, d) { d = d === undefined ? 1 : d; if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function ftex(f) { if (f.d === 1) return String(f.n); return (f.n < 0 ? '-' : '') + '\\dfrac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function fp(f) { return f.d === 1 ? String(f.n) : '(' + f.n + ')/' + f.d; }
+  function FE(f) { return { t: ftex(f), p: fp(f) }; }
+  function E(t, p) { return { t: t, p: p }; }
+  function polyT(c, v) {
+    v = v || 'x'; var n = c.length - 1, s = '';
+    c.forEach(function (a, i) {
+      var p = n - i; if (!a) return;
+      var ab = Math.abs(a), co = (ab === 1 && p > 0) ? '' : String(ab), vv = p === 0 ? '' : (p === 1 ? v : v + '^{' + p + '}'), term = co + vv;
+      if (!s) s = (a < 0 ? '-' : '') + term; else s += (a < 0 ? ' - ' : ' + ') + term;
+    });
+    return s || '0';
+  }
+  function polyP(c) { var n = c.length - 1, parts = []; c.forEach(function (a, i) { var p = n - i; if (a) parts.push('(' + a + ')*x**' + p); }); return parts.join('+') || '0'; }
+  function evp(c, x) { var n = c.length - 1, s = 0; c.forEach(function (a, i) { s += a * Math.pow(x, n - i); }); return s; }
+  function bracket(a, b) { return '[' + a + ',\\,' + b + ']'; }
+
+  var HINT = {
+    m: 'نظرية القيمة المتوسطة: إذا كانت \\(f\\) متصلة على \\([a,b]\\) وقابلة للاشتقاق على \\((a,b)\\) فيوجد \\(c\\in(a,b)\\) يحقق \\(f\'(c)=\\dfrac{f(b)-f(a)}{b-a}\\).',
+    c: 'تحقق من الشرطين: الاتصال على الفترة المغلقة والقابلية للاشتقاق على المفتوحة؛ النقطة التي يفقد فيها الشرط داخل الفترة تمنع تطبيق النظرية.',
+    s: 'احسب الميل \\(\\dfrac{f(b)-f(a)}{b-a}\\) أولاً، ثم ساوِ \\(f\'(c)\\) بالميل، ثم اختر الحل الواقع داخل \\((a,b)\\) فقط.',
+    w: 'في مسائل الحركة: السرعة المتوسطة = \\(\\dfrac{s(t_2)-s(t_1)}{t_2-t_1}\\)، والنظرية تضمن لحظة تساوي عندها السرعة اللحظية \\(s\'(t)\\) هذا المتوسط.',
+    ch: 'اكتب معادلة ميل القاطع \\(f\'(c)=\\dfrac{f(b)-f(a)}{b-a}\\) وحلها في \\(c\\) وحلها، ثم افحص أيّ الحلول يقع داخل الفترة المفتوحة.'
+  };
+
+  function pickD(rng, corr, cands) {
+    var seen = {}; seen[corr.p] = 1; var out = [], used = {}; out.amb = 0; out.gen = 0;
+    shuffle(rng, cands).forEach(function (c) {
+      if (out.length >= 3 || used[c.cls]) return; var k = c.v.p; if (seen[k]) return;
+      seen[k] = 1; used[c.cls] = 1; out.push(c);
+      var same = {}; cands.forEach(function (o) { if (o.v.p === k) same[o.cls] = 1; }); if (Object.keys(same).length > 1) out.amb++;
+    });
+    out.gen = 3 - out.length; return out;
+  }
+  var STEM_C = 'أوجد قيمة \\(c\\) التي تضمنها نظرية القيمة المتوسطة للدالة \\(f\\) على الفترة المعطاة:';
+
+  /* ----- المستوى 1 ----- */
+  function t1a(rng) {
+    var p, q, r, a, b; do { p = pick(rng, [1, 2, 3, -1, -2, 4]); q = nz(rng, -6, 6); r = ri(rng, -5, 5); a = ri(rng, -5, 3); b = a + ri(rng, 2, 8); } while ((a + b) === 0);
+    var c = fr(a + b, 2), m = p * (a + b) + q, co = [p, q, r];
+    return { stem: STEM_C, e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(a, b) + '\\end{gathered}', corr: FE(c), kind: 'q1', ask: 'MVT', f: polyP(co), a: a, b: b, hint: HINT.s, key: 'C1a:' + co.join(',') + ',' + a + ',' + b,
+      cands: [{ cls: 'sm', v: E(String(a + b), String(a + b)), why: 'هذا مجموع طرفي الفترة؛ \\(c\\) هو نصفه: \\(\\dfrac{a+b}{2}\\).' },
+        { cls: 'hl', v: FE(fr(b - a, 2)), why: 'هذا نصف طول الفترة وليس قيمة \\(c\\).' },
+        { cls: 'sl', v: E(String(m), String(m)), why: 'هذه قيمة ميل القاطع \\(\\dfrac{f(b)-f(a)}{b-a}\\)؛ المطلوب قيمة \\(c\\) نفسها.' },
+        { cls: 'en', v: E(String(b), String(b)), why: 'طرف الفترة لا يمثل \\(c\\)؛ يجب أن يقع داخل الفترة المفتوحة.' },
+        { cls: 'fb', v: E(String(Math.round(evp(co, b))), String(Math.round(evp(co, b)))), why: 'هذه قيمة الدالة \\(f(b)\\) وليست قيمة \\(c\\).' }],
+      sol: [{ t: 'f(' + a + ')=' + Math.round(evp(co, a)) + ',\\quad f(' + b + ')=' + Math.round(evp(co, b)), ar: 'نحسب قيمتي الدالة عند طرفي الفترة' }, { t: '\\dfrac{' + Math.round(evp(co, b)) + '-(' + Math.round(evp(co, a)) + ')}{' + (b - a) + '}=' + m, ar: 'ميل القاطع' }, { t: 'f\'(c)=' + polyT([2 * p, q], 'c') + '=' + m + '\\;\\Rightarrow\\; c=' + ftex(c), ar: 'نساوي المشتقة بالميل' }, { box: 'c=' + ftex(c) }] };
+  }
+  function t1b(rng) {
+    var k = ri(rng, -2, 2), lo = k - ri(rng, 1, 3), hi = k + ri(rng, 1, 3), kx = k === 0 ? 'x' : (k > 0 ? 'x-' + k : 'x+' + (-k));
+    var kp = 'x-(' + k + ')', q = ri(rng, 2, 6);
+    var good = pick(rng, [E('x^{3}-' + q + 'x', 'x**3-' + q + '*x'), E('\\sin x', 'sin(x)'), E('e^{x}', 'exp(x)'), E('x^{2}+' + q, 'x**2+' + q), E('\\cos x+x', 'cos(x)+x')]);
+    var tx = k === 0 ? 'x' : '(' + kx + ')';
+    var ab = E('|' + kx + '|', 'Abs(' + kp + ')'), rc = E('\\dfrac{1}{' + kx + '}', '1/(' + kp + ')'), cu = E('\\sqrt[3]{(' + kx + ')^{2}}', 'Abs(' + kp + ')**Rational(2,3)'), sq = E('\\sqrt{' + kx + '}', 'sqrt(' + kp + ')');
+    return { stem: 'أي الدوال التالية تحقق شرطي نظرية القيمة المتوسطة على الفترة المعطاة؟', e: 'x\\in' + bracket(lo, hi), corr: good, kind: 'cond', ask: 'COND', a: lo, b: hi, hint: HINT.c, key: 'C1b:' + good.p + ',' + k + ',' + lo + ',' + hi,
+      cands: [{ cls: 'ab', v: ab, why: 'القيمة المطلقة لها نقطة زاوية عند \\(x=' + k + '\\) داخل الفترة: غير قابلة للاشتقاق هناك.' },
+        { cls: 'rc', v: rc, why: 'غير متصلة عند \\(x=' + k + '\\) (خط تقارب رأسي) وهذه النقطة داخل الفترة.' },
+        { cls: 'cu', v: cu, why: 'متصلة لكن مشتقتها غير موجودة عند \\(x=' + k + '\\) وهذه النقطة داخل الفترة.' },
+        { cls: 'sq', v: sq, why: 'غير معرّفة على جزء من الفترة (يمين \\(x=' + k + '\\) فقط)، فلا اتصال على كل الفترة.' }],
+      sol: [{ t: 'f\\ \\text{continuous on}\\ ' + bracket(lo, hi), ar: 'الدالة المختارة معرّفة ومتصلة على الفترة المغلقة' }, { t: 'f\\ \\text{differentiable on}\\ (' + lo + ',\\,' + hi + ')', ar: 'وقابلة للاشتقاق على الفترة المفتوحة' }, { box: 'f(x)=' + good.t }],
+      fnOpts: true };
+  }
+
+  /* ----- المستوى 2 ----- */
+  function t2a(rng) {
+    var k = ri(rng, 1, 4), q = nz(rng, -6, 6), b = 3 * k, kk = k === 1 ? '' : k;
+    var corr = E(kk + '\\sqrt{3}', k + '*sqrt(3)'), co = [1, 0, q, 0];
+    return { stem: STEM_C, e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(0, b) + '\\end{gathered}', corr: corr, kind: 'c1', ask: 'MVT', f: polyP(co), a: 0, b: b, hint: HINT.s, key: 'C2a:' + q + ',' + k,
+      cands: [{ cls: 'pm', v: E('\\pm ' + kk + '\\sqrt{3}', k + '*sqrt(3);-' + k + '*sqrt(3)'), why: 'الحلان \\(\\pm' + kk + '\\sqrt3\\) ولا يقع في \\((0,' + b + ')\\) إلا الموجب؛ نذكر قيمة \\(c\\) الواقعة داخل الفترة فقط.' },
+        { cls: 'k', v: E(String(k), String(k)), why: 'القيمة ' + k + ' لا تحقق \\(3c^2=' + 3 * k * k + '\\) (\\(c^2=' + 3 * k * k + '\\) تعطي \\(c=' + kk + '\\sqrt3\\)).' },
+        { cls: 'mid', v: FE(fr(b, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) يصحّ للدوال التربيعية فقط؛ هذه الدالة تكعيبية فنساوي \\(f\'(c)\\) بالميل.' },
+        { cls: 'sq', v: E(String(3 * k * k), String(3 * k * k)), why: 'هذه قيمة \\(c^2\\) وليست \\(c\\)؛ نأخذ الجذر التربيعي.' }],
+      sol: [{ t: '\\dfrac{f(' + b + ')-f(0)}{' + b + '}=' + (b * b + q), ar: 'ميل القاطع' }, { t: 'f\'(c)=3c^{2}' + (q < 0 ? q : '+' + q) + '=' + (b * b + q) + '\\;\\Rightarrow\\; c^{2}=' + 3 * k * k, ar: 'نساوي المشتقة بالميل' }, { box: 'c=' + corr.t, ar: 'نأخذ الجذر الموجب لأنه الواقع في \\((0,' + b + ')\\)' }] };
+  }
+  function t2b(rng) {
+    var k = ri(rng, 1, 5), kk = k, corr = E(String(k), String(k));
+    return { stem: STEM_C, e: 'f(x)=x^{3},\\quad [-' + kk + ',\\,' + 2 * k + ']', corr: corr, kind: 'c2', ask: 'MVT', f: 'x**3', a: -k, b: 2 * k, hint: HINT.s, key: 'C2b:' + k,
+      cands: [{ cls: 'pm', v: E('\\pm ' + kk, k + ';-' + k), why: 'الحلان \\(\\pm' + kk + '\\)، لكن \\(-' + kk + '\\) هو طرف الفترة وليس داخلها المفتوح.' },
+        { cls: 'ng', v: E('-' + kk, '-' + k), why: 'هذا طرف الفترة؛ لا يصلح قيمةً لـ \\(c\\).' },
+        { cls: 'mid', v: FE(fr(k, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) لا يعطي \\(c\\) في الدوال التكعيبية؛ نساوي \\(f\'(c)\\) بالميل.' },
+        { cls: 'en', v: E(String(2 * k), String(2 * k)), why: 'هذا الطرف الأيمن للفترة وليس داخلها.' }],
+      sol: [{ t: '\\dfrac{(' + 2 * k + ')^{3}-(-' + kk + ')^{3}}{' + 2 * k + '-(-' + kk + ')}=' + 3 * k * k, ar: 'ميل القاطع' }, { t: '3c^{2}=' + 3 * k * k + '\\;\\Rightarrow\\; c=\\pm ' + kk, ar: 'نحلّ المعادلة' }, { box: 'c=' + k, ar: 'نقبل القيمة الواقعة داخل \\((-' + kk + ',' + 2 * k + ')\\) فقط' }] };
+  }
+
+  /* ----- المستوى 3 ----- */
+  function t3a(rng) {
+    var m = ri(rng, 1, 5), n = m + ri(rng, 1, 4), a = m * m, b = n * n, c = fr((m + n) * (m + n), 4);
+    return { stem: STEM_C, e: 'f(x)=\\sqrt{x},\\quad ' + bracket(a, b), corr: FE(c), kind: 'r1', ask: 'MVT', f: 'sqrt(x)', a: a, b: b, hint: HINT.s, key: 'C3a:' + m + ',' + n,
+      cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) لا يعطي \\(c\\) للدالة \\(\\sqrt{x}\\).' },
+        { cls: 'rt', v: FE(fr(m + n, 2)), why: 'هذه قيمة \\(\\sqrt{c}\\) وليست \\(c\\)؛ يجب التربيع.' },
+        { cls: 'pr', v: E(String(m * n), String(m * n)), why: 'الجذر \\(\\sqrt{ab}\\) (الوسط الهندسي للطرفين) يخص الدالة \\(\\dfrac1x\\) لا \\(\\sqrt x\\).' },
+        { cls: 'sl', v: FE(fr(1, m + n)), why: 'هذا ميل القاطع \\(\\dfrac{\\sqrt b-\\sqrt a}{b-a}\\) وليست قيمة \\(c\\).' }],
+      sol: [{ t: '\\dfrac{\\sqrt{' + b + '}-\\sqrt{' + a + '}}{' + b + '-' + a + '}=\\dfrac{' + n + '-' + m + '}{' + (b - a) + '}=\\dfrac{1}{' + (m + n) + '}', ar: 'ميل القاطع' }, { t: '\\dfrac{1}{2\\sqrt{c}}=\\dfrac{1}{' + (m + n) + '}\\;\\Rightarrow\\;\\sqrt{c}=\\dfrac{' + (m + n) + '}{2}', ar: 'نساوي \\(f\'(c)\\) بالميل' }, { box: 'c=' + ftex(c) }] };
+  }
+  function t3b(rng) {
+    var m = ri(rng, 1, 4), k = ri(rng, 2, 3), a = m, b = m * k * k, c = m * k;
+    return { stem: STEM_C, e: 'f(x)=\\dfrac{1}{x},\\quad ' + bracket(a, b), corr: E(String(c), String(c)), kind: 'r2', ask: 'MVT', f: '1/x', a: a, b: b, hint: HINT.s, key: 'C3b:' + m + ',' + k,
+      cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) لا يعطي \\(c\\) للدالة \\(\\dfrac1x\\).' },
+        { cls: 'pr', v: E(String(a * b), String(a * b)), why: 'هذه \\(c^2=ab\\) وليست \\(c\\)؛ نأخذ الجذر \\(\\sqrt{ab}\\).' },
+        { cls: 'ng', v: E(String(-c), String(-c)), why: 'القيمة السالبة خارج الفترة؛ نقبل الجذر الموجب الواقع في \\((' + a + ',' + b + ')\\).' },
+        { cls: 'en', v: E(String(b), String(b)), why: 'طرف الفترة لا يصلح قيمةً لـ \\(c\\).' }],
+      sol: [{ t: '\\dfrac{\\frac1{' + b + '}-\\frac1{' + a + '}}{' + b + '-' + a + '}=-\\dfrac{1}{' + a * b + '}', ar: 'ميل القاطع' }, { t: '-\\dfrac{1}{c^{2}}=-\\dfrac{1}{' + a * b + '}\\;\\Rightarrow\\; c^{2}=' + a * b, ar: 'نساوي \\(f\'(c)\\) بالميل' }, { box: 'c=' + c, ar: 'الجذر الموجب فقط يقع في الفترة' }] };
+  }
+
+  /* ----- المستوى 4 (الوزارة) ----- */
+  function t4a(rng) {
+    var a = ri(rng, 0, 3), h = ri(rng, 2, 6), b = a + h, A = nz(rng, -6, 8), M = ri(rng, 2, 7), v = A + M * h;
+    return { stem: 'دالة \\(f\\) قابلة للاشتقاق على \\(\\mathbb{R}\\) وتحقق الشرطين المعطيين. ما أكبر قيمة ممكنة لـ \\(f(' + b + ')\\)؟', e: 'f(' + a + ')=' + A + ',\\quad f\'(x)\\le ' + M, corr: E(String(v), String(v)), kind: 'bd', ask: 'VAL', v: String(v), a: a, b: b, A: A, M: M, hint: HINT.m, key: 'C4a:' + a + ',' + h + ',' + A + ',' + M,
+      cands: [{ cls: 'nh', v: E(String(A + M), String(A + M)), why: 'نضرب \\(M\\) في طول الفترة \\(' + b + '-' + a + '=' + h + '\\) وليس في 1.' },
+        { cls: 'nA', v: E(String(M * h), String(M * h)), why: 'نضيف قيمة \\(f(' + a + ')=' + A + '\\) إلى النتيجة.' },
+        { cls: 'bb', v: E(String(A + M * b), String(A + M * b)), why: 'نستعمل طول الفترة \\(b-a=' + h + '\\) لا قيمة \\(b\\) وحدها.' },
+        { cls: 'sg', v: E(String(A - M * h), String(A - M * h)), why: 'من \\(f(b)-f(a)=f\'(c)(b-a)\\le M(b-a)\\) نجمع ولا نطرح.' },
+        { cls: 'ml', v: E(String(A * M), String(A * M)), why: 'العلاقة جمعية: \\(f(b)\\le f(a)+M(b-a)\\).' }],
+      sol: [{ t: 'f(' + b + ')-f(' + a + ')=f\'(c)\\,(' + b + '-' + a + ')\\le ' + M + '\\cdot ' + h, ar: 'نظرية القيمة المتوسطة مع \\(f\'(c)\\le ' + M + '\\)' }, { t: 'f(' + b + ')\\le ' + A + '+' + M * h, ar: 'نضيف \\(f(' + a + ')\\)' }, { box: 'f(' + b + ')\\le ' + v }] };
+  }
+  function t4b(rng) {
+    var m = ri(rng, 1, 4), co = [1, -3 * m, 0, 0];
+    return { stem: STEM_C, e: '\\begin{gathered}f(x)=x^{3}-' + (3 * m) + 'x^{2}\\\\ x\\in' + bracket(0, 3 * m) + '\\end{gathered}', corr: E(String(2 * m), String(2 * m)), kind: 'ro', ask: 'MVT', f: polyP(co), a: 0, b: 3 * m, hint: HINT.s, key: 'C4b:' + m,
+      cands: [{ cls: 'zr', v: E('0', '0'), why: 'القيمة 0 طرف الفترة وليست داخلها المفتوح؛ \\(f\'(c)=0\\) له حلان: \\(0\\) و\\(' + 2 * m + '\\).' },
+        { cls: 'mid', v: FE(fr(3 * m, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) لا يصحّ لدالة تكعيبية.' },
+        { cls: 'en', v: E(String(3 * m), String(3 * m)), why: 'الطرف الأيمن للفترة وليس داخلها.' },
+        { cls: 'k', v: E(String(m), String(m)), why: 'لا تحقق \\(3c^2-' + 6 * m + 'c=0\\).' }],
+      sol: [{ t: 'f(0)=0,\\quad f(' + 3 * m + ')=0\\;\\Rightarrow\\;\\dfrac{f(' + 3 * m + ')-f(0)}{' + 3 * m + '}=0', ar: 'ميل القاطع صفر' }, { t: 'f\'(c)=3c^{2}-' + 6 * m + 'c=3c(c-' + 2 * m + ')=0\\;\\Rightarrow\\; c=0\\ \\text{or}\\ c=' + 2 * m, ar: 'نحلّ \\(f\'(c)=0\\)' }, { box: 'c=' + 2 * m, ar: 'القيمة الواقعة داخل \\((0,' + 3 * m + ')\\)' }] };
+  }
+  function t4c(rng) {
+    var p, q, t1, t2; do { p = ri(rng, 1, 5); q = nz(rng, -4, 8); t1 = ri(rng, 0, 3); t2 = t1 + 2 * ri(rng, 1, 3); } while (false);
+    var c = fr(t1 + t2, 2), co = [p, q, 0], avg = p * (t1 + t2) + q;
+    return { stem: 'تتحرك سيارة على طريق مستقيم، ويعطى بعدها \\(s(t)\\) بالأمتار بعد \\(t\\) ثانية بالعلاقة المعطاة. في أي لحظة من الفترة المعطاة تساوي سرعتها اللحظية سرعتها المتوسطة خلال هذه الفترة؟', e: '\\begin{gathered}s(t)=' + polyT(co, 't') + '\\\\ t\\in' + bracket(t1, t2) + '\\end{gathered}', corr: FE(c), kind: 'w1', ask: 'MVT', f: polyP(co), a: t1, b: t2, hint: HINT.w, key: 'C4c:' + p + ',' + q + ',' + t1 + ',' + t2,
+      cands: [{ cls: 'av', v: E(String(avg), String(avg)), why: 'هذه قيمة السرعة المتوسطة نفسها (م/ث) وليست اللحظة المطلوبة.' },
+        { cls: 'ln', v: E(String(t2 - t1), String(t2 - t1)), why: 'هذا طول الفترة وليس لحظة داخلها.' },
+        { cls: 'sm', v: E(String(t1 + t2), String(t1 + t2)), why: 'اللحظة هي نصف المجموع \\(\\dfrac{t_1+t_2}{2}\\) وليست المجموع.' },
+        { cls: 'hl', v: FE(fr(t2 - t1, 2)), why: 'نصف طول الفترة لا يمثل لحظة؛ نضيفه إلى بداية الفترة.' },
+        { cls: 'en', v: E(String(t2), String(t2)), why: 'نهاية الفترة وليست داخلها.' }],
+      sol: [{ t: '\\dfrac{s(' + t2 + ')-s(' + t1 + ')}{' + t2 + '-' + t1 + '}=' + avg, ar: 'السرعة المتوسطة' }, { t: 's\'(t)=' + polyT([2 * p, q], 't') + '=' + avg + '\\;\\Rightarrow\\; t=' + ftex(c), ar: 'نساوي السرعة اللحظية بالمتوسطة' }, { box: 't=' + ftex(c) }] };
+  }
+
+  /* ----- المستوى 5 (تحدٍّ) ----- */
+  function t5a(rng) {
+    var k = ri(rng, 2, 4), isL = rng() < 0.5, ek = 'e^{' + k + '}';
+    if (isL) {
+      var corr = E('\\dfrac{' + ek + '-1}{' + k + '}', '(exp(' + k + ')-1)/' + k);
+      return { stem: STEM_C, e: 'f(x)=\\ln x,\\quad [1,\\,' + ek + ']', corr: corr, kind: 'ln', ask: 'MVT', f: 'log(x)', a: 1, b: 'exp(' + k + ')', hint: HINT.ch, key: 'C5a:L' + k,
+        cands: [{ cls: 'nk', v: E(ek + '-1', 'exp(' + k + ')-1'), why: 'ميل القاطع هو \\(\\dfrac{\\ln e^{' + k + '}-\\ln1}{e^{' + k + '}-1}=\\dfrac{' + k + '}{e^{' + k + '}-1}\\)، ثم \\(\\dfrac1c=\\) الميل يعطي القسمة على \\(' + k + '\\).' },
+          { cls: 'mid', v: E('\\dfrac{' + ek + '+1}{2}', '(exp(' + k + ')+1)/2'), why: 'المنتصف لا يعطي \\(c\\) لدالة اللوغاريتم.' },
+          { cls: 'sl', v: E('\\dfrac{' + k + '}{' + ek + '-1}', k + '/(exp(' + k + ')-1)'), why: 'هذا ميل القاطع؛ \\(c\\) هو مقلوبه لأن \\(f\'(c)=\\dfrac1c\\).' },
+          { cls: 'mu', v: E(k + '(' + ek + '-1)', k + '*(exp(' + k + ')-1)'), why: 'نقسم على \\(' + k + '\\) ولا نضرب.' }],
+        sol: [{ t: '\\dfrac{\\ln ' + ek + '-\\ln 1}{' + ek + '-1}=\\dfrac{' + k + '}{' + ek + '-1}', ar: 'ميل القاطع' }, { t: '\\dfrac{1}{c}=\\dfrac{' + k + '}{' + ek + '-1}\\;\\Rightarrow\\; c=\\dfrac{' + ek + '-1}{' + k + '}', ar: 'نساوي \\(f\'(c)=\\dfrac1c\\) بالميل' }, { box: 'c=' + corr.t }] };
+    }
+    var corr2 = E('\\ln\\!\\left(\\dfrac{' + ek + '-1}{' + k + '}\\right)', 'log((exp(' + k + ')-1)/' + k + ')');
+    return { stem: STEM_C, e: 'f(x)=e^{x},\\quad [0,\\,' + k + ']', corr: corr2, kind: 'ex', ask: 'MVT', f: 'exp(x)', a: 0, b: k, hint: HINT.ch, key: 'C5a:E' + k,
+      cands: [{ cls: 'nl', v: E('\\dfrac{' + ek + '-1}{' + k + '}', '(exp(' + k + ')-1)/' + k), why: 'هذه قيمة \\(e^{c}\\) (الميل) وليست \\(c\\)؛ نأخذ \\(\\ln\\) للطرفين.' },
+        { cls: 'mid', v: FE(fr(k, 2)), why: 'المنتصف لا يعطي \\(c\\) للدالة الأسية.' },
+        { cls: 'mp', v: E('\\dfrac{\\ln(' + ek + '-1)}{' + k + '}', 'log(exp(' + k + ')-1)/' + k), why: 'اللوغاريتم يُطبَّق على النسبة كلها \\(\\dfrac{e^{' + k + '}-1}{' + k + '}\\) لا على بسطها وحده.' },
+        { cls: 'iv', v: E('\\ln\\!\\left(\\dfrac{' + k + '}{' + ek + '-1}\\right)', 'log(' + k + '/(exp(' + k + ')-1))'), why: 'الميل هو \\(\\dfrac{e^{' + k + '}-1}{' + k + '}\\) وليس مقلوبه.' }],
+      sol: [{ t: '\\dfrac{e^{' + k + '}-e^{0}}{' + k + '}=\\dfrac{' + ek + '-1}{' + k + '}', ar: 'ميل القاطع' }, { t: 'e^{c}=\\dfrac{' + ek + '-1}{' + k + '}\\;\\Rightarrow\\; c=\\ln\\!\\left(\\dfrac{' + ek + '-1}{' + k + '}\\right)', ar: 'نساوي \\(f\'(c)=e^{c}\\) بالميل ونأخذ \\(\\ln\\)' }, { box: 'c=' + corr2.t }] };
+  }
+  function t5b(rng) {
+    var p, q, a, b, s, D, r1, r2, cnt, co, tries = 0, ok;
+    do {
+      p = nz(rng, -4, 4); q = nz(rng, -6, 6); a = ri(rng, -4, 1); b = a + ri(rng, 2, 6); co = [1, p, q, 0];
+      s = Math.round((evp(co, b) - evp(co, a)) / (b - a)); D = 4 * p * p - 12 * (q - s);
+      r1 = r2 = 0; cnt = 0; ok = false;
+      if (D > 0) {
+        r1 = (-2 * p - Math.sqrt(D)) / 6; r2 = (-2 * p + Math.sqrt(D)) / 6;
+        ok = Math.abs(r1 - a) > 1e-6 && Math.abs(r1 - b) > 1e-6 && Math.abs(r2 - a) > 1e-6 && Math.abs(r2 - b) > 1e-6;
+        cnt = (r1 > a && r1 < b ? 1 : 0) + (r2 > a && r2 < b ? 1 : 0);
+      }
+      tries++;
+    } while ((!ok || cnt < 1) && tries < 500);
+    var cons = {
+      0: 'النظرية تضمن وجود قيمة واحدة على الأقل، فلا يمكن أن يكون العدد صفراً.',
+      1: 'نساوي \\(f\'(c)\\) بالميل يعطي جذرين؛ تحقق إن كان كلاهما داخل الفترة المفتوحة.',
+      2: 'أحد جذري معادلة ميل القاطع يقع خارج الفترة المفتوحة.',
+      3: 'معادلة ميل القاطع \\(f\'(c)=\\dfrac{f(b)-f(a)}{b-a}\\) تربيعية في \\(c\\)، ولها حلّان على الأكثر.'
+    };
+    var vs = [0, 1, 2, 3], optsAll = vs.map(function (v) { return E(String(v), String(v)); });
+    var cands = vs.filter(function (v) { return v !== cnt; }).map(function (v) { return { cls: 'n' + v, v: optsAll[v], why: cons[v] }; });
+    return { stem: 'كم قيمة للعدد \\(c\\) في الفترة المفتوحة \\((' + a + ',' + b + ')\\) تحقق نتيجة نظرية القيمة المتوسطة للدالة التالية؟', e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(a, b) + '\\end{gathered}', corr: optsAll[cnt], kind: 'cn', ask: 'CNT', f: polyP(co), a: a, b: b, hint: HINT.ch, key: 'C5b:' + p + ',' + q + ',' + a + ',' + b,
+      cands: cands,
+      sol: [{ t: '\\dfrac{f(' + b + ')-f(' + a + ')}{' + (b - a) + '}=' + s, ar: 'ميل القاطع' }, { t: 'f\'(c)=' + polyT([3, 2 * p, q], 'c') + '=' + s + '\\;\\Rightarrow\\;' + polyT([3, 2 * p, q - s], 'c') + '=0', ar: 'نساوي \\(f\'(c)\\) بالميل' }, { t: 'c\\approx' + r1.toFixed(2) + ',\\quad c\\approx' + r2.toFixed(2), ar: 'جذرا المعادلة' }, { box: 'n=' + cnt }] };
+  }
+
+  var LEVELS = [
+    { id: 1, ar: 'أساسي', hint: HINT.m },
+    { id: 2, ar: 'كثيرات الحدود', hint: HINT.s },
+    { id: 3, ar: 'الجذر والمقلوب', hint: HINT.s },
+    { id: 4, ar: 'مستوى الوزارة', hint: HINT.w },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: HINT.ch }
+  ];
+  function build(level, rng) {
+    var r = rng();
+    if (level === 1) return r < 0.65 ? t1a(rng) : t1b(rng);
+    if (level === 2) return r < 0.5 ? t2a(rng) : t2b(rng);
+    if (level === 3) return r < 0.55 ? t3a(rng) : t3b(rng);
+    if (level === 4) return r < 0.34 ? t4a(rng) : (r < 0.62 ? t4b(rng) : t4c(rng));
+    return r < 0.55 ? t5a(rng) : t5b(rng);
+  }
+
+  /* تقسيم خطوات الحل الطويلة عند علامة الاستلزام حتى تتسع لعرض الجوال */
+  function splitSol(sol) {
+    var out = [];
+    sol.forEach(function (s) {
+      if (s.box || !s.t || s.t.indexOf('\\;\\Rightarrow\\;') < 0) { out.push(s); return; }
+      var parts = s.t.split('\\;\\Rightarrow\\;');
+      parts.forEach(function (p, i) { var o = { t: i ? '\\Rightarrow\\;' + p : p }; if (i === 0 && s.ar) o.ar = s.ar; out.push(o); });
+    });
+    return out;
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = pickD(rng, t.corr, t.cands); tries++; } while ((dis.gen > 0 || dis.amb > 0) && tries < 300);
+    var all = shuffle(rng, [{ v: t.corr, why: '' }].concat(dis));
+    var ci = 0; all.forEach(function (o, i) { if (o.v === t.corr) ci = i; });
+    var pre = t.fnOpts ? 'f(x)=' : '';
+    return {
+      band: 26, level: level, rtl: true, lang: 'ar', stem: t.stem, e: t.e,
+      opts: all.map(function (s) { return { t: pre + s.v.t, why: s.why || '' }; }),
+      ans: ci, sol: splitSol(t.sol), hint: t.hint || LEVELS[level - 1].hint, key: t.key,
+      data: { kind: t.kind, ask: t.ask, f: t.f, a: t.a, b: t.b, v: t.v, A: t.A, M: t.M, correct: t.corr.p, opts: all.map(function (s) { return s.v.p; }), tries: tries, gen: dis.gen, amb: dis.amb }
+    };
+  }
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenMvt = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var isCur = l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])); var cls = (isCur && !st.mastered) ? 'cur' : (st.done[l.id] ? 'done' : (isCur ? 'cur' : ''));
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.className += ' back'; li.setAttribute('role', 'button'); li.tabIndex = 0; li.setAttribute('aria-label', 'العودة إلى المستوى ' + l.id);
+        var goBack = function () { st.level = l.id; persist(); newRound(); };
+        li.addEventListener('click', goBack);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goBack(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE || !round || round.idx >= ROUND) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز، فقد تجاوزت ما يُطلب في الامتحان.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && st.skipped < CORE && lvl === CORE) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>
