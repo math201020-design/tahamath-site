@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mastery Practice: Asymptotes | Grade 12 Advanced | Taha Math Academy</title>
+<meta name="description" content="Mastery practice on band 22: finding horizontal, vertical and slant asymptotes using limits, in five levels up to Ministry level.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g12-advanced/en/mastery-22/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:ltr;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic','Segoe UI',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:ltr;text-align:left;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>Mastery Practice</h1>
+  <div class="sub">Band 22 • Asymptotes<br>Questions go from easy to hard, and the same idea returns with new numbers until you master it.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="Mastery path">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">Questions are generated with new numbers every time, and your progress is saved in this browser only. We do not ask for an email or a phone number, and the name is optional. If you share feedback, a simple summary of your rounds is sent with it.</p>
+</main>
+<script>window.TM_CFG={"gr": "g12-advanced", "band": 22, "label": "Band 22", "gen": "TmGenAsyEn", "lang": "en"};</script>
+<script>
+/* Band 22 question generator (horizontal, vertical and slant asymptotes using limits) - Grade 12 Advanced, English version.
+   Ministry-style multiple choice, worked solutions, a hint per level, and distractors built from common mistakes, each with a specific diagnosis.
+   Template-based generation (no AI); the correct answer is computed from the coefficients. */
+(function (root) {
+  'use strict';
+
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
+  function nz(rng, lo, hi) { var v = 0; while (!v) v = ri(rng, lo, hi); return v; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  /* exact fractions */
+  function fr(n, d) { d = d === undefined ? 1 : d; if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function ftex(f) { if (f.d === 1) return String(f.n); return (f.n < 0 ? '-' : '') + '\\dfrac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function fplain(f) { return f.d === 1 ? String(f.n) : f.n + '/' + f.d; }
+
+  /* polynomials: coefficients from highest degree */
+  function polyT(c, v) {
+    v = v || 'x'; var n = c.length - 1, s = '';
+    c.forEach(function (a, i) {
+      var p = n - i; if (!a) return;
+      var ab = Math.abs(a), co = (ab === 1 && p > 0) ? '' : String(ab), vv = p === 0 ? '' : (p === 1 ? v : v + '^{' + p + '}'), term = co + vv;
+      if (!s) s = (a < 0 ? '-' : '') + term; else s += (a < 0 ? ' - ' : ' + ') + term;
+    });
+    return s || '0';
+  }
+  function polyP(c) {
+    var n = c.length - 1, parts = [];
+    c.forEach(function (a, i) { var p = n - i; if (a) parts.push('(' + a + ')*x**' + p); });
+    return parts.join('+') || '0';
+  }
+  function facT(r) { return r > 0 ? '(x-' + r + ')' : '(x+' + (-r) + ')'; }
+  function sgnN(n) { return n < 0 ? '-' + (-n) : '+' + n; }
+
+  /* asymptote elements: g=0 vertical, g=1 horizontal or slant; p is plain text for automatic checking */
+  function V(f) { f = typeof f === 'number' ? fr(f) : f; return { g: 0, o: f.n / f.d, t: 'x=' + ftex(f), p: 'x=' + fplain(f) }; }
+  function H(f) { f = typeof f === 'number' ? fr(f) : f; return { g: 1, o: 0, w: f.n / f.d, t: 'y=' + ftex(f), p: 'y=' + fplain(f) }; }
+  function Sl(a, b) { return { g: 2, o: a * 1000 + b, t: 'y=' + polyT([a, b]), p: 'y=(' + a + ')*x+(' + b + ')' }; }
+  function K(f) { f = typeof f === 'number' ? fr(f) : f; return { g: 0, o: f.n / f.d, t: 'k=' + ftex(f), p: 'k=' + fplain(f) }; }
+  function setSort(a) { return a.slice().sort(function (p, q) { return p.g - q.g || (p.w || 0) - (q.w || 0) || p.o - q.o; }); }
+  function setKey(a) { return a.map(function (e) { return e.p; }).sort().join('|'); }
+  function setTex(a) { return setSort(a).map(function (e) { return e.t; }).join(',\\ '); }
+  function setPlain(a) { return setSort(a).map(function (e) { return e.p; }); }
+
+  var WHY = {
+    negV: 'The signs of the zeros were reversed: a factor of the form \\(x+\\text{number}\\) in the denominator gives a zero equal to the negative of that number, and a factor \\(x-\\text{number}\\) gives the number itself.',
+    vAsH: 'This value is the horizontal asymptote (from the limit at infinity). The vertical asymptote comes from the zero of the denominator.',
+    numZero: 'A zero of the numerator does not give a vertical asymptote; vertical asymptotes come only from zeros of the denominator.',
+    hAsV: 'This is the vertical asymptote (from the zero of the denominator). The horizontal asymptote comes from the limit of the function as x approaches infinity.',
+    onlyOne: 'The quadratic denominator has two zeros, and each zero gives its own vertical asymptote.',
+    addH: 'The numerator has lower degree than the denominator, so \\(y=0\\) is also an asymptote, but the question asks for the vertical asymptotes only.',
+    mixV: 'The sign of one zero was reversed: a factor of the form \\(x+\\text{number}\\) in the denominator gives a zero equal to the negative of that number, and \\(x-\\text{number}\\) gives the number itself.',
+    invRatio: 'When the degrees are equal, the horizontal asymptote is (leading coefficient of the numerator) / (leading coefficient of the denominator), not the reverse.',
+    negRatio: 'The ratio of the leading coefficients keeps its own sign; the sign of the numerator coefficient must not be reversed.',
+    lowerTerms: 'The limit at infinity is determined by the highest-degree terms only; the lower-degree terms are not used.',
+    zeroH: 'When the numerator and denominator have equal degrees, the limit is the ratio of the leading coefficients, not 0.',
+    oneH: 'The value 1 occurs only when the two leading coefficients are equal, and here they differ.',
+    leadOnly: 'The numerator has lower degree than the denominator, so the limit is 0 and no coefficient ratio appears.',
+    slantCoefOnly: 'The constant of the slant asymptote comes from the polynomial division, not from copying a coefficient of the numerator.',
+    slantR: 'The constant of the slant asymptote comes from the division, not from the zero of the denominator itself.',
+    yrWhy: 'A zero of the denominator gives a vertical line \\(x=\\text{that value}\\), not a horizontal line \\(y=\\text{that value}\\).',
+    oneH2: 'The numerator has lower degree than the denominator, so the limit is 0, not 1.',
+    slantSign: 'In the division, the product of the quotient term and the zero of the denominator is added to the constant, not subtracted.',
+    slantMono: 'The quotient has a constant term too; it must not be dropped when writing the slant asymptote.',
+    slantDropA: 'The coefficient of \\(x\\) in the slant asymptote is the leading coefficient of the quotient (it is not always 1).',
+    slantQ: 'The quotient of \\(x^3\\) divided by the denominator is \\(x\\) minus the coefficient of \\(x\\) in the denominator; the constant term of the denominator does not appear in it.',
+    slantSignP: 'The sign is reversed: the quotient is \\(x\\) minus the coefficient of \\(x\\) in the denominator, not plus.',
+    noSlant: 'The numerator has degree one more than the denominator, so there is also a slant asymptote; listing the vertical ones alone is incomplete.',
+    wrongSlant: 'Check the slant asymptote by dividing \\(x^3\\) by the denominator; the quotient is \\(x\\) minus the coefficient of \\(x\\) in the denominator.',
+    horizNotSlant: 'There is no horizontal asymptote because the numerator has higher degree than the denominator; the limit is infinite and a slant asymptote appears instead.',
+    signV: 'The zeros of the denominator are the values of x that make it 0; the signs of the zeros were reversed here.',
+    holeAndV: 'This is a hole, not an asymptote: the factor that appears in both the numerator and the denominator cancels, so the graph has a hole at that value.',
+    holeOnly: 'The cancelled factor gives a hole, not an asymptote. The vertical asymptote comes only from the factor that remains in the denominator.',
+    numRoot: 'This value makes the numerator zero, so it is an x-intercept, not a vertical asymptote.',
+    negC: 'The sign was reversed: set the remaining denominator factor equal to 0 and solve, e.g. x+3=0 gives x=-3, not x=3.',
+    onePosSide: 'The limit must be checked at both \\(x\\to+\\infty\\) and \\(x\\to-\\infty\\); the root changes the sign of the result at \\(-\\infty\\), which gives two horizontal asymptotes.',
+    noSqrt: 'The denominator behaves like (the square root of its \\(x^2\\) coefficient) times \\(|x|\\), so the divisor is that square root, not the coefficient itself.',
+    dropRoot: 'The root was ignored: the square root of the \\(x^2\\) coefficient of the denominator must divide the coefficient in the numerator.',
+    absOne: 'As \\(x\\to-\\infty\\), \\(|x|^3=-x^3\\), so the sign of the limit is reversed and a second horizontal asymptote appears.',
+    absNeg: 'As \\(x\\to+\\infty\\), \\(|x|^3=x^3\\), so the limit keeps the numerator\'s sign there; the opposite value is only the limit at \\(-\\infty\\).',
+    absZero: 'The numerator and denominator have equal degrees once the absolute value is expanded, so the limit is not 0.',
+    absConst: 'The limit at infinity is determined by the leading terms (the cubic term in the numerator and \\(|x|^3\\) in the denominator), not by the constants.',
+    kInv: 'The condition is (the \\(x^2\\) coefficient ratio) equal to the given value, so \\(k\\) is the given value times the denominator\'s coefficient: multiply, do not divide.',
+    kSame: 'The limit is \\(k\\) divided by the denominator\'s coefficient, not \\(k\\) alone, so the given value must be multiplied by that coefficient.',
+    kAdd: 'The relation is a quotient (\\(k\\) divided by the denominator\'s coefficient equals the given value), not a sum.',
+    kSub: 'The relation is a quotient (\\(k\\) divided by the denominator\'s coefficient equals the given value), not a difference.'
+  };
+
+  var HINT = {
+    v: 'Vertical asymptotes come from the zeros of the denominator (after cancelling common factors), provided the numerator is not 0 there.',
+    h: 'Compare the degrees of the numerator and denominator: if they are equal, the limit is the ratio of the leading coefficients; if the numerator has lower degree, the limit is 0.',
+    s: 'If the numerator has degree one more than the denominator, divide: the quotient \\(ax+b\\) is the slant asymptote.',
+    m: 'Cancel common factors first, find the zeros of the denominator, then compare the degrees to decide between a horizontal and a slant asymptote.',
+    c: 'An absolute value or a root can reverse the sign as \\(x\\to-\\infty\\), so check the limits at \\(+\\infty\\) and \\(-\\infty\\) separately.'
+  };
+
+  function pickD(rng, corr, cands) {
+    var seen = {}; seen[setKey(corr)] = 1; var out = [], used = {}; out.amb = 0; out.gen = 0;
+    shuffle(rng, cands).forEach(function (c) {
+      if (out.length >= 3 || used[c.cls]) return; var k = setKey(c.v); if (seen[k]) return;
+      seen[k] = 1; used[c.cls] = 1; out.push(c);
+      var same = {}; cands.forEach(function (o) { if (setKey(o.v) === k) same[o.cls] = 1; }); if (Object.keys(same).length > 1) out.amb++;
+    });
+    out.gen = 3 - out.length; return out;
+  }
+
+  var STEM_V = 'Find the equation of the vertical asymptote of the graph of the function:';
+  var STEM_VS = 'Find the equations of the two vertical asymptotes of the graph of the function:';
+  var STEM_H = 'Find the equation of the horizontal asymptote of the graph of the function:';
+  var STEM_S = 'Find the equation of the slant asymptote of the graph of the function:';
+  var STEM_HS = 'Find the equations of the horizontal asymptotes of the graph of the function:';
+  var STEM_ALL = 'Which of the following sets gives all the asymptotes of the graph of the function?';
+
+  /* ----- Level 1 ----- */
+  function t1a(rng) {
+    var r, p, q; do { r = nz(rng, -6, 6); p = nz(rng, -5, 5); q = nz(rng, -7, 7); } while (p * r + q === 0 || Math.abs(p) === 1);
+    var num = polyT([p, q]), den = polyT([1, -r]);
+    return { stem: STEM_V, e: 'f(x)=\\dfrac{' + num + '}{' + den + '}', corr: [V(r)], kind: 'v1', ask: 'V', f: '(' + polyP([p, q]) + ')/(' + polyP([1, -r]) + ')', key: 'A1a:' + p + ',' + q + ',' + r, hint: HINT.v,
+      cands: [{ cls: 'neg', v: [V(-r)], why: WHY.negV }, { cls: 'hor', v: [H(p)], why: WHY.vAsH }, { cls: 'num', v: [V(fr(-q, p))], why: WHY.numZero }, { cls: 'yr', v: [H(r)], why: WHY.yrWhy }],
+      sol: [{ t: den + '=0\\;\\Rightarrow\\; x=' + r, ar: 'Set the denominator equal to 0' }, { t: p + '(' + r + ')' + sgnN(q) + '=' + (p * r + q) + '\\neq 0', ar: 'The numerator is not 0 at this value, so the line is a genuine vertical asymptote' }, { box: 'x=' + r }] };
+  }
+  function t1b(rng) {
+    var r, p, q; do { r = nz(rng, -6, 6); p = nz(rng, -5, 5); q = nz(rng, -7, 7); } while (p * r + q === 0 || Math.abs(p) === 1 || Math.abs(q) === Math.abs(p));
+    var num = polyT([p, q]), den = polyT([1, -r]);
+    return { stem: STEM_H, e: 'f(x)=\\dfrac{' + num + '}{' + den + '}', corr: [H(p)], kind: 'h1', ask: 'H', f: '(' + polyP([p, q]) + ')/(' + polyP([1, -r]) + ')', key: 'A1b:' + p + ',' + q + ',' + r, hint: HINT.h,
+      cands: [{ cls: 'ver', v: [V(r)], why: WHY.hAsV }, { cls: 'negp', v: [H(-p)], why: WHY.negRatio }, { cls: 'const', v: [H(q)], why: WHY.lowerTerms }, { cls: 'one', v: [H(1)], why: WHY.oneH }],
+      sol: [{ t: '\\lim_{x\\to\\pm\\infty}\\dfrac{' + num + '}{' + den + '}=' + p, ar: 'The numerator and denominator have equal degrees, so the limit is the ratio of the leading coefficients' }, { box: 'y=' + p }] };
+  }
+  function t1c(rng) {
+    var a, b, k; do { a = nz(rng, -5, 5); b = nz(rng, -5, 5); k = ri(rng, 2, 9); } while (a === b || a === -b);
+    var den = polyT([1, -(a + b), a * b]);
+    return { stem: STEM_VS, e: 'f(x)=\\dfrac{' + k + '}{' + den + '}', corr: [V(a), V(b)], kind: 'v2', ask: 'V', f: '(' + k + ')/(' + polyP([1, -(a + b), a * b]) + ')', key: 'A1c:' + a + ',' + b + ',' + k, hint: HINT.v,
+      cands: [{ cls: 'neg', v: [V(-a), V(-b)], why: WHY.negV }, { cls: 'one', v: [V(a)], why: WHY.onlyOne }, { cls: 'plus', v: [V(a), V(b), H(0)], why: WHY.addH }, { cls: 'mix', v: [V(a), V(-b)], why: WHY.mixV }],
+      sol: [{ t: den + '=0\\;\\Rightarrow\\;' + facT(a) + facT(b) + '=0', ar: 'Factor the denominator and set each factor equal to 0' }, { t: 'x=' + a + '\\quad\\text{or}\\quad x=' + b, ar: 'The numerator is a nonzero constant, so it never vanishes' }, { box: setTex([V(a), V(b)]) }] };
+  }
+
+  /* ----- Level 2 ----- */
+  function t2a(rng) {
+    var n = pick(rng, [2, 2, 3]), a, d, bb, c, e, g, num, den;
+    do { a = nz(rng, -6, 6); d = ri(rng, 2, 6); } while (Math.abs(a) === d || Math.abs(a) === 1);
+    bb = nz(rng, -5, 5); c = nz(rng, -5, 5); e = nz(rng, -5, 5); g = nz(rng, -5, 5);
+    if (n === 2) { num = [a, bb, c]; den = [d, e, g]; } else { num = [a, 0, bb, c]; den = [d, 0, e, g]; }
+    var yl = fr(a, d);
+    return { stem: STEM_H, e: 'f(x)=\\dfrac{' + polyT(num) + '}{' + polyT(den) + '}', corr: [H(yl)], kind: 'h2', ask: 'H', f: '(' + polyP(num) + ')/(' + polyP(den) + ')', key: 'A2a:' + num.join(',') + '/' + den.join(','), hint: HINT.h,
+      cands: [{ cls: 'inv', v: [H(fr(d, a))], why: WHY.invRatio }, { cls: 'cons', v: [H(fr(c, g))], why: WHY.lowerTerms }, { cls: 'zero', v: [H(0)], why: WHY.zeroH }, { cls: 'one', v: [H(1)], why: WHY.oneH }, { cls: 'sec', v: [H(fr(bb, e))], why: WHY.lowerTerms }],
+      sol: [{ t: '\\lim_{x\\to\\pm\\infty}f(x)=' + (d > 0 && yl.n === a && yl.d === d ? '' : '\\dfrac{' + a + '}{' + d + '}=') + ftex(yl), ar: 'Equal degrees: divide the leading coefficients' }, { box: 'y=' + ftex(yl) }] };
+  }
+  function t2b(rng) {
+    var p, q, a, b, c; do { p = nz(rng, -6, 6); q = nz(rng, -6, 6); a = ri(rng, 2, 5); b = nz(rng, -5, 5); c = nz(rng, -5, 5); } while (Math.abs(p) === a || Math.abs(q) === Math.abs(c));
+    var num = [p, q], den = [a, b, c];
+    return { stem: STEM_H, e: 'f(x)=\\dfrac{' + polyT(num) + '}{' + polyT(den) + '}', corr: [H(0)], kind: 'h3', ask: 'H', f: '(' + polyP(num) + ')/(' + polyP(den) + ')', key: 'A2b:' + p + ',' + q + ',' + a + ',' + b + ',' + c, hint: HINT.h,
+      cands: [{ cls: 'lead', v: [H(fr(p, a))], why: WHY.leadOnly }, { cls: 'cons', v: [H(fr(q, c))], why: WHY.lowerTerms }, { cls: 'pp', v: [H(p)], why: WHY.leadOnly }, { cls: 'one', v: [H(1)], why: WHY.oneH2 }],
+      sol: [{ t: '\\lim_{x\\to\\pm\\infty}\\dfrac{' + polyT(num) + '}{' + polyT(den) + '}=0', ar: 'The numerator has degree 1 and the denominator degree 2, so the limit is 0' }, { box: 'y=0' }] };
+  }
+
+  /* ----- Level 3 ----- */
+  function t3a(rng) {
+    var a, b, c, r, R; do { a = pick(rng, [1, 1, 2, 3, -1, -2]); r = nz(rng, -4, 4); b = nz(rng, -6, 6); c = nz(rng, -6, 6); R = a * r * r + b * r + c; } while (R === 0 || b + a * r === 0 || a * r === b || b - a * r === 0);
+    var num = [a, b, c], q0 = b + a * r;
+    return { stem: STEM_S, e: 'f(x)=\\dfrac{' + polyT(num) + '}{' + polyT([1, -r]) + '}', corr: [Sl(a, q0)], kind: 's1', ask: 'S', f: '(' + polyP(num) + ')/(' + polyP([1, -r]) + ')', key: 'A3a:' + num.join(',') + ',' + r, hint: HINT.s,
+      cands: [{ cls: 'coef', v: [Sl(a, b)], why: WHY.slantCoefOnly }, { cls: 'sgn', v: [Sl(a, b - a * r)], why: WHY.slantSign }, { cls: 'mono', v: [Sl(a, 0)], why: WHY.slantMono }, { cls: 'dropa', v: [Sl(1, q0)], why: WHY.slantDropA }, { cls: 'rr', v: [Sl(a, r)], why: WHY.slantR }],
+      sol: [{ t: 'q(x)=' + polyT([a, q0]) + ',\\quad R=' + R, ar: 'Divide the numerator by the denominator using long division: quotient \\(q(x)\\), remainder \\(R\\)' }, { t: '\\dfrac{' + R + '}{' + polyT([1, -r]) + '}\\to 0\\quad(x\\to\\pm\\infty)', ar: 'The remainder term tends to 0 when x is large in absolute value' }, { box: 'y=' + polyT([a, q0]) }] };
+  }
+  function t3b(rng) {
+    var m, n; do { m = nz(rng, -5, 5); n = nz(rng, -5, 5); } while (m === n || m === -n);
+    var p = -(m + n), q = m * n, den = [1, p, q];
+    return { stem: STEM_S, e: 'f(x)=\\dfrac{x^{3}}{' + polyT(den) + '}', corr: [Sl(1, -p)], kind: 's2', ask: 'S', f: 'x**3/(' + polyP(den) + ')', key: 'A3b:' + m + ',' + n, hint: HINT.s,
+      cands: [{ cls: 'sgn', v: [Sl(1, p)], why: WHY.slantSignP }, { cls: 'mono', v: [Sl(1, 0)], why: WHY.slantMono }, { cls: 'q', v: [Sl(1, -q)], why: WHY.slantQ }, { cls: 'qq', v: [Sl(1, q)], why: WHY.slantQ }],
+      sol: [{ t: 'x^{3}=(' + polyT(den) + ')(' + polyT([1, -p]) + ')+R(x)', ar: 'Divide \\(x^3\\) by the denominator' }, { t: 'R(x)=' + polyT([p * p - q, p * q]), ar: 'The remainder has lower degree than the denominator, so \\(\\dfrac{R(x)}{\\text{denominator}}\\) tends to 0' }, { box: 'y=' + polyT([1, -p]) }] };
+  }
+
+  /* ----- Level 4 (Ministry) ----- */
+  function t4a(rng) {
+    var m, n; do { m = nz(rng, -5, 5); n = nz(rng, -5, 5); } while (m === n || m === -n);
+    var p = -(m + n), q = m * n, den = [1, p, q];
+    return { stem: STEM_ALL, e: 'f(x)=\\dfrac{x^{3}}{' + polyT(den) + '}', corr: [V(m), V(n), Sl(1, -p)], kind: 'all1', ask: 'ALL', f: 'x**3/(' + polyP(den) + ')', key: 'A4a:' + m + ',' + n, hint: HINT.m,
+      cands: [{ cls: 'noS', v: [V(m), V(n)], why: WHY.noSlant }, { cls: 'sgnS', v: [V(m), V(n), Sl(1, p)], why: WHY.slantSignP }, { cls: 'hor', v: [V(m), V(n), H(0)], why: WHY.horizNotSlant }, { cls: 'sgnV', v: [V(-m), V(-n), Sl(1, -p)], why: WHY.signV }, { cls: 'mono', v: [V(m), V(n), Sl(1, 0)], why: WHY.slantMono }],
+      sol: [{ t: polyT(den) + '=0\\;\\Rightarrow\\;' + facT(m) + facT(n) + '=0\\;\\Rightarrow\\; x=' + m + ',\\ x=' + n, ar: 'The vertical asymptotes come from the zeros of the denominator (the numerator is not 0 at either)' }, { t: 'q(x)=' + polyT([1, -p]) + ',\\quad R(x)=' + polyT([p * p - q, p * q]), ar: 'The numerator has degree one more than the denominator: divide to get the slant asymptote' }, { box: setTex([V(m), V(n), Sl(1, -p)]) }] };
+  }
+  function t4b(rng) {
+    var a, b, c; do { a = nz(rng, -6, 6); b = nz(rng, -6, 6); c = nz(rng, -6, 6); } while (a === b || a === c || b === c || a === -c);
+    var num = [1, -(a + b), a * b], den = [1, -(a + c), a * c];
+    return { stem: STEM_V, e: 'f(x)=\\dfrac{' + polyT(num) + '}{' + polyT(den) + '}', corr: [V(c)], kind: 'v3', ask: 'V', f: '(' + polyP(num) + ')/(' + polyP(den) + ')', key: 'A4b:' + a + ',' + b + ',' + c, hint: HINT.v,
+      cands: [{ cls: 'both', v: [V(a), V(c)], why: WHY.holeAndV }, { cls: 'hole', v: [V(a)], why: WHY.holeOnly }, { cls: 'num', v: [V(b)], why: WHY.numRoot }, { cls: 'neg', v: [V(-c)], why: WHY.negC }],
+      sol: [{ t: 'f(x)=\\dfrac{' + facT(a) + facT(b) + '}{' + facT(a) + facT(c) + '}', ar: 'Factor the numerator and the denominator' }, { t: 'x=' + a, ar: 'The common factor cancels: there is a hole at this value, not an asymptote' }, { t: facT(c).slice(1, -1) + '=0\\;\\Rightarrow\\; x=' + c, ar: 'After cancelling, the denominator is 0 here while the numerator is not' }, { box: 'x=' + c }] };
+  }
+
+  /* ----- Level 5 (Challenge) ----- */
+  function t5a(rng) {
+    var s = pick(rng, [2, 3, 4]), a = s * s, p, q, b; do { p = nz(rng, -7, 7); q = nz(rng, -6, 6); b = ri(rng, 1, 9); } while (Math.abs(p) === 1 || gcd(Math.abs(p), s * s) === 0);
+    var Apos = fr(Math.abs(p), s), Aneg = fr(-Math.abs(p), s);
+    return { stem: STEM_HS, e: 'f(x)=\\dfrac{' + polyT([p, q]) + '}{\\sqrt{' + a + 'x^{2}+' + b + '}}', corr: [H(Apos), H(Aneg)], kind: 'h4', ask: 'H', f: '(' + polyP([p, q]) + ')/sqrt(' + a + '*x**2+' + b + ')', key: 'A5a:' + p + ',' + q + ',' + s + ',' + b, hint: HINT.c,
+      cands: [{ cls: 'pos', v: [H(fr(p, s))], why: WHY.onePosSide }, { cls: 'neg', v: [H(fr(-p, s))], why: WHY.onePosSide }, { cls: 'noSq', v: [H(fr(p, a)), H(fr(-p, a))], why: WHY.noSqrt }, { cls: 'drop', v: [H(p), H(-p)], why: WHY.dropRoot }, { cls: 'zero', v: [H(0)], why: WHY.zeroH }],
+      sol: [{ t: 'x\\to+\\infty:\\ \\dfrac{' + polyT([p, q]) + '}{\\sqrt{' + a + 'x^{2}+' + b + '}}', ar: 'For positive x: \\(\\sqrt{x^2}=x\\)' }, { t: '\\to\\dfrac{' + p + '}{\\sqrt{' + a + '}}=' + ftex(fr(p, s)) }, { t: 'x\\to-\\infty:\\ \\to\\dfrac{' + p + '}{-\\sqrt{' + a + '}}=' + ftex(fr(-p, s)), ar: 'For negative x: \\(\\sqrt{x^2}=|x|=-x\\), so the sign is reversed' }, { box: setTex([H(Apos), H(Aneg)]) }] };
+  }
+  function t5b(rng) {
+    var p = ri(rng, 2, 6), q, k; do { q = nz(rng, -6, 6); k = ri(rng, 1, 5); } while (Math.abs(q) === k);
+    return { stem: STEM_HS, e: 'f(x)=\\dfrac{' + p + 'x^{3}' + (q < 0 ? '-' + (-q) : '+' + q) + '}{|x|^{3}+' + k + '}', corr: [H(p), H(-p)], kind: 'h5', ask: 'H', f: '(' + p + '*x**3+(' + q + '))/(Abs(x)**3+' + k + ')', key: 'A5b:' + p + ',' + q + ',' + k, hint: HINT.c,
+      cands: [{ cls: 'pos', v: [H(p)], why: WHY.absOne }, { cls: 'neg', v: [H(-p)], why: WHY.absNeg }, { cls: 'zero', v: [H(0)], why: WHY.absZero }, { cls: 'cst', v: [H(fr(q, k))], why: WHY.absConst }],
+      sol: [{ t: 'x\\to+\\infty:\\ |x|^{3}=x^{3}\\;\\Rightarrow\\;\\lim=' + p, ar: 'For positive x, \\(|x|^3\\) equals \\(x^3\\)' }, { t: 'x\\to-\\infty:\\ |x|^{3}=-x^{3}\\;\\Rightarrow\\;\\lim=-' + p, ar: 'For negative x, \\(|x|^3=-x^3\\), so the sign is reversed' }, { box: setTex([H(p), H(-p)]) }] };
+  }
+  function t5c(rng) {
+    var d = ri(rng, 2, 6), m = nz(rng, -5, 5), b = nz(rng, -5, 5), c = nz(rng, -5, 5), e = nz(rng, -5, 5), g = nz(rng, -5, 5);
+    if (Math.abs(m) === 1) m = m * 2;
+    var kk = m * d;
+    return { stem: 'The graph of the following function has the horizontal asymptote \\(y=' + m + '\\). Find the value of the constant \\(k\\).', e: 'f(x)=\\dfrac{kx^{2}' + (b < 0 ? ' - ' : ' + ') + (Math.abs(b) === 1 ? '' : Math.abs(b)) + 'x' + (c < 0 ? ' - ' : ' + ') + Math.abs(c) + '}{' + polyT([d, e, g]) + '}', corr: [K(kk)], kind: 'k1', ask: 'K', f: '(k*x**2+(' + b + ')*x+(' + c + '))/(' + polyP([d, e, g]) + ')', key: 'A5c:' + m + ',' + d + ',' + b + ',' + c + ',' + e + ',' + g, hint: HINT.h, m: m,
+      cands: [{ cls: 'inv', v: [K(fr(m, d))], why: WHY.kInv }, { cls: 'same', v: [K(m)], why: WHY.kSame }, { cls: 'add', v: [K(m + d)], why: WHY.kAdd }, { cls: 'sub', v: [K(m - d)], why: WHY.kSub }],
+      sol: [{ t: '\\lim_{x\\to\\pm\\infty}f(x)=\\dfrac{k}{' + d + '}', ar: 'Equal degrees: the limit is the ratio of the leading coefficients' }, { t: '\\dfrac{k}{' + d + '}=' + m + '\\;\\Rightarrow\\; k=' + kk, ar: 'Set the limit equal to the given asymptote value' }, { box: 'k=' + kk }] };
+  }
+
+  var LEVELS = [
+    { id: 1, ar: 'Basic', hint: HINT.v },
+    { id: 2, ar: 'Horizontal asymptotes', hint: HINT.h },
+    { id: 3, ar: 'Slant asymptotes', hint: HINT.s },
+    { id: 4, ar: 'Ministry level', hint: HINT.m },
+    { id: 5, ar: 'Challenge', challenge: true, hint: HINT.c }
+  ];
+  function build(level, rng) {
+    var r = rng();
+    if (level === 1) return r < 0.4 ? t1a(rng) : (r < 0.7 ? t1b(rng) : t1c(rng));
+    if (level === 2) return r < 0.65 ? t2a(rng) : t2b(rng);
+    if (level === 3) return r < 0.55 ? t3a(rng) : t3b(rng);
+    if (level === 4) return r < 0.55 ? t4a(rng) : t4b(rng);
+    return r < 0.4 ? t5a(rng) : (r < 0.75 ? t5b(rng) : t5c(rng));
+  }
+
+  /* split long solution steps at the implication sign so they fit a phone width */
+  function splitSol(sol) {
+    var out = [];
+    sol.forEach(function (s) {
+      if (s.box || !s.t || s.t.indexOf('\\;\\Rightarrow\\;') < 0) { out.push(s); return; }
+      var parts = s.t.split('\\;\\Rightarrow\\;');
+      parts.forEach(function (p, i) { var o = { t: i ? '\\Rightarrow\\;' + p : p }; if (i === 0 && s.ar) o.ar = s.ar; out.push(o); });
+    });
+    return out;
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = pickD(rng, t.corr, t.cands); tries++; } while ((dis.gen > 0 || dis.amb > 0) && tries < 300);
+    var correct = { v: t.corr, why: '' };
+    var all = shuffle(rng, [correct].concat(dis));
+    var sol = t.sol.slice();
+    return {
+      band: 22, level: level, rtl: false, lang: 'en', stem: t.stem, e: t.e,
+      opts: all.map(function (s) { return { t: setTex(s.v), why: s.why || '' }; }),
+      ans: all.indexOf(correct), sol: splitSol(sol), hint: t.hint || LEVELS[level - 1].hint, key: t.key,
+      data: { kind: t.kind, ask: t.ask, f: t.f, m: t.m, correct: setPlain(t.corr), opts: all.map(function (s) { return setPlain(s.v); }), tries: tries, gen: dis.gen, amb: dis.amb }
+    };
+  }
+
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenAsyEn = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'Band ' + BAND, GRS = GR + '-en', KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GRS] || typeof all[GRS] !== 'object') all[GRS] = {};
+  var st = all[GRS][BAND];
+  if (!st || typeof st !== 'object') st = all[GRS][BAND] = {};
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 1 ? '1 correct answer' : n + ' correct answers'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var isCur = l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])); var cls = (isCur && !st.mastered) ? 'cur' : (st.done[l.id] ? 'done' : (isCur ? 'cur' : ''));
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.className += ' back'; li.setAttribute('role', 'button'); li.tabIndex = 0; li.setAttribute('aria-label', 'Back to level ' + l.id);
+        var goBack = function () { st.level = l.id; persist(); newRound(); };
+        li.addEventListener('click', goBack);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goBack(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'Level ' + st.level + ' • ' + LV[st.level - 1].ar + ' — Question ' + (Math.min(round.idx + 1, ROUND)) + ' of ' + ROUND + ' • ' + PASS + ' correct answers needed to master the level'
+      : (st.mastered ? 'You mastered every level' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'I already know this, start at Ministry level →'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>Detailed solution</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'Options');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'Show hint'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'Show hint' : 'Hide hint'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ Correct answer.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ Incorrect answer.' + why + '<span class="why">Correct answer:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'Show detailed solution'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'Show detailed solution' : 'Hide detailed solution'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'See round result →' : 'Next question →'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>Challenge level mastered ✓</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + ' at challenge level. Excellent work: this goes beyond what the exam asks.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'Back to the class page'); l5.href = '/' + GR + '/en/';
+        var b5 = h('button', 'btn ghost', 'New challenge round'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>Level ' + lvl + ' mastered ✓</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + '. Now move on to level ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'Start level ' + st.level + ' →'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>' + BLBL + ' fully mastered ✓</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + ' at Ministry level. Well done. Now try a full practice exam from the class page to test yourself as in the real exam.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'Back to the class page'); l1.href = '/' + GR + '/en/';
+        var b2 = h('button', 'btn ghost', 'Practice again'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'Try the challenge level (optional) →'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>Not mastered yet</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + '; mastery needs at least ' + cnt(PASS) + '. That is fine: the same idea comes back with new numbers until you master it.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>This level needs more practice. We suggest you review the detailed solutions in ' + BLBL + ' and then come back.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'New round with new numbers →'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'Review the solutions for ' + BLBL); l2.href = '/' + GR + '/en/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'Start from level ' + st.skipped + ' instead'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'New practice sets and a weekly summary reach you in your class WhatsApp group'));
+    var a = h('a', null, 'Join on WhatsApp →'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'How were the questions in this round?'));
+    var row = h('div', 'acts');
+    [['easy', 'Easy'], ['fit', 'Just right'], ['hard', 'Hard']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'Thank you, your answer is recorded')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'Thank you, we received your feedback on this practice')); return box; }
+    box.appendChild(h('summary', null, 'Share your feedback on this practice (optional)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">How would you rate this practice?</p>' +
+      '<div class="stars" role="radiogroup" aria-label="Rating out of 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">Did it help you understand the idea? What did you like, and what needs improving?</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="Write your feedback here (at least 10 characters)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> No name</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">First name only</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> I agree to publish my feedback on the reviews page after it is reviewed</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">Send feedback</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'Choose a rating from 1 to 5.' : text.length < 10 ? 'Write at least 10 characters.' : !fd.get('consent') ? 'To send your feedback, tick the consent box.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'Write your first name or choose No name.' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[Mastery practice EN: rounds ' + (st.rounds || 0) + ', level ' + st.level + ', first round ' + (st.firstScore == null ? '-' : st.firstScore + ' of 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'Thank you, we received your feedback and will review it before publishing')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'We just received several messages from you, thank you. Please try again in an hour.' : 'The feedback could not be sent now, please try again shortly.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'The feedback could not be sent now, please try again shortly.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>

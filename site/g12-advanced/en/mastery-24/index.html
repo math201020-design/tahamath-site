@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mastery Practice: Derivatives of trigonometric functions | Grade 12 Advanced | Taha Math Academy</title>
+<meta name="description" content="Mastery practice on band 24: derivatives of trigonometric functions, five levels up to Ministry level.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g12-advanced/en/mastery-24/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:ltr;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic','Segoe UI',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:ltr;text-align:left;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>Mastery Practice</h1>
+  <div class="sub">Band 24 • Trigonometric derivatives<br>Questions go from easy to hard, and the same idea returns with new numbers until you master it.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="Mastery path">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">Questions are generated with new numbers every time, and your progress is saved in this browser only. We do not ask for an email or a phone number, and the name is optional. If you share feedback, a simple summary of your rounds is sent with it.</p>
+</main>
+<script>window.TM_CFG={"gr": "g12-advanced", "band": 24, "label": "Band 24", "gen": "TmGenTrigEn", "lang": "en"};</script>
+<script>
+/* Band 24 question generator (derivatives of trigonometric functions) - Grade 12 Advanced, English version.
+   Multiple choice, worked solution, hint, and distractors built from common mistakes, each with a diagnosis. The answer is computed from the coefficients. */
+(function (root) {
+  'use strict';
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
+  function nz(rng, lo, hi) { var v = 0; while (!v) v = ri(rng, lo, hi); return v; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function fr(n, d) { d = d === undefined ? 1 : d; if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function ftex(f) { if (f.d === 1) return String(f.n); return (f.n < 0 ? '-' : '') + '\\dfrac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function fplain(f) { return f.d === 1 ? String(f.n) : '(' + f.n + ')/' + f.d; }
+  function E(t, p) { return { t: t, p: p }; }
+  function cf(c) { return c === 1 ? '' : (c === -1 ? '-' : String(c)); }
+  /* sum of terms: [coefficient, tex, py] */
+  function lin(terms) {
+    var t = '', p = '';
+    terms.forEach(function (x) {
+      var c = x[0]; if (!c) return; var ab = Math.abs(c);
+      var tx = (ab === 1 && x[1] !== '') ? x[1] : ab + x[1], py = ab + '*(' + x[2] + ')';
+      t += (t ? (c < 0 ? ' - ' : ' + ') : (c < 0 ? '-' : '')) + tx;
+      p += (p ? (c < 0 ? '-' : '+') : (c < 0 ? '-' : '')) + py;
+    });
+    return E(t || '0', p || '0');
+  }
+  function pw(n) { return n === 0 ? '' : (n === 1 ? 'x' : 'x^{' + n + '}'); }
+  function pwp(n) { return n === 0 ? '1' : 'x**' + n; }
+  function setKey(v) { return v.p; }
+
+  var HINT = {
+    d: 'Recall the basic trigonometric derivatives: \\((\\sin x)\' =\\cos x\\), \\((\\cos x)\' =-\\sin x\\), \\((\\tan x)\' =\\sec^2 x\\), \\((\\sec x)\' =\\sec x\\tan x\\).',
+    c: 'Chain rule: differentiate the outer function and leave the inner function unchanged, then multiply by the derivative of the inner function.',
+    p: 'Product rule: \\((uv)\' =u\'v+uv\'\\). Quotient rule: \\(\\left(\\dfrac{u}{v}\\right)\' =\\dfrac{u\'v-uv\'}{v^2}\\).',
+    m: 'For limits: \\(\\lim_{x\\to0}\\dfrac{\\sin ax}{bx}=\\dfrac{a}{b}\\) and \\(\\lim_{x\\to0}\\dfrac{1-\\cos kx}{x^2}=\\dfrac{k^2}{2}\\). For values, substitute the special angles.',
+    c5: 'When solving a trigonometric equation in \\([0,2\\pi]\\), find both solutions, one in each correct quadrant. For higher derivatives, differentiate one step at a time.'
+  };
+
+  function pickD(rng, corr, cands) {
+    var seen = {}; seen[corr.p] = 1; var out = [], used = {}; out.amb = 0; out.gen = 0;
+    shuffle(rng, cands).forEach(function (c) {
+      if (out.length >= 3 || used[c.cls]) return; var k = c.v.p; if (seen[k]) return;
+      seen[k] = 1; used[c.cls] = 1; out.push(c);
+      var same = {}; cands.forEach(function (o) { if (o.v.p === k) same[o.cls] = 1; }); if (Object.keys(same).length > 1) out.amb++;
+    });
+    out.gen = 3 - out.length; return out;
+  }
+
+  var STEM_D = 'Find \\(f\'(x)\\) for the function:';
+  var S = { sin: ['\\sin', 'sin'], cos: ['\\cos', 'cos'] };
+
+  /* ----- Level 1 ----- */
+  function t1a(rng) {
+    var a = nz(rng, -6, 6), b = nz(rng, -6, 6); while (Math.abs(a) === Math.abs(b)) b = nz(rng, -6, 6);
+    var C = ['\\cos x', 'cos(x)'], Sx = ['\\sin x', 'sin(x)'];
+    var corr = lin([[a, C[0], C[1]], [-b, Sx[0], Sx[1]]]);
+    return { stem: STEM_D, e: 'f(x)=' + lin([[a, Sx[0], Sx[1]], [b, C[0], C[1]]]).t, corr: corr, kind: 'd1', f: lin([[a, Sx[0], Sx[1]], [b, C[0], C[1]]]).p, hint: HINT.d, key: 'B1a:' + a + ',' + b,
+      cands: [{ cls: 'cs', v: lin([[a, C[0], C[1]], [b, Sx[0], Sx[1]]]), why: 'The sign of the coefficient of \\(\\cos x\\) was kept, but it must be reversed: \\((\\cos x)\'=-\\sin x\\).' },
+        { cls: 'ns', v: lin([[-a, C[0], C[1]], [-b, Sx[0], Sx[1]]]), why: 'The sign of the first term was changed. \\((\\sin x)\'=\\cos x\\) keeps the sign of its coefficient.' },
+        { cls: 'sw', v: lin([[b, C[0], C[1]], [-a, Sx[0], Sx[1]]]), why: 'The coefficients were swapped. Each coefficient stays with its own function: \\(\\sin x\\) gives \\(\\cos x\\) and \\(\\cos x\\) gives \\(-\\sin x\\), with the same coefficients.' },
+        { cls: 'sm', v: lin([[a, Sx[0], Sx[1]], [-b, C[0], C[1]]]), why: 'The functions were not changed. Differentiating turns \\(\\sin x\\) into \\(\\cos x\\) and \\(\\cos x\\) into \\(-\\sin x\\).' }],
+      sol: [{ t: '(\\sin x)\'=\\cos x,\\ (\\cos x)\'=-\\sin x', ar: 'Differentiate each term separately; the constant coefficients stay in place' }, { box: 'f\'(x)=' + corr.t }] };
+  }
+  function t1b(rng) {
+    var a = nz(rng, -6, 6), b = nz(rng, -6, 6); while (Math.abs(a) === Math.abs(b)) b = nz(rng, -6, 6);
+    var s2 = ['\\sec^{2}x', '1/cos(x)**2'], st = ['\\sec x\\tan x', 'tan(x)/cos(x)'], sc = ['\\sec x', '1/cos(x)'];
+    var corr = lin([[a, s2[0], s2[1]], [b, st[0], st[1]]]);
+    var f = lin([[a, '\\tan x', 'tan(x)'], [b, sc[0], sc[1]]]);
+    return { stem: STEM_D, e: 'f(x)=' + f.t, corr: corr, kind: 'd2', f: f.p, hint: HINT.d, key: 'B1b:' + a + ',' + b,
+      cands: [{ cls: 'nt', v: lin([[a, s2[0], s2[1]], [b, sc[0], sc[1]]]), why: 'The derivative of \\(\\sec x\\) is \\(\\sec x\\tan x\\), not \\(\\sec x\\). The factor \\(\\tan x\\) was left out.' },
+        { cls: 'sg', v: lin([[a, s2[0], s2[1]], [-b, st[0], st[1]]]), why: 'The sign of the second term was changed. \\((\\sec x)\'=\\sec x\\tan x\\) keeps the sign of its coefficient.' },
+        { cls: 'sw', v: lin([[a, st[0], st[1]], [b, s2[0], s2[1]]]), why: 'The two results were swapped. The derivative of \\(\\tan x\\) is \\(\\sec^2x\\), and the derivative of \\(\\sec x\\) is \\(\\sec x\\tan x\\).' },
+        { cls: 'ng', v: lin([[-a, s2[0], s2[1]], [b, st[0], st[1]]]), why: 'The sign of the first term was changed. \\((\\tan x)\'=\\sec^2x\\) keeps the sign of its coefficient.' },
+        { cls: 'sq', v: lin([[a, sc[0], sc[1]], [b, st[0], st[1]]]), why: 'The derivative of \\(\\tan x\\) is \\(\\sec^2x\\) (squared), not \\(\\sec x\\).' }],
+      sol: [{ t: '(\\tan x)\'=\\sec^{2}x', ar: 'Differentiate the first term using the derivative of tangent' }, { t: '(\\sec x)\'=\\sec x\\tan x', ar: 'Differentiate the second term using the derivative of secant' }, { box: 'f\'(x)=' + corr.t }] };
+  }
+  function t1c(rng) {
+    var k = ri(rng, 2, 8), isS = rng() < 0.5;
+    var fn = isS ? S.sin : S.cos, ofn = isS ? S.cos : S.sin, sg = isS ? 1 : -1;
+    var kx = k + 'x', kxp = k + '*x';
+    var corr = lin([[sg * k, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]);
+    return { stem: STEM_D, e: 'f(x)=' + fn[0] + ' ' + kx, corr: corr, kind: 'd3', f: fn[1] + '(' + kxp + ')', hint: HINT.c, key: 'B1c:' + (isS ? 's' : 'c') + k,
+      cands: [{ cls: 'nk', v: lin([[sg, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: 'The factor \\(' + k + '\\) is missing. By the chain rule, multiply by the derivative of the angle \\(' + kx + '\\), which is \\(' + k + '\\).' },
+        { cls: 'ng', v: lin([[-sg * k, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: isS ? 'The sign is wrong. \\(\\sin\\) differentiates to \\(+\\cos\\), so the sign of the coefficient is kept.' : 'The sign is wrong. \\(\\cos\\) differentiates to \\(-\\sin\\), so the sign of the coefficient is reversed.' },
+        { cls: 'dv', v: E(sg < 0 ? '-\\dfrac{1}{' + k + '}' + ofn[0] + ' ' + kx : '\\dfrac{1}{' + k + '}' + ofn[0] + ' ' + kx, (sg < 0 ? '-' : '') + '(1/' + k + ')*' + ofn[1] + '(' + kxp + ')'), why: 'The inner derivative \\(' + k + '\\) was divided instead of multiplied. The chain rule multiplies by \\(' + k + '\\).' },
+        { cls: 'sm', v: lin([[k, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The function was not changed after differentiating: ' + (isS ? '\\(\\sin\\) becomes \\(\\cos\\).' : '\\(\\cos\\) becomes \\(-\\sin\\).') },
+        { cls: 'x', v: lin([[sg * k, ofn[0] + ' x', ofn[1] + '(x)']]), why: 'The angle \\(' + kx + '\\) stays inside the trigonometric function; only the factor \\(' + k + '\\) comes out. It does not become \\(x\\).' }],
+      sol: [{ t: 'f\'(x)=' + (isS ? '\\cos ' : '-\\sin ') + kx + '\\cdot(' + kx + ')\'', ar: 'Chain rule: differentiate the outer function, then multiply by the derivative of the angle' }, { box: 'f\'(x)=' + corr.t }] };
+  }
+
+  /* ----- Level 2 ----- */
+  function t2a(rng) {
+    var k = ri(rng, 2, 7), isS = rng() < 0.5, fn = isS ? S.sin : S.cos, kx = k + 'x', kxp = k + '*x';
+    var sk = '\\sin ' + kx, ck = '\\cos ' + kx, sp = 'sin(' + kxp + ')', cp = 'cos(' + kxp + ')';
+    var sg = isS ? 1 : -1;
+    var corr = E((sg * 2 * k < 0 ? '-' : '') + (2 * k) + sk + ck, (sg < 0 ? '-' : '') + (2 * k) + '*' + sp + '*' + cp);
+    var cs = isS ? [sk, sp] : [ck, cp];
+    return { stem: STEM_D, e: 'f(x)=' + fn[0] + '^{2}' + kx, corr: corr, kind: 'd4', f: fn[1] + '(' + kxp + ')**2', hint: HINT.c, key: 'B2a:' + (isS ? 's' : 'c') + k,
+      cands: [{ cls: 'nk', v: E((sg < 0 ? '-' : '') + '2' + sk + ck, (sg < 0 ? '-' : '') + '2*' + sp + '*' + cp), why: 'The derivative of the angle \\(' + kx + '\\) was forgotten. After the power and the trigonometric function, multiply by \\(' + k + '\\) as well.' },
+        { cls: 'nin', v: E((sg < 0 ? '-' : '') + (2 * k) + cs[0], (sg < 0 ? '-' : '') + (2 * k) + '*' + cs[1]), why: 'The derivative of \\(u^2\\) is \\(2u\\cdot u\'\\), so the answer keeps the factor \\(' + (isS ? '\\sin' : '\\cos') + ' ' + kx + '\\) and also contains \\(' + (isS ? '\\cos' : '\\sin') + ' ' + kx + '\\) from \\(u\'\\). Here one of the two factors was dropped.' },
+        { cls: 'ns', v: E((sg < 0 ? '' : '-') + (2 * k) + sk + ck, (sg < 0 ? '' : '-') + (2 * k) + '*' + sp + '*' + cp), why: isS ? 'The sign is wrong. \\(\\sin\\) differentiates to \\(+\\cos\\), so the sign of the coefficient is kept.' : 'The sign is wrong. \\(\\cos\\) differentiates to \\(-\\sin\\), so the sign of the coefficient is reversed.' },
+        { cls: 'op', v: E((sg < 0 ? '-' : '') + k + (isS ? ck : sk), (sg < 0 ? '-' : '') + k + '*' + (isS ? cp : sp)), why: 'The power rule step was skipped. The exponent \\(2\\) must come down in front, and then the trigonometric function and the inner derivative follow; here the factor \\(2\\) and the original function are missing.' },
+        { cls: 'sq', v: E(k + '\\cos^{2}' + kx, k + '*cos(' + kxp + ')**2'), why: 'The result should not be a squared function. Differentiating gives a product of two different functions, \\(\\sin\\cdot\\cos\\).' }],
+      sol: [{ t: 'f\'(x)=2\\,' + (isS ? '\\sin ' : '\\cos ') + kx + '\\cdot(' + (isS ? '\\cos ' : '-\\sin ') + kx + ')\\cdot' + k, ar: 'Apply the chain rule twice: the power, then the trigonometric function, then the angle' }, { box: 'f\'(x)=' + corr.t }] };
+  }
+  function t2b(rng) {
+    var n = ri(rng, 2, 5), isS = rng() < 0.5, fn = isS ? S.sin : S.cos, ofn = isS ? S.cos : S.sin, sg = isS ? 1 : -1;
+    var xn = 'x^{' + n + '}', pn = pw(n - 1), cos = ofn[0], cosp = ofn[1];
+    var corr = E((sg < 0 ? '-' : '') + n + pn + cos + '(' + xn + ')', (sg < 0 ? '-' : '') + n + '*x**' + (n - 1) + '*' + cosp + '(x**' + n + ')');
+    return { stem: STEM_D, e: 'f(x)=' + fn[0] + '(' + xn + ')', corr: corr, kind: 'd5', f: fn[1] + '(x**' + n + ')', hint: HINT.c, key: 'B2b:' + (isS ? 's' : 'c') + n,
+      cands: [{ cls: 'nc', v: E((sg < 0 ? '-' : '') + cos + '(' + xn + ')', (sg < 0 ? '-' : '') + cosp + '(x**' + n + ')'), why: 'The factor from the inner function is missing. Multiply by the derivative of the angle \\(x^{' + n + '}\\), which is \\(' + n + pn + '\\).' },
+        { cls: 'nf', v: E((sg < 0 ? '-' : '') + n + pn + cos + ' x', (sg < 0 ? '-' : '') + n + '*x**' + (n - 1) + '*' + cosp + '(x)'), why: 'The angle \\(x^{' + n + '}\\) must stay unchanged inside the trigonometric function after differentiating the outer function; it does not become \\(x\\).' },
+        { cls: 'ng', v: E((sg < 0 ? '' : '-') + n + pn + cos + '(' + xn + ')', (sg < 0 ? '' : '-') + n + '*x**' + (n - 1) + '*' + cosp + '(x**' + n + ')'), why: isS ? 'The sign is wrong. The derivative of \\(\\sin\\) is \\(+\\cos\\).' : 'The sign is wrong. The derivative of \\(\\cos\\) is \\(-\\sin\\), so the result must be negative.' },
+        { cls: 'pn', v: E((sg < 0 ? '-' : '') + n + cos + '(' + xn + ')', (sg < 0 ? '-' : '') + n + '*' + cosp + '(x**' + n + ')'), why: 'The derivative of \\(x^{' + n + '}\\) is \\(' + n + pn + '\\), not just \\(' + n + '\\). The power of \\(x\\) must drop by one.' },
+        { cls: 'sm', v: E(n + pn + fn[0] + '(' + xn + ')', n + '*x**' + (n - 1) + '*' + fn[1] + '(x**' + n + ')'), why: 'The outer function was not differentiated: ' + (isS ? '\\(\\sin\\) becomes \\(\\cos\\).' : '\\(\\cos\\) becomes \\(-\\sin\\).') }],
+      sol: [{ t: 'f\'(x)=' + (isS ? '\\cos(' : '-\\sin(') + xn + ')' + '\\cdot(' + xn + ')\'', ar: 'Chain rule: differentiate the outer function, then multiply by the derivative of the inner function' }, { box: 'f\'(x)=' + corr.t }] };
+  }
+  function t2c(rng) {
+    var k = ri(rng, 2, 6), b = nz(rng, -5, 5), ang = k + 'x' + (b < 0 ? '-' : '+') + Math.abs(b), angp = k + '*x+(' + b + ')';
+    var corr = E(k + '\\sec^{2}(' + ang + ')', k + '/cos(' + angp + ')**2');
+    return { stem: STEM_D, e: 'f(x)=\\tan(' + ang + ')', corr: corr, kind: 'd6', f: 'tan(' + angp + ')', hint: HINT.c, key: 'B2c:' + k + ',' + b,
+      cands: [{ cls: 'nk', v: E('\\sec^{2}(' + ang + ')', '1/cos(' + angp + ')**2'), why: 'The derivative of the angle \\(' + ang + '\\) was forgotten. It is \\(' + k + '\\), and the result must be multiplied by it.' },
+        { cls: 'st', v: E(k + '\\sec(' + ang + ')\\tan(' + ang + ')', k + '*tan(' + angp + ')/cos(' + angp + ')'), why: 'This is the derivative of \\(\\sec\\), not of \\(\\tan\\). The derivative of \\(\\tan u\\) is \\(\\sec^2u\\cdot u\'\\).' },
+        { cls: 'ng', v: E('-' + k + '\\sec^{2}(' + ang + ')', '-' + k + '/cos(' + angp + ')**2'), why: 'The sign is wrong. \\(\\tan\\) differentiates to \\(+\\sec^2\\), so the sign of the coefficient is kept.' },
+        { cls: 'sc', v: E(k + '\\sec(' + ang + ')', k + '/cos(' + angp + ')'), why: 'The derivative of \\(\\tan u\\) involves \\(\\sec^2u\\) (squared), not \\(\\sec u\\).' },
+        { cls: 'sx', v: E(k + '\\sec^{2}x', k + '/cos(x)**2'), why: 'The angle \\(' + ang + '\\) must stay inside \\(\\sec^2\\) unchanged; it does not become \\(x\\).' }],
+      sol: [{ t: 'f\'(x)=\\sec^{2}(' + ang + ')\\cdot(' + ang + ')\'', ar: 'Chain rule: the derivative of \\(\\tan u\\) is \\(\\sec^2u\\) times \\(u\'\\)' }, { box: 'f\'(x)=' + corr.t }] };
+  }
+
+  /* ----- Level 3 ----- */
+  function t3a(rng) {
+    var n = ri(rng, 1, 4), k = ri(rng, 2, 5), isS = rng() < 0.5;
+    var fn = isS ? S.sin : S.cos, ofn = isS ? S.cos : S.sin, sg = isS ? 1 : -1, kx = k + 'x', kxp = k + '*x';
+    function T(c1, p1, c2, p2, o1, o2) { return E('', ''); }
+    var f = E(pw(n) + fn[0] + ' ' + kx, pwp(n) + '*' + fn[1] + '(' + kxp + ')');
+    var corr = lin([[n * 1, pw(n - 1) + fn[0] + ' ' + kx, pwp(n - 1) + '*' + fn[1] + '(' + kxp + ')'], [sg * k, pw(n) + ofn[0] + ' ' + kx, pwp(n) + '*' + ofn[1] + '(' + kxp + ')']]);
+    if (n === 1) corr = lin([[1, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')'], [sg * k, 'x' + ofn[0] + ' ' + kx, 'x*' + ofn[1] + '(' + kxp + ')']]);
+    var A = [n, pw(n - 1) + fn[0] + ' ' + kx, pwp(n - 1) + '*' + fn[1] + '(' + kxp + ')'];
+    var B = [sg * k, pw(n) + ofn[0] + ' ' + kx, pwp(n) + '*' + ofn[1] + '(' + kxp + ')'];
+    if (n === 1) A = [1, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')'];
+    return { stem: STEM_D, e: 'f(x)=' + f.t, corr: corr, kind: 'd7', f: f.p, hint: HINT.p, key: 'B3a:' + (isS ? 's' : 'c') + n + ',' + k,
+      cands: [{ cls: 'sg', v: lin([A, [-B[0], B[1], B[2]]]), why: 'The product rule adds the two terms: \\(u\'v+uv\'\\). The sign of the second term must come only from the derivative of the trigonometric factor, and here it was reversed.' },
+        { cls: 'nk', v: lin([A, [B[0] / k, B[1], B[2]]]), why: 'In the second term the derivative of the angle \\(' + kx + '\\) was forgotten. By the chain rule, multiply by \\(' + k + '\\).' },
+        { cls: 'pd', v: lin([[n * k * (n === 1 ? 1 : 1) * sg, pw(n - 1) + ofn[0] + ' ' + kx, pwp(n - 1) + '*' + ofn[1] + '(' + kxp + ')']]), why: 'The derivative of a product is not the product of the derivatives. Use the product rule \\(u\'v+uv\'\\), which gives two terms.' },
+        { cls: 'fn', v: lin([[n, pw(n - 1) + ofn[0] + ' ' + kx, pwp(n - 1) + '*' + ofn[1] + '(' + kxp + ')'], [sg * k, pw(n) + fn[0] + ' ' + kx, pwp(n) + '*' + fn[1] + '(' + kxp + ')']]), why: 'The trigonometric function was differentiated in the wrong term. In the first term it stays as it is (only the power of \\(x\\) is differentiated); in the second term it is differentiated.' }],
+      sol: [{ t: 'f\'(x)=(' + pw(n) + ')\'\\,' + fn[0] + ' ' + kx + '+' + pw(n) + '\\,(' + fn[0] + ' ' + kx + ')\'', ar: 'Product rule: \\(u\'v+uv\'\\), where the second derivative uses the chain rule' }, { box: 'f\'(x)=' + corr.t }] };
+  }
+
+  function t3c(rng) {
+    var n = ri(rng, 1, 3), a = ri(rng, 2, 6), xn = pw(n), xp = pwp(n);
+    var f = lin([[a, xn + '\\tan x', xp + '*tan(x)']]);
+    var A = [a * n, pw(n - 1) + '\\tan x', pwp(n - 1) + '*tan(x)'], B = [a, xn + '\\sec^{2}x', xp + '/cos(x)**2'];
+    var corr = lin([A, B]);
+    return { stem: STEM_D, e: 'f(x)=' + f.t, corr: corr, kind: 'd9', f: f.p, hint: HINT.p, key: 'B3c:' + n + ',' + a,
+      cands: [{ cls: 'sg', v: lin([A, [-a, B[1], B[2]]]), why: 'The derivative of \\(\\tan x\\) is positive, \\(+\\sec^2x\\). The product rule then adds the two terms, so the second term keeps a plus sign.' },
+        { cls: 'sq', v: lin([A, [a, xn + '\\sec x', xp + '/cos(x)']]), why: 'The derivative of \\(\\tan x\\) is \\(\\sec^2x\\) (squared), not \\(\\sec x\\).' },
+        { cls: 'pd', v: lin([[a * n, pw(n - 1) + '\\sec^{2}x', pwp(n - 1) + '/cos(x)**2']]), why: 'The derivative of a product is not the product of the derivatives. The product rule gives two terms: \\(u\'v+uv\'\\).' },
+        { cls: 'st', v: lin([A, [a, xn + '\\sec x\\tan x', xp + '*tan(x)/cos(x)']]), why: 'This is the derivative of \\(\\sec x\\). The derivative of \\(\\tan x\\) is \\(\\sec^2x\\).' },
+        { cls: 'sw', v: lin([[a, pw(n - 1) + '\\tan x', pwp(n - 1) + '*tan(x)'], [a * n, B[1], B[2]]]), why: 'The factor \\(' + n + '\\) was attached to the wrong term. It comes from differentiating \\(x^{' + n + '}\\), so it belongs to the first term, not to the \\(\\sec^2x\\) term.' }],
+      sol: [{ t: 'f\'(x)=' + a + '\\left[(' + xn + ')\'\\tan x+' + xn + '\\sec^{2}x\\right]', ar: 'Product rule, with the constant factor kept outside' }, { box: 'f\'(x)=' + corr.t }] };
+  }
+  function t3b(rng) {
+    var n = ri(rng, 1, 3), xn = n === 1 ? 'x' : 'x^{' + n + '}', xm = n === 1 ? '' : (n === 2 ? 'x' : 'x^{' + (n - 1) + '}'), dn = n === 1 ? '1' : (n === 2 ? '2x' : '3x^{2}');
+    var corr = E('\\dfrac{x\\cos x-' + (n === 1 ? '' : n) + '\\sin x}{x^{' + (n + 1) + '}}', '(x*cos(x)-' + n + '*sin(x))/x**' + (n + 1));
+    return { stem: STEM_D, e: 'f(x)=\\dfrac{\\sin x}{' + xn + '}', corr: corr, kind: 'd8', f: 'sin(x)/x**' + n, hint: HINT.p, key: 'B3b:' + n,
+      cands: [{ cls: 'sg', v: E('\\dfrac{x\\cos x+' + (n === 1 ? '' : n) + '\\sin x}{x^{' + (n + 1) + '}}', '(x*cos(x)+' + n + '*sin(x))/x**' + (n + 1)), why: 'In the quotient rule the numerator is \\(u\'v-uv\'\\), with a subtraction. Here the two terms were added.' },
+        { cls: 'rv', v: E('\\dfrac{' + (n === 1 ? '' : n) + '\\sin x-x\\cos x}{x^{' + (n + 1) + '}}', '(' + n + '*sin(x)-x*cos(x))/x**' + (n + 1)), why: 'The order of the subtraction is reversed. The numerator is \\(u\'v-uv\'\\), not \\(uv\'-u\'v\\).' },
+        { cls: 'dv', v: E(n === 1 ? '\\cos x' : '\\dfrac{\\cos x}{' + dn + '}', n === 1 ? 'cos(x)' : 'cos(x)/(' + n + '*x**' + (n - 1) + ')'), why: 'The derivative of a quotient is not the quotient of the derivatives. Use the quotient rule \\(\\dfrac{u\'v-uv\'}{v^2}\\).' },
+        { cls: 'nd', v: E('x\\cos x-' + (n === 1 ? '' : n) + '\\sin x', 'x*cos(x)-' + n + '*sin(x)'), why: 'The division by the square of the denominator is missing. The denominator is \\((' + xn + ')^2=x^{' + (2 * n) + '}\\), ' + (n === 1 ? 'so the whole expression must be divided by \\(x^{2}\\).' : 'which reduces to \\(x^{' + (n + 1) + '}\\) after cancelling.') },
+        { cls: 'pr', v: E('\\cos x\\cdot x^{-' + n + '}+\\sin x\\cdot x^{-' + n + '}', 'cos(x)*x**(-' + n + ')+sin(x)*x**(-' + n + ')'), why: 'Rewriting as \\(\\sin x\\cdot x^{-' + n + '}\\) and using the product rule gives \\(\\cos x\\,x^{-' + n + '}-' + (n === 1 ? '' : n) + '\\sin x\\,x^{-' + (n + 1) + '}\\). Here the derivative of \\(x^{-' + n + '}\\) was left out and the terms were added.' }],
+      sol: [{ t: 'f\'(x)=\\dfrac{(\\cos x)(' + xn + ')-(\\sin x)(' + dn + ')}{(' + xn + ')^{2}}', ar: 'Quotient rule: \\(\\dfrac{u\'v-uv\'}{v^2}\\)' }, { box: 'f\'(x)=' + corr.t, ar: (n === 1 ? 'The result is already in simplest form' : 'Cancel the common factor of \\(x\\) from the numerator and denominator') }] };
+  }
+
+  /* ----- Level 4 ----- */
+  function t4a(rng) {
+    var form = pick(rng, ['A', 'B', 'C', 'D']), a, b, k, ans, e, f, cands, sol;
+    if (form === 'D') {
+      k = ri(rng, 2, 8); ans = fr(k * k, 2); f = '(1-cos(' + k + '*x))/x**2';
+      e = '\\lim_{x\\to0}\\dfrac{1-\\cos ' + k + 'x}{x^{2}}';
+      cands = [{ cls: 'kd', v: E(ftex(fr(k, 2)), fplain(fr(k, 2))), why: 'The value is \\(\\dfrac{k^2}{2}\\) with \\(k\\) squared, not \\(\\dfrac{k}{2}\\). Here \\(k^2=' + (k * k) + '\\).' }, { cls: 'one2', v: E('\\dfrac{1}{2}', '1/2'), why: 'The factor \\(k^2\\) is missing. Since \\(x^2=\\dfrac{(kx)^2}{k^2}\\), the limit is \\(\\dfrac{k^2}{2}\\), not \\(\\dfrac12\\).' }, { cls: 'kk', v: E(String(k * k), String(k * k)), why: 'The division by 2 from the special limit \\(\\dfrac{1-\\cos u}{u^2}\\to\\dfrac12\\) was forgotten.' }, { cls: 'zero', v: E('0', '0'), why: 'The limit is not zero. Near \\(0\\), \\(1-\\cos kx\\approx\\dfrac{k^2x^2}{2}\\), which is of the same order as \\(x^2\\).' }];
+      sol = [{ t: '\\dfrac{1-\\cos ' + k + 'x}{x^{2}}=\\dfrac{1-\\cos ' + k + 'x}{(' + k + 'x)^{2}}\\cdot ' + k * k, ar: 'Write the denominator in terms of \\(' + k + 'x\\), using \\(x^2=\\dfrac{(' + k + 'x)^2}{' + k * k + '}\\)' }, { t: '\\lim_{u\\to0}\\dfrac{1-\\cos u}{u^{2}}=\\dfrac{1}{2}', ar: 'Special limit, with \\(u=' + k + 'x\\to0\\)' }, { box: ftex(ans) }];
+    } else {
+      do { a = ri(rng, 2, 9); b = ri(rng, 2, 9); } while (a === b || gcd(a, b) > 1 && a % b === 0);
+      ans = fr(a, b);
+      if (form === 'A') { e = '\\lim_{x\\to0}\\dfrac{\\sin ' + a + 'x}{' + b + 'x}'; f = 'sin(' + a + '*x)/(' + b + '*x)'; }
+      if (form === 'B') { e = '\\lim_{x\\to0}\\dfrac{\\tan ' + a + 'x}{' + b + 'x}'; f = 'tan(' + a + '*x)/(' + b + '*x)'; }
+      if (form === 'C') { e = '\\lim_{x\\to0}\\dfrac{\\sin ' + a + 'x}{\\sin ' + b + 'x}'; f = 'sin(' + a + '*x)/sin(' + b + '*x)'; }
+      cands = [{ cls: 'iv', v: E(ftex(fr(b, a)), fplain(fr(b, a))), why: 'The ratio is inverted. It is the coefficient in the numerator divided by the coefficient in the denominator: \\(\\dfrac{' + a + '}{' + b + '}\\), not the reverse.' },
+        { cls: 'pr', v: E(String(a * b), String(a * b)), why: 'The two coefficients were multiplied. They should be divided: numerator coefficient over denominator coefficient.' },
+        { cls: 'one', v: E('1', '1'), why: 'The special limit \\(\\dfrac{\\sin u}{u}\\to1\\) gives 1 only when the angle and the denominator match. Here the coefficients \\(' + a + '\\) and \\(' + b + '\\) differ, so the limit is their ratio.' },
+        { cls: 'zero', v: E('0', '0'), why: 'Direct substitution gives the indeterminate form \\(\\dfrac00\\), so it does not show that the limit is 0. Use the special limits instead.' },
+        { cls: 'df', v: E(ftex(fr(a - b, b)), fplain(fr(a - b, b))), why: 'The coefficients were subtracted. The limit is the ratio \\(\\dfrac{' + a + '}{' + b + '}\\), a quotient and not a difference.' }];
+      sol = [{ t: '\\dfrac{' + (form === 'B' ? '\\tan' : '\\sin') + ' ' + a + 'x}{' + (form === 'C' ? '\\sin ' + b + 'x' : b + 'x') + '}=\\dfrac{' + a + '}{' + b + '}\\cdot\\dfrac{' + (form === 'B' ? '\\tan' : '\\sin') + ' ' + a + 'x}{' + a + 'x}' + (form === 'C' ? '\\cdot\\dfrac{' + b + 'x}{\\sin ' + b + 'x}' : ''), ar: 'Adjust the numerator and denominator so each has the same angle as its trigonometric function' }, { t: '\\to\\dfrac{' + a + '}{' + b + '}\\cdot 1' + (form === 'C' ? '\\cdot 1' : '') + '\\quad(x\\to0)', ar: 'Special limits: \\(\\dfrac{\\sin u}{u}\\to1\\) and \\(\\dfrac{\\tan u}{u}\\to1\\) as \\(u\\to0\\)' }, { box: ftex(ans) }];
+    }
+    return { stem: 'Evaluate the limit:', e: e, corr: E(ftex(ans), fplain(ans)), kind: 'lim', f: f, ask: 'LIM', hint: HINT.m, key: 'B4a:' + form + ',' + (a || '') + ',' + (b || '') + ',' + (k || ''), cands: cands, sol: sol };
+  }
+  function t4b(rng) {
+    var a = nz(rng, -6, 6), b = nz(rng, -6, 6), at6 = rng() < 0.5;
+    var s3 = '\\sqrt{3}';
+    function V(c1, c2, den) { /* c1*sqrt3 + c2 over den */ return lin([[c1, s3, 'sqrt(3)'], [c2, '', '1']]); }
+    var corr, f = lin([[a, '\\sin x', 'sin(x)'], [b, '\\cos x', 'cos(x)']]), ang = at6 ? '\\dfrac{\\pi}{6}' : '\\dfrac{\\pi}{3}';
+    function mk(c1, c2) { var m = at6 ? V(c1, c2) : V(c2, c1); var q = V(c1, c2); return E('\\dfrac{' + m.t + '}{2}', '(' + m.p + ')/2'); }
+    /* f'(x)=a cos x - b sin x ; at pi/6: cos=sqrt3/2, sin=1/2 ; at pi/3: cos=1/2, sin=sqrt3/2 */
+    function val(ca, sb, cosv, sinv) { return ca * cosv + sb * sinv; }
+    function ex(pc, ps) { /* pc = coefficient of cos, ps = coefficient of sin: pc*cos+ps*sin */ var c1, c2; if (at6) { c1 = pc; c2 = ps; } else { c1 = ps; c2 = pc; } var m = lin([[c1, s3, 'sqrt(3)'], [c2, '', '1']]); return E('\\dfrac{' + m.t + '}{2}', '(' + m.p + ')/2'); }
+    corr = ex(a, -b);
+    return { stem: 'Find \\(f\'\\left(' + ang + '\\right)\\) if:', e: 'f(x)=' + f.t, corr: corr, kind: 'ev', f: f.p, at: at6 ? 'pi/6' : 'pi/3', hint: HINT.m, key: 'B4b:' + a + ',' + b + ',' + (at6 ? 6 : 3),
+      cands: [{ cls: 'sg', v: ex(a, b), why: 'The sign of the second term is wrong: \\(\\cos x\\) differentiates to \\(-\\sin x\\), so the sign of its coefficient is reversed.' },
+        { cls: 'vl', v: ex(b, a), why: 'This is the value of the function \\(f\\), not of its derivative \\(f\'\\). Differentiate first, then substitute.' },
+        { cls: 'sw', v: ex(-b, a), why: 'The sine and cosine values at this angle were swapped. \\(' + (at6 ? '\\sin\\dfrac{\\pi}{6}=\\dfrac12,\\ \\cos\\dfrac{\\pi}{6}=\\dfrac{\\sqrt3}{2}' : '\\sin\\dfrac{\\pi}{3}=\\dfrac{\\sqrt3}{2},\\ \\cos\\dfrac{\\pi}{3}=\\dfrac12') + '\\).' },
+        { cls: 'ng', v: ex(-a, b), why: 'The sign of the whole answer is reversed. \\(\\sin x\\) keeps the sign of its coefficient, and \\(\\cos x\\) reverses it.' }],
+      sol: [{ t: 'f\'(x)=' + lin([[a, '\\cos x', 'cos(x)'], [-b, '\\sin x', 'sin(x)']]).t, ar: 'Differentiate first, before substituting' }, { t: 'f\'\\left(' + ang + '\\right)=' + a + '\\cdot' + (at6 ? '\\dfrac{\\sqrt3}{2}' : '\\dfrac12') + (b > 0 ? '-' : '+') + Math.abs(b) + '\\cdot' + (at6 ? '\\dfrac12' : '\\dfrac{\\sqrt3}{2}'), ar: 'Substitute the exact values of sine and cosine at the special angle' }, { box: 'f\'\\left(' + ang + '\\right)=' + corr.t }] };
+  }
+
+  /* ----- Level 5 ----- */
+  function angTex(k) { var f = fr(k, 6); if (f.n === 0) return '0'; var num = f.n === 1 ? '\\pi' : f.n + '\\pi'; return f.d === 1 ? num : '\\dfrac{' + num + '}{' + f.d + '}'; }
+  function angP(k) { var f = fr(k, 6); return f.d === 1 ? f.n + '*pi' : f.n + '*pi/' + f.d; }
+  function setE(ks) { return E('x=' + ks.map(angTex).join(',\\ '), ks.map(angP).join(';')); }
+  function trigSet(fn, sg) { var t = { 'sin+': [1, 5], 'sin-': [7, 11], 'cos+': [2, 10], 'cos-': [4, 8] }; return t[fn + (sg > 0 ? '+' : '-')]; }
+  function t5a(rng) {
+    var cfg = pick(rng, [
+      { f: 'x+2\\cos x', fp: 'x+2*cos(x)', d: '1-2\\sin x', fn: 'sin', sg: 1, eq: '\\sin x=\\dfrac12' },
+      { f: 'x-2\\cos x', fp: 'x-2*cos(x)', d: '1+2\\sin x', fn: 'sin', sg: -1, eq: '\\sin x=-\\dfrac12' },
+      { f: 'x-2\\sin x', fp: 'x-2*sin(x)', d: '1-2\\cos x', fn: 'cos', sg: 1, eq: '\\cos x=\\dfrac12' },
+      { f: 'x+2\\sin x', fp: 'x+2*sin(x)', d: '1+2\\cos x', fn: 'cos', sg: -1, eq: '\\cos x=-\\dfrac12' }]);
+    var ofn = cfg.fn === 'sin' ? 'cos' : 'sin', ks = trigSet(cfg.fn, cfg.sg), corr = setE(ks);
+    var tan1 = [ks[0], ks[0] + 6];
+    return { stem: 'Find the values of \\(x\\in[0,2\\pi]\\) at which the tangent to the graph of the function is horizontal:', e: 'f(x)=' + cfg.f, corr: corr, kind: 'hs', f: cfg.fp, ask: 'SET', hint: HINT.c5, key: 'B5a:' + cfg.fp,
+      cands: [{ cls: 'sw', v: setE(trigSet(ofn, cfg.sg)), why: 'The wrong trigonometric function was solved. Setting \\(f\'(x)=0\\) gives \\(' + cfg.eq + '\\), not an equation in the other function.' },
+        { cls: 'ng', v: setE(trigSet(cfg.fn, -cfg.sg)), why: 'The sign of the right-hand side was mishandled. For \\(' + cfg.eq + '\\) the two solutions lie in different quadrants from these.' },
+        { cls: 'on', v: setE([ks[0]]), why: 'A trigonometric equation of this type has two solutions in \\([0,2\\pi]\\), not just one. The second solution was missed.' },
+        { cls: 'pi', v: setE(tan1), why: 'The period of \\(\\sin x\\) and \\(\\cos x\\) is \\(2\\pi\\), not \\(\\pi\\). The second solution comes from symmetry about the axis, not from adding \\(\\pi\\).' },
+        { cls: 'os', v: setE(trigSet(ofn, -cfg.sg)), why: 'The equation was solved for the wrong function and with the wrong sign. The horizontal tangent occurs where \\(f\'(x)=0\\), which here gives \\(' + cfg.eq + '\\).' }],
+      sol: [{ t: 'f\'(x)=' + cfg.d + '=0\\;\\Rightarrow\\;' + cfg.eq, ar: 'The tangent is horizontal when \\(f\'(x)=0\\)' }, { t: corr.t.replace(/^x=/, 'x\\in\\{') + '\\}', ar: 'Find both solutions of the equation in \\([0,2\\pi]\\), one in each of the two quadrants where the sign matches' }, { box: corr.t }] };
+  }
+  function t5b(rng) {
+    var A = nz(rng, -5, 5), k = ri(rng, 2, 5), isS = rng() < 0.5;
+    var fn = isS ? S.sin : S.cos, ofn = isS ? S.cos : S.sin, kx = k + 'x', kxp = k + '*x', kk = k * k;
+    var corr = lin([[-A * kk, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]);
+    return { stem: 'Find \\(f\'\'(x)\\) for the function:', e: 'f(x)=' + lin([[A, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]).t, corr: corr, kind: 'dd', f: lin([[A, fn[1] + ' ' + kx, fn[1] + '(' + kxp + ')']]).p.replace(/\s/g, ''), hint: HINT.c5, key: 'B5b:' + (isS ? 's' : 'c') + A + ',' + k,
+      cands: [{ cls: 'nk', v: lin([[-A * k, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The chain rule factor \\(' + k + '\\) was applied only once. Each differentiation multiplies by \\(' + k + '\\), so two derivatives give \\(k^2=' + kk + '\\).' },
+        { cls: 'sg', v: lin([[A * kk, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The sign is wrong. Two derivatives give a negative sign: \\(\\sin\\to\\cos\\to-\\sin\\) and \\(\\cos\\to-\\sin\\to-\\cos\\).' },
+        { cls: 'fn', v: lin([[-A * kk, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: 'After two derivatives the function returns to itself (with a negative sign); it does not become the other trigonometric function.' },
+        { cls: 'fp', v: lin([[(isS ? 1 : -1) * A * kk, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: 'This is the first derivative with an extra factor of \\(' + k + '\\). The question asks for the second derivative, so differentiate once more.' },
+        { cls: 'k1', v: lin([[-A, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The factor \\(' + k + '\\) from the chain rule was never applied. It appears at each of the two differentiations.' }],
+      sol: [{ t: 'f\'(x)=' + lin([[(isS ? 1 : -1) * A * k, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]).t, ar: 'First derivative, using the chain rule' }, { t: 'f\'\'(x)=' + corr.t, ar: 'Second derivative: differentiate again and multiply by \\(' + k + '\\) once more' }, { box: 'f\'\'(x)=' + corr.t }] };
+  }
+  function t5c(rng) {
+    var form = pick(rng, ['d', 'c']), a, b, k, ans, e, f, cands, sol;
+    if (form === 'd') {
+      do { a = ri(rng, 2, 9); b = ri(rng, 2, 9); } while (a === b);
+      ans = fr(a - b); f = '(sin(' + a + '*x)-sin(' + b + '*x))/x'; e = '\\lim_{x\\to0}\\dfrac{\\sin ' + a + 'x-\\sin ' + b + 'x}{x}';
+      cands = [{ cls: 'iv', v: E(String(b - a), String(b - a)), why: 'The order of subtraction is reversed. The answer is the first coefficient minus the second: \\(' + a + '-' + b + '\\).' }, { cls: 'ad', v: E(String(a + b), String(a + b)), why: 'The coefficients were added. The expression is a difference of two terms, so the limit is a difference of the two coefficients.' }, { cls: 'dv', v: E(ftex(fr(a, b)), fplain(fr(a, b))), why: 'The coefficients were divided. Splitting the fraction gives two separate limits, \\(' + a + '\\) and \\(' + b + '\\), which are subtracted.' }, { cls: 'zero', v: E('0', '0'), why: 'Each special limit equals its coefficient, not zero: \\(\\dfrac{\\sin ' + a + 'x}{x}\\to' + a + '\\) and \\(\\dfrac{\\sin ' + b + 'x}{x}\\to' + b + '\\).' }];
+      sol = [{ t: '\\lim_{x\\to0}\\dfrac{\\sin ' + a + 'x}{x}-\\lim_{x\\to0}\\dfrac{\\sin ' + b + 'x}{x}=' + a + '-' + b, ar: 'Split into a difference of two special limits, each equal to its coefficient' }, { box: String(a - b) }];
+    } else {
+      k = ri(rng, 2, 7); ans = fr(1, k); f = 'x*cos(' + k + '*x)/sin(' + k + '*x)'; e = '\\lim_{x\\to0}\\,x\\cot ' + k + 'x';
+      cands = [{ cls: 'kk', v: E(String(k), String(k)), why: 'The ratio is inverted. Since \\(x\\cot ' + k + 'x=\\dfrac{x\\cos ' + k + 'x}{\\sin ' + k + 'x}\\), the limit is \\(\\dfrac1{' + k + '}\\), not \\(' + k + '\\).' }, { cls: 'one', v: E('1', '1'), why: 'The limit equals 1 only when \\(k=1\\). For \\(k=' + k + '\\) the coefficient changes the result.' }, { cls: 'ng', v: E('-\\dfrac{1}{' + k + '}', '-1/' + k), why: 'There is no negative sign. Near \\(0\\), \\(\\cos ' + k + 'x\\to1\\) and \\(\\dfrac{x}{\\sin ' + k + 'x}\\to\\dfrac1{' + k + '}\\), both positive.' }, { cls: 'zero', v: E('0', '0'), why: 'Although \\(x\\to0\\), the denominator \\(\\sin ' + k + 'x\\to0\\) as well, so the limit is the indeterminate form \\(0\\cdot\\infty\\) and it equals \\(\\dfrac1{' + k + '}\\), not zero.' }];
+      sol = [{ t: 'x\\cot ' + k + 'x=\\cos ' + k + 'x\\cdot\\dfrac{x}{\\sin ' + k + 'x}', ar: 'Write \\(\\cot\\) in terms of \\(\\sin\\) and \\(\\cos\\)' }, { t: '\\dfrac{x}{\\sin ' + k + 'x}=\\dfrac{1}{' + k + '}\\cdot\\dfrac{' + k + 'x}{\\sin ' + k + 'x}\\to\\dfrac{1}{' + k + '}', ar: 'Special limit \\(\\dfrac{u}{\\sin u}\\to1\\), with \\(\\cos ' + k + 'x\\to1\\)' }, { box: ftex(ans) }];
+    }
+    return { stem: 'Evaluate the limit:', e: e, corr: E(ftex(ans), fplain(ans)), kind: 'lim', f: f, ask: 'LIM', hint: HINT.m, key: 'B5c:' + form + ',' + (a || '') + ',' + (b || '') + ',' + (k || ''), cands: cands, sol: sol };
+  }
+
+  var LEVELS = [
+    { id: 1, ar: 'Basic', hint: HINT.d },
+    { id: 2, ar: 'Chain rule', hint: HINT.c },
+    { id: 3, ar: 'Product and quotient', hint: HINT.p },
+    { id: 4, ar: 'Ministry level', hint: HINT.m },
+    { id: 5, ar: 'Challenge', challenge: true, hint: HINT.c5 }
+  ];
+  function build(level, rng) {
+    var r = rng();
+    if (level === 1) return r < 0.34 ? t1a(rng) : (r < 0.67 ? t1b(rng) : t1c(rng));
+    if (level === 2) return r < 0.34 ? t2a(rng) : (r < 0.67 ? t2b(rng) : t2c(rng));
+    if (level === 3) return r < 0.5 ? t3a(rng) : (r < 0.75 ? t3b(rng) : t3c(rng));
+    if (level === 4) return r < 0.6 ? t4a(rng) : t4b(rng);
+    return r < 0.4 ? t5a(rng) : (r < 0.7 ? t5b(rng) : t5c(rng));
+  }
+
+  /* split long solution steps at the implication arrow so they fit a mobile width */
+  function splitSol(sol) {
+    var out = [];
+    sol.forEach(function (s) {
+      if (s.box || !s.t || s.t.indexOf('\\;\\Rightarrow\\;') < 0) { out.push(s); return; }
+      var parts = s.t.split('\\;\\Rightarrow\\;');
+      parts.forEach(function (p, i) { var o = { t: i ? '\\Rightarrow\\;' + p : p }; if (i === 0 && s.ar) o.ar = s.ar; out.push(o); });
+    });
+    return out;
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = pickD(rng, t.corr, t.cands); tries++; } while ((dis.gen > 0 || dis.amb > 0) && tries < 300);
+    var all = shuffle(rng, [{ v: t.corr, why: '' }].concat(dis));
+    var ci = 0; all.forEach(function (o, i) { if (o.v === t.corr) ci = i; });
+    return {
+      band: 24, level: level, rtl: false, lang: 'en', stem: t.stem, e: t.e,
+      opts: all.map(function (s) { return { t: s.v.t, why: s.why || '' }; }),
+      ans: ci, sol: splitSol(t.sol), hint: t.hint || LEVELS[level - 1].hint, key: t.key,
+      data: { kind: t.kind, f: t.f, ask: t.ask || (t.kind === 'ev' ? 'EV' : 'D'), at: t.at, correct: t.corr.p, opts: all.map(function (s) { return s.v.p; }), tries: tries, gen: dis.gen, amb: dis.amb }
+    };
+  }
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenTrigEn = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'Band ' + BAND, GRS = GR + '-en', KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GRS] || typeof all[GRS] !== 'object') all[GRS] = {};
+  var st = all[GRS][BAND];
+  if (!st || typeof st !== 'object') st = all[GRS][BAND] = {};
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 1 ? '1 correct answer' : n + ' correct answers'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var isCur = l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])); var cls = (isCur && !st.mastered) ? 'cur' : (st.done[l.id] ? 'done' : (isCur ? 'cur' : ''));
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.className += ' back'; li.setAttribute('role', 'button'); li.tabIndex = 0; li.setAttribute('aria-label', 'Back to level ' + l.id);
+        var goBack = function () { st.level = l.id; persist(); newRound(); };
+        li.addEventListener('click', goBack);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goBack(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'Level ' + st.level + ' • ' + LV[st.level - 1].ar + ' — Question ' + (Math.min(round.idx + 1, ROUND)) + ' of ' + ROUND + ' • ' + PASS + ' correct answers needed to master the level'
+      : (st.mastered ? 'You mastered every level' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'I already know this, start at Ministry level →'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>Detailed solution</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'Options');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'Show hint'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'Show hint' : 'Hide hint'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      if (eq.scrollWidth <= eq.clientWidth + 1 || /gathered/.test(q.e)) return; var parts = q.e.split(',\\quad '); if (parts.length < 3) return; var half = Math.ceil(parts.length / 2);
+      eq.innerHTML = '\\[\\begin{gathered}' + parts.slice(0, half).join(',\\quad ') + '\\\\ ' + parts.slice(half).join(',\\quad ') + '\\end{gathered}\\]'; typeset(eq); }, 0);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ Correct answer.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ Incorrect answer.' + why + '<span class="why">Correct answer:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'Show detailed solution'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'Show detailed solution' : 'Hide detailed solution'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'See round result →' : 'Next question →'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>Challenge level mastered ✓</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + ' at challenge level. Excellent work: this goes beyond what the exam asks.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'Back to the class page'); l5.href = '/' + GR + '/en/';
+        var b5 = h('button', 'btn ghost', 'New challenge round'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>Level ' + lvl + ' mastered ✓</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + '. Now move on to level ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'Start level ' + st.level + ' →'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>' + BLBL + ' fully mastered ✓</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + ' at Ministry level. Well done. Now try a full practice exam from the class page to test yourself as in the real exam.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'Back to the class page'); l1.href = '/' + GR + '/en/';
+        var b2 = h('button', 'btn ghost', 'Practice again'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'Try the challenge level (optional) →'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>Not mastered yet</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + '; mastery needs at least ' + cnt(PASS) + '. That is fine: the same idea comes back with new numbers until you master it.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>This level needs more practice. We suggest you review the detailed solutions in ' + BLBL + ' and then come back.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'New round with new numbers →'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'Review the solutions for ' + BLBL); l2.href = '/' + GR + '/en/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'Start from level ' + st.skipped + ' instead'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'New practice sets and a weekly summary reach you in your class WhatsApp group'));
+    var a = h('a', null, 'Join on WhatsApp →'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'How were the questions in this round?'));
+    var row = h('div', 'acts');
+    [['easy', 'Easy'], ['fit', 'Just right'], ['hard', 'Hard']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'Thank you, your answer is recorded')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'Thank you, we received your feedback on this practice')); return box; }
+    box.appendChild(h('summary', null, 'Share your feedback on this practice (optional)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">How would you rate this practice?</p>' +
+      '<div class="stars" role="radiogroup" aria-label="Rating out of 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">Did it help you understand the idea? What did you like, and what needs improving?</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="Write your feedback here (at least 10 characters)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> No name</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">First name only</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> I agree to publish my feedback on the reviews page after it is reviewed</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">Send feedback</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'Choose a rating from 1 to 5.' : text.length < 10 ? 'Write at least 10 characters.' : !fd.get('consent') ? 'To send your feedback, tick the consent box.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'Write your first name or choose No name.' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[Mastery practice EN: rounds ' + (st.rounds || 0) + ', level ' + st.level + ', first round ' + (st.firstScore == null ? '-' : st.firstScore + ' of 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'Thank you, we received your feedback and will review it before publishing')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'We just received several messages from you, thank you. Please try again in an hour.' : 'The feedback could not be sent now, please try again shortly.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'The feedback could not be sent now, please try again shortly.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>

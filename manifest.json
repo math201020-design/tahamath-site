@@ -7119,6 +7119,21 @@
    "path": "g10-advanced/practice-6-10-4/index.html",
    "src": "site/g10-advanced/practice-6-10-4/index.html",
    "sha256": "3f1b89f583dc3aa9b7223b8d4b2b0b796752a2092807c913fae0eacfd2ad98cf"
+  },
+  {
+   "path": "g12-advanced/en/mastery-22/index.html",
+   "src": "site/g12-advanced/en/mastery-22/index.html",
+   "sha256": "71ece35299eadae582251b1ff4cdbdd664fb66f82331923c8a295c0c5feae9a8"
+  },
+  {
+   "path": "g12-advanced/en/mastery-24/index.html",
+   "src": "site/g12-advanced/en/mastery-24/index.html",
+   "sha256": "18a2496a185eed1baf1bdb86558c6c3e2c0e21ef57fe31a0c9934e281affcf53"
+  },
+  {
+   "path": "g12-advanced/en/mastery-26/index.html",
+   "src": "site/g12-advanced/en/mastery-26/index.html",
+   "sha256": "c589e99cae11be3d22728ed4ea4639d4f021b20af47b2c8928c112c43ee63a72"
   }
  ]
 }
