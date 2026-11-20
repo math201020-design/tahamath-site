@@ -2178,7 +2178,7 @@
   {
    "path": "g11-advanced-bridge/band-22/index.html",
    "src": "site/g11-advanced-bridge/band-22/index.html",
-   "sha256": "626fbc34a40e37f2455db7d478796560fda2f86b050bfc61e9de34bd54fc656b"
+   "sha256": "4b830b03e8363e713d022ce99b9f38bd63a4a834b7694978032e21fde028f5c3"
   },
   {
    "path": "g11-advanced-bridge/band-23/index.html",
@@ -3673,7 +3673,7 @@
   {
    "path": "g11-advanced/band-22/index.html",
    "src": "site/g11-advanced/band-22/index.html",
-   "sha256": "98e3b6ea8f703ec33df5fb082e3abd38fb1ae6ef6a626c928c8b2e6604d36b4d"
+   "sha256": "be613218619e05a84a220943453b57440c74d7839835e981d1f876487a788ec4"
   },
   {
    "path": "g11-advanced/band-23/index.html",
@@ -3683,7 +3683,7 @@
   {
    "path": "g11-advanced/band-24/index.html",
    "src": "site/g11-advanced/band-24/index.html",
-   "sha256": "e4815e85dcd3404adbd48893d15cf146a364e2c6018a770e8c49fe8230ad1eb9"
+   "sha256": "e893b3d8713d1034c9ba6046ead4d5f669e8d0d809943b425fc1081e691148c9"
   },
   {
    "path": "g11-advanced/band-25/index.html",
@@ -4363,7 +4363,7 @@
   {
    "path": "g11-general-bridge/haykal-1-written/index.html",
    "src": "site/g11-general-bridge/haykal-1-written/index.html",
-   "sha256": "eb5b44c6554ffb1eeb45a724e1ef43224d6be08be1bcbe0e8be20510c4348a84"
+   "sha256": "1d43661bd90b44472676d9174430eed16cae1ee1ab29c6558b215c326feaf518"
   },
   {
    "path": "g11-general-bridge/haykal-1/index.html",
@@ -4378,7 +4378,7 @@
   {
    "path": "g11-general-bridge/haykal-2/index.html",
    "src": "site/g11-general-bridge/haykal-2/index.html",
-   "sha256": "8ccf9eaa41f8e1a8859111b8874f1a2327cd81d0b244f8b6edfaa21b95d956e9"
+   "sha256": "0939ac6098889e3ecedd6dc30c71ef149e6f56f6f959b1f6488df6b44d3c853b"
   },
   {
    "path": "g11-general-bridge/haykal-3-written/index.html",
@@ -4593,7 +4593,7 @@
   {
    "path": "g11-general/band-24/index.html",
    "src": "site/g11-general/band-24/index.html",
-   "sha256": "c72f2ae6169c50ede7a3d0bcd04d3dfb2dc7c7a4c675d78d8b69c2b2053335cf"
+   "sha256": "3920a331f59f7f86940e016bf31e7c5bdaca6f2f6002c5fccc12077fa0d0ec5d"
   },
   {
    "path": "g11-general/band-25/index.html",
@@ -6973,7 +6973,7 @@
   {
    "path": "g10-advanced-bridge/haykal-1/index.html",
    "src": "site/g10-advanced-bridge/haykal-1/index.html",
-   "sha256": "9a992631fa06abb1ff04d6394ea06099298345ec84c1784304eb0104843053f0"
+   "sha256": "9a260d319e2fef80ea33053b64f54323a80ef81db402225bd592c38a29f7ffc4"
   },
   {
    "path": "g10-advanced-bridge/haykal-2-written/index.html",
@@ -6983,7 +6983,7 @@
   {
    "path": "g10-advanced-bridge/haykal-2/index.html",
    "src": "site/g10-advanced-bridge/haykal-2/index.html",
-   "sha256": "b88e0493813591c24a4bf2d96228fcf3a427fb807091990ea0e1223f1cfa3f13"
+   "sha256": "3358d42dc6b5d893e6506f084494cb43b78a7287a0b364d3221755dbf7381252"
   },
   {
    "path": "g10-advanced-bridge/haykal-3-written/index.html",
@@ -6993,7 +6993,7 @@
   {
    "path": "g10-advanced-bridge/haykal-3/index.html",
    "src": "site/g10-advanced-bridge/haykal-3/index.html",
-   "sha256": "f43f0be5ae9ed6cea9a94acb99e3d9bdcf77d5963baa5216942aa866faefe45b"
+   "sha256": "e9c6569b7d2d78186f59088c370c2c7fbb1de307689cb8817e238fb9782ffe34"
   },
   {
    "path": "g10-advanced-bridge/haykal-4-written/index.html",
@@ -7003,7 +7003,7 @@
   {
    "path": "g10-advanced-bridge/haykal-4/index.html",
    "src": "site/g10-advanced-bridge/haykal-4/index.html",
-   "sha256": "9ca88319b81d1360c19294dd150d5470a81e25e6d0baa954d0163f5b03681b66"
+   "sha256": "71608366a92c309421ea704860451869345bfcda3ab3a259bb80ea177f924860"
   },
   {
    "path": "g10-advanced-bridge/mistakes/index.html",
