@@ -7161,14 +7161,14 @@
    "sha256": "2a9833dcda233f4e6b9769e21e8ef1968b64f0c51969ea67dafd611df2ae20ce"
   },
   {
-   "path": "g12-advanced/haykal-challenge/index.html",
-   "src": "site/g12-advanced/haykal-challenge/index.html",
-   "sha256": "60a42ae01983e50b0fc21af444b21b81f4dc4fb0d6e30e6172e5767d5b46d5ea"
+   "path": "g12-advanced/haykal-enrichment/index.html",
+   "src": "site/g12-advanced/haykal-enrichment/index.html",
+   "sha256": "d78c42bb0fe839f7c8a1ba39b42d44d0d6db9679f1ca0ab7f2ef27671b50215a"
   },
   {
-   "path": "g12-advanced/haykal-challenge-written/index.html",
-   "src": "site/g12-advanced/haykal-challenge-written/index.html",
-   "sha256": "b52db6699ecc6e63594d809dbbe30b64cd0a790131ff93fcced691ecc92af21c"
+   "path": "g12-advanced/haykal-enrichment-written/index.html",
+   "src": "site/g12-advanced/haykal-enrichment-written/index.html",
+   "sha256": "cf641468749fe665a6290137bc555d008e48d81578915b358625ac5acc22dcd5"
   }
  ]
 }
