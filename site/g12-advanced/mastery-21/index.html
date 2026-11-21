@@ -303,7 +303,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     return {
       kind: 'k2', spec: { type: 'quad2', c: c, b: b, d: d, e2: e2, k: k }, key: 'C2b:' + [c, k, b, d].join(','),
       stem: 'أوجد قيمة \\(k\\) التي تجعل الدالة \\(f\\) متصلة عند \\(x=' + c + '\\):',
-      e: 'f(x)=' + cases((k === 1 ? '' : 'k') + 'x^{2}' + (b > 0 ? '+' + b : (b < 0 ? '-' + (-b) : '')), 'x<' + c, lin(d, e2), 'x\\ge ' + c),
+      e: 'f(x)=' + cases('k' + 'x^{2}' + (b > 0 ? '+' + b : (b < 0 ? '-' + (-b) : '')), 'x<' + c, lin(d, e2), 'x\\ge ' + c),
       corr: V(k),
       cands: [{ cls: 'nd', v: V(A - b, c), why: wh.nd }, { cls: 'sg', v: V(A + b, c * c), why: wh.sg }, { cls: 'nb', v: V(A, c * c), why: wh.nb }, { cls: 'rv', v: V(-k), why: 'نحصل على \\(' + (c * c) + 'k=' + (A - b) + '\\) فيكون \\(k\\) بالإشارة نفسها وليس معكوسها.' }],
       sol: [{ t: 'f(' + c + ')=' + d + '(' + c + ')' + (e2 >= 0 ? '+' : '-') + Math.abs(e2) + '=' + A, ar: 'قيمة الفرع الثاني عند نقطة الانتقال' },

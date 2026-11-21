@@ -226,7 +226,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       sol: [{ t: 'f(0)=0,\\quad f(' + 3 * m + ')=0\\;\\Rightarrow\\;\\dfrac{f(' + 3 * m + ')-f(0)}{' + 3 * m + '}=0', ar: 'The secant slope is zero' }, { t: 'f\'(c)=3c^{2}-' + 6 * m + 'c=3c(c-' + 2 * m + ')=0\\;\\Rightarrow\\; c=0\\ \\text{or}\\ c=' + 2 * m, ar: 'Solve \\(f\'(c)=0\\)' }, { box: 'c=' + 2 * m, ar: 'The value inside \\((0,' + 3 * m + ')\\)' }] };
   }
   function t4c(rng) {
-    var p, q, t1, t2; do { p = ri(rng, 1, 5); q = nz(rng, -4, 8); t1 = ri(rng, 0, 3); t2 = t1 + 2 * ri(rng, 1, 3); } while (false);
+    var p, q, t1, t2; do { p = ri(rng, 1, 5); q = ri(rng, 1, 8); t1 = ri(rng, 0, 3); t2 = t1 + 2 * ri(rng, 1, 3); } while (false);
     var c = fr(t1 + t2, 2), co = [p, q, 0], avg = p * (t1 + t2) + q;
     return { stem: 'A car moves along a straight road. Its distance \\(s(t)\\), in meters, after \\(t\\) seconds is given below. At what time in the given interval is its instantaneous velocity equal to its average velocity over the interval?', e: '\\begin{gathered}s(t)=' + polyT(co, 't') + '\\\\ t\\in' + bracket(t1, t2) + '\\end{gathered}', corr: FE(c), kind: 'w1', ask: 'MVT', f: polyP(co), a: t1, b: t2, hint: HINT.w, key: 'C4c:' + p + ',' + q + ',' + t1 + ',' + t2,
       cands: [{ cls: 'av', v: E(String(avg), String(avg)), why: 'This is the average velocity itself (m/s), not the required time.' },
@@ -255,7 +255,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
         { cls: 'mid', v: FE(fr(k, 2)), why: 'The midpoint does not give \\(c\\) for an exponential function.' },
         { cls: 'mp', v: E('\\dfrac{\\ln(' + ek + '-1)}{' + k + '}', 'log(exp(' + k + ')-1)/' + k), why: 'The logarithm must be applied to the whole ratio \\(\\dfrac{e^{' + k + '}-1}{' + k + '}\\), not to the numerator alone.' },
         { cls: 'iv', v: E('\\ln\\!\\left(\\dfrac{' + k + '}{' + ek + '-1}\\right)', 'log(' + k + '/(exp(' + k + ')-1))'), why: 'The slope is \\(\\dfrac{e^{' + k + '}-1}{' + k + '}\\), not its reciprocal.' }],
-      sol: [{ t: '\\dfrac{e^{' + k + '}-1}{' + k + '}=\\dfrac{' + ek + '-1}{' + k + '}', ar: 'Slope of the secant line' }, { t: 'e^{c}=\\dfrac{' + ek + '-1}{' + k + '}\\;\\Rightarrow\\; c=\\ln\\!\\left(\\dfrac{' + ek + '-1}{' + k + '}\\right)', ar: 'Set \\(f\'(c)=e^{c}\\) equal to the slope and take \\(\\ln\\)' }, { box: 'c=' + corr2.t }] };
+      sol: [{ t: '\\dfrac{e^{' + k + '}-e^{0}}{' + k + '-0}=\\dfrac{' + ek + '-1}{' + k + '}', ar: 'Slope of the secant line' }, { t: 'e^{c}=\\dfrac{' + ek + '-1}{' + k + '}\\;\\Rightarrow\\; c=\\ln\\!\\left(\\dfrac{' + ek + '-1}{' + k + '}\\right)', ar: 'Set \\(f\'(c)=e^{c}\\) equal to the slope and take \\(\\ln\\)' }, { box: 'c=' + corr2.t }] };
   }
   function t5b(rng) {
     var p, q, a, b, s, D, r1, r2, cnt, co, tries = 0, ok;

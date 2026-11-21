@@ -312,6 +312,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function q4(rng) {
     var a = ri(rng, 2, 6), c = ri(rng, 1, 5) * (rng() < 0.5 ? 1 : -1), b = ri(rng, 1, 9) * (rng() < 0.5 ? 1 : -1);
     if (a === c || -a * c - b === 0 || c === 0) return null;
+    if (c * a === b || b === -c * c) return null; /* يمنع خيارات بسطها يساوي مقامها (القيمة 1) */
     function fr2(p, q, r, s) { return '\\dfrac{' + lin(p, q) + '}{' + lin(r, s) + '}'; }
     var e = 'f(x)=' + fr2(a, b, 1, -c);
     var correct = { tex: 'f^{-1}(x)=' + fr2(c, b, 1, -a) };

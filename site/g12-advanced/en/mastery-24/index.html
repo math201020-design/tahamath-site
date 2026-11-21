@@ -294,7 +294,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     function mk(c1, c2) { var m = at6 ? V(c1, c2) : V(c2, c1); var q = V(c1, c2); return E('\\dfrac{' + m.t + '}{2}', '(' + m.p + ')/2'); }
     /* f'(x)=a cos x - b sin x ; at pi/6: cos=sqrt3/2, sin=1/2 ; at pi/3: cos=1/2, sin=sqrt3/2 */
     function val(ca, sb, cosv, sinv) { return ca * cosv + sb * sinv; }
-    function ex(pc, ps) { /* pc = coefficient of cos, ps = coefficient of sin: pc*cos+ps*sin */ var c1, c2; if (at6) { c1 = pc; c2 = ps; } else { c1 = ps; c2 = pc; } var m = lin([[c1, s3, 'sqrt(3)'], [c2, '', '1']]); return E('\\dfrac{' + m.t + '}{2}', '(' + m.p + ')/2'); }
+    function ex(pc, ps) { /* pc = coefficient of cos, ps = coefficient of sin: pc*cos+ps*sin */ var c1, c2; if (at6) { c1 = pc; c2 = ps; } else { c1 = ps; c2 = pc; } if (c1 % 2 === 0 && c2 % 2 === 0) { var m2 = lin([[c1 / 2, s3, 'sqrt(3)'], [c2 / 2, '', '1']]); return E(m2.t, '(' + m2.p + ')'); } var m = lin([[c1, s3, 'sqrt(3)'], [c2, '', '1']]); return E('\\dfrac{' + m.t + '}{2}', '(' + m.p + ')/2'); }
     corr = ex(a, -b);
     return { stem: 'Find \\(f\'\\left(' + ang + '\\right)\\) if:', e: 'f(x)=' + f.t, corr: corr, kind: 'ev', f: f.p, at: at6 ? 'pi/6' : 'pi/3', hint: HINT.m, key: 'B4b:' + a + ',' + b + ',' + (at6 ? 6 : 3),
       cands: [{ cls: 'sg', v: ex(a, b), why: 'The sign of the second term is wrong: \\(\\cos x\\) differentiates to \\(-\\sin x\\), so the sign of its coefficient is reversed.' },
