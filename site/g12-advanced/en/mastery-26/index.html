@@ -157,9 +157,9 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var ab = E('|' + kx + '|', 'Abs(' + kp + ')'), rc = E('\\dfrac{1}{' + kx + '}', '1/(' + kp + ')'), cu = E('\\sqrt[3]{(' + kx + ')^{2}}', 'Abs(' + kp + ')**Rational(2,3)'), sq = E('\\sqrt{' + kx + '}', 'sqrt(' + kp + ')');
     return { stem: 'Which of the following functions satisfies both hypotheses of the Mean Value Theorem on the given interval?', e: 'x\\in' + bracket(lo, hi), corr: good, kind: 'cond', ask: 'COND', a: lo, b: hi, hint: HINT.c, key: 'C1b:' + good.p + ',' + k + ',' + lo + ',' + hi,
       cands: [{ cls: 'ab', v: ab, why: 'The absolute value has a corner at \\(x=' + k + '\\) inside the interval, so it is not differentiable there.' },
-        { cls: 'rc', v: rc, why: 'Not continuous at \\(x=' + k + '\\) (vertical asymptote), and this point lies inside the interval.' },
-        { cls: 'cu', v: cu, why: 'Continuous, but its derivative does not exist at \\(x=' + k + '\\), and this point lies inside the interval.' },
-        { cls: 'sq', v: sq, why: 'Not defined on part of the interval (it is defined only to the right of \\(x=' + k + '\\)), so it is not continuous on the whole interval.' }],
+        { cls: 'rc', v: rc, why: 'It is not continuous at \\(x=' + k + '\\) (vertical asymptote), and this point lies inside the interval.' },
+        { cls: 'cu', v: cu, why: 'This function is continuous, but its derivative does not exist at \\(x=' + k + '\\), and this point lies inside the interval.' },
+        { cls: 'sq', v: sq, why: 'It is not defined on part of the interval (it is defined only to the right of \\(x=' + k + '\\)), so it is not continuous on the whole interval.' }],
       sol: [{ t: 'f\\ \\text{continuous on}\\ ' + bracket(lo, hi), ar: 'The chosen function is defined and continuous on the closed interval' }, { t: 'f\\ \\text{differentiable on}\\ (' + lo + ',\\,' + hi + ')', ar: 'and differentiable on the open interval' }, { box: 'f(x)=' + good.t }],
       fnOpts: true };
   }
@@ -182,7 +182,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
         { cls: 'ng', v: E('-' + kk, '-' + k), why: 'This is an endpoint of the interval; it cannot be a value of \\(c\\).' },
         { cls: 'mid', v: FE(fr(k, 2)), why: 'The midpoint of the interval does not give \\(c\\) for cubic functions; set \\(f\'(c)\\) equal to the secant slope.' },
         { cls: 'en', v: E(String(2 * k), String(2 * k)), why: 'This is the right endpoint of the interval, not a point inside it.' }],
-      sol: [{ t: '\\dfrac{(' + 2 * k + ')^{3}-(-' + kk + ')^{3}}{' + 2 * k + '-(-' + kk + ')}=' + 3 * k * k, ar: 'Slope of the secant line' }, { t: '3c^{2}=' + 3 * k * k + '\\;\\Rightarrow\\; c=\\pm ' + kk, ar: 'Solve the equation' }, { box: 'c=' + k, ar: 'Accept only the value inside \\((-' + kk + ',' + 2 * k + ')\\)' }] };
+      sol: [{ t: '\\dfrac{(' + 2 * k + ')^{3}-(-' + kk + ')^{3}}{' + 2 * k + '-(-' + kk + ')}=' + 3 * k * k, ar: 'Slope of the secant line' }, { t: '3c^{2}=' + 3 * k * k + '\\;\\Rightarrow\\; c=\\pm ' + kk, ar: 'Solve the equation' }, { box: 'c=' + k, ar: 'Keep only the value inside \\((-' + kk + ',' + 2 * k + ')\\)' }] };
   }
 
   /* ----- Level 3 ----- */
@@ -200,7 +200,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     return { stem: STEM_C, e: 'f(x)=\\dfrac{1}{x},\\quad ' + bracket(a, b), corr: E(String(c), String(c)), kind: 'r2', ask: 'MVT', f: '1/x', a: a, b: b, hint: HINT.s, key: 'C3b:' + m + ',' + k,
       cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'The midpoint of the interval does not give \\(c\\) for \\(\\dfrac1x\\).' },
         { cls: 'pr', v: E(String(a * b), String(a * b)), why: 'This is \\(c^2\\) (the product of the endpoints), not \\(c\\); take the square root.' },
-        { cls: 'ng', v: E(String(-c), String(-c)), why: 'The negative value lies outside the interval; accept the positive root, which lies in \\((' + a + ',' + b + ')\\).' },
+        { cls: 'ng', v: E(String(-c), String(-c)), why: 'The negative value lies outside the interval; the positive root is the one that lies in \\((' + a + ',' + b + ')\\).' },
         { cls: 'en', v: E(String(b), String(b)), why: 'An endpoint cannot be a value of \\(c\\).' }],
       sol: [{ t: '\\dfrac{\\frac1{' + b + '}-\\frac1{' + a + '}}{' + b + '-' + a + '}=-\\dfrac{1}{' + a * b + '}', ar: 'Slope of the secant line' }, { t: '-\\dfrac{1}{c^{2}}=-\\dfrac{1}{' + a * b + '}\\;\\Rightarrow\\; c^{2}=' + a * b, ar: 'Set \\(f\'(c)\\) equal to the slope' }, { box: 'c=' + c, ar: 'Only the positive root lies in the interval' }] };
   }
@@ -222,7 +222,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       cands: [{ cls: 'zr', v: E('0', '0'), why: 'The value 0 is an endpoint, not inside the open interval; \\(f\'(c)=0\\) has two solutions, \\(0\\) and \\(' + 2 * m + '\\).' },
         { cls: 'mid', v: FE(fr(3 * m, 2)), why: 'The midpoint of the interval does not work for a cubic function.' },
         { cls: 'en', v: E(String(3 * m), String(3 * m)), why: 'This is the right endpoint, not a point inside the interval.' },
-        { cls: 'k', v: E(String(m), String(m)), why: 'Does not satisfy \\(3c^2-' + 6 * m + 'c=0\\).' }],
+        { cls: 'k', v: E(String(m), String(m)), why: 'This value does not satisfy \\(3c^2-' + 6 * m + 'c=0\\).' }],
       sol: [{ t: 'f(0)=0,\\quad f(' + 3 * m + ')=0\\;\\Rightarrow\\;\\dfrac{f(' + 3 * m + ')-f(0)}{' + 3 * m + '}=0', ar: 'The secant slope is zero' }, { t: 'f\'(c)=3c^{2}-' + 6 * m + 'c=3c(c-' + 2 * m + ')=0\\;\\Rightarrow\\; c=0\\ \\text{or}\\ c=' + 2 * m, ar: 'Solve \\(f\'(c)=0\\)' }, { box: 'c=' + 2 * m, ar: 'The value inside \\((0,' + 3 * m + ')\\)' }] };
   }
   function t4c(rng) {
@@ -234,7 +234,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
         { cls: 'sm', v: E(String(t1 + t2), String(t1 + t2)), why: 'The time is half the sum \\(\\dfrac{t_1+t_2}{2}\\), not the sum itself.' },
         { cls: 'hl', v: FE(fr(t2 - t1, 2)), why: 'Half the length of the interval is not a moment in time; it would have to be added to the start of the interval.' },
         { cls: 'en', v: E(String(t2), String(t2)), why: 'This is the end of the interval, not a moment inside it.' }],
-      sol: [{ t: '\\dfrac{s(' + t2 + ')-s(' + t1 + ')}{' + t2 + '-' + t1 + '}=' + avg, ar: 'Average velocity' }, { t: 's\'(t)=' + polyT([2 * p, q], 't') + '=' + avg + '\\;\\Rightarrow\\; t=' + ftex(c), ar: 'Set the instantaneous velocity equal to the average' }, { box: 't=' + ftex(c) }] };
+      sol: [{ t: '\\dfrac{s(' + t2 + ')-s(' + t1 + ')}{' + t2 + '-' + t1 + '}=' + avg, ar: 'Compute the average velocity' }, { t: 's\'(t)=' + polyT([2 * p, q], 't') + '=' + avg + '\\;\\Rightarrow\\; t=' + ftex(c), ar: 'Set the instantaneous velocity equal to the average' }, { box: 't=' + ftex(c) }] };
   }
 
   /* ----- Level 5 (Challenge) ----- */
@@ -280,7 +280,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var cands = vs.filter(function (v) { return v !== cnt; }).map(function (v) { return { cls: 'n' + v, v: optsAll[v], why: cons[v] }; });
     return { stem: 'How many values of \\(c\\) in the open interval \\((' + a + ',' + b + ')\\) satisfy the conclusion of the Mean Value Theorem for the following function?', e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(a, b) + '\\end{gathered}', corr: optsAll[cnt], kind: 'cn', ask: 'CNT', f: polyP(co), a: a, b: b, hint: HINT.ch, key: 'C5b:' + p + ',' + q + ',' + a + ',' + b,
       cands: cands,
-      sol: [{ t: '\\dfrac{f(' + b + ')-f(' + a + ')}{' + (b - a) + '}=' + s, ar: 'Slope of the secant line' }, { t: 'f\'(c)=' + polyT([3, 2 * p, q], 'c') + '=' + s + '\\;\\Rightarrow\\;' + polyT([3, 2 * p, q - s], 'c') + '=0', ar: 'Set \\(f\'(c)\\) equal to the slope' }, { t: 'c\\approx' + r1.toFixed(2) + ',\\quad c\\approx' + r2.toFixed(2), ar: 'Roots of the equation' }, { box: 'n=' + cnt }] };
+      sol: [{ t: '\\dfrac{f(' + b + ')-f(' + a + ')}{' + (b - a) + '}=' + s, ar: 'Slope of the secant line' }, { t: 'f\'(c)=' + polyT([3, 2 * p, q], 'c') + '=' + s + '\\;\\Rightarrow\\;' + polyT([3, 2 * p, q - s], 'c') + '=0', ar: 'Set \\(f\'(c)\\) equal to the slope' }, { t: 'c\\approx' + r1.toFixed(2) + ',\\quad c\\approx' + r2.toFixed(2), ar: 'Find the roots of the equation' }, { box: 'n=' + cnt }] };
   }
 
   var LEVELS = [

@@ -164,9 +164,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     horizNotSlant: 'There is no horizontal asymptote because the numerator has higher degree than the denominator; the limit is infinite and a slant asymptote appears instead.',
     signV: 'The zeros of the denominator are the values of x that make it 0; the signs of the zeros were reversed here.',
     holeAndV: 'This is a hole, not an asymptote: the factor that appears in both the numerator and the denominator cancels, so the graph has a hole at that value.',
-    holeOnly: 'The cancelled factor gives a hole, not an asymptote. The vertical asymptote comes only from the factor that remains in the denominator.',
+    holeOnly: 'The canceled factor gives a hole, not an asymptote. The vertical asymptote comes only from the factor that remains in the denominator.',
     numRoot: 'This value makes the numerator zero, so it is an x-intercept, not a vertical asymptote.',
-    negC: 'The sign was reversed: set the remaining denominator factor equal to 0 and solve for x; a factor x − c is 0 when x = c, not x = −c.',
     onePosSide: 'The limit must be checked at both \\(x\\to+\\infty\\) and \\(x\\to-\\infty\\); the root changes the sign of the result at \\(-\\infty\\), which gives two horizontal asymptotes.',
     noSqrt: 'The denominator behaves like (the square root of its \\(x^2\\) coefficient) times \\(|x|\\), so the divisor is that square root, not the coefficient itself.',
     dropRoot: 'The root was ignored: the square root of the \\(x^2\\) coefficient of the denominator must divide the coefficient in the numerator.',
@@ -181,7 +180,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   };
 
   var HINT = {
-    v: 'Vertical asymptotes come from the zeros of the denominator (after cancelling common factors), provided the numerator is not 0 there.',
+    v: 'Vertical asymptotes come from the zeros of the denominator (after canceling common factors), provided the numerator is not 0 there.',
     h: 'Compare the degrees of the numerator and denominator: if they are equal, the limit is the ratio of the leading coefficients; if the numerator has lower degree, the limit is 0.',
     s: 'If the numerator has degree one more than the denominator, divide: the quotient \\(ax+b\\) is the slant asymptote.',
     m: 'Cancel common factors first, find the zeros of the denominator, then compare the degrees to decide between a horizontal and a slant asymptote.',
@@ -275,8 +274,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var a, b, c; do { a = nz(rng, -6, 6); b = nz(rng, -6, 6); c = nz(rng, -6, 6); } while (a === b || a === c || b === c || a === -c);
     var num = [1, -(a + b), a * b], den = [1, -(a + c), a * c];
     return { stem: STEM_V, e: 'f(x)=\\dfrac{' + polyT(num) + '}{' + polyT(den) + '}', corr: [V(c)], kind: 'v3', ask: 'V', f: '(' + polyP(num) + ')/(' + polyP(den) + ')', key: 'A4b:' + a + ',' + b + ',' + c, hint: HINT.v,
-      cands: [{ cls: 'both', v: [V(a), V(c)], why: WHY.holeAndV }, { cls: 'hole', v: [V(a)], why: WHY.holeOnly }, { cls: 'num', v: [V(b)], why: WHY.numRoot }, { cls: 'neg', v: [V(-c)], why: WHY.negC }],
-      sol: [{ t: 'f(x)=\\dfrac{' + facT(a) + facT(b) + '}{' + facT(a) + facT(c) + '}', ar: 'Factor the numerator and the denominator' }, { t: 'x=' + a, ar: 'The common factor cancels: there is a hole at this value, not an asymptote' }, { t: facT(c).slice(1, -1) + '=0\\;\\Rightarrow\\; x=' + c, ar: 'After cancelling, the denominator is 0 here while the numerator is not' }, { box: 'x=' + c }] };
+      cands: [{ cls: 'both', v: [V(a), V(c)], why: WHY.holeAndV }, { cls: 'hole', v: [V(a)], why: WHY.holeOnly }, { cls: 'num', v: [V(b)], why: WHY.numRoot }, { cls: 'neg', v: [V(-c)], why: 'The sign of the zero was reversed. After canceling, the remaining denominator factor is \\(' + facT(c) + '\\), and it equals 0 when \\(x=' + c + '\\), not when \\(x=' + (-c) + '\\).' }],
+      sol: [{ t: 'f(x)=\\dfrac{' + facT(a) + facT(b) + '}{' + facT(a) + facT(c) + '}', ar: 'Factor the numerator and the denominator' }, { t: 'x=' + a, ar: 'The common factor cancels: there is a hole at this value, not an asymptote' }, { t: facT(c).slice(1, -1) + '=0\\;\\Rightarrow\\; x=' + c, ar: 'After canceling, the denominator is 0 here while the numerator is not' }, { box: 'x=' + c }] };
   }
 
   /* ----- Level 5 (Challenge) ----- */
