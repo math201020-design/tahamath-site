@@ -298,7 +298,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       stem: 'أوجد \\(f\'(x)\\) للدالة:', e: 'f(x)=e^{' + inner + '}', corr: corr,
       cands: [{ cls: 'nc', v: E('e^{' + inner + '}', py), why: 'ننسى مشتقة الأس: \\((e^{u})\'=u\'e^{u}\\).' },
         { cls: 'pw', v: E('(' + inner + ')e^{' + inner + '-1}', '(x**2+' + k + '*x)*exp(x**2+' + k + '*x-1)'), why: 'الدالة الأسية لا تُشتق بقاعدة القوة.' },
-        { cls: 'ex', v: E('(' + d.t + ')e^{' + d.t + '}', '(2*x+' + k + ')*exp(2*x+' + k + ')'), why: 'المشتقة تضرب في الأس، لكن الأس نفسه يبقى \\(' + inner + '\\) دون اشتقاق.' },
+        { cls: 'ex', v: E('(' + d.t + ')e^{' + d.t + '}', '(2*x+' + k + ')*exp(2*x+' + k + ')'), why: 'الأس يبقى كما هو \\(' + inner + '\\) ولا يُستبدل بمشتقته؛ نضرب فقط في مشتقة الأس \\(' + d.t + '\\).' },
         { cls: 'dx', v: E(d.t, '2*x+' + k), why: 'يبقى العامل \\(e^{' + inner + '}\\) في الناتج.' }],
       sol: [{ t: 'u=' + inner + ',\\quad u\'=' + d.t, ar: 'نحدّد الأس ونشتقه' }, { box: 'f\'(x)=(' + d.t + ')e^{' + inner + '}' }]
     };
@@ -377,6 +377,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var kk = pick(rng, [[10, 1], [5, 2], [2, 5]]), a = pick(rng, [50, 100, 200, 500]), m = pick(rng, [2, 3, 4, 5]);
     var k10 = kk[1], inv = kk[0]; /* k = k10/10 ... k=0.1 => inv 10 */
     var k = { 10: 0.1, 5: 0.2, 2: 0.5 }[inv]; var ak = a * k, R = ak * m;
+    var vv = [inv * Math.log(m), Math.log(m), k * Math.log(m), k * m > 0 ? inv * Math.log(k * m) : NaN, m / k]; /* لا خيارين متساويين بالقيمة */
+    for (var i1 = 0; i1 < vv.length; i1++) for (var j1 = i1 + 1; j1 < vv.length; j1++) if (Math.abs(vv[i1] - vv[j1]) < 1e-9) return t4a(rng);
     var ln = function (v) { return '\\ln ' + v; };
     return {
       kind: 'lt', spec: { a: a, k: k, R: R, m: m, inv: inv }, key: 'E4a:' + [a, k, m].join(','),
@@ -411,7 +413,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       kind: 'sl', spec: { f: a + '*log(x)+' + b + '*exp(x)', at: 1, ask: 'EV' }, key: 'E4c:' + a + ',' + b,
       stem: 'أوجد ميل المماس لمنحنى \\(f\\) عند \\(x=1\\):', e: 'f(x)=' + f, corr: E(a + '+' + (b === 1 ? '' : b) + 'e', a + '+' + b + '*E'),
       cands: [{ cls: 'nv', v: E((b === 1 ? '' : b) + 'e', b + '*E'), why: 'المطلوب مشتقة \\(f\\) عند \\(1\\): مشتقة \\(' + cf(a) + '\\ln x\\) هي \\(\\dfrac{' + a + '}{x}=' + a + '\\) عند \\(x=1\\).' },
-        { cls: 'nb', v: E(a + '+' + b, a + '+' + b), why: 'مشتقة \\(' + (b === 1 ? '' : b) + 'e^{x}\\) هي \\(' + (b === 1 ? '' : b) + 'e^{x}\\) فعند \\(x=1\\) تساوي \\(' + (b === 1 ? '' : b) + 'e\\).' },
+        { cls: 'nb', v: E(String(a + b), String(a + b)), why: 'مشتقة \\(' + (b === 1 ? '' : b) + 'e^{x}\\) هي \\(' + (b === 1 ? '' : b) + 'e^{x}\\) فعند \\(x=1\\) تساوي \\(' + (b === 1 ? '' : b) + 'e\\).' },
         { cls: 'sw', v: E((a === 1 ? '' : a) + 'e+' + b, a + '*E+' + b), why: 'مشتقة \\(\\ln x\\) عند \\(1\\) هي \\(1\\) والأسية تعطي \\(e\\)؛ لا نبدّل الحدّين.' },
         { cls: 'ng', v: E((-a) + '+' + (b === 1 ? '' : b) + 'e', (-a) + '+' + b + '*E'), why: 'مشتقة \\(\\ln x\\) هي \\(\\dfrac{1}{x}\\) بإشارة المعامل نفسه.' }],
       sol: [{ t: 'f\'(x)=\\dfrac{' + a + '}{x}+' + (b === 1 ? '' : b) + 'e^{x}', ar: 'نشتق كل حد' }, { box: 'f\'(1)=' + a + '+' + (b === 1 ? '' : b) + 'e' }]
