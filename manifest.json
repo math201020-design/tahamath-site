@@ -7163,12 +7163,12 @@
   {
    "path": "g12-advanced/haykal-enrichment/index.html",
    "src": "site/g12-advanced/haykal-enrichment/index.html",
-   "sha256": "d78c42bb0fe839f7c8a1ba39b42d44d0d6db9679f1ca0ab7f2ef27671b50215a"
+   "sha256": "d52125c4d4068d09df7099cd2a438bade3426aa29a339bb525543b7c48c7596c"
   },
   {
    "path": "g12-advanced/haykal-enrichment-written/index.html",
    "src": "site/g12-advanced/haykal-enrichment-written/index.html",
-   "sha256": "cf641468749fe665a6290137bc555d008e48d81578915b358625ac5acc22dcd5"
+   "sha256": "2f19a5522dcdf25aa0bbc0158dd6fb42114237b3d4964fc169f0d209266e5dfd"
   }
  ]
 }
