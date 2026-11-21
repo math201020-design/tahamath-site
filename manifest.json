@@ -7159,6 +7159,16 @@
    "path": "g12-advanced/en/mastery-26/index.html",
    "src": "site/g12-advanced/en/mastery-26/index.html",
    "sha256": "2a9833dcda233f4e6b9769e21e8ef1968b64f0c51969ea67dafd611df2ae20ce"
+  },
+  {
+   "path": "g12-advanced/haykal-challenge/index.html",
+   "src": "site/g12-advanced/haykal-challenge/index.html",
+   "sha256": "60a42ae01983e50b0fc21af444b21b81f4dc4fb0d6e30e6172e5767d5b46d5ea"
+  },
+  {
+   "path": "g12-advanced/haykal-challenge-written/index.html",
+   "src": "site/g12-advanced/haykal-challenge-written/index.html",
+   "sha256": "b52db6699ecc6e63594d809dbbe30b64cd0a790131ff93fcced691ecc92af21c"
   }
  ]
 }
