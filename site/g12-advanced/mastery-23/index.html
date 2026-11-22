@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>تدرّب بإتقان: قاعدتا الضرب والقسمة | الثاني عشر متقدم | أكاديمية طه للرياضيات</title>
-<meta name="description" content="تدريب تفاعلي على البند 23: مشتقة حاصل الضرب والقسمة والمماس وقيمة المشتقة من جدول، بخمسة مستويات تتدرج حتى مستوى الوزارة.">
+<title>تدرّب بإتقان: قاعدة الضرب | الثاني عشر متقدم | أكاديمية طه للرياضيات</title>
+<meta name="description" content="تدريب تفاعلي على البند 23: مشتقة حاصل الضرب والمماس وقيمة المشتقة من جدول، بأربعة مستويات حتى مستوى الوزارة ثم مستوى تحدٍّ.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://tahamath.com/g12-advanced/mastery-23/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
@@ -79,7 +79,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 <body>
 <header class="top"><div class="in">
   <h1>تدرّب بإتقان</h1>
-  <div class="sub">البند 23 • قاعدتا الضرب والقسمة<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+  <div class="sub">البند 23 • قاعدة الضرب<br>أسئلة تتدرج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
 </div></header>
 <main class="wrap">
   <section class="box" aria-label="مسار الإتقان">
@@ -229,11 +229,11 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function polyCands(u, v) {
     var du = pder(u), dv = pder(v);
     return [
-      { cls: 'pd', v: P(pmul(du, dv)), why: 'لا تساوي مشتقة الضرب حاصل ضرب المشتقتين: القاعدة هي \\(u\'v+uv\'\\).' },
-      { cls: 'u1', v: P(pmul(du, v)), why: 'هذا نصف القاعدة فقط (\\(u\'v\\))؛ ينقصه الحد \\(uv\'\\).' },
-      { cls: 'v1', v: P(pmul(u, dv)), why: 'هذا نصف القاعدة فقط (\\(uv\'\\))؛ ينقصه الحد \\(u\'v\\).' },
-      { cls: 'sb', v: P(psub(pmul(du, v), pmul(u, dv))), why: 'في قاعدة الضرب نجمع الحدّين: \\(u\'v+uv\'\\)، والطرح للقسمة.' },
-      { cls: 'dd', v: P(pmul([2], pmul(u, dv))), why: 'الحد الأول هو \\(u\'v\\) وليس \\(uv\'\\) مكرراً: نشتق العامل الأول في الأول ثم الثاني في الثاني.' }
+      { cls: 'pd', v: P(pmul(du, dv)), why: 'مشتقة حاصل ضرب دالتين لا تساوي حاصل ضرب مشتقتيهما؛ نشتق كل عامل ونبقي الآخر في حدّ منفصل ثم نجمع.' },
+      { cls: 'u1', v: P(pmul(du, v)), why: 'هذا نصف القاعدة فقط؛ ينقصه الحد الذي يشتق العامل الثاني ويبقي الأول.' },
+      { cls: 'v1', v: P(pmul(u, dv)), why: 'هذا نصف القاعدة فقط؛ ينقصه الحد الذي يشتق العامل الأول ويبقي الثاني.' },
+      { cls: 'sb', v: P(psub(pmul(du, v), pmul(u, dv))), why: 'في قاعدة الضرب نجمع الحدّين ولا نطرح.' },
+      { cls: 'dd', v: P(pmul([2], pmul(u, dv))), why: 'هذا الخيار كرّر حداً واحداً مرتين؛ الحدّان مختلفان: نشتق العامل الأول في حدّ والثاني في حدّ آخر.' }
     ];
   }
   /* L1: مشتقة حاصل ضرب كثيرتي حدود */
@@ -267,9 +267,9 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var u = fac(cA, m, a), v = fac(1, n, b), du = pder(u), dv = pder(v);
     var val = pev(du, x0) * pev(v, x0) + pev(u, x0) * pev(dv, x0);
     var W = {
-      pd: 'نحسب \\(u\'(' + x0 + ')\\,v(' + x0 + ')+u(' + x0 + ')\\,v\'(' + x0 + ')\\) ولا نضرب المشتقتين فقط.',
-      u1: 'ينقص الحد الثاني \\(u(' + x0 + ')v\'(' + x0 + ')\\).',
-      v1: 'ينقص الحد الأول \\(u\'(' + x0 + ')v(' + x0 + ')\\).',
+      pd: 'نشتق كل عامل ونبقي الآخر في حدّ منفصل ثم نعوّض، ولا نضرب المشتقتين فقط.',
+      u1: 'ينقص الحد الثاني: العامل الأول مضروباً في مشتقة العامل الثاني.',
+      v1: 'ينقص الحد الأول: مشتقة العامل الأول مضروبة في العامل الثاني.',
       sb: 'في قاعدة الضرب نجمع الحدّين ولا نطرح.',
       nv: 'نعوّض \\(x=' + x0 + '\\) في \\(f\'\\) وليس في \\(f\\) نفسها.'
     };
@@ -292,11 +292,11 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     return {
       kind: 'sq', spec: { type: 'sqrtprod', a: a, b: b, c: c }, key: 'P2b:' + [a, b, c].join(','),
       stem: 'أوجد \\(f\'(' + c + ')\\) للدالة:', e: 'f(x)=(' + P([b, a]).t + ')\\sqrt{x}', corr: tot,
-      cands: [{ cls: 'pd', v: V(a, 2 * r), why: 'لا نضرب المشتقتين: \\(u\'=' + a + '\\) و\\(v\'=\\dfrac{1}{2\\sqrt{x}}\\) ثم نطبّق \\(u\'v+uv\'\\).' },
-        { cls: 'u1', v: V(a * r), why: 'ينقص الحد \\(uv\'\\) أي \\((ax+b)\\cdot\\dfrac{1}{2\\sqrt{x}}\\).' },
-        { cls: 'v1', v: V(a * c + b, 2 * r), why: 'ينقص الحد \\(u\'v\\) أي \\(a\\sqrt{x}\\).' },
-        { cls: 'dv', v: V(a * r + (a * c + b), 2), why: 'مشتقة \\(\\sqrt{x}\\) هي \\(\\dfrac{1}{2\\sqrt{x}}\\) فنقسم على \\(2\\sqrt{' + c + '}=' + 2 * r + '\\) وليس على \\(2\\).' }],
-      sol: [{ t: 'f\'(x)=a\\sqrt{x}+(ax+b)\\cdot\\dfrac{1}{2\\sqrt{x}}', ar: 'قاعدة الضرب مع \\((\\sqrt{x})\'=\\dfrac{1}{2\\sqrt{x}}\\)' },
+      cands: [{ cls: 'pd', v: V(a, 2 * r), why: 'لا نضرب المشتقتين فقط؛ نشتق كل عامل ونبقي الآخر في حدّ منفصل ثم نجمع.' },
+        { cls: 'u1', v: V(a * r), why: 'ينقص الحد الذي يضرب العامل الأول في مشتقة \\(\\sqrt{x}\\).' },
+        { cls: 'v1', v: V(a * c + b, 2 * r), why: 'ينقص الحد الذي يضرب مشتقة العامل الأول في \\(\\sqrt{x}\\).' },
+        { cls: 'dv', v: V(a * r + (a * c + b), 2), why: 'مشتقة \\(\\sqrt{x}\\) هي \\(\\dfrac{1}{2\\sqrt{x}}\\)، هذا الخيار جمع بسط الحدّين ثم قسمه على \\(2\\)؛ لكن المقام \\(2\\sqrt{x}\\) يخص الحد الثاني وحده.' }],
+      sol: [{ t: 'f\'(x)=(' + a + ')\\sqrt{x}+(' + P([b, a]).t + ')\\cdot\\dfrac{1}{2\\sqrt{x}}', ar: 'قاعدة الضرب مع \\((\\sqrt{x})\'=\\dfrac{1}{2\\sqrt{x}}\\)' },
         { t: 'f\'(' + c + ')=(' + a + ')(' + r + ')+\\dfrac{' + (a * c + b) + '}{' + 2 * r + '}', ar: '\\(\\sqrt{' + c + '}=' + r + '\\)' }, { box: 'f\'(' + c + ')=' + tot.t }]
     };
   }
@@ -324,7 +324,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       stem: stem, e: 'R(t)=\\bigl(' + P(d.u).t.replace(/x/g, 't') + '\\bigr)\\bigl(' + P(d.v).t.replace(/x/g, 't') + '\\bigr)', corr: V(d.val),
       cands: [{ cls: 'pd', v: V(d.p1 * -q1), why: d.W.pd }, { cls: 'u1', v: V(d.p1 * d.qt), why: d.W.u1.replace('p\\,q\'', 'p\\,q\'') }, { cls: 'v1', v: V(d.pt * -q1), why: d.W.v1.replace('p\'\\,q', 'p\'\\,q') },
         { cls: 'sb', v: V(d.p1 * d.qt - d.pt * -q1), why: d.W.sb }, { cls: 'nv', v: V(d.pt * d.qt), why: d.W.nv }],
-      sol: [{ t: 'R\'(t)=p\'q+pq\'=(' + d.p1 + ')(' + P(d.v).t + ')+(' + P(d.u).t + ')(' + (-q1) + ')', ar: 'قاعدة الضرب' }, { t: 'R\'(' + d.t + ')=(' + d.p1 + ')(' + d.qt + ')+(' + d.pt + ')(' + (-q1) + ')', ar: 'نعوّض \\(t=' + d.t + '\\)' }, { box: 'R\'(' + d.t + ')=' + d.val }]
+      sol: [{ t: 'R\'(t)=p\'q+pq\'=(' + d.p1 + ')(' + P(d.v).t.replace(/x/g, 't') + ')+(' + P(d.u).t.replace(/x/g, 't') + ')(' + (-q1) + ')', ar: 'قاعدة الضرب' }, { t: 'R\'(' + d.t + ')=(' + d.p1 + ')(' + d.qt + ')+(' + d.pt + ')(' + (-q1) + ')', ar: 'نعوّض \\(t=' + d.t + '\\)؛ والوحدة: درهم لكل أسبوع' }, { box: 'R\'(' + d.t + ')=' + d.val }]
     };
   }
   function w2(rng) {
@@ -336,7 +336,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       e: 'A(t)=\\bigl(' + P(u).t.replace(/x/g, 't') + '\\bigr)\\bigl(' + P(v).t.replace(/x/g, 't') + '\\bigr)', corr: V(val),
       cands: [{ cls: 'pd', v: V(a1 * b1), why: 'نستخدم \\(L\'W+LW\'\\) بقيمتي \\(L\\) و\\(W\\) عند \\(t=' + t + '\\)، لا حاصل ضرب المعدّلين.' }, { cls: 'u1', v: V(a1 * wt), why: 'ينقص الحد \\(LW\'\\).' }, { cls: 'v1', v: V(lt * b1), why: 'ينقص الحد \\(L\'W\\).' },
         { cls: 'nv', v: V(lt * wt), why: 'المطلوب معدّل تغيّر المساحة وليس المساحة عند \\(t=' + t + '\\).' }, { cls: 'sm', v: V(a1 + b1), why: 'معدّل تغيّر المساحة ليس مجموع معدّلي الطول والعرض.' }],
-      sol: [{ t: 'A\'=L\'W+LW\'=(' + a1 + ')(' + P(v).t + ')+(' + P(u).t + ')(' + b1 + ')', ar: 'قاعدة الضرب' }, { t: 'A\'(' + t + ')=(' + a1 + ')(' + wt + ')+(' + lt + ')(' + b1 + ')', ar: 'نعوّض \\(t=' + t + '\\)' }, { box: 'A\'(' + t + ')=' + val }]
+      sol: [{ t: 'A\'=L\'W+LW\'=(' + a1 + ')(' + P(v).t.replace(/x/g, 't') + ')+(' + P(u).t.replace(/x/g, 't') + ')(' + b1 + ')', ar: 'قاعدة الضرب' }, { t: 'A\'(' + t + ')=(' + a1 + ')(' + wt + ')+(' + lt + ')(' + b1 + ')', ar: 'نعوّض \\(t=' + t + '\\)؛ والوحدة: سم² لكل ثانية' }, { box: 'A\'(' + t + ')=' + val }]
     };
   }
   function w3(rng) {
@@ -347,8 +347,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       stem: 'يعمل في مصنع \\(n(t)=' + a0 + '+' + a1 + 't\\) آلة، ويقلّ ربح الآلة الواحدة بالدرهم ليصبح \\(g(t)=' + b0 + '-' + b1 + 't\\)، حيث \\(t\\) الزمن بالأشهر. أوجد معدّل تغيّر الربح الكلّي \\(S=ng\\) عند \\(t=' + t + '\\) (بالدرهم لكل شهر):',
       e: 'S(t)=\\bigl(' + P(u).t.replace(/x/g, 't') + '\\bigr)\\bigl(' + P(v).t.replace(/x/g, 't') + '\\bigr)', corr: V(val),
       cands: [{ cls: 'pd', v: V(-a1 * b1), why: 'نستخدم \\(n\'g+ng\'\\) بقيمتي \\(n\\) و\\(g\\) عند \\(t=' + t + '\\).' }, { cls: 'u1', v: V(a1 * vt), why: 'ينقص الحد \\(ng\'\\) (تناقص ربح الآلة).' }, { cls: 'v1', v: V(-ut * b1), why: 'ينقص الحد \\(n\'g\\) (زيادة عدد الآلات).' },
-        { cls: 'sb', v: V(a1 * vt + ut * b1), why: 'مشتقة \\(g\\) سالبة (\\(-' + b1 + '\\))، فيكون الحد الثاني \\(-' + ut * b1 + '\\) وليس موجباً.' }, { cls: 'nv', v: V(ut * vt), why: 'المطلوب معدّل التغيّر وليس الربح الكلّي عند \\(t=' + t + '\\).' }],
-      sol: [{ t: 'S\'=n\'g+ng\'=(' + a1 + ')(' + P(v).t + ')+(' + P(u).t + ')(' + (-b1) + ')', ar: 'قاعدة الضرب' }, { t: 'S\'(' + t + ')=(' + a1 + ')(' + vt + ')+(' + ut + ')(' + (-b1) + ')', ar: 'نعوّض \\(t=' + t + '\\)' }, { box: 'S\'(' + t + ')=' + val }]
+        { cls: 'sb', v: V(a1 * vt + ut * b1), why: 'مشتقة \\(g\\) سالبة، فنحافظ على إشارتها السالبة عند جمع الحدّين.' }, { cls: 'nv', v: V(ut * vt), why: 'المطلوب معدّل التغيّر وليس الربح الكلّي عند \\(t=' + t + '\\).' }],
+      sol: [{ t: 'S\'=n\'g+ng\'=(' + a1 + ')(' + P(v).t.replace(/x/g, 't') + ')+(' + P(u).t.replace(/x/g, 't') + ')(' + (-b1) + ')', ar: 'قاعدة الضرب' }, { t: 'S\'(' + t + ')=(' + a1 + ')(' + vt + ')+(' + ut + ')(' + (-b1) + ')', ar: 'نعوّض \\(t=' + t + '\\)؛ والوحدة: درهم لكل شهر' }, { box: 'S\'(' + t + ')=' + val }]
     };
   }
   /* L4: معادلة المماس / المماس الأفقي */
@@ -363,10 +363,10 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       kind: 'tg', spec: { type: 'tangent', u: u, v: v, x0: x0 }, key: 'P4a:' + [a, b, c, d, x0].join(','),
       stem: 'أوجد معادلة المماس لمنحنى الدالة \\(f\\) عند النقطة التي فاصلتها \\(x=' + x0 + '\\):', e: 'f(x)=(' + P(u).t + ')(' + P(v).t + ')',
       corr: line(m, q),
-      cands: [{ cls: 'pd', v: line(m2, y0 - m2 * x0), why: 'ميل المماس يساوي \\(f\'(' + x0 + ')\\) المحسوبة بقاعدة الضرب \\(u\'v+uv\'\\) وليس \\(u\'v\'\\).' },
-        { cls: 'nq', v: line(m, -m * x0), why: 'معادلة المماس \\(y-f(x_0)=m(x-x_0)\\): نحتاج \\(f(x_0)\\) أيضاً.' },
-        { cls: 'iy', v: line(m, y0), why: 'عند كتابة \\(y=mx+q\\) نحسب \\(q=y_0-mx_0\\) ولا نضع \\(y_0\\) مكانه.' },
-        { cls: 'ng', v: line(-m, y0 + m * x0), why: 'نستخدم \\(m=f\'(x_0)\\) بإشارتها كما هي دون عكس.' }],
+      cands: [{ cls: 'pd', v: line(m2, y0 - m2 * x0), why: 'ميل المماس يساوي \\(f\'(' + x0 + ')\\) المحسوبة بقاعدة الضرب كاملة وليس بضرب المشتقتين.' },
+        { cls: 'nq', v: line(m, -m * x0), why: 'معادلة المماس تحتاج قيمة الدالة عند نقطة التماس أيضاً.' },
+        { cls: 'iy', v: line(m, y0), why: 'عند كتابة المعادلة بصيغة الميل والمقطع نحسب المقطع من نقطة التماس، ولا نضع إحداثيها الصادي مكانه.' },
+        { cls: 'ng', v: line(-m, y0 + m * x0), why: 'نستخدم الميل \\(f\'(x)\\) عند نقطة التماس بإشارته كما هي دون عكس.' }],
       sol: [{ t: 'f\'(x)=(' + P(pder(u)).t + ')(' + P(v).t + ')+(' + P(u).t + ')(' + P(pder(v)).t + ')', ar: 'قاعدة الضرب' }, { t: 'm=f\'(' + x0 + ')=' + m + ',\\quad f(' + x0 + ')=' + y0, ar: 'ميل المماس والنقطة' }, { t: 'y-(' + y0 + ')=' + m + '(x-(' + x0 + '))', ar: 'معادلة المماس' }, { box: 'y=' + P([q, m]).t }]
     };
   }
@@ -380,8 +380,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       kind: 'hz', spec: { type: 'horiz', u: u, v: v, r1: r1, r2: r2 }, key: 'P4b:' + r1 + ',' + r2,
       stem: 'أوجد جميع قيم \\(x\\) التي يكون عندها المماس لمنحنى \\(f\\) أفقياً:', e: 'f(x)=(' + P(u).t + ')(' + P(v).t + ')',
       corr: C.SET([r1, r2]),
-      cands: [{ cls: 'o1', v: C.SET([r1]), why: 'معادلة \\(f\'(x)=0\\) تربيعية ولها جذران، وكلاهما نقطة مماس أفقي.' }, { cls: 'ng', v: C.SET([-r1, -r2]), why: 'عند التحليل \\(3(x-r_1)(x-r_2)=0\\) تكون الجذور \\(' + r1 + '\\) و\\(' + r2 + '\\) نفسهما بإشارتيهما.' },
-        { cls: 'sw', v: C.SET([r1, -r2]), why: 'لا نغيّر إشارة أحد الجذرين.' }, { cls: 'pd', v: C.SET([0]), why: 'المماس الأفقي يعني \\(f\'(x)=0\\) بقاعدة الضرب كاملة، وليس \\(u\'v\'=0\\).' }],
+      cands: [{ cls: 'o1', v: C.SET([r1]), why: 'معادلة \\(f\'(x)=0\\) تربيعية ولها جذران، وكلاهما نقطة مماس أفقي.' }, { cls: 'ng', v: C.SET([-r1, -r2]), why: 'عند التحليل تكون الجذور بعكس إشارة الحدّين داخل القوسين.' },
+        { cls: 'sw', v: C.SET([r1, -r2]), why: 'لا نغيّر إشارة أحد الجذرين.' }, { cls: 'pd', v: C.SET([0]), why: 'المماس الأفقي يعني \\(f\'(x)=0\\) بقاعدة الضرب كاملة، وليس بضرب المشتقتين.' }],
       sol: [{ t: 'f\'(x)=2x(' + P(v).t + ')+(' + P(u).t + ')(1)=' + P(padd(pmul(pder(u), v), u)).t, ar: 'قاعدة الضرب' }, { t: P(padd(pmul(pder(u), v), u)).t + '=0\\;\\Rightarrow\\;3(x' + (r1 > 0 ? '-' : '+') + Math.abs(r1) + ')(x' + (r2 > 0 ? '-' : '+') + Math.abs(r2) + ')=0', ar: 'نساوي المشتقة بالصفر' }, { box: 'x=' + r1 + '\\ ,\\  x=' + r2 }]
     };
   }
@@ -405,7 +405,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       kind: 'tb2', spec: { type: 'linprod', k: k, c: c, f: fc, df: dfc }, key: 'P5b:' + [k, c, fc, dfc].join(','),
       stem: 'إذا كان \\(f(' + c + ')=' + fc + '\\) و\\(f\'(' + c + ')=' + dfc + '\\)، فأوجد \\(h\'(' + c + ')\\) حيث:',
       e: 'h(x)=(' + lf(k) + ')\\,f(x)', corr: V(val),
-      cands: [{ cls: 'pd', v: V(dfc), why: 'مشتقة \\(x+k\\) هي \\(1\\)، ونستخدم القاعدة كاملة: \\((x+k)f\'(x)+f(x)\\).' }, { cls: 'u1', v: V(fv * dfc), why: 'ينقص الحد \\(1\\cdot f(' + c + ')\\) (مشتقة \\(x+k\\) في \\(f\\)).' }, { cls: 'v1', v: V(fc), why: 'ينقص الحد \\((' + fv + ')f\'(' + c + ')\\).' },
+      cands: [{ cls: 'pd', v: V(dfc), why: 'مشتقة العامل الخطي تساوي \\(1\\)، ونستخدم قاعدة الضرب كاملة.' }, { cls: 'u1', v: V(fv * dfc), why: 'ينقص الحد الذي يضرب مشتقة العامل الخطي في \\(f\\).' }, { cls: 'v1', v: V(fc), why: 'ينقص الحد الذي يضرب العامل الخطي في \\(f\'\\).' },
         { cls: 'nv', v: V(fv * fc), why: 'المطلوب مشتقة حاصل الضرب وليس قيمته.' }, { cls: 'sb', v: V(fv * dfc - fc), why: 'نجمع الحدّين في قاعدة الضرب.' }],
       sol: [{ t: 'h\'(x)=(1)f(x)+(' + lf(k) + ')f\'(x)', ar: 'قاعدة الضرب: مشتقة العامل \\(x' + (k >= 0 ? '+' : '-') + Math.abs(k) + '\\) هي \\(1\\)' }, { t: 'h\'(' + c + ')=' + fc + '+(' + fv + ')(' + dfc + ')', ar: 'نعوّض القيم عند \\(x=' + c + '\\)' }, { box: 'h\'(' + c + ')=' + val }]
     };
@@ -636,7 +636,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
   var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
   function waBox() {
-    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة صفك على واتساب'));
     var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
     a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
     box.appendChild(a); return box;
