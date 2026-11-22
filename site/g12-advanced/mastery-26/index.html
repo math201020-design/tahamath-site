@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>تدرّب بإتقان: نظرية القيمة المتوسطة | الثاني عشر متقدم | أكاديمية طه للرياضيات</title>
-<meta name="description" content="تدريب تفاعلي على البند 26: نظرية القيمة المتوسطة وإيجاد قيمة c وشرطي النظرية، بخمسة مستويات تتدرج حتى مستوى الوزارة.">
+<meta name="description" content="تدريب تفاعلي على البند 26: نظرية القيمة المتوسطة وإيجاد قيمة c وشرطي النظرية، بأربعة مستويات حتى مستوى الوزارة ثم مستوى تحدٍّ.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://tahamath.com/g12-advanced/mastery-26/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
@@ -121,7 +121,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
 
   var HINT = {
     m: 'نظرية القيمة المتوسطة: إذا كانت \\(f\\) متصلة على \\([a,b]\\) وقابلة للاشتقاق على \\((a,b)\\) فيوجد \\(c\\in(a,b)\\) يحقق \\(f\'(c)=\\dfrac{f(b)-f(a)}{b-a}\\).',
-    c: 'تحقق من الشرطين: الاتصال على الفترة المغلقة والقابلية للاشتقاق على المفتوحة؛ النقطة التي يفقد فيها الشرط داخل الفترة تمنع تطبيق النظرية.',
+    c: 'تحقق من الشرطين: الاتصال على الفترة المغلقة والقابلية للاشتقاق على المفتوحة؛ النقطة التي يختلّ فيها أحد الشرطين داخل الفترة تمنع تطبيق النظرية.',
     s: 'احسب الميل \\(\\dfrac{f(b)-f(a)}{b-a}\\) أولاً، ثم ساوِ \\(f\'(c)\\) بالميل، ثم اختر الحل الواقع داخل \\((a,b)\\) فقط.',
     w: 'في مسائل الحركة: السرعة المتوسطة = \\(\\dfrac{s(t_2)-s(t_1)}{t_2-t_1}\\)، والنظرية تضمن لحظة تساوي عندها السرعة اللحظية \\(s\'(t)\\) هذا المتوسط.',
     ch: 'اكتب معادلة ميل القاطع \\(f\'(c)=\\dfrac{f(b)-f(a)}{b-a}\\) وحلّها في \\(c\\)، ثم افحص أيّ الحلول يقع داخل الفترة المفتوحة.'
@@ -143,11 +143,11 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var p, q, r, a, b; do { p = pick(rng, [1, 2, 3, -1, -2, 4]); q = nz(rng, -6, 6); r = ri(rng, -5, 5); a = ri(rng, -5, 3); b = a + ri(rng, 2, 8); } while ((a + b) === 0);
     var c = fr(a + b, 2), m = p * (a + b) + q, co = [p, q, r];
     return { stem: STEM_C, e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(a, b) + '\\end{gathered}', corr: FE(c), kind: 'q1', ask: 'MVT', f: polyP(co), a: a, b: b, hint: HINT.s, key: 'C1a:' + co.join(',') + ',' + a + ',' + b,
-      cands: [{ cls: 'sm', v: E(String(a + b), String(a + b)), why: 'هذا مجموع طرفي الفترة؛ \\(c\\) هو نصفه: \\(\\dfrac{a+b}{2}\\).' },
+      cands: [{ cls: 'sm', v: E(String(a + b), String(a + b)), why: 'هذا مجموع طرفي الفترة وليس قيمة \\(c\\).' },
         { cls: 'hl', v: FE(fr(b - a, 2)), why: 'هذا نصف طول الفترة وليس قيمة \\(c\\).' },
-        { cls: 'sl', v: E(String(m), String(m)), why: 'هذه قيمة ميل القاطع \\(\\dfrac{f(b)-f(a)}{b-a}\\)؛ المطلوب قيمة \\(c\\) نفسها.' },
-        { cls: 'en', v: E(String(b), String(b)), why: 'طرف الفترة لا يمثل \\(c\\)؛ يجب أن يقع داخل الفترة المفتوحة.' },
-        { cls: 'fb', v: E(String(Math.round(evp(co, b))), String(Math.round(evp(co, b)))), why: 'هذه قيمة الدالة \\(f(b)\\) وليست قيمة \\(c\\).' }],
+        { cls: 'sl', v: E(String(m), String(m)), why: 'هذه قيمة ميل القاطع بين طرفي الفترة؛ المطلوب قيمة \\(c\\) نفسها.' },
+        { cls: 'en', v: E(String(b), String(b)), why: 'طرف الفترة لا يصلح قيمةً لـ \\(c\\)؛ فـ \\(c\\) يقع داخل الفترة المفتوحة.' },
+        { cls: 'fb', v: E(String(Math.round(evp(co, b))), String(Math.round(evp(co, b)))), why: 'هذه قيمة الدالة عند الطرف الأكبر للفترة وليست قيمة \\(c\\).' }],
       sol: [{ t: 'f(' + a + ')=' + Math.round(evp(co, a)) + ',\\quad f(' + b + ')=' + Math.round(evp(co, b)), ar: 'نحسب قيمتي الدالة عند طرفي الفترة' }, { t: '\\dfrac{' + Math.round(evp(co, b)) + '-(' + Math.round(evp(co, a)) + ')}{' + (b - a) + '}=' + m, ar: 'ميل القاطع' }, { t: 'f\'(c)=' + polyT([2 * p, q], 'c') + '=' + m + '\\;\\Rightarrow\\; c=' + ftex(c), ar: 'نساوي المشتقة بالميل' }, { box: 'c=' + ftex(c) }] };
   }
   function t1b(rng) {
@@ -157,10 +157,10 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var tx = k === 0 ? 'x' : '(' + kx + ')';
     var ab = E('|' + kx + '|', 'Abs(' + kp + ')'), rc = E('\\dfrac{1}{' + kx + '}', '1/(' + kp + ')'), cu = E('\\sqrt[3]{(' + kx + ')^{2}}', 'Abs(' + kp + ')**Rational(2,3)'), sq = E('\\sqrt{' + kx + '}', 'sqrt(' + kp + ')');
     return { stem: 'أي الدوال التالية تحقق شرطي نظرية القيمة المتوسطة على الفترة المعطاة؟', e: 'x\\in' + bracket(lo, hi), corr: good, kind: 'cond', ask: 'COND', a: lo, b: hi, hint: HINT.c, key: 'C1b:' + good.p + ',' + k + ',' + lo + ',' + hi,
-      cands: [{ cls: 'ab', v: ab, why: 'القيمة المطلقة لها نقطة زاوية عند \\(x=' + k + '\\) داخل الفترة: غير قابلة للاشتقاق هناك.' },
-        { cls: 'rc', v: rc, why: 'غير متصلة عند \\(x=' + k + '\\) (خط تقارب رأسي) وهذه النقطة داخل الفترة.' },
-        { cls: 'cu', v: cu, why: 'متصلة لكن مشتقتها غير موجودة عند \\(x=' + k + '\\) وهذه النقطة داخل الفترة.' },
-        { cls: 'sq', v: sq, why: 'غير معرّفة على جزء من الفترة (لا تُعرَّف إلا عند \\(x\\ge ' + k + '\\))، فلا اتصال على كل الفترة.' }],
+      cands: [{ cls: 'ab', v: ab, why: 'دالة القيمة المطلقة لها نقطة زاوية عند \\(x=' + k + '\\) داخل الفترة، فهي غير قابلة للاشتقاق هناك.' },
+        { cls: 'rc', v: rc, why: 'هذه الدالة غير متصلة عند \\(x=' + k + '\\) (خط تقارب رأسي) وهذه النقطة داخل الفترة.' },
+        { cls: 'cu', v: cu, why: 'هذه الدالة متصلة لكن مشتقتها غير موجودة عند \\(x=' + k + '\\) وهذه النقطة داخل الفترة.' },
+        { cls: 'sq', v: sq, why: 'هذه الدالة غير معرّفة على جزء من الفترة (لا تُعرَّف إلا عند \\(x\\ge ' + k + '\\))، فلا اتصال على كل الفترة.' }],
       sol: [{ t: 'x\\in' + bracket(lo, hi), ar: 'الدالة المختارة معرّفة ومتصلة على الفترة المغلقة' }, { t: 'x\\in(' + lo + ',\\,' + hi + ')', ar: 'وقابلة للاشتقاق على الفترة المفتوحة' }, { box: 'f(x)=' + good.t }],
       fnOpts: true };
   }
@@ -170,19 +170,19 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var k = ri(rng, 1, 4), q = nz(rng, -6, 6), b = 3 * k, kk = k === 1 ? '' : k;
     var corr = E(kk + '\\sqrt{3}', k + '*sqrt(3)'), co = [1, 0, q, 0];
     return { stem: STEM_C, e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(0, b) + '\\end{gathered}', corr: corr, kind: 'c1', ask: 'MVT', f: polyP(co), a: 0, b: b, hint: HINT.s, key: 'C2a:' + q + ',' + k,
-      cands: [{ cls: 'pm', v: E('\\pm ' + kk + '\\sqrt{3}', k + '*sqrt(3);-' + k + '*sqrt(3)'), why: 'الحلان \\(\\pm' + kk + '\\sqrt3\\) ولا يقع في \\((0,' + b + ')\\) إلا الموجب؛ نذكر قيمة \\(c\\) الواقعة داخل الفترة فقط.' },
-        { cls: 'k', v: E(String(k), String(k)), why: 'القيمة ' + k + ' لا تحقق \\(3c^2=' + 9 * k * k + '\\) (\\(c^2=' + 3 * k * k + '\\) تعطي \\(c=' + kk + '\\sqrt3\\)).' },
-        { cls: 'mid', v: FE(fr(b, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) يصحّ للدوال التربيعية فقط؛ هذه الدالة تكعيبية فنساوي \\(f\'(c)\\) بالميل.' },
+      cands: [{ cls: 'pm', v: E('\\pm ' + kk + '\\sqrt{3}', k + '*sqrt(3);-' + k + '*sqrt(3)'), why: 'للمعادلة حلّان متقابلان، ولا يقع داخل الفترة المفتوحة إلا أحدهما؛ نذكر قيمة \\(c\\) الواقعة داخل الفترة فقط.' },
+        { cls: 'k', v: E(String(k), String(k)), why: 'هذه القيمة لا تحقق معادلة مساواة \\(f\'(c)\\) بميل القاطع.' },
+        { cls: 'mid', v: FE(fr(b, 2)), why: 'منتصف الفترة يعطي \\(c\\) في الدالة التربيعية، أما هذه الدالة فتكعيبية فلا يصح؛ نساوي \\(f\'(c)\\) بميل القاطع.' },
         { cls: 'sq', v: E(String(3 * k * k), String(3 * k * k)), why: 'هذه قيمة \\(c^2\\) وليست \\(c\\)؛ نأخذ الجذر التربيعي.' }],
       sol: [{ t: '\\dfrac{f(' + b + ')-f(0)}{' + b + '}=' + (b * b + q), ar: 'ميل القاطع' }, { t: 'f\'(c)=3c^{2}' + (q < 0 ? q : '+' + q) + '=' + (b * b + q) + '\\;\\Rightarrow\\; c^{2}=' + 3 * k * k, ar: 'نساوي المشتقة بالميل' }, { box: 'c=' + corr.t, ar: 'نأخذ الجذر الموجب لأنه الواقع في \\((0,' + b + ')\\)' }] };
   }
   function t2b(rng) {
     var k = ri(rng, 1, 5), kk = k, corr = E(String(k), String(k));
     return { stem: STEM_C, e: 'f(x)=x^{3},\\quad [-' + kk + ',\\,' + 2 * k + ']', corr: corr, kind: 'c2', ask: 'MVT', f: 'x**3', a: -k, b: 2 * k, hint: HINT.s, key: 'C2b:' + k,
-      cands: [{ cls: 'pm', v: E('\\pm ' + kk, k + ';-' + k), why: 'الحلان \\(\\pm' + kk + '\\)، لكن \\(-' + kk + '\\) هو طرف الفترة وليس داخلها المفتوح.' },
+      cands: [{ cls: 'pm', v: E('\\pm ' + kk, k + ';-' + k), why: 'للمعادلة حلّان، أحدهما هو طرف الفترة وليس داخلها المفتوح.' },
         { cls: 'ng', v: E('-' + kk, '-' + k), why: 'هذا طرف الفترة؛ لا يصلح قيمةً لـ \\(c\\).' },
-        { cls: 'mid', v: FE(fr(k, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) لا يعطي \\(c\\) في الدوال التكعيبية؛ نساوي \\(f\'(c)\\) بالميل.' },
-        { cls: 'en', v: E(String(2 * k), String(2 * k)), why: 'هذا الطرف الأيمن للفترة وليس داخلها.' }],
+        { cls: 'mid', v: FE(fr(k, 2)), why: 'منتصف الفترة لا يعطي \\(c\\) في الدوال التكعيبية؛ نساوي \\(f\'(c)\\) بميل القاطع.' },
+        { cls: 'en', v: E(String(2 * k), String(2 * k)), why: 'هذا الطرف الأكبر للفترة وليس داخلها.' }],
       sol: [{ t: '\\dfrac{(' + 2 * k + ')^{3}-(-' + kk + ')^{3}}{' + 2 * k + '-(-' + kk + ')}=' + 3 * k * k, ar: 'ميل القاطع' }, { t: '3c^{2}=' + 3 * k * k + '\\;\\Rightarrow\\; c=\\pm ' + kk, ar: 'نحلّ المعادلة' }, { box: 'c=' + k, ar: 'نقبل القيمة الواقعة داخل \\((-' + kk + ',' + 2 * k + ')\\) فقط' }] };
   }
 
@@ -190,18 +190,18 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function t3a(rng) {
     var m = ri(rng, 1, 5), n = m + ri(rng, 1, 4), a = m * m, b = n * n, c = fr((m + n) * (m + n), 4);
     return { stem: STEM_C, e: 'f(x)=\\sqrt{x},\\quad ' + bracket(a, b), corr: FE(c), kind: 'r1', ask: 'MVT', f: 'sqrt(x)', a: a, b: b, hint: HINT.s, key: 'C3a:' + m + ',' + n,
-      cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) لا يعطي \\(c\\) للدالة \\(\\sqrt{x}\\).' },
+      cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'منتصف الفترة لا يعطي \\(c\\) لهذه الدالة.' },
         { cls: 'rt', v: FE(fr(m + n, 2)), why: 'هذه قيمة \\(\\sqrt{c}\\) وليست \\(c\\)؛ يجب التربيع.' },
-        { cls: 'pr', v: E(String(m * n), String(m * n)), why: 'الجذر \\(\\sqrt{ab}\\) (الوسط الهندسي للطرفين) يخص الدالة \\(\\dfrac1x\\) لا \\(\\sqrt x\\).' },
-        { cls: 'sl', v: FE(fr(1, m + n)), why: 'هذا ميل القاطع \\(\\dfrac{\\sqrt b-\\sqrt a}{b-a}\\) وليست قيمة \\(c\\).' }],
+        { cls: 'pr', v: E(String(m * n), String(m * n)), why: 'الوسط الهندسي لطرفي الفترة يخص الدالة \\(\\dfrac1x\\) لا هذه الدالة.' },
+        { cls: 'sl', v: FE(fr(1, m + n)), why: 'هذا ميل القاطع بين طرفي الفترة وليس قيمة \\(c\\).' }],
       sol: [{ t: '\\dfrac{\\sqrt{' + b + '}-\\sqrt{' + a + '}}{' + b + '-' + a + '}=\\dfrac{' + n + '-' + m + '}{' + (b - a) + '}=\\dfrac{1}{' + (m + n) + '}', ar: 'ميل القاطع' }, { t: '\\dfrac{1}{2\\sqrt{c}}=\\dfrac{1}{' + (m + n) + '}\\;\\Rightarrow\\;\\sqrt{c}=\\dfrac{' + (m + n) + '}{2}', ar: 'نساوي \\(f\'(c)\\) بالميل' }, { box: 'c=' + ftex(c) }] };
   }
   function t3b(rng) {
     var m = ri(rng, 1, 4), k = ri(rng, 2, 3), a = m, b = m * k * k, c = m * k;
     return { stem: STEM_C, e: 'f(x)=\\dfrac{1}{x},\\quad ' + bracket(a, b), corr: E(String(c), String(c)), kind: 'r2', ask: 'MVT', f: '1/x', a: a, b: b, hint: HINT.s, key: 'C3b:' + m + ',' + k,
-      cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) لا يعطي \\(c\\) للدالة \\(\\dfrac1x\\).' },
-        { cls: 'pr', v: E(String(a * b), String(a * b)), why: 'هذه \\(c^2=ab\\) وليست \\(c\\)؛ نأخذ الجذر \\(\\sqrt{ab}\\).' },
-        { cls: 'ng', v: E(String(-c), String(-c)), why: 'القيمة السالبة خارج الفترة؛ نقبل الجذر الموجب الواقع في \\((' + a + ',' + b + ')\\).' },
+      cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'منتصف الفترة لا يعطي \\(c\\) للدالة \\(\\dfrac1x\\).' },
+        { cls: 'pr', v: E(String(a * b), String(a * b)), why: 'هذه قيمة \\(c^2\\) وليست \\(c\\)؛ نأخذ الجذر التربيعي.' },
+        { cls: 'ng', v: E(String(-c), String(-c)), why: 'القيمة السالبة خارج الفترة؛ نقبل ما يقع داخل الفترة المفتوحة فقط.' },
         { cls: 'en', v: E(String(b), String(b)), why: 'طرف الفترة لا يصلح قيمةً لـ \\(c\\).' }],
       sol: [{ t: '\\dfrac{\\frac1{' + b + '}-\\frac1{' + a + '}}{' + b + '-' + a + '}=-\\dfrac{1}{' + a * b + '}', ar: 'ميل القاطع' }, { t: '-\\dfrac{1}{c^{2}}=-\\dfrac{1}{' + a * b + '}\\;\\Rightarrow\\; c^{2}=' + a * b, ar: 'نساوي \\(f\'(c)\\) بالميل' }, { box: 'c=' + c, ar: 'الجذر الموجب فقط يقع في الفترة' }] };
   }
@@ -210,31 +210,31 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function t4a(rng) {
     var a = ri(rng, 0, 3), h = ri(rng, 2, 6), b = a + h, A = nz(rng, -6, 8), M = ri(rng, 2, 7), v = A + M * h;
     return { stem: 'دالة \\(f\\) قابلة للاشتقاق على \\(\\mathbb{R}\\) وتحقق الشرطين المعطيين. ما أكبر قيمة ممكنة لـ \\(f(' + b + ')\\)؟', e: 'f(' + a + ')=' + A + ',\\quad f\'(x)\\le ' + M, corr: E(String(v), String(v)), kind: 'bd', ask: 'VAL', v: String(v), a: a, b: b, A: A, M: M, hint: HINT.m, key: 'C4a:' + a + ',' + h + ',' + A + ',' + M,
-      cands: [{ cls: 'nh', v: E(String(A + M), String(A + M)), why: 'نضرب \\(M\\) في طول الفترة \\(' + b + '-' + a + '=' + h + '\\) وليس في 1.' },
-        { cls: 'nA', v: E(String(M * h), String(M * h)), why: 'نضيف قيمة \\(f(' + a + ')=' + A + '\\) إلى النتيجة.' },
-        { cls: 'bb', v: E(String(A + M * b), String(A + M * b)), why: 'نستعمل طول الفترة \\(b-a=' + h + '\\) لا قيمة \\(b\\) وحدها.' },
-        { cls: 'sg', v: E(String(A - M * h), String(A - M * h)), why: 'من \\(f(b)-f(a)=f\'(c)(b-a)\\le M(b-a)\\) نجمع ولا نطرح.' },
-        { cls: 'ml', v: E(String(A * M), String(A * M)), why: 'العلاقة جمعية: \\(f(b)\\le f(a)+M(b-a)\\).' }],
+      cands: [{ cls: 'nh', v: E(String(A + M), String(A + M)), why: 'نضرب الحد الأعلى للمشتقة في طول الفترة كاملاً وليس في \\(1\\).' },
+        { cls: 'nA', v: E(String(M * h), String(M * h)), why: 'هذا الخيار نسي إضافة قيمة الدالة عند بداية الفترة.' },
+        { cls: 'bb', v: E(String(A + M * b), String(A + M * b)), why: 'نستعمل طول الفترة كاملاً لا قيمة طرفها وحدها.' },
+        { cls: 'sg', v: E(String(A - M * h), String(A - M * h)), why: 'هذا الخيار طرح الحد الأعلى بدل أن يضيفه.' },
+        { cls: 'ml', v: E(String(A * M), String(A * M)), why: 'هذا الخيار ضرب قيمة الدالة في الحد الأعلى بدل أن يجمع الحدّين.' }],
       sol: [{ t: 'f(' + b + ')-f(' + a + ')=f\'(c)\\,(' + b + '-' + a + ')\\le ' + M + '\\cdot ' + h, ar: 'نظرية القيمة المتوسطة مع \\(f\'(c)\\le ' + M + '\\)' }, { t: 'f(' + b + ')\\le ' + A + '+' + M * h, ar: 'نضيف \\(f(' + a + ')\\)' }, { box: 'f(' + b + ')\\le ' + v }] };
   }
   function t4b(rng) {
     var m = ri(rng, 1, 4), co = [1, -3 * m, 0, 0];
     return { stem: STEM_C, e: '\\begin{gathered}f(x)=x^{3}-' + (3 * m) + 'x^{2}\\\\ x\\in' + bracket(0, 3 * m) + '\\end{gathered}', corr: E(String(2 * m), String(2 * m)), kind: 'ro', ask: 'MVT', f: polyP(co), a: 0, b: 3 * m, hint: HINT.s, key: 'C4b:' + m,
-      cands: [{ cls: 'zr', v: E('0', '0'), why: 'القيمة 0 طرف الفترة وليست داخلها المفتوح؛ \\(f\'(c)=0\\) له حلان: \\(0\\) و\\(' + 2 * m + '\\).' },
-        { cls: 'mid', v: FE(fr(3 * m, 2)), why: 'المنتصف \\(\\dfrac{a+b}{2}\\) لا يصحّ لدالة تكعيبية.' },
-        { cls: 'en', v: E(String(3 * m), String(3 * m)), why: 'الطرف الأيمن للفترة وليس داخلها.' },
-        { cls: 'k', v: E(String(m), String(m)), why: 'لا تحقق \\(3c^2-' + 6 * m + 'c=0\\).' }],
+      cands: [{ cls: 'zr', v: E('0', '0'), why: 'هذه القيمة هي طرف الفترة وليست داخلها المفتوح؛ وللمعادلة حلّ آخر يقع داخلها.' },
+        { cls: 'mid', v: FE(fr(3 * m, 2)), why: 'منتصف الفترة لا يصحّ لدالة تكعيبية.' },
+        { cls: 'en', v: E(String(3 * m), String(3 * m)), why: 'الطرف الأكبر للفترة وليس داخلها.' },
+        { cls: 'k', v: E(String(m), String(m)), why: 'هذه القيمة لا تحقق معادلة المماس الأفقي.' }],
       sol: [{ t: 'f(0)=0,\\quad f(' + 3 * m + ')=0\\;\\Rightarrow\\;\\dfrac{f(' + 3 * m + ')-f(0)}{' + 3 * m + '}=0', ar: 'ميل القاطع صفر' }, { t: 'f\'(c)=3c^{2}-' + 6 * m + 'c=3c(c-' + 2 * m + ')=0\\;\\Rightarrow\\; c=0\\ ,\\ c=' + 2 * m, ar: 'نحلّ \\(f\'(c)=0\\)' }, { box: 'c=' + 2 * m, ar: 'القيمة الواقعة داخل \\((0,' + 3 * m + ')\\)' }] };
   }
   function t4c(rng) {
     var p, q, t1, t2; do { p = ri(rng, 1, 5); q = ri(rng, 1, 8); t1 = ri(rng, 0, 3); t2 = t1 + 2 * ri(rng, 1, 3); } while (false);
     var c = fr(t1 + t2, 2), co = [p, q, 0], avg = p * (t1 + t2) + q;
-    return { stem: 'تتحرك سيارة على طريق مستقيم، ويعطى بعدها \\(s(t)\\) بالأمتار بعد \\(t\\) ثانية بالعلاقة المعطاة. في أي لحظة من الفترة المعطاة تساوي سرعتها اللحظية سرعتها المتوسطة خلال هذه الفترة؟', e: '\\begin{gathered}s(t)=' + polyT(co, 't') + '\\\\ t\\in' + bracket(t1, t2) + '\\end{gathered}', corr: FE(c), kind: 'w1', ask: 'MVT', f: polyP(co), a: t1, b: t2, hint: HINT.w, key: 'C4c:' + p + ',' + q + ',' + t1 + ',' + t2,
-      cands: [{ cls: 'av', v: E(String(avg), String(avg)), why: 'هذه قيمة السرعة المتوسطة نفسها (م/ث) وليست اللحظة المطلوبة.' },
+    return { stem: 'تتحرك سيارة على طريق مستقيم، ويُعطى موضعها \\(s(t)\\) بالأمتار بعد \\(t\\) ثانية بالعلاقة المعطاة. في أي لحظة من الفترة المعطاة تساوي سرعتها اللحظية سرعتها المتوسطة خلال هذه الفترة؟', e: '\\begin{gathered}s(t)=' + polyT(co, 't') + '\\\\ t\\in' + bracket(t1, t2) + '\\end{gathered}', corr: FE(c), kind: 'w1', ask: 'MVT', f: polyP(co), a: t1, b: t2, hint: HINT.w, key: 'C4c:' + p + ',' + q + ',' + t1 + ',' + t2,
+      cands: [{ cls: 'av', v: E(String(avg), String(avg)), why: 'هذه قيمة السرعة المتوسطة نفسها (متر/ثانية) وليست اللحظة المطلوبة.' },
         { cls: 'ln', v: E(String(t2 - t1), String(t2 - t1)), why: 'هذا طول الفترة وليس لحظة داخلها.' },
-        { cls: 'sm', v: E(String(t1 + t2), String(t1 + t2)), why: 'اللحظة هي نصف المجموع \\(\\dfrac{t_1+t_2}{2}\\) وليست المجموع.' },
-        { cls: 'hl', v: FE(fr(t2 - t1, 2)), why: 'نصف طول الفترة لا يمثل لحظة؛ نضيفه إلى بداية الفترة.' },
-        { cls: 'en', v: E(String(t2), String(t2)), why: 'نهاية الفترة وليست داخلها.' }],
+        { cls: 'sm', v: E(String(t1 + t2), String(t1 + t2)), why: 'هذه قيمة مجموع الطرفين وليست اللحظة المطلوبة.' },
+        { cls: 'hl', v: FE(fr(t2 - t1, 2)), why: 'هذا نصف طول الفترة وهو مقدار زمني وليس لحظة.' },
+        { cls: 'en', v: E(String(t2), String(t2)), why: 'هذا طرف الفترة وليس داخلها.' }],
       sol: [{ t: '\\dfrac{s(' + t2 + ')-s(' + t1 + ')}{' + t2 + '-' + t1 + '}=' + avg, ar: 'السرعة المتوسطة' }, { t: 's\'(t)=' + polyT([2 * p, q], 't') + '=' + avg + '\\;\\Rightarrow\\; t=' + ftex(c), ar: 'نساوي السرعة اللحظية بالمتوسطة' }, { box: 't=' + ftex(c) }] };
   }
 
@@ -244,9 +244,9 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     if (isL) {
       var corr = E('\\dfrac{' + ek + '-1}{' + k + '}', '(exp(' + k + ')-1)/' + k);
       return { stem: STEM_C, e: 'f(x)=\\ln x,\\quad [1,\\,' + ek + ']', corr: corr, kind: 'ln', ask: 'MVT', f: 'log(x)', a: 1, b: 'exp(' + k + ')', hint: HINT.ch, key: 'C5a:L' + k,
-        cands: [{ cls: 'nk', v: E(ek + '-1', 'exp(' + k + ')-1'), why: 'ميل القاطع هو \\(\\dfrac{\\ln e^{' + k + '}-\\ln1}{e^{' + k + '}-1}=\\dfrac{' + k + '}{e^{' + k + '}-1}\\)، ثم \\(\\dfrac1c=\\) الميل يعطي القسمة على \\(' + k + '\\).' },
+        cands: [{ cls: 'nk', v: E(ek + '-1', 'exp(' + k + ')-1'), why: 'عند مساواة \\(\\dfrac1c\\) بميل القاطع نأخذ مقلوب الميل كاملاً.' },
           { cls: 'mid', v: E('\\dfrac{' + ek + '+1}{2}', '(exp(' + k + ')+1)/2'), why: 'المنتصف لا يعطي \\(c\\) لدالة اللوغاريتم.' },
-          { cls: 'sl', v: E('\\dfrac{' + k + '}{' + ek + '-1}', k + '/(exp(' + k + ')-1)'), why: 'هذا ميل القاطع؛ \\(c\\) هو مقلوبه لأن \\(f\'(c)=\\dfrac1c\\).' },
+          { cls: 'sl', v: E('\\dfrac{' + k + '}{' + ek + '-1}', k + '/(exp(' + k + ')-1)'), why: 'هذا ميل القاطع؛ ولا بد من استعمال \\(f\'(c)=\\dfrac1c\\) للوصول إلى \\(c\\).' },
           { cls: 'mu', v: E(k + '(' + ek + '-1)', k + '*(exp(' + k + ')-1)'), why: 'نقسم على \\(' + k + '\\) ولا نضرب.' }],
         sol: [{ t: '\\dfrac{\\ln ' + ek + '-\\ln 1}{' + ek + '-1}=\\dfrac{' + k + '}{' + ek + '-1}', ar: 'ميل القاطع' }, { t: '\\dfrac{1}{c}=\\dfrac{' + k + '}{' + ek + '-1}\\;\\Rightarrow\\; c=\\dfrac{' + ek + '-1}{' + k + '}', ar: 'نساوي \\(f\'(c)=\\dfrac1c\\) بالميل' }, { box: 'c=' + corr.t }] };
     }
@@ -254,8 +254,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     return { stem: STEM_C, e: 'f(x)=e^{x},\\quad [0,\\,' + k + ']', corr: corr2, kind: 'ex', ask: 'MVT', f: 'exp(x)', a: 0, b: k, hint: HINT.ch, key: 'C5a:E' + k,
       cands: [{ cls: 'nl', v: E('\\dfrac{' + ek + '-1}{' + k + '}', '(exp(' + k + ')-1)/' + k), why: 'هذه قيمة \\(e^{c}\\) (الميل) وليست \\(c\\)؛ نأخذ \\(\\ln\\) للطرفين.' },
         { cls: 'mid', v: FE(fr(k, 2)), why: 'المنتصف لا يعطي \\(c\\) للدالة الأسية.' },
-        { cls: 'mp', v: E('\\dfrac{\\ln(' + ek + '-1)}{' + k + '}', 'log(exp(' + k + ')-1)/' + k), why: 'اللوغاريتم يُطبَّق على النسبة كلها \\(\\dfrac{e^{' + k + '}-1}{' + k + '}\\) لا على بسطها وحده.' },
-        { cls: 'iv', v: E('\\ln\\!\\left(\\dfrac{' + k + '}{' + ek + '-1}\\right)', 'log(' + k + '/(exp(' + k + ')-1))'), why: 'الميل هو \\(\\dfrac{e^{' + k + '}-1}{' + k + '}\\) وليس مقلوبه.' }],
+        { cls: 'mp', v: E('\\dfrac{\\ln(' + ek + '-1)}{' + k + '}', 'log(exp(' + k + ')-1)/' + k), why: 'اللوغاريتم يُطبَّق على النسبة كلها لا على بسطها وحده.' },
+        { cls: 'iv', v: E('\\ln\\!\\left(\\dfrac{' + k + '}{' + ek + '-1}\\right)', 'log(' + k + '/(exp(' + k + ')-1))'), why: 'هذا الخيار قلب الكسر داخل \\(\\ln\\)؛ نأخذ \\(\\ln\\) للكسر نفسه دون قلبه.' }],
       sol: [{ t: '\\dfrac{e^{' + k + '}-e^{0}}{' + k + '}=\\dfrac{' + ek + '-1}{' + k + '}', ar: 'ميل القاطع' }, { t: 'e^{c}=\\dfrac{' + ek + '-1}{' + k + '}\\;\\Rightarrow\\; c=\\ln\\!\\left(\\dfrac{' + ek + '-1}{' + k + '}\\right)', ar: 'نساوي \\(f\'(c)=e^{c}\\) بالميل ونأخذ \\(\\ln\\)' }, { box: 'c=' + corr2.t }] };
   }
   function t5b(rng) {
@@ -273,15 +273,15 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     } while ((!ok || cnt < 1) && tries < 500);
     var cons = {
       0: 'النظرية تضمن وجود قيمة واحدة على الأقل، فلا يمكن أن يكون العدد صفراً.',
-      1: 'نساوي \\(f\'(c)\\) بالميل يعطي جذرين؛ تحقق إن كان كلاهما داخل الفترة المفتوحة.',
+      1: 'مساواة \\(f\'(c)\\) بالميل تعطي جذرين؛ تحقّق من وقوع كل منهما داخل الفترة المفتوحة.',
       2: 'أحد جذري معادلة ميل القاطع يقع خارج الفترة المفتوحة.',
-      3: 'معادلة ميل القاطع \\(f\'(c)=\\dfrac{f(b)-f(a)}{b-a}\\) تربيعية في \\(c\\)، ولها حلّان على الأكثر.'
+      3: 'معادلة مساواة \\(f\'(c)\\) بميل القاطع تربيعية في \\(c\\)، ولها حلّان على الأكثر.'
     };
     var vs = [0, 1, 2, 3], optsAll = vs.map(function (v) { return E(String(v), String(v)); });
     var cands = vs.filter(function (v) { return v !== cnt; }).map(function (v) { return { cls: 'n' + v, v: optsAll[v], why: cons[v] }; });
     return { stem: 'كم قيمة للعدد \\(c\\) في الفترة المفتوحة \\((' + a + ',' + b + ')\\) تحقق نتيجة نظرية القيمة المتوسطة للدالة التالية؟', e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(a, b) + '\\end{gathered}', corr: optsAll[cnt], kind: 'cn', ask: 'CNT', f: polyP(co), a: a, b: b, hint: HINT.ch, key: 'C5b:' + p + ',' + q + ',' + a + ',' + b,
       cands: cands,
-      sol: [{ t: '\\dfrac{f(' + b + ')-f(' + a + ')}{' + (b - a) + '}=' + s, ar: 'ميل القاطع' }, { t: 'f\'(c)=' + polyT([3, 2 * p, q], 'c') + '=' + s + '\\;\\Rightarrow\\;' + polyT([3, 2 * p, q - s], 'c') + '=0', ar: 'نساوي \\(f\'(c)\\) بالميل' }, { t: 'c\\approx' + r1.toFixed(2) + ',\\quad c\\approx' + r2.toFixed(2), ar: 'جذرا المعادلة' }, { box: 'n=' + cnt }] };
+      sol: [{ t: '\\dfrac{f(' + b + ')-f(' + a + ')}{' + (b - a) + '}=' + s, ar: 'ميل القاطع' }, { t: 'f\'(c)=' + polyT([3, 2 * p, q], 'c') + (s === 0 ? '=0' : '=' + s + '\\;\\Rightarrow\\;' + polyT([3, 2 * p, q - s], 'c') + '=0'), ar: 'نساوي \\(f\'(c)\\) بالميل' }, { t: 'c\\approx' + r1.toFixed(2) + ',\\quad c\\approx' + r2.toFixed(2), ar: 'جذرا المعادلة؛ ونرمز بـ \\(n\\) إلى عدد قيم \\(c\\)' }, { box: 'n=' + cnt }] };
   }
 
   var LEVELS = [
@@ -540,7 +540,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
   var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
   function waBox() {
-    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة صفك على واتساب'));
     var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
     a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
     box.appendChild(a); return box;
