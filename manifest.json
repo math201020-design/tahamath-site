@@ -7169,6 +7169,21 @@
    "path": "g12-advanced/haykal-enrichment-written/index.html",
    "src": "site/g12-advanced/haykal-enrichment-written/index.html",
    "sha256": "2f19a5522dcdf25aa0bbc0158dd6fb42114237b3d4964fc169f0d209266e5dfd"
+  },
+  {
+   "path": "g12-advanced/en/mastery-11/index.html",
+   "src": "site/g12-advanced/en/mastery-11/index.html",
+   "sha256": "e95a2970a0256bed5f8a84e2ea6eb379236056dd97d701f8bee464b6c0ef0c87"
+  },
+  {
+   "path": "g12-advanced/en/mastery-12/index.html",
+   "src": "site/g12-advanced/en/mastery-12/index.html",
+   "sha256": "56c6c7a4c613d9de9e5004d9c31cf8a7e768c3d22dd9ac5093a825073a1185fc"
+  },
+  {
+   "path": "g12-advanced/en/mastery-13/index.html",
+   "src": "site/g12-advanced/en/mastery-13/index.html",
+   "sha256": "a4ca309e4d4bbbe1b29f1347199dfc825a910ca0e33ac4139b6f7ddccae6a0f0"
   }
  ]
 }

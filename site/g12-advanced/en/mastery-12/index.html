@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mastery Practice: Product and Quotient Rules | Grade 12 Advanced | Taha Math Academy</title>
+<meta name="description" content="Mastery practice on band 12: applying the product rule and the quotient rule to derivatives, in four levels up to Ministry level, plus an optional challenge level. Free, no sign-up.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g12-advanced/en/mastery-12/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Taha Math Academy">
+<meta property="og:title" content="Mastery Practice: Product and Quotient Rules | Grade 12 Advanced | Taha Math Academy">
+<meta property="og:description" content="Mastery practice on band 12: applying the product rule and the quotient rule to derivatives, in four levels up to Ministry level, plus an optional challenge level. Free, no sign-up.">
+<meta property="og:url" content="https://tahamath.com/g12-advanced/en/mastery-12/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:ltr;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic','Segoe UI',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:ltr;text-align:left;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>Mastery Practice</h1>
+  <div class="sub">Band <bdi dir="ltr">12</bdi> • Finding derivatives with the product and quotient rules<br>Questions go from easy to hard, and the same idea returns with new numbers until you master it.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="Mastery path">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">Questions are generated with new numbers every time, and your progress is saved in this browser only. We do not ask for an email or a phone number, and the name is optional. If you share feedback, a simple summary of your rounds is sent with it.</p>
+</main>
+<script>window.TM_CFG={"gr": "g12-advanced", "band": 12, "label": "Band 12", "gen": "TmGenPQEn", "lang": "en"};</script>
+<script>
+/* Band 12 question generator (applying the product and quotient rules to derivatives) - Grade 12 Advanced, English version.
+   Ministry-style multiple choice, worked solutions, a hint per type, and distractors built from common mistakes, each with a specific diagnosis.
+   Template-based generation (no AI); every value is an exact fraction. */
+(function (root) {
+  'use strict';
+
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+
+  /* ---------- exact fractions ---------- */
+  function fr(n, d) { d = d === undefined ? 1 : d; if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function mul(a, b) { return fr(a.n * b.n, a.d * b.d); }
+  function powI(a, k) { var r = fr(1); var i; if (k >= 0) { for (i = 0; i < k; i++) r = mul(r, a); return r; } for (i = 0; i < -k; i++) r = mul(r, fr(a.d, a.n)); return r; }
+  function ltx(f) { if (f.d === 1) return String(f.n); return (f.n < 0 ? '-' : '') + '\\frac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function key(f) { return f.n + '/' + f.d; }
+  function mag(f) { return Math.abs(f.n / f.d); }
+
+  /* ---------- distractors: choose 3 different, plausible values ---------- */
+  function pickDistractors(rng, correct, cands, genericWhy) {
+    var seen = {}; seen[key(correct)] = 1; var out = [], usedCls = {}; out.amb = 0; out.gen = 0;
+    var lim = Math.max(mag(correct), 1) * 14 + 40;
+    shuffle(rng, cands).forEach(function (c) {
+      if (out.length >= 3 || !c.v || usedCls[c.cls]) return;
+      if (seen[key(c.v)] || mag(c.v) > lim || c.v.d > 400) return;
+      seen[key(c.v)] = 1; usedCls[c.cls] = 1; out.push({ v: c.v, why: c.why, cls: c.cls });
+      var same = {}; cands.forEach(function (o) { if (o.v && key(o.v) === key(c.v)) same[o.cls] = 1; });
+      if (Object.keys(same).length > 1) out.amb++;
+    });
+    var guard = 0;
+    while (out.length < 3 && guard++ < 200) {
+      var dv = ri(rng, -6, 6); if (!dv) continue;
+      var alt = fr(correct.n + dv * correct.d, correct.d);
+      if (seen[key(alt)]) continue;
+      seen[key(alt)] = 1; out.push({ v: alt, why: genericWhy, cls: 'generic' }); out.gen++;
+    }
+    return out;
+  }
+
+  function add(a, b) { return fr(a.n * b.d + b.n * a.d, a.d * b.d); }
+  function neg(a) { return fr(-a.n, a.d); }
+  function sgnJoin(parts) { var s = ''; parts.forEach(function (t) { if (!t) return; var ng = t.charAt(0) === '-'; if (!s) s = t; else s += (ng ? ' - ' + t.slice(1) : ' + ' + t); }); return s; }
+  /* polynomials as coefficient arrays from the constant term upward */
+  function ev(p, x) { var s = 0; for (var i = p.length - 1; i >= 0; i--) s = s * x + p[i]; return s; }
+  function dr(p) { var r = []; for (var i = 1; i < p.length; i++) r.push(p[i] * i); return r.length ? r : [0]; }
+  function ptex(p) {
+    var parts = [];
+    for (var k = p.length - 1; k >= 0; k--) {
+      var c = p[k]; if (!c) continue; var a = Math.abs(c), body = k === 0 ? String(a) : ((a === 1 ? '' : String(a)) + (k === 1 ? 'x' : 'x^{' + k + '}'));
+      parts.push((c < 0 ? '-' : '') + body);
+    }
+    return sgnJoin(parts) || '0';
+  }
+  function par(p) { var n = p.filter(function (c) { return c; }).length; return n > 1 || p[p.length - 1] < 0 ? '\\left(' + ptex(p) + '\\right)' : ptex(p); }
+  function pn(n) { return n < 0 ? '\\left(' + n + '\\right)' : String(n); }
+  function okv(v, m) { return v && Math.abs(v.n / v.d) <= (m || 900) && v.d <= 400; }
+  function mulp(a, b) { var r = []; for (var i = 0; i < a.length + b.length - 1; i++) r.push(0); for (i = 0; i < a.length; i++) for (var j = 0; j < b.length; j++) r[i + j] += a[i] * b[j]; return r; }
+  function lin(rng) { return [pick(rng, [-7, -6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6, 7]), pick(rng, [1, 2, 3, 4, -1, -2, -3, -4])]; }
+  function quad(rng, mid) { return [pick(rng, [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6]), mid ? pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]) : 0, pick(rng, [1, 1, 2, 3, -1, -2])]; }
+
+  var WHY = {
+    signslip: 'The sign of the answer was changed at the end of the computation.',
+    generic: 'This value does not equal the quantity asked for in the question.'
+  };
+  function fvalWhy(x0) { return 'The value \\(f(' + x0 + ')\\) was computed.'; }
+  function fvalWhyH(a) { return 'The value \\(h(' + a + ')\\) was computed.'; }
+  function pwr(b, k) { var bb = b < 0 ? '\\left(' + b + '\\right)' : String(b); return k === 1 ? bb : bb + '^{' + k + '}'; }
+  function wp(t) { return '\\left(' + t + '\\right)'; }
+  var HINT = {
+    gen: 'What does the form of the function suggest about how to differentiate it?',
+    prod: 'Which rule applies to a product of two functions?',
+    quot: 'Which rule applies to a quotient of two functions?',
+    quot3: 'What does the form of the function suggest about how to differentiate it?',
+    table: 'What does the way \\(h\\) is defined suggest about how to differentiate it?',
+    tprod: 'What does the way \\(h\\) is defined suggest about how to differentiate it?',
+    tquot: 'What does the way \\(h\\) is defined suggest about how to differentiate it?',
+    txf: 'What does the way \\(h\\) is defined suggest about how to differentiate it?',
+    k: 'What does the information in the question tell you about \\(k\\)?',
+    pq: 'What does the form of the function suggest about how to differentiate it?'
+  };
+  /* the last rows of a quotient solution: the value of the fraction, then its simplification when it differs */
+  function quotEval(lhs, N, D, corr) {
+    if (corr.n === N && corr.d === D) return [{ t: lhs + '=' + ltx(corr), ar: 'Evaluate' }];
+    return [{ t: lhs + '=\\frac{' + N + '}{' + D + '}', ar: 'Evaluate' }, { t: lhs + '=' + ltx(corr), ar: 'Simplify' }];
+  }
+  /* 1) product */
+  function prodCore(u, v, x0, extraDist) {
+    var u0 = ev(u, x0), v0 = ev(v, x0), du = dr(u), dv = dr(v), du0 = ev(du, x0), dv0 = ev(dv, x0);
+    var A = du0 * v0, B = u0 * dv0, corr = fr(A + B), U = ptex(u), V = ptex(v);
+    var c = [
+      { cls: 'prodders', v: fr(du0 * dv0), why: 'The derivative of \\(' + U + '\\) was multiplied by the derivative of \\(' + V + '\\).' },
+      { cls: 'only1', v: fr(A), why: 'The product of the derivative of \\(' + U + '\\) and \\(' + V + '\\) was computed.' },
+      { cls: 'only2', v: fr(B), why: 'The product of \\(' + U + '\\) and the derivative of \\(' + V + '\\) was computed.' },
+      { cls: 'fval', v: fr(u0 * v0), why: fvalWhy(x0) },
+      { cls: 'diffsign', v: fr(A - B), why: 'The product of \\(' + U + '\\) and the derivative of \\(' + V + '\\) was subtracted from the product of the derivative of \\(' + U + '\\) and \\(' + V + '\\).' },
+      { cls: 'signslip', v: neg(corr), why: WHY.signslip }
+    ];
+    var sol = [
+      { t: 'u=' + U, ar: 'Name the first factor' },
+      { t: 'v=' + V, ar: 'Name the second factor' },
+      { t: 'u\'=' + ptex(du), ar: 'Differentiate the first factor' },
+      { t: 'v\'=' + ptex(dv), ar: 'Differentiate the second factor' },
+      { t: 'f\'(x)=u\'v+uv\'', ar: 'Apply the product rule' },
+      { t: 'u(' + x0 + ')=' + u0, ar: 'Find the value of \\(u\\) at \\(x=' + x0 + '\\)' },
+      { t: 'v(' + x0 + ')=' + v0, ar: 'Find the value of \\(v\\) at \\(x=' + x0 + '\\)' },
+      { t: 'u\'(' + x0 + ')=' + du0, ar: 'Find the value of \\(u\'\\) at \\(x=' + x0 + '\\)' },
+      { t: 'v\'(' + x0 + ')=' + dv0, ar: 'Find the value of \\(v\'\\) at \\(x=' + x0 + '\\)' },
+      { t: 'f\'(' + x0 + ')=' + pn(du0) + '\\cdot ' + pn(v0) + '+' + pn(u0) + '\\cdot ' + pn(dv0), ar: 'Substitute these values' },
+      { t: 'f\'(' + x0 + ')=' + pn(A) + '+' + pn(B), ar: 'Multiply' },
+      { t: 'f\'(' + x0 + ')=' + corr.n, ar: 'Add' },
+      { box: String(corr.n) }
+    ];
+    return { corr: corr, cands: c, sol: sol };
+  }
+  function qProd(rng, lvl) {
+    for (var g = 0; g < 800; g++) {
+      var u = lin(rng), v = lvl === 1 ? quad(rng, false) : (rng() < 0.5 ? quad(rng, true) : [pick(rng, [-5, -3, -2, 2, 3, 5]), pick(rng, [-3, -2, 1, 2]), 0, pick(rng, [1, 2, -1])]);
+      if (lvl >= 3) u = quad(rng, true);
+      var x0 = pick(rng, lvl === 1 ? [-2, -1, 1, 2, 3] : [-3, -2, -1, 1, 2, 3]);
+      var r = prodCore(u, v, x0); if (!okv(r.corr, 900)) continue;
+      if (Math.abs(ev(u, x0) * ev(v, x0)) > 900) continue;
+      var e = 'f(x)=' + par(u) + par(v);
+      return { e: e, x0: x0, stem: 'Find \\(f\'(' + x0 + ')\\) for the following function:', corr: r.corr, cands: r.cands, sol: r.sol, kind: 'prod', hint: lvl === 1 ? HINT.prod : HINT.quot3, key: e + '@' + x0 };
+    }
+    throw new Error('prod');
+  }
+  /* 2) quotient */
+  function quotCore(u, v, x0) {
+    var u0 = ev(u, x0), v0 = ev(v, x0), du = dr(u), dv = dr(v), du0 = ev(du, x0), dv0 = ev(dv, x0);
+    var N = du0 * v0 - u0 * dv0, D = v0 * v0, corr = fr(N, D), U = ptex(u), V = ptex(v);
+    var c = [
+      { cls: 'order', v: fr(-N, D), why: 'The numerator of the derivative was formed as \\(' + U + '\\) times the derivative of \\(' + V + '\\), minus the derivative of \\(' + U + '\\) times \\(' + V + '\\).' },
+      { cls: 'nosq', v: fr(N, v0), why: 'The numerator of the derivative was divided by \\(' + v0 + '\\), the value of \\(' + V + '\\) at \\(x=' + x0 + '\\).' },
+      { cls: 'dersdiv', v: fr(du0, dv0), why: 'The derivative of \\(' + U + '\\) was divided by the derivative of \\(' + V + '\\).' },
+      { cls: 'prodform', v: fr(du0 * v0 + u0 * dv0, D), why: 'The numerator of the derivative was formed as the derivative of \\(' + U + '\\) times \\(' + V + '\\), plus \\(' + U + '\\) times the derivative of \\(' + V + '\\).' },
+      { cls: 'nosecond', v: fr(du0 * v0, D), why: 'The numerator of the derivative was taken as the derivative of \\(' + U + '\\) times \\(' + V + '\\).' },
+      { cls: 'fval', v: fr(u0, v0), why: fvalWhy(x0) }
+    ];
+    var sol = [
+      { t: 'u=' + U, ar: 'Name the numerator' },
+      { t: 'v=' + V, ar: 'Name the denominator' },
+      { t: 'u\'=' + ptex(du), ar: 'Differentiate the numerator' },
+      { t: 'v\'=' + ptex(dv), ar: 'Differentiate the denominator' },
+      { t: 'f\'(x)=\\frac{u\'v-uv\'}{v^{2}}', ar: 'Apply the quotient rule' },
+      { t: 'u(' + x0 + ')=' + u0, ar: 'Find the value of \\(u\\) at \\(x=' + x0 + '\\)' },
+      { t: 'v(' + x0 + ')=' + v0, ar: 'Find the value of \\(v\\) at \\(x=' + x0 + '\\)' },
+      { t: 'u\'(' + x0 + ')=' + du0, ar: 'Find the value of \\(u\'\\) at \\(x=' + x0 + '\\)' },
+      { t: 'v\'(' + x0 + ')=' + dv0, ar: 'Find the value of \\(v\'\\) at \\(x=' + x0 + '\\)' },
+      { t: 'f\'(' + x0 + ')=\\frac{' + pn(du0) + '\\cdot ' + pn(v0) + '-' + pn(u0) + '\\cdot ' + pn(dv0) + '}{' + pn(v0) + '^{2}}', ar: 'Substitute these values' }
+    ].concat(quotEval('f\'(' + x0 + ')', N, D, corr), [{ box: ltx(corr) }]);
+    return { corr: corr, cands: c, sol: sol, N: N, D: D };
+  }
+  function qQuot(rng, lvl) {
+    for (var g = 0; g < 1000; g++) {
+      var u, v;
+      if (lvl === 2) { u = lin(rng); v = rng() < 0.6 ? lin(rng) : quad(rng, false); if (v.length === 2 && v[0] === 0) continue; }
+      else { u = quad(rng, rng() < 0.6); v = rng() < 0.5 ? lin(rng) : quad(rng, false); }
+      var x0 = pick(rng, [-3, -2, -1, 1, 2, 3]);
+      var v0 = ev(v, x0); if (Math.abs(v0) < 2 || Math.abs(v0) > 40) continue;
+      var r = quotCore(u, v, x0); if (r.D > 300 || !okv(r.corr, 900)) continue;
+      var e = 'f(x)=\\frac{' + ptex(u) + '}{' + ptex(v) + '}';
+      return { e: e, x0: x0, stem: 'Find \\(f\'(' + x0 + ')\\) for the following function:', corr: r.corr, cands: r.cands, sol: r.sol, kind: 'quot', hint: lvl === 2 ? HINT.quot : HINT.quot3, key: e + '@' + x0 };
+    }
+    throw new Error('quot');
+  }
+  /* 4) table of values */
+  function tbl(rng, type) {
+    for (var g = 0; g < 800; g++) {
+      var a = pick(rng, [1, 2, 3, 4, -1, -2]), f0 = pick(rng, [-5, -4, -3, -2, 2, 3, 4, 5, 6]), fp = pick(rng, [-4, -3, -2, -1, 1, 2, 3, 5]), g0 = pick(rng, [-4, -3, -2, 2, 3, 4, 5]), gp = pick(rng, [-5, -3, -2, -1, 1, 2, 3, 4]);
+      var e = 'f(' + a + ')=' + f0 + ',\\quad f\'(' + a + ')=' + fp + ',\\quad g(' + a + ')=' + g0 + ',\\quad g\'(' + a + ')=' + gp, c, sol, corr, stem;
+      if (type === 'prod') {
+        var A = fp * g0, B = f0 * gp; corr = fr(A + B); stem = 'If \\(h(x)=f(x)\\cdot g(x)\\), find \\(h\'(' + a + ')\\).';
+        c = [{ cls: 'prodders', v: fr(fp * gp), why: 'The product \\(f\'(' + a + ')g\'(' + a + ')\\) was computed.' }, { cls: 'only1', v: fr(A), why: 'The product \\(f\'(' + a + ')g(' + a + ')\\) was computed.' },
+          { cls: 'only2', v: fr(B), why: 'The product \\(f(' + a + ')g\'(' + a + ')\\) was computed.' },
+          { cls: 'fval', v: fr(f0 * g0), why: fvalWhyH(a) }, { cls: 'diffsign', v: fr(A - B), why: 'The two terms were subtracted: \\(f\'(' + a + ')g(' + a + ')-f(' + a + ')g\'(' + a + ')\\).' }];
+        sol = [{ t: 'h\'(x)=f\'(x)g(x)+f(x)g\'(x)', ar: 'Apply the product rule' }, { t: 'h\'(' + a + ')=' + pn(fp) + '\\cdot ' + pn(g0) + '+' + pn(f0) + '\\cdot ' + pn(gp), ar: 'Substitute the given values at \\(x=' + a + '\\)' }, { t: 'h\'(' + a + ')=' + pn(A) + '+' + pn(B), ar: 'Multiply' }, { t: 'h\'(' + a + ')=' + corr.n, ar: 'Add' }, { box: String(corr.n) }];
+      } else if (type === 'quot') {
+        var N = fp * g0 - f0 * gp, D = g0 * g0; corr = fr(N, D); stem = 'If \\(h(x)=\\dfrac{f(x)}{g(x)}\\), find \\(h\'(' + a + ')\\).';
+        c = [{ cls: 'order', v: fr(-N, D), why: 'The numerator was formed as \\(f(' + a + ')g\'(' + a + ')-f\'(' + a + ')g(' + a + ')\\).' }, { cls: 'nosq', v: fr(N, g0), why: 'The numerator was divided by \\(g(' + a + ')\\).' },
+          { cls: 'dersdiv', v: fr(fp, gp), why: 'The quotient \\(\\dfrac{f\'(' + a + ')}{g\'(' + a + ')}\\) was computed.' }, { cls: 'prodform', v: fr(fp * g0 + f0 * gp, D), why: 'The numerator was formed as \\(f\'(' + a + ')g(' + a + ')+f(' + a + ')g\'(' + a + ')\\).' },
+          { cls: 'fval', v: fr(f0, g0), why: fvalWhyH(a) }];
+        sol = [{ t: 'h\'(x)=\\frac{f\'(x)g(x)-f(x)g\'(x)}{\\left(g(x)\\right)^{2}}', ar: 'Apply the quotient rule' }, { t: 'h\'(' + a + ')=\\frac{' + pn(fp) + '\\cdot ' + pn(g0) + '-' + pn(f0) + '\\cdot ' + pn(gp) + '}{' + pn(g0) + '^{2}}', ar: 'Substitute the given values at \\(x=' + a + '\\)' }].concat(quotEval('h\'(' + a + ')', N, D, corr), [{ box: ltx(corr) }]);
+      } else {
+        var m = pick(rng, [2, 3]); var Av = m * a * f0 * 1; /* h(x)=x^m f(x) */
+        var t1 = m * Math.pow(a, m - 1) * f0, t2 = Math.pow(a, m) * fp; corr = fr(t1 + t2);
+        e = 'f(' + a + ')=' + f0 + ',\\quad f\'(' + a + ')=' + fp; stem = 'If \\(h(x)=x^{' + m + '}f(x)\\), find \\(h\'(' + a + ')\\).';
+        c = [{ cls: 'noprod', v: fr(t2), why: 'The product \\(' + pwr(a, m) + '\\cdot f\'(' + a + ')\\) was computed.' },
+          { cls: 'only1', v: fr(t1), why: 'The product \\(' + m + '\\cdot ' + pwr(a, m - 1) + '\\cdot f(' + a + ')\\) was computed.' },
+          { cls: 'prodders', v: fr(m * Math.pow(a, m - 1) * fp), why: 'The derivative of \\(x^{' + m + '}\\) was multiplied by \\(f\'(x)\\).' }, { cls: 'fval', v: fr(Math.pow(a, m) * f0), why: fvalWhyH(a) },
+          { cls: 'diffsign', v: fr(t1 - t2), why: 'The two terms were subtracted: \\(' + m + (m === 2 ? 'x' : 'x^{' + (m - 1) + '}') + 'f(x)-x^{' + m + '}f\'(x)\\).' }];
+        sol = [{ t: 'h\'(x)=' + m + (m === 2 ? 'x' : 'x^{' + (m - 1) + '}') + 'f(x)+x^{' + m + '}f\'(x)', ar: 'Apply the product rule' }, { t: 'h\'(' + a + ')=' + m + '\\cdot ' + pn(Math.pow(a, m - 1)) + '\\cdot ' + pn(f0) + '+' + pn(Math.pow(a, m)) + '\\cdot ' + pn(fp), ar: 'Substitute the given values at \\(x=' + a + '\\)' }, { t: 'h\'(' + a + ')=' + pn(t1) + '+' + pn(t2), ar: 'Multiply' }, { t: 'h\'(' + a + ')=' + corr.n, ar: 'Add' }, { box: String(corr.n) }];
+      }
+      if (!okv(corr, 300) || c.some(function (o) { return !okv(o.v, 600); })) continue;
+      return { e: e, x0: a, stem: 'Using the values below, find ' + stem.split(', find ')[1].slice(0, -1) + ' for ' + stem.split(', find ')[0].slice(3) + '.', corr: corr, cands: c, sol: sol, kind: 'table' + type, hint: type === 'prod' ? HINT.tprod : type === 'quot' ? HINT.tquot : HINT.txf, key: type + e + stem };
+    }
+    throw new Error('tbl');
+  }
+  /* 5) find a constant in a rational function: f(x)=(px+k)/(x+a), f'(x0)=V */
+  function qKquot(rng) {
+    for (var g = 0; g < 800; g++) {
+      var p = pick(rng, [1, 2, 3, -1, -2]), a = pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]), t = pick(rng, [-3, -2, -1, 1, 2, 3]), x0 = t - a, V = pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]);
+      var k = p * a - V * t * t; if (k === 0 || Math.abs(k) > 60) continue; if (x0 === 0 && false) continue;
+      var den = 'x' + (a < 0 ? ' - ' + (-a) : ' + ' + a), num = (p === 1 ? '' : p === -1 ? '-' : String(p)) + 'x + k';
+      var e = 'f(x)=\\frac{' + num + '}{' + den + '},\\quad f\'(' + x0 + ')=' + V, corr = fr(k);
+      var P0 = p * a, kmin = 'k' + (P0 < 0 ? ' + ' + (-P0) : ' - ' + P0);
+      var kin = function (c0, ck) { return ck === 1 ? (c0 < 0 ? 'k - ' + (-c0) : c0 + ' + k') : c0 + ' - k'; };
+      var c = [
+        { cls: 'order', v: fr(p * a + V * t * t), why: 'The numerator of the derivative was taken as \\(' + kmin + '\\).' },
+        { cls: 'nosq', v: fr(p * a - V * t), why: 'The denominator of the derivative was taken as \\(' + t + '\\), the value of \\(' + den + '\\) at \\(x=' + x0 + '\\).' },
+        { cls: 'prodform', v: fr(-p * a - V * t * t), why: 'The numerator of the derivative was taken as \\(' + kin(-P0, -1) + '\\).' },
+        { cls: 'noV', v: fr(-V * t * t), why: 'The number \\(' + P0 + '\\) in the numerator of the derivative was taken to be zero.' },
+        { cls: 'movesign', v: fr(V * t * t - p * a), why: 'The numerator of the derivative was taken as \\(' + kin(P0, 1) + '\\).' }
+      ];
+      var T2 = t * t, numK = ltxN(p * a) + ' - k', fd = function (nm) { return T2 === 1 ? nm : '\\frac{' + nm + '}{' + T2 + '}'; };
+      var pc = p === 1 ? '' : p === -1 ? '-' : String(p);
+      var sol = [{ t: 'f\'(x)=\\frac{' + pc + '\\left(' + den + '\\right)-\\left(' + num + '\\right)\\cdot 1}{\\left(' + den + '\\right)^{2}}', ar: 'Apply the quotient rule' },
+        { t: 'f\'(x)=\\frac{' + numK + '}{\\left(' + den + '\\right)^{2}}', ar: 'Simplify the numerator' },
+        { t: 'f\'(' + x0 + ')=' + fd(numK), ar: 'Substitute \\(x=' + x0 + '\\)' },
+        { t: fd(numK) + '=' + V, ar: 'Set the derivative equal to the given value \\(' + V + '\\)' }
+        ].concat(T2 === 1 ? [] : [{ t: numK + '=' + (V * T2), ar: 'Multiply both sides by \\(' + T2 + '\\)' }]).concat([
+        { t: 'k=' + ltxN(p * a) + '-' + pn(V * T2), ar: 'Solve for \\(k\\)' }, { t: 'k=' + k, ar: 'Evaluate' }, { box: String(k) }]);
+      return { e: e, x0: x0, stem: 'Find the value of the constant \\(k\\), given that:', corr: corr, cands: c, sol: sol, kind: 'kquot', hint: HINT.k, key: e };
+    }
+    throw new Error('kquot');
+  }
+  function ltxN(n) { return String(n); }
+  /* 5) numerator that is a product, divided by a linear function: f(x)=x^m(px+q)/(rx+s) */
+  function qPQ(rng) {
+    for (var g = 0; g < 1000; g++) {
+      var m = pick(rng, [1, 2]), q = lin(rng), N = [], i; for (i = 0; i < m; i++) N.push(0); N.push(1); N = mulp(N, q);
+      var v = lin(rng), x0 = pick(rng, [-3, -2, -1, 1, 2, 3]), v0 = ev(v, x0); if (v0 === 0 || Math.abs(v0) > 20) continue;
+      var r = quotCore(N, v, x0); if (r.D > 300 || !okv(r.corr, 900)) continue;
+      var xm = m === 1 ? 'x' : 'x^{' + m + '}', e = 'f(x)=\\frac{' + xm + par(q) + '}{' + ptex(v) + '}';
+      var u0 = ev(N, x0), du = dr(N), du0 = ev(du, x0), dv0 = ev(dr(v), x0);
+      var UU = xm + par(q), VV = ptex(v);
+      var prodU = (m * Math.pow(x0, m - 1)) * q[1] * 1; /* product of the derivatives of x^m and (px+q) */
+      var c = [
+        { cls: 'order', v: fr(-r.N, r.D), why: 'The numerator of the derivative was formed as \\(' + UU + '\\) times the derivative of \\(' + VV + '\\), minus the derivative of \\(' + UU + '\\) times \\(' + VV + '\\).' },
+        { cls: 'nosq', v: fr(r.N, v0), why: 'The numerator of the derivative was divided by \\(' + v0 + '\\), the value of \\(' + VV + '\\) at \\(x=' + x0 + '\\).' },
+        { cls: 'numders', v: fr(prodU * v0 - u0 * dv0, v0 * v0), why: 'The derivative of \\(' + UU + '\\) was taken as the product of the derivatives of \\(' + xm + '\\) and \\(' + ptex(q) + '\\).' },
+        { cls: 'nosecond', v: fr(du0 * v0, v0 * v0), why: 'The numerator of the derivative was taken as the derivative of \\(' + UU + '\\) times \\(' + VV + '\\).' },
+        { cls: 'fval', v: fr(u0, v0), why: fvalWhy(x0) }
+      ];
+      var sol = [
+        { t: xm + par(q) + '=' + ptex(N), ar: 'Expand the numerator' },
+        { t: 'u=' + ptex(N), ar: 'Name the numerator' },
+        { t: 'v=' + ptex(v), ar: 'Name the denominator' },
+        { t: 'u\'=' + ptex(du), ar: 'Differentiate the numerator' },
+        { t: 'v\'=' + ptex(dr(v)), ar: 'Differentiate the denominator' },
+        { t: 'f\'(x)=\\frac{u\'v-uv\'}{v^{2}}', ar: 'Apply the quotient rule' },
+        { t: 'u(' + x0 + ')=' + u0, ar: 'Find the value of \\(u\\) at \\(x=' + x0 + '\\)' },
+        { t: 'v(' + x0 + ')=' + v0, ar: 'Find the value of \\(v\\) at \\(x=' + x0 + '\\)' },
+        { t: 'u\'(' + x0 + ')=' + du0, ar: 'Find the value of \\(u\'\\) at \\(x=' + x0 + '\\)' },
+        { t: 'v\'(' + x0 + ')=' + dv0, ar: 'Find the value of \\(v\'\\) at \\(x=' + x0 + '\\)' },
+        { t: 'f\'(' + x0 + ')=\\frac{' + pn(du0) + '\\cdot ' + pn(v0) + '-' + pn(u0) + '\\cdot ' + pn(dv0) + '}{' + pn(v0) + '^{2}}', ar: 'Substitute these values' }
+      ].concat(quotEval('f\'(' + x0 + ')', r.N, r.D, r.corr), [{ box: ltx(r.corr) }]);
+      if (c.some(function (o) { return !okv(o.v, 900); })) continue;
+      return { e: e, x0: x0, stem: 'Find \\(f\'(' + x0 + ')\\) for the following function:', corr: r.corr, cands: c, sol: sol, kind: 'pq', hint: HINT.pq, key: e + '@' + x0 };
+    }
+    throw new Error('pq');
+  }
+  function qChallenge(rng) { var r = rng(); return r < 0.45 ? qPQ(rng) : (r < 0.75 ? qKquot(rng) : tbl(rng, 'xf')); }
+
+  var LEVELS = [
+    { id: 1, ar: 'Product rule', hint: HINT.prod },
+    { id: 2, ar: 'Quotient rule', hint: HINT.quot },
+    { id: 3, ar: 'Higher-degree polynomial expressions', hint: HINT.quot3 },
+    { id: 4, ar: 'Ministry level', hint: HINT.table },
+    { id: 5, ar: 'Challenge', challenge: true, hint: HINT.pq }
+  ];
+  function build(level, rng) {
+    var r = rng();
+    if (level === 1) return qProd(rng, 1);
+    if (level === 2) return qQuot(rng, 2);
+    if (level === 3) return r < 0.5 ? qProd(rng, 3) : qQuot(rng, 3);
+    if (level === 4) return r < 0.34 ? tbl(rng, 'prod') : (r < 0.68 ? tbl(rng, 'quot') : qKquot(rng));
+    return qChallenge(rng);
+  }
+  function make(level, rng) {
+    rng = rng || Math.random;
+    var t, dis, tries = 0;
+    do { t = build(level, rng); dis = pickDistractors(rng, t.corr, t.cands, WHY.generic); tries++; } while ((dis.gen > 0 || dis.amb > 0) && tries < 80);
+    var correct = { v: t.corr, why: '' };
+    var all = shuffle(rng, [correct].concat(dis));
+    return {
+      band: 12, level: level, rtl: false, lang: 'en', stem: t.stem, e: t.e,
+      opts: all.map(function (s) { return { t: ltx(s.v), why: s.why || '' }; }),
+      ans: all.indexOf(correct), sol: t.sol, hint: t.hint || LEVELS[level - 1].hint, key: t.key,
+      data: { cls: all.map(function (s) { return s.cls || ''; }), kind: t.kind, x0: t.x0, correct: key(t.corr), opts: all.map(function (s) { return key(s.v); }) }
+    };
+  }
+
+  var api = { levels: LEVELS, make: make };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenPQEn = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+
+</script>
+<script>
+/* "Practice to Mastery" engine: a round of 5 questions, 4 correct to pass; whoever does not pass repeats the idea with new numbers. Progress is kept in the browser only. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'Band ' + BAND, GRS = GR + '-en', KEY = 'tm-g12a-en-mastery-12', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GRS] || typeof all[GRS] !== 'object') all[GRS] = {};
+  var st = all[GRS][BAND];
+  if (!st || typeof st !== 'object') st = all[GRS][BAND] = {};
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 1 ? '1 correct answer' : n + ' correct answers'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var isCur = l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])); var cls = (isCur && !st.mastered) ? 'cur' : (st.done[l.id] ? 'done' : (isCur ? 'cur' : ''));
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.className += ' back'; li.setAttribute('role', 'button'); li.tabIndex = 0; li.setAttribute('aria-label', 'Back to level ' + l.id);
+        var goBack = function () { st.level = l.id; persist(); newRound(); };
+        li.addEventListener('click', goBack);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goBack(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'Level ' + st.level + ' • ' + LV[st.level - 1].ar + ' — Question ' + (Math.min(round.idx + 1, ROUND)) + ' of ' + ROUND + ' • ' + PASS + ' correct answers needed to master the level'
+      : (st.mastered ? 'You mastered every level' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'I already know this, start at Ministry level →'); b.type = 'button';
+    b.addEventListener('click', function () {
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      return s.box ? '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>' : note + '<div class="st" data-t="' + esc(s.t) + '">\\(\\displaystyle ' + s.t + '\\)</div>';
+    }).join('');
+    return '<h3>Detailed solution</h3>' + rows;
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'Options');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'Show hint'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'Show hint' : 'Hide hint'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+    /* safety net: if the givens line is wider than the screen (a value would be cut off), it is split over two lines instead of scrolling horizontally */
+    setTimeout(function fit(n) { var eq = stage.querySelector('.eq'); if (!eq) return; if (!eq.querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fit((n || 0) + 1); }, 150); return; }
+      var over = function () { return eq.scrollWidth > eq.clientWidth + 1; };
+      var shrink = function () { var fs = parseFloat(getComputedStyle(eq).fontSize); while (over() && fs > 12) { fs -= 1; eq.style.fontSize = fs + 'px'; } };
+      if (!over()) return; var parts = q.e.split(',\\quad ');
+      if (/gathered/.test(q.e) || parts.length < 2) { shrink(); return; }
+      var last = 1;
+      (function rows(r) {
+        var per = Math.ceil(parts.length / r), lines = []; for (var i = 0; i < parts.length; i += per) lines.push(parts.slice(i, i + per).join(',\\quad '));
+        if (lines.length <= last) { if (r < parts.length) { rows(r + 1); } else { shrink(); } return; } last = lines.length;
+        eq.innerHTML = '\\[\\begin{gathered}' + lines.join('\\\\ ') + '\\end{gathered}\\]';
+        window.MathJax.typesetPromise([eq]).then(function () { if (over() && r < parts.length) rows(r + 1); else shrink(); }).catch(function () {});
+      })(2); }, 0);
+  }
+
+  /* safety net for the detailed solution: a row wider than the screen is first put on one line per part, then one line per equality, and finally shrunk, so that no step is cut off */
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+  function splitEq(s) { var out = [], d = 0, cur = ''; for (var i = 0; i < s.length; i++) { var c = s.charAt(i); if (c === '{') d++; else if (c === '}') d--; if (c === '=' && d === 0) { out.push(cur); cur = ''; } else cur += c; } out.push(cur); return out; }
+  function fitSol(n) {
+    var rows = document.querySelectorAll('.sol .st[data-t]');
+    if (!rows.length) return;
+    if (!rows[0].querySelector('mjx-container')) { if ((n || 0) < 40) setTimeout(function () { fitSol((n || 0) + 1); }, 150); return; }
+    Array.prototype.forEach.call(rows, function (el) {
+      var over = function () { return el.scrollWidth > el.clientWidth + 1; };
+      var shrink = function () { var fs = parseFloat(getComputedStyle(el).fontSize); while (over() && fs > 10) { fs -= 1; el.style.fontSize = fs + 'px'; } };
+      if (!over()) return;
+      var t = el.getAttribute('data-t'), parts = t.split(',\\quad ');
+      var show = function (body, next) { el.innerHTML = '\\(\\displaystyle ' + body + '\\)'; window.MathJax.typesetPromise([el]).then(next).catch(function () {}); };
+      var full = function () {
+        var lines = [];
+        parts.forEach(function (p) { var pc = splitEq(p); if (pc.length < 2) { lines.push('&' + p); return; } lines.push(pc[0] + ' &= ' + pc[1]); for (var i = 2; i < pc.length; i++) lines.push('&= ' + pc[i]); });
+        show('\\begin{aligned}' + lines.join('\\\\ ') + '\\end{aligned}', shrink);
+      };
+      if (parts.length > 1) show('\\begin{gathered}' + parts.join('\\\\ ') + '\\end{gathered}', function () { if (over()) full(); else shrink(); }); else full();
+    });
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ Correct answer.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ Incorrect answer.' + why + '<span class="why">Correct answer:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'Show detailed solution'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; tg.textContent = sol.hidden ? 'Show detailed solution' : 'Hide detailed solution'; if (!sol.hidden) setTimeout(function () { fitSol(0); }, 0); });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'See round result →' : 'Next question →'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb); fitSol(0);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0;
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>Challenge level mastered ✓</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + ' at challenge level. Excellent work: this goes beyond what the exam asks.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'Back to the class page'); l5.href = '/' + GR + '/en/';
+        var b5 = h('button', 'btn ghost', 'New challenge round'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>Level ' + lvl + ' mastered ✓</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + '. Now move on to level ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'Start level ' + st.level + ' →'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>' + BLBL + ' fully mastered ✓</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + ' at Ministry level. Well done. Now try a full practice exam from the class page to test yourself as in the real exam.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'Back to the class page'); l1.href = '/' + GR + '/en/';
+        var b2 = h('button', 'btn ghost', 'Practice again'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'Try the challenge level (optional) →'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>Not mastered yet</h2><p>You got ' + cnt(round.correct) + ' out of ' + ROUND + '; mastery needs at least ' + cnt(PASS) + '. That is fine: the same idea comes back with new numbers until you master it.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>This level needs more practice. We suggest you review the detailed solutions in ' + BLBL + ' and then come back.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'New round with new numbers →'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'Review the solutions for ' + BLBL); l2.href = '/' + GR + '/en/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && lvl === CORE && !st.done[1]) { var b6 = h('button', 'btn ghost', 'Start from level ' + st.skipped + ' instead'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* one-tap question on the difficulty of the round: recorded in Umami without text, to see whether the level fits */
+  /* WhatsApp invitation after the round result: measured by the wa-result event */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'New practice sets and a weekly summary reach you in your class WhatsApp group'));
+    var a = h('a', null, 'Join on WhatsApp →'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'How were the questions in this round?'));
+    var row = h('div', 'acts');
+    [['easy', 'Easy'], ['fit', 'Just right'], ['hard', 'Hard']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'Thank you, your answer is recorded')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* student feedback on the tool: sent to the same feedback inbox, tagged by page path, and reviewed before any publication */
+  var FB_KEY = 'tm-g12a-en-mastery-12-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'Thank you, we received your feedback on this practice')); return box; }
+    box.appendChild(h('summary', null, 'Share your feedback on this practice (optional)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">How would you rate this practice?</p>' +
+      '<div class="stars" role="radiogroup" aria-label="Rating out of 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">Did it help you understand the idea? What did you like, and what needs improving?</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="Write your feedback here (at least 10 characters)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> No name</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">First name only</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> I agree to publish my feedback on the reviews page after it is reviewed</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">Send feedback</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'Choose a rating from 1 to 5.' : text.length < 10 ? 'Write at least 10 characters.' : !fd.get('consent') ? 'To send your feedback, tick the consent box.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'Write your first name or choose No name.' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[Mastery practice EN: rounds ' + (st.rounds || 0) + ', level ' + st.level + ', first round ' + (st.firstScore == null ? '-' : st.firstScore + ' of 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'Thank you, we received your feedback and will review it before publishing')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'We just received several messages from you, thank you. Please try again in an hour.' : 'The feedback could not be sent now, please try again shortly.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'The feedback could not be sent now, please try again shortly.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>
