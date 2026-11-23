@@ -7194,6 +7194,36 @@
    "path": "g12-advanced/en/haykal-enrichment-written/index.html",
    "src": "site/g12-advanced/en/haykal-enrichment-written/index.html",
    "sha256": "2277252863ade4b87aa50d89b1183ed66dee51ed2cbef8a655cd23750d7c4cc4"
+  },
+  {
+   "path": "g12-general/haykal-enrichment/index.html",
+   "src": "site/g12-general/haykal-enrichment/index.html",
+   "sha256": "69751e01f8045ae8d965b5ff3bb325be72a4cfc85c9c0cd58354f51bc6fb05dd"
+  },
+  {
+   "path": "g12-general/haykal-enrichment-written/index.html",
+   "src": "site/g12-general/haykal-enrichment-written/index.html",
+   "sha256": "ecd165912d33af3c1b479919da33f11c018ec8435b3401849dbb6779d3a00599"
+  },
+  {
+   "path": "g12-general/mastery-4/index.html",
+   "src": "site/g12-general/mastery-4/index.html",
+   "sha256": "f3acd5bc24a0d89e490549e62f5ceafda0e434d0be86947d035d31da8af8bd50"
+  },
+  {
+   "path": "g12-general/mastery-5/index.html",
+   "src": "site/g12-general/mastery-5/index.html",
+   "sha256": "b71241a3074c690dd90590d0b60cc6a7e60ff3d3507ab9e6bd1003e458705527"
+  },
+  {
+   "path": "g12-general/mastery-7/index.html",
+   "src": "site/g12-general/mastery-7/index.html",
+   "sha256": "550b2b17929838f238d33eaf33db936f6663ee00369d0d9a146063b905955b6e"
+  },
+  {
+   "path": "g12-general/mastery-9/index.html",
+   "src": "site/g12-general/mastery-9/index.html",
+   "sha256": "5f7525c7ff5d5693c6dfe225165a3b1f3280eab7d5513817d544f207efe3ab0c"
   }
  ]
 }

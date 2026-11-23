@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تدرّب بإتقان: إيجاد قيمة الدوال كثيرة الحدود | الثاني عشر عام | أكاديمية طه للرياضيات</title>
+<meta name="description" content="أسئلة تتدرّج من السهل إلى الصعب في إيجاد قيمة الدوال كثيرة الحدود عند عدد أو عند عبارة، وتتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها. مجاناً بلا تسجيل.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://tahamath.com/g12-general/mastery-9/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;800&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1E3A6C;--navyd:#0E1C3A;--gold:#D4A843;--goldl:#F0CD78;--cream:#FBF5E8;--green:#1E8449;--greenl:#E4F4EA;--red:#C0392B;--redl:#FBE9E7;--grey:#5A6472;--line:#C9D3E0;--bg:#EEF2F8;--card:#fff;--ink:#1B2433}
+*{box-sizing:border-box}
+html,body{direction:rtl;margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans Arabic',Tahoma,sans-serif;line-height:1.8}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 60px}
+header.top{background:linear-gradient(180deg,var(--navy),var(--navyd));color:#fff;border-bottom:4px solid var(--gold);padding:20px 16px 18px}
+header.top .in{max-width:860px;margin:0 auto}
+header.top h1{font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-weight:800;font-size:24px;margin:0 0 4px;color:var(--goldl);line-height:1.5}
+header.top .sub{font-size:15px;line-height:1.8}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:16px 0}
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.path li{border:1.5px solid var(--line);border-radius:12px;padding:8px 6px;text-align:center;font-size:13px;font-weight:700;color:var(--grey);background:#fff;line-height:1.5}
+.path li b{display:block;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:18px;color:var(--grey)}
+.path li.cur{border-color:var(--gold);background:var(--cream);color:var(--navyd)}
+.path li.back{cursor:pointer}.path li.back:hover,.path li.back:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.path li.cur b{color:var(--navy)}
+.path li.done{border-color:var(--green);background:var(--greenl);color:var(--green)}
+.path li.done b{color:var(--green)}
+.meta{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-size:14px;color:var(--grey);margin:12px 2px 0}
+.dots{display:flex;gap:6px}
+.dots i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);background:#fff;display:block}
+.dots i.ok{background:var(--green);border-color:var(--green)}
+.dots i.no{background:var(--red);border-color:var(--red)}
+.dots i.now{border-color:var(--navy)}
+.stem{direction:ltr;text-align:left;font-weight:700;color:var(--navyd);font-size:17px;margin:6px 0 4px}
+.stem.rtl{direction:rtl;text-align:right}.sol .sn{direction:rtl;text-align:right;font-size:14px;color:var(--grey);margin-top:6px}.eq{direction:ltr;text-align:center;font-size:22px;padding:10px 4px;overflow-x:auto}
+.opts{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;margin:8px 0 4px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:58px;padding:10px 14px;border:2px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;cursor:pointer;direction:ltr;text-align:left;min-width:0}
+.opt:hover:not(:disabled){border-color:var(--navy)}
+.skip{margin-top:12px}.skip .btn{font-size:.95em}
+.opt:focus-visible,.btn:focus-visible,.link:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--navy);font-weight:800;display:flex;align-items:center;justify-content:center}
+.opt .m{flex:1;min-width:0;overflow-x:auto}
+.opt.right{border-color:var(--green);background:var(--greenl)}
+.opt.wrong{border-color:var(--red);background:var(--redl)}
+.opt:disabled{cursor:default}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn.gold{background:var(--gold);color:var(--navyd)}
+.btn.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:10px}
+.hint{margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--cream);border:1px solid var(--gold)}
+.fb{margin-top:14px;padding:12px 14px;border-radius:12px;font-weight:600}
+.fb.ok{background:var(--greenl);border:1px solid var(--green);color:#14532d}
+.fb.no{background:var(--redl);border:1px solid var(--red);color:#7a1f16}
+.fb .why{display:block;font-weight:400;margin-top:4px;color:var(--ink)}
+.fb .corr{display:block;direction:ltr;text-align:center;font-weight:400;margin-top:8px;color:var(--ink)}
+.sol{margin-top:12px;border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.sol h3{margin:0 0 6px;font-size:15px;color:var(--navy)}
+.sol .st{direction:ltr;text-align:center;padding:3px 0;overflow-x:auto;font-size:16px}.sol .sn.en{direction:ltr;text-align:center;margin:0 0 6px;font-size:13px}
+.sol .bx{display:inline-block;border:2px solid var(--navy);border-radius:8px;padding:4px 12px}
+.res h2{margin:0 0 6px;font-family:'Noto Kufi Arabic',Tahoma,sans-serif;font-size:20px;color:var(--navy)}
+.res p{margin:6px 0}
+.res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
+.fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
+[hidden]{display:none!important}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:17px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media print{.box{break-inside:avoid}}
+</style>
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="46091ee5-1dc4-4200-818d-6b6634c7f58b" data-domains="tahamath.com,www.tahamath.com"></script>
+</head>
+<body>
+<header class="top"><div class="in">
+  <h1>تدرّب بإتقان</h1>
+  <div class="sub">البند <bdi dir="ltr">9</bdi>: إيجاد قيمة الدوال كثيرة الحدود<br>أسئلة تتدرّج من السهل إلى الصعب، وتتكرر الفكرة بأرقام جديدة حتى تتقنها.</div>
+</div></header>
+<main class="wrap">
+  <section class="box" aria-label="مسار الإتقان">
+    <ol class="path" id="path"></ol>
+    <div class="meta"><span id="roundInfo"></span><span class="dots" id="dots" aria-hidden="true"></span></div>
+    <div class="skip" id="skipBox" hidden></div>
+  </section>
+  <section class="box" id="stage" aria-live="polite"></section>
+  <p class="note">تُولَّد الأسئلة بأرقام جديدة في كل مرة، وتُحفظ نتيجتك في هذا المتصفح فقط. لا نطلب بريداً إلكترونياً ولا رقم هاتف، والاسم اختياري. وإن شاركت برأيك فسيصلنا معه ملخص بسيط عن جولاتك.</p>
+</main>
+<script>window.TM_CFG={"gr": "g12-general", "band": 9, "label": "البند 9", "gen": "TmGenPolyVal"};</script>
+<script>
+/* مولّد أسئلة البند 9 (إيجاد قيمة الدوال كثيرة الحدود) - 12 عام
+   الصيغة: Find the value of the function for the given value of x. المصدر: Reveal ص 79 (Lesson 2-1)، Bridge ص 118.
+   التوليد بالقوالب لا بالذكاء الاصطناعي. */
+(function (root) {
+  'use strict';
+  /* ===== أدوات مشتركة (تُدمج داخل كل مولّد) ===== */
+  var PUB = ["-1,2,3,0,-6|-2/1", "-1,3,0,-2,7|-2/1", "-2,1,0,-6|-3/1", "1,-2,5,0,-3|-1/1", "1,-5,2|a:1,-1", "1,0,-3,2,-1|-2/1", "2,-1,5,-4|-3/1", "2,-1,5|a:1,1", "2,0,-5,4|3/1", "3,-2,0,1,-5|-2/1", "3,-4,1,-7|2/1"], PUBSET = {}; PUB.forEach(function (s) { PUBSET[s] = 1; });
+  function sigQ(A, B, C) { var g = gcd(gcd(A, B), C) || 1; A /= g; B /= g; C /= g; if (A < 0) { A = -A; B = -B; C = -C; } return A + ',' + B + ',' + C; }
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = a % b; a = b; b = t; } return a; }
+  function ri(rng, lo, hi) { return lo + Math.floor(rng() * (hi - lo + 1)); }
+  function pick(rng, arr) { return arr[Math.floor(rng() * arr.length)]; }
+  function shuffle(rng, arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(rng() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function isSq(n) { if (n < 0) return false; var r = Math.round(Math.sqrt(n)); return r * r === n; }
+  function isqrt(n) { return Math.round(Math.sqrt(n)); }
+  function fr(n, d) { if (d === undefined) d = 1; if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; return { n: n / g, d: d / g }; }
+  function fadd(a, b) { return fr(a.n * b.d + b.n * a.d, a.d * b.d); }
+  function fsub(a, b) { return fr(a.n * b.d - b.n * a.d, a.d * b.d); }
+  function fmul(a, b) { return fr(a.n * b.n, a.d * b.d); }
+  function fdiv(a, b) { return fr(a.n * b.d, a.d * b.n); }
+  function fneg(a) { return { n: -a.n, d: a.d }; }
+  function fkey(f) { return f.n + '/' + f.d; }
+  function fval(f) { return f.n / f.d; }
+  function feq(a, b) { return a.n === b.n && a.d === b.d; }
+  function fcmp(a, b) { return a.n * b.d - b.n * a.d; }
+  function fl(f) { if (f.d === 1) return String(f.n); return (f.n < 0 ? '-' : '') + '\\frac{' + Math.abs(f.n) + '}{' + f.d + '}'; }
+  function fpow(f, e) { var r = fr(1, 1); for (var i = 0; i < e; i++) r = fmul(r, f); return r; }
+  function paren(n) { return n < 0 ? '(' + n + ')' : String(n); }
+  function sg(n) { return n < 0 ? '-' : '+'; }
+  /* كثيرة حدود من معاملات مرتبة من الأعلى؛ لا يُكتب المعامل 1 ولا -1 */
+  function polyStr(cs, v) {
+    var s = '', deg = cs.length - 1;
+    cs.forEach(function (c, i) {
+      if (c === 0) return; var e = deg - i, m = Math.abs(c);
+      var body = e === 0 ? String(m) : ((m === 1 ? '' : String(m)) + (e === 1 ? v : v + '^{' + e + '}'));
+      s += s === '' ? (c < 0 ? '-' : '') + body : (c < 0 ? ' - ' : ' + ') + body;
+    });
+    return s || '0';
+  }
+  function lin(p, q, v) { return polyStr([p, q], v || 'x'); }          /* px+q */
+  function linFr(f, v) { /* x - f أو x + |f| */ return v + (f.n < 0 ? ' + ' : ' - ') + fl(fr(Math.abs(f.n), f.d)); }
+  /* حسابات كثيرات الحدود الصحيحة (معاملات من الأدنى إلى الأعلى) */
+  function padd(a, b) { var n = Math.max(a.length, b.length), r = []; for (var i = 0; i < n; i++) r.push((a[i] || 0) + (b[i] || 0)); return r; }
+  function pmul(a, b) { var r = []; for (var i = 0; i < a.length + b.length - 1; i++) r.push(0); a.forEach(function (x, i) { b.forEach(function (y, j) { r[i + j] += x * y; }); }); return r; }
+  function pscale(a, k) { return a.map(function (x) { return x * k; }); }
+  function ppow(a, e) { var r = [1]; for (var i = 0; i < e; i++) r = pmul(r, a); return r; }
+  function pcompose(cs, lin_) { /* cs من الأدنى، lin_ = [q,p] تعني p*a+q */ var r = [0]; cs.forEach(function (c, i) { r = padd(r, pscale(ppow(lin_, i), c)); }); return r; }
+  function ptrim(a) { a = a.slice(); while (a.length > 1 && a[a.length - 1] === 0) a.pop(); return a; }
+  function phigh(a) { return ptrim(a).slice().reverse(); }
+  /* اختيار المشتتات: لا يُقبل إلا مشتت يطابق خطأً واحداً موصوفاً فقط (قيمته لا تنتجها أي نماذج أخرى)، وكل مشتت من صنف مختلف */
+  function chooseDis(rng, cands, correctKey, need) {
+    var byKey = {}; cands.forEach(function (c) { (byKey[c.key] = byKey[c.key] || {})[c.cls] = 1; });
+    var good = cands.filter(function (c) { return c.key !== correctKey && Object.keys(byKey[c.key]).length === 1; });
+    var out = [], seenK = {}, seenC = {};
+    shuffle(rng, good).forEach(function (c) { if (out.length >= need || seenK[c.key] || seenC[c.cls]) return; seenK[c.key] = 1; seenC[c.cls] = 1; out.push(c); });
+    return out.length === need ? out : null;
+  }
+
+  /* ===== التفاف سطور الحل الطويلة (عرض 390): يُكسر المجموع عند عمليات + و - من المستوى الأعلى ===== */
+  function vlen(s) { return s.replace(/\\(quad|qquad|text|displaystyle|left|right|dfrac|frac)/g, '').replace(/\\(cdot|pm)/g, 'x').replace(/[{}^_\\ ]/g, '').length + (s.match(/[+=]|[^{^_(]-/g) || []).length; }
+  function wrapCuts(main, allow) {
+    var cuts = [], bd = 0, ld = 0, pd = 0;
+    for (var i = 0; i < main.length; i++) {
+      var ch = main[i];
+      if (main.substr(i, 5) === '\\left') { ld++; i += 4; continue; }
+      if (main.substr(i, 6) === '\\right') { ld--; i += 5; continue; }
+      if (ch === '{') bd++; else if (ch === '}') bd--;
+      else if (ch === '(') pd++; else if (ch === ')') pd--;
+      else if (bd === 0 && ld === 0 && pd <= allow && i > 0) {
+        if (ch === '=') cuts.push(i);
+        else if (ch === '+' || ch === '-') {
+          var pre = main.slice(0, i).replace(/\s+$/, '');
+          if (pre && /[A-Za-z0-9})]$/.test(pre) && !/\\(cdot|pm|quad|times)$/.test(pre)) cuts.push(i);
+        }
+      }
+    }
+    return cuts;
+  }
+  function wrapPack(main, cuts, max, strict) {
+    var atoms = [], prev = 0;
+    cuts.forEach(function (ci) { atoms.push(main.slice(prev, ci).replace(/\s+$/, '')); prev = ci; }); atoms.push(main.slice(prev).replace(/\s+$/, ''));
+    if (atoms.length < 2) return null;
+    var lines = [], cur = atoms[0], bad = vlen(atoms[0]) > max;
+    for (var k = 1; k < atoms.length; k++) {
+      var a2 = atoms[k].replace(/^\s+/, '');
+      if (vlen(a2) > max - 2) bad = true;
+      var curW = vlen(cur.replace(/^&\\quad /, ''));
+      if (curW + vlen(a2) + 1 > (lines.length ? max - 2 : max)) { lines.push(cur); cur = '&\\quad ' + a2; }
+      else cur += (/^[+\-=]/.test(a2) ? ' ' : '') + a2;
+    }
+    lines.push(cur);
+    if (lines.length === 1 || (strict && bad)) return null;
+    lines = lines.map(function (l) { return l.charAt(0) === '&' ? l : '&' + l; });
+    return '\\begin{aligned}' + lines.join('\\\\ ') + '\\end{aligned}';
+  }
+  function wrapRow(t, max) {
+    var m = t.match(/^(.*?)(\\quad\\text\{\(.*\)\})$/), note = '', main = t;
+    if (m) { main = m[1]; note = m[2]; }
+    if (/\\text|\\begin/.test(main) || vlen(main) <= max) return t;
+    for (var allow = 0; allow <= 3; allow++) {
+      var r = wrapPack(main, wrapCuts(main, allow), max, allow < 3);
+      if (r) return r + note;
+    }
+    return t;
+  }
+  /* منع تطابق نص المعادلة حرفياً مع صفحات الموقع الأخرى */
+  var PUBT = [], PUBTSET = {}; PUBT.forEach(function (s) { PUBTSET[s] = 1; });
+  function nzT(s) { return String(s || '').replace(/\\dfrac/g, '\\frac').replace(/\s+/g, ''); }
+  function txtBlocked(q) { if (!q) return false; if (q.e && PUBTSET[nzT(q.e)]) return true; if (q.data && q.data.kind === 'which') return q.opts.some(function (o) { return PUBTSET[nzT(o.t)]; }); return false; }
+  /* اختيار المشتتات بحيث تقع القيمة الصحيحة في رتبة مستهدفة عشوائياً (لا يدل الموضع على الجواب) */
+  function chooseDisRank(rng, candsFn, correctKey, need, cv, valOf) {
+    var want = rng() < 0.7 ? (rng() < 0.5 ? 0 : need) : 1 + Math.floor(rng() * (need - 1)), dis = null;
+    for (var tr = 0; tr < 30; tr++) {
+      var d2 = chooseDis(rng, candsFn(), correctKey, need); if (!d2) break;
+      var rk = d2.filter(function (c) { return valOf(c) < cv; }).length;
+      if (!dis) dis = d2; if (rk === want) { dis = d2; break; }
+    }
+    return dis;
+  }
+
+  /* اختيار مجموعة مشتتات بحيث يقع الخيار الصحيح في رتبة عشوائية بحسب كل معيار «دلالي» (تكرار قيمة، أكبر قيمة، وجود المعكوس ...):
+     gen() ترجع مصفوفة مشتتات أو null؛ scorers: دوال تأخذ مصفوفة الخيارات [الصحيح، ...المشتتات] وترجع درجة لكل خيار (الأعلى = أدلّ على الصحيح). */
+  function chooseScored(rng, gen, correct, scorers, tries) {
+    var wants = scorers.map(function () { return Math.floor(rng() * 4); }), best = null, bestN = -1;
+    for (var tr = 0; tr < (tries || 40); tr++) {
+      var d = gen(); if (!d) break;
+      var all = [correct].concat(d), n = 0;
+      scorers.forEach(function (sc, i) {
+        var s = sc(all), gt = 0, eq = 0;
+        for (var j = 1; j < all.length; j++) { if (s[j] > s[0]) gt++; else if (s[j] === s[0]) eq++; }
+        if (gt <= wants[i] && wants[i] <= gt + eq) n++;
+      });
+      if (n === scorers.length) return d;
+      if (n > bestN) { bestN = n; best = d; }
+    }
+    return best;
+  }
+  /* كتابة كسر بإشارة أمام الكسر (لا بسط سالباً) */
+  function nfrac(n, d) { return (n < 0 ? '-' : '') + '\\frac{' + Math.abs(n) + '}{' + d + '}'; }
+  function assemble(rng, o) {
+    o.sol = o.sol.map(function (r) { return r.t ? { t: wrapRow(r.t, 22), raw: r.t, ar: r.ar } : r; });
+    var all = shuffle(rng, [o.correct].concat(o.dis)), ans = all.indexOf(o.correct);
+    var opts = all.map(function (s) { return { t: s.t.replace(/\\frac/g, '\\dfrac'), why: s === o.correct ? '' : (s.why || '') }; });
+    var key = o.stem + '|' + (o.e || '') + '|' + opts.map(function (x) { return x.t; }).sort().join('|');
+    return { band: o.band, level: o.level, stem: o.stem, e: o.e, opts: opts, ans: ans, sol: o.sol, hint: o.hint, key: key,
+      data: { sigs: [].concat(o.sig || []), kind: o.kind || '', cls: all.map(function (s) { return s === o.correct ? 'ok' : s.cls; }), vals: all.map(function (s) { return s.key; }), meta: o.meta || {} } };
+  }
+
+  var STEM = 'Find the value of the function for the given value.';
+  var NAMES = ['f', 'g', 'h', 'p', 'P', 'q'];
+
+  /* حدود الدالة بترتيب العرض: [{c,e}] */
+  function termsStr(ts, v) {
+    var s = '';
+    ts.forEach(function (t, i) {
+      if (t.c === 0) return; var m = Math.abs(t.c);
+      var body = t.e === 0 ? String(m) : ((m === 1 ? '' : String(m)) + (t.e === 1 ? v : v + '^{' + t.e + '}'));
+      s += s === '' ? (t.c < 0 ? '-' : '') + body : (t.c < 0 ? ' - ' : ' + ') + body;
+    });
+    return s;
+  }
+  function evalT(ts, k) { var s = fr(0, 1); ts.forEach(function (t) { s = fadd(s, fmul(fr(t.c, 1), fpow(k, t.e))); }); return s; }
+  function descTerms(cs) { /* cs من الأعلى */ var ts = [], deg = cs.length - 1; cs.forEach(function (c, i) { if (c !== 0) ts.push({ c: c, e: deg - i }); }); return ts; }
+  function argL(k) { return k.d === 1 ? String(k.n) : (k.n < 0 ? '-' : '') + '\\frac{' + Math.abs(k.n) + '}{' + k.d + '}'; }
+  function callL(nm, k) { return k.d === 1 ? nm + '(' + k.n + ')' : nm + '\\left(' + argL(k) + '\\right)'; }
+  function kq(k) { return k.d === 1 ? (k.n < 0 ? '(' + k.n + ')' : String(k.n)) : '\\left(' + argL(k) + '\\right)'; }
+  function fv(v) { return v.d === 1 ? (v.n < 0 ? '(' + v.n + ')' : String(v.n)) : (v.n < 0 ? '\\left(' + fl(v) + '\\right)' : fl(v)); }
+  function peval(p, t) { var r = 0; for (var i = p.length - 1; i >= 0; i--) r = r * t + p[i]; return r; }
+  var NSC = [
+    function (all) { return all.map(function (o) { return fval(o.v); }); },
+    function (all) { return all.map(function (o) { return -Math.abs(fval(o.v)); }); },
+    function (all) { var vs = all.map(function (o) { return fval(o.v); }); return vs.map(function (v, i) { return v !== 0 && vs.some(function (w, j) { return j !== i && w === -v; }) ? 1 : 0; }); }
+  ];
+  var PSC = [
+    function (all) { return all.map(function (o) { return o.poly.reduce(function (a, c) { return a + Math.abs(c); }, 0); }); },
+    function (all) { return all.map(function (o) { return peval(o.poly, 1); }); },
+    function (all) { return all.map(function (o) { return peval(o.poly, -1); }); },
+    function (all) { return all.map(function (o) { return o.poly.filter(function (c) { return c !== 0; }).length; }); },
+    function (all) { return all.map(function (o) { return Math.max.apply(null, o.poly.map(Math.abs)); }); }
+  ];
+  function wrapK(k) { return k.d === 1 ? '(' + k.n + ')' : '\\left(' + argL(k) + '\\right)'; }
+  function signedSeq(items) { /* items: [{neg:boolean, s:string}] */ var o = ''; items.forEach(function (it, i) { o += i === 0 ? (it.neg ? '-' : '') + it.s : (it.neg ? ' - ' : ' + ') + it.s; }); return o; }
+
+  /* ---------- كثيرات الحدود ---------- */
+  function randCs(rng, deg, opt) {
+    for (var g = 0; g < 2000; g++) {
+      var cs = [], ok = true;
+      for (var i = 0; i <= deg; i++) {
+        var c;
+        if (i === 0) c = pick(rng, opt.lead || [1, 2, 3, 4, -1, -2]);
+        else if (i === deg) c = ri(rng, -9, 9);
+        else c = ri(rng, -opt.mid, opt.mid);
+        if (c === 0 && !(opt.zeros && i > 0 && i < deg)) ok = false;
+        cs.push(c);
+      }
+      if (!ok) continue;
+      if (opt.zeros) { var nz = cs.filter(function (c) { return c === 0; }).length; if (nz > opt.zeros) continue; }
+      if (deg >= 1 && cs[0] === 0) continue;
+      return cs;
+    }
+  }
+  /* ---------- الحل التفصيلي العددي ---------- */
+  function numRows(nm, ts, k) {
+    var kw = wrapK(k), rows = [], items;
+    function termSub(t) { var m = Math.abs(t.c); if (t.e === 0) return String(m); return (m === 1 ? '' : String(m)) + kw + (t.e === 1 ? '' : '^{' + t.e + '}'); }
+    rows.push({ t: callL(nm, k) + '=' + signedSeq(ts.map(function (t) { return { neg: t.c < 0, s: termSub(t) }; })) });
+    var hasPow = ts.some(function (t) { return t.e > 1; });
+    if (hasPow) rows.push({ t: callL(nm, k) + '=' + signedSeq(ts.map(function (t) { var m = Math.abs(t.c), v = fpow(k, t.e); if (t.e === 0) return { neg: t.c < 0, s: String(m) }; if (t.e === 1) return { neg: t.c < 0, s: (m === 1 ? '' : m) + kw }; return { neg: t.c < 0, s: (m === 1 ? '' : m + '\\cdot ') + fv(v) }; })) });
+    var prods = ts.map(function (t) { return fmul(fr(t.c, 1), fpow(k, t.e)); });
+    rows.push({ t: callL(nm, k) + '=' + (function () { var o = ''; prods.forEach(function (p, i) { var s = fl(fr(Math.abs(p.n), p.d)); o += i === 0 ? (p.n < 0 ? '-' : '') + s : (p.n < 0 ? ' - ' : ' + ') + s; }); return o; })() });
+    var tot = prods.reduce(function (a, b) { return fadd(a, b); }, fr(0, 1));
+    rows.push({ t: callL(nm, k) + '=' + fl(tot) });
+    return { rows: rows, val: tot };
+  }
+  /* ---------- المشتتات العددية ---------- */
+  function numCands(ts, k, rng) {
+    var out = [], kw = wrapK(k), kp = kq(k);
+    function add(cls, v, why) { out.push({ cls: cls, v: v, t: fl(v), key: fkey(v), why: why }); }
+    var sum = function (fn) { var s = fr(0, 1); ts.forEach(function (t) { s = fadd(s, fn(t)); }); return s; };
+    var pw = ts.filter(function (t) { return t.e >= 2; });
+    /* f(-k) */
+    var nk = fneg(k); if (k.n !== 0) add('negk', evalT(ts, nk), 'عُكست إشارة العدد المعطى فعُوِّض بالعدد \\(' + argL(nk) + '\\).');
+    /* (c*k)^e لكل حد فيه قوة ومعامله غير 1 و-1 */
+    var cp = pw.filter(function (t) { return Math.abs(t.c) !== 1; });
+    if (cp.length) {
+      var ex = cp[0];
+      add('cke', sum(function (t) { return t.e === 0 ? fr(t.c, 1) : (t.e >= 2 ? fpow(fmul(fr(t.c, 1), k), t.e) : fmul(fr(t.c, 1), k)); }),
+        'ضُرب معامل كل حد فيه قوة في العدد قبل رفعه إلى القوة، فصار مثلاً \\((' + ex.c + '\\cdot' + kp + ')^{' + ex.e + '}\\).');
+    }
+    /* القوة كضرب في كل حد فيه قوة */
+    if (pw.length) {
+      var hi = pw.slice().sort(function (a, b) { return b.e - a.e; })[0];
+      add('emul', sum(function (t) { return t.e === 0 ? fr(t.c, 1) : (t.e >= 2 ? fmul(fr(t.c, 1), fmul(fr(t.e, 1), k)) : fmul(fr(t.c, 1), k)); }),
+        'كُتبت كل قوة على أنها ضرب في الأساس، مثل \\(' + kp + '^{' + hi.e + '}\\) على أنها \\(' + hi.e + '\\cdot' + kp + '\\).');
+    }
+    /* سالب مرفوع لقوة زوجية يُكتب سالباً (كل القوى الزوجية) */
+    var evs = ts.filter(function (t) { return t.e >= 2 && t.e % 2 === 0; });
+    if (k.n < 0 && evs.length) {
+      var ev = evs[0], pv = fpow(k, ev.e);
+      add('evneg', sum(function (t) { var v = fpow(k, t.e); if (t.e >= 2 && t.e % 2 === 0) v = fneg(fr(Math.abs(v.n), v.d)); return fmul(fr(t.c, 1), v); }),
+        'كُتبت القوى الزوجية للعدد السالب سالبة، مثل \\(' + kp + '^{' + ev.e + '}\\) على أنه \\(' + fl(fneg(pv)) + '\\).');
+    }
+    /* حذف الحد الثابت */
+    var cst = ts.filter(function (t) { return t.e === 0; })[0];
+    if (cst) add('nocst', sum(function (t) { return t.e === 0 ? fr(0, 1) : fmul(fr(t.c, 1), fpow(k, t.e)); }), 'أُهمل الحد الثابت \\(' + cst.c + '\\) عند الجمع.');
+    /* إشارة حد واحد تُعكس عند التعويض (يُختار حد واحد عشوائياً) */
+    var negs = ts.filter(function (t) { return t.c < 0; });
+    var fl0 = ts.filter(function (t) { return fval(fmul(fr(t.c, 1), fpow(k, t.e))) !== 0; });
+    if (fl0.length) {
+      var ft = pick(rng, fl0);
+      add('flipneg', sum(function (t) { var v = fmul(fr(t.c, 1), fpow(k, t.e)); return t === ft ? fneg(v) : v; }), 'عُدّت إشارة الحد \\(' + termsStr([ft], 'x') + '\\) معكوسة عند التعويض.');
+    }
+    /* إهمال قوة الحد الأعلى */
+    if (pw.length) { var ht = pw.slice().sort(function (a, b) { return b.e - a.e; })[0]; if (Math.abs(ht.c) !== 1 && (Math.abs(k.n) !== k.d || k.n < 0)) add('nopowhi', sum(function (t) { return t === ht ? fmul(fr(t.c, 1), k) : fmul(fr(t.c, 1), fpow(k, t.e)); }), 'أُبقي الحد \\(' + termsStr([ht], 'x') + '\\) دون رفعه إلى قوته، فضُرب المعامل في العدد مرة واحدة.'); }
+    /* كل الحدود السالبة تُعدّ موجبة */
+    if (negs.length >= 2) add('subpos', sum(function (t) { return fmul(fr(Math.abs(t.c), 1), fpow(k, t.e)); }), 'عُدّت معاملات كل الحدود موجبة عند التعويض.');
+    /* الحد الخطي لا يُضرب في العدد */
+    var lt = ts.filter(function (t) { return t.e === 1; })[0];
+    if (lt && Math.abs(lt.c) !== 1 && Math.abs(k.n) !== k.d) add('nox', sum(function (t) { return t.e === 1 ? fr(t.c, 1) : fmul(fr(t.c, 1), fpow(k, t.e)); }), 'أُبقي الحد الخطي \\(' + termsStr([lt], 'x') + '\\) دون تعويض العدد فيه.');
+    return out;
+  }
+  var HN = {
+    1: 'تذكّر: لترتيب العمليات أثر في قيمة الدالة.',
+    '2n': 'تذكّر: للعدد السالب سلوك خاص عند رفعه إلى قوة.',
+    '2p': 'تذكّر: لترتيب العمليات أثر في قيمة الحد الذي فيه قوة.',
+    3: 'تذكّر: لإشارة كل حد أثر في قيمة الدالة مهما كان ترتيب كتابته.',
+    n4: 'تذكّر: لترتيب العمليات وإشارة كل حد أثر في قيمة الدالة.',
+    s4: 'تذكّر: للتعويض بعبارة جبرية أثر في شكل المقدار قبل التبسيط.',
+    chComb: 'تذكّر: لكل دالة قيمة خاصة بها عند عددها.',
+    chDiff: 'تذكّر: لطرح مقدار جبري أثر في كل حد منه.',
+    chUnk: 'تذكّر: للتعويض بالعدد المعطى أثر في صورة المعادلة التي يظهر فيها المجهول.'
+  };
+
+  function cDesc(ts) { var d = 0; ts.forEach(function (t) { if (t.e > d) d = t.e; }); var a = []; for (var i = 0; i <= d; i++) a.push(0); ts.forEach(function (t) { a[d - t.e] += t.c; }); return a.join(','); }
+  function numQuestion(rng, level, ts, k, hint, extraMeta) {
+    var nm = pick(rng, NAMES), rows = numRows(nm, ts, k), cor = rows.val;
+    if (Math.abs(fval(cor)) > 3000 || cor.d > 16) return null;
+    var cands0 = function () { return numCands(ts, k, rng).filter(function (c) { return Math.abs(fval(c.v)) <= 3000 && c.v.d <= 16; }); };
+    var dis = chooseScored(rng, function () { return chooseDis(rng, cands0(), fkey(cor), 3); }, { v: cor, key: fkey(cor) }, NSC, 40);
+    if (!dis) return null;
+    var e = nm + '(x)=' + termsStr(ts, 'x') + ',\\quad ' + callL(nm, k);
+    return assemble(rng, { band: 9, level: level, stem: STEM, e: e, correct: { t: fl(cor), key: fkey(cor), cls: 'ok' }, dis: dis.map(function (c) { return { t: c.t, key: c.key, cls: c.cls, why: c.why }; }), sol: rows.rows, hint: hint, kind: 'num', sig: cDesc(ts) + '|' + fkey(k), meta: extraMeta || {} });
+  }
+  /* ---------- أسئلة رمزية f(pa+q) ---------- */
+  function symCands(nm, cs, ts, p, q) {
+    var out = [], P = function (lp) { return pcompose(cs, lp); }, cor = P([q, p]);
+    function add(cls, poly, why) { var t = polyStr(phigh(poly), 'a'); out.push({ cls: cls, poly: poly, t: t, key: t, why: why }); }
+    var hi = ts.filter(function (t) { return t.e >= 2; }).sort(function (a, b) { return b.e - a.e; })[0];
+    var arg = lin(p, q, 'a');
+    if (hi && p * q !== 0) {
+      var wrongPow = function (e) { return padd(ppow([0, p], e), ppow([q], e)); };
+      var wp = cs.map(function () { return 0; });
+      var res = [0]; cs.forEach(function (c, i) { res = padd(res, pscale(i >= 2 ? wrongPow(i) : ppow([q, p], i), c)); });
+      add('nocross', res, 'نُشر المقدار \\((' + arg + ')^{' + hi.e + '}\\) على أنه \\(' + polyStr(phigh(wrongPow(hi.e)), 'a') + '\\)' + (hi.e > 2 && ts.some(function (t) { return t.e === 2; }) ? '، وكُتب \\((' + arg + ')^{2}\\) على أنه \\(' + polyStr(phigh(wrongPow(2)), 'a') + '\\)' : '') + '.');
+    }
+    if (hi && p * q !== 0) {
+      var binom = function (n, k) { var r = 1; for (var i = 1; i <= k; i++) r = r * (n - i + 1) / i; return r; };
+      var expo = function (e, mode) { var arr = []; for (var i = 0; i <= e; i++) arr.push(0); for (var k = 0; k <= e; k++) { var mult = k === 1 ? (mode === 'flip' ? -1 : (mode === 'half' && e === 2 ? 0.5 : 1)) : 1; arr[e - k] += binom(e, k) * Math.pow(p, e - k) * Math.pow(q, k) * mult; } return arr; };
+      var wrongCr = function (mode) { var res = [0]; cs.forEach(function (c, i) { res = padd(res, pscale(i >= 2 ? expo(i, mode) : ppow([q, p], i), c)); }); return res; };
+      add('crflip', wrongCr('flip'), 'نُشر المقدار \\((' + arg + ')^{' + hi.e + '}\\) على أنه \\(' + polyStr(phigh(expo(hi.e, 'flip')), 'a') + '\\)' + (hi.e > 2 && ts.some(function (t) { return t.e === 2; }) ? '، وكُتب \\((' + arg + ')^{2}\\) على أنه \\(' + polyStr(phigh(expo(2, 'flip')), 'a') + '\\)' : '') + '.');
+      if (hi.e === 2 && ts.every(function (t) { return t.e <= 2; })) { var rc = wrongCr('half'); if (rc.every(function (v) { return v === Math.round(v); })) add('cr2', rc, 'نُشر المقدار \\((' + arg + ')^{2}\\) على أنه \\(' + polyStr(phigh(expo(2, 'half')), 'a') + '\\).'); }
+    }
+    if (q !== 0) {
+      var fa = P([0, p]);
+      add('addq', padd(fa, [q]), 'أُضيف \\(' + q + '\\) إلى \\(' + nm + '(' + lin(p, 0, 'a') + ')\\).');
+      add('negq', P([-q, p]), 'عُكست إشارة العدد داخل العبارة فعُوِّض بالعبارة \\(' + lin(p, -q, 'a') + '\\).');
+      var fq = evalPolyInt(cs, q);
+      add('fafq', padd(P([0, p]), [fq]), 'جُمع \\(' + nm + '(' + lin(p, 0, 'a') + ')\\) مع قيمة \\(' + nm + '\\) عند العدد \\(' + q + '\\).');
+    }
+    if (p !== 1 && p !== -1) add('nop', P([q, 1]), 'عُوِّض بالعبارة \\(' + lin(1, q, 'a') + '\\) فأُهمل المعامل \\(' + p + '\\).');
+    if (p === -1 && q === 0) { /* f(-a) */ }
+    return { cands: out, cor: cor };
+  }
+  function evalPolyInt(cs, k) { var s = 0; cs.forEach(function (c, i) { s += c * Math.pow(k, i); }); return s; }
+  function symRows(nm, cs, ts, p, q) {
+    var arg = lin(p, q, 'a'), rows = [];
+    rows.push({ t: nm + '(' + arg + ')=' + signedSeq(ts.map(function (t) { var m = Math.abs(t.c); if (t.e === 0) return { neg: t.c < 0, s: String(m) }; return { neg: t.c < 0, s: (m === 1 ? '' : String(m)) + '(' + arg + ')' + (t.e === 1 ? '' : '^{' + t.e + '}') }; })) });
+    var hasP = ts.some(function (t) { return t.e >= 2; });
+    if (hasP) rows.push({ t: nm + '(' + arg + ')=' + signedSeq(ts.map(function (t) { var m = Math.abs(t.c); if (t.e === 0) return { neg: t.c < 0, s: String(m) }; if (t.e === 1) return { neg: t.c < 0, s: (m === 1 ? '' : String(m)) + '(' + arg + ')' }; var ex = polyStr(phigh(ppow([q, p], t.e)), 'a'); return { neg: t.c < 0, s: (m === 1 ? '' : String(m)) + '(' + ex + ')' }; })) });
+    /* التوزيع: كل حد على حدة بلا جمع */
+    var items = [];
+    ts.forEach(function (t) { var pl = t.e === 0 ? [1] : ppow([q, p], t.e); var sc = pscale(pl, t.c); phigh(sc).forEach(function (c, i, arr) { var e = arr.length - 1 - i; if (c !== 0) items.push({ neg: c < 0, s: e === 0 ? String(Math.abs(c)) : (Math.abs(c) === 1 ? '' : String(Math.abs(c))) + (e === 1 ? 'a' : 'a^{' + e + '}') }); }); });
+    var seq = signedSeq(items);
+    rows.push({ t: nm + '(' + arg + ')=' + seq });
+    var fin = polyStr(phigh(pcompose(cs, [q, p])), 'a');
+    if (seq !== fin) rows.push({ t: nm + '(' + arg + ')=' + fin });
+    return { rows: rows, fin: fin };
+  }
+  function symQuestion(rng, level, deg, hint) {
+    for (var g = 0; g < 400; g++) {
+      var cs = randCs(rng, deg, { mid: 5, lead: [1, 2, 3, -1, -2] }); if (!cs) continue;
+      var ts = descTerms(cs), csLow = cs.slice().reverse();
+      var p = pick(rng, [1, 1, 1, 2, -1]), q = pick(rng, [-3, -2, -1, 1, 2, 3, 4]);
+      if (p !== 1 && deg > 2) continue;
+      var nm = pick(rng, NAMES), arg = lin(p, q, 'a');
+      var r = symCands(nm, csLow, ts, p, q), corT = polyStr(phigh(r.cor), 'a');
+      if (phigh(r.cor).some(function (c) { return Math.abs(c) > 60; })) continue;
+      var cf0 = r.cands.filter(function (c) { return !phigh(c.poly).some(function (x) { return Math.abs(x) > 80; }); });
+      var dis = chooseScored(rng, function () { return chooseDis(rng, cf0, corT, 3); }, { poly: r.cor, key: corT }, PSC, 60); if (!dis) continue;
+      var rows = symRows(nm, csLow, ts, p, q);
+      return assemble(rng, { band: 9, level: level, stem: 'Simplify \\(' + nm + '(' + arg + ')\\).', e: nm + '(x)=' + termsStr(ts, 'x') + ',\\quad ' + nm + '(' + arg + ')', correct: { t: corT, key: corT, cls: 'ok' }, dis: dis.map(function (c) { return { t: c.t, key: c.key, cls: c.cls, why: c.why }; }), sol: rows.rows, hint: hint, kind: 'sym', sig: cs.join(',') + '|a:' + p + ',' + q, meta: { p: p, q: q } });
+    }
+  }
+  /* ---------- أشكال المستويات ---------- */
+  function lv1(rng) { for (var g = 0; g < 400; g++) { var cs = randCs(rng, 2, { mid: 6, lead: [1, 2, 3, 4] }); if (!cs) continue; var k = fr(pick(rng, [1, 2, 3, 4]), 1); var q = numQuestion(rng, 1, descTerms(cs), k, HN[1], { deg: 2 }); if (q) return q; } }
+  function lv2(rng) { for (var g = 0; g < 400; g++) { var cs = randCs(rng, 3, { mid: 7, lead: [1, 2, 3, 4, -1, -2] }); if (!cs) continue; var k = fr(pick(rng, [-3, -2, -1, 2, 3, -3, -2, 1]), 1); var q = numQuestion(rng, 2, descTerms(cs), k, (k.n < 0 ? HN['2n'] : HN['2p']), { deg: 3 }); if (q) return q; } }
+  function lv3(rng) {
+    for (var g = 0; g < 400; g++) {
+      var deg = pick(rng, [3, 4]), cs = randCs(rng, deg, { mid: 7, lead: [1, 2, 3, -1, -2, -3], zeros: 2 }); if (!cs) continue;
+      var ts = descTerms(cs), mode = ri(rng, 1, 3);
+      if (mode === 1) ts = ts.slice().reverse(); else if (mode === 2) { ts = shuffle(rng, ts); if (ts[0].e === Math.max.apply(null, ts.map(function (t) { return t.e; }))) continue; }
+      if (mode === 3) { var cst3 = ts.filter(function (t) { return t.e === 0; }); if (!cst3.length) continue; ts = cst3.concat(ts.filter(function (t) { return t.e !== 0; })); }
+      var k = fr(pick(rng, [-3, -2, -1, 1, 2, 3]), 1); var q = numQuestion(rng, 3, ts, k, HN[3], { deg: deg, mode: mode }); if (q) return q;
+    }
+  }
+  function lv4(rng) {
+    if (rng() < 0.5) return symQuestion(rng, 4, pick(rng, [2, 3, 3]), HN.s4);
+    for (var g = 0; g < 400; g++) {
+      var deg = pick(rng, [3, 4, 4]), cs = randCs(rng, deg, { mid: 8, lead: [1, 2, 3, 4, -1, -2, -3], zeros: 1 }); if (!cs) continue;
+      var k = rng() < 0.22 ? fr(pick(rng, [1, -1, 3, -3]), 2) : fr(pick(rng, [-4, -3, -2, -1, 1, 2, 3, 4]), 1);
+      if (k.d === 2 && deg > 3) continue;
+      var q = numQuestion(rng, 4, descTerms(cs), k, HN.n4, { deg: deg }); if (q) return q;
+    }
+  }
+  /* ---------- مستوى التحدّي ---------- */
+  function qComb(rng) {
+    for (var g = 0; g < 500; g++) {
+      var c1 = randCs(rng, 2, { mid: 5, lead: [1, 2, -1, -2, 3] }), c2 = randCs(rng, 3, { mid: 5, lead: [1, 2, -1, 3], zeros: 1 }); if (!c1 || !c2) continue;
+      var t1 = descTerms(c1), t2 = descTerms(c2), pa = fr(pick(rng, [-2, -1, 1, 2, 3]), 1), qa = fr(pick(rng, [-2, -1, 1, 2, 3]), 1), op = pick(rng, ['+', '-']);
+      var f1 = evalT(t1, pa), g2 = evalT(t2, qa), cor = op === '+' ? fadd(f1, g2) : fsub(f1, g2);
+      var f2 = evalT(t1, qa), g1 = evalT(t2, pa), f1n = evalT(t1, fneg(pa)), g2n = evalT(t2, fneg(qa));
+      var opp = op === '+' ? fsub(f1, g2) : fadd(f1, g2);
+      var A = function (x, y) { return op === '+' ? fadd(x, y) : fsub(x, y); };
+      var sh = function (v) { return Math.abs(fval(v)) <= 800; };
+      var cands = [
+        { cls: 'swap', v: A(f2, g1), why: 'عُوِّض بالعددين في الدالتين بترتيب معكوس: \\(f(' + qa.n + ')\\) و\\(g(' + pa.n + ')\\).' },
+        { cls: 'prod', v: fmul(f1, g2), why: 'ضُربت قيمتا الدالتين بدلاً من ' + (op === '+' ? 'جمعهما' : 'طرح إحداهما من الأخرى') + '.' },
+        { cls: 'opp', v: opp, why: op === '+' ? 'طُرحت قيمة الدالة الثانية من قيمة الدالة الأولى بدلاً من جمعهما.' : 'جُمعت قيمتا الدالتين بدلاً من طرح إحداهما من الأخرى.' },
+        { cls: 'negarg', v: A(f1n, g2n), why: 'عُكست إشارة كل من العددين المعطيين فعُوِّض بالعددين \\(' + (-pa.n) + '\\) و\\(' + (-qa.n) + '\\).' }
+      ].filter(function (c) { return sh(c.v); }).map(function (c) { return { cls: c.cls, v: c.v, t: fl(c.v), key: fkey(c.v), why: c.why }; });
+      if (!sh(cor)) continue;
+      var dis = chooseScored(rng, function () { return chooseDis(rng, cands, fkey(cor), 3); }, { v: cor, key: fkey(cor) }, NSC, 40); if (!dis) continue;
+      var e = 'f(x)=' + termsStr(t1, 'x') + ',\\quad g(x)=' + termsStr(t2, 'x') + ',\\quad f(' + pa.n + ') ' + op + ' g(' + qa.n + ')';
+      var rows = numRows('f', t1, pa).rows.concat(numRows('g', t2, qa).rows);
+      rows.push({ t: 'f(' + pa.n + ')' + op + ' g(' + qa.n + ')=' + fl(f1) + (g2.n < 0 ? (op === '+' ? '+(' + fl(g2) + ')' : '-(' + fl(g2) + ')') : op + fl(g2)) }, { t: '=' + fl(cor) });
+      return assemble(rng, { band: 9, level: 5, stem: 'Find the value of the expression.', e: e, correct: { t: fl(cor), key: fkey(cor), cls: 'ok' }, dis: dis.map(function (c) { return { t: c.t, key: c.key, cls: c.cls, why: c.why }; }), sol: rows, hint: HN.chComb, kind: 'comb', sig: 'comb:' + e, meta: { op: op } });
+    }
+  }
+  function qDiff(rng) {
+    for (var g = 0; g < 500; g++) {
+      var cs = randCs(rng, 2, { mid: 6, lead: [1, 2, 3, -1, -2] }); if (!cs) continue;
+      var ts = descTerms(cs), csL = cs.slice().reverse(), q = pick(rng, [1, 1, 2, -1]);
+      var fa = csL, fa1 = pcompose(csL, [q, 1]), cor = padd(fa1, pscale(fa, -1));
+      var corT = polyStr(phigh(cor), 'a'); if (corT === '0') continue;
+      var qa = lin(1, q, 'a');
+      var wrong = [
+        { cls: 'plus', poly: padd(fa1, fa), why: 'جُمعت \\(f(' + qa + ')\\) و\\(f(a)\\).' },
+        { cls: 'rev', poly: padd(fa, pscale(fa1, -1)), why: 'عُكس ترتيب الطرح فصار \\(f(a)-f(' + qa + ')\\).' },
+        { cls: 'fq', poly: [evalPolyInt(csL, q)], why: 'عُدّ الفرق \\(f(' + qa + ')-f(a)\\) مساوياً لـ \\(f(' + q + ')\\)، فحُسب \\(f(' + q + ')=' + evalPolyInt(csL, q) + '\\).' },
+        { cls: 'noexp', poly: padd(padd(pcompose(csL.map(function (c, i) { return i >= 2 ? 0 : c; }), [q, 1]), pscale([0, 0, csL[2]], 0)), padd(pscale(fa, -1), [0, 0, 0])).slice(0, 3), why: '' }
+      ];
+      wrong.pop();
+      /* خطأ: عدم نشر (a+q)^2 */
+      var sqWrong = padd(padd(pscale([0, 0, 1], csL[2]), pscale([q * q], csL[2])), padd(pscale([q, 1], csL[1]), [csL[0]]));
+      wrong.push({ cls: 'nocross', poly: padd(sqWrong, pscale(fa, -1)), why: 'نُشر المقدار \\((' + qa + ')^{2}\\) على أنه \\(a^{2} + ' + (q * q) + '\\).' });
+      /* خطأ توزيع إشارة الطرح: لم تُعكس إشارة حد واحد من f(a) */
+      [2, 1, 0].forEach(function (i) {
+        var tm = polyStr(phigh(i === 0 ? [csL[0]] : (i === 1 ? [0, csL[1]] : [0, 0, csL[2]])), 'a');
+        wrong.push({ cls: 'sg' + i, poly: padd(cor, pscale(i === 0 ? [1] : (i === 1 ? [0, 1] : [0, 0, 1]), 2 * csL[i])), why: 'لم تُعكس إشارة الحد \\(' + tm + '\\) عند طرح \\(f(a)\\).' });
+      });
+      var cands = wrong.map(function (w) { var t = polyStr(phigh(w.poly), 'a'); return { cls: w.cls, t: t, key: t, why: w.why, deg: phigh(w.poly).length }; });
+      var corDeg = phigh(cor).length, dis = null;
+      for (var tr = 0; tr < 40 && !dis; tr++) {
+        var d3 = chooseDis(rng, cands, corT, 3); if (!d3) break;
+        var same = d3.filter(function (c) { return c.deg === corDeg; }).length, hasRev = d3.some(function (c) { return c.cls === 'rev'; });
+        if (same >= 1 && (!hasRev || same >= 2)) dis = d3;
+      }
+      if (!dis) continue;
+      var arg = lin(1, q, 'a');
+      var rows = symRows('f', csL, ts, 1, q).rows;
+      rows.push({ t: 'f(a)=' + polyStr(phigh(fa), 'a') }, { t: 'f(' + arg + ')-f(a)=' + polyStr(phigh(fa1), 'a') + ' - (' + polyStr(phigh(fa), 'a') + ')' }, { t: '=' + corT });
+      return assemble(rng, { band: 9, level: 5, stem: 'Simplify the expression.', e: 'f(x)=' + termsStr(ts, 'x') + ',\\quad f(' + arg + ')-f(a)', correct: { t: corT, key: corT, cls: 'ok' }, dis: dis.map(function (c) { return { t: c.t, key: c.key, cls: c.cls, why: c.why }; }), sol: rows, hint: HN.chDiff, kind: 'diff', sig: 'diff:' + cs.join(','), meta: { q: q } });
+    }
+  }
+  function qUnk(rng) {
+    for (var g = 0; g < 800; g++) {
+      var d = pick(rng, [3, 3, 4]), cs = randCs(rng, d, { mid: 6, lead: [1, 2, -1, 3], zeros: 0 }); if (!cs) continue;
+      var pos = pick(rng, [1, 2, 3, -1, -2]), kc = ri(rng, -6, 6); if (kc === 0) continue;
+      /* الدالة: الحد الثاني من الأعلى معاملُه k */
+      var csk = cs.slice(); csk[1] = 0;
+      var rest = fr(0, 1), kp = null; /* قيمة بقية الحدود عند pos */
+      var ts = []; var deg = d;
+      /* يُضبط الحد الثابت ليقبل مجموع بقية الحدود القسمة على معامل k، فتكون المشتتات صحيحة مثل الجواب */
+      (function () { var tt = []; csk.forEach(function (c, i) { if (i !== 1) tt.push({ c: c, e: d - i }); }); var r0 = evalT(tt, fr(pos, 1)).n, m0 = Math.abs(Math.pow(pos, d - 1)); var d0 = ((-r0 % m0) + m0) % m0; if (d0 > m0 / 2) d0 -= m0; csk[d] += d0; })();
+      if (csk[d] === 0 || Math.abs(csk[d]) > 15) continue;
+      csk.forEach(function (c, i) { var e = deg - i; if (i === 1) ts.push({ c: 'k', e: e }); else if (c !== 0) ts.push({ c: c, e: e }); });
+      var restTs = ts.filter(function (t) { return t.c !== 'k'; });
+      rest = evalT(restTs, fr(pos, 1));
+      var kEx = deg - 1, mult = Math.pow(pos, kEx);
+      if (rest.n === 0) continue;
+      var target = rest.n + kc * mult; /* f(pos)=target بوجود k=kc */
+      if (Math.abs(target) > 400) continue;
+      var kcor = fr(kc, 1);
+      var cands = [
+        { cls: 'addrest', v: fr(target + rest.n, mult), why: 'نُقل الحد الثابت إلى الطرف الآخر دون تغيير إشارته.' },
+        { cls: 'nodiv', v: fr(target - rest.n, 1), why: mult === 1 ? '' : 'تُرك معامل \\(k\\) بعد التعويض دون قسمة الطرفين عليه.' },
+        { cls: 'swap', v: fr(rest.n - target, mult), why: 'عُكس ترتيب الطرح عند فصل الحد الذي فيه \\(k\\).' }
+      ].filter(function (c) { return c.why !== ''; });
+      var cc = cands.map(function (c) { return { cls: c.cls, t: 'k=' + fl(c.v), key: fkey(c.v), why: c.why, v: c.v }; });
+      if (mult === 1) { /* لا نموذج nodiv */ }
+      var kPosErr = (function () { var rest2 = evalT(restTs, fr(-pos, 1)), m2 = Math.pow(-pos, kEx); return { v: fr(target - rest2.n, m2), why: 'عُكست إشارة العدد المعطى فعُوِّض بالعدد \\(' + (-pos) + '\\) في الدالة.' }; })();
+      if (Math.abs(pos) > 1) { var ph = fr(kc, pos); if (ph.d === 1) cc.push({ cls: 'pwhigh', t: 'k=' + fl(ph), key: fkey(ph), why: 'حُسبت قوة العدد المعوَّض في الحد الذي فيه \\(k\\) بأس أعلى بواحد.', v: ph }); }
+      var nr = fr(target, mult); if (nr.d === 1 && rest.n !== 0) cc.push({ cls: 'norest', t: 'k=' + fl(nr), key: fkey(nr), why: 'لم تُطرح قيمة بقية الحدود من الطرف الأيمن قبل فصل \\(k\\).', v: nr });
+      if (Math.abs(pos) > 1) cc.push({ cls: 'pwlow', t: 'k=' + fl(fr(kc * pos, 1)), key: fkey(fr(kc * pos, 1)), why: 'حُسبت قوة العدد المعوَّض في الحد الذي فيه \\(k\\) بأس أقل بواحد.', v: fr(kc * pos, 1) });
+      if (kPosErr.v.d === 1) cc.push({ cls: 'negarg', t: 'k=' + fl(kPosErr.v), key: fkey(kPosErr.v), why: kPosErr.why, v: kPosErr.v });
+      cc = cc.filter(function (c) { return c.v.d === 1; });
+      var dis = chooseScored(rng, function () { return chooseDis(rng, cc, fkey(kcor), 3); }, { v: kcor, key: fkey(kcor) }, NSC, 60); if (!dis) continue;
+      var fstr = ts.map(function (t) { return t; });
+      var s = ''; ts.forEach(function (t, i) { var body; if (t.c === 'k') body = 'k' + (t.e === 1 ? 'x' : 'x^{' + t.e + '}'); else { var m = Math.abs(t.c); body = t.e === 0 ? String(m) : ((m === 1 ? '' : m) + (t.e === 1 ? 'x' : 'x^{' + t.e + '}')); } var neg = t.c !== 'k' && t.c < 0; s += i === 0 ? (neg ? '-' : '') + body : (neg ? ' - ' : ' + ') + body; });
+      var e = 'f(x)=' + s + ',\\quad f(' + pos + ')=' + target;
+      var kw = '(' + pos + ')', mk = (mult === 1 ? 'k' : (mult < 0 ? '(' + mult + ')k' : mult + 'k'));
+      var rows = [{ t: 'f(' + pos + ')=' + signedSeq(ts.map(function (t) { if (t.c === 'k') return { neg: false, s: 'k' + kw + (t.e === 1 ? '' : '^{' + t.e + '}') }; var m = Math.abs(t.c); if (t.e === 0) return { neg: t.c < 0, s: String(m) }; return { neg: t.c < 0, s: (m === 1 ? '' : m) + kw + (t.e === 1 ? '' : '^{' + t.e + '}') }; })) },
+        { t: 'f(' + pos + ')=' + signedSeq(ts.map(function (t) { var v = fpow(fr(pos, 1), t.e), vs = v.n < 0 ? '(' + v.n + ')' : String(v.n); if (t.c === 'k') return { neg: false, s: (t.e === 0 ? 'k' : 'k\\cdot ' + vs) }; var m = Math.abs(t.c); if (t.e === 0) return { neg: t.c < 0, s: String(m) }; return { neg: t.c < 0, s: (m === 1 ? '' : m + '\\cdot ') + vs }; })) },
+        { t: mk + (rest.n < 0 ? ' - ' + (-rest.n) : (rest.n > 0 ? ' + ' + rest.n : '')) + ' = ' + target }];
+      if (rest.n !== 0) rows.push({ t: mk + ' = ' + target + (rest.n < 0 ? ' + ' + (-rest.n) : ' - ' + rest.n) });
+      if (mult !== 1) { rows.push({ t: mk + ' = ' + (target - rest.n) }); rows.push({ t: 'k=' + (((target - rest.n) < 0) !== (mult < 0) ? '-' : '') + '\\frac{' + Math.abs(target - rest.n) + '}{' + Math.abs(mult) + '}' }); }
+      rows.push({ box: 'k=' + fl(kcor) });
+      for (var ri2 = rows.length - 2; ri2 >= 0; ri2--) if (rows[ri2].t === (rows[ri2 + 1].t || rows[ri2 + 1].box)) rows.splice(ri2, 1);
+      return assemble(rng, { band: 9, level: 5, stem: 'Find the value of the constant \\(k\\).', e: e, correct: { t: 'k=' + fl(kcor), key: fkey(kcor), cls: 'ok' }, dis: dis.map(function (c) { return { t: c.t, key: c.key, cls: c.cls, why: c.why }; }), sol: rows, hint: HN.chUnk, kind: 'unk', sig: 'unk:' + e, meta: { pos: pos, target: target } });
+    }
+  }
+  function qChallenge(rng) { var r = rng(); return r < 0.4 ? qComb(rng) : (r < 0.7 ? qDiff(rng) : qUnk(rng)); }
+
+  var LEVELS = [
+    { id: 1, ar: 'مبتدئ', hint: HN[1] },
+    { id: 2, ar: 'تطبيق', hint: HN['2n'] },
+    { id: 3, ar: 'ترتيب الحدود', hint: HN[3] },
+    { id: 4, ar: 'مستوى الوزارة', hint: HN.n4 },
+    { id: 5, ar: 'تحدٍّ', challenge: true, hint: HN.chComb }
+  ];
+  function makeRaw(level, rng) {
+    rng = rng || Math.random;
+    return level === 1 ? lv1(rng) : level === 2 ? lv2(rng) : level === 3 ? lv3(rng) : level === 4 ? lv4(rng) : qChallenge(rng);
+  }
+  /* رفض أي سؤال بصمته الرياضية مطابقة لسؤال منشور في الموقع لنفس البند */
+  function make(level, rng) {
+    rng = rng || Math.random; var q;
+    for (var g = 0; g < 60; g++) { q = makeRaw(level, rng); if (q && !txtBlocked(q) && !q.data.sigs.some(function (s) { return PUBSET[s]; })) return q; }
+    return q;
+  }
+  var api = { levels: LEVELS, make: make, wrapRow: wrapRow };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.TmGenPolyVal = api;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+<script>
+/* محرك «تدرّب بإتقان»: جولة من 5 أسئلة، النجاح بـ 4، ومن لم ينجح يكرر الفكرة بأرقام جديدة. التقدم في المتصفح فقط. */
+(function () {
+  'use strict';
+  var CFG = window.TM_CFG || {}, GR = CFG.gr || 'g12-general', BAND = CFG.band || 6, BLBL = CFG.label || 'البند ' + BAND, KEY = 'tmn-mastery', ROUND = 5, PASS = 4, REVIEW_AFTER = 3;
+  var G = window[CFG.gen || 'TmGenQuad'], LV = G.levels, LETTERS = ['A', 'B', 'C', 'D'];
+  var $ = function (s) { return document.querySelector(s); };
+
+  function loadAll() { try { var o = JSON.parse(localStorage.getItem(KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
+  function saveAll(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
+  var all = loadAll();
+  if (!all[GR] || typeof all[GR] !== 'object') all[GR] = {};
+  var st = all[GR][BAND];
+  if (!st || typeof st !== 'object') st = all[GR][BAND] = {};
+  st.level = Math.min(LV.length, Math.max(1, +st.level || 1));
+  st.done = st.done && typeof st.done === 'object' ? st.done : {};
+  st.fails = st.fails && typeof st.fails === 'object' ? st.fails : {};
+  st.mastered = !!st.mastered;
+  st.skipped = Math.min(3, Math.max(0, +st.skipped || 0));
+  var CORE = LV.filter(function (l) { return !l.challenge; }).length, HAS_CH = LV.length > CORE;
+  if (HAS_CH && st.mastered && st.level === CORE && !st.done[CORE + 1]) st.level = CORE + 1;
+  function persist() { st.ts = Date.now(); saveAll(all); }
+
+  function track(name, data) { try { if (window.umami && window.umami.track) window.umami.track(name, data); } catch (e) {} }
+
+  var round = null, seenAll = {};
+
+  function cnt(n) { return n === 0 ? 'صفر إجابات صحيحة' : n === 1 ? 'إجابة صحيحة واحدة' : n === 2 ? 'إجابتين صحيحتين' : n <= 10 ? n + ' إجابات صحيحة' : n + ' إجابة صحيحة'; }
+  function typeset(el, n) {
+    n = n || 0;
+    if (window.MathJax && window.MathJax.typesetPromise) { window.MathJax.typesetPromise([el]).catch(function () {}); return; }
+    if (n < 80) setTimeout(function () { typeset(el, n + 1); }, 150);
+  }
+  function h(tag, cls, html) { var e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+  function renderPath() {
+    var p = $('#path'); p.innerHTML = '';
+    LV.forEach(function (l) {
+      var cls = st.done[l.id] ? 'done' : (l.id === st.level && (!st.mastered || (l.challenge && !st.done[l.id])) ? 'cur' : '');
+      var li = h('li', cls, '<b>' + l.id + (st.done[l.id] ? ' ✓' : '') + '</b>' + l.ar);
+      if (cls === 'cur') li.setAttribute('aria-current', 'step');
+      if (st.done[l.id] && l.id !== st.level) {
+        li.setAttribute('role', 'button'); li.tabIndex = 0; li.className += ' back'; li.title = 'العودة إلى هذا المستوى';
+        var go = function () { st.level = l.id; persist(); window.scrollTo(0, 0); newRound(); };
+        li.addEventListener('click', go);
+        li.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      }
+      p.appendChild(li);
+    });
+  }
+  function renderDots() {
+    var d = $('#dots'); d.innerHTML = '';
+    if (!round) return;
+    for (var i = 0; i < ROUND; i++) {
+      var a = round.answers[i];
+      d.appendChild(h('i', a === 1 ? 'ok' : (a === 0 ? 'no' : (i === round.idx ? 'now' : ''))));
+    }
+  }
+  function renderInfo() {
+    var t = round ? 'المستوى ' + st.level + ' • ' + LV[st.level - 1].ar + ' — السؤال ' + (Math.min(round.idx + 1, ROUND)) + ' من ' + ROUND + ' • المطلوب ' + PASS + ' إجابات صحيحة لإتقان المستوى'
+      : (st.mastered ? 'أتقنت كل المستويات' : '');
+    $('#roundInfo').textContent = t;
+    renderSkip();
+  }
+  function renderSkip() {
+    var box = $('#skipBox'); if (!box) return;
+    box.innerHTML = '';
+    if (!round || round.idx >= ROUND || st.mastered || st.level >= CORE) { box.hidden = true; return; }
+    var b = h('button', 'btn ghost', 'أنا متمكن، ابدأ من مستوى الوزارة ←'); b.type = 'button'; var armed = false;
+    b.addEventListener('click', function () {
+      if (st.level >= CORE) return;
+      if (!armed) { armed = true; b.textContent = 'للتأكيد اضغط مرة أخرى: سأبدأ من مستوى الوزارة'; return; }
+      var from = st.level; st.level = CORE; st.skipped = from; persist();
+      track('mastery-skip', { band: BAND, from: from });
+      window.scrollTo(0, 0); newRound();
+    });
+    box.appendChild(b); box.hidden = false;
+  }
+
+  function newRound() {
+    var qs = [], seen = {}, guard = 0;
+    while (qs.length < ROUND && guard++ < 200) {
+      var q = G.make(st.level);
+      if (seen[q.key] || (guard < 120 && seenAll[q.key])) continue;
+      seen[q.key] = 1; seenAll[q.key] = 1; qs.push(q);
+    }
+    st.rounds = (+st.rounds || 0) + 1; persist();
+    round = { qs: qs, idx: 0, answers: [], correct: 0, hinted: false, n: st.rounds };
+    renderPath(); renderInfo(); renderDots(); showQ();
+    track('mastery-round-start', { band: BAND, level: st.level, n: round.n });
+  }
+
+  function solHTML(q) {
+    var rows = q.sol.map(function (s) {
+      var note = s.ar ? '<div class="sn">' + s.ar + '</div>' : '';
+      if (s.box) return '<div class="st"><span class="bx">\\(\\displaystyle ' + s.box + '\\)</span></div>';
+      var mm = s.t.match(/^(.*?)\\quad\\text\{\((.*)\)\}$/), T = s.raw || s.t, mr = T.match(/^(.*?)\\quad\\text\{\((.*)\)\}$/);
+      var raw = mr ? mr[1] : T, shown = mm ? mm[1] : s.t, at = ' data-t="' + encodeURIComponent(raw) + '" data-cur="' + encodeURIComponent(shown) + '"';
+      return note + '<div class="st"' + at + '>\\(\\displaystyle ' + shown + '\\)</div>' + (mm ? '<div class="sn en">' + mm[2] + '</div>' : '');
+    }).join('');
+    return '<h3>الحل التفصيلي</h3>' + rows;
+  }
+
+
+  /* ملاءمة العرض: يُقاس السطر فعلياً وإن تجاوز الصندوق أُعيد التفافه بحدود أضيق حتى يتسع */
+  var STEPS = [26, 22, 19, 16, 13, 10, 7, 4];
+  function fitRow(d, i, n) {
+    if (!d.clientWidth) return;
+    if (!d.querySelector('mjx-container')) { if ((n || 0) < 60) setTimeout(function () { fitRow(d, i, (n || 0) + 1); }, 120); return; }
+    if (d.scrollWidth <= d.clientWidth) return;
+    var t = decodeURIComponent(d.getAttribute('data-t') || ''), W = G.wrapRow;
+    if (!t || !W) return;
+    while (i < STEPS.length) {
+      var w = W(t, STEPS[i]); i++;
+      if (w !== t && encodeURIComponent(w) !== d.getAttribute('data-cur')) {
+        d.setAttribute('data-cur', encodeURIComponent(w)); d.innerHTML = '\\(\\displaystyle ' + w + '\\)';
+        window.MathJax.typesetPromise([d]).then(function () { fitRow(d, i, 0); }).catch(function () {});
+        return;
+      }
+    }
+  }
+  function fitSol(root) { root.querySelectorAll('.st[data-t]').forEach(function (d) { fitRow(d, 0, 0); }); }
+  function fitEq(eq, q, k, n) {
+    if (!eq) return;
+    if (!eq.querySelector('mjx-container')) { if ((n || 0) < 60) setTimeout(function () { fitEq(eq, q, k, (n || 0) + 1); }, 120); return; }
+    if (eq.scrollWidth <= eq.clientWidth) return;
+    var parts = q.e.split(',\\quad '), W = G.wrapRow, cands = [];
+    if (parts.length > 1) cands.push(parts);
+    STEPS.forEach(function (st) { cands.push(parts.map(function (p) { return W(p, st); })); });
+    if (k >= cands.length) return;
+    eq.innerHTML = '\\[\\begin{gathered}' + cands[k].join(',\\\\ ') + '\\end{gathered}\\]';
+    window.MathJax.typesetPromise([eq]).then(function () { fitEq(eq, q, k + 1, 0); }).catch(function () {});
+  }
+
+  function showQ() {
+    var q = round.qs[round.idx], stage = $('#stage');
+    stage.innerHTML = '';
+    stage.appendChild(h('div', q.rtl ? 'stem rtl' : 'stem', q.stem)); stage.lastChild.setAttribute('lang', q.rtl ? 'ar' : 'en');
+    if (q.e) stage.appendChild(h('div', 'eq', '\\[' + q.e + '\\]'));
+    var opts = h('div', 'opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-label', 'الخيارات');
+    q.opts.forEach(function (o, i) {
+      var b = h('button', 'opt', '<span class="L">' + LETTERS[i] + '</span><span class="m">\\(' + o.t + '\\)</span>');
+      b.type = 'button'; b.setAttribute('data-i', i);
+      b.addEventListener('click', function () { choose(i); });
+      opts.appendChild(b);
+    });
+    stage.appendChild(opts);
+    var tools = h('div', 'tools');
+    var hb = h('button', 'btn ghost', 'إظهار التلميح'); hb.type = 'button'; hb.id = 'hintBtn';
+    var hint = h('div', 'hint', q.hint); hint.id = 'hintOut'; hint.hidden = true;
+    hb.addEventListener('click', function () { hint.hidden = !hint.hidden; hb.textContent = hint.hidden ? 'إظهار التلميح' : 'إخفاء التلميح'; if (!hint.hidden) round.hinted = true; });
+    tools.appendChild(hb); stage.appendChild(tools); stage.appendChild(hint);
+    var fb = h('div', null); fb.id = 'fb'; stage.appendChild(fb);
+    typeset(stage);
+    /* شبكة أمان: إن تجاوز سطر المعطيات عرض الشاشة (فتُقصّ قيمة)، يُوزَّع على سطرين بدل التمرير الأفقي */
+    setTimeout(function () { fitEq(stage.querySelector('.eq'), q, 0, 0); }, 0);
+  }
+
+  function choose(i) {
+    var q = round.qs[round.idx];
+    if (round.answers[round.idx] != null) return;
+    var ok = i === q.ans;
+    round.answers[round.idx] = ok ? 1 : 0;
+    if (ok) round.correct++;
+    var btns = document.querySelectorAll('.opt');
+    btns.forEach(function (b, k) { b.disabled = true; if (k === q.ans) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
+    $('#hintBtn').hidden = true; $('#hintOut').hidden = true;
+    var fb = $('#fb'); fb.innerHTML = '';
+    var box = h('div', 'fb ' + (ok ? 'ok' : 'no'));
+    if (ok) {
+      box.innerHTML = '✓ إجابة صحيحة.';
+    } else {
+      var why = q.opts[i].why ? '<span class="why">' + q.opts[i].why + '</span>' : '';
+      box.innerHTML = '✗ إجابة غير صحيحة.' + why + '<span class="why">الإجابة الصحيحة:</span><span class="corr">\\(' + q.opts[q.ans].t + '\\)</span>';
+    }
+    fb.appendChild(box);
+    var sol = h('div', 'sol', solHTML(q));
+    if (ok) {
+      sol.hidden = true;
+      var tg = h('button', 'btn ghost', 'إظهار الحل التفصيلي'); tg.type = 'button'; tg.style.marginTop = '10px';
+      tg.addEventListener('click', function () { sol.hidden = !sol.hidden; if (!sol.hidden) setTimeout(function () { fitSol(sol); }, 60); tg.textContent = sol.hidden ? 'إظهار الحل التفصيلي' : 'إخفاء الحل التفصيلي'; });
+      fb.appendChild(tg);
+    }
+    fb.appendChild(sol);
+    var last = round.idx === ROUND - 1;
+    var nx = h('button', 'btn gold', last ? 'عرض نتيجة الجولة ←' : 'السؤال التالي ←'); nx.type = 'button'; nx.style.marginTop = '12px'; nx.id = 'nextBtn';
+    nx.addEventListener('click', next);
+    fb.appendChild(nx);
+    renderDots(); typeset(fb); setTimeout(function () { fitSol(fb); }, 250);
+    nx.focus({ preventScroll: false });
+  }
+
+  function next() {
+    if (round.idx < ROUND - 1) { round.idx++; renderInfo(); renderDots(); showQ(); window.scrollTo(0, 0); return; }
+    finish();
+  }
+
+  function finish() {
+    var sbx = document.getElementById('skipBox'); if (sbx) sbx.hidden = true;
+    var passed = round.correct >= PASS, lvl = st.level, stage = $('#stage');
+    var res = h('div', 'res');
+    if (round.n === 1) { st.firstScore = round.correct; persist(); }
+    track('mastery-round-end', { band: BAND, level: lvl, correct: round.correct, passed: passed ? 1 : 0, n: round.n, first: round.n === 1 ? 1 : 0 });
+    if (passed) {
+      st.done[lvl] = true; st.fails[lvl] = 0; st.skipped = 0;
+      if (lvl > CORE) {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت مستوى التحدّي ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى التحدّي. عمل ممتاز، فقد تجاوزت ما يُطلب في الامتحان.</p>';
+        var a5 = h('div', 'acts');
+        var l5 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l5.href = '/' + GR + '/';
+        var b5 = h('button', 'btn ghost', 'جولة تحدٍّ جديدة'); b5.type = 'button';
+        b5.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); });
+        a5.appendChild(l5); a5.appendChild(b5); res.appendChild(a5);
+      } else if (lvl < CORE) {
+        st.level = lvl + 1; persist();
+        res.innerHTML = '<h2>أتقنت المستوى ' + lvl + ' ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '. انتقل الآن إلى المستوى ' + st.level + ': <b>' + LV[st.level - 1].ar + '</b>.</p>';
+        var acts = h('div', 'acts'); var b1 = h('button', 'btn gold', 'ابدأ المستوى ' + st.level + ' ←'); b1.type = 'button'; b1.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); acts.appendChild(b1); res.appendChild(acts);
+      } else {
+        st.mastered = true; persist();
+        res.innerHTML = '<h2>أتقنت ' + BLBL + ' كاملاً ✓</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + ' في مستوى الوزارة. أحسنت. جرّب الآن نموذجاً كاملاً من صفحة الصف لتختبر نفسك كما في الاختبار.</p>';
+        var a2 = h('div', 'acts');
+        var l1 = h('a', 'link btn gold', 'العودة إلى صفحة الصف'); l1.href = '/' + GR + '/';
+        var b2 = h('button', 'btn ghost', 'تدرّب من جديد'); b2.type = 'button';
+        b2.addEventListener('click', function () { st.level = 1; st.done = {}; st.fails = {}; st.mastered = false; st.skipped = 0; persist(); window.scrollTo(0, 0); newRound(); });
+        if (HAS_CH) { var b4 = h('button', 'btn gold', 'جرّب مستوى التحدّي (اختياري) ←'); b4.type = 'button'; b4.addEventListener('click', function () { st.level = CORE + 1; persist(); track('mastery-challenge-start', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a2.insertBefore(b4, a2.firstChild); }
+        a2.appendChild(l1); a2.appendChild(b2); res.appendChild(a2);
+      }
+    } else {
+      st.fails[lvl] = (+st.fails[lvl] || 0) + 1; persist();
+      var again = '<h2>لم تصل بعد إلى الإتقان</h2><p>حصلت على ' + cnt(round.correct) + ' من ' + ROUND + '، والمطلوب للإتقان ' + cnt(PASS) + ' على الأقل. لا بأس: ستتكرر الفكرة نفسها بأرقام جديدة حتى تتقنها.</p>';
+      if (st.fails[lvl] >= REVIEW_AFTER) again += '<p>هذا المستوى يحتاج مزيداً من التدريب. نقترح أن تراجع الحل التفصيلي في ' + BLBL + ' ثم تعود.</p>';
+      res.innerHTML = again;
+      var a3 = h('div', 'acts'); var b3 = h('button', 'btn gold', 'جولة جديدة بأرقام جديدة ←'); b3.type = 'button'; b3.addEventListener('click', function () { window.scrollTo(0, 0); newRound(); }); a3.appendChild(b3);
+      if (st.fails[lvl] >= REVIEW_AFTER) { var l2 = h('a', 'link btn ghost', 'راجع حل ' + BLBL); l2.href = '/' + GR + '/band-' + BAND + '/'; a3.appendChild(l2); }
+      if (st.skipped && st.skipped < CORE && lvl === CORE) { var b6 = h('button', 'btn ghost', 'ابدأ من المستوى ' + st.skipped + ' بدلاً من ذلك'); b6.type = 'button'; b6.addEventListener('click', function () { st.level = st.skipped; st.skipped = 0; persist(); track('mastery-skip-back', { band: BAND }); window.scrollTo(0, 0); newRound(); }); a3.appendChild(b6); }
+      res.appendChild(a3);
+    }
+    stage.innerHTML = ''; stage.appendChild(res); stage.appendChild(quickPoll(lvl)); stage.appendChild(waBox()); stage.appendChild(feedbackBox());
+    round.idx = ROUND; renderPath(); renderDots(); $('#roundInfo').textContent = ''; typeset(stage);
+    stage.setAttribute('tabindex', '-1'); stage.focus({ preventScroll: true });
+  }
+
+  /* سؤال سريع بنقرة واحدة عن صعوبة الجولة: يُسجَّل في Umami بلا نص، لمعرفة هل المستوى مناسب */
+  /* دعوة واتساب بعد نتيجة الجولة: تُقاس بحدث wa-result */
+  var WA = {"g11-general": "https://chat.whatsapp.com/C8hftOzLClH0SnbWbR7jIa", "g11-advanced": "https://chat.whatsapp.com/CwE5mojLUS04u9YYs8CqwB", "g12-general": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6", "g12-advanced": "https://chat.whatsapp.com/LHEqxo2KXAFDa0xBJdtzc6"};
+  function waBox() {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'تصلك التدريبات الجديدة وملخص أسبوعي في مجموعة واتساب صفك'));
+    var a = h('a', null, 'انضم عبر واتساب ←'); a.style.cssText = 'display:inline-block;margin-top:8px;background:#25D366;color:#073B1B;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 20px'; a.href = WA[GR] || WA['g12-general']; a.target = '_blank'; a.rel = 'noopener';
+    a.addEventListener('click', function () { track('wa-result', { band: BAND, gr: GR }); });
+    box.appendChild(a); return box;
+  }
+  function quickPoll(lvl) {
+    var box = h('div', 'box qpoll'); box.appendChild(h('p', 'fbq', 'كيف كانت أسئلة هذه الجولة؟'));
+    var row = h('div', 'acts');
+    [['easy', 'سهلة'], ['fit', 'مناسبة'], ['hard', 'صعبة']].forEach(function (o) {
+      var b = h('button', 'btn ghost', o[1]); b.type = 'button';
+      b.addEventListener('click', function () { track('mastery-diff', { band: BAND, level: lvl, v: o[0] }); box.innerHTML = ''; box.appendChild(h('p', 'fbq', 'شكراً لك، سجّلنا رأيك')); });
+      row.appendChild(b);
+    });
+    box.appendChild(row); return box;
+  }
+  /* رأي الطالب في الأداة: يُرسل إلى استقبال الآراء نفسه، ويُميَّز بمسار الصفحة، ويُراجَع قبل أي نشر */
+  var FB_KEY = 'tmn-mastery-fb', t0 = Date.now();
+  function fbSent() { try { return localStorage.getItem(FB_KEY) === '1'; } catch (e) { return false; } }
+  function feedbackBox() {
+    var box = h('details', 'box fbk');
+    if (fbSent()) { box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك في هذا التدريب')); return box; }
+    box.appendChild(h('summary', null, 'شاركنا رأيك في هذا التدريب (اختياري)'));
+    var f = h('form', 'fbf'); f.setAttribute('novalidate', '');
+    f.innerHTML =
+      '<p class="fbq">ما تقييمك لهذا التدريب؟</p>' +
+      '<div class="stars" role="radiogroup" aria-label="التقييم من 5">' + [1,2,3,4,5].map(function (i) { return '<label><input type="radio" name="rating" value="' + i + '"><span>' + i + '</span></label>'; }).join('') + '</div>' +
+      '<label class="fbl" for="fbt">هل ساعدك على فهم الفكرة؟ ما الذي أعجبك، وما الذي يحتاج إلى تحسين؟</label>' +
+      '<textarea id="fbt" name="text" rows="4" maxlength="450" placeholder="اكتب رأيك هنا (10 أحرف على الأقل)"></textarea>' +
+      '<label class="fbc"><input type="checkbox" name="anon" value="yes" checked> بلا اسم</label>' +
+      '<div id="fbn" hidden><label class="fbl" for="fbname">الاسم الأول فقط</label><input id="fbname" name="name" maxlength="40" autocomplete="off"></div>' +
+      '<label class="fbc"><input type="checkbox" name="consent" value="yes"> أوافق على نشر رأيي في صفحة الآراء بعد مراجعته</label>' +
+      '<div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="fberr" id="fberr" role="alert" hidden></p>' +
+      '<button type="submit" class="btn gold">أرسل رأيي</button>';
+    box.appendChild(f);
+    var anon = f.querySelector('[name=anon]'), nm = f.querySelector('#fbn');
+    anon.addEventListener('change', function () { nm.hidden = anon.checked; });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var err = f.querySelector('#fberr'); err.hidden = true;
+      var fd = new FormData(f), rating = fd.get('rating'), text = String(fd.get('text') || '').trim();
+      var m = !rating ? 'اختر تقييماً من 1 إلى 5.' : text.length < 10 ? 'اكتب رأيك بما لا يقل عن 10 أحرف.' : !fd.get('consent') ? 'لإرسال رأيك، فعّل خيار الموافقة على نشره بعد المراجعة.' : (!anon.checked && !String(fd.get('name') || '').trim()) ? 'اكتب اسمك الأول أو اختر «بلا اسم».' : '';
+      if (m) { err.textContent = m; err.hidden = false; return; }
+      var out = new FormData();
+      out.set('grade', GR); out.set('rating', rating); out.set('consent', 'yes');
+      out.set('anon', anon.checked ? 'yes' : ''); out.set('name', anon.checked ? '' : String(fd.get('name')).trim());
+      out.set('website', String(fd.get('website') || '')); out.set('el', String(Date.now() - t0)); out.set('from', location.pathname);
+      out.set('text', text + '\n[تدريب الإتقان: جولات ' + (st.rounds || 0) + '، مستوى ' + st.level + '، أول جولة ' + (st.firstScore == null ? '-' : st.firstScore + ' من 5') + ']');
+      var btn = f.querySelector('button'); btn.disabled = true;
+      fetch('/reviews/submit.php', { method: 'POST', body: out, headers: { Accept: 'application/json' } })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (j) {
+          if (j && j.ok) { try { localStorage.setItem(FB_KEY, '1'); } catch (e2) {} track('mastery-feedback', { band: BAND }); box.innerHTML = ''; box.appendChild(h('summary', null, 'شكراً لك، وصل رأيك وسيُراجَع قبل نشره')); }
+          else { btn.disabled = false; err.textContent = (j && j.code === 'rate') ? 'وصلنا منك عدة آراء قبل قليل، شكراً لك. جرّب مرة أخرى بعد ساعة.' : 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; }
+        })
+        .catch(function () { btn.disabled = false; err.textContent = 'تعذّر إرسال الرأي الآن، حاول مرة أخرى بعد قليل.'; err.hidden = false; });
+    });
+    return box;
+  }
+
+  newRound();
+})();
+
+</script>
+<script src="/nav.js?v=11"></script>
+</body>
+</html>
