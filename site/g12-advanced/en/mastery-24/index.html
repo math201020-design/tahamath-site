@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mastery Practice: Derivatives of trigonometric functions | Grade 12 Advanced | Taha Math Academy</title>
-<meta name="description" content="Mastery practice on band 24: derivatives of trigonometric functions, five levels up to Ministry level.">
+<meta name="description" content="Mastery practice on band 24: derivatives of trigonometric functions, five levels, the fifth a Challenge level.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://tahamath.com/g12-advanced/en/mastery-24/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
@@ -121,11 +121,13 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function setKey(v) { return v.p; }
 
   var HINT = {
-    d: 'Recall the basic trigonometric derivatives: \\((\\sin x)\'=\\cos x\\), \\((\\cos x)\'=-\\sin x\\), \\((\\tan x)\'=\\sec^2 x\\), \\((\\sec x)\'=\\sec x\\tan x\\).',
-    c: 'Chain rule: differentiate the outer function and leave the inner function unchanged, then multiply by the derivative of the inner function.',
-    p: 'Product rule: \\((uv)\'=u\'v+uv\'\\). Quotient rule: \\(\\left(\\dfrac{u}{v}\\right)\'=\\dfrac{u\'v-uv\'}{v^2}\\).',
-    m: 'For limits: \\(\\lim_{x\\to0}\\dfrac{\\sin ax}{bx}=\\dfrac{a}{b}\\) and \\(\\lim_{x\\to0}\\dfrac{1-\\cos kx}{x^2}=\\dfrac{k^2}{2}\\). For values, substitute the special angles.',
-    c5: 'When solving a trigonometric equation in \\([0,2\\pi]\\), find both solutions, one in each correct quadrant. For higher derivatives, differentiate one step at a time.'
+    d: 'Which functions are the derivatives of the trigonometric functions that appear in \\(f\\)?',
+    c: 'How does the function inside the trigonometric function affect the derivative of \\(f\\)?',
+    p: 'How is \\(f\\) built from simpler functions, and how does that structure affect its derivative?',
+    m: 'What happens to the angle inside each trigonometric function as \\(x\\) approaches \\(0\\)?',
+    c5: 'What do the points of the graph with a horizontal tangent have in common?',
+    ev: 'How is the value of \\(f\'\\) at the given angle related to the function \\(f\\)?',
+    dd: 'How does the second derivative of \\(f\\) relate to \\(f\\) itself?'
   };
 
   function pickD(rng, corr, cands) {
@@ -147,11 +149,11 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var C = ['\\cos x', 'cos(x)'], Sx = ['\\sin x', 'sin(x)'];
     var corr = lin([[a, C[0], C[1]], [-b, Sx[0], Sx[1]]]);
     return { stem: STEM_D, e: 'f(x)=' + lin([[a, Sx[0], Sx[1]], [b, C[0], C[1]]]).t, corr: corr, kind: 'd1', f: lin([[a, Sx[0], Sx[1]], [b, C[0], C[1]]]).p, hint: HINT.d, key: 'B1a:' + a + ',' + b,
-      cands: [{ cls: 'cs', v: lin([[a, C[0], C[1]], [b, Sx[0], Sx[1]]]), why: 'The sign of the coefficient of \\(\\cos x\\) was kept, but it must be reversed: \\((\\cos x)\'=-\\sin x\\).' },
-        { cls: 'ns', v: lin([[-a, C[0], C[1]], [-b, Sx[0], Sx[1]]]), why: 'The sign of the first term was changed. \\((\\sin x)\'=\\cos x\\) keeps the sign of its coefficient.' },
-        { cls: 'sw', v: lin([[b, C[0], C[1]], [-a, Sx[0], Sx[1]]]), why: 'The coefficients were swapped. Each coefficient stays with its own function: \\(\\sin x\\) gives \\(\\cos x\\) and \\(\\cos x\\) gives \\(-\\sin x\\), with the same coefficients.' },
-        { cls: 'sm', v: lin([[a, Sx[0], Sx[1]], [-b, C[0], C[1]]]), why: 'The functions were not changed. Differentiating turns \\(\\sin x\\) into \\(\\cos x\\) and \\(\\cos x\\) into \\(-\\sin x\\).' }],
-      sol: [{ t: '(\\sin x)\'=\\cos x,\\ (\\cos x)\'=-\\sin x', ar: 'Differentiate each term separately; the constant coefficients stay in place' }, { box: 'f\'(x)=' + corr.t }] };
+      cands: [{ cls: 'cs', v: lin([[a, C[0], C[1]], [b, Sx[0], Sx[1]]]), why: 'The derivative of \\(\\cos x\\) was written as \\(\\sin x\\).' },
+        { cls: 'ns', v: lin([[-a, C[0], C[1]], [-b, Sx[0], Sx[1]]]), why: 'The coefficient \\(' + (-a) + '\\) was written in front of \\(\\cos x\\).' },
+        { cls: 'sw', v: lin([[b, C[0], C[1]], [-a, Sx[0], Sx[1]]]), why: 'The coefficient of \\(\\cos x\\) in the result was taken as \\(' + b + '\\), and that of \\(\\sin x\\) as \\(' + (-a) + '\\).' },
+        { cls: 'sm', v: lin([[a, Sx[0], Sx[1]], [-b, C[0], C[1]]]), why: 'The terms of the result were written as \\(' + lin([[a, Sx[0], Sx[1]]]).t + '\\) and \\(' + lin([[-b, C[0], C[1]]]).t + '\\).' }],
+      sol: [{ t: '(\\sin x)\'=\\cos x', ar: 'Recall the derivative of the sine function' }, { t: '(\\cos x)\'=-\\sin x', ar: 'Recall the derivative of the cosine function' }, { box: 'f\'(x)=' + corr.t }] };
   }
   function t1b(rng) {
     var a = nz(rng, -6, 6), b = nz(rng, -6, 6); while (Math.abs(a) === Math.abs(b)) b = nz(rng, -6, 6);
@@ -159,11 +161,11 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var corr = lin([[a, s2[0], s2[1]], [b, st[0], st[1]]]);
     var f = lin([[a, '\\tan x', 'tan(x)'], [b, sc[0], sc[1]]]);
     return { stem: STEM_D, e: 'f(x)=' + f.t, corr: corr, kind: 'd2', f: f.p, hint: HINT.d, key: 'B1b:' + a + ',' + b,
-      cands: [{ cls: 'nt', v: lin([[a, s2[0], s2[1]], [b, sc[0], sc[1]]]), why: 'The derivative of \\(\\sec x\\) is \\(\\sec x\\tan x\\), not \\(\\sec x\\). The factor \\(\\tan x\\) was left out.' },
-        { cls: 'sg', v: lin([[a, s2[0], s2[1]], [-b, st[0], st[1]]]), why: 'The sign of the second term was changed. \\((\\sec x)\'=\\sec x\\tan x\\) keeps the sign of its coefficient.' },
-        { cls: 'sw', v: lin([[a, st[0], st[1]], [b, s2[0], s2[1]]]), why: 'The two results were swapped. The derivative of \\(\\tan x\\) is \\(\\sec^2x\\), and the derivative of \\(\\sec x\\) is \\(\\sec x\\tan x\\).' },
-        { cls: 'ng', v: lin([[-a, s2[0], s2[1]], [b, st[0], st[1]]]), why: 'The sign of the first term was changed. \\((\\tan x)\'=\\sec^2x\\) keeps the sign of its coefficient.' },
-        { cls: 'sq', v: lin([[a, sc[0], sc[1]], [b, st[0], st[1]]]), why: 'The derivative of \\(\\tan x\\) is \\(\\sec^2x\\) (squared), not \\(\\sec x\\).' }],
+      cands: [{ cls: 'nt', v: lin([[a, s2[0], s2[1]], [b, sc[0], sc[1]]]), why: 'The derivative of \\(\\sec x\\) was written as \\(\\sec x\\).' },
+        { cls: 'sg', v: lin([[a, s2[0], s2[1]], [-b, st[0], st[1]]]), why: 'The second term of the result was written as \\(' + lin([[-b, st[0], st[1]]]).t + '\\).' },
+        { cls: 'sw', v: lin([[a, st[0], st[1]], [b, s2[0], s2[1]]]), why: 'The derivatives were taken as \\((\\tan x)\'=\\sec x\\tan x\\) and \\((\\sec x)\'=\\sec^{2}x\\).' },
+        { cls: 'ng', v: lin([[-a, s2[0], s2[1]], [b, st[0], st[1]]]), why: 'The term \\(' + lin([[a, '\\tan x', '']]).t + '\\) was differentiated to \\(' + lin([[-a, s2[0], s2[1]]]).t + '\\).' },
+        { cls: 'sq', v: lin([[a, sc[0], sc[1]], [b, st[0], st[1]]]), why: 'The first term of the result was computed as \\(' + lin([[a, sc[0], sc[1]]]).t + '\\).' }],
       sol: [{ t: '(\\tan x)\'=\\sec^{2}x', ar: 'Differentiate the first term using the derivative of tangent' }, { t: '(\\sec x)\'=\\sec x\\tan x', ar: 'Differentiate the second term using the derivative of secant' }, { box: 'f\'(x)=' + corr.t }] };
   }
   function t1c(rng) {
@@ -172,12 +174,12 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var kx = k + 'x', kxp = k + '*x';
     var corr = lin([[sg * k, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]);
     return { stem: STEM_D, e: 'f(x)=' + fn[0] + ' ' + kx, corr: corr, kind: 'd3', f: fn[1] + '(' + kxp + ')', hint: HINT.c, key: 'B1c:' + (isS ? 's' : 'c') + k,
-      cands: [{ cls: 'nk', v: lin([[sg, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: 'The factor \\(' + k + '\\) is missing. By the chain rule, multiply by the derivative of the angle \\(' + kx + '\\), which is \\(' + k + '\\).' },
-        { cls: 'ng', v: lin([[-sg * k, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: isS ? 'The sign needs checking. \\(\\sin\\) differentiates to \\(+\\cos\\), so the sign of the coefficient is kept.' : 'The sign needs checking. \\(\\cos\\) differentiates to \\(-\\sin\\), so the sign of the coefficient is reversed.' },
-        { cls: 'dv', v: E(sg < 0 ? '-\\dfrac{1}{' + k + '}' + ofn[0] + ' ' + kx : '\\dfrac{1}{' + k + '}' + ofn[0] + ' ' + kx, (sg < 0 ? '-' : '') + '(1/' + k + ')*' + ofn[1] + '(' + kxp + ')'), why: 'The inner derivative \\(' + k + '\\) was divided instead of multiplied. The chain rule multiplies by \\(' + k + '\\).' },
-        { cls: 'sm', v: lin([[k, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The function was not changed after differentiating: ' + (isS ? '\\(\\sin\\) becomes \\(\\cos\\).' : '\\(\\cos\\) becomes \\(-\\sin\\).') },
-        { cls: 'x', v: lin([[sg * k, ofn[0] + ' x', ofn[1] + '(x)']]), why: 'The angle \\(' + kx + '\\) stays inside the trigonometric function; only the factor \\(' + k + '\\) comes out. It does not become \\(x\\).' }],
-      sol: [{ t: 'f\'(x)=' + (isS ? '\\cos ' : '-\\sin ') + kx + '\\cdot(' + kx + ')\'', ar: 'Chain rule: differentiate the outer function, then multiply by the derivative of the angle' }, { box: 'f\'(x)=' + corr.t }] };
+      cands: [{ cls: 'nk', v: lin([[sg, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: 'The expression \\(' + lin([[sg, ofn[0] + ' ' + kx, '']]).t + '\\) was written as the derivative of \\(' + fn[0] + ' ' + kx + '\\).' },
+        { cls: 'ng', v: lin([[-sg * k, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: 'The coefficient \\(' + (-sg * k) + '\\) was written in front of \\(' + ofn[0] + ' ' + kx + '\\).' },
+        { cls: 'dv', v: E(sg < 0 ? '-\\dfrac{1}{' + k + '}' + ofn[0] + ' ' + kx : '\\dfrac{1}{' + k + '}' + ofn[0] + ' ' + kx, (sg < 0 ? '-' : '') + '(1/' + k + ')*' + ofn[1] + '(' + kxp + ')'), why: 'The factor \\(\\dfrac{1}{' + k + '}\\) was written in the result, coming from the angle \\(' + kx + '\\).' },
+        { cls: 'sm', v: lin([[k, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The result was written as a multiple of \\(' + fn[0] + ' ' + kx + '\\): \\(' + k + fn[0] + ' ' + kx + '\\).' },
+        { cls: 'x', v: lin([[sg * k, ofn[0] + ' x', ofn[1] + '(x)']]), why: 'The angle in the result was written as \\(x\\): \\(' + lin([[sg * k, ofn[0] + ' x', '']]).t + '\\).' }],
+      sol: [{ t: 'f\'(x)=' + (isS ? '\\cos ' : '-\\sin ') + kx + '\\cdot(' + kx + ')\'', ar: 'Apply the chain rule: differentiate the outer function and multiply by the derivative of the angle' }, { t: '(' + kx + ')\'=' + k, ar: 'Differentiate the angle' }, { box: 'f\'(x)=' + corr.t }] };
   }
 
   /* ----- Level 2 ----- */
@@ -188,35 +190,35 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var corr = E((sg * 2 * k < 0 ? '-' : '') + (2 * k) + sk + ck, (sg < 0 ? '-' : '') + (2 * k) + '*' + sp + '*' + cp);
     var cs = isS ? [sk, sp] : [ck, cp];
     return { stem: STEM_D, e: 'f(x)=' + fn[0] + '^{2}' + kx, corr: corr, kind: 'd4', f: fn[1] + '(' + kxp + ')**2', hint: HINT.c, key: 'B2a:' + (isS ? 's' : 'c') + k,
-      cands: [{ cls: 'nk', v: E((sg < 0 ? '-' : '') + '2' + sk + ck, (sg < 0 ? '-' : '') + '2*' + sp + '*' + cp), why: 'The derivative of the angle \\(' + kx + '\\) was forgotten. After the power and the trigonometric function, multiply by \\(' + k + '\\) as well.' },
-        { cls: 'nin', v: E((sg < 0 ? '-' : '') + (2 * k) + cs[0], (sg < 0 ? '-' : '') + (2 * k) + '*' + cs[1]), why: 'The derivative of \\(u^2\\) is \\(2u\\cdot u\'\\), so the answer keeps the factor \\(' + (isS ? '\\sin' : '\\cos') + ' ' + kx + '\\) and also contains \\(' + (isS ? '\\cos' : '\\sin') + ' ' + kx + '\\) from \\(u\'\\). Here one of the two factors was dropped.' },
-        { cls: 'ns', v: E((sg < 0 ? '' : '-') + (2 * k) + sk + ck, (sg < 0 ? '' : '-') + (2 * k) + '*' + sp + '*' + cp), why: isS ? 'The sign needs checking. \\(\\sin\\) differentiates to \\(+\\cos\\), so the sign of the coefficient is kept.' : 'The sign needs checking. \\(\\cos\\) differentiates to \\(-\\sin\\), so the sign of the coefficient is reversed.' },
-        { cls: 'op', v: E((sg < 0 ? '-' : '') + k + (isS ? ck : sk), (sg < 0 ? '-' : '') + k + '*' + (isS ? cp : sp)), why: 'The power rule step was skipped. The exponent \\(2\\) must come down in front, and then the trigonometric function and the inner derivative follow; here the factor \\(2\\) and the original function are missing.' },
-        { cls: 'sq', v: E(k + '\\cos^{2}' + kx, k + '*cos(' + kxp + ')**2'), why: 'The result should not be a squared function. Differentiating gives a product of two different functions, \\(\\sin\\cdot\\cos\\).' }],
-      sol: [{ t: 'f\'(x)=2\\,' + (isS ? '\\sin ' : '\\cos ') + kx + '\\cdot(' + (isS ? '\\cos ' : '-\\sin ') + kx + ')\\cdot' + k, ar: 'Apply the chain rule in three steps: the power, then the trigonometric function, then the angle' }, { box: 'f\'(x)=' + corr.t }] };
+      cands: [{ cls: 'nk', v: E((sg < 0 ? '-' : '') + '2' + sk + ck, (sg < 0 ? '-' : '') + '2*' + sp + '*' + cp), why: 'The power and the trigonometric function were differentiated, giving \\(' + (sg < 0 ? '-' : '') + '2' + sk + ck + '\\).' },
+        { cls: 'nin', v: E((sg < 0 ? '-' : '') + (2 * k) + cs[0], (sg < 0 ? '-' : '') + (2 * k) + '*' + cs[1]), why: 'The coefficient \\(' + (sg < 0 ? '-' : '') + (2 * k) + '\\) was written in front of \\(' + cs[0] + '\\).' },
+        { cls: 'ns', v: E((sg < 0 ? '' : '-') + (2 * k) + sk + ck, (sg < 0 ? '' : '-') + (2 * k) + '*' + sp + '*' + cp), why: isS ? 'The derivative of \\(\\sin\\) was written as \\(-\\cos\\).' : 'The derivative of \\(\\cos\\) was written as \\(\\sin\\).' },
+        { cls: 'op', v: E((sg < 0 ? '-' : '') + k + (isS ? ck : sk), (sg < 0 ? '-' : '') + k + '*' + (isS ? cp : sp)), why: isS ? 'The function \\(\\sin ' + kx + '\\) was differentiated to \\(' + k + '\\cos ' + kx + '\\).' : 'The function \\(\\cos ' + kx + '\\) was differentiated to \\(-' + k + '\\sin ' + kx + '\\).' },
+        { cls: 'sq', v: E(k + '\\cos^{2}' + kx, k + '*cos(' + kxp + ')**2'), why: 'The result was written as \\(' + k + '\\cos^{2}' + kx + '\\).' }],
+      sol: [{ t: 'f\'(x)=2\\,' + (isS ? '\\sin ' : '\\cos ') + kx + '\\cdot(' + (isS ? '\\cos ' : '-\\sin ') + kx + ')\\cdot' + k, ar: 'Apply the chain rule to the three layers: the power, the trigonometric function and the angle' }, { box: 'f\'(x)=' + corr.t }] };
   }
   function t2b(rng) {
     var n = ri(rng, 2, 5), isS = rng() < 0.5, fn = isS ? S.sin : S.cos, ofn = isS ? S.cos : S.sin, sg = isS ? 1 : -1;
     var xn = 'x^{' + n + '}', pn = pw(n - 1), cos = ofn[0], cosp = ofn[1];
     var corr = E((sg < 0 ? '-' : '') + n + pn + cos + '(' + xn + ')', (sg < 0 ? '-' : '') + n + '*x**' + (n - 1) + '*' + cosp + '(x**' + n + ')');
     return { stem: STEM_D, e: 'f(x)=' + fn[0] + '(' + xn + ')', corr: corr, kind: 'd5', f: fn[1] + '(x**' + n + ')', hint: HINT.c, key: 'B2b:' + (isS ? 's' : 'c') + n,
-      cands: [{ cls: 'nc', v: E((sg < 0 ? '-' : '') + cos + '(' + xn + ')', (sg < 0 ? '-' : '') + cosp + '(x**' + n + ')'), why: 'The factor from the inner function is missing. Multiply by the derivative of the angle \\(x^{' + n + '}\\), which is \\(' + n + pn + '\\).' },
-        { cls: 'nf', v: E((sg < 0 ? '-' : '') + n + pn + cos + ' x', (sg < 0 ? '-' : '') + n + '*x**' + (n - 1) + '*' + cosp + '(x)'), why: 'The angle \\(x^{' + n + '}\\) must stay unchanged inside the trigonometric function after differentiating the outer function; it does not become \\(x\\).' },
-        { cls: 'ng', v: E((sg < 0 ? '' : '-') + n + pn + cos + '(' + xn + ')', (sg < 0 ? '' : '-') + n + '*x**' + (n - 1) + '*' + cosp + '(x**' + n + ')'), why: isS ? 'The sign needs checking. The derivative of \\(\\sin\\) is \\(+\\cos\\).' : 'The sign needs checking. The derivative of \\(\\cos\\) is \\(-\\sin\\), so the result must be negative.' },
-        { cls: 'pn', v: E((sg < 0 ? '-' : '') + n + cos + '(' + xn + ')', (sg < 0 ? '-' : '') + n + '*' + cosp + '(x**' + n + ')'), why: 'The derivative of \\(x^{' + n + '}\\) is \\(' + n + pn + '\\), not just \\(' + n + '\\). The power of \\(x\\) must drop by one.' },
-        { cls: 'sm', v: E(n + pn + fn[0] + '(' + xn + ')', n + '*x**' + (n - 1) + '*' + fn[1] + '(x**' + n + ')'), why: 'The outer function was not differentiated: ' + (isS ? '\\(\\sin\\) becomes \\(\\cos\\).' : '\\(\\cos\\) becomes \\(-\\sin\\).') }],
-      sol: [{ t: 'f\'(x)=' + (isS ? '\\cos(' : '-\\sin(') + xn + ')' + '\\cdot(' + xn + ')\'', ar: 'Chain rule: differentiate the outer function, then multiply by the derivative of the inner function' }, { box: 'f\'(x)=' + corr.t }] };
+      cands: [{ cls: 'nc', v: E((sg < 0 ? '-' : '') + cos + '(' + xn + ')', (sg < 0 ? '-' : '') + cosp + '(x**' + n + ')'), why: 'The expression \\(' + (sg < 0 ? '-' : '') + cos + '(' + xn + ')\\) was written as the derivative of \\(' + fn[0] + '(' + xn + ')\\).' },
+        { cls: 'nf', v: E((sg < 0 ? '-' : '') + n + pn + cos + ' x', (sg < 0 ? '-' : '') + n + '*x**' + (n - 1) + '*' + cosp + '(x)'), why: 'The argument of \\(' + cos + '\\) in the result was written as \\(x\\): \\(' + (sg < 0 ? '-' : '') + n + pn + cos + ' x\\).' },
+        { cls: 'ng', v: E((sg < 0 ? '' : '-') + n + pn + cos + '(' + xn + ')', (sg < 0 ? '' : '-') + n + '*x**' + (n - 1) + '*' + cosp + '(x**' + n + ')'), why: isS ? 'The derivative of \\(\\sin\\) was written as \\(-\\cos\\).' : 'The derivative of \\(\\cos\\) was written as \\(\\sin\\).' },
+        { cls: 'pn', v: E((sg < 0 ? '-' : '') + n + cos + '(' + xn + ')', (sg < 0 ? '-' : '') + n + '*' + cosp + '(x**' + n + ')'), why: 'The power \\(' + xn + '\\) was differentiated to \\(' + n + '\\).' },
+        { cls: 'sm', v: E(n + pn + fn[0] + '(' + xn + ')', n + '*x**' + (n - 1) + '*' + fn[1] + '(x**' + n + ')'), why: 'The result was written as \\(' + n + pn + fn[0] + '(' + xn + ')\\).' }],
+      sol: [{ t: 'f\'(x)=' + (isS ? '\\cos(' : '-\\sin(') + xn + ')' + '\\cdot(' + xn + ')\'', ar: 'Apply the chain rule: differentiate the outer function and multiply by the derivative of the inner function' }, { t: '(' + xn + ')\'=' + n + pn, ar: 'Differentiate the inner function' }, { box: 'f\'(x)=' + corr.t }] };
   }
   function t2c(rng) {
     var k = ri(rng, 2, 6), b = nz(rng, -5, 5), ang = k + 'x' + (b < 0 ? '-' : '+') + Math.abs(b), angp = k + '*x+(' + b + ')';
     var corr = E(k + '\\sec^{2}(' + ang + ')', k + '/cos(' + angp + ')**2');
     return { stem: STEM_D, e: 'f(x)=\\tan(' + ang + ')', corr: corr, kind: 'd6', f: 'tan(' + angp + ')', hint: HINT.c, key: 'B2c:' + k + ',' + b,
-      cands: [{ cls: 'nk', v: E('\\sec^{2}(' + ang + ')', '1/cos(' + angp + ')**2'), why: 'The derivative of the angle \\(' + ang + '\\) was forgotten. It is \\(' + k + '\\), and the result must be multiplied by it.' },
-        { cls: 'st', v: E(k + '\\sec(' + ang + ')\\tan(' + ang + ')', k + '*tan(' + angp + ')/cos(' + angp + ')'), why: 'This is the derivative of \\(\\sec\\), not of \\(\\tan\\). The derivative of \\(\\tan u\\) is \\(\\sec^2u\\cdot u\'\\).' },
-        { cls: 'ng', v: E('-' + k + '\\sec^{2}(' + ang + ')', '-' + k + '/cos(' + angp + ')**2'), why: 'The sign needs checking. \\(\\tan\\) differentiates to \\(+\\sec^2\\), so the sign of the coefficient is kept.' },
-        { cls: 'sc', v: E(k + '\\sec(' + ang + ')', k + '/cos(' + angp + ')'), why: 'The derivative of \\(\\tan u\\) involves \\(\\sec^2u\\) (squared), not \\(\\sec u\\).' },
-        { cls: 'sx', v: E(k + '\\sec^{2}x', k + '/cos(x)**2'), why: 'The angle \\(' + ang + '\\) must stay inside \\(\\sec^2\\) unchanged; it does not become \\(x\\).' }],
-      sol: [{ t: 'f\'(x)=\\sec^{2}(' + ang + ')\\cdot(' + ang + ')\'', ar: 'Chain rule: the derivative of \\(\\tan u\\) is \\(\\sec^2u\\) times \\(u\'\\)' }, { box: 'f\'(x)=' + corr.t }] };
+      cands: [{ cls: 'nk', v: E('\\sec^{2}(' + ang + ')', '1/cos(' + angp + ')**2'), why: 'The expression \\(\\sec^{2}(' + ang + ')\\) was written as the derivative of \\(\\tan(' + ang + ')\\).' },
+        { cls: 'st', v: E(k + '\\sec(' + ang + ')\\tan(' + ang + ')', k + '*tan(' + angp + ')/cos(' + angp + ')'), why: 'The expression \\(\\sec(' + ang + ')\\tan(' + ang + ')\\) was used for the derivative of \\(\\tan(' + ang + ')\\), with the factor \\(' + k + '\\) in front.' },
+        { cls: 'ng', v: E('-' + k + '\\sec^{2}(' + ang + ')', '-' + k + '/cos(' + angp + ')**2'), why: 'The coefficient \\(-' + k + '\\) was written in front of \\(\\sec^{2}(' + ang + ')\\).' },
+        { cls: 'sc', v: E(k + '\\sec(' + ang + ')', k + '/cos(' + angp + ')'), why: 'The power of \\(\\sec(' + ang + ')\\) in the result was written as \\(1\\): \\(' + k + '\\sec(' + ang + ')\\).' },
+        { cls: 'sx', v: E(k + '\\sec^{2}x', k + '/cos(x)**2'), why: 'The angle in the result was written as \\(x\\): \\(' + k + '\\sec^{2}x\\).' }],
+      sol: [{ t: 'f\'(x)=\\sec^{2}(' + ang + ')\\cdot(' + ang + ')\'', ar: 'Apply the chain rule: differentiate the tangent and multiply by the derivative of the angle' }, { t: '(' + ang + ')\'=' + k, ar: 'Differentiate the angle' }, { box: 'f\'(x)=' + corr.t }] };
   }
 
   /* ----- Level 3 ----- */
@@ -231,11 +233,11 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var B = [sg * k, pw(n) + ofn[0] + ' ' + kx, pwp(n) + '*' + ofn[1] + '(' + kxp + ')'];
     if (n === 1) A = [1, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')'];
     return { stem: STEM_D, e: 'f(x)=' + f.t, corr: corr, kind: 'd7', f: f.p, hint: HINT.p, key: 'B3a:' + (isS ? 's' : 'c') + n + ',' + k,
-      cands: [{ cls: 'sg', v: lin([A, [-B[0], B[1], B[2]]]), why: 'The product rule adds the two terms: \\(u\'v+uv\'\\). The sign of the second term must come only from the derivative of the trigonometric factor, and here it was reversed.' },
-        { cls: 'nk', v: lin([A, [B[0] / k, B[1], B[2]]]), why: 'In the second term the derivative of the angle \\(' + kx + '\\) was forgotten. By the chain rule, multiply by \\(' + k + '\\).' },
-        { cls: 'pd', v: lin([[n * k * (n === 1 ? 1 : 1) * sg, pw(n - 1) + ofn[0] + ' ' + kx, pwp(n - 1) + '*' + ofn[1] + '(' + kxp + ')']]), why: 'The derivative of a product is not the product of the derivatives. Use the product rule \\(u\'v+uv\'\\), which gives two terms.' },
-        { cls: 'fn', v: lin([[n, pw(n - 1) + ofn[0] + ' ' + kx, pwp(n - 1) + '*' + ofn[1] + '(' + kxp + ')'], [sg * k, pw(n) + fn[0] + ' ' + kx, pwp(n) + '*' + fn[1] + '(' + kxp + ')']]), why: 'The trigonometric function was differentiated in the wrong term. In the first term it stays as it is (only the power of \\(x\\) is differentiated); in the second term it is differentiated.' }],
-      sol: [{ t: 'f\'(x)=(' + pw(n) + ')\'\\,' + fn[0] + ' ' + kx + '+' + pw(n) + '\\,(' + fn[0] + ' ' + kx + ')\'', ar: 'Product rule: \\(u\'v+uv\'\\), where the second derivative uses the chain rule' }, { box: 'f\'(x)=' + corr.t }] };
+      cands: [{ cls: 'sg', v: lin([A, [-B[0], B[1], B[2]]]), why: 'The second term of the result was written as \\(' + lin([[-B[0], B[1], B[2]]]).t + '\\).' },
+        { cls: 'nk', v: lin([A, [B[0] / k, B[1], B[2]]]), why: 'The coefficient \\(' + (B[0] / k) + '\\) was written in the second term.' },
+        { cls: 'pd', v: lin([[n * k * (n === 1 ? 1 : 1) * sg, pw(n - 1) + ofn[0] + ' ' + kx, pwp(n - 1) + '*' + ofn[1] + '(' + kxp + ')']]), why: 'The derivatives of the two factors, \\(' + (n === 1 ? '1' : n + pw(n - 1)) + '\\) and \\(' + lin([[sg * k, ofn[0] + ' ' + kx, '']]).t + '\\), were multiplied: \\(' + lin([[n * k * sg, pw(n - 1) + ofn[0] + ' ' + kx, '']]).t + '\\).' },
+        { cls: 'fn', v: lin([[n, pw(n - 1) + ofn[0] + ' ' + kx, pwp(n - 1) + '*' + ofn[1] + '(' + kxp + ')'], [sg * k, pw(n) + fn[0] + ' ' + kx, pwp(n) + '*' + fn[1] + '(' + kxp + ')']]), why: 'The first term was written with \\(' + ofn[0] + ' ' + kx + '\\) and the second term with \\(' + fn[0] + ' ' + kx + '\\).' }],
+      sol: [{ t: 'f\'(x)=(' + pw(n) + ')\'\\,' + fn[0] + ' ' + kx + '+' + pw(n) + '\\,(' + fn[0] + ' ' + kx + ')\'', ar: 'Apply the product rule' }, { t: '(' + fn[0] + ' ' + kx + ')\'=' + (isS ? '' : '-') + k + ofn[0] + ' ' + kx, ar: 'Apply the chain rule to differentiate the second factor' }, { box: 'f\'(x)=' + corr.t }] };
   }
 
   function t3c(rng) {
@@ -244,23 +246,23 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var A = [a * n, pw(n - 1) + '\\tan x', pwp(n - 1) + '*tan(x)'], B = [a, xn + '\\sec^{2}x', xp + '/cos(x)**2'];
     var corr = lin([A, B]);
     return { stem: STEM_D, e: 'f(x)=' + f.t, corr: corr, kind: 'd9', f: f.p, hint: HINT.p, key: 'B3c:' + n + ',' + a,
-      cands: [{ cls: 'sg', v: lin([A, [-a, B[1], B[2]]]), why: 'The derivative of \\(\\tan x\\) is positive, \\(+\\sec^2x\\). The product rule then adds the two terms, so the second term keeps a plus sign.' },
-        { cls: 'sq', v: lin([A, [a, xn + '\\sec x', xp + '/cos(x)']]), why: 'The derivative of \\(\\tan x\\) is \\(\\sec^2x\\) (squared), not \\(\\sec x\\).' },
-        { cls: 'pd', v: lin([[a * n, pw(n - 1) + '\\sec^{2}x', pwp(n - 1) + '/cos(x)**2']]), why: 'The derivative of a product is not the product of the derivatives. The product rule gives two terms: \\(u\'v+uv\'\\).' },
-        { cls: 'st', v: lin([A, [a, xn + '\\sec x\\tan x', xp + '*tan(x)/cos(x)']]), why: 'This is the derivative of \\(\\sec x\\). The derivative of \\(\\tan x\\) is \\(\\sec^2x\\).' },
-        { cls: 'sw', v: lin([[a, pw(n - 1) + '\\tan x', pwp(n - 1) + '*tan(x)'], [a * n, B[1], B[2]]]), why: 'The factor \\(' + n + '\\) was attached to the wrong term. It comes from differentiating \\(x^{' + n + '}\\), so it belongs to the first term, not to the \\(\\sec^2x\\) term.' }],
-      sol: [{ t: 'f\'(x)=' + a + '\\left[(' + xn + ')\'\\tan x+' + xn + '\\sec^{2}x\\right]', ar: 'Product rule, with the constant factor kept outside' }, { box: 'f\'(x)=' + corr.t }] };
+      cands: [{ cls: 'sg', v: lin([A, [-a, B[1], B[2]]]), why: 'The second term of the result was written as \\(' + lin([[-a, B[1], B[2]]]).t + '\\).' },
+        { cls: 'sq', v: lin([A, [a, xn + '\\sec x', xp + '/cos(x)']]), why: 'The power of \\(\\sec x\\) in the second term was written as \\(1\\).' },
+        { cls: 'pd', v: lin([[a * n, pw(n - 1) + '\\sec^{2}x', pwp(n - 1) + '/cos(x)**2']]), why: 'The derivatives of \\(' + xn + '\\) and of \\(\\tan x\\) were multiplied by the constant \\(' + a + '\\): \\(' + lin([[a * n, pw(n - 1) + '\\sec^{2}x', '']]).t + '\\).' },
+        { cls: 'st', v: lin([A, [a, xn + '\\sec x\\tan x', xp + '*tan(x)/cos(x)']]), why: 'The derivative of \\(\\tan x\\) was written as \\(\\sec x\\tan x\\).' },
+        { cls: 'sw', v: lin([[a, pw(n - 1) + '\\tan x', pwp(n - 1) + '*tan(x)'], [a * n, B[1], B[2]]]), why: 'The coefficients \\(' + a + '\\) and \\(' + (a * n) + '\\) were written in the first and second terms.' }],
+      sol: [{ t: 'f\'(x)=' + a + '\\left[(' + xn + ')\'\\tan x+' + xn + '(\\tan x)\'\\right]', ar: 'Apply the product rule, keeping the constant factor outside' }, { t: 'f\'(x)=' + a + '\\left[' + (n === 1 ? '' : n + pw(n - 1)) + '\\tan x+' + xn + '\\sec^{2}x\\right]', ar: 'Substitute the derivatives of the two factors' }, { box: 'f\'(x)=' + corr.t }] };
   }
   function t3b(rng) {
     var n = ri(rng, 1, 3), xn = n === 1 ? 'x' : 'x^{' + n + '}', xm = n === 1 ? '' : (n === 2 ? 'x' : 'x^{' + (n - 1) + '}'), dn = n === 1 ? '1' : (n === 2 ? '2x' : '3x^{2}');
     var corr = E('\\dfrac{x\\cos x-' + (n === 1 ? '' : n) + '\\sin x}{x^{' + (n + 1) + '}}', '(x*cos(x)-' + n + '*sin(x))/x**' + (n + 1));
     return { stem: STEM_D, e: 'f(x)=\\dfrac{\\sin x}{' + xn + '}', corr: corr, kind: 'd8', f: 'sin(x)/x**' + n, hint: HINT.p, key: 'B3b:' + n,
-      cands: [{ cls: 'sg', v: E('\\dfrac{x\\cos x+' + (n === 1 ? '' : n) + '\\sin x}{x^{' + (n + 1) + '}}', '(x*cos(x)+' + n + '*sin(x))/x**' + (n + 1)), why: 'In the quotient rule the numerator is \\(u\'v-uv\'\\), with a subtraction. Here the two terms were added.' },
-        { cls: 'rv', v: E('\\dfrac{' + (n === 1 ? '' : n) + '\\sin x-x\\cos x}{x^{' + (n + 1) + '}}', '(' + n + '*sin(x)-x*cos(x))/x**' + (n + 1)), why: 'The order of the subtraction is reversed. The numerator is \\(u\'v-uv\'\\), not \\(uv\'-u\'v\\).' },
-        { cls: 'dv', v: E(n === 1 ? '\\cos x' : '\\dfrac{\\cos x}{' + dn + '}', n === 1 ? 'cos(x)' : 'cos(x)/(' + n + '*x**' + (n - 1) + ')'), why: 'The derivative of a quotient is not the quotient of the derivatives. Use the quotient rule \\(\\dfrac{u\'v-uv\'}{v^2}\\).' },
-        { cls: 'nd', v: E('x\\cos x-' + (n === 1 ? '' : n) + '\\sin x', 'x*cos(x)-' + n + '*sin(x)'), why: 'The division by the square of the denominator is missing. The denominator is \\((' + xn + ')^2=x^{' + (2 * n) + '}\\), ' + (n === 1 ? 'so the whole expression must be divided by \\(x^{2}\\).' : 'which reduces to \\(x^{' + (n + 1) + '}\\) after canceling.') },
-        { cls: 'pr', v: E('\\cos x\\cdot x^{-' + n + '}+\\sin x\\cdot x^{-' + n + '}', 'cos(x)*x**(-' + n + ')+sin(x)*x**(-' + n + ')'), why: 'Rewriting as \\(\\sin x\\cdot x^{-' + n + '}\\) and using the product rule gives \\(\\cos x\\,x^{-' + n + '}-' + (n === 1 ? '' : n) + '\\sin x\\,x^{-' + (n + 1) + '}\\). Here the derivative of \\(x^{-' + n + '}\\) was left out and the terms were added.' }],
-      sol: [{ t: 'f\'(x)=\\dfrac{(\\cos x)(' + xn + ')-(\\sin x)(' + dn + ')}{(' + xn + ')^{2}}', ar: 'Quotient rule: \\(\\dfrac{u\'v-uv\'}{v^2}\\)' }, { box: 'f\'(x)=' + corr.t, ar: (n === 1 ? 'The result is already in simplest form' : 'Cancel the common factor of \\(x\\) from the numerator and denominator') }] };
+      cands: [{ cls: 'sg', v: E('\\dfrac{x\\cos x+' + (n === 1 ? '' : n) + '\\sin x}{x^{' + (n + 1) + '}}', '(x*cos(x)+' + n + '*sin(x))/x**' + (n + 1)), why: 'The numerator was written with a plus sign between its two terms: \\(x\\cos x+' + (n === 1 ? '' : n) + '\\sin x\\).' },
+        { cls: 'rv', v: E('\\dfrac{' + (n === 1 ? '' : n) + '\\sin x-x\\cos x}{x^{' + (n + 1) + '}}', '(' + n + '*sin(x)-x*cos(x))/x**' + (n + 1)), why: 'The two terms of the numerator were written in the order \\(' + (n === 1 ? '' : n) + '\\sin x-x\\cos x\\).' },
+        { cls: 'dv', v: E(n === 1 ? '\\cos x' : '\\dfrac{\\cos x}{' + dn + '}', n === 1 ? 'cos(x)' : 'cos(x)/(' + n + '*x**' + (n - 1) + ')'), why: 'The derivative of the numerator, \\(\\cos x\\), was divided by the derivative of the denominator, \\(' + dn + '\\).' },
+        { cls: 'nd', v: E('x\\cos x-' + (n === 1 ? '' : n) + '\\sin x', 'x*cos(x)-' + n + '*sin(x)'), why: 'The derivative was written as \\(x\\cos x-' + (n === 1 ? '' : n) + '\\sin x\\).' },
+        { cls: 'pr', v: E('\\cos x\\cdot x^{-' + n + '}+\\sin x\\cdot x^{-' + n + '}', 'cos(x)*x**(-' + n + ')+sin(x)*x**(-' + n + ')'), why: 'The result was written as the sum \\(\\cos x\\cdot x^{-' + n + '}+\\sin x\\cdot x^{-' + n + '}\\).' }],
+      sol: [{ t: 'f\'(x)=\\dfrac{(\\cos x)(' + xn + ')-(\\sin x)(' + dn + ')}{' + (n === 1 ? 'x^{2}' : '(' + xn + ')^{2}') + '}', ar: 'Apply the quotient rule with \\(u=\\sin x\\) and \\(v=' + xn + '\\): \\(\\dfrac{u\'v-uv\'}{v^{2}}\\)' }].concat(n === 1 ? [] : [{ t: 'f\'(x)=\\dfrac{' + pw(n - 1) + '(x\\cos x-' + n + '\\sin x)}{x^{' + (2 * n) + '}}', ar: 'Factor \\(' + pw(n - 1) + '\\) out of the numerator' }]).concat([{ box: 'f\'(x)=' + corr.t }]) };
   }
 
   /* ----- Level 4 ----- */
@@ -269,20 +271,20 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     if (form === 'D') {
       k = ri(rng, 2, 8); ans = fr(k * k, 2); f = '(1-cos(' + k + '*x))/x**2';
       e = '\\lim_{x\\to0}\\dfrac{1-\\cos ' + k + 'x}{x^{2}}';
-      cands = [{ cls: 'kd', v: E(ftex(fr(k, 2)), fplain(fr(k, 2))), why: 'The value is \\(\\dfrac{k^2}{2}\\) with \\(k\\) squared, not \\(\\dfrac{k}{2}\\). Here \\(k^2=' + (k * k) + '\\).' }, { cls: 'one2', v: E('\\dfrac{1}{2}', '1/2'), why: 'The factor \\(k^2\\) is missing. Since \\(x^2=\\dfrac{(kx)^2}{k^2}\\), the limit is \\(\\dfrac{k^2}{2}\\), not \\(\\dfrac12\\).' }, { cls: 'kk', v: E(String(k * k), String(k * k)), why: 'The division by 2 from the special limit \\(\\dfrac{1-\\cos u}{u^2}\\to\\dfrac12\\) was forgotten.' }, { cls: 'zero', v: E('0', '0'), why: 'The limit is not zero. Near \\(0\\), \\(1-\\cos kx\\approx\\dfrac{k^2x^2}{2}\\), which is of the same order as \\(x^2\\).' }];
-      sol = [{ t: '\\dfrac{1-\\cos ' + k + 'x}{x^{2}}=\\dfrac{1-\\cos ' + k + 'x}{(' + k + 'x)^{2}}\\cdot ' + k * k, ar: 'Write the denominator in terms of \\(' + k + 'x\\), using \\(x^2=\\dfrac{(' + k + 'x)^2}{' + k * k + '}\\)' }, { t: '\\lim_{u\\to0}\\dfrac{1-\\cos u}{u^{2}}=\\dfrac{1}{2}', ar: 'Special limit, with \\(u=' + k + 'x\\to0\\)' }, { box: ftex(ans) }];
+      cands = [{ cls: 'kd', v: E(ftex(fr(k, 2)), fplain(fr(k, 2))), why: 'The coefficient \\(' + k + '\\) of the angle was divided by \\(2\\): \\(\\dfrac{' + k + '}{2}\\).' }, { cls: 'one2', v: E('\\dfrac{1}{2}', '1/2'), why: 'The special value \\(\\dfrac12\\) was taken as the limit.' }, { cls: 'kk', v: E(String(k * k), String(k * k)), why: 'The value \\(' + k + '^{2}=' + (k * k) + '\\) was taken as the limit.' }, { cls: 'zero', v: E('0', '0'), why: 'The limit was taken to be \\(0\\), the value of the numerator \\(1-\\cos ' + k + 'x\\) at \\(x=0\\).' }];
+      sol = [{ t: '\\dfrac{1-\\cos ' + k + 'x}{x^{2}}=\\dfrac{1-\\cos ' + k + 'x}{(' + k + 'x)^{2}}\\cdot ' + k * k, ar: 'Write the denominator in terms of \\(' + k + 'x\\), using \\(x^2=\\dfrac{(' + k + 'x)^2}{' + k * k + '}\\)' }, { t: '\\lim_{u\\to0}\\dfrac{1-\\cos u}{u^{2}}=\\dfrac{1}{2}', ar: 'Use the special limit, with \\(u=' + k + 'x\\to0\\)' }, { t: '\\dfrac{1}{2}\\cdot ' + k * k + '=' + ftex(ans), ar: 'Multiply the limit by \\(' + k * k + '\\)' }, { box: ftex(ans) }];
     } else {
       do { a = ri(rng, 2, 9); b = ri(rng, 2, 9); } while (a === b || gcd(a, b) > 1 && a % b === 0);
       ans = fr(a, b);
       if (form === 'A') { e = '\\lim_{x\\to0}\\dfrac{\\sin ' + a + 'x}{' + b + 'x}'; f = 'sin(' + a + '*x)/(' + b + '*x)'; }
       if (form === 'B') { e = '\\lim_{x\\to0}\\dfrac{\\tan ' + a + 'x}{' + b + 'x}'; f = 'tan(' + a + '*x)/(' + b + '*x)'; }
       if (form === 'C') { e = '\\lim_{x\\to0}\\dfrac{\\sin ' + a + 'x}{\\sin ' + b + 'x}'; f = 'sin(' + a + '*x)/sin(' + b + '*x)'; }
-      cands = [{ cls: 'iv', v: E(ftex(fr(b, a)), fplain(fr(b, a))), why: 'The ratio is inverted. It is the coefficient in the numerator divided by the coefficient in the denominator: \\(\\dfrac{' + a + '}{' + b + '}\\), not the reverse.' },
-        { cls: 'pr', v: E(String(a * b), String(a * b)), why: 'The two coefficients were multiplied. They should be divided: numerator coefficient over denominator coefficient.' },
-        { cls: 'one', v: E('1', '1'), why: 'The special limit \\(\\dfrac{\\sin u}{u}\\to1\\) gives 1 only when the angle and the denominator match. Here the coefficients \\(' + a + '\\) and \\(' + b + '\\) differ, so the limit is their ratio.' },
-        { cls: 'zero', v: E('0', '0'), why: 'Direct substitution gives the indeterminate form \\(\\dfrac00\\), so it does not show that the limit is 0. Use the special limits instead.' },
-        { cls: 'df', v: E(ftex(fr(a - b, b)), fplain(fr(a - b, b))), why: 'The coefficients were subtracted. The limit is the ratio \\(\\dfrac{' + a + '}{' + b + '}\\), a quotient and not a difference.' }];
-      sol = [{ t: '\\dfrac{' + (form === 'B' ? '\\tan' : '\\sin') + ' ' + a + 'x}{' + (form === 'C' ? '\\sin ' + b + 'x' : b + 'x') + '}=\\dfrac{' + a + '}{' + b + '}\\cdot\\dfrac{' + (form === 'B' ? '\\tan' : '\\sin') + ' ' + a + 'x}{' + a + 'x}' + (form === 'C' ? '\\cdot\\dfrac{' + b + 'x}{\\sin ' + b + 'x}' : ''), ar: 'Adjust the numerator and denominator so each has the same angle as its trigonometric function' }, { t: '\\to\\dfrac{' + a + '}{' + b + '}\\cdot 1' + (form === 'C' ? '\\cdot 1' : '') + '\\quad(x\\to0)', ar: 'Special limits: \\(\\dfrac{\\sin u}{u}\\to1\\) and \\(\\dfrac{\\tan u}{u}\\to1\\) as \\(u\\to0\\)' }, { box: ftex(ans) }];
+      cands = [{ cls: 'iv', v: E(ftex(fr(b, a)), fplain(fr(b, a))), why: 'The coefficient \\(' + b + '\\) of the denominator was placed over the coefficient \\(' + a + '\\) of the numerator.' },
+        { cls: 'pr', v: E(String(a * b), String(a * b)), why: 'The two coefficients were multiplied: \\(' + a + '\\cdot' + b + '=' + (a * b) + '\\).' },
+        { cls: 'one', v: E('1', '1'), why: 'The value \\(1\\) was taken as the limit.' },
+        { cls: 'zero', v: E('0', '0'), why: 'The limit was taken to be \\(0\\), the value of the numerator \\(' + (form === 'B' ? '\\tan' : '\\sin') + ' ' + a + 'x\\) at \\(x=0\\).' },
+        { cls: 'df', v: E(ftex(fr(a - b, b)), fplain(fr(a - b, b))), why: 'The expression \\(\\dfrac{' + a + '-' + b + '}{' + b + '}\\) was written as the limit.' }];
+      sol = [{ t: '\\dfrac{' + (form === 'B' ? '\\tan' : '\\sin') + ' ' + a + 'x}{' + (form === 'C' ? '\\sin ' + b + 'x' : b + 'x') + '}=\\dfrac{' + a + '}{' + b + '}\\cdot\\dfrac{' + (form === 'B' ? '\\tan' : '\\sin') + ' ' + a + 'x}{' + a + 'x}' + (form === 'C' ? '\\cdot\\dfrac{' + b + 'x}{\\sin ' + b + 'x}' : ''), ar: 'Adjust the numerator and denominator so each has the same angle as its trigonometric function' }, { t: e + '=\\dfrac{' + a + '}{' + b + '}\\cdot 1' + (form === 'C' ? '\\cdot 1' : ''), ar: (form === 'C' ? 'Use the special limits \\(\\dfrac{\\sin ' + a + 'x}{' + a + 'x}\\to1\\) and \\(\\dfrac{' + b + 'x}{\\sin ' + b + 'x}\\to1\\) as \\(x\\to0\\)' : 'Use the special limit \\(\\dfrac{' + (form === 'B' ? '\\tan' : '\\sin') + ' ' + a + 'x}{' + a + 'x}\\to1\\) as \\(x\\to0\\)') }].concat(gcd(a, b) > 1 ? [{ t: '\\dfrac{' + a + '}{' + b + '}=' + ftex(ans), ar: 'Simplify the fraction' }] : []).concat([{ box: ftex(ans) }]);
     }
     return { stem: 'Evaluate the limit:', e: e, corr: E(ftex(ans), fplain(ans)), kind: 'lim', f: f, ask: 'LIM', hint: HINT.m, key: 'B4a:' + form + ',' + (a || '') + ',' + (b || '') + ',' + (k || ''), cands: cands, sol: sol };
   }
@@ -296,12 +298,12 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     function val(ca, sb, cosv, sinv) { return ca * cosv + sb * sinv; }
     function ex(pc, ps) { /* pc = coefficient of cos, ps = coefficient of sin: pc*cos+ps*sin */ var c1, c2; if (at6) { c1 = pc; c2 = ps; } else { c1 = ps; c2 = pc; } if (c1 % 2 === 0 && c2 % 2 === 0) { var m2 = lin([[c1 / 2, s3, 'sqrt(3)'], [c2 / 2, '', '1']]); return E(m2.t, '(' + m2.p + ')'); } var m = lin([[c1, s3, 'sqrt(3)'], [c2, '', '1']]); return E('\\dfrac{' + m.t + '}{2}', '(' + m.p + ')/2'); }
     corr = ex(a, -b);
-    return { stem: 'Find \\(f\'\\left(' + ang + '\\right)\\) if:', e: 'f(x)=' + f.t, corr: corr, kind: 'ev', f: f.p, at: at6 ? 'pi/6' : 'pi/3', hint: HINT.m, key: 'B4b:' + a + ',' + b + ',' + (at6 ? 6 : 3),
-      cands: [{ cls: 'sg', v: ex(a, b), why: 'The sign of the second term is wrong: \\(\\cos x\\) differentiates to \\(-\\sin x\\), so the sign of its coefficient is reversed.' },
-        { cls: 'vl', v: ex(b, a), why: 'This is the value of the function \\(f\\), not of its derivative \\(f\'\\). Differentiate first, then substitute.' },
-        { cls: 'sw', v: ex(-b, a), why: 'The sine and cosine values at this angle were swapped. \\(' + (at6 ? '\\sin\\dfrac{\\pi}{6}=\\dfrac12,\\ \\cos\\dfrac{\\pi}{6}=\\dfrac{\\sqrt3}{2}' : '\\sin\\dfrac{\\pi}{3}=\\dfrac{\\sqrt3}{2},\\ \\cos\\dfrac{\\pi}{3}=\\dfrac12') + '\\).' },
-        { cls: 'ng', v: ex(-a, b), why: 'The sign of the whole answer is reversed. \\(\\sin x\\) keeps the sign of its coefficient, and \\(\\cos x\\) reverses it.' }],
-      sol: [{ t: 'f\'(x)=' + lin([[a, '\\cos x', 'cos(x)'], [-b, '\\sin x', 'sin(x)']]).t, ar: 'Differentiate first, before substituting' }, { t: 'f\'\\left(' + ang + '\\right)=' + a + '\\cdot' + (at6 ? '\\dfrac{\\sqrt3}{2}' : '\\dfrac12') + (b > 0 ? '-' : '+') + Math.abs(b) + '\\cdot' + (at6 ? '\\dfrac12' : '\\dfrac{\\sqrt3}{2}'), ar: 'Substitute the exact values of sine and cosine at the special angle' }, { box: 'f\'\\left(' + ang + '\\right)=' + corr.t }] };
+    return { stem: 'Find \\(f\'\\left(' + ang + '\\right)\\) if:', e: 'f(x)=' + f.t, corr: corr, kind: 'ev', f: f.p, at: at6 ? 'pi/6' : 'pi/3', hint: HINT.ev, key: 'B4b:' + a + ',' + b + ',' + (at6 ? 6 : 3),
+      cands: [{ cls: 'sg', v: ex(a, b), why: 'The derivative of \\(\\cos x\\) was written as \\(\\sin x\\).' },
+        { cls: 'vl', v: ex(b, a), why: 'The function value \\(f\\left(' + ang + '\\right)\\) was computed.' },
+        { cls: 'sw', v: ex(-b, a), why: 'The value \\(' + (at6 ? '\\dfrac12' : '\\dfrac{\\sqrt3}{2}') + '\\) was used for \\(\\cos ' + ang + '\\) and \\(' + (at6 ? '\\dfrac{\\sqrt3}{2}' : '\\dfrac12') + '\\) for \\(\\sin ' + ang + '\\).' },
+        { cls: 'ng', v: ex(-a, b), why: 'The derivative was written as \\(' + lin([[-a, '\\cos x', ''], [b, '\\sin x', '']]).t + '\\).' }],
+      sol: [{ t: 'f\'(x)=' + lin([[a, '\\cos x', 'cos(x)'], [-b, '\\sin x', 'sin(x)']]).t, ar: 'Differentiate the function' }, { t: 'f\'\\left(' + ang + '\\right)=' + a + '\\cdot' + (at6 ? '\\dfrac{\\sqrt3}{2}' : '\\dfrac12') + (b > 0 ? '-' : '+') + Math.abs(b) + '\\cdot' + (at6 ? '\\dfrac12' : '\\dfrac{\\sqrt3}{2}'), ar: 'Substitute the exact values of sine and cosine at the special angle' }, { box: 'f\'\\left(' + ang + '\\right)=' + corr.t }] };
   }
 
   /* ----- Level 5 ----- */
@@ -317,37 +319,39 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       { f: 'x+2\\sin x', fp: 'x+2*sin(x)', d: '1+2\\cos x', fn: 'cos', sg: -1, eq: '\\cos x=-\\dfrac12' }]);
     var ofn = cfg.fn === 'sin' ? 'cos' : 'sin', ks = trigSet(cfg.fn, cfg.sg), corr = setE(ks);
     var tan1 = [ks[0], ks[0] + 6];
+    var rf = cfg.fn === 'sin' ? '\\dfrac{\\pi}{6}' : '\\dfrac{\\pi}{3}', QE = [rf, '\\pi-' + rf, '\\pi+' + rf, '2\\pi-' + rf], QN = ['first', 'second', 'third', 'fourth'], solRows = [];
+    ks.forEach(function (k) { var qd = Math.floor(k / 3); solRows.push({ t: 'x=' + QE[qd], ar: 'Take the solution in the ' + QN[qd] + ' quadrant' }); if (qd) solRows.push({ t: QE[qd] + '=' + angTex(k), ar: 'Simplify the angle' }); });
     return { stem: 'Find the values of \\(x\\in[0,2\\pi]\\) at which the tangent to the graph of the function is horizontal:', e: 'f(x)=' + cfg.f, corr: corr, kind: 'hs', f: cfg.fp, ask: 'SET', hint: HINT.c5, key: 'B5a:' + cfg.fp,
-      cands: [{ cls: 'sw', v: setE(trigSet(ofn, cfg.sg)), why: 'The wrong trigonometric function was solved. Setting \\(f\'(x)=0\\) gives \\(' + cfg.eq + '\\), not an equation in the other function.' },
-        { cls: 'ng', v: setE(trigSet(cfg.fn, -cfg.sg)), why: 'The sign of the right-hand side was mishandled. For \\(' + cfg.eq + '\\) the two solutions lie in different quadrants from these.' },
-        { cls: 'on', v: setE([ks[0]]), why: 'A trigonometric equation of this type has two solutions in \\([0,2\\pi]\\), not just one. The second solution was missed.' },
-        { cls: 'pi', v: setE(tan1), why: 'The period of \\(\\sin x\\) and \\(\\cos x\\) is \\(2\\pi\\), not \\(\\pi\\). The second solution comes from symmetry about the axis, not from adding \\(\\pi\\).' },
-        { cls: 'os', v: setE(trigSet(ofn, -cfg.sg)), why: 'The equation was solved for the wrong function and with the wrong sign. The horizontal tangent occurs where \\(f\'(x)=0\\), which here gives \\(' + cfg.eq + '\\).' }],
-      sol: [{ t: 'f\'(x)=' + cfg.d + '=0\\;\\Rightarrow\\;' + cfg.eq, ar: 'The tangent is horizontal when \\(f\'(x)=0\\)' }, { t: corr.t.replace(/^x=/, 'x\\in\\{') + '\\}', ar: 'Find both solutions of the equation in \\([0,2\\pi]\\), one in each of the two quadrants where the sign matches' }, { box: corr.t }] };
+      cands: [{ cls: 'sw', v: setE(trigSet(ofn, cfg.sg)), why: 'The equation \\(\\' + ofn + ' x=' + (cfg.sg > 0 ? '\\dfrac12' : '-\\dfrac12') + '\\) was solved in \\([0,2\\pi]\\).' },
+        { cls: 'ng', v: setE(trigSet(cfg.fn, -cfg.sg)), why: 'The solutions of \\(' + cfg.eq.replace(/=(-?)/, function (m0, g) { return g ? '=' : '=-'; }) + '\\) in \\([0,2\\pi]\\) were listed.' },
+        { cls: 'on', v: setE([ks[0]]), why: 'The solution \\(x=' + angTex(ks[0]) + '\\) was written as the answer.' },
+        { cls: 'pi', v: setE(tan1), why: 'The second solution was computed as \\(' + angTex(ks[0]) + '+\\pi=' + angTex(ks[0] + 6) + '\\).' },
+        { cls: 'os', v: setE(trigSet(ofn, -cfg.sg)), why: (function (z) { var QN = ['first', 'second', 'third', 'fourth']; return 'The angles \\(' + angTex(z[0]) + '\\) and \\(' + angTex(z[1]) + '\\), in the ' + QN[Math.floor(z[0] / 3)] + ' and ' + QN[Math.floor(z[1] / 3)] + ' quadrants, were listed.'; })(trigSet(ofn, -cfg.sg)) }],
+      sol: [{ t: 'f\'(x)=' + cfg.d, ar: 'Differentiate the function' }, { t: cfg.d + '=0', ar: 'Set \\(f\'(x)\\) equal to \\(0\\)' }, { t: cfg.eq, ar: 'Solve for \\(\\' + cfg.fn + ' x\\)' }, { t: '\\' + cfg.fn + '\\dfrac{\\pi}{' + (cfg.fn === 'sin' ? 6 : 3) + '}=\\dfrac12', ar: 'Find the reference angle' }].concat(solRows).concat([{ box: corr.t }]) };
   }
   function t5b(rng) {
     var A = nz(rng, -5, 5), k = ri(rng, 2, 5), isS = rng() < 0.5;
     var fn = isS ? S.sin : S.cos, ofn = isS ? S.cos : S.sin, kx = k + 'x', kxp = k + '*x', kk = k * k;
     var corr = lin([[-A * kk, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]);
-    return { stem: 'Find \\(f\'\'(x)\\) for the function:', e: 'f(x)=' + lin([[A, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]).t, corr: corr, kind: 'dd', f: lin([[A, fn[1] + ' ' + kx, fn[1] + '(' + kxp + ')']]).p.replace(/\s/g, ''), hint: HINT.c5, key: 'B5b:' + (isS ? 's' : 'c') + A + ',' + k,
-      cands: [{ cls: 'nk', v: lin([[-A * k, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The chain rule factor \\(' + k + '\\) was applied only once. Each differentiation multiplies by \\(' + k + '\\), so two derivatives give \\(k^2=' + kk + '\\).' },
-        { cls: 'sg', v: lin([[A * kk, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The sign needs checking. Two derivatives give a negative sign: \\(\\sin\\to\\cos\\to-\\sin\\) and \\(\\cos\\to-\\sin\\to-\\cos\\).' },
-        { cls: 'fn', v: lin([[-A * kk, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: 'After two derivatives the function returns to itself (with a negative sign); it does not become the other trigonometric function.' },
-        { cls: 'fp', v: lin([[(isS ? 1 : -1) * A * kk, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: 'This is the first derivative with an extra factor of \\(' + k + '\\). The question asks for the second derivative, so differentiate once more.' },
-        { cls: 'k1', v: lin([[-A, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The factor \\(' + k + '\\) from the chain rule was never applied. It appears at each of the two differentiations.' }],
-      sol: [{ t: 'f\'(x)=' + lin([[(isS ? 1 : -1) * A * k, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]).t, ar: 'First derivative, using the chain rule' }, { t: 'f\'\'(x)=' + corr.t, ar: 'Second derivative: differentiate again and multiply by \\(' + k + '\\) once more' }, { box: 'f\'\'(x)=' + corr.t }] };
+    return { stem: 'Find \\(f\'\'(x)\\) for the function:', e: 'f(x)=' + lin([[A, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]).t, corr: corr, kind: 'dd', f: lin([[A, fn[1] + ' ' + kx, fn[1] + '(' + kxp + ')']]).p.replace(/\s/g, ''), hint: HINT.dd, key: 'B5b:' + (isS ? 's' : 'c') + A + ',' + k,
+      cands: [{ cls: 'nk', v: lin([[-A * k, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The coefficient \\(' + (-A * k) + '\\) was written in front of \\(' + fn[0] + ' ' + kx + '\\).' },
+        { cls: 'sg', v: lin([[A * kk, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The second derivative was written as \\(' + lin([[A * kk, fn[0] + ' ' + kx, '']]).t + '\\).' },
+        { cls: 'fn', v: lin([[-A * kk, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: 'The result was computed in terms of \\(' + ofn[0] + ' ' + kx + '\\), with the coefficient \\(' + (-A * kk) + '\\).' },
+        { cls: 'fp', v: lin([[(isS ? 1 : -1) * A * kk, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]), why: 'The expression \\(' + lin([[(isS ? 1 : -1) * A * kk, ofn[0] + ' ' + kx, '']]).t + '\\) was written as the second derivative.' },
+        { cls: 'k1', v: lin([[-A, fn[0] + ' ' + kx, fn[1] + '(' + kxp + ')']]), why: 'The multiplier \\(' + (-A) + '\\) was used for \\(' + fn[0] + ' ' + kx + '\\).' }],
+      sol: [{ t: 'f\'(x)=' + lin([[(isS ? 1 : -1) * A * k, ofn[0] + ' ' + kx, ofn[1] + '(' + kxp + ')']]).t, ar: 'Differentiate the function using the chain rule' }, { t: 'f\'\'(x)=' + ((isS ? 1 : -1) * A * k < 0 ? '(' + (isS ? 1 : -1) * A * k + ')' : (isS ? 1 : -1) * A * k) + '\\cdot(' + (isS ? '-\\sin ' : '\\cos ') + kx + ')\\cdot ' + k, ar: 'Differentiate the first derivative again, using the chain rule' }, { box: 'f\'\'(x)=' + corr.t }] };
   }
   function t5c(rng) {
     var form = pick(rng, ['d', 'c']), a, b, k, ans, e, f, cands, sol;
     if (form === 'd') {
       do { a = ri(rng, 2, 9); b = ri(rng, 2, 9); } while (a === b);
       ans = fr(a - b); f = '(sin(' + a + '*x)-sin(' + b + '*x))/x'; e = '\\lim_{x\\to0}\\dfrac{\\sin ' + a + 'x-\\sin ' + b + 'x}{x}';
-      cands = [{ cls: 'iv', v: E(String(b - a), String(b - a)), why: 'The order of subtraction is reversed. The answer is the first coefficient minus the second: \\(' + a + '-' + b + '\\).' }, { cls: 'ad', v: E(String(a + b), String(a + b)), why: 'The coefficients were added. The expression is a difference of two terms, so the limit is a difference of the two coefficients.' }, { cls: 'dv', v: E(ftex(fr(a, b)), fplain(fr(a, b))), why: 'The coefficients were divided. Splitting the fraction gives two separate limits, \\(' + a + '\\) and \\(' + b + '\\), which are subtracted.' }, { cls: 'zero', v: E('0', '0'), why: 'Each special limit equals its coefficient, not zero: \\(\\dfrac{\\sin ' + a + 'x}{x}\\to' + a + '\\) and \\(\\dfrac{\\sin ' + b + 'x}{x}\\to' + b + '\\).' }];
-      sol = [{ t: '\\lim_{x\\to0}\\dfrac{\\sin ' + a + 'x}{x}-\\lim_{x\\to0}\\dfrac{\\sin ' + b + 'x}{x}=' + a + '-' + b, ar: 'Split into a difference of two special limits, each equal to its coefficient' }, { box: String(a - b) }];
+      cands = [{ cls: 'iv', v: E(String(b - a), String(b - a)), why: 'The number \\(' + (b - a) + '\\) was written as the limit.' }, { cls: 'ad', v: E(String(a + b), String(a + b)), why: 'The sum \\(' + a + '+' + b + '=' + (a + b) + '\\) was written as the limit.' }, { cls: 'dv', v: E(ftex(fr(a, b)), fplain(fr(a, b))), why: 'The fraction \\(\\dfrac{' + a + '}{' + b + '}\\) was written as the limit.' }, { cls: 'zero', v: E('0', '0'), why: 'The limit was taken to be \\(0\\), the value of the numerator \\(\\sin ' + a + 'x-\\sin ' + b + 'x\\) at \\(x=0\\).' }];
+      sol = [{ t: '\\dfrac{\\sin ' + a + 'x-\\sin ' + b + 'x}{x}=\\dfrac{\\sin ' + a + 'x}{x}-\\dfrac{\\sin ' + b + 'x}{x}', ar: 'Split the fraction into two fractions' }, { t: '\\lim_{x\\to0}\\dfrac{\\sin ' + a + 'x}{x}-\\lim_{x\\to0}\\dfrac{\\sin ' + b + 'x}{x}=' + a + '-' + b, ar: 'Apply the special limit to each term' }, { t: a + '-' + b + '=' + (a - b), ar: 'Subtract the two values' }, { box: String(a - b) }];
     } else {
       k = ri(rng, 2, 7); ans = fr(1, k); f = 'x*cos(' + k + '*x)/sin(' + k + '*x)'; e = '\\lim_{x\\to0}\\,x\\cot ' + k + 'x';
-      cands = [{ cls: 'kk', v: E(String(k), String(k)), why: 'The ratio is inverted. Since \\(x\\cot ' + k + 'x=\\dfrac{x\\cos ' + k + 'x}{\\sin ' + k + 'x}\\), the limit is \\(\\dfrac1{' + k + '}\\), not \\(' + k + '\\).' }, { cls: 'one', v: E('1', '1'), why: 'The limit equals 1 only when \\(k=1\\). For \\(k=' + k + '\\) the coefficient changes the result.' }, { cls: 'ng', v: E('-\\dfrac{1}{' + k + '}', '-1/' + k), why: 'There is no negative sign. Near \\(0\\), \\(\\cos ' + k + 'x\\to1\\) and \\(\\dfrac{x}{\\sin ' + k + 'x}\\to\\dfrac1{' + k + '}\\), both positive.' }, { cls: 'zero', v: E('0', '0'), why: 'Although \\(x\\to0\\), the denominator \\(\\sin ' + k + 'x\\to0\\) as well, so the limit is the indeterminate form \\(0\\cdot\\infty\\) and it equals \\(\\dfrac1{' + k + '}\\), not zero.' }];
-      sol = [{ t: 'x\\cot ' + k + 'x=\\cos ' + k + 'x\\cdot\\dfrac{x}{\\sin ' + k + 'x}', ar: 'Write \\(\\cot\\) in terms of \\(\\sin\\) and \\(\\cos\\)' }, { t: '\\dfrac{x}{\\sin ' + k + 'x}=\\dfrac{1}{' + k + '}\\cdot\\dfrac{' + k + 'x}{\\sin ' + k + 'x}\\to\\dfrac{1}{' + k + '}', ar: 'Special limit \\(\\dfrac{u}{\\sin u}\\to1\\), with \\(\\cos ' + k + 'x\\to1\\)' }, { box: ftex(ans) }];
+      cands = [{ cls: 'kk', v: E(String(k), String(k)), why: 'The limit of \\(\\dfrac{x}{\\sin ' + k + 'x}\\) was taken to be \\(' + k + '\\).' }, { cls: 'one', v: E('1', '1'), why: 'The value \\(1\\) was taken as the limit.' }, { cls: 'ng', v: E('-\\dfrac{1}{' + k + '}', '-1/' + k), why: 'The result was written as \\(-\\dfrac{1}{' + k + '}\\).' }, { cls: 'zero', v: E('0', '0'), why: 'The limit was taken to be \\(0\\), the value of the factor \\(x\\) at \\(x=0\\).' }];
+      sol = [{ t: 'x\\cot ' + k + 'x=\\cos ' + k + 'x\\cdot\\dfrac{x}{\\sin ' + k + 'x}', ar: 'Write \\(\\cot\\) in terms of \\(\\sin\\) and \\(\\cos\\)' }, { t: '\\dfrac{x}{\\sin ' + k + 'x}=\\dfrac{1}{' + k + '}\\cdot\\dfrac{' + k + 'x}{\\sin ' + k + 'x}', ar: 'Multiply and divide by \\(' + k + '\\)' }, { t: '\\lim_{x\\to0}x\\cot ' + k + 'x=1\\cdot\\dfrac{1}{' + k + '}\\cdot 1', ar: 'Use the limits \\(\\cos ' + k + 'x\\to1\\) and \\(\\dfrac{' + k + 'x}{\\sin ' + k + 'x}\\to1\\)' }, { t: '1\\cdot\\dfrac{1}{' + k + '}\\cdot 1=\\dfrac{1}{' + k + '}', ar: 'Multiply the three values' }, { box: ftex(ans) }];
     }
     return { stem: 'Evaluate the limit:', e: e, corr: E(ftex(ans), fplain(ans)), kind: 'lim', f: f, ask: 'LIM', hint: HINT.m, key: 'B5c:' + form + ',' + (a || '') + ',' + (b || '') + ',' + (k || ''), cands: cands, sol: sol };
   }
@@ -376,7 +380,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       var parts = s.t.split('\\;\\Rightarrow\\;');
       parts.forEach(function (p, i) { var o = { t: i ? '\\Rightarrow\\;' + p : p }; if (i === 0 && s.ar) o.ar = s.ar; out.push(o); });
     });
-    return out;
+    /* a step without a note that the boxed answer repeats word for word is dropped (no repeated rows) */
+    return out.filter(function (s, i) { var n = out[i + 1]; return s.box || s.ar || !n || !n.box || typeof s.t !== 'string' || typeof n.box !== 'string' || s.t.replace(/^\\Rightarrow\\;\s*/, '').trim() !== n.box.trim(); });
   }
   function make(level, rng) {
     rng = rng || Math.random;

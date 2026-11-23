@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mastery Practice: Mean Value Theorem | Grade 12 Advanced | Taha Math Academy</title>
-<meta name="description" content="Mastery practice on band 26: the Mean Value Theorem, five levels up to Ministry level.">
+<meta name="description" content="Mastery practice on band 26: the Mean Value Theorem, five levels, the fifth a Challenge level.">
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://tahamath.com/g12-advanced/en/mastery-26/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E1C3A'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='44' fill='%23D4A843'%3E%E2%88%AB%3C/text%3E%3C/svg%3E">
@@ -66,7 +66,7 @@ button{font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18p
 .link{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:700;text-decoration:none}
 .fbk summary{cursor:pointer;font-weight:700;color:var(--navy)}.fbf{margin-top:12px;display:grid;gap:8px}.fbq,.fbl{margin:6px 0 0;font-weight:600}.stars{display:flex;gap:8px;direction:ltr;justify-content:flex-end}.stars label{cursor:pointer}.stars label{position:relative}.stars input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}.stars span{display:flex;width:44px;height:44px;border:2px solid var(--line);border-radius:50%;align-items:center;justify-content:center;font-weight:800;background:#fff}.stars input:checked+span{background:var(--gold);border-color:var(--gold);color:var(--navyd)}.stars input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.fbf textarea,.fbf input[name=name]{width:100%;font:inherit;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.fbc{display:flex;gap:8px;align-items:center}.hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fbk{margin:16px 0 0;box-shadow:none}.fbf{position:relative}.fberr{margin:0;color:var(--red);font-weight:600}.note{font-size:13px;color:var(--grey);margin:10px 2px}
 [hidden]{display:none!important}
-@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:12px;padding:8px 3px}.path li b{font-size:16px}}
+@media(max-width:520px){header.top h1{font-size:21px}.eq{font-size:19px}.path li{font-size:11px;padding:8px 3px}.path li b{font-size:16px}}
 @media print{.box{break-inside:avoid}}
 </style>
 <script>
@@ -119,11 +119,11 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
   function bracket(a, b) { return '[' + a + ',\\,' + b + ']'; }
 
   var HINT = {
-    m: 'Mean Value Theorem: if \\(f\\) is continuous on \\([a,b]\\) and differentiable on \\((a,b)\\), then there is \\(c\\in(a,b)\\) such that \\(f\'(c)=\\dfrac{f(b)-f(a)}{b-a}\\).',
-    c: 'Check both conditions: continuity on the closed interval and differentiability on the open interval. A point inside the interval where either fails means the theorem cannot be applied.',
-    s: 'First find the slope \\(\\dfrac{f(b)-f(a)}{b-a}\\), then set \\(f\'(c)\\) equal to it, and keep only the solution that lies inside \\((a,b)\\).',
-    w: 'In motion problems: average velocity = \\(\\dfrac{s(t_2)-s(t_1)}{t_2-t_1}\\), and the theorem guarantees a moment when the instantaneous velocity \\(s\'(t)\\) equals this average.',
-    ch: 'Write \\(f\'(c)=\\) slope as an equation in \\(c\\) and solve it, then check which solutions lie inside the open interval.'
+    m: 'How is the change of \\(f\\) over an interval related to the values of \\(f\'\\) inside that interval?',
+    c: 'What does the graph of each function look like at the points of the interval?',
+    s: 'How is the average rate of change of \\(f\\) over the interval related to the rate of change of \\(f\\) at the point \\(c\\)?',
+    w: 'How is the average velocity of the car over the interval related to its velocity at some moment inside the interval?',
+    ch: 'Which values of \\(c\\) in the open interval make the slope of the tangent equal to the average rate of change of \\(f\\)?'
   };
 
   function pickD(rng, corr, cands) {
@@ -142,25 +142,26 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var p, q, r, a, b; do { p = pick(rng, [1, 2, 3, -1, -2, 4]); q = nz(rng, -6, 6); r = ri(rng, -5, 5); a = ri(rng, -5, 3); b = a + ri(rng, 2, 8); } while ((a + b) === 0);
     var c = fr(a + b, 2), m = p * (a + b) + q, co = [p, q, r];
     return { stem: STEM_C, e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(a, b) + '\\end{gathered}', corr: FE(c), kind: 'q1', ask: 'MVT', f: polyP(co), a: a, b: b, hint: HINT.s, key: 'C1a:' + co.join(',') + ',' + a + ',' + b,
-      cands: [{ cls: 'sm', v: E(String(a + b), String(a + b)), why: 'This is the sum of the endpoints; \\(c\\) is half of it.' },
-        { cls: 'hl', v: FE(fr(b - a, 2)), why: 'This is half the length of the interval, not the value of \\(c\\).' },
-        { cls: 'sl', v: E(String(m), String(m)), why: 'This is the slope of the secant line (the change in \\(f\\) divided by the change in \\(x\\)); the question asks for \\(c\\) itself.' },
-        { cls: 'en', v: E(String(b), String(b)), why: 'An endpoint cannot be \\(c\\); it must lie inside the open interval.' },
-        { cls: 'fb', v: E(String(Math.round(evp(co, b))), String(Math.round(evp(co, b)))), why: 'This is the function value at the right endpoint, not the value of \\(c\\).' }],
-      sol: [{ t: 'f(' + a + ')=' + Math.round(evp(co, a)) + ',\\quad f(' + b + ')=' + Math.round(evp(co, b)), ar: 'Evaluate the function at both endpoints' }, { t: '\\dfrac{' + Math.round(evp(co, b)) + '-(' + Math.round(evp(co, a)) + ')}{' + (b - a) + '}=' + m, ar: 'Slope of the secant line' }, { t: 'f\'(c)=' + polyT([2 * p, q], 'c') + '=' + m + '\\;\\Rightarrow\\; c=' + ftex(c), ar: 'Set the derivative equal to the slope' }, { box: 'c=' + ftex(c) }] };
+      cands: [{ cls: 'sm', v: E(String(a + b), String(a + b)), why: 'The sum \\(' + a + '+' + (b < 0 ? '(' + b + ')' : b) + '=' + (a + b) + '\\) was written as \\(c\\).' },
+        { cls: 'hl', v: FE(fr(b - a, 2)), why: 'The number \\(\\dfrac{' + b + '-' + (a < 0 ? '(' + a + ')' : a) + '}{2}=' + ftex(fr(b - a, 2)) + '\\) was written as \\(c\\).' },
+        { cls: 'sl', v: E(String(m), String(m)), why: 'The number \\(' + m + '\\) was written as the value of \\(c\\).' },
+        { cls: 'en', v: E(String(b), String(b)), why: 'The right endpoint \\(' + b + '\\) was taken as \\(c\\).' },
+        { cls: 'fb', v: E(String(Math.round(evp(co, b))), String(Math.round(evp(co, b)))), why: 'The value \\(f(' + b + ')=' + Math.round(evp(co, b)) + '\\) was written as the answer.' }],
+      sol: [{ t: 'f(' + a + ')=' + Math.round(evp(co, a)), ar: 'Evaluate the function at the left endpoint' }, { t: 'f(' + b + ')=' + Math.round(evp(co, b)), ar: 'Evaluate the function at the right endpoint' }, { t: '\\dfrac{' + Math.round(evp(co, b)) + '-' + (Math.round(evp(co, a)) < 0 ? '(' + Math.round(evp(co, a)) + ')' : Math.round(evp(co, a))) + '}{' + (b - a) + '}=' + m, ar: 'Find the slope of the secant line' }, { t: 'f\'(c)=' + polyT([2 * p, q], 'c'), ar: 'Find the derivative of the function at \\(c\\)' }, { t: polyT([2 * p, q], 'c') + '=' + m, ar: 'Set the derivative equal to the slope' }, { t: polyT([2 * p, 0], 'c') + '=' + (m - q), ar: 'Move the constant term to the right side' }, { t: '\\dfrac{' + polyT([2 * p, 0], 'c') + '}{' + (2 * p) + '}=\\dfrac{' + (m - q) + '}{' + (2 * p) + '}', ar: 'Divide both sides by the coefficient of \\(c\\)' }, { box: 'c=' + ftex(c) }] };
   }
   function t1b(rng) {
     var k = ri(rng, -2, 2), lo = k - ri(rng, 1, 3), hi = k + ri(rng, 1, 3), kx = k === 0 ? 'x' : (k > 0 ? 'x-' + k : 'x+' + (-k));
     var kp = 'x-(' + k + ')', q = ri(rng, 2, 6);
     var good = pick(rng, [E('x^{3}-' + q + 'x', 'x**3-' + q + '*x'), E('\\sin x', 'sin(x)'), E('e^{x}', 'exp(x)'), E('x^{2}+' + q, 'x**2+' + q), E('\\cos x+x', 'cos(x)+x')]);
     var tx = k === 0 ? 'x' : '(' + kx + ')';
+    var dgood = good.p === 'sin(x)' ? '\\cos x' : (good.p === 'exp(x)' ? 'e^{x}' : (good.p === 'cos(x)+x' ? '1-\\sin x' : (good.p.indexOf('x**3') === 0 ? '3x^{2}-' + q : '2x')));
     var ab = E('|' + kx + '|', 'Abs(' + kp + ')'), rc = E('\\dfrac{1}{' + kx + '}', '1/(' + kp + ')'), cu = E('\\sqrt[3]{(' + kx + ')^{2}}', 'Abs(' + kp + ')**Rational(2,3)'), sq = E('\\sqrt{' + kx + '}', 'sqrt(' + kp + ')');
     return { stem: 'Which of the following functions satisfies both hypotheses of the Mean Value Theorem on the given interval?', e: 'x\\in' + bracket(lo, hi), corr: good, kind: 'cond', ask: 'COND', a: lo, b: hi, hint: HINT.c, key: 'C1b:' + good.p + ',' + k + ',' + lo + ',' + hi,
-      cands: [{ cls: 'ab', v: ab, why: 'The absolute value has a corner at \\(x=' + k + '\\) inside the interval, so it is not differentiable there.' },
-        { cls: 'rc', v: rc, why: 'It is not continuous at \\(x=' + k + '\\) (vertical asymptote), and this point lies inside the interval.' },
-        { cls: 'cu', v: cu, why: 'This function is continuous, but its derivative does not exist at \\(x=' + k + '\\), and this point lies inside the interval.' },
-        { cls: 'sq', v: sq, why: 'It is not defined on part of the interval (it is defined only to the right of \\(x=' + k + '\\)), so it is not continuous on the whole interval.' }],
-      sol: [{ t: 'f\\ \\text{continuous on}\\ ' + bracket(lo, hi), ar: 'The chosen function is defined and continuous on the closed interval' }, { t: 'f\\ \\text{differentiable on}\\ (' + lo + ',\\,' + hi + ')', ar: 'and differentiable on the open interval' }, { box: 'f(x)=' + good.t }],
+      cands: [{ cls: 'ab', v: ab, why: 'The absolute value function \\(' + ab.t + '\\) was chosen.' },
+        { cls: 'rc', v: rc, why: 'The reciprocal function \\(' + rc.t + '\\) was chosen.' },
+        { cls: 'cu', v: cu, why: 'The cube root function \\(' + cu.t + '\\) was chosen.' },
+        { cls: 'sq', v: sq, why: 'The square root function \\(' + sq.t + '\\) was chosen.' }],
+      sol: [{ t: 'f\'(x)=' + dgood, ar: 'Differentiate the chosen function' }, { box: 'f(x)=' + good.t }],
       fnOpts: true };
   }
 
@@ -169,72 +170,72 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     var k = ri(rng, 1, 4), q = nz(rng, -6, 6), b = 3 * k, kk = k === 1 ? '' : k;
     var corr = E(kk + '\\sqrt{3}', k + '*sqrt(3)'), co = [1, 0, q, 0];
     return { stem: STEM_C, e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(0, b) + '\\end{gathered}', corr: corr, kind: 'c1', ask: 'MVT', f: polyP(co), a: 0, b: b, hint: HINT.s, key: 'C2a:' + q + ',' + k,
-      cands: [{ cls: 'pm', v: E('\\pm ' + kk + '\\sqrt{3}', k + '*sqrt(3);-' + k + '*sqrt(3)'), why: 'The solutions are \\(\\pm' + kk + '\\sqrt3\\), but only the positive one lies in \\((0,' + b + ')\\); give only the value of \\(c\\) that lies inside the interval.' },
-        { cls: 'k', v: E(String(k), String(k)), why: 'The value ' + k + ' does not satisfy \\(3c^2=' + 9 * k * k + '\\) (\\(c^2=' + 3 * k * k + '\\) gives \\(c=' + kk + '\\sqrt3\\)).' },
-        { cls: 'mid', v: FE(fr(b, 2)), why: 'The midpoint \\(\\dfrac{a+b}{2}\\) works only for quadratics; this function is cubic, so set \\(f\'(c)\\) equal to the secant slope.' },
-        { cls: 'sq', v: E(String(3 * k * k), String(3 * k * k)), why: 'This is the value of \\(c^2\\), not \\(c\\); take the square root.' }],
-      sol: [{ t: '\\dfrac{f(' + b + ')-f(0)}{' + b + '}=' + (b * b + q), ar: 'Slope of the secant line' }, { t: 'f\'(c)=3c^{2}' + (q < 0 ? q : '+' + q) + '=' + (b * b + q) + '\\;\\Rightarrow\\; c^{2}=' + 3 * k * k, ar: 'Set the derivative equal to the slope' }, { box: 'c=' + corr.t, ar: 'Take the positive root because it is the one in \\((0,' + b + ')\\)' }] };
+      cands: [{ cls: 'pm', v: E('\\pm ' + kk + '\\sqrt{3}', k + '*sqrt(3);-' + k + '*sqrt(3)'), why: 'Two values of opposite signs were written as the answer.' },
+        { cls: 'k', v: E(String(k), String(k)), why: 'The number \\(' + k + '\\) was written as the value of \\(c\\).' },
+        { cls: 'mid', v: FE(fr(b, 2)), why: 'The midpoint \\(\\dfrac{0+' + b + '}{2}=' + ftex(fr(b, 2)) + '\\) was written as \\(c\\).' },
+        { cls: 'sq', v: E(String(3 * k * k), String(3 * k * k)), why: 'The number \\(' + (3 * k * k) + '\\) was given as the answer.' }],
+      sol: [{ t: '\\dfrac{f(' + b + ')-f(0)}{' + b + '}=' + (b * b + q), ar: 'Find the slope of the secant line' }, { t: 'f\'(c)=' + polyT([3, 0, q], 'c'), ar: 'Find the derivative of the function at \\(c\\)' }, { t: polyT([3, 0, q], 'c') + '=' + (b * b + q), ar: 'Set the derivative equal to the slope' }, { t: 'c^{2}=' + 3 * k * k, ar: 'Solve for \\(c^{2}\\)' }, { t: 'c=\\pm ' + kk + '\\sqrt{3}', ar: 'Take the square root of both sides' }, { t: 'c=-' + kk + '\\sqrt{3}', ar: 'Reject this root, which lies outside the interval \\((0,' + b + ')\\)' }, { box: 'c=' + corr.t }] };
   }
   function t2b(rng) {
     var k = ri(rng, 1, 5), kk = k, corr = E(String(k), String(k));
     return { stem: STEM_C, e: 'f(x)=x^{3},\\quad [-' + kk + ',\\,' + 2 * k + ']', corr: corr, kind: 'c2', ask: 'MVT', f: 'x**3', a: -k, b: 2 * k, hint: HINT.s, key: 'C2b:' + k,
-      cands: [{ cls: 'pm', v: E('\\pm ' + kk, k + ';-' + k), why: 'The solutions are \\(\\pm' + kk + '\\), but \\(-' + kk + '\\) is an endpoint of the interval, not inside the open interval.' },
-        { cls: 'ng', v: E('-' + kk, '-' + k), why: 'This is an endpoint of the interval; it cannot be a value of \\(c\\).' },
-        { cls: 'mid', v: FE(fr(k, 2)), why: 'The midpoint of the interval does not give \\(c\\) for cubic functions; set \\(f\'(c)\\) equal to the secant slope.' },
-        { cls: 'en', v: E(String(2 * k), String(2 * k)), why: 'This is the right endpoint of the interval, not a point inside it.' }],
-      sol: [{ t: '\\dfrac{(' + 2 * k + ')^{3}-(-' + kk + ')^{3}}{' + 2 * k + '-(-' + kk + ')}=' + 3 * k * k, ar: 'Slope of the secant line' }, { t: '3c^{2}=' + 3 * k * k + '\\;\\Rightarrow\\; c=\\pm ' + kk, ar: 'Solve the equation' }, { box: 'c=' + k, ar: 'Keep only the value inside \\((-' + kk + ',' + 2 * k + ')\\)' }] };
+      cands: [{ cls: 'pm', v: E('\\pm ' + kk, k + ';-' + k), why: 'Two values of opposite signs were written as the answer.' },
+        { cls: 'ng', v: E('-' + kk, '-' + k), why: 'The negative number \\(-' + kk + '\\) was written as the value of \\(c\\).' },
+        { cls: 'mid', v: FE(fr(k, 2)), why: 'The midpoint \\(\\dfrac{-' + kk + '+' + 2 * k + '}{2}=' + ftex(fr(k, 2)) + '\\) was written as \\(c\\).' },
+        { cls: 'en', v: E(String(2 * k), String(2 * k)), why: 'The right endpoint \\(' + 2 * k + '\\) was written as \\(c\\).' }],
+      sol: [{ t: '\\dfrac{(' + 2 * k + ')^{3}-(-' + kk + ')^{3}}{' + 2 * k + '-(-' + kk + ')}=' + 3 * k * k, ar: 'Find the slope of the secant line' }, { t: 'f\'(c)=3c^{2}', ar: 'Find the derivative of the function at \\(c\\)' }, { t: '3c^{2}=' + 3 * k * k, ar: 'Set the derivative equal to the slope' }, { t: 'c^{2}=' + k * k, ar: 'Solve for \\(c^{2}\\)' }, { t: 'c=\\pm ' + kk, ar: 'Take the square root of both sides' }, { t: 'c=-' + kk, ar: 'Reject this root, which is the left endpoint of the interval' }, { box: 'c=' + k }] };
   }
 
   /* ----- Level 3 ----- */
   function t3a(rng) {
     var m = ri(rng, 1, 5), n = m + ri(rng, 1, 4), a = m * m, b = n * n, c = fr((m + n) * (m + n), 4);
     return { stem: STEM_C, e: 'f(x)=\\sqrt{x},\\quad ' + bracket(a, b), corr: FE(c), kind: 'r1', ask: 'MVT', f: 'sqrt(x)', a: a, b: b, hint: HINT.s, key: 'C3a:' + m + ',' + n,
-      cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'The midpoint of the interval does not give \\(c\\) for \\(\\sqrt{x}\\).' },
-        { cls: 'rt', v: FE(fr(m + n, 2)), why: 'This is the value of \\(\\sqrt{c}\\), not \\(c\\); square it.' },
-        { cls: 'pr', v: E(String(m * n), String(m * n)), why: 'The value \\(\\sqrt{ab}\\) (the geometric mean of the endpoints) belongs to \\(\\dfrac1x\\), not to \\(\\sqrt x\\).' },
-        { cls: 'sl', v: FE(fr(1, m + n)), why: 'This is the secant slope (the change in \\(\\sqrt{x}\\) divided by the change in \\(x\\)), not the value of \\(c\\).' }],
-      sol: [{ t: '\\dfrac{\\sqrt{' + b + '}-\\sqrt{' + a + '}}{' + b + '-' + a + '}=\\dfrac{' + n + '-' + m + '}{' + (b - a) + '}=\\dfrac{1}{' + (m + n) + '}', ar: 'Slope of the secant line' }, { t: '\\dfrac{1}{2\\sqrt{c}}=\\dfrac{1}{' + (m + n) + '}\\;\\Rightarrow\\;\\sqrt{c}=\\dfrac{' + (m + n) + '}{2}', ar: 'Set \\(f\'(c)\\) equal to the slope' }, { box: 'c=' + ftex(c) }] };
+      cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'The midpoint \\(\\dfrac{' + a + '+' + b + '}{2}=' + ftex(fr(a + b, 2)) + '\\) was written as \\(c\\).' },
+        { cls: 'rt', v: FE(fr(m + n, 2)), why: 'The number \\(' + ftex(fr(m + n, 2)) + '\\) was taken as \\(c\\).' },
+        { cls: 'pr', v: E(String(m * n), String(m * n)), why: 'The geometric mean of the endpoints was taken: \\(\\sqrt{' + a + '\\cdot ' + b + '}=' + (m * n) + '\\).' },
+        { cls: 'sl', v: FE(fr(1, m + n)), why: 'The number \\(' + ftex(fr(1, m + n)) + '\\) was written as the value of \\(c\\).' }],
+      sol: [{ t: '\\dfrac{\\sqrt{' + b + '}-\\sqrt{' + a + '}}{' + b + '-' + a + '}=\\dfrac{' + n + '-' + m + '}{' + (b - a) + '}', ar: 'Find the slope of the secant line' }, { t: '\\dfrac{' + n + '-' + m + '}{' + (b - a) + '}=\\dfrac{1}{' + (m + n) + '}', ar: 'Simplify the slope' }, { t: 'f\'(c)=\\dfrac{1}{2\\sqrt{c}}', ar: 'Find the derivative of the function at \\(c\\)' }, { t: '\\dfrac{1}{2\\sqrt{c}}=\\dfrac{1}{' + (m + n) + '}', ar: 'Set the derivative equal to the slope' }, { t: '\\sqrt{c}=\\dfrac{' + (m + n) + '}{2}', ar: 'Solve for \\(\\sqrt{c}\\)' }, { t: 'c=\\left(\\dfrac{' + (m + n) + '}{2}\\right)^{2}', ar: 'Square both sides' }, { box: 'c=' + ftex(c) }] };
   }
   function t3b(rng) {
     var m = ri(rng, 1, 4), k = ri(rng, 2, 3), a = m, b = m * k * k, c = m * k;
     return { stem: STEM_C, e: 'f(x)=\\dfrac{1}{x},\\quad ' + bracket(a, b), corr: E(String(c), String(c)), kind: 'r2', ask: 'MVT', f: '1/x', a: a, b: b, hint: HINT.s, key: 'C3b:' + m + ',' + k,
-      cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'The midpoint of the interval does not give \\(c\\) for \\(\\dfrac1x\\).' },
-        { cls: 'pr', v: E(String(a * b), String(a * b)), why: 'This is \\(c^2\\) (the product of the endpoints), not \\(c\\); take the square root.' },
-        { cls: 'ng', v: E(String(-c), String(-c)), why: 'The negative value lies outside the interval; the positive root is the one that lies in \\((' + a + ',' + b + ')\\).' },
-        { cls: 'en', v: E(String(b), String(b)), why: 'An endpoint cannot be a value of \\(c\\).' }],
-      sol: [{ t: '\\dfrac{\\frac1{' + b + '}-\\frac1{' + a + '}}{' + b + '-' + a + '}=-\\dfrac{1}{' + a * b + '}', ar: 'Slope of the secant line' }, { t: '-\\dfrac{1}{c^{2}}=-\\dfrac{1}{' + a * b + '}\\;\\Rightarrow\\; c^{2}=' + a * b, ar: 'Set \\(f\'(c)\\) equal to the slope' }, { box: 'c=' + c, ar: 'Only the positive root lies in the interval' }] };
+      cands: [{ cls: 'mid', v: FE(fr(a + b, 2)), why: 'The midpoint \\(\\dfrac{' + a + '+' + b + '}{2}=' + ftex(fr(a + b, 2)) + '\\) was written as \\(c\\).' },
+        { cls: 'pr', v: E(String(a * b), String(a * b)), why: 'The number \\(' + (a * b) + '\\) was written as the value of \\(c\\).' },
+        { cls: 'ng', v: E(String(-c), String(-c)), why: 'The negative number \\(' + (-c) + '\\) was written as the value of \\(c\\).' },
+        { cls: 'en', v: E(String(b), String(b)), why: 'The right endpoint \\(' + b + '\\) was taken as \\(c\\).' }],
+      sol: [{ t: '\\dfrac{\\frac1{' + b + '}-\\frac1{' + a + '}}{' + b + '-' + a + '}=-\\dfrac{1}{' + a * b + '}', ar: 'Find the slope of the secant line' }, { t: 'f\'(c)=-\\dfrac{1}{c^{2}}', ar: 'Find the derivative of the function at \\(c\\)' }, { t: '-\\dfrac{1}{c^{2}}=-\\dfrac{1}{' + a * b + '}', ar: 'Set the derivative equal to the slope' }, { t: 'c^{2}=' + a * b, ar: 'Solve for \\(c^{2}\\)' }, { t: 'c=\\pm ' + c, ar: 'Take the square root of both sides' }, { t: 'c=-' + c, ar: 'Reject this root, which lies outside the interval \\((' + a + ',' + b + ')\\)' }, { box: 'c=' + c }] };
   }
 
   /* ----- Level 4 (Ministry) ----- */
   function t4a(rng) {
     var a = ri(rng, 0, 3), h = ri(rng, 2, 6), b = a + h, A = nz(rng, -6, 8), M = ri(rng, 2, 7), v = A + M * h;
     return { stem: 'A function \\(f\\) is differentiable on \\(\\mathbb{R}\\) and satisfies the two given conditions. What is the greatest possible value of \\(f(' + b + ')\\)?', e: 'f(' + a + ')=' + A + ',\\quad f\'(x)\\le ' + M, corr: E(String(v), String(v)), kind: 'bd', ask: 'VAL', v: String(v), a: a, b: b, A: A, M: M, hint: HINT.m, key: 'C4a:' + a + ',' + h + ',' + A + ',' + M,
-      cands: [{ cls: 'nh', v: E(String(A + M), String(A + M)), why: 'Multiply the bound on \\(f\'\\) by the length of the interval \\(' + b + '-' + a + '=' + h + '\\), not by 1.' },
-        { cls: 'nA', v: E(String(M * h), String(M * h)), why: 'Add the value \\(f(' + a + ')=' + A + '\\) to the result.' },
-        { cls: 'bb', v: E(String(A + M * b), String(A + M * b)), why: 'Use the length of the interval \\(b-a=' + h + '\\), not the value of \\(b\\) alone.' },
-        { cls: 'sg', v: E(String(A - M * h), String(A - M * h)), why: 'The largest possible increase of \\(f\\) over the interval is added to the starting value, not subtracted from it.' },
-        { cls: 'ml', v: E(String(A * M), String(A * M)), why: 'The relation is additive, not multiplicative: \\(f(b)\\le f(a)+M(b-a)\\).' }],
-      sol: [{ t: 'f(' + b + ')-f(' + a + ')=f\'(c)\\,(' + b + '-' + a + ')\\le ' + M + '\\cdot ' + h, ar: 'Mean Value Theorem with \\(f\'(c)\\le ' + M + '\\)' }, { t: 'f(' + b + ')\\le ' + A + '+' + M * h, ar: 'Add \\(f(' + a + ')\\)' }, { box: 'f(' + b + ')\\le ' + v }] };
+      cands: [{ cls: 'nh', v: E(String(A + M), String(A + M)), why: 'The sum \\(' + A + '+' + M + '=' + (A + M) + '\\) was written as the answer.' },
+        { cls: 'nA', v: E(String(M * h), String(M * h)), why: 'The number \\(' + (M * h) + '\\) was given as the answer.' },
+        { cls: 'bb', v: E(String(A + M * b), String(A + M * b)), why: 'The expression \\(' + A + '+' + M + '\\cdot ' + b + '=' + (A + M * b) + '\\) was written as the answer.' },
+        { cls: 'sg', v: E(String(A - M * h), String(A - M * h)), why: 'The value \\(' + (A - M * h) + '\\) was written as the answer.' },
+        { cls: 'ml', v: E(String(A * M), String(A * M)), why: 'The product \\(' + A + '\\cdot ' + M + '=' + (A * M) + '\\) was written as the answer.' }],
+      sol: [{ t: 'f(' + b + ')-f(' + a + ')=f\'(c)\\,(' + b + '-' + a + ')', ar: 'Apply the Mean Value Theorem for some \\(c\\) in \\((' + a + ',' + b + ')\\)' }, { t: 'f(' + b + ')=' + A + '+' + h + 'f\'(c)', ar: 'Substitute \\(f(' + a + ')=' + A + '\\) and \\(' + b + '-' + a + '=' + h + '\\)' }, { t: A + '+' + h + '\\cdot ' + M + '=' + v, ar: 'Use the largest possible value \\(' + M + '\\) of \\(f\'(c)\\)' }, { box: 'f(' + b + ')\\le ' + v }] };
   }
   function t4b(rng) {
     var m = ri(rng, 1, 4), co = [1, -3 * m, 0, 0];
     return { stem: STEM_C, e: '\\begin{gathered}f(x)=x^{3}-' + (3 * m) + 'x^{2}\\\\ x\\in' + bracket(0, 3 * m) + '\\end{gathered}', corr: E(String(2 * m), String(2 * m)), kind: 'ro', ask: 'MVT', f: polyP(co), a: 0, b: 3 * m, hint: HINT.s, key: 'C4b:' + m,
-      cands: [{ cls: 'zr', v: E('0', '0'), why: 'The value 0 is an endpoint, not inside the open interval; \\(f\'(c)=0\\) has two solutions, \\(0\\) and \\(' + 2 * m + '\\).' },
-        { cls: 'mid', v: FE(fr(3 * m, 2)), why: 'The midpoint of the interval does not work for a cubic function.' },
-        { cls: 'en', v: E(String(3 * m), String(3 * m)), why: 'This is the right endpoint, not a point inside the interval.' },
-        { cls: 'k', v: E(String(m), String(m)), why: 'This value does not satisfy \\(3c^2-' + 6 * m + 'c=0\\).' }],
-      sol: [{ t: 'f(0)=0,\\quad f(' + 3 * m + ')=0\\;\\Rightarrow\\;\\dfrac{f(' + 3 * m + ')-f(0)}{' + 3 * m + '}=0', ar: 'The secant slope is zero' }, { t: 'f\'(c)=3c^{2}-' + 6 * m + 'c=3c(c-' + 2 * m + ')=0\\;\\Rightarrow\\; c=0\\ \\text{or}\\ c=' + 2 * m, ar: 'Solve \\(f\'(c)=0\\)' }, { box: 'c=' + 2 * m, ar: 'The value inside \\((0,' + 3 * m + ')\\)' }] };
+      cands: [{ cls: 'zr', v: E('0', '0'), why: 'The left endpoint \\(0\\) of the interval \\(' + bracket(0, 3 * m) + '\\) was taken as \\(c\\).' },
+        { cls: 'mid', v: FE(fr(3 * m, 2)), why: 'The midpoint \\(\\dfrac{0+' + 3 * m + '}{2}=' + ftex(fr(3 * m, 2)) + '\\) was written as \\(c\\).' },
+        { cls: 'en', v: E(String(3 * m), String(3 * m)), why: 'The right endpoint \\(' + 3 * m + '\\) was written as \\(c\\).' },
+        { cls: 'k', v: E(String(m), String(m)), why: 'The number \\(' + m + '\\) was taken as \\(c\\).' }],
+      sol: [{ t: 'f(0)=0', ar: 'Evaluate the function at the left endpoint' }, { t: 'f(' + 3 * m + ')=0', ar: 'Evaluate the function at the right endpoint' }, { t: '\\dfrac{f(' + 3 * m + ')-f(0)}{' + 3 * m + '}=0', ar: 'Find the slope of the secant line' }, { t: 'f\'(c)=3c^{2}-' + 6 * m + 'c', ar: 'Find the derivative of the function at \\(c\\)' }, { t: '3c^{2}-' + 6 * m + 'c=3c(c-' + 2 * m + ')', ar: 'Factor the derivative' }, { t: '3c(c-' + 2 * m + ')=0', ar: 'Set the derivative equal to the slope, \\(0\\)' }, { t: 'c=0', ar: 'Reject the root of the first factor, which is the left endpoint' }, { t: 'c-' + 2 * m + '=0', ar: 'Keep the root of the second factor, which lies inside the interval' }, { box: 'c=' + 2 * m }] };
   }
   function t4c(rng) {
     var p, q, t1, t2; do { p = ri(rng, 1, 5); q = ri(rng, 1, 8); t1 = ri(rng, 0, 3); t2 = t1 + 2 * ri(rng, 1, 3); } while (false);
     var c = fr(t1 + t2, 2), co = [p, q, 0], avg = p * (t1 + t2) + q;
     return { stem: 'A car moves along a straight road. Its distance \\(s(t)\\), in meters, after \\(t\\) seconds is given below. At what time in the given interval is its instantaneous velocity equal to its average velocity over the interval?', e: '\\begin{gathered}s(t)=' + polyT(co, 't') + '\\\\ t\\in' + bracket(t1, t2) + '\\end{gathered}', corr: FE(c), kind: 'w1', ask: 'MVT', f: polyP(co), a: t1, b: t2, hint: HINT.w, key: 'C4c:' + p + ',' + q + ',' + t1 + ',' + t2,
-      cands: [{ cls: 'av', v: E(String(avg), String(avg)), why: 'This is the average velocity itself (m/s), not the required time.' },
-        { cls: 'ln', v: E(String(t2 - t1), String(t2 - t1)), why: 'This is the length of the time interval, not a moment inside it.' },
-        { cls: 'sm', v: E(String(t1 + t2), String(t1 + t2)), why: 'The time is half the sum \\(\\dfrac{t_1+t_2}{2}\\), not the sum itself.' },
-        { cls: 'hl', v: FE(fr(t2 - t1, 2)), why: 'Half the length of the interval is not a moment in time; it would have to be added to the start of the interval.' },
-        { cls: 'en', v: E(String(t2), String(t2)), why: 'This is the end of the interval, not a moment inside it.' }],
-      sol: [{ t: '\\dfrac{s(' + t2 + ')-s(' + t1 + ')}{' + t2 + '-' + t1 + '}=' + avg, ar: 'Compute the average velocity' }, { t: 's\'(t)=' + polyT([2 * p, q], 't') + '=' + avg + '\\;\\Rightarrow\\; t=' + ftex(c), ar: 'Set the instantaneous velocity equal to the average' }, { box: 't=' + ftex(c) }] };
+      cands: [{ cls: 'av', v: E(String(avg), String(avg)), why: 'The number \\(' + avg + '\\) was written as the time.' },
+        { cls: 'ln', v: E(String(t2 - t1), String(t2 - t1)), why: 'The difference \\(' + t2 + '-' + t1 + '=' + (t2 - t1) + '\\) was written as the time.' },
+        { cls: 'sm', v: E(String(t1 + t2), String(t1 + t2)), why: 'The sum \\(' + t1 + '+' + t2 + '=' + (t1 + t2) + '\\) of the two end times was written as the time.' },
+        { cls: 'hl', v: FE(fr(t2 - t1, 2)), why: 'Half of the time interval, \\(\\dfrac{' + t2 + '-' + t1 + '}{2}=' + (t2 - t1) / 2 + '\\), was written as the time.' },
+        { cls: 'en', v: E(String(t2), String(t2)), why: 'The end of the interval, \\(t=' + t2 + '\\), was given as the answer.' }],
+      sol: [{ t: '\\dfrac{s(' + t2 + ')-s(' + t1 + ')}{' + t2 + '-' + t1 + '}=' + avg, ar: 'Find the average velocity over the interval' }, { t: 's\'(t)=' + polyT([2 * p, q], 't'), ar: 'Find the instantaneous velocity' }, { t: polyT([2 * p, q], 't') + '=' + avg, ar: 'Set the instantaneous velocity equal to the average' }, { t: polyT([2 * p, 0], 't') + '=' + (avg - q), ar: 'Move the constant term to the right side' }, { t: '\\dfrac{' + polyT([2 * p, 0], 't') + '}{' + (2 * p) + '}=\\dfrac{' + (avg - q) + '}{' + (2 * p) + '}', ar: 'Divide both sides by the coefficient of \\(t\\)' }, { box: 't=' + ftex(c) }] };
   }
 
   /* ----- Level 5 (Challenge) ----- */
@@ -243,19 +244,19 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     if (isL) {
       var corr = E('\\dfrac{' + ek + '-1}{' + k + '}', '(exp(' + k + ')-1)/' + k);
       return { stem: STEM_C, e: 'f(x)=\\ln x,\\quad [1,\\,' + ek + ']', corr: corr, kind: 'ln', ask: 'MVT', f: 'log(x)', a: 1, b: 'exp(' + k + ')', hint: HINT.ch, key: 'C5a:L' + k,
-        cands: [{ cls: 'nk', v: E(ek + '-1', 'exp(' + k + ')-1'), why: 'The secant slope is \\(\\dfrac{\\ln e^{' + k + '}-\\ln1}{e^{' + k + '}-1}=\\dfrac{' + k + '}{e^{' + k + '}-1}\\), so solving \\(\\dfrac1c=\\) slope requires dividing by \\(' + k + '\\).' },
-          { cls: 'mid', v: E('\\dfrac{' + ek + '+1}{2}', '(exp(' + k + ')+1)/2'), why: 'The midpoint does not give \\(c\\) for a logarithmic function.' },
-          { cls: 'sl', v: E('\\dfrac{' + k + '}{' + ek + '-1}', k + '/(exp(' + k + ')-1)'), why: 'This is the secant slope; \\(c\\) is its reciprocal because \\(f\'(c)=\\dfrac1c\\).' },
-          { cls: 'mu', v: E(k + '(' + ek + '-1)', k + '*(exp(' + k + ')-1)'), why: 'Divide by \\(' + k + '\\); do not multiply.' }],
-        sol: [{ t: '\\dfrac{\\ln ' + ek + '-\\ln 1}{' + ek + '-1}=\\dfrac{' + k + '}{' + ek + '-1}', ar: 'Slope of the secant line' }, { t: '\\dfrac{1}{c}=\\dfrac{' + k + '}{' + ek + '-1}\\;\\Rightarrow\\; c=\\dfrac{' + ek + '-1}{' + k + '}', ar: 'Set \\(f\'(c)=\\dfrac1c\\) equal to the slope' }, { box: 'c=' + corr.t }] };
+        cands: [{ cls: 'nk', v: E(ek + '-1', 'exp(' + k + ')-1'), why: 'The number \\(' + ek + '-1\\) was written as the answer.' },
+          { cls: 'mid', v: E('\\dfrac{1+' + ek + '}{2}', '(exp(' + k + ')+1)/2'), why: 'The midpoint \\(\\dfrac{1+' + ek + '}{2}\\) was written as \\(c\\).' },
+          { cls: 'sl', v: E('\\dfrac{' + k + '}{' + ek + '-1}', k + '/(exp(' + k + ')-1)'), why: 'The number \\(\\dfrac{' + k + '}{' + ek + '-1}\\) was written as the value of \\(c\\).' },
+          { cls: 'mu', v: E(k + '(' + ek + '-1)', k + '*(exp(' + k + ')-1)'), why: 'The product \\(' + k + '(' + ek + '-1)\\) was written as \\(c\\).' }],
+        sol: [{ t: '\\dfrac{\\ln ' + ek + '-\\ln 1}{' + ek + '-1}=\\dfrac{' + k + '}{' + ek + '-1}', ar: 'Find the slope of the secant line' }, { t: 'f\'(c)=\\dfrac{1}{c}', ar: 'Find the derivative of the function at \\(c\\)' }, { t: '\\dfrac{1}{c}=\\dfrac{' + k + '}{' + ek + '-1}', ar: 'Set the derivative equal to the slope' }, { t: 'c=\\dfrac{1}{\\dfrac{' + k + '}{' + ek + '-1}}', ar: 'Take the reciprocal of both sides' }, { box: 'c=' + corr.t }] };
     }
     var corr2 = E('\\ln\\!\\left(\\dfrac{' + ek + '-1}{' + k + '}\\right)', 'log((exp(' + k + ')-1)/' + k + ')');
     return { stem: STEM_C, e: 'f(x)=e^{x},\\quad [0,\\,' + k + ']', corr: corr2, kind: 'ex', ask: 'MVT', f: 'exp(x)', a: 0, b: k, hint: HINT.ch, key: 'C5a:E' + k,
-      cands: [{ cls: 'nl', v: E('\\dfrac{' + ek + '-1}{' + k + '}', '(exp(' + k + ')-1)/' + k), why: 'This is the value of \\(e^{c}\\) (the slope), not \\(c\\); take \\(\\ln\\) of both sides.' },
-        { cls: 'mid', v: FE(fr(k, 2)), why: 'The midpoint does not give \\(c\\) for an exponential function.' },
-        { cls: 'mp', v: E('\\dfrac{\\ln(' + ek + '-1)}{' + k + '}', 'log(exp(' + k + ')-1)/' + k), why: 'The logarithm must be applied to the whole ratio \\(\\dfrac{e^{' + k + '}-1}{' + k + '}\\), not to the numerator alone.' },
-        { cls: 'iv', v: E('\\ln\\!\\left(\\dfrac{' + k + '}{' + ek + '-1}\\right)', 'log(' + k + '/(exp(' + k + ')-1))'), why: 'The slope is \\(\\dfrac{e^{' + k + '}-1}{' + k + '}\\), not its reciprocal.' }],
-      sol: [{ t: '\\dfrac{e^{' + k + '}-e^{0}}{' + k + '-0}=\\dfrac{' + ek + '-1}{' + k + '}', ar: 'Slope of the secant line' }, { t: 'e^{c}=\\dfrac{' + ek + '-1}{' + k + '}\\;\\Rightarrow\\; c=\\ln\\!\\left(\\dfrac{' + ek + '-1}{' + k + '}\\right)', ar: 'Set \\(f\'(c)=e^{c}\\) equal to the slope and take \\(\\ln\\)' }, { box: 'c=' + corr2.t }] };
+      cands: [{ cls: 'nl', v: E('\\dfrac{' + ek + '-1}{' + k + '}', '(exp(' + k + ')-1)/' + k), why: 'The number \\(\\dfrac{' + ek + '-1}{' + k + '}\\) was written as the value of \\(c\\).' },
+        { cls: 'mid', v: FE(fr(k, 2)), why: 'The midpoint \\(\\dfrac{0+' + k + '}{2}=' + ftex(fr(k, 2)) + '\\) was written as \\(c\\).' },
+        { cls: 'mp', v: E('\\dfrac{\\ln(' + ek + '-1)}{' + k + '}', 'log(exp(' + k + ')-1)/' + k), why: 'The quotient \\(\\dfrac{\\ln(' + ek + '-1)}{' + k + '}\\) was written as the answer.' },
+        { cls: 'iv', v: E('\\ln\\!\\left(\\dfrac{' + k + '}{' + ek + '-1}\\right)', 'log(' + k + '/(exp(' + k + ')-1))'), why: 'The natural logarithm of \\(\\dfrac{' + k + '}{' + ek + '-1}\\) was written as the answer.' }],
+      sol: [{ t: '\\dfrac{e^{' + k + '}-e^{0}}{' + k + '-0}=\\dfrac{' + ek + '-1}{' + k + '}', ar: 'Find the slope of the secant line' }, { t: 'f\'(c)=e^{c}', ar: 'Find the derivative of the function at \\(c\\)' }, { t: 'e^{c}=\\dfrac{' + ek + '-1}{' + k + '}', ar: 'Set the derivative equal to the slope' }, { t: '\\ln e^{c}=\\ln\\!\\left(\\dfrac{' + ek + '-1}{' + k + '}\\right)', ar: 'Take the natural logarithm of both sides' }, { box: 'c=' + corr2.t }] };
   }
   function t5b(rng) {
     var p, q, a, b, s, D, r1, r2, cnt, co, tries = 0, ok;
@@ -271,16 +272,16 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       tries++;
     } while ((!ok || cnt < 1) && tries < 500);
     var cons = {
-      0: 'The theorem guarantees at least one such value, so the count cannot be 0.',
-      1: 'Setting \\(f\'(c)\\) equal to the slope gives two roots; the second root may also lie in the open interval, so check both.',
-      2: 'One of the two roots of \\(f\'(c)=\\) slope lies outside the open interval, so it does not count.',
-      3: 'The equation \\(f\'(c)=\\) slope is quadratic in \\(c\\), so it has at most two solutions.'
+      0: 'The answer \\(n=0\\) was written.',
+      1: 'The value \\(n=1\\) was given.',
+      2: 'The number \\(2\\) was taken as \\(n\\).',
+      3: 'The degree \\(3\\) of \\(f\\) was written as the number of values.'
     };
     var vs = [0, 1, 2, 3], optsAll = vs.map(function (v) { return E(String(v), String(v)); });
     var cands = vs.filter(function (v) { return v !== cnt; }).map(function (v) { return { cls: 'n' + v, v: optsAll[v], why: cons[v] }; });
-    return { stem: 'How many values of \\(c\\) in the open interval \\((' + a + ',' + b + ')\\) satisfy the conclusion of the Mean Value Theorem for the following function?', e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(a, b) + '\\end{gathered}', corr: optsAll[cnt], kind: 'cn', ask: 'CNT', f: polyP(co), a: a, b: b, hint: HINT.ch, key: 'C5b:' + p + ',' + q + ',' + a + ',' + b,
+    return { stem: 'Let \\(n\\) be the number of values of \\(c\\) in the open interval \\((' + a + ',' + b + ')\\) that satisfy the conclusion of the Mean Value Theorem for the following function. Find \\(n\\).', e: '\\begin{gathered}f(x)=' + polyT(co) + '\\\\ x\\in' + bracket(a, b) + '\\end{gathered}', corr: optsAll[cnt], kind: 'cn', ask: 'CNT', f: polyP(co), a: a, b: b, hint: HINT.ch, key: 'C5b:' + p + ',' + q + ',' + a + ',' + b,
       cands: cands,
-      sol: [{ t: '\\dfrac{f(' + b + ')-f(' + a + ')}{' + (b - a) + '}=' + s, ar: 'Slope of the secant line' }, { t: 'f\'(c)=' + polyT([3, 2 * p, q], 'c') + '=' + s + '\\;\\Rightarrow\\;' + polyT([3, 2 * p, q - s], 'c') + '=0', ar: 'Set \\(f\'(c)\\) equal to the slope' }, { t: 'c\\approx' + r1.toFixed(2) + ',\\quad c\\approx' + r2.toFixed(2), ar: 'Find the roots of the equation' }, { box: 'n=' + cnt }] };
+      sol: [{ t: '\\dfrac{f(' + b + ')-f(' + a + ')}{' + (b - a) + '}=' + s, ar: 'Find the slope of the secant line' }, { t: 'f\'(c)=' + polyT([3, 2 * p, q], 'c'), ar: 'Find the derivative of the function at \\(c\\)' }, { t: polyT([3, 2 * p, q], 'c') + '=' + s, ar: 'Set the derivative equal to the slope' }].concat(s === 0 ? [] : [{ t: polyT([3, 2 * p, q - s], 'c') + '=0', ar: 'Subtract \\(' + s + '\\) from both sides' }]).concat([{ t: 'c\\approx' + r1.toFixed(2), ar: 'Find the smaller root of the equation' }, { t: 'c\\approx' + r2.toFixed(2), ar: 'Find the larger root of the equation' }, { t: 'n=' + (r1 > a && r1 < b ? 1 : 0) + '+' + (r2 > a && r2 < b ? 1 : 0), ar: 'Count each root inside the open interval \\((' + a + ',' + b + ')\\) as \\(1\\)' }, { box: 'n=' + cnt }]) };
   }
 
   var LEVELS = [
@@ -307,7 +308,8 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       var parts = s.t.split('\\;\\Rightarrow\\;');
       parts.forEach(function (p, i) { var o = { t: i ? '\\Rightarrow\\;' + p : p }; if (i === 0 && s.ar) o.ar = s.ar; out.push(o); });
     });
-    return out;
+    /* a step without a note that the boxed answer repeats word for word is dropped (no repeated rows) */
+    return out.filter(function (s, i) { var n = out[i + 1]; return s.box || s.ar || !n || !n.box || typeof s.t !== 'string' || typeof n.box !== 'string' || s.t.replace(/^\\Rightarrow\\;\s*/, '').trim() !== n.box.trim(); });
   }
   function make(level, rng) {
     rng = rng || Math.random;
