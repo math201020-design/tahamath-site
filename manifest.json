@@ -7224,6 +7224,16 @@
    "path": "g12-general/mastery-9/index.html",
    "src": "site/g12-general/mastery-9/index.html",
    "sha256": "5f7525c7ff5d5693c6dfe225165a3b1f3280eab7d5513817d544f207efe3ab0c"
+  },
+  {
+   "path": "g12-general/haykal-5/index.html",
+   "src": "site/g12-general/haykal-5/index.html",
+   "sha256": "6fcd40e0f3693bdc4d87c49cde8a3c41bf3ca0ff0f66b674c2163f781ac1481e"
+  },
+  {
+   "path": "g12-general/haykal-5-written/index.html",
+   "src": "site/g12-general/haykal-5-written/index.html",
+   "sha256": "f2dbdf93d586ea43c78b89675d2af2ab3c98c1eca033ab5e3704d2b16d62793a"
   }
  ]
 }
