@@ -7228,12 +7228,12 @@
   {
    "path": "g12-general/haykal-5/index.html",
    "src": "site/g12-general/haykal-5/index.html",
-   "sha256": "6fcd40e0f3693bdc4d87c49cde8a3c41bf3ca0ff0f66b674c2163f781ac1481e"
+   "sha256": "fcdbc0d9a7350a6b47f375f2ea6caa2a8c6790b80f13ecc3a87ea240df8e205b"
   },
   {
    "path": "g12-general/haykal-5-written/index.html",
    "src": "site/g12-general/haykal-5-written/index.html",
-   "sha256": "f2dbdf93d586ea43c78b89675d2af2ab3c98c1eca033ab5e3704d2b16d62793a"
+   "sha256": "b0b442d6366a2208229a9c53400a73590d930937abe0ff58366c1bde3b420408"
   }
  ]
 }
