@@ -234,7 +234,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
     o.sol = o.sol.map(function (r) { return r.t ? { t: wrapRow(r.t, 22), raw: r.t, ar: r.ar } : r; });
     var all = shuffle(rng, [o.correct].concat(o.dis)), ans = all.indexOf(o.correct);
     var opts = all.map(function (s) { return { t: s.t.replace(/\\frac/g, '\\dfrac'), why: s === o.correct ? '' : (s.why || '') }; });
-    var key = o.stem + '|' + (o.e || '') + '|' + opts.map(function (x) { return x.t; }).sort().join('|');
+    var key = o.stem + '|' + (o.e || '');
     return { band: o.band, level: o.level, stem: o.stem, e: o.e, opts: opts, ans: ans, sol: o.sol, hint: o.hint, key: key,
       data: { sigs: [].concat(o.sig || []), kind: o.kind || '', cls: all.map(function (s) { return s === o.correct ? 'ok' : s.cls; }), vals: all.map(function (s) { return s.key; }), meta: o.meta || {} } };
   }
@@ -268,7 +268,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg
       out.push(opt(c, bin(1, fneg(h)), 'sgn', 'كُتب داخل القوس عددٌ إشارته عكس إشارة معامل \\(x\\).'));
       if (b.n < 0) out.push(opt(fneg(c), bin(1, h), 'negc', 'اتُّخذت قيمة \\(c\\) سالبة.'));
       out.push(opt(fr(b.n * b.n, 2 * b.d * b.d), bin(1, h), 'sqhalf', 'قُسم مربع معامل \\(x\\) على \\(2\\).'));
-      out.push(opt(c, bin(1, fr(c.n, c.d)), 'cin', 'كُتبت قيمة \\(c\\) نفسها داخل القوس.'));
+      out.push(opt(c, bin(1, fr(b.n < 0 ? -c.n : c.n, c.d)), 'cin', 'كُتبت قيمة \\(c\\) نفسها داخل القوس.'));
       var q = fr(b.n, 4 * b.d); out.push(opt(cOf(q), bin(1, q), 'quarter', 'قُسم معامل \\(x\\) على \\(4\\) قبل التربيع.'));
     } else {
       var a = m * m;
