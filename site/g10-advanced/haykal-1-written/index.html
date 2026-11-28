@@ -297,7 +297,8 @@ function optsHtml(name, opts, chosen, graph, isAr, res) {
   return '<div class="opts" role="radiogroup" dir="rtl">' + opts.map((o, i) => {
     let cls = 'opt' + (chosen === i ? ' sel' : '');
     if (res) cls += i === res.key ? ' rightin' : (chosen === i ? ' wrongin' : '');
-    const body = graph ? `<img alt="الخيار ${L[i]}" src="${o}">` : (isAr ? o : mt(o));
+    const txt = !graph && !isAr && (/\\\(/.test(o) || (!/\\/.test(o) && /[A-Za-z]{2}/.test(o))); // English sentence options stay plain text
+    const body = graph ? `<img alt="الخيار ${L[i]}" src="${o}">` : (isAr ? o : txt ? `<span class="entxt" style="display:inline-block;line-height:1.8">${esc(o).replace(/\\\([^]*?\\\)[,.]/g, '<span style="white-space:nowrap">$&</span>')}</span>` : mt(o));
     return `<label class="${cls}"><input type="radio" name="${name}" value="${i}" ${chosen === i ? 'checked' : ''} ${res ? 'disabled' : ''}><span class="L">${L[i]}</span><span class="m" ${isAr ? 'dir="rtl"' : ''}>${body}</span></label>`;
   }).join('') + '</div>';
 }

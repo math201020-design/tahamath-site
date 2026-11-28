@@ -5788,37 +5788,37 @@
   {
    "path": "g10-advanced/haykal-1-written/index.html",
    "src": "site/g10-advanced/haykal-1-written/index.html",
-   "sha256": "0a2519b6997ce2d3dca7aacb73b9034ef682af0208c77140b4e2fe7218969e89"
+   "sha256": "3e3887993eabdd1186c1e9787843fe5c95bef9dfff1500a395ec39f993d546a6"
   },
   {
    "path": "g10-advanced/haykal-2/index.html",
    "src": "site/g10-advanced/haykal-2/index.html",
-   "sha256": "ca998ce2f14556f8324e1fba503b6e37c1d2f60fd350dcc584119f346723e1c0"
+   "sha256": "794c67911bcdf1eada2531b55479ab6926a9f3021288131a7eb91d029b4d38a2"
   },
   {
    "path": "g10-advanced/haykal-2-written/index.html",
    "src": "site/g10-advanced/haykal-2-written/index.html",
-   "sha256": "390cd38730d5d5cf90b108c69397679b7d10327aa25e796f0d48e8ed888e3f92"
+   "sha256": "3f8705733044cf4e733b72800ce7484cb83ff6c634f6e92f401ab551d869e989"
   },
   {
    "path": "g10-advanced/haykal-3/index.html",
    "src": "site/g10-advanced/haykal-3/index.html",
-   "sha256": "923317686417b8151a4b1b70deb8fa721404a16284607732b55b8566d095a21a"
+   "sha256": "2edfd1594aac5a20474e7a9a8a32428476308c0518ba327cc8604b02876d74d8"
   },
   {
    "path": "g10-advanced/haykal-3-written/index.html",
    "src": "site/g10-advanced/haykal-3-written/index.html",
-   "sha256": "40ce6a958b3942e1a0bc429234bfab63a587bf8c44965ce21d4ee8de4e55dfb8"
+   "sha256": "9b34b8f359e3f9bbc32b94787648826fcc4e17d4ed4d3736839837c0f10d7e6d"
   },
   {
    "path": "g10-advanced/haykal-4/index.html",
    "src": "site/g10-advanced/haykal-4/index.html",
-   "sha256": "306b32bfc99000c63641858661ade9bd732ac736ba4374d610163bdcde6f0523"
+   "sha256": "ee14c376fc9211163272f6524711285359d0b1c5ebbc4c704ae415226e55b8b7"
   },
   {
    "path": "g10-advanced/haykal-4-written/index.html",
    "src": "site/g10-advanced/haykal-4-written/index.html",
-   "sha256": "3ad31df3e8ce5e2a72ce1a89535564ef849d09c0f12b42c0b6b6400d468f0252"
+   "sha256": "b29c1fe964738e6235efad95b40e3c994445c77bb9c662ac979e4b0b37688eee"
   },
   {
    "path": "g10-general/index.html",
@@ -6113,7 +6113,7 @@
   {
    "path": "g10-advanced/band-25/index.html",
    "src": "site/g10-advanced/band-25/index.html",
-   "sha256": "a77712f08b8604d5c08b11b4616d8ba365f5908a5bd8b616a9384ca07ed17231"
+   "sha256": "c63f729ee6683e50907e2120b88ef4685edf01010c1e4ad2df5aa32de0102211"
   },
   {
    "path": "g10-advanced/band-18/index.html",

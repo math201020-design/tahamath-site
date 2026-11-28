@@ -192,8 +192,8 @@ math-field.mf.wrongin { border-color: var(--bad); background: var(--bad-bg); }
   </div>
 </header>
 <main class="wrap">
-  <h1>نموذج الهيكل <bdi dir="ltr" class="lat">1</bdi> • الورقة الإلكترونية</h1>
-  <p class="sub">Exam Coverage Practice 1 • Electronic Paper • Grade 10 Advanced • Term 1</p>
+  <h1>نموذج الهيكل <bdi dir="ltr" class="lat">3</bdi> • الورقة الإلكترونية</h1>
+  <p class="sub">Exam Coverage Practice 3 • Electronic Paper • Grade 10 Advanced • Term 1</p>
   <section id="startView" class="card start">
     <p class="trainnote" style="margin:0 0 10px;padding:8px 14px;border:2px solid #c98a00;border-radius:12px;background:#fff6dd;color:#5a3d00;font-weight:700;text-align:center">نموذج تدريبي وليس بدرجات الهيكل</p>
     <div class="facts"><span class="chip">الزمن <bdi dir="ltr" class="lat">60</bdi> دقيقة</span><span class="chip">الدرجة <bdi dir="ltr" class="lat">60</bdi></span><span class="chip"><bdi dir="ltr" class="lat">20</bdi> سؤالًا</span><span class="chip">الآلة الحاسبة العلمية مسموحة</span></div>
@@ -393,7 +393,7 @@ function finish() {
   const pct = g.total / P.total;
   const msg = pct >= .9 ? 'ممتاز، أنت جاهز للاختبار الوزاري.' : pct >= .75 ? 'جيد جدًا، راجع البنود التي لم تحصل فيها على الدرجة كاملة.' : pct >= .5 ? (isMcq ? 'راجع حلول البنود الملوّنة بالأحمر، ثم أعد المحاولة.' : 'راجع حلول البنود الملوّنة بالأحمر والبرتقالي، ثم أعد المحاولة.') : 'ابدأ بمراجعة ملزمة الهيكل للبنود التي لم تحصل فيها على الدرجة، ثم أعد المحاولة.';
   $('cert').innerHTML = `<img alt="ختم أكاديمية طه للرياضيات" src="${$('stamp').src}"><div style="font-weight:700">${escapeHtml(state.name)} • ${lat(escapeHtml(state.sec))}</div>`
-    + `<div class="score"><h3 class="sc-h">بطاقة النتيجة • نموذج الهيكل ${lat('1')} • ${P.title} • العاشر متقدم</h3><span class="big">${fmt(g.total)} / ${P.total}</span><div class="sc-code">رمز التحقق <bdi dir="ltr" class="code" style="white-space:nowrap">${code(state.name, g.total)}</bdi></div></div><div>${msg}</div>`
+    + `<div class="score"><h3 class="sc-h">بطاقة النتيجة • نموذج الهيكل ${lat('3')} • ${P.title} • العاشر متقدم</h3><span class="big">${fmt(g.total)} / ${P.total}</span><div class="sc-code">رمز التحقق <bdi dir="ltr" class="code" style="white-space:nowrap">${code(state.name, g.total)}</bdi></div></div><div>${msg}</div>`
     + `<div class="items">` + QS.map((q, k) => `<span class="it"><span>البند ${lat(q.item)}</span>${lat(fmt(g.per[k].got) + '/' + g.per[k].max)}${window.tmnReviewHtml ? tmnReviewHtml(q.item, g.per[k].got, g.per[k].max) : ''}</span>`).join('') + '</div>'
     + `<div>الزمن ${mins === 1 ? 'دقيقة واحدة' : mins === 2 ? 'دقيقتان' : lat(mins) + (mins <= 10 ? ' دقائق' : ' دقيقة')}</div><div class="hint">أرسل صورة هذه البطاقة إلى الأستاذ.</div>`;
   $('startView').hidden = true; $('testView').hidden = false; $('resultView').hidden = false; $('result').classList.add('show');
