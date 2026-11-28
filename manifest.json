@@ -6538,7 +6538,7 @@
   {
    "path": "g10-general-bridge/haykal-1/index.html",
    "src": "site/g10-general-bridge/haykal-1/index.html",
-   "sha256": "f494210eff2bbae69367a71f998f020f7cfc62df9c6949ca62cbf659693a4c99"
+   "sha256": "7f3b861873480eb57977f14d97c847bfe90820c17fc5ab728a7ff240bfa1c184"
   },
   {
    "path": "g10-general-bridge/haykal-1-written/index.html",
@@ -6548,7 +6548,7 @@
   {
    "path": "g10-general-bridge/haykal-2/index.html",
    "src": "site/g10-general-bridge/haykal-2/index.html",
-   "sha256": "838e4bb0947bcdc5cb79506ed8edf68b5e7c8da2658dd639c3ea8abf84f59c55"
+   "sha256": "7dd15a711d1af5c30519fe491831da873f21de7467d67a2786e1dee88a84a954"
   },
   {
    "path": "g10-general-bridge/haykal-2-written/index.html",
@@ -6558,7 +6558,7 @@
   {
    "path": "g10-general-bridge/haykal-3/index.html",
    "src": "site/g10-general-bridge/haykal-3/index.html",
-   "sha256": "760e286b81878fe3b8302326b2efb39508e91519ae8170e325046492216ba37a"
+   "sha256": "23e3042abec2a83c6a6da100a405268477346c5f992ea362026a076c712ad0a1"
   },
   {
    "path": "g10-general-bridge/haykal-3-written/index.html",
@@ -6568,7 +6568,7 @@
   {
    "path": "g10-general-bridge/haykal-4/index.html",
    "src": "site/g10-general-bridge/haykal-4/index.html",
-   "sha256": "11336d53dbe14fb2fe3403eb0868f63e940e5910485e957ac302431a6544a8bf"
+   "sha256": "a70726041ec1d515c6d825e002a26afd452ba19444d5406f2ec12412ed6d5d92"
   },
   {
    "path": "g10-general-bridge/haykal-4-written/index.html",
@@ -6663,22 +6663,22 @@
   {
    "path": "g10-general-bridge/prac-6-10-m1/index.html",
    "src": "site/g10-general-bridge/prac-6-10-m1/index.html",
-   "sha256": "f8ece7c2394b96cff0f150f2819fea50da5e13a85f64c7f645235fece6b85f12"
+   "sha256": "2e7b435dbb4db3bef888a44027a939fa088877ae665ffde75ca510965e522a82"
   },
   {
    "path": "g10-general-bridge/prac-6-10-m2/index.html",
    "src": "site/g10-general-bridge/prac-6-10-m2/index.html",
-   "sha256": "2069e7d93ac81895447f35d6a9377d8d6c503ab7c096525e0c6a19e557e5de36"
+   "sha256": "10905e64eeeaf702d4cc8b3e04f578670e7d376e3cbf15e9835517ee773944fe"
   },
   {
    "path": "g10-general-bridge/prac-6-10-m3/index.html",
    "src": "site/g10-general-bridge/prac-6-10-m3/index.html",
-   "sha256": "99505e0854d5e8ff59ae4e306a59247ee60d7c622c7bf09ae2f5a29eb117c327"
+   "sha256": "64df9a6455f073df4d10ace2b0a57e82a0511b2d5ef2674cd3aadab76aa2d5b6"
   },
   {
    "path": "g10-general-bridge/prac-6-10-m4/index.html",
    "src": "site/g10-general-bridge/prac-6-10-m4/index.html",
-   "sha256": "2d37ea0172f01a27997861cb6c5542717c04c29d6dc6af9adbeebf90a811bfee"
+   "sha256": "bef68a56f8e15621ab958de27896c177d6c6ea73508381112ca4136279d0a919"
   },
   {
    "path": "g12-general/en/haykal-1/index.html",
