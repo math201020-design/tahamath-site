@@ -7041,6 +7041,16 @@
    "sha256": "dd97da1028ea3e9d1aa3dfb7c862ee55c636eb073c2cdb2129aacd554a7a3e94"
   },
   {
+   "path": "g10-advanced-bridge/mastery-8/index.html",
+   "src": "site/g10-advanced-bridge/mastery-8/index.html",
+   "sha256": "fc13e7fe51612dfc4bdb73a8db9b4b2ad1aff352597fc00162e33b4234adf18e"
+  },
+  {
+   "path": "g10-advanced-bridge/mastery-9/index.html",
+   "src": "site/g10-advanced-bridge/mastery-9/index.html",
+   "sha256": "979caed0755d57b17a139332bc3e18fb5b1d43178b8492d5c448e07369b3d491"
+  },
+  {
    "path": "g10-advanced/mistakes/index.html",
    "src": "site/g10-advanced/mistakes/index.html",
    "sha256": "ce50099f87cc8a6182a447bc5b94326172fa317ee13459404cd6ef183624161f"
